@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Menu, X, Zap, Lock } from "lucide-react"
+import { Menu, X, Lock } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const navLinks = [
   { href: "/hoe-het-werkt", label: "Hoe het werkt" },
@@ -36,7 +37,13 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo with lightning bolt */}
           <Link href="/" className="flex items-center gap-2">
-            <Zap className="w-6 h-6 text-[#ff0096] fill-[#ff0096]" />
+            <Image 
+              src="/images/logo.png" 
+              alt="Forester OS" 
+              width={28} 
+              height={28} 
+              className="w-7 h-7"
+            />
             <span className="text-white font-[family-name:var(--font-gottak)] font-bold text-xl md:text-2xl tracking-tight">
               Forester OS
             </span>

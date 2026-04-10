@@ -12,8 +12,8 @@ const inter = Inter({
 const gottak = localFont({
   src: [
     {
-      path: '../public/fonts/Gottak-Thin.ttf',
-      weight: '300',
+      path: '../public/fonts/Gottak-Regular.ttf',
+      weight: '400',
       style: 'normal',
     },
     {
@@ -32,7 +32,7 @@ const gottak = localFont({
 })
 
 const gottakBody = localFont({
-  src: '../public/fonts/Gottak-Thin.ttf',
+  src: '../public/fonts/Gottak-Regular.ttf',
   variable: '--font-sans',
   display: 'swap',
 })
