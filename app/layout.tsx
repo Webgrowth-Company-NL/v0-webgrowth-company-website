@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -8,11 +9,21 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
+const gottak = localFont({
+  src: [
+    {
+      path: '../public/fonts/Gottak-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Gottak-SemiBoldItalic.ttf',
+      weight: '600',
+      style: 'italic',
+    },
+  ],
   variable: '--font-display',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -51,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${gottak.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
