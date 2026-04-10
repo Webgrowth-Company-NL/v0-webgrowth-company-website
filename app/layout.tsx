@@ -1,13 +1,44 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const gottak = localFont({
+  src: [
+    {
+      path: '../public/fonts/Gottak-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Gottak-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Gottak-SemiBoldItalic.ttf',
+      weight: '600',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-gottak',
+  display: 'swap',
+})
+
+const gottakBody = localFont({
+  src: '../public/fonts/Gottak-Regular.ttf',
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Webgrowth Company | Websites voor het MKB die blijven groeien',
+  title: 'Forester OS | Websites voor het MKB die blijven groeien',
   description: 'De meeste bureaus bouwen je website en verdwijnen. Wij niet. Elke maand weet jij precies wat er is gebeurd — en wat wij eraan hebben gedaan.',
   generator: 'v0.app',
   icons: {
@@ -29,6 +60,12 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#0d0015',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
-      <body className="font-sans antialiased">
+      <body className={`${gottakBody.variable} ${gottak.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
