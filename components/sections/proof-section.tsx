@@ -111,7 +111,7 @@ export function ProofSection() {
             {/* Email body */}
             <div className="px-6 py-6 text-[#0d0015]">
               <p className="text-base leading-relaxed">
-                <span className="font-semibold">Hoi [naam],</span>
+                <span className="font-semibold">Hoi Peter,</span>
                 <br /><br />
                 Ik wilde even kort laten weten hoe jullie website het de eerste tien dagen van april heeft gedaan, want de cijfers zien er goed uit.
                 <br /><br />
