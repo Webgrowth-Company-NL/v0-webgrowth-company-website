@@ -23,7 +23,7 @@ export function HeroSection() {
           Powered by Q
         </motion.p>
         
-        <h1 className="font-[family-name:var(--font-display)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] text-balance">
+        <h1 className="font-[family-name:var(--font-gottak)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] text-balance">
           Websites voor het MKB die blijven groeien
         </h1>
         

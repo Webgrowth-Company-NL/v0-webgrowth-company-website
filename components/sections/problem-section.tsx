@@ -55,7 +55,7 @@ export function ProblemSection() {
           
           {/* Right: Content */}
           <div>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
+            <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
               Waarom de meeste
               <br />
               <span className="text-[#ff0096]">websites stilvallen.</span>

@@ -12,6 +12,11 @@ const inter = Inter({
 const gottak = localFont({
   src: [
     {
+      path: '../public/fonts/Gottak-Thin.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
       path: '../public/fonts/Gottak-Bold.ttf',
       weight: '700',
       style: 'normal',
@@ -22,7 +27,13 @@ const gottak = localFont({
       style: 'italic',
     },
   ],
-  variable: '--font-display',
+  variable: '--font-gottak',
+  display: 'swap',
+})
+
+const gottakBody = localFont({
+  src: '../public/fonts/Gottak-Thin.ttf',
+  variable: '--font-sans',
   display: 'swap',
 })
 
@@ -62,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
-      <body className={`${inter.variable} ${gottak.variable} font-sans antialiased`}>
+      <body className={`${gottakBody.variable} ${gottak.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

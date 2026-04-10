@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/" className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-[#ff0096] fill-[#ff0096]" />
-            <span className="text-white font-[family-name:var(--font-display)] font-bold text-xl">
+            <span className="text-white font-[family-name:var(--font-gottak)] font-bold text-xl">
               Forester OS
             </span>
           </Link>

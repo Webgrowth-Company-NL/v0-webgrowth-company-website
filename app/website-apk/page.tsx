@@ -16,7 +16,7 @@ export default function WebsiteAPKPage() {
             <p className="text-[#ff0096] text-sm font-semibold tracking-wider uppercase mb-4">
               Gratis Website APK
             </p>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="font-[family-name:var(--font-gottak)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               Doe de gratis website APK
             </h1>
             <p className="text-white/70 text-lg max-w-xl mx-auto">

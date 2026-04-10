@@ -28,7 +28,7 @@ export function PromiseSection() {
           Waarom wij anders zijn
         </p>
         
-        <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 text-balance">
+        <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 text-balance">
           Jij bent de ondernemer. Wij zijn Q.
         </h2>
         
