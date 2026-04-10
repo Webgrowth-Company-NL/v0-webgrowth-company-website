@@ -13,17 +13,23 @@ import { Footer } from "@/components/footer"
 export default function Home() {
   return (
     <>
+      {/* Forest parallax only shows behind hero section */}
       <ForestParallax />
       <Navigation />
       <main className="relative">
+        {/* Hero uses the parallax background */}
         <HeroSection />
-        <ProblemSection />
-        <PromiseSection />
-        <HowItWorksSection />
-        <ProofSection />
-        <TestimonialsSection />
-        <PricingSection />
-        <CTASection />
+        
+        {/* All subsequent sections have their own backgrounds */}
+        <div className="relative z-10">
+          <ProblemSection />
+          <PromiseSection />
+          <HowItWorksSection />
+          <ProofSection />
+          <TestimonialsSection />
+          <PricingSection />
+          <CTASection />
+        </div>
       </main>
       <Footer />
     </>

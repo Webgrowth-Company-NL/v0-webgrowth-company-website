@@ -6,33 +6,33 @@ import { Hammer, Eye, TrendingUp, Rocket } from "lucide-react"
 const steps = [
   {
     icon: Hammer,
-    number: "01",
     title: "We bouwen je fundament",
     description: "Een uitzonderlijk goede website. Snel, scherp en gebouwd om te groeien.",
+    accent: false,
   },
   {
     icon: Eye,
-    number: "02",
     title: "Q gaat aan het werk",
     description: "Vanaf dag één meet Q wat er gebeurt op je website. Bezoekers, gedrag, conversies. Alles.",
+    accent: false,
   },
   {
     icon: TrendingUp,
-    number: "03",
     title: "We optimaliseren continu",
     description: "Q spot kansen en pakt ze op. Elke maand beter. Zonder dat jij erom hoeft te vragen.",
+    accent: false,
   },
   {
     icon: Rocket,
-    number: "04",
     title: "Jij groeit",
     description: "Meer bezoekers, meer leads, meer klanten. En jij ziet het live in je dashboard.",
+    accent: true,
   },
 ]
 
 export function HowItWorksSection() {
   return (
-    <section id="hoe-het-werkt" className="relative py-24 md:py-32 px-4 sm:px-6">
+    <section id="hoe-het-werkt" className="relative py-24 md:py-32 px-4 sm:px-6 bg-[#0d0015]">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,18 +41,15 @@ export function HowItWorksSection() {
         className="max-w-6xl mx-auto"
       >
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Hoe het werkt
+          <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            Van nul naar groei. In vier stappen.
           </h2>
-          <p className="text-white/70 text-lg max-w-xl mx-auto">
-            Van fundament tot groei in vier stappen
-          </p>
         </div>
         
         {/* Desktop Timeline */}
         <div className="hidden md:block relative">
-          {/* Connecting line */}
-          <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-[#623bc7] via-[#ff0096] to-[#623bc7]" />
+          {/* Connecting dashed line */}
+          <div className="absolute top-16 left-[10%] right-[10%] h-[2px] border-t-2 border-dashed border-[#ff0096]" />
           
           <div className="grid grid-cols-4 gap-6">
             {steps.map((step, index) => (
@@ -64,15 +61,18 @@ export function HowItWorksSection() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="relative"
               >
-                {/* Node */}
-                <div className="relative z-10 w-12 h-12 mx-auto mb-6 bg-[#0d0015] border-4 border-[#ff0096] rounded-full flex items-center justify-center">
-                  <step.icon className="w-5 h-5 text-[#ff0096]" />
+                {/* Icon circle */}
+                <div className={`relative z-10 w-14 h-14 mx-auto mb-6 rounded-full flex items-center justify-center ${
+                  step.accent 
+                    ? "bg-[#ff0096]" 
+                    : "bg-[#623bc7]"
+                }`}>
+                  <step.icon className="w-6 h-6 text-white" />
                 </div>
                 
-                {/* Content */}
+                {/* Content card */}
                 <div className="bg-[#0d0015]/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 text-center h-full">
-                  <span className="text-[#ff0096] font-mono text-sm">{step.number}</span>
-                  <h3 className="text-white font-bold text-lg mt-2 mb-3">{step.title}</h3>
+                  <h3 className="font-[family-name:var(--font-gottak)] text-white font-bold text-lg mb-3">{step.title}</h3>
                   <p className="text-white/70 text-sm">{step.description}</p>
                 </div>
               </motion.div>
@@ -82,8 +82,8 @@ export function HowItWorksSection() {
         
         {/* Mobile Timeline */}
         <div className="md:hidden relative">
-          {/* Vertical connecting line */}
-          <div className="absolute left-6 top-6 bottom-6 w-1 bg-gradient-to-b from-[#623bc7] via-[#ff0096] to-[#623bc7]" />
+          {/* Vertical connecting dashed line */}
+          <div className="absolute left-7 top-7 bottom-7 w-[2px] border-l-2 border-dashed border-[#ff0096]" />
           
           <div className="space-y-8">
             {steps.map((step, index) => (
@@ -95,15 +95,18 @@ export function HowItWorksSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative flex gap-6"
               >
-                {/* Node */}
-                <div className="relative z-10 w-12 h-12 flex-shrink-0 bg-[#0d0015] border-4 border-[#ff0096] rounded-full flex items-center justify-center">
-                  <step.icon className="w-5 h-5 text-[#ff0096]" />
+                {/* Icon circle */}
+                <div className={`relative z-10 w-14 h-14 flex-shrink-0 rounded-full flex items-center justify-center ${
+                  step.accent 
+                    ? "bg-[#ff0096]" 
+                    : "bg-[#623bc7]"
+                }`}>
+                  <step.icon className="w-6 h-6 text-white" />
                 </div>
                 
                 {/* Content */}
                 <div className="flex-1 bg-[#0d0015]/60 backdrop-blur-xl rounded-2xl p-5 border border-white/10">
-                  <span className="text-[#ff0096] font-mono text-sm">{step.number}</span>
-                  <h3 className="text-white font-bold text-lg mt-1 mb-2">{step.title}</h3>
+                  <h3 className="font-[family-name:var(--font-gottak)] text-white font-bold text-lg mb-2">{step.title}</h3>
                   <p className="text-white/70 text-sm">{step.description}</p>
                 </div>
               </motion.div>
