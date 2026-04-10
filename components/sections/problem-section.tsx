@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { X, Trees } from "lucide-react"
+import { X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const problems = [
   "Je bureau heeft gebouwd en is vertrokken",
@@ -24,31 +25,16 @@ export function ProblemSection() {
         className="max-w-6xl mx-auto"
       >
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left: Illustration - Dark card with gradient border and pine trees */}
+          {/* Left: Illustration - Forester character */}
           <div className="relative">
             <div className="aspect-square max-w-md mx-auto rounded-3xl p-[2px] bg-gradient-to-br from-[#623bc7] to-[#ff0096]">
-              <div className="w-full h-full bg-[#0d0015] rounded-3xl flex items-center justify-center overflow-hidden relative">
-                {/* Pine tree silhouettes */}
-                <svg viewBox="0 0 400 400" className="w-full h-full absolute inset-0">
-                  <defs>
-                    <linearGradient id="treeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#623bc7" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#0d0015" stopOpacity="1" />
-                    </linearGradient>
-                  </defs>
-                  <rect fill="url(#treeGradient)" width="400" height="400" />
-                  {/* Trees */}
-                  <path fill="#1a0030" d="M50,400 L50,300 L30,300 L60,200 L45,200 L80,100 L115,200 L100,200 L130,300 L110,300 L110,400 Z" />
-                  <path fill="#1a0030" d="M150,400 L150,320 L130,320 L165,220 L150,220 L190,120 L230,220 L215,220 L250,320 L230,320 L230,400 Z" />
-                  <path fill="#1a0030" d="M270,400 L270,280 L250,280 L290,180 L275,180 L320,80 L365,180 L350,180 L390,280 L370,280 L370,400 Z" />
-                  <path fill="#0a0010" d="M0,400 L0,340 L20,340 L40,260 L55,300 L75,220 L95,280 L110,340 L130,340 L130,400 Z" />
-                  <path fill="#0a0010" d="M120,400 L120,360 L140,360 L160,290 L175,330 L195,260 L215,310 L230,360 L250,360 L250,400 Z" />
-                  <path fill="#0a0010" d="M240,400 L240,350 L260,350 L280,280 L295,320 L315,250 L335,300 L350,350 L370,350 L370,400 Z" />
-                  <path fill="#0a0010" d="M360,400 L360,370 L375,370 L390,310 L400,340 L400,400 Z" />
-                </svg>
-                <div className="absolute bottom-4 left-4 bg-[#0d0015]/80 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-1.5">
-                  <span className="text-white/60 text-sm">Jouw website nu</span>
-                </div>
+              <div className="w-full h-full bg-[#0d0015] rounded-3xl overflow-hidden relative">
+                <Image
+                  src="/images/forester-character.jpg"
+                  alt="Forester karakter met bijl in het bos"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
