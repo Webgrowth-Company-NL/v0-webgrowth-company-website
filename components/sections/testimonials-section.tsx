@@ -34,7 +34,7 @@ export function TestimonialsSection() {
         className="max-w-6xl mx-auto"
       >
         <div className="text-center mb-12">
-          <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             Wat onze klanten zeggen
           </h2>
         </div>
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
         
         {/* Stats */}
         <div className="text-center">
-          <p className="font-[family-name:var(--font-gottak)] text-5xl md:text-6xl lg:text-7xl font-bold text-[#ff0096]">300+</p>
+          <p className="font-[family-name:var(--font-display)] text-5xl md:text-6xl lg:text-7xl font-bold text-[#ff0096]">300+</p>
           <p className="text-white/90 text-base md:text-lg mt-2">
             websites gebouwd en geoptimaliseerd sinds 2010
           </p>

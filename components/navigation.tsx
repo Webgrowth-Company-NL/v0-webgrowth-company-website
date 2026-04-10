@@ -37,7 +37,7 @@ export function Navigation() {
           {/* Logo with lightning bolt */}
           <Link href="/" className="flex items-center gap-2">
             <Zap className="w-6 h-6 text-[#ff0096] fill-[#ff0096]" />
-            <span className="text-white font-[family-name:var(--font-gottak)] font-bold text-xl md:text-2xl tracking-tight">
+            <span className="text-white font-[family-name:var(--font-display)] font-bold text-xl md:text-2xl tracking-tight">
               Forester OS
             </span>
           </Link>

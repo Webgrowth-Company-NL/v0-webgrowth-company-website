@@ -44,10 +44,10 @@ export function ProofSection() {
         className="max-w-5xl mx-auto"
       >
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1">
             Geen verhalen.
           </h2>
-          <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#ff0096] mb-6">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#ff0096] mb-6">
             Gewoon resultaat.
           </h2>
           <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto text-pretty">

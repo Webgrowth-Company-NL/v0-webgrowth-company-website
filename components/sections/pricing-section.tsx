@@ -64,7 +64,7 @@ export function PricingSection() {
         className="max-w-6xl mx-auto"
       >
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             Eén systeem. Drie niveaus.
           </h2>
         </div>
@@ -90,7 +90,7 @@ export function PricingSection() {
                 </div>
               )}
               
-              <h3 className="font-[family-name:var(--font-gottak)] text-xl font-bold text-white mb-2">{plan.name}</h3>
+              <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-white mb-2">{plan.name}</h3>
               <div className="flex items-baseline gap-1 mb-4">
                 <span className="text-4xl md:text-5xl font-bold text-white">€{plan.price}</span>
                 <span className="text-white/60">/maand</span>

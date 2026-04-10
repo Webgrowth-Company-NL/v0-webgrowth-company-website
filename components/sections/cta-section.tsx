@@ -70,7 +70,7 @@ export function CTASection() {
         transition={{ duration: 0.6 }}
         className="relative z-10 text-center max-w-3xl mx-auto"
       >
-        <h2 className="font-[family-name:var(--font-gottak)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-balance">
+        <h2 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-balance">
           Klaar om te groeien?
         </h2>
         

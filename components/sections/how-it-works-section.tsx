@@ -41,7 +41,7 @@ export function HowItWorksSection() {
         className="max-w-6xl mx-auto"
       >
         <div className="text-center mb-16">
-          <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             Van nul naar groei. In vier stappen.
           </h2>
         </div>
@@ -72,7 +72,7 @@ export function HowItWorksSection() {
                 
                 {/* Content card */}
                 <div className="bg-[#0d0015]/60 backdrop-blur-xl rounded-2xl p-6 border border-white/10 text-center h-full">
-                  <h3 className="font-[family-name:var(--font-gottak)] text-white font-bold text-lg mb-3">{step.title}</h3>
+                  <h3 className="font-[family-name:var(--font-display)] text-white font-bold text-lg mb-3">{step.title}</h3>
                   <p className="text-white/70 text-sm">{step.description}</p>
                 </div>
               </motion.div>
@@ -106,7 +106,7 @@ export function HowItWorksSection() {
                 
                 {/* Content */}
                 <div className="flex-1 bg-[#0d0015]/60 backdrop-blur-xl rounded-2xl p-5 border border-white/10">
-                  <h3 className="font-[family-name:var(--font-gottak)] text-white font-bold text-lg mb-2">{step.title}</h3>
+                  <h3 className="font-[family-name:var(--font-display)] text-white font-bold text-lg mb-2">{step.title}</h3>
                   <p className="text-white/70 text-sm">{step.description}</p>
                 </div>
               </motion.div>

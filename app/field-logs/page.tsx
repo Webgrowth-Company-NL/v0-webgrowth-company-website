@@ -31,7 +31,7 @@ export default function FieldLogsPage() {
       <Navigation />
       <main className="pt-32 pb-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-[family-name:var(--font-gottak)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             Field Logs
           </h1>
           <p className="text-white/70 text-lg mb-12 max-w-2xl">
@@ -45,7 +45,7 @@ export default function FieldLogsPage() {
                 className="bg-[#1a0a2e] border border-white/10 rounded-2xl p-6 md:p-8 hover:border-[#ff0096]/50 transition-colors"
               >
                 <p className="text-[#ff0096] text-sm font-medium mb-2">{log.date}</p>
-                <h2 className="font-[family-name:var(--font-gottak)] text-xl md:text-2xl font-bold text-white mb-3">
+                <h2 className="font-[family-name:var(--font-display)] text-xl md:text-2xl font-bold text-white mb-3">
                   {log.title}
                 </h2>
                 <p className="text-white/70 mb-4">{log.excerpt}</p>
