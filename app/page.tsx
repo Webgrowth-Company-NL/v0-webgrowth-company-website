@@ -26,8 +26,8 @@ export default function Home() {
         {/* Gradient bridge: parallax fades out, solid bg fades in */}
         <div
           style={{
-            height: "200px",
-            background: "linear-gradient(to bottom, transparent 0%, #05000f 100%)",
+            height: "280px",
+            background: "linear-gradient(to bottom, transparent 0%, rgba(5,0,15,0.6) 40%, #05000f 100%)",
             marginTop: "-1px",
           }}
         />
