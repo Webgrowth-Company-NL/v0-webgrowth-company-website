@@ -16,7 +16,7 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="relative py-24 md:py-32 px-4 sm:px-6" style={{ background: "transparent" }}>
+    <section className="relative py-12 px-4 sm:px-6 w-full" style={{ background: "transparent" }}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -17,20 +17,33 @@ export default function Home() {
       <ForestParallax />
       <Navigation />
       <main className="relative">
-        {/* Hero: transparent, floats over parallax */}
-        <HeroSection />
-
-        {/* Problem section: transparent, content cards float over parallax */}
-        <ProblemSection />
+        {/* Parallax driver: tall scroll container — GSAP triggers against this */}
+        <div id="parallax-driver" style={{ height: "320vh", position: "relative" }}>
+          {/* Layer 1: Hero — fades out en schaalt op */}
+          <div style={{ position: "sticky", top: 0, height: "100vh" }}>
+            <HeroSection />
+          </div>
+          {/* Layer 2: Problem section — faded in op dezelfde positie */}
+          <div
+            id="problem-overlay"
+            style={{
+              position: "sticky",
+              top: 0,
+              height: "100vh",
+              marginTop: "-100vh",
+              opacity: 0,
+              pointerEvents: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              overflow: "hidden",
+            }}
+          >
+            <ProblemSection />
+          </div>
+        </div>
 
         {/* Gradient bridge: parallax fades out, solid bg fades in */}
-        <div
-          style={{
-            height: "280px",
-            background: "linear-gradient(to bottom, transparent 0%, rgba(5,0,15,0.6) 40%, #05000f 100%)",
-            marginTop: "-1px",
-          }}
-        />
 
         {/* All further sections on solid dark background */}
         <div style={{ background: "#05000f" }}>

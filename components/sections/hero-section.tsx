@@ -7,11 +7,11 @@ import Link from "next/link"
 export function HeroSection() {
   return (
     <section className="relative flex flex-col items-center justify-center px-4 sm:px-6 pt-24" style={{ minHeight: "110vh" }}>
+      <div id="hero-content" className="text-center max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.2 }}
-        className="text-center max-w-4xl mx-auto"
       >
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -55,6 +55,7 @@ export function HeroSection() {
           </Link>
         </motion.div>
       </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
