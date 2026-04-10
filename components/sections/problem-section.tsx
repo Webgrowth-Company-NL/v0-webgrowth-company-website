@@ -33,7 +33,7 @@ export function ProblemSection() {
                   src="/images/forester-character.jpg"
                   alt="Forester karakter met bijl in het bos"
                   fill
-                  className="object-cover"
+                  className="object-cover -scale-x-100"
                 />
               </div>
             </div>
