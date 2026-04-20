@@ -11,7 +11,7 @@ const snippets = [
 
 export function ProofSection() {
   return (
-    <section className="py-24 md:py-36 px-5 sm:px-8 bg-[#080808] overflow-hidden">
+    <section className="py-24 md:py-36 px-5 sm:px-8 bg-[#0d0818] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -22,21 +22,19 @@ export function ProofSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">
-              Geen rapport. Gewoon een bericht.
-            </p>
+            <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Elke maand een persoonlijk bericht.</p>
             <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight">
-              Geen verhalen.<br />
+              Elke maand{" "}
               <span style={{
                 background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}>
-                Gewoon resultaat.
+                meetbare groei.
               </span>
             </h2>
-            <p className="mt-6 text-white/45 text-lg leading-relaxed max-w-md">
-              Elke maand sturen wij jou een persoonlijk bericht. Geen automatisch rapport. Gewoon een helder verhaal over wat er is gebeurd.
+            <p className="mt-6 text-white/80 text-lg leading-relaxed max-w-md">
+              Elke maand sturen wij jou een persoonlijk bericht, direct in je inbox. Een helder verhaal over wat er is gebeurd en wat we volgende maand aanpakken.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

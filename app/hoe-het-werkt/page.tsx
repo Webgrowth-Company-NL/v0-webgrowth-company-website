@@ -1,19 +1,25 @@
 import { Navigation } from "@/components/navigation"
-import { HowItWorksSection } from "@/components/sections/how-it-works-section"
+import { ProcessSection } from "@/components/sections/process-section"
+import { ProofSection } from "@/components/sections/proof-section"
 import { CTASection } from "@/components/sections/cta-section"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Hoe het werkt | Forester OS",
-  description: "Van nul naar groei in vier stappen. Ontdek hoe Q je website blijft optimaliseren.",
+export const metadata: Metadata = {
+  title: "Hoe het werkt — Website laten maken in 6 tot 8 weken | Webgrowth",
+  description: "Van eerste gesprek tot een website die groeit. Kick-off, drie sprints van twee weken, test, livegang en daarna elke maand beter. Zo werkt Webgrowth.",
+  alternates: {
+    canonical: "https://webgrowth.company/hoe-het-werkt",
+  },
 }
 
 export default function HowItWorksPage() {
   return (
-    <div className="bg-[#0d0015] min-h-screen">
+    <div className="bg-[#0d0818] min-h-screen">
       <Navigation />
       <main className="pt-20">
-        <HowItWorksSection />
+        <ProcessSection />
+        <ProofSection />
         <CTASection />
       </main>
       <Footer />
