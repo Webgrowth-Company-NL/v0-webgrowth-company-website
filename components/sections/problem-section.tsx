@@ -1,13 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { X } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 const problems = [
-  "Je bureau heeft gebouwd en is vertrokken",
-  "Je weet niet of je website überhaupt iets doet",
+  "Je bureau heeft gebouwd en is verdwenen",
+  "Je weet niet of je website iets doet",
   "Je concurrent staat boven jou en je snapt niet waarom",
   "Je hebt al drie keer gevraagd om een aanpassing",
   "Je betaalt elke maand maar ziet geen verschil",
@@ -16,74 +14,63 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="relative py-12 px-4 sm:px-6 w-full" style={{ background: "transparent" }}>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto"
-      >
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left: Illustration - Forester character */}
-          <div className="relative">
-            <div className="aspect-square max-w-md mx-auto rounded-3xl p-[2px] bg-gradient-to-br from-[#623bc7] to-[#ff0096]">
-              <div className="w-full h-full bg-[#0d0015] rounded-3xl overflow-hidden relative">
-                <Image
-                  src="/images/forester-character.jpg"
-                  alt="Forester karakter met bijl in het bos"
-                  fill
-                  className="object-cover -scale-x-100"
-                />
+    <section className="py-24 md:py-36 px-5 sm:px-8 bg-[#f8f6f1]">
+      <div className="max-w-7xl mx-auto">
+
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24">
+
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">
+              Herken je dit?
+            </p>
+            <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,5vw,3.8rem)] font-black text-[#0a0a0a] leading-[1.06] tracking-tight">
+              Bureaus bouwen<br />en verdwijnen.
+            </h2>
+            <p className="mt-6 text-[#0a0a0a]/55 text-lg leading-relaxed max-w-sm">
+              Jij betaalt, maar ziet geen resultaat. Geen inzicht, geen updates, geen idee wat je website doet. Maand na maand. Dat is het patroon.
+            </p>
+
+            <div className="mt-10 inline-block rounded-2xl bg-[#623bc7] p-px">
+              <div className="rounded-2xl bg-gradient-to-br from-[#623bc7] to-[#4a2b9e] px-7 py-6">
+                <p className="text-white font-black text-lg mb-1">Wij pakken het anders aan.</p>
+                <p className="text-white/65 text-sm leading-relaxed mb-5">
+                  Jij krijgt niet alleen een website. Je krijgt toegang tot Forester OS, jouw eigen HQ. Zodat je precies weet wat er gebeurt.
+                </p>
+                <Link
+                  href="/momentum-scan"
+                  className="inline-flex items-center bg-white text-[#0a0a0a] px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-[#ff0096] hover:text-white transition-colors duration-200"
+                >
+                  Start je Momentum Scan
+                </Link>
               </div>
             </div>
-          </div>
-          
-          {/* Right: Content */}
-          <div>
-            <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
-              Waarom de meeste
-              <br />
-              <span className="text-[#ff0096]">websites stilvallen.</span>
-            </h2>
-            
-            <ul className="space-y-4">
-              {problems.map((problem, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-3 text-white/90"
-                >
-                  <X className="w-5 h-5 text-[#ff0096] flex-shrink-0 mt-0.5 stroke-[3]" />
-                  <span className="text-base md:text-lg">{problem}</span>
-                </motion.li>
-              ))}
-            </ul>
-            
-            {/* CTA Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-8 bg-[#623bc7] rounded-2xl p-6"
-            >
-              <p className="text-white text-base md:text-lg mb-4">
-                Daarom pakken wij het anders aan. Wij behandelen je website niet als een project maar als een groeimachine. Die wij elke maand meten, verbeteren en versnellen. Zonder dat jij erom hoeft te vragen.
-              </p>
-              <Link
-                href="/momentum-scan"
-                className="inline-block bg-[#0d0015] hover:bg-[#1a0a2e] text-white px-6 py-3 rounded-full font-semibold transition-all hover:scale-105"
+          </motion.div>
+
+          {/* Right */}
+          <div className="space-y-3">
+            {problems.map((problem, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="flex items-center gap-4 bg-white rounded-xl px-5 py-4 border border-black/5"
               >
-                Start je Momentum Scan
-              </Link>
-            </motion.div>
+                <div className="w-1 h-8 rounded-full bg-[#ff0096]/30 shrink-0" />
+                <span className="text-[#0a0a0a]/70 text-base">{problem}</span>
+              </motion.div>
+            ))}
           </div>
+
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

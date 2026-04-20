@@ -124,43 +124,7 @@ export function ForestParallax() {
         },
       })
 
-      // Problem overlay: infaden na hero uitfaden
-      gsap.to("#problem-overlay", {
-        opacity: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#parallax-driver",
-          start: "50% top",
-          end: "70% top",
-          scrub: 2,
-          onEnter: () => {
-            const el = document.querySelector("#problem-overlay")
-            if (el) (el as HTMLElement).style.pointerEvents = "auto"
-          },
-          onLeaveBack: () => {
-            const el = document.querySelector("#problem-overlay")
-            if (el) (el as HTMLElement).style.pointerEvents = "none"
-          },
-        },
-      })
-
-      // Problem overlay: uitfaden als driver eindigt
-      gsap.to("#problem-overlay", {
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#parallax-driver",
-          start: "80% top",
-          end: "92% top",
-          scrub: 2,
-          onLeave: () => {
-            const el = document.querySelector("#problem-overlay")
-            if (el) (el as HTMLElement).style.pointerEvents = "none"
-          },
-        },
-      })
-
-            // Fade out entire parallax as the driver section ends
+      // Fade out entire parallax as the driver section ends
       gsap.to("#fp-root", {
         opacity: 0,
         ease: "none",

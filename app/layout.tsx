@@ -38,8 +38,8 @@ const gottakBody = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Forester OS | Websites voor het MKB die blijven groeien',
-  description: 'De meeste bureaus bouwen je website en verdwijnen. Wij niet. Elke maand weet jij precies wat er is gebeurd — en wat wij eraan hebben gedaan.',
+  title: 'Forester OS — Groeiplatform voor het MKB | Webgrowth',
+  description: 'De meeste bureaus bouwen je website en verdwijnen. Wij niet. Elke maand weet jij precies wat er is gebeurd en wat het heeft opgeleverd. Breda, heel Nederland.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -66,6 +66,72 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Webgrowth Company',
+  description: 'Groeiplatform voor het MKB. Website, marketing automatisering en CRM in één systeem.',
+  url: 'https://webgrowth.company',
+  telephone: '+31762045010',
+  email: 'martijn@webgrowth.company',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Ceresstraat 13',
+    addressLocality: 'Breda',
+    postalCode: '4811 CA',
+    addressCountry: 'NL',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 51.5719,
+    longitude: 4.7683,
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nederland',
+  },
+  priceRange: '€€€',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Forester OS Pakketten',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Core',
+        price: '399',
+        priceCurrency: 'EUR',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          billingIncrement: 1,
+          unitCode: 'MON',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Growth',
+        price: '699',
+        priceCurrency: 'EUR',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          billingIncrement: 1,
+          unitCode: 'MON',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: 'Scale',
+        price: '999',
+        priceCurrency: 'EUR',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          billingIncrement: 1,
+          unitCode: 'MON',
+        },
+      },
+    ],
+  },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,6 +139,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body className={`${gottakBody.variable} ${gottak.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

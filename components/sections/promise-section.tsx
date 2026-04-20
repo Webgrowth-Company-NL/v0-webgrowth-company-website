@@ -1,119 +1,191 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { TrendingUp, Users, Target } from "lucide-react"
+import { Globe, TrendingUp, Target, BarChart2, FileText, Zap } from "lucide-react"
+import Image from "next/image"
+
+const steps = [
+  {
+    step: "01",
+    icon: Globe,
+    title: "Website bouwen",
+    description: "We bouwen een snelle, conversiegerichte website die er professioneel uitziet en technisch perfect staat.",
+    accent: "#623bc7",
+  },
+  {
+    step: "02",
+    icon: TrendingUp,
+    title: "SEO fundament",
+    description: "Je wordt gevonden door de juiste mensen. Q legt het fundament zodat Google je website begrijpt.",
+    accent: "#ff0096",
+  },
+  {
+    step: "03",
+    icon: Target,
+    title: "Leads genereren",
+    description: "Bezoekers worden aanvragen. We optimaliseren elke stap in het pad van bezoeker naar klant.",
+    accent: "#623bc7",
+  },
+  {
+    step: "04",
+    icon: BarChart2,
+    title: "Live inzicht",
+    description: "Jouw persoonlijk dashboard toont realtime wie je website bezoekt, waar ze vandaan komen en wat ze doen.",
+    accent: "#ff0096",
+  },
+  {
+    step: "05",
+    icon: FileText,
+    title: "Momentum Reports",
+    description: "Elke maand een helder overzicht van wat er is gebeurd, wat het heeft opgeleverd en wat we volgende maand doen.",
+    accent: "#623bc7",
+  },
+  {
+    step: "06",
+    icon: Zap,
+    title: "Q verbetert door",
+    description: "Q stopt nooit. Elke maand nieuwe kansen spotten, testen en verbeteren. Zonder dat jij erom hoeft te vragen.",
+    accent: "#ff0096",
+  },
+]
 
 export function PromiseSection() {
   return (
-    <section className="relative py-24 md:py-32 px-4 sm:px-6 bg-[#623bc7]">
-      {/* Subtle mountain silhouette at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden">
-        <svg viewBox="0 0 1440 128" className="absolute bottom-0 w-full" preserveAspectRatio="none">
-          <path
-            fill="#0d0015"
-            d="M0,128 L0,100 L60,90 L120,100 L180,80 L240,95 L320,70 L400,85 L480,60 L560,80 L640,55 L720,75 L800,50 L880,70 L960,45 L1040,65 L1120,40 L1200,60 L1280,50 L1360,70 L1440,55 L1440,128 Z"
-          />
-        </svg>
+    <section className="relative py-24 md:py-32 px-4 sm:px-6 bg-[#0d0015] overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#623bc7]/15 blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#ff0096]/8 blur-[130px]" />
       </div>
-      
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="max-w-4xl mx-auto text-center relative z-10"
-      >
-        {/* Eyebrow text */}
-        <p className="text-[#ff0096] text-sm md:text-base font-semibold tracking-wider uppercase mb-4">
-          Waarom wij anders zijn
-        </p>
-        
-        <h2 className="font-[family-name:var(--font-gottak)] text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 text-balance">
-          Jij bent de ondernemer. Wij zijn Q.
-        </h2>
-        
-        <p className="text-white/90 text-base md:text-lg max-w-[600px] mx-auto mb-12 text-pretty">
-          Q houdt je website in de gaten, spot wat beter kan en pakt het op. Elke maand krijg je van ons een persoonlijk bericht met wat er is gebeurd en wat het heeft opgeleverd. Wil je meer weten? Alles staat live in je dashboard.
-          <br /><br />
-          <strong className="text-white">Jij hoeft niks te doen. Maar je ziet alles.</strong>
-        </p>
-        
-        {/* Dashboard Mockup */}
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-[#0d0015] rounded-2xl p-6 md:p-8 border border-[#ff0096]/30 shadow-[0_0_40px_rgba(255,0,150,0.2)]"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-10"
         >
-          <div className="flex items-center justify-between mb-6">
-            <span className="text-[#ff0096] text-sm font-medium">Live dashboard</span>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-green-400 text-xs">Live</span>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-3 gap-4 md:gap-6">
-            {/* Visitors */}
-            <div className="bg-[#1a0a2e] rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Users className="w-4 h-4 text-[#ff0096]" />
-                <span className="text-white/60 text-xs">Bezoekers</span>
-              </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">1.636</p>
-              <div className="mt-2 h-8">
-                <svg viewBox="0 0 100 30" className="w-full h-full">
-                  <path
-                    d="M0,25 Q20,20 30,22 T50,15 T70,18 T100,8"
-                    fill="none"
-                    stroke="#ff0096"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-            </div>
-            
-            {/* Leads */}
-            <div className="bg-[#1a0a2e] rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Target className="w-4 h-4 text-[#ff0096]" />
-                <span className="text-white/60 text-xs">Leads</span>
-              </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">1.596</p>
-              <div className="mt-2 h-8">
-                <svg viewBox="0 0 100 30" className="w-full h-full">
-                  <path
-                    d="M0,20 Q25,22 40,15 T60,12 T80,8 T100,5"
-                    fill="none"
-                    stroke="#ff0096"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-            </div>
-            
-            {/* Prospects */}
-            <div className="bg-[#1a0a2e] rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="w-4 h-4 text-[#ff0096]" />
-                <span className="text-white/60 text-xs">Prospects</span>
-              </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">66</p>
-              <div className="mt-2 h-8">
-                <svg viewBox="0 0 100 30" className="w-full h-full">
-                  <path
-                    d="M0,22 Q15,24 30,18 T50,14 T75,10 T100,6"
-                    fill="none"
-                    stroke="#ff0096"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-            </div>
+          <p className="text-[#ff0096] text-sm font-semibold tracking-widest uppercase mb-3">
+            Alles inbegrepen
+          </p>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+            <h2 className="font-[family-name:var(--font-gottak)] text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight max-w-2xl">
+              Wij combineren website bouw, optimalisatie en live inzicht in{" "}
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #ff0096 0%, #c060ff 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                één systeem.
+              </span>
+            </h2>
+            <p className="text-white/50 text-base max-w-sm lg:text-right">
+              Jij bent de ondernemer. Wij zijn Q. Eén systeem dat bouwt, meet en elke maand verbetert.
+            </p>
           </div>
         </motion.div>
-      </motion.div>
+
+        {/* Q intro card */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-4"
+        >
+          <div className="group relative rounded-3xl overflow-hidden border border-white/10 h-[400px] md:h-[460px]">
+            <div className="absolute inset-0 bg-[#0d0015]" />
+            <div className="absolute right-0 top-0 h-full w-[65%]">
+              <Image
+                src="/images/developer-character.jpg"
+                alt="Q aan het werk"
+                fill
+                className="object-cover opacity-90"
+                style={{ objectPosition: "60% 20%" }}
+              />
+            </div>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to right, rgba(13,0,21,1) 0%, rgba(13,0,21,1) 30%, rgba(13,0,21,0.85) 45%, rgba(13,0,21,0.5) 60%, rgba(13,0,21,0.1) 80%, rgba(13,0,21,0) 95%)",
+              }}
+            />
+            <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-14 max-w-2xl">
+              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">
+                Maak kennis met Q
+              </p>
+              <h3 className="font-[family-name:var(--font-gottak)] text-white font-black text-3xl md:text-5xl leading-tight mb-5">
+                Q is niet een bureau.<br />Q is jouw groeisysteem.
+              </h3>
+              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-lg">
+                Andere bureaus bouwen en verdwijnen. Q blijft. Elke maand meet Q wat er werkt, verbetert wat kan en rapporteert wat het oplevert. Jij hoeft er niet naar te vragen.
+              </p>
+            </div>
+            <div
+              className="absolute bottom-0 left-0 right-0 h-px opacity-50"
+              style={{ background: "linear-gradient(90deg, transparent, #ff0096, #623bc7, transparent)" }}
+            />
+          </div>
+        </motion.div>
+
+        {/* Step cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {steps.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.07 }}
+            >
+              <StepCard step={step} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Fade to light lavender at bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, transparent 0%, #f7f5ff 100%)" }}
+      />
     </section>
+  )
+}
+
+function StepCard({ step }: { step: (typeof steps)[0] }) {
+  const Icon = step.icon
+  return (
+    <div
+      className="group relative h-full min-h-[200px] rounded-3xl p-7 border border-white/10 overflow-hidden transition-all duration-300 hover:border-white/20"
+      style={{ background: "rgba(255,255,255,0.04)" }}
+    >
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
+        style={{
+          background: `radial-gradient(400px circle at 50% 0%, ${step.accent}20, transparent 65%)`,
+        }}
+      />
+      <div className="flex items-center gap-3 mb-5">
+        <span className="text-xs font-black tabular-nums" style={{ color: step.accent }}>
+          {step.step}
+        </span>
+        <div
+          className="w-10 h-10 rounded-2xl flex items-center justify-center border border-white/10"
+          style={{ background: `${step.accent}20` }}
+        >
+          <Icon className="w-4 h-4" style={{ color: step.accent }} />
+        </div>
+      </div>
+      <h3 className="font-[family-name:var(--font-gottak)] text-white font-black text-lg mb-2">
+        {step.title}
+      </h3>
+      <p className="text-white/55 text-sm leading-relaxed">{step.description}</p>
+    </div>
   )
 }
