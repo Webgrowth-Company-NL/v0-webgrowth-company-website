@@ -29,7 +29,7 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#080808]/95 backdrop-blur-xl border-b border-white/8" : "bg-transparent"
+        scrolled ? "bg-[#0d0818]/95 backdrop-blur-xl border-b border-white/8" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -49,6 +49,15 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <div className="flex items-center gap-1.5 text-white/60 text-xs">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-3 h-3 fill-yellow-400" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                ))}
+              </div>
+              <span className="font-semibold text-white">9.4</span>
+              <span className="text-white/40">/10</span>
+            </div>
           </div>
 
           <div className="hidden lg:flex items-center gap-3">

@@ -33,7 +33,7 @@ const nav = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#080808] border-t border-white/8 px-5 sm:px-8 pt-16 pb-10">
+    <footer className="bg-[#0d0818] border-t border-white/8 px-5 sm:px-8 pt-16 pb-10">
       <div className="max-w-7xl mx-auto">
 
         <div className="grid grid-cols-2 md:grid-cols-[1fr_repeat(3,_auto)] gap-10 mb-14">
@@ -45,7 +45,7 @@ export function Footer() {
                 Webgrowth
               </span>
             </Link>
-            <p className="text-white/35 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/80 text-sm leading-relaxed max-w-xs">
               Websites voor het MKB die blijven groeien. Gebouwd, gemeten en elke maand verbeterd door Q.
             </p>
             <p className="text-white/20 text-xs mt-5">
@@ -64,7 +64,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-white/50 text-sm hover:text-white transition-colors duration-150"
+                      className="text-white/80 text-sm hover:text-white transition-colors duration-150"
                     >
                       {link.label}
                     </Link>
@@ -80,10 +80,10 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Webgrowth Company. Alle rechten voorbehouden.
           </p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="text-white/20 text-xs hover:text-white/50 transition-colors">
+            <Link href="/privacy" className="text-white/20 text-xs hover:text-white/80 transition-colors">
               Privacybeleid
             </Link>
-            <Link href="/voorwaarden" className="text-white/20 text-xs hover:text-white/50 transition-colors">
+            <Link href="/voorwaarden" className="text-white/20 text-xs hover:text-white/80 transition-colors">
               Algemene voorwaarden
             </Link>
           </div>

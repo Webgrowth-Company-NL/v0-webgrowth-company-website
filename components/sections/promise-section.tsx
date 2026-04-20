@@ -122,7 +122,7 @@ export function PromiseSection() {
               <h3 className="font-[family-name:var(--font-gottak)] text-white font-black text-3xl md:text-5xl leading-tight mb-5">
                 Q is niet een bureau.<br />Q is jouw groeisysteem.
               </h3>
-              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-lg">
+              <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-lg">
                 Andere bureaus bouwen en verdwijnen. Q blijft. Elke maand meet Q wat er werkt, verbetert wat kan en rapporteert wat het oplevert. Jij hoeft er niet naar te vragen.
               </p>
             </div>
@@ -185,7 +185,7 @@ function StepCard({ step }: { step: (typeof steps)[0] }) {
       <h3 className="font-[family-name:var(--font-gottak)] text-white font-black text-lg mb-2">
         {step.title}
       </h3>
-      <p className="text-white/55 text-sm leading-relaxed">{step.description}</p>
+      <p className="text-white/80 text-sm leading-relaxed">{step.description}</p>
     </div>
   )
 }

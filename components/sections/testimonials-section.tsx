@@ -1,56 +1,48 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    quote: "Voorheen had ik geen idee wat mijn website deed. Nu weet ik elke maand precies hoeveel bezoekers er zijn geweest en waar ze vandaan kwamen. Dat voelt als grip.",
-    name: "Thomas van der Berg",
-    role: "Directeur, Van der Berg Installatiebedrijf",
-    initials: "TB",
-    color: "#623bc7",
+    quote: "Dankzij Webgrowth Company hebben we nu een website die niet alleen mooi is, maar actief bijdraagt aan onze groei en processen automatiseert.",
+    name: "Gil Lont",
+    result: "Meer leads via de website, minder handmatig werk",
+    img: "/images/testimonials/gil-lont.webp",
   },
   {
-    quote: "In drie maanden tijd staan we op de eerste pagina van Google voor onze belangrijkste zoekterm. Dat lukte ons in vijf jaar met het vorige bureau niet.",
-    name: "Sandra Hoekstra",
-    role: "Eigenaar, Hoekstra Fysiotherapie",
-    initials: "SH",
-    color: "#ff0096",
-  },
-  {
-    quote: "Het persoonlijke bericht dat we elke maand krijgen is goud. Geen Excel, geen jargon. Gewoon: dit is wat er is gebeurd, en dit doen we er volgende maand aan.",
-    name: "Rick Janssen",
-    role: "Zaakvoerder, Janssen Bouwgroep",
-    initials: "RJ",
-    color: "#4a2b9e",
-  },
-  {
-    quote: "Ik had al twee websites laten bouwen die niks opleverden. Dit is de eerste keer dat ik echt zie dat mijn website voor mij werkt. De leads komen binnen via de site.",
-    name: "Marieke de Vos",
-    role: "Eigenaar, De Vos Accountancy",
-    initials: "MV",
-    color: "#c0007a",
-  },
-  {
-    quote: "Ze bouwen niet alleen en verdwijnen. Q blijft actief. Elke maand een verbetering, elke maand beter vindbaar. Dat is precies wat ik nodig had.",
-    name: "Erik Smit",
-    role: "Directeur, Smit Techniek BV",
-    initials: "ES",
-    color: "#623bc7",
-  },
-  {
-    quote: "Het dashboard is zo helder dat ik het ook aan mijn compagnon kan laten zien. Die snapt het meteen. En dat zegt wat, want die snapt niks van marketing.",
-    name: "Laura Visser",
-    role: "Mede-eigenaar, Visser & Partners Advocaten",
-    initials: "LV",
-    color: "#ff0096",
+    quote: "Complexe technische keuzes worden helder gemaakt en snel uitgevoerd, waardoor wij kunnen focussen op marketing en strategie.",
+    name: "Linda van der Zwan",
+    result: "Focus op strategie in plaats van techniek",
+    img: "/images/testimonials/linda-van-der-zwan.jpg",
   },
 ]
 
+const clients = [
+  { name: "MOL Logistics",     logo: "/images/clients/mol-logistics.png",  since: "2017" },
+  { name: "The Mind Movement", logo: "/images/clients/mind-movement.png",  since: "2021" },
+  { name: "InterDam",          logo: "/images/clients/interdam.png",        since: "2015" },
+  { name: "Roll Group",        logo: "/images/clients/roll-group.png",      since: "2018" },
+]
+
+function Stars() {
+  return (
+    <div className="flex gap-0.5 mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} className="w-4 h-4 fill-[#ff0096] text-[#ff0096]" />
+      ))}
+    </div>
+  )
+}
+
 export function TestimonialsSection() {
   return (
-    <section id="succesverhalen" className="py-24 md:py-36 px-5 sm:px-8 bg-[#f8f6f1]">
-      <div className="max-w-7xl mx-auto">
+    <section id="succesverhalen" className="relative py-24 md:py-36 px-5 sm:px-8 bg-[#0d0818] overflow-hidden">
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#623bc7]/8 blur-[140px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -59,42 +51,85 @@ export function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-4">
-            Wat klanten zeggen
-          </p>
-          <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,5vw,3.8rem)] font-black text-[#0a0a0a] leading-[1.06] tracking-tight max-w-2xl">
-            Geen belofte.<br />Gewoon wat mensen zeggen.
+          <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-6">Wat klanten zeggen</p>
+          <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight max-w-2xl">
+            Gebouwd voor bedrijven{" "}
+            <span style={{
+              background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>
+              die vooruit willen.
+            </span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Testimonial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.07 }}
-              className="bg-white rounded-2xl p-6 border border-black/6 shadow-sm flex flex-col"
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              className="rounded-2xl p-7 border border-white/8 flex flex-col"
+              style={{ background: "rgba(255,255,255,0.04)" }}
             >
-              <p className="text-[#0a0a0a]/70 text-sm leading-relaxed flex-1">
+              <Stars />
+              <p className="text-white/80 text-base leading-relaxed flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-3 mt-6 pt-5 border-t border-black/6">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-[11px] font-black shrink-0"
-                  style={{ background: t.color }}
-                >
-                  {t.initials}
+              <div className="mt-5 mb-4 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                <p className="text-emerald-400 text-xs font-semibold">Resultaat: {t.result}</p>
+              </div>
+              <div className="flex items-center gap-3 pt-4 border-t border-white/8">
+                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-white/10">
+                  <Image src={t.img} alt={t.name} width={40} height={40} className="w-full h-full object-cover" />
                 </div>
-                <div>
-                  <p className="text-[#0a0a0a] font-semibold text-sm">{t.name}</p>
-                  <p className="text-[#0a0a0a]/40 text-xs mt-0.5">{t.role}</p>
-                </div>
+                <p className="text-white font-semibold text-sm">{t.name}</p>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Client logos */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="border-t border-white/8 pt-10"
+        >
+          <p className="text-white/25 text-xs font-semibold tracking-widest uppercase mb-6">Werken al samen met Q</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {clients.map((c, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.08 }}
+                className="bg-white rounded-[18px] flex flex-col items-center justify-center gap-2 px-5 py-5"
+              >
+                <Image src={c.logo} alt={c.name} width={150} height={50} className="h-10 w-auto object-contain" />
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-black/35 text-xs font-light">sinds {c.since}</span>
+              </motion.div>
+            ))}
+          </div>
+          <Link
+            href="/succesverhalen"
+            className="inline-flex items-center gap-2 mt-8 text-[#a78bfa] text-sm font-semibold hover:text-white transition-colors duration-200"
+          >
+            Lees de succesverhalen
+            <span className="text-lg leading-none">→</span>
+          </Link>
+        </motion.div>
 
       </div>
     </section>
