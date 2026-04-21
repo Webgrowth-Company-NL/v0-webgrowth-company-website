@@ -307,7 +307,7 @@ export function ProcessSection() {
                 style={{ background: "linear-gradient(135deg, rgba(98,59,199,0.15) 0%, rgba(98,59,199,0.07) 100%)" }}
               >
                 <p className="text-white font-semibold text-sm mb-1">Na de livegang</p>
-                <p className="text-white/55 text-xs leading-relaxed">DNS overgezet, SSL actief. We monitoren de eerste 48 uur. Bolt en Google Search Console worden gekoppeld zodat Q direct begint met meten.</p>
+                <p className="text-white/55 text-xs leading-relaxed">DNS overgezet, SSL actief. We monitoren de eerste 48 uur. Forester OS en Google Search Console worden gekoppeld zodat Q direct begint met meten.</p>
               </motion.div>
             </motion.div>
           </div>
@@ -361,7 +361,7 @@ export function ProcessSection() {
 
             <div className="space-y-4">
               {[
-                { label: "Data", body: "Q bekijkt verkeersbronnen, paginagedrag en conversies via Bolt. Elke maand opnieuw.", accent: "#ff0096" },
+                { label: "Data", body: "Q bekijkt verkeersbronnen, paginagedrag en conversies via Forester OS. Elke maand opnieuw.", accent: "#ff0096" },
                 { label: "Kansen", body: "SEO-kansen, trage pagina's, formulieren die niet converteren.", accent: "#8b5cf6" },
                 { label: "Actie", body: "Wij voeren het uit. Geen rapport, gewoon resultaat.", accent: "#623bc7" },
               ].map((item, i) => (

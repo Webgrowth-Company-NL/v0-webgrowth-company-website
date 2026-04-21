@@ -91,7 +91,7 @@ const posts: Record<string, Post> = {
         heading: "Wat dit betekent voor de ondernemer",
         paragraphs: [
           "Het platform is gebouwd voor ondernemers die willen groeien, niet voor ondernemers die een weekend kwijt zijn aan een WordPress update. Via het Forester OS dashboard beheer je producten, prijzen en voorraad zonder technische kennis. Q geeft je elke maand een overzicht van wat goed werkt en wat er beter kan.",
-          "Bolt, de analytics laag van Forester OS, koppelt je webshopdata aan je websitegedrag. Je ziet welke pagina's leiden tot aankopen, waar bezoekers afhaken in het bestelproces en via welk kanaal de meest waardevolle klanten binnenkomen. Geen Google Analytics rapport dat je zelf moet interpreteren, maar concrete aanbevelingen.",
+          "Forester OS, de analytics laag van Forester OS, koppelt je webshopdata aan je websitegedrag. Je ziet welke pagina's leiden tot aankopen, waar bezoekers afhaken in het bestelproces en via welk kanaal de meest waardevolle klanten binnenkomen. Geen Google Analytics rapport dat je zelf moet interpreteren, maar concrete aanbevelingen.",
           "Een webshop op Forester OS is niet goedkoper dan WooCommerce op korte termijn. Het is goedkoper op lange termijn, omdat je geen developer nodig hebt voor elke update en omdat de fundering stabiel genoeg is om op te bouwen.",
         ],
       },
@@ -295,16 +295,16 @@ const posts: Record<string, Post> = {
     dateTime: "2025-07-08",
     readTime: "4 min",
     img: "/images/developer-character.jpg",
-    metaTitle: "Bolt krijgt drie nieuwe website metrics: paginadiepte, bezoekduur en verkeersbronnen | Webgrowth",
-    metaDescription: "Bolt heeft drie nieuwe meetpunten gekregen: paginadiepte, bezoekduur en verkeersbronnen. Zo gebruik je ze om je website te verbeteren.",
-    title: "Bolt krijgt drie nieuwe metrics: zo gebruik je ze",
-    intro: "Bolt is onze eigen tool waarmee klanten de prestaties van hun website kunnen volgen. We hebben drie nieuwe metrics toegevoegd: paginadiepte, bezoekduur en verkeersbronnen. Niet omdat meer data altijd beter is, maar omdat deze drie dingen samen een concreet beeld geven van wat er werkt en wat niet.",
+    metaTitle: "Forester OS krijgt drie nieuwe website metrics: paginadiepte, bezoekduur en verkeersbronnen | Webgrowth",
+    metaDescription: "Forester OS heeft drie nieuwe meetpunten gekregen: paginadiepte, bezoekduur en verkeersbronnen. Zo gebruik je ze om je website te verbeteren.",
+    title: "Forester OS krijgt drie nieuwe metrics: zo gebruik je ze",
+    intro: "Forester OS is onze eigen tool waarmee klanten de prestaties van hun website kunnen volgen. We hebben drie nieuwe metrics toegevoegd: paginadiepte, bezoekduur en verkeersbronnen. Niet omdat meer data altijd beter is, maar omdat deze drie dingen samen een concreet beeld geven van wat er werkt en wat niet.",
     content: [
       {
         heading: "Waarom we drie metrics hebben toegevoegd en niet dertig",
         paragraphs: [
           "Het is verleidelijk om een analytics dashboard vol te gooien met grafieken. Bezoekers, sessies, bounce rate, pagina's per sessie, conversies, doelen, attributie. Er is genoeg om te meten. Maar meer data leidt niet automatisch tot betere beslissingen. Vaak leidt het tot besluiteloosheid, omdat je niet weet waar je op moet letten.",
-          "Bolt is gebouwd op Fathom Analytics, een privacy-vriendelijk alternatief voor Google Analytics zonder cookies en zonder gegevensdeling met advertentienetwerken. Fathom is snel en duidelijk, maar miste een paar specifieke inzichten die we voor onze klanten relevant vinden. Die hebben we nu toegevoegd.",
+          "Forester OS is gebouwd op Fathom Analytics, een privacy-vriendelijk alternatief voor Google Analytics zonder cookies en zonder gegevensdeling met advertentienetwerken. Fathom is snel en duidelijk, maar miste een paar specifieke inzichten die we voor onze klanten relevant vinden. Die hebben we nu toegevoegd.",
           "De drie nieuwe metrics zijn bewust gekozen: paginadiepte, bezoekduur en verkeersbronnen. Samen beantwoorden ze de vraag die de meeste MKB-ondernemers eigenlijk stellen: komt er iemand op mijn website, doet die iets, en hoe hebben ze me gevonden?",
         ],
       },
@@ -320,7 +320,7 @@ const posts: Record<string, Post> = {
         heading: "Bezoekduur: hoelang blijven ze?",
         paragraphs: [
           "Bezoekduur meet hoe lang een sessie duurt. Dit getal heeft een lastig aspect: traditionele analytics tools meten bezoekduur door het verschil te berekenen tussen de eerste en de laatste paginaweergave. Een bezoeker die op een pagina landt, die grondig leest en dan de browser sluit, wordt dan geregistreerd als 0 seconden. Want er is geen tweede paginaweergave om het einde van de sessie te markeren.",
-          "In Bolt lossen we dit deels op door een heartbeat te meten, een signaal dat elke dertig seconden wordt verstuurd zolang de pagina actief is in de browser. Dat geeft een realistischer beeld van hoelang mensen daadwerkelijk op een pagina doorbrengen.",
+          "In Forester OS lossen we dit deels op door een heartbeat te meten, een signaal dat elke dertig seconden wordt verstuurd zolang de pagina actief is in de browser. Dat geeft een realistischer beeld van hoelang mensen daadwerkelijk op een pagina doorbrengen.",
           "Een lange bezoekduur bij een blog of informatieve pagina is een goed signaal. Bij een landingspagina die snel moet converteren, is een te lange bezoekduur soms een teken dat de informatie niet duidelijk genoeg is.",
         ],
       },
@@ -337,36 +337,36 @@ const posts: Record<string, Post> = {
         paragraphs: [
           "De kracht zit in de combinatie. Stel: je ziet dat verkeer via Google stijgt, maar de paginadiepte van organische bezoekers is laag en de bezoekduur is kort. Dat kan betekenen dat je rankt op zoektermen die niet goed aansluiten op wat de pagina biedt. De zoeker vindt jou, maar vindt niet wat hij zoocht.",
           "Of: organisch verkeer is stabiel, maar de bezoekduur is lang en de paginadiepte is hoog. Dat is een teken dat de content aanslaat bij de bezoekers die komen, maar dat de hoeveelheid bezoekers een knelpunt is. Dan is de vraag niet 'is mijn website goed?' maar 'hoe trek ik meer mensen aan die op deze bezoekers lijken?'",
-          "Bolt toont benchmarks naast je eigen cijfers: hoe doe je het ten opzichte van vergelijkbare websites in dezelfde branche? Dat geeft context. Een bezoekduur van twee minuten is goed of slecht afhankelijk van de sector en het type pagina.",
+          "Forester OS toont benchmarks naast je eigen cijfers: hoe doe je het ten opzichte van vergelijkbare websites in dezelfde branche? Dat geeft context. Een bezoekduur van twee minuten is goed of slecht afhankelijk van de sector en het type pagina.",
         ],
       },
       {
-        heading: "Hoe Bolt toegang geeft zonder technische kennis",
+        heading: "Hoe Forester OS toegang geeft zonder technische kennis",
         paragraphs: [
-          "Bolt is beschikbaar voor alle klanten van Webgrowth als onderdeel van de samenwerking. Je logt in via een veilige link, je ziet de cijfers van je eigen website, en je krijgt per metric een korte uitleg van wat het betekent en wat je ermee kunt doen.",
-          "We sturen geen maandelijks rapport met grafieken die je moet interpreteren. Bolt is zo ingericht dat je er zelf in kunt kijken wanneer je wilt, en dat de data direct leesbaar is zonder analyticskennis.",
-          "De drie nieuwe metrics zijn al live voor alle klanten die Bolt gebruiken. Je hoeft niets in te stellen of opnieuw te koppelen.",
+          "Forester OS is beschikbaar voor alle klanten van Webgrowth als onderdeel van de samenwerking. Je logt in via een veilige link, je ziet de cijfers van je eigen website, en je krijgt per metric een korte uitleg van wat het betekent en wat je ermee kunt doen.",
+          "We sturen geen maandelijks rapport met grafieken die je moet interpreteren. Forester OS is zo ingericht dat je er zelf in kunt kijken wanneer je wilt, en dat de data direct leesbaar is zonder analyticskennis.",
+          "De drie nieuwe metrics zijn al live voor alle klanten die Forester OS gebruiken. Je hoeft niets in te stellen of opnieuw te koppelen.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Heeft Bolt ook cookies nodig?",
-        a: "Nee. Bolt is gebouwd op Fathom Analytics, dat werkt zonder cookies en zonder persoonlijke gegevens te verzamelen. Je hebt dus ook geen cookiebanner nodig voor de analytics.",
+        q: "Heeft Forester OS ook cookies nodig?",
+        a: "Nee. Forester OS is gebouwd op Fathom Analytics, dat werkt zonder cookies en zonder persoonlijke gegevens te verzamelen. Je hebt dus ook geen cookiebanner nodig voor de analytics.",
       },
       {
-        q: "Is Bolt beschikbaar los van een Webgrowth abonnement?",
-        a: "Bolt is momenteel beschikbaar voor klanten van Webgrowth als onderdeel van de samenwerking. We kijken naar mogelijkheden om het breder beschikbaar te stellen.",
+        q: "Is Forester OS beschikbaar los van een Webgrowth abonnement?",
+        a: "Forester OS is momenteel beschikbaar voor klanten van Webgrowth als onderdeel van de samenwerking. We kijken naar mogelijkheden om het breder beschikbaar te stellen.",
       },
       {
         q: "Wat als ik al Google Analytics gebruik?",
-        a: "Bolt vervangt Google Analytics niet per se, maar vereenvoudigt het. Veel MKB-ondernemers gebruiken Google Analytics nauwelijks omdat het complex is. Bolt biedt dezelfde kerndata in een formaat dat direct bruikbaar is.",
+        a: "Forester OS vervangt Google Analytics niet per se, maar vereenvoudigt het. Veel MKB-ondernemers gebruiken Google Analytics nauwelijks omdat het complex is. Forester OS biedt dezelfde kerndata in een formaat dat direct bruikbaar is.",
       },
     ],
     related: ["van-0-naar-1000-bezoekers-30-dagen", "automatische-contentoptimalisatie-mkb"],
     cta: {
       label: "Wil je inzicht in hoe jouw website presteert?",
-      linkLabel: "Bekijk wat Bolt voor je doet",
+      linkLabel: "Bekijk wat Forester OS voor je doet",
       href: "/hoe-het-werkt",
     },
   },
