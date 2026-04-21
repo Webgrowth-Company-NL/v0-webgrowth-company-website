@@ -10,7 +10,7 @@ export function ProcessSection() {
     <div className="bg-[#0d0818]">
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative pt-36 pb-28 px-5 sm:px-8 overflow-hidden">
+      <section className="relative pt-24 sm:pt-36 pb-14 sm:pb-28 px-5 sm:px-8 overflow-hidden">
         <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-[#623bc7]/10 blur-[180px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#ff0096]/6 blur-[140px] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
@@ -21,7 +21,7 @@ export function ProcessSection() {
             className="max-w-3xl"
           >
             <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Hoe het werkt</p>
-            <h1 className="font-[family-name:var(--font-gottak)] text-[clamp(2.8rem,7vw,5.5rem)] font-black text-white leading-[1.02] tracking-tight mb-6">
+            <h1 className="font-[family-name:var(--font-gottak)] text-[clamp(2.4rem,7vw,5.5rem)] font-black text-white leading-[1.02] tracking-tight mb-5">
               Van eerste gesprek{" "}
               <span style={{
                 background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
@@ -31,10 +31,10 @@ export function ProcessSection() {
                 tot website die groeit.
               </span>
             </h1>
-            <p className="text-white/65 text-xl leading-relaxed max-w-lg mb-10">
+            <p className="text-white/65 text-lg sm:text-xl leading-relaxed max-w-lg mb-8">
               In 6 tot 8 weken bouwen we samen iets goeds. Daarna bouwen we verder aan iets grandioos.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
@@ -45,10 +45,10 @@ export function ProcessSection() {
                 href="/website-apk"
                 className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm font-semibold transition-colors duration-200"
               >
-                Of doe eerst de gratis website APK
+                Gratis website APK
               </Link>
             </div>
-            <p className="mt-6 text-white/55 text-xs">Vanaf €399/maand · alles inbegrepen · <Link href="/prijzen" className="underline underline-offset-2 hover:text-white/60 transition-colors">bekijk de pakketten</Link></p>
+            <p className="mt-5 text-white/55 text-xs">Vanaf €399/maand · alles inbegrepen · <Link href="/prijzen" className="underline underline-offset-2 hover:text-white/60 transition-colors">bekijk de pakketten</Link></p>
           </motion.div>
 
           {/* Timeline bar */}
@@ -56,7 +56,7 @@ export function ProcessSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16 grid grid-cols-3 sm:grid-cols-5 gap-2"
+            className="mt-10 sm:mt-16 flex gap-1.5 overflow-x-auto pb-1 sm:grid sm:grid-cols-5 sm:gap-2 sm:overflow-visible"
           >
             {[
               { week: "Week 1", label: "Kick-off", color: "#ff0096" },
@@ -67,11 +67,11 @@ export function ProcessSection() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl px-4 py-3 border border-white/8 flex flex-col gap-1"
+                className="rounded-xl px-3 sm:px-4 py-3 border border-white/8 flex flex-col gap-1 shrink-0 min-w-[100px] sm:min-w-0"
                 style={{ background: `${item.color}10` }}
               >
-                <span className="text-white/55 text-[10px] font-semibold tracking-widest uppercase">{item.week}</span>
-                <span className="text-white font-bold text-sm" style={{ color: item.color }}>{item.label}</span>
+                <span className="text-white/55 text-[9px] sm:text-[10px] font-semibold tracking-widest uppercase whitespace-nowrap">{item.week}</span>
+                <span className="text-white font-bold text-xs sm:text-sm whitespace-nowrap" style={{ color: item.color }}>{item.label}</span>
               </div>
             ))}
           </motion.div>
@@ -79,20 +79,20 @@ export function ProcessSection() {
       </section>
 
       {/* ── Kick-off ─────────────────────────────────────────────────── */}
-      <section className="relative py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
+      <section className="relative py-14 sm:py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <span className="absolute -top-8 right-4 font-[family-name:var(--font-gottak)] font-black text-[20vw] leading-none text-white/[0.025]">01</span>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Week 1</p>
-              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
+              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-4">Week 1</p>
+              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-5">
                 Eén uur.<br />
                 <span style={{
                   background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
@@ -102,14 +102,14 @@ export function ProcessSection() {
                   En we weten genoeg.
                 </span>
               </h2>
-              <p className="text-white/65 text-lg leading-relaxed">
+              <p className="text-white/65 text-base sm:text-lg leading-relaxed">
                 Alles begint met een uur samen. We willen weten wie jouw klant is, waarom ze voor jou kiezen en wat je wil bereiken. Dat gesprek bepaalt alles wat daarna komt.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
               className="space-y-3"
@@ -140,7 +140,7 @@ export function ProcessSection() {
       </section>
 
       {/* ── 3 Sprints ────────────────────────────────────────────────── */}
-      <section className="relative py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
+      <section className="relative py-14 sm:py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <span className="absolute -top-8 right-4 font-[family-name:var(--font-gottak)] font-black text-[20vw] leading-none text-white/[0.025]">02</span>
         </div>
@@ -151,9 +151,9 @@ export function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="mb-14"
+            className="mb-8 sm:mb-14"
           >
-            <p className="text-[#a78bfa] text-xs font-semibold tracking-widest uppercase mb-5">Week 2 tot 7</p>
+            <p className="text-[#a78bfa] text-xs font-semibold tracking-widest uppercase mb-4">Week 2 tot 7</p>
             <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight">
               Drie sprints.<br />
               <span style={{
@@ -166,7 +166,7 @@ export function ProcessSection() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
               {
                 nr: "Sprint 1",
@@ -202,7 +202,6 @@ export function ProcessSection() {
                 className="relative rounded-2xl border border-white/8 overflow-hidden flex flex-col"
                 style={{ background: "rgba(255,255,255,0.03)" }}
               >
-                {/* Accent top bar */}
                 <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${sprint.accent}, transparent)` }} />
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-5">
@@ -224,10 +223,10 @@ export function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="mt-4 rounded-2xl border border-[#a78bfa]/20 px-6 py-4 flex items-center gap-4"
+            className="mt-4 rounded-2xl border border-[#a78bfa]/20 px-5 py-4 flex items-start gap-3"
             style={{ background: "rgba(167,139,250,0.06)" }}
           >
-            <span className="w-2 h-2 rounded-full bg-[#a78bfa] shrink-0 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#a78bfa] shrink-0 animate-pulse mt-1.5" />
             <p className="text-white/60 text-sm">
               Na elke sprint ontvang je een preview-link. Jij geeft feedback. Wij bouwen verder. Geen verrassingen aan het einde.
             </p>
@@ -236,21 +235,21 @@ export function ProcessSection() {
       </section>
 
       {/* ── Test + Livegang ───────────────────────────────────────────── */}
-      <section className="relative py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
+      <section className="relative py-14 sm:py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <span className="absolute -top-8 right-4 font-[family-name:var(--font-gottak)] font-black text-[20vw] leading-none text-white/[0.025]">03</span>
         </div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full bg-[#ff0096]/6 blur-[150px] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Week 8</p>
-              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
+              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-4">Week 8</p>
+              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-5">
                 Eerst alles checken.<br />
                 <span style={{
                   background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
@@ -260,14 +259,14 @@ export function ProcessSection() {
                   Dan live.
                 </span>
               </h2>
-              <p className="text-white/65 text-lg leading-relaxed">
+              <p className="text-white/65 text-base sm:text-lg leading-relaxed">
                 Voor we live gaan controleren we alles. Snelheid, mobiel, formulieren, SEO. Jij test op je eigen telefoon en laptop. Pas als beide partijen tevreden zijn, gaan we live.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
               className="space-y-3"
@@ -303,10 +302,10 @@ export function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.35 }}
-                className="rounded-xl border border-[#8b5cf6]/30 px-5 py-4 flex items-center gap-5"
+                className="rounded-xl border border-[#8b5cf6]/30 px-5 py-4 flex items-center gap-4"
                 style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(98,59,199,0.07) 100%)" }}
               >
-                <span className="text-5xl leading-none shrink-0">🍻</span>
+                <span className="text-4xl sm:text-5xl leading-none shrink-0">🍻</span>
                 <div>
                   <p className="text-white font-semibold text-sm mb-1">Na de livegang</p>
                   <p className="text-white/55 text-xs leading-relaxed">DNS overgezet, SSL actief. We monitoren de eerste 48 uur. Forester OS en Google Search Console worden gekoppeld zodat Q direct begint met meten.</p>
@@ -318,7 +317,7 @@ export function ProcessSection() {
       </section>
 
       {/* ── Maandelijkse verbeteringen ───────────────────────────────── */}
-      <section className="relative py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
+      <section className="relative py-14 sm:py-24 px-5 sm:px-8 overflow-hidden border-t border-white/6">
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           <span className="absolute -top-8 right-4 font-[family-name:var(--font-gottak)] font-black text-[20vw] leading-none text-white/[0.025]">04</span>
         </div>
@@ -326,17 +325,17 @@ export function ProcessSection() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#ff0096]/5 blur-[140px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
             {/* Left — tekst */}
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-[#a78bfa] text-xs font-semibold tracking-widest uppercase mb-5">Elke maand</p>
-              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
+              <p className="text-[#a78bfa] text-xs font-semibold tracking-widest uppercase mb-4">Elke maand</p>
+              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-5">
                 Elke maand beter.<br />
                 <span style={{
                   background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
@@ -346,7 +345,7 @@ export function ProcessSection() {
                   Zonder dat jij er iets voor doet.
                 </span>
               </h2>
-              <p className="text-white/60 text-base leading-relaxed mb-10">
+              <p className="text-white/60 text-base leading-relaxed mb-8">
                 Dit is het deel waar de meeste bureaus vertrekken. Wij niet. Q analyseert elke maand wat er gebeurt op je website en zet de inzichten om in concrete aanpassingen. Geen vergadering. Geen rapport. Jij ziet het verschil.
               </p>
 
@@ -358,13 +357,13 @@ export function ProcessSection() {
                 ].map((item, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.2 + i * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <span className="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.accent }} />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.accent }} />
                     <div>
                       <span className="text-white font-semibold text-sm">{item.label} — </span>
                       <span className="text-white/55 text-sm">{item.body}</span>
@@ -376,8 +375,8 @@ export function ProcessSection() {
 
             {/* Right — Momentum Report mockup */}
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
             >
@@ -392,7 +391,7 @@ export function ProcessSection() {
                       <p className="text-white/55 text-xs">Mei 2025 · webgrowth.company</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full text-white" style={{ background: "rgba(255,0,150,0.25)", border: "1px solid rgba(255,0,150,0.3)" }}>Nieuw</span>
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full text-white shrink-0" style={{ background: "rgba(255,0,150,0.25)", border: "1px solid rgba(255,0,150,0.3)" }}>Nieuw</span>
                 </div>
 
                 {/* Body */}
@@ -400,9 +399,9 @@ export function ProcessSection() {
 
                   {/* Metrics */}
                   {[
-                    { label: "Organisch verkeer", value: "+18%", sub: "vs vorige maand", color: "#16a34a", up: true },
-                    { label: "Conversieratio", value: "+0.4%", sub: "contactformulier", color: "#16a34a", up: true },
-                    { label: "Positie 'website laten maken'", value: "#4", sub: "was #9", color: "#8b5cf6", up: true },
+                    { label: "Organisch verkeer", value: "+18%", sub: "vs vorige maand", color: "#16a34a" },
+                    { label: "Conversieratio", value: "+0.4%", sub: "contactformulier", color: "#16a34a" },
+                    { label: "Positie zoekterm", value: "#4", sub: "was #9", color: "#8b5cf6" },
                   ].map((metric, i) => (
                     <motion.div
                       key={i}
@@ -413,9 +412,9 @@ export function ProcessSection() {
                       className="flex items-center justify-between py-2.5 border-b border-[#f0f0f5] last:border-0"
                     >
                       <span className="text-[#1a1a2e]/70 text-sm">{metric.label}</span>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5 shrink-0 ml-3">
                         <span className="text-sm font-bold" style={{ color: metric.color }}>{metric.value}</span>
-                        <span className="text-[#1a1a2e]/55 text-xs">{metric.sub}</span>
+                        <span className="text-[#1a1a2e]/55 text-xs hidden sm:inline">{metric.sub}</span>
                       </div>
                     </motion.div>
                   ))}
@@ -470,7 +469,7 @@ export function ProcessSection() {
       </section>
 
       {/* ── CTA + Testimonial ────────────────────────────────────────── */}
-      <section className="relative py-20 px-5 sm:px-8 overflow-hidden border-t border-white/6">
+      <section className="relative py-14 sm:py-20 px-5 sm:px-8 overflow-hidden border-t border-white/6">
         <div className="relative z-10 max-w-7xl mx-auto space-y-4">
 
           {/* Testimonial */}
@@ -479,7 +478,7 @@ export function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="rounded-2xl border border-white/8 px-7 py-6"
+            className="rounded-2xl border border-white/8 px-5 sm:px-7 py-6"
             style={{ background: "rgba(255,255,255,0.03)" }}
           >
             <div className="flex gap-0.5 mb-3">
@@ -507,11 +506,11 @@ export function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 rounded-2xl border border-white/8 px-8 py-7"
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 rounded-2xl border border-white/8 px-5 sm:px-8 py-6 sm:py-7"
             style={{ background: "rgba(255,255,255,0.03)" }}
           >
             <div>
-              <p className="font-[family-name:var(--font-gottak)] text-white font-black text-2xl md:text-3xl leading-snug mb-1">
+              <p className="font-[family-name:var(--font-gottak)] text-white font-black text-2xl sm:text-3xl leading-snug mb-1">
                 Klinkt dit als wat jij nodig hebt?
               </p>
               <p className="text-white/55 text-sm">30 minuten kennismaken. Gratis en online, geen verplichtingen.</p>
@@ -519,7 +518,7 @@ export function ProcessSection() {
             <div className="flex flex-col gap-1.5 shrink-0">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
+                className="inline-flex items-center justify-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
               >
                 Boek een kennismaking <ArrowRight className="w-4 h-4" />
               </Link>
@@ -533,7 +532,7 @@ export function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.15 }}
-            className="grid md:grid-cols-3 gap-3"
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-3"
           >
             {[
               {
@@ -564,23 +563,23 @@ export function ProcessSection() {
       </section>
 
       {/* ── Gewoon een bericht ───────────────────────────────────────── */}
-      <section className="relative py-24 px-5 sm:px-8 overflow-hidden">
+      <section className="relative py-14 sm:py-24 px-5 sm:px-8 overflow-hidden">
         <div className="absolute bottom-0 left-0 w-[500px] h-[400px] rounded-full bg-[#ff0096]/6 blur-[140px] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
 
           {/* Divider with label */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-10 sm:mb-16">
             <div className="flex-1 h-px bg-white/8" />
-            <span className="text-white/55 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border border-white/8" style={{ background: "rgba(255,255,255,0.03)" }}>
+            <span className="text-white/55 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border border-white/8 whitespace-nowrap" style={{ background: "rgba(255,255,255,0.03)" }}>
               Goed om te weten
             </span>
             <div className="flex-1 h-px bg-white/8" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
             >
@@ -600,7 +599,7 @@ export function ProcessSection() {
                 </div>
 
                 {/* Body — wit */}
-                <div className="bg-white px-5 py-5 space-y-3">
+                <div className="bg-white px-4 sm:px-5 py-5 space-y-3">
                   {[
                     { from: "jij", text: "Kunnen we de openingstijden aanpassen op de contactpagina? We zijn volgende week dinsdag dicht, thanks!" },
                     { from: "q",   text: "Geregeld. Dinsdag staat als gesloten, en de structured data heb ik ook bijgewerkt zodat Google het direct overneemt." },
@@ -616,7 +615,7 @@ export function ProcessSection() {
                       className={`flex ${msg.from === "jij" ? "justify-end" : "justify-start"}`}
                     >
                       <div
-                        className={`max-w-[78%] px-4 py-2.5 text-sm leading-relaxed ${
+                        className={`max-w-[82%] px-4 py-2.5 text-sm leading-relaxed ${
                           msg.from === "jij"
                             ? "text-white rounded-2xl rounded-br-sm"
                             : "text-[#1a1a2e] bg-[#f0f0f5] rounded-2xl rounded-bl-sm"
@@ -634,13 +633,13 @@ export function ProcessSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Altijd bereikbaar</p>
-              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
+              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-4">Altijd bereikbaar</p>
+              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-5">
                 Jij stuurt een appje.<br />
                 <span style={{
                   background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
@@ -650,7 +649,7 @@ export function ProcessSection() {
                   Q regelt het.
                 </span>
               </h2>
-              <p className="text-white/65 text-lg leading-relaxed mb-8">
+              <p className="text-white/65 text-base sm:text-lg leading-relaxed mb-8">
                 Heb je een vraag, wil je iets aanpassen of valt er iets op? Stuur Q een appje. Geen ticket, geen wachtrij, geen uur debriefing plannen. Stuur een bericht en het is geregeld.
               </p>
               <Link
