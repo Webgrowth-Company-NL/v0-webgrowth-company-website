@@ -36,7 +36,7 @@ export function Footer() {
     <footer className="bg-[#0d0818] border-t border-white/8 px-5 sm:px-8 pt-16 pb-10">
       <div className="max-w-7xl mx-auto">
 
-        <div className="grid grid-cols-2 md:grid-cols-[1fr_repeat(3,_auto)] gap-10 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-[1fr_repeat(4,_auto)] gap-10 mb-14">
 
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
@@ -45,36 +45,9 @@ export function Footer() {
                 Webgrowth
               </span>
             </Link>
-            <p className="text-white/80 text-sm leading-relaxed max-w-xs mb-6">
+            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Websites voor het MKB die blijven groeien. Gebouwd, gemeten en elke maand verbeterd door Q.
             </p>
-
-            {/* Contact */}
-            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-3">Contact</p>
-            <div className="space-y-1.5 mb-5">
-              <a href="tel:+31762045010" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">+31 (0)76 20 45 010</a>
-              <a href="mailto:martijn@webgrowth.company" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">martijn@webgrowth.company</a>
-            </div>
-
-            {/* Address */}
-            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-3">Marketing Genius</p>
-            <address className="not-italic text-white/60 text-sm leading-relaxed mb-5">
-              Ceresstraat 13<br />
-              4811 CA Breda
-            </address>
-
-            {/* Legal */}
-            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-3">Legal</p>
-            <div className="space-y-1.5 mb-5">
-              <Link href="/voorwaarden" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">Algemene Voorwaarden</Link>
-              <Link href="/privacy" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">Privacyverklaring</Link>
-            </div>
-
-            {/* Registration */}
-            <div className="space-y-1">
-              <p className="text-white/25 text-xs">KvK: 64809536</p>
-              <p className="text-white/25 text-xs">BTW: NL001363277B13</p>
-            </div>
           </div>
 
           {/* Nav columns */}
@@ -88,7 +61,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-white/80 text-sm hover:text-white transition-colors duration-150"
+                      className="text-white/60 text-sm hover:text-white transition-colors duration-150"
                     >
                       {link.label}
                     </Link>
@@ -97,6 +70,39 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Contact column */}
+          <div>
+            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-4">Contact</p>
+            <ul className="space-y-2.5">
+              <li>
+                <a href="tel:+31762045010" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
+                  +31 (0)76 20 45 010
+                </a>
+              </li>
+              <li>
+                <a href="mailto:martijn@webgrowth.company" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
+                  martijn@webgrowth.company
+                </a>
+              </li>
+              <li>
+                <address className="not-italic text-white/60 text-sm leading-relaxed">
+                  Ceresstraat 13<br />4811 CA Breda
+                </address>
+              </li>
+              <li className="pt-1">
+                <Link href="/voorwaarden" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
+                  Algemene Voorwaarden
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
+                  Privacyverklaring
+                </Link>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
         <div className="border-t border-white/6 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
