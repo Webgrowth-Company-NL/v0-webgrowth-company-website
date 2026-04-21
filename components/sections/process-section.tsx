@@ -323,65 +323,148 @@ export function ProcessSection() {
           <span className="absolute -top-8 right-4 font-[family-name:var(--font-gottak)] font-black text-[20vw] leading-none text-white/[0.025]">04</span>
         </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#623bc7]/8 blur-[160px] pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="mb-14"
-          >
-            <p className="text-[#a78bfa] text-xs font-semibold tracking-widest uppercase mb-5">Elke maand</p>
-            <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight">
-              Elke maand beter.<br />
-              <span style={{
-                background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}>
-                Zonder dat jij er iets voor doet.
-              </span>
-            </h2>
-          </motion.div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#ff0096]/5 blur-[140px] pointer-events-none" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Left — tekst */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
-              className="md:col-span-2 lg:col-span-2 rounded-2xl border border-white/8 p-7"
-              style={{ background: "rgba(255,255,255,0.03)" }}
+              transition={{ duration: 0.55 }}
             >
-              <p className="text-white/35 text-xs font-semibold tracking-widest uppercase mb-4">Hoe het eruitziet</p>
-              <p className="font-[family-name:var(--font-gottak)] text-white font-black text-xl md:text-2xl leading-snug mb-4">
-                Dit is het deel waar de meeste bureaus vertrekken. Wij niet.
+              <p className="text-[#a78bfa] text-xs font-semibold tracking-widest uppercase mb-5">Elke maand</p>
+              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
+                Elke maand beter.<br />
+                <span style={{
+                  background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}>
+                  Zonder dat jij er iets voor doet.
+                </span>
+              </h2>
+              <p className="text-white/60 text-base leading-relaxed mb-10">
+                Dit is het deel waar de meeste bureaus vertrekken. Wij niet. Q analyseert elke maand wat er gebeurt op je website en zet de inzichten om in concrete aanpassingen. Geen vergadering. Geen rapport. Jij ziet het verschil.
               </p>
-              <p className="text-white/60 text-sm leading-relaxed max-w-lg">
-                Q analyseert elke maand wat er gebeurt op je website en zet de inzichten om in concrete aanpassingen. Geen vergadering. Geen agenda. Geen aanbevelingen die in een rapport verdwijnen. Wij voeren het uit. Jij ziet het verschil.
-              </p>
+
+              <div className="space-y-3">
+                {[
+                  { label: "Data", body: "Q bekijkt verkeersbronnen, paginagedrag en conversies via Forester OS. Elke maand opnieuw.", accent: "#ff0096" },
+                  { label: "Kansen", body: "SEO-kansen, trage pagina's, formulieren die niet converteren.", accent: "#8b5cf6" },
+                  { label: "Actie", body: "Wij voeren het uit. Geen rapport, gewoon resultaat.", accent: "#623bc7" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: 0.2 + i * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <span className="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.accent }} />
+                    <div>
+                      <span className="text-white font-semibold text-sm">{item.label} — </span>
+                      <span className="text-white/55 text-sm">{item.body}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
-            <div className="space-y-4">
-              {[
-                { label: "Data", body: "Q bekijkt verkeersbronnen, paginagedrag en conversies via Forester OS. Elke maand opnieuw.", accent: "#ff0096" },
-                { label: "Kansen", body: "SEO-kansen, trage pagina's, formulieren die niet converteren.", accent: "#8b5cf6" },
-                { label: "Actie", body: "Wij voeren het uit. Geen rapport, gewoon resultaat.", accent: "#623bc7" },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: i * 0.08 }}
-                  className="rounded-xl border border-white/8 px-4 py-4"
-                  style={{ background: "rgba(255,255,255,0.025)" }}
-                >
-                  <p className="text-xs font-semibold tracking-widest uppercase mb-1.5" style={{ color: item.accent }}>{item.label}</p>
-                  <p className="text-white/55 text-sm leading-relaxed">{item.body}</p>
-                </motion.div>
-              ))}
-            </div>
+            {/* Right — Momentum Report mockup */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+            >
+              <div className="rounded-2xl overflow-hidden border border-white/10" style={{ boxShadow: "0 0 60px rgba(255,0,150,0.1), 0 0 0 1px rgba(255,255,255,0.05)" }}>
+
+                {/* Header */}
+                <div className="flex items-center justify-between px-5 py-4" style={{ background: "#0d0015" }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff0096] to-[#623bc7] flex items-center justify-center text-white text-xs font-black shrink-0">Q</div>
+                    <div>
+                      <p className="text-white text-sm font-semibold">Momentum Report</p>
+                      <p className="text-white/40 text-xs">Mei 2025 · webgrowth.company</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full text-white" style={{ background: "rgba(255,0,150,0.25)", border: "1px solid rgba(255,0,150,0.3)" }}>Nieuw</span>
+                </div>
+
+                {/* Body */}
+                <div className="bg-white px-5 py-5 space-y-4">
+
+                  {/* Metrics */}
+                  {[
+                    { label: "Organisch verkeer", value: "+18%", sub: "vs vorige maand", color: "#16a34a", up: true },
+                    { label: "Conversieratio", value: "+0.4%", sub: "contactformulier", color: "#16a34a", up: true },
+                    { label: "Positie 'website laten maken'", value: "#4", sub: "was #9", color: "#8b5cf6", up: true },
+                  ].map((metric, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.3 + i * 0.15 }}
+                      className="flex items-center justify-between py-2.5 border-b border-[#f0f0f5] last:border-0"
+                    >
+                      <span className="text-[#1a1a2e]/70 text-sm">{metric.label}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold" style={{ color: metric.color }}>{metric.value}</span>
+                        <span className="text-[#1a1a2e]/35 text-xs">{metric.sub}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+
+                  {/* Wat Q heeft gedaan */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.75 }}
+                    className="rounded-xl px-4 py-3.5 space-y-2"
+                    style={{ background: "#f7f4ff" }}
+                  >
+                    <p className="text-[#623bc7] text-xs font-semibold tracking-wide uppercase">Wat Q heeft gedaan</p>
+                    {[
+                      "H1 en meta description homepage herschreven",
+                      "2 pagina's 40% sneller gemaakt (Core Web Vitals)",
+                      "Contactformulier boven de fold geplaatst",
+                    ].map((action, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -8 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.25, delay: 0.85 + i * 0.12 }}
+                        className="flex items-start gap-2"
+                      >
+                        <svg className="w-3.5 h-3.5 text-[#623bc7] mt-0.5 shrink-0" fill="none" viewBox="0 0 12 12">
+                          <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <span className="text-[#1a1a2e]/70 text-xs leading-relaxed">{action}</span>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+
+                  {/* Footer */}
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 1.2 }}
+                    className="text-[#1a1a2e]/35 text-xs pt-1"
+                  >
+                    Volgende rapport verschijnt automatisch op 1 juni.
+                  </motion.p>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
