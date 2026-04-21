@@ -582,6 +582,7 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
+              className="order-2 lg:order-1"
             >
               {/* Chat mockup */}
               <div className="rounded-2xl overflow-hidden border border-white/10" style={{ boxShadow: "0 0 50px rgba(98,59,199,0.15)" }}>
@@ -637,6 +638,7 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
+              className="order-1 lg:order-2"
             >
               <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-4">Altijd bereikbaar</p>
               <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-5">
