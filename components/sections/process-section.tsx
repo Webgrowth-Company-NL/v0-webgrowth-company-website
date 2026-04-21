@@ -529,9 +529,11 @@ export function ProcessSection() {
               transition={{ duration: 0.55, delay: 0.1 }}
             >
               {/* Chat mockup */}
-              <div className="rounded-2xl border border-white/8 p-6" style={{ background: "rgba(255,255,255,0.03)" }}>
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/6">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff0096] to-[#623bc7] flex items-center justify-center text-white text-xs font-black">Q</div>
+              <div className="rounded-2xl overflow-hidden border border-white/10" style={{ boxShadow: "0 0 50px rgba(98,59,199,0.15)" }}>
+
+                {/* Header — donker */}
+                <div className="flex items-center gap-3 px-5 py-4" style={{ background: "#0d0015" }}>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff0096] to-[#623bc7] flex items-center justify-center text-white text-xs font-black shrink-0">Q</div>
                   <div>
                     <p className="text-white text-sm font-semibold">Q</p>
                     <div className="flex items-center gap-1.5">
@@ -540,32 +542,32 @@ export function ProcessSection() {
                     </div>
                   </div>
                 </div>
-                <div className="space-y-3">
+
+                {/* Body — wit */}
+                <div className="bg-white px-5 py-5 space-y-3">
                   {[
                     { from: "jij", text: "Kunnen we de openingstijden aanpassen op de contactpagina? We zijn volgende week dinsdag dicht, thanks!" },
-                    { from: "q", text: "Geregeld. Dinsdag staat als gesloten, en de structured data heb ik ook bijgewerkt zodat Google het direct overneemt." },
+                    { from: "q",   text: "Geregeld. Dinsdag staat als gesloten, en de structured data heb ik ook bijgewerkt zodat Google het direct overneemt." },
                     { from: "jij", text: "Wauw dat was snel 👍" },
-                    { from: "q", text: "Altijd. Laat het weten als er meer is." },
+                    { from: "q",   text: "Altijd. Laat het weten als er meer is." },
                   ].map((msg, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, y: 6 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: i * 0.1 }}
+                      transition={{ duration: 0.28, delay: 0.2 + i * 0.65, ease: "easeOut" }}
                       className={`flex ${msg.from === "jij" ? "justify-end" : "justify-start"}`}
                     >
                       <div
-                        className={`max-w-[80%] rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
+                        className={`max-w-[78%] px-4 py-2.5 text-sm leading-relaxed ${
                           msg.from === "jij"
-                            ? "text-white/80 border border-white/10"
-                            : "text-white border border-[#623bc7]/25"
+                            ? "text-white rounded-2xl rounded-br-sm"
+                            : "text-[#1a1a2e] bg-[#f0f0f5] rounded-2xl rounded-bl-sm"
                         }`}
-                        style={{
-                          background: msg.from === "jij"
-                            ? "rgba(255,255,255,0.05)"
-                            : "linear-gradient(135deg, rgba(98,59,199,0.2) 0%, rgba(98,59,199,0.1) 100%)",
-                        }}
+                        style={msg.from === "jij" ? {
+                          background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
+                        } : {}}
                       >
                         {msg.text}
                       </div>
