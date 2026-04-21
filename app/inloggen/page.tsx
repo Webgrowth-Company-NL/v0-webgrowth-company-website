@@ -29,7 +29,7 @@ export default function LoginPage() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors"
+                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors"
                   placeholder="naam@bedrijf.nl"
                 />
               </div>
@@ -41,7 +41,7 @@ export default function LoginPage() {
                 <input
                   type="password"
                   id="password"
-                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors"
+                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors"
                   placeholder="••••••••"
                 />
               </div>

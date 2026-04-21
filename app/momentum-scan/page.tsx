@@ -34,7 +34,7 @@ export default function MomentumScanPage() {
                   <input
                     type="text"
                     id="name"
-                    className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors"
+                    className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors"
                     placeholder="Je naam"
                   />
                 </div>
@@ -46,7 +46,7 @@ export default function MomentumScanPage() {
                   <input
                     type="text"
                     id="company"
-                    className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors"
+                    className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors"
                     placeholder="Je bedrijf"
                   />
                 </div>
@@ -59,7 +59,7 @@ export default function MomentumScanPage() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors"
+                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors"
                   placeholder="naam@bedrijf.nl"
                 />
               </div>
@@ -71,7 +71,7 @@ export default function MomentumScanPage() {
                 <input
                   type="url"
                   id="website"
-                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors"
+                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors"
                   placeholder="https://jouwwebsite.nl"
                 />
               </div>
@@ -83,7 +83,7 @@ export default function MomentumScanPage() {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#ff0096] transition-colors resize-none"
+                  className="w-full bg-[#0d0015] border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/55 focus:outline-none focus:border-[#ff0096] transition-colors resize-none"
                   placeholder="Vertel ons meer over je doelen..."
                 />
               </div>

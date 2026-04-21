@@ -60,7 +60,7 @@ export function ComparisonSection() {
         {/* Header */}
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="rounded-xl px-5 py-3 border border-white/8 bg-white/[0.02]">
-            <p className="text-white/40 text-xs font-semibold tracking-widest uppercase">Traditioneel bureau</p>
+            <p className="text-white/55 text-xs font-semibold tracking-widest uppercase">Traditioneel bureau</p>
           </div>
           <div className="rounded-xl px-5 py-3 border border-[#ff0096]/20" style={{ background: "rgba(255,0,150,0.07)" }}>
             <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase">Webgrowth</p>
@@ -83,7 +83,7 @@ export function ComparisonSection() {
                 <div className="w-5 h-5 rounded-full bg-red-500/15 flex items-center justify-center shrink-0">
                   <X className="w-3 h-3 text-red-400 stroke-[3]" />
                 </div>
-                <span className="text-white/45 text-sm leading-snug">{row.traditional}</span>
+                <span className="text-white/55 text-sm leading-snug">{row.traditional}</span>
               </div>
 
               {/* Webgrowth */}

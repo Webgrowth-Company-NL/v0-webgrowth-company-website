@@ -53,7 +53,7 @@ export function Footer() {
           {/* Nav columns */}
           {nav.map((col) => (
             <div key={col.heading}>
-              <p className="text-white/40 text-[11px] font-semibold tracking-widest uppercase mb-4">
+              <p className="text-white/55 text-[11px] font-semibold tracking-widest uppercase mb-4">
                 {col.heading}
               </p>
               <ul className="space-y-2.5">
@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Contact column */}
           <div>
-            <p className="text-white/40 text-[11px] font-semibold tracking-widest uppercase mb-4">Contact</p>
+            <p className="text-white/55 text-[11px] font-semibold tracking-widest uppercase mb-4">Contact</p>
             <ul className="space-y-2.5">
               <li>
                 <a href="tel:+31762045010" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
@@ -106,10 +106,10 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/6 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/35 text-xs">
+          <p className="text-white/50 text-xs">
             &copy; {new Date().getFullYear()} Webgrowth Company. Alle rechten voorbehouden.
           </p>
-          <p className="text-white/35 text-xs">KvK 64809536 · BTW NL001363277B13</p>
+          <p className="text-white/50 text-xs">KvK 64809536 · BTW NL001363277B13</p>
         </div>
 
       </div>

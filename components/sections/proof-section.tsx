@@ -48,7 +48,7 @@ export function ProofSection() {
                   className="rounded-xl px-4 py-3.5 border border-white/8 bg-white/[0.04]"
                 >
                   <p className="text-2xl font-black text-white">{stat.value}</p>
-                  <p className="text-white/45 text-xs mt-0.5">{stat.label}</p>
+                  <p className="text-white/55 text-xs mt-0.5">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -91,7 +91,7 @@ export function ProofSection() {
                   </div>
                   <div>
                     <p className="text-white font-medium text-sm">Webgrowth Team</p>
-                    <p className="text-white/45 text-xs">team@webgrowth.nl</p>
+                    <p className="text-white/55 text-xs">team@webgrowth.nl</p>
                   </div>
                 </div>
               </div>

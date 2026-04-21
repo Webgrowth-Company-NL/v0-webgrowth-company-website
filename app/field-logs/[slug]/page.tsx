@@ -1109,15 +1109,15 @@ export default async function FieldLogPost({ params }: { params: Promise<{ slug:
         <section className="relative pt-36 pb-0 px-5 sm:px-8 overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#623bc7]/10 blur-[150px] pointer-events-none" />
           <div className="relative z-10 max-w-3xl mx-auto">
-            <Link href="/field-logs" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm mb-8 transition-colors">
+            <Link href="/field-logs" className="inline-flex items-center gap-2 text-white/55 hover:text-white text-sm mb-8 transition-colors">
               <ArrowLeft className="w-3.5 h-3.5" /> Alle field logs
             </Link>
             <div className="flex items-center gap-3 mb-5">
               <span className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase">{post.tag}</span>
               <span className="text-white/20 text-xs">·</span>
-              <time dateTime={post.dateTime} className="text-white/40 text-xs">{post.date}</time>
+              <time dateTime={post.dateTime} className="text-white/55 text-xs">{post.date}</time>
               <span className="text-white/20 text-xs">·</span>
-              <span className="text-white/40 text-xs">{post.readTime} leestijd</span>
+              <span className="text-white/55 text-xs">{post.readTime} leestijd</span>
             </div>
             <h1 className="font-[family-name:var(--font-gottak)] text-[clamp(2rem,5vw,3.5rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
               {post.title}
@@ -1179,7 +1179,7 @@ export default async function FieldLogPost({ params }: { params: Promise<{ slug:
             {/* Related articles */}
             {relatedPosts.length > 0 && (
               <div className="mb-16 border-t border-white/8 pt-12">
-                <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-6">Meer lezen</p>
+                <p className="text-white/55 text-xs font-semibold tracking-widest uppercase mb-6">Meer lezen</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {relatedPosts.map((related) => (
                     <Link key={related.slug} href={`/field-logs/${related.slug}`} className="group rounded-2xl border border-white/8 hover:border-white/15 overflow-hidden transition-all duration-200" style={{ background: "rgba(255,255,255,0.03)" }}>

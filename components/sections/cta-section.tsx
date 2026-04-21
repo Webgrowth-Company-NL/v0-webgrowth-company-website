@@ -53,7 +53,7 @@ export function CTASection() {
                   Liever direct bellen?
                 </Link>
               </div>
-              <p className="mt-6 text-white/35 text-xs">Eerlijk gesprek. Geen pitch, geen verplichtingen.</p>
+              <p className="mt-6 text-white/50 text-xs">Eerlijk gesprek. Geen pitch, geen verplichtingen.</p>
             </div>
 
             {/* Right: image */}

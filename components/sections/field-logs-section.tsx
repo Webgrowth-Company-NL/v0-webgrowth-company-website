@@ -73,9 +73,9 @@ export function FieldLogsSection() {
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-3 mb-3">
-                    <time dateTime={log.dateTime} className="text-white/40 text-xs">{log.date}</time>
+                    <time dateTime={log.dateTime} className="text-white/55 text-xs">{log.date}</time>
                     <span className="text-white/20 text-xs" aria-hidden>·</span>
-                    <span className="text-white/40 text-xs">{log.readTime} leestijd</span>
+                    <span className="text-white/55 text-xs">{log.readTime} leestijd</span>
                   </div>
                   <h3 className="font-[family-name:var(--font-gottak)] text-lg font-black text-white mb-3 leading-snug">
                     {log.title}

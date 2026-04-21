@@ -48,7 +48,7 @@ export function ProcessSection() {
                 Of doe eerst de gratis website APK
               </Link>
             </div>
-            <p className="mt-6 text-white/40 text-xs">Vanaf €399/maand · alles inbegrepen · <Link href="/prijzen" className="underline underline-offset-2 hover:text-white/60 transition-colors">bekijk de pakketten</Link></p>
+            <p className="mt-6 text-white/55 text-xs">Vanaf €399/maand · alles inbegrepen · <Link href="/prijzen" className="underline underline-offset-2 hover:text-white/60 transition-colors">bekijk de pakketten</Link></p>
           </motion.div>
 
           {/* Timeline bar */}
@@ -70,7 +70,7 @@ export function ProcessSection() {
                 className="rounded-xl px-4 py-3 border border-white/8 flex flex-col gap-1"
                 style={{ background: `${item.color}10` }}
               >
-                <span className="text-white/45 text-[10px] font-semibold tracking-widest uppercase">{item.week}</span>
+                <span className="text-white/55 text-[10px] font-semibold tracking-widest uppercase">{item.week}</span>
                 <span className="text-white font-bold text-sm" style={{ color: item.color }}>{item.label}</span>
               </div>
             ))}
@@ -207,12 +207,12 @@ export function ProcessSection() {
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-5">
                     <span className="text-xs font-black tracking-widest uppercase" style={{ color: sprint.accent }}>{sprint.nr}</span>
-                    <span className="text-white/40 text-xs">{sprint.week}</span>
+                    <span className="text-white/55 text-xs">{sprint.week}</span>
                   </div>
                   <p className="font-[family-name:var(--font-gottak)] text-white font-black text-xl mb-3">{sprint.title}</p>
                   <p className="text-white/55 text-sm leading-relaxed flex-1 mb-6">{sprint.body}</p>
                   <div className="pt-4 border-t border-white/6">
-                    <p className="text-white/40 text-xs">{sprint.detail}</p>
+                    <p className="text-white/55 text-xs">{sprint.detail}</p>
                   </div>
                 </div>
               </motion.div>
@@ -389,7 +389,7 @@ export function ProcessSection() {
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff0096] to-[#623bc7] flex items-center justify-center text-white text-xs font-black shrink-0">Q</div>
                     <div>
                       <p className="text-white text-sm font-semibold">Momentum Report</p>
-                      <p className="text-white/40 text-xs">Mei 2025 · webgrowth.company</p>
+                      <p className="text-white/55 text-xs">Mei 2025 · webgrowth.company</p>
                     </div>
                   </div>
                   <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full text-white" style={{ background: "rgba(255,0,150,0.25)", border: "1px solid rgba(255,0,150,0.3)" }}>Nieuw</span>
@@ -514,7 +514,7 @@ export function ProcessSection() {
               <p className="font-[family-name:var(--font-gottak)] text-white font-black text-2xl md:text-3xl leading-snug mb-1">
                 Klinkt dit als wat jij nodig hebt?
               </p>
-              <p className="text-white/45 text-sm">30 minuten kennismaken. Gratis en online, geen verplichtingen.</p>
+              <p className="text-white/55 text-sm">30 minuten kennismaken. Gratis en online, geen verplichtingen.</p>
             </div>
             <div className="flex flex-col gap-1.5 shrink-0">
               <Link
@@ -523,7 +523,7 @@ export function ProcessSection() {
               >
                 Boek een kennismaking <ArrowRight className="w-4 h-4" />
               </Link>
-              <span className="text-white/40 text-xs text-center">Vanaf €399/maand · alles inbegrepen</span>
+              <span className="text-white/55 text-xs text-center">Vanaf €399/maand · alles inbegrepen</span>
             </div>
           </motion.div>
 
@@ -571,7 +571,7 @@ export function ProcessSection() {
           {/* Divider with label */}
           <div className="flex items-center gap-4 mb-16">
             <div className="flex-1 h-px bg-white/8" />
-            <span className="text-white/40 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border border-white/8" style={{ background: "rgba(255,255,255,0.03)" }}>
+            <span className="text-white/55 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border border-white/8" style={{ background: "rgba(255,255,255,0.03)" }}>
               Goed om te weten
             </span>
             <div className="flex-1 h-px bg-white/8" />
@@ -594,7 +594,7 @@ export function ProcessSection() {
                     <p className="text-white text-sm font-semibold">Q</p>
                     <div className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      <span className="text-white/40 text-xs">Online</span>
+                      <span className="text-white/55 text-xs">Online</span>
                     </div>
                   </div>
                 </div>

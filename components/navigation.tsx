@@ -56,7 +56,7 @@ export function Navigation() {
                 ))}
               </div>
               <span className="font-semibold text-white">9.4</span>
-              <span className="text-white/40">/10</span>
+              <span className="text-white/55">/10</span>
             </div>
           </div>
 
