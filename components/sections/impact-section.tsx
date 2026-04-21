@@ -72,7 +72,7 @@ export function ImpactSection() {
                 </span>
               </div>
               <p className="text-[#0d0015] font-black text-base mb-2">{stat.label}</p>
-              <p className="text-[#0d0015]/45 text-sm leading-relaxed">{stat.description}</p>
+              <p className="text-[#0d0015]/65 text-sm leading-relaxed">{stat.description}</p>
             </motion.div>
           ))}
         </div>

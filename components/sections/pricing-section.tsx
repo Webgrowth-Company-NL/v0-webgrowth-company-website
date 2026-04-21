@@ -178,14 +178,14 @@ export function PricingSection() {
                       >
                         <Icon className="w-4 h-4" style={{ color: plan.accent }} />
                       </div>
-                      <span className="text-white/40 text-[11px] font-semibold tracking-widest uppercase">{plan.name}</span>
+                      <span className="text-white/50 text-[11px] font-semibold tracking-widest uppercase">{plan.name}</span>
                     </div>
 
                     {/* Price */}
                     <div className="mb-4">
                       <div className="flex items-baseline gap-1.5">
                         <span className="font-[family-name:var(--font-gottak)] text-5xl font-black text-white">€{plan.price}</span>
-                        <span className="text-white/35 text-sm">/maand</span>
+                        <span className="text-white/45 text-sm">/maand</span>
                       </div>
                     </div>
 
@@ -233,7 +233,7 @@ export function PricingSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
           >
-            <p className="text-white/20 text-xs">Alle prijzen zijn excl. BTW. Minimale looptijd 1 jaar, daarna maandelijks opzegbaar.</p>
+            <p className="text-white/45 text-xs">Alle prijzen zijn excl. BTW. Minimale looptijd 1 jaar, daarna maandelijks opzegbaar.</p>
             <Link href="/hoe-het-werkt" className="text-[#a78bfa] text-xs font-semibold hover:text-white transition-colors duration-200 shrink-0">
               Hoe werkt het proces? →
             </Link>

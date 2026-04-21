@@ -101,7 +101,7 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="border-t border-white/8 pt-10"
         >
-          <p className="text-white/25 text-xs font-semibold tracking-widest uppercase mb-6">Werken al samen met Q</p>
+          <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-6">Werken al samen met Q</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {clients.map((c, i) => (
               <motion.div

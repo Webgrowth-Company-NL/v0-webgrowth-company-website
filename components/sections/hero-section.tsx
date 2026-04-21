@@ -204,7 +204,7 @@ export function HeroSection() {
               </div>
               <div>
                 <p className="text-white text-sm font-semibold">300+ MKB bedrijven</p>
-                <p className="text-white/35 text-xs">gingen je voor</p>
+                <p className="text-white/45 text-xs">gingen je voor</p>
               </div>
             </motion.div>
           </div>
@@ -224,7 +224,7 @@ export function HeroSection() {
               }}
             >
               <div className="flex items-center justify-between mb-5">
-                <p className="text-white/35 text-[11px] font-semibold uppercase tracking-widest">Forester OS</p>
+                <p className="text-white/45 text-[11px] font-semibold uppercase tracking-widest">Forester OS</p>
                 <div className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
                   <span className="text-emerald-400 text-xs font-medium">Live</span>
@@ -248,7 +248,7 @@ export function HeroSection() {
                       <stat.icon className="w-4 h-4" style={{ color: stat.color }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-white/35 text-[11px] truncate">{stat.label}</p>
+                      <p className="text-white/45 text-[11px] truncate">{stat.label}</p>
                       <p className="text-white font-black text-lg leading-tight">{stat.value}</p>
                     </div>
                     <span
@@ -263,7 +263,7 @@ export function HeroSection() {
 
               <div className="mt-4 pt-4 border-t border-white/8">
                 <div className="flex items-center justify-between">
-                  <p className="text-white/25 text-xs">Bijgewerkt 2 min geleden</p>
+                  <p className="text-white/40 text-xs">Bijgewerkt 2 min geleden</p>
                   <div className="flex gap-1">
                     {[...Array(7)].map((_, i) => (
                       <div

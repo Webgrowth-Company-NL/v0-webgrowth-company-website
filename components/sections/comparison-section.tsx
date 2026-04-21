@@ -60,7 +60,7 @@ export function ComparisonSection() {
         {/* Header */}
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div className="rounded-xl px-5 py-3 border border-white/8 bg-white/[0.02]">
-            <p className="text-white/30 text-xs font-semibold tracking-widest uppercase">Traditioneel bureau</p>
+            <p className="text-white/40 text-xs font-semibold tracking-widest uppercase">Traditioneel bureau</p>
           </div>
           <div className="rounded-xl px-5 py-3 border border-[#ff0096]/20" style={{ background: "rgba(255,0,150,0.07)" }}>
             <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase">Webgrowth</p>
