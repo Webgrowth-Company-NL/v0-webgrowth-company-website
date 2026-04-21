@@ -303,11 +303,14 @@ export function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.35 }}
-                className="rounded-xl border border-[#623bc7]/30 px-5 py-4"
-                style={{ background: "linear-gradient(135deg, rgba(98,59,199,0.15) 0%, rgba(98,59,199,0.07) 100%)" }}
+                className="rounded-xl border border-[#8b5cf6]/30 px-5 py-4 flex items-center gap-5"
+                style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(98,59,199,0.07) 100%)" }}
               >
-                <p className="text-white font-semibold text-sm mb-1">Na de livegang</p>
-                <p className="text-white/55 text-xs leading-relaxed">DNS overgezet, SSL actief. We monitoren de eerste 48 uur. Forester OS en Google Search Console worden gekoppeld zodat Q direct begint met meten.</p>
+                <span className="text-5xl leading-none shrink-0">🍻</span>
+                <div>
+                  <p className="text-white font-semibold text-sm mb-1">Na de livegang</p>
+                  <p className="text-white/55 text-xs leading-relaxed">DNS overgezet, SSL actief. We monitoren de eerste 48 uur. Forester OS en Google Search Console worden gekoppeld zodat Q direct begint met meten.</p>
+                </div>
               </motion.div>
             </motion.div>
           </div>
