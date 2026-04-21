@@ -125,13 +125,12 @@ export function ProcessSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: i * 0.08 }}
-                  className="flex gap-4 rounded-2xl border border-white/8 px-5 py-4"
-                  style={{ background: "rgba(255,255,255,0.03)" }}
+                  className="flex gap-4 rounded-2xl border border-white/10 px-5 py-4 bg-white"
                 >
                   <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-[#ff0096] shrink-0" />
                   <div>
-                    <p className="text-white font-semibold text-sm mb-0.5">{item.label}</p>
-                    <p className="text-white/55 text-sm leading-relaxed">{item.body}</p>
+                    <p className="text-[#0d0818] font-semibold text-sm mb-0.5">{item.label}</p>
+                    <p className="text-[#0d0818]/60 text-sm leading-relaxed">{item.body}</p>
                   </div>
                 </motion.div>
               ))}
