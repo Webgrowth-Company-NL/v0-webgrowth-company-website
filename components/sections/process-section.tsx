@@ -498,34 +498,6 @@ export function ProcessSection() {
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
-            >
-              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Altijd bereikbaar</p>
-              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
-                Jij stuurt een appje.<br />
-                <span style={{
-                  background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}>
-                  Q regelt het.
-                </span>
-              </h2>
-              <p className="text-white/65 text-lg leading-relaxed mb-8">
-                Heb je een vraag, wil je iets aanpassen of valt er iets op? Stuur Q een appje. Geen ticket, geen wachtrij, geen uur debriefing plannen. Stuur een bericht en het is geregeld.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-[#a78bfa] text-sm font-semibold hover:text-white transition-colors duration-200"
-              >
-                Stuur ons een bericht <span className="text-base leading-none">→</span>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
             >
               {/* Chat mockup */}
@@ -575,6 +547,34 @@ export function ProcessSection() {
                   ))}
                 </div>
               </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+            >
+              <p className="text-[#ff0096] text-xs font-semibold tracking-widest uppercase mb-5">Altijd bereikbaar</p>
+              <h2 className="font-[family-name:var(--font-gottak)] text-[clamp(2.2rem,4.5vw,3.8rem)] font-black text-white leading-[1.06] tracking-tight mb-6">
+                Jij stuurt een appje.<br />
+                <span style={{
+                  background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}>
+                  Q regelt het.
+                </span>
+              </h2>
+              <p className="text-white/65 text-lg leading-relaxed mb-8">
+                Heb je een vraag, wil je iets aanpassen of valt er iets op? Stuur Q een appje. Geen ticket, geen wachtrij, geen uur debriefing plannen. Stuur een bericht en het is geregeld.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-[#a78bfa] text-sm font-semibold hover:text-white transition-colors duration-200"
+              >
+                Stuur ons een bericht <span className="text-base leading-none">→</span>
+              </Link>
             </motion.div>
           </div>
         </div>
