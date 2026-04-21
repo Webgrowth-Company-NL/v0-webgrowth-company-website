@@ -199,20 +199,19 @@ export function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="relative rounded-2xl border border-white/8 overflow-hidden flex flex-col"
-                style={{ background: "rgba(255,255,255,0.03)" }}
+                className="relative rounded-2xl border border-white/10 overflow-hidden flex flex-col bg-white"
               >
                 {/* Accent top bar */}
                 <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${sprint.accent}, transparent)` }} />
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-5">
                     <span className="text-xs font-black tracking-widest uppercase" style={{ color: sprint.accent }}>{sprint.nr}</span>
-                    <span className="text-white/25 text-xs">{sprint.week}</span>
+                    <span className="text-[#0d0818]/30 text-xs">{sprint.week}</span>
                   </div>
-                  <p className="font-[family-name:var(--font-gottak)] text-white font-black text-xl mb-3">{sprint.title}</p>
-                  <p className="text-white/55 text-sm leading-relaxed flex-1 mb-6">{sprint.body}</p>
-                  <div className="pt-4 border-t border-white/6">
-                    <p className="text-white/30 text-xs">{sprint.detail}</p>
+                  <p className="font-[family-name:var(--font-gottak)] text-[#0d0818] font-black text-xl mb-3">{sprint.title}</p>
+                  <p className="text-[#0d0818]/55 text-sm leading-relaxed flex-1 mb-6">{sprint.body}</p>
+                  <div className="pt-4 border-t border-[#0d0818]/8">
+                    <p className="text-[#0d0818]/30 text-xs">{sprint.detail}</p>
                   </div>
                 </div>
               </motion.div>
