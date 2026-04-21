@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Star } from "lucide-react"
+import { Star, ArrowRight } from "lucide-react"
 
 export function ProcessSection() {
   return (
@@ -37,10 +37,9 @@ export function ProcessSection() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-black text-white transition-all duration-200 hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)" }}
+                className="inline-flex items-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
               >
-                Boek een kennismaking <span className="text-base leading-none">→</span>
+                Boek een kennismaking <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/website-apk"
@@ -436,10 +435,9 @@ export function ProcessSection() {
             <div className="flex flex-col gap-1.5 shrink-0">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-black text-white transition-all duration-200 hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #ff0096 0%, #623bc7 100%)" }}
+                className="inline-flex items-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
               >
-                Boek een kennismaking <span className="text-base leading-none">→</span>
+                Boek een kennismaking <ArrowRight className="w-4 h-4" />
               </Link>
               <span className="text-white/25 text-xs text-center">Vanaf €399/maand · alles inbegrepen</span>
             </div>
