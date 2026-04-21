@@ -26,7 +26,7 @@ const nav = [
     links: [
       { label: "Gratis website APK", href: "/website-apk" },
       { label: "Momentum Scan", href: "/momentum-scan" },
-      { label: "Prijzen", href: "/#prijzen" },
+      { label: "Prijzen", href: "/prijzen" },
     ],
   },
 ]
@@ -45,12 +45,36 @@ export function Footer() {
                 Webgrowth
               </span>
             </Link>
-            <p className="text-white/80 text-sm leading-relaxed max-w-xs">
+            <p className="text-white/80 text-sm leading-relaxed max-w-xs mb-6">
               Websites voor het MKB die blijven groeien. Gebouwd, gemeten en elke maand verbeterd door Q.
             </p>
-            <p className="text-white/20 text-xs mt-5">
-              team@webgrowth.nl
-            </p>
+
+            {/* Contact */}
+            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-3">Contact</p>
+            <div className="space-y-1.5 mb-5">
+              <a href="tel:+31762045010" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">+31 (0)76 20 45 010</a>
+              <a href="mailto:martijn@webgrowth.company" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">martijn@webgrowth.company</a>
+            </div>
+
+            {/* Address */}
+            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-3">Marketing Genius</p>
+            <address className="not-italic text-white/60 text-sm leading-relaxed mb-5">
+              Ceresstraat 13<br />
+              4811 CA Breda
+            </address>
+
+            {/* Legal */}
+            <p className="text-white/25 text-[11px] font-semibold tracking-widest uppercase mb-3">Legal</p>
+            <div className="space-y-1.5 mb-5">
+              <Link href="/voorwaarden" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">Algemene Voorwaarden</Link>
+              <Link href="/privacy" className="block text-white/60 text-sm hover:text-white transition-colors duration-150">Privacyverklaring</Link>
+            </div>
+
+            {/* Registration */}
+            <div className="space-y-1">
+              <p className="text-white/25 text-xs">KvK: 64809536</p>
+              <p className="text-white/25 text-xs">BTW: NL001363277B13</p>
+            </div>
           </div>
 
           {/* Nav columns */}
@@ -79,14 +103,7 @@ export function Footer() {
           <p className="text-white/20 text-xs">
             &copy; {new Date().getFullYear()} Webgrowth Company. Alle rechten voorbehouden.
           </p>
-          <div className="flex items-center gap-5">
-            <Link href="/privacy" className="text-white/20 text-xs hover:text-white/80 transition-colors">
-              Privacybeleid
-            </Link>
-            <Link href="/voorwaarden" className="text-white/20 text-xs hover:text-white/80 transition-colors">
-              Algemene voorwaarden
-            </Link>
-          </div>
+          <p className="text-white/20 text-xs">KvK 64809536 · BTW NL001363277B13</p>
         </div>
 
       </div>
