@@ -10,6 +10,7 @@ const nav = [
       { label: "SEO & vindbaarheid", href: "/seo" },
       { label: "Momentum Reports", href: "/momentum-reports" },
       { label: "Live dashboard", href: "/dashboard" },
+      { label: "HubSpot alternatief", href: "/hubspot-alternatief" },
     ],
   },
   {
