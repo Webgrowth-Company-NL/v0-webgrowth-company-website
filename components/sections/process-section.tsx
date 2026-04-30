@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Star, ArrowRight } from "lucide-react"
+import { Star } from "lucide-react"
+import { CtaButton } from "@/components/ui/cta-button"
 
 export function ProcessSection() {
   return (
@@ -35,18 +36,8 @@ export function ProcessSection() {
               In 6 tot 8 weken bouwen we samen iets goeds. Daarna bouwen we verder aan iets grandioos.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
-              >
-                Boek een kennismaking <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/website-apk"
-                className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm font-semibold transition-colors duration-200"
-              >
-                Gratis website APK
-              </Link>
+              <CtaButton href="/contact" variant="primary">Boek een kennismaking</CtaButton>
+              <CtaButton href="/website-apk" variant="secondary">Doe de gratis website APK</CtaButton>
             </div>
             <p className="mt-5 text-white/55 text-xs">Vanaf €399/maand · alles inbegrepen · <Link href="/prijzen" className="underline underline-offset-2 hover:text-white/60 transition-colors">bekijk de pakketten</Link></p>
           </motion.div>
@@ -516,12 +507,7 @@ export function ProcessSection() {
               <p className="text-white/55 text-sm">30 minuten kennismaken. Gratis en online, geen verplichtingen.</p>
             </div>
             <div className="flex flex-col gap-1.5 shrink-0">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
-              >
-                Boek een kennismaking <ArrowRight className="w-4 h-4" />
-              </Link>
+              <CtaButton href="/contact" variant="primary">Boek een kennismaking</CtaButton>
               <span className="text-white/55 text-xs text-center">Vanaf €399/maand · alles inbegrepen</span>
             </div>
           </motion.div>

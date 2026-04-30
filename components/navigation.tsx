@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Menu, X, Lock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { CtaButton } from "@/components/ui/cta-button"
 
 const navLinks = [
   { href: "/hoe-het-werkt", label: "Hoe het werkt" },
@@ -68,12 +69,9 @@ export function Navigation() {
               Inloggen
               <Lock className="w-3 h-3" />
             </Link>
-            <Link
-              href="/momentum-scan"
-              className="bg-[#ff0096] hover:bg-[#ff0096]/90 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-105"
-            >
-              Start je Momentum Scan
-            </Link>
+            <CtaButton href="/contact" variant="primary" withIcon={false}>
+              Boek een kennismaking
+            </CtaButton>
           </div>
 
           <button
@@ -112,13 +110,14 @@ export function Navigation() {
             >
               Inloggen <Lock className="w-3.5 h-3.5" />
             </Link>
-            <Link
-              href="/momentum-scan"
-              className="block bg-[#ff0096] text-white px-5 py-2.5 rounded-full text-sm font-semibold text-center"
-              onClick={() => setOpen(false)}
+            <CtaButton
+              href="/contact"
+              variant="primary"
+              withIcon={false}
+              className="w-full"
             >
-              Start je Momentum Scan
-            </Link>
+              Boek een kennismaking
+            </CtaButton>
           </div>
         </motion.div>
       )}

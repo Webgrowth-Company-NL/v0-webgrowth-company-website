@@ -4,21 +4,19 @@ import Link from "next/link"
 
 const nav = [
   {
-    heading: "Diensten",
+    heading: "Platform",
     links: [
-      { label: "Website bouwen", href: "/website-bouwen" },
-      { label: "SEO & vindbaarheid", href: "/seo" },
-      { label: "Momentum Reports", href: "/momentum-reports" },
-      { label: "Live dashboard", href: "/dashboard" },
+      { label: "Hoe het werkt", href: "/hoe-het-werkt" },
+      { label: "Prijzen", href: "/prijzen" },
       { label: "HubSpot alternatief", href: "/hubspot-alternatief" },
+      { label: "Field logs", href: "/field-logs" },
     ],
   },
   {
     heading: "Bedrijf",
     links: [
       { label: "Over ons", href: "/over-ons" },
-      { label: "Hoe het werkt", href: "/hoe-het-werkt" },
-      { label: "Cases", href: "/cases" },
+      { label: "Succesverhalen", href: "/succesverhalen" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -27,7 +25,7 @@ const nav = [
     links: [
       { label: "Gratis website APK", href: "/website-apk" },
       { label: "Momentum Scan", href: "/momentum-scan" },
-      { label: "Prijzen", href: "/prijzen" },
+      { label: "Boek kennismaking", href: "/contact" },
     ],
   },
 ]
@@ -92,12 +90,12 @@ export function Footer() {
                 </address>
               </li>
               <li className="pt-1">
-                <Link href="/voorwaarden" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
-                  Algemene Voorwaarden
+                <Link href="/algemene-voorwaarden" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
+                  Algemene voorwaarden
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
+                <Link href="/privacyverklaring" className="text-white/60 text-sm hover:text-white transition-colors duration-150">
                   Privacyverklaring
                 </Link>
               </li>

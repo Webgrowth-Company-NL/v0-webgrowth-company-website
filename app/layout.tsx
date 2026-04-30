@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
+import { KennismakingProvider } from '@/components/kennismaking-provider'
 import './globals.css'
 
 const inter = Inter({ 
@@ -38,6 +39,7 @@ const gottakBody = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://webgrowth.company'),
   title: 'Forester OS — Groeiplatform voor het MKB | Webgrowth',
   description: 'De meeste bureaus bouwen je website en verdwijnen. Wij niet. Elke maand weet jij precies wat er is gebeurd en wat het heeft opgeleverd. Breda, heel Nederland.',
   generator: 'v0.app',
@@ -146,7 +148,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${gottakBody.variable} ${gottak.variable} font-sans antialiased`}>
-        {children}
+        <KennismakingProvider>
+          {children}
+        </KennismakingProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

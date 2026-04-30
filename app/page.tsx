@@ -1,31 +1,29 @@
 import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/sections/hero-section"
-import { ProblemSection } from "@/components/sections/problem-section"
-import { SystemSection } from "@/components/sections/system-section"
-import { ComparisonSection } from "@/components/sections/comparison-section"
-import { HowItWorksSection } from "@/components/sections/how-it-works-section"
-import { TestimonialsSection } from "@/components/sections/testimonials-section"
-import { PricingSection } from "@/components/sections/pricing-section"
-import { FaqSection } from "@/components/sections/faq-section"
-import { FieldLogsSection } from "@/components/sections/field-logs-section"
-import { CTASection } from "@/components/sections/cta-section"
+import { HomeV2Hero } from "@/components/sections/home-v2-hero"
+import { TrustBar } from "@/components/sections/trust-bar"
+import { HomeV2Probleem } from "@/components/sections/home-v2-probleem"
+import { HomeV2VoorWie } from "@/components/sections/home-v2-voor-wie"
+import { HomeV2QKarakter } from "@/components/sections/home-v2-q-karakter"
+import { HomeV2ForesterInActie } from "@/components/sections/home-v2-forester-in-actie"
+import { HomeV2RoiPreview } from "@/components/sections/home-v2-roi-preview"
+import { HomeV2Stemmen } from "@/components/sections/home-v2-stemmen"
+import { HomeV2Cta } from "@/components/sections/home-v2-cta"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
     <>
       <Navigation />
-      <main>
-        <HeroSection />
-        <ProblemSection />
-        <ComparisonSection />
-        <HowItWorksSection />
-        <SystemSection />
-        <TestimonialsSection />
-        <PricingSection />
-        <FaqSection />
-        <FieldLogsSection />
-        <CTASection />
+      <main className="bg-[#0d0818]">
+        <HomeV2Hero />
+        <TrustBar />
+        <HomeV2Probleem />
+        <HomeV2VoorWie />
+        <HomeV2QKarakter />
+        <HomeV2ForesterInActie />
+        <HomeV2RoiPreview />
+        <HomeV2Stemmen />
+        <HomeV2Cta />
       </main>
       <Footer />
     </>

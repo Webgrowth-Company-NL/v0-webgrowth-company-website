@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Check, Globe, Zap, Rocket, BarChart2, Users, Shield, Wrench, ArrowRight } from "lucide-react"
+import { Check, Globe, Zap, Rocket, BarChart2, Users, Shield, Wrench } from "lucide-react"
 import Link from "next/link"
+import { CtaButton } from "@/components/ui/cta-button"
 
 const plans = [
   {
@@ -210,16 +211,14 @@ export function PricingSection() {
                       ))}
                     </ul>
 
-                    <Link
+                    <CtaButton
                       href={plan.ctaLink}
-                      className={`inline-flex items-center justify-center gap-2 w-full py-2.5 px-5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                        plan.popular
-                          ? "bg-[#ff0096] hover:bg-[#e6007f] text-white hover:scale-[1.03]"
-                          : "border border-white/20 text-white hover:bg-white/8 hover:border-white/40"
-                      }`}
+                      variant={plan.popular ? "primary" : "outline"}
+                      withIcon={plan.popular}
+                      className="w-full"
                     >
-                      {plan.cta} {plan.popular && <ArrowRight className="w-4 h-4" />}
-                    </Link>
+                      {plan.cta}
+                    </CtaButton>
                   </div>
                 </motion.div>
               )

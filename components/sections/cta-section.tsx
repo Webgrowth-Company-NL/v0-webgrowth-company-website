@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { CtaButton } from "@/components/ui/cta-button"
 
 export function CTASection() {
   return (
@@ -39,19 +38,8 @@ export function CTASection() {
                 We kijken gratis mee. Je ziet waar je nu staat, wat er beter kan, en wat je krijgt als we samenwerken.
               </p>
               <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/website-apk"
-                  className="inline-flex items-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white px-6 py-3.5 rounded-full text-sm font-black transition-all duration-200 hover:scale-[1.03]"
-                >
-                  Doe de gratis website APK
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-white/50 hover:text-white px-2 py-3 text-sm font-semibold transition-colors duration-200"
-                >
-                  Liever direct bellen?
-                </Link>
+                <CtaButton href="/contact" variant="primary">Boek een kennismaking</CtaButton>
+                <CtaButton href="/website-apk" variant="secondary">Doe de gratis website APK</CtaButton>
               </div>
               <p className="mt-6 text-white/50 text-xs">Eerlijk gesprek. Geen pitch, geen verplichtingen.</p>
             </div>

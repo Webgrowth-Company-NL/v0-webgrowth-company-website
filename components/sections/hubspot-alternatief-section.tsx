@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Check, X, Sparkles, TrendingDown, Receipt, Clock } from "lucide-react"
-import Link from "next/link"
+import { Check, X, Sparkles, TrendingDown, Receipt, Clock } from "lucide-react"
 import { useMemo, useState } from "react"
+import { CtaButton } from "@/components/ui/cta-button"
 
 type Pakket = "Core" | "Growth" | "Scale"
 
@@ -298,18 +298,8 @@ export function HubspotAlternatiefSection() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="#calculator"
-                className="inline-flex items-center justify-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white py-3 px-6 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
-              >
-                Reken uit wat je bespaart <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:bg-white/8 hover:border-white/40 py-3 px-6 rounded-full text-sm font-semibold transition-all duration-200"
-              >
-                Plan een demo bij Q
-              </Link>
+              <CtaButton href="/contact" variant="primary">Plan een demo bij Q</CtaButton>
+              <CtaButton href="#calculator" variant="secondary">Reken uit wat je bespaart</CtaButton>
             </div>
           </motion.div>
         </div>
@@ -511,12 +501,13 @@ export function HubspotAlternatiefSection() {
                   </p>
                 </div>
 
-                <Link
+                <CtaButton
                   href={`/contact?plan=${uitkomst.pakket.toLowerCase()}`}
-                  className="inline-flex items-center justify-center gap-2 w-full bg-[#ff0096] hover:bg-[#e6007f] text-white py-3 px-5 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.02]"
+                  variant="primary"
+                  className="w-full"
                 >
-                  Plan een demo bij Q <ArrowRight className="w-4 h-4" />
-                </Link>
+                  Plan een demo bij Q
+                </CtaButton>
                 <p className="text-white/40 text-[11px] text-center mt-3">
                   Indicatieve berekening op basis van gemiddelde marktprijzen. Vraag een vergelijking op maat voor exacte cijfers.
                 </p>
@@ -741,18 +732,8 @@ export function HubspotAlternatiefSection() {
               Twintig minuten met Q. Je loopt naar buiten met een vergelijking op maat: jouw huidige stack versus Forester OS, op papier, in euro's.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link
-                href="/contact?plan=growth"
-                className="inline-flex items-center justify-center gap-2 bg-[#ff0096] hover:bg-[#e6007f] text-white py-3 px-6 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
-              >
-                Plan een demo bij Q <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/prijzen"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:bg-white/8 hover:border-white/40 py-3 px-6 rounded-full text-sm font-semibold transition-all duration-200"
-              >
-                Bekijk alle pakketten
-              </Link>
+              <CtaButton href="/contact?plan=growth" variant="primary">Plan een demo bij Q</CtaButton>
+              <CtaButton href="/prijzen" variant="secondary">Bekijk alle pakketten</CtaButton>
             </div>
           </motion.div>
         </div>
