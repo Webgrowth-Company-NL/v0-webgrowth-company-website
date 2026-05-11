@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─────────────────────────────────────────────
+   Webgrowth Company — Premium Light
+   - Cream warm background, ink-tinted text
+   - Pink #ff0096 as primary accent
+   - Purple #623bc7 as secondary
+   - Amber for stars
+   Custom easings (Emil): UI must feel responsive,
+   never sluggish. ease-out for entering, ease for
+   color/hover, ease-in-out only for on-screen motion.
+   ───────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Surfaces */
+  --color-bg: #faf6f0;
+  --color-bg-elevated: #ffffff;
+  --color-bg-muted: #f3ece4;
+
+  /* Ink / text */
+  --color-ink: #0c0612;
+  --color-ink-strong: #050308;
+  --color-ink-muted: rgba(12, 6, 18, 0.62);
+  --color-ink-subtle: rgba(12, 6, 18, 0.42);
+  --color-ink-faint: rgba(12, 6, 18, 0.22);
+
+  /* Brand — purple as primary, pink reserved for rare highlights */
+  --color-purple: #623bc7;
+  --color-purple-hover: #5232b3;
+  --color-purple-soft: rgba(98, 59, 199, 0.08);
+  --color-purple-tint: rgba(98, 59, 199, 0.14);
+  --color-violet: #8b5cf6;
+  --color-lavender: #c4b5fd;
+  --color-pink: #ff0096;
+  --color-pink-soft: rgba(255, 0, 150, 0.08);
+  --color-amber: #f59e0b;
+
+  /* Borders */
+  --color-line: rgba(12, 6, 18, 0.08);
+  --color-line-strong: rgba(12, 6, 18, 0.14);
+
+  /* Typography */
+  --font-display: var(--font-gottak);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Easings — strong custom curves */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "Gottak";
+  src: url("/fonts/Gottak-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gottak";
+  src: url("/fonts/Gottak-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gottak";
+  src: url("/fonts/Gottak-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gottak";
+  src: url("/fonts/Gottak-Thin.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-pink);
+  color: white;
+}
+
+/* Buttons — Emil: instant press feedback */
+.btn-press {
+  transition: transform 160ms var(--ease-out-strong),
+    background-color 200ms ease, color 200ms ease,
+    box-shadow 200ms ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Shimmer keyframe — used by gradient text in hero */
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Pulse dot for eyebrow */
+@keyframes soft-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.55;
+  }
+}
+
+/* Float chips in hero visual */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Slow rotate for orb backdrop */
+@keyframes orb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion — keep opacity, kill movement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
