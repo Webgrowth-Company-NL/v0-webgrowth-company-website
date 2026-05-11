@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-const HEADLINE_LINE1 = "Je nieuwe website.";
+const HEADLINE_LINE1 = "Eén abonnement, negen tools minder.";
 const HEADLINE_LINE2 = "Meer groei.";
 
 const containerStagger = {
@@ -141,11 +141,19 @@ export function Hero() {
               <motion.span variants={containerStagger} className="block">
                 <Words text={HEADLINE_LINE1} />
               </motion.span>
-              <motion.span
-                variants={fadeUp(0.45)}
-                className="block mt-1 text-[color:var(--color-purple)]"
-              >
-                {HEADLINE_LINE2}
+              <motion.span variants={fadeUp(0.5)} className="block mt-1">
+                <span
+                  className="inline-block bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(110deg, #4d2da3 0%, #623bc7 35%, #8b5cf6 65%, #c4b5fd 100%)",
+                    backgroundSize: "220% 220%",
+                    animation: reduce ? undefined : "shimmer 7s ease-in-out infinite",
+                    WebkitBackgroundClip: "text",
+                  }}
+                >
+                  {HEADLINE_LINE2}
+                </span>
               </motion.span>
             </h1>
 

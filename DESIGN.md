@@ -54,8 +54,8 @@ Alle waardes in CSS-tokens (`app/globals.css`), tinted naar de pink-hue (chroma 
 
 **Banned combinaties:**
 
-- Geen `background-clip: text` met gradient (impeccable absolute ban).
-- Geen purple+pink gradients in tekst, knoppen, of grote oppervlakken — leest als "AI lila" cliché.
+- Geen `background-clip: text` met gradient. **Eén bewust gedocumenteerde uitzondering:** de hero-payoff-regel ("Meer groei.") krijgt een purple-dominant shimmer-gradient (`#4d2da3 → #623bc7 → #8b5cf6 → #c4b5fd`) als signature brand-moment. Niet schaalbaar naar andere kopjes, secties of buttons. Akkoord Martijn 2026-05-11.
+- Geen purple+pink gradients in tekst, knoppen, of grote oppervlakken — leest als "AI lila" cliché. De hero-uitzondering hierboven is puur purple→violet→lavender, geen pink.
 - Geen pure `#000` of pure `#FFF` — altijd cream/ink-tinted.
 - Pink is **niet** primary brand-kleur op deze marketingsite, ondanks dat Forester OS-dashboard pink wel primair gebruikt. Marketingsite = purple-primair voor premium-warm gevoel; product-UI = pink-primair voor energie.
 
