@@ -7,8 +7,7 @@ import Link from "next/link";
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 const HEADLINE_LINE1 = "Je nieuwe website.";
-const HEADLINE_LINE2 = "Negen tools minder.";
-const HEADLINE_LINE3 = "Meer groei.";
+const HEADLINE_LINE2 = "Meer groei.";
 
 const containerStagger = {
   hidden: {},
@@ -142,14 +141,11 @@ export function Hero() {
               <motion.span variants={containerStagger} className="block">
                 <Words text={HEADLINE_LINE1} />
               </motion.span>
-              <motion.span variants={containerStagger} className="block">
-                <Words text={HEADLINE_LINE2} />
-              </motion.span>
               <motion.span
-                variants={fadeUp(0.55)}
+                variants={fadeUp(0.45)}
                 className="block mt-1 text-[color:var(--color-purple)]"
               >
-                {HEADLINE_LINE3}
+                {HEADLINE_LINE2}
               </motion.span>
             </h1>
 
