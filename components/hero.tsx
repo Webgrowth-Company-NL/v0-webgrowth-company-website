@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-const HEADLINE_LINE1 = "Eén platform.";
+const HEADLINE_LINE1 = "Je nieuwe website.";
 const HEADLINE_LINE2 = "Negen tools minder.";
 const HEADLINE_LINE3 = "Meer groei.";
 
