@@ -223,7 +223,7 @@ function MobileAccordion({
   label: string;
   open: boolean;
   onToggle: (k: MegaKey | null) => void;
-  items: readonly { href: string; label: string; desc?: string }[];
+  items: readonly { href: string; label: string; desc?: string; soon?: boolean }[];
   extraLinks?: readonly { href: string; label: string }[];
   onClose: () => void;
 }) {
@@ -251,8 +251,15 @@ function MobileAccordion({
               {items.map((m) => (
                 <Link key={m.href} href={m.href} onClick={onClose} className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-[color:var(--color-bg-muted)] transition-colors">
                   <span className="min-w-0">
-                    <span className="block text-[13.5px] font-semibold text-[color:var(--color-ink)]">{m.label}</span>
-                    {m.desc && <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug">{m.desc}</span>}
+                    <span className="flex items-center gap-1.5">
+                      <span className="text-[13.5px] font-semibold text-[color:var(--color-ink)] leading-snug">{m.label}</span>
+                      {m.soon && (
+                        <span className="inline-flex shrink-0 items-center rounded bg-[color:var(--color-purple-tint)] px-1.5 py-0.5 text-[8.5px] font-bold uppercase tracking-[0.08em] text-[color:var(--color-purple)]">
+                          Binnenkort
+                        </span>
+                      )}
+                    </span>
+                    {m.desc && <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug mt-0.5">{m.desc}</span>}
                   </span>
                 </Link>
               ))}

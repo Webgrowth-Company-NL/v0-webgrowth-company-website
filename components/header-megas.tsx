@@ -3,10 +3,10 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BarChart3,
   Building2,
-  Calculator,
+  CalendarClock,
   FileText,
+  Flame,
   Gauge,
   Globe,
   LifeBuoy,
@@ -14,6 +14,7 @@ import {
   Mail,
   MessageSquareQuote,
   Search,
+  ShoppingBag,
   Sparkles,
   Users,
 } from "lucide-react";
@@ -21,12 +22,14 @@ import {
 /* ── Data ─────────────────────────────────────────── */
 
 export const PLATFORM_MODULES = [
-  { href: "/platform/website", label: "Website", desc: "Razendsnelle site, jij beheert de content", icon: Globe },
-  { href: "/platform/crm", label: "CRM & Leads", desc: "Elke lead op één plek, automatisch opgevolgd", icon: Users },
-  { href: "/platform/marketing", label: "Marketing & SEO", desc: "Vindbaar worden zonder los SEO-bureau", icon: Search },
-  { href: "/platform/ai", label: "AI-content", desc: "Teksten en inzichten die meegroeien", icon: Sparkles },
-  { href: "/platform/rapportages", label: "Rapportages", desc: "Zie wat werkt, in mensentaal", icon: BarChart3 },
-  { href: "/platform/lead-tools", label: "Lead-tools", desc: "Quickscans en calculators die leads binnenhalen", icon: Calculator },
+  { href: "/platform/website", label: "Website & CMS", desc: "Bouw je site, beheer pagina's, berichten en CPT's", icon: Globe },
+  { href: "/platform/lead-engine", label: "Lead Engine", desc: "Quick quoters en calculators die leads opleveren", icon: Flame },
+  { href: "/platform/sales-engine", label: "Sales Engine", desc: "AI-trainingen en quizzes die prospects opwarmen", icon: ShoppingBag },
+  { href: "/platform/crm", label: "CRM & Sales-pijplijn", desc: "Leads en deals visueel door je pijplijn", icon: Users },
+  { href: "/platform/seo", label: "SEO & vindbaarheid", desc: "Search Console-koppeling, AI-suggesties, rankings", icon: Search },
+  { href: "/platform/ai", label: "AI-content & Q", desc: "Q schrijft mee aan content, inzichten en taken", icon: Sparkles },
+  { href: "/platform/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock, soon: true },
+  { href: "/platform/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail, soon: true },
 ] as const;
 
 export const OPLOSSINGEN_DOEL = [
@@ -58,17 +61,27 @@ export const HULPMIDDELEN_HULP = [
 
 /* ── Shared bits ─────────────────────────────────── */
 
+function SoonBadge() {
+  return (
+    <span className="inline-flex shrink-0 items-center rounded bg-[color:var(--color-purple-tint)] px-1.5 py-0.5 text-[8.5px] font-bold uppercase tracking-[0.08em] text-[color:var(--color-purple)]">
+      Binnenkort
+    </span>
+  );
+}
+
 function ModuleItem({
   href,
   label,
   desc,
   icon: Icon,
+  soon,
   onNavigate,
 }: {
   href: string;
   label: string;
   desc: string;
   icon: typeof Globe;
+  soon?: boolean;
   onNavigate: () => void;
 }) {
   return (
@@ -81,7 +94,10 @@ function ModuleItem({
         <Icon className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />
       </span>
       <span className="min-w-0">
-        <span className="block text-[13.5px] font-semibold text-[color:var(--color-ink)]">{label}</span>
+        <span className="flex items-center gap-1.5">
+          <span className="text-[13.5px] font-semibold text-[color:var(--color-ink)] leading-snug">{label}</span>
+          {soon && <SoonBadge />}
+        </span>
         <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug mt-0.5">{desc}</span>
       </span>
     </Link>
@@ -110,7 +126,7 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 
 export function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <MegaPanel width="w-[680px]">
+    <MegaPanel width="w-[720px]">
       <div className="grid grid-cols-[1fr_240px]">
         <div className="p-3 grid grid-cols-2 gap-1">
           {PLATFORM_MODULES.map((m) => (
@@ -126,7 +142,7 @@ export function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
           />
           <span className="relative text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">Eén platform</span>
           <p className="relative mt-1.5 text-[13.5px] leading-snug text-[color:var(--color-ink)]">
-            Negen losse leveranciers, samengebracht tot één login.
+            Negen losse leveranciers, samengebracht tot één login. Inclusief Momentum-rapporten en Genius-sessies.
           </p>
 
           <div className="relative mt-4 flex-1 rounded-xl border border-[color:var(--color-line)] bg-white p-3 shadow-[0_10px_24px_-16px_rgba(12,6,18,0.18)]">
