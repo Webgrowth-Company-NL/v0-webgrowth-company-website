@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
@@ -35,17 +36,19 @@ const fadeUp = (delay = 0) => ({
 });
 
 function Words({ text }: { text: string }) {
+  const words = text.split(" ");
   return (
     <>
-      {text.split(" ").map((w, i, arr) => (
-        <motion.span
-          key={`${w}-${i}`}
-          variants={wordReveal}
-          className="inline-block will-change-[transform,opacity,filter]"
-        >
-          {w}
-          {i < arr.length - 1 ? " " : ""}
-        </motion.span>
+      {words.map((w, i) => (
+        <Fragment key={`${w}-${i}`}>
+          <motion.span
+            variants={wordReveal}
+            className="inline-block will-change-[transform,opacity,filter]"
+          >
+            {w}
+          </motion.span>
+          {i < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </>
   );

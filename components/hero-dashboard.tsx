@@ -45,8 +45,8 @@ const FLOATING: Record<ViewKey, [Stat, Stat]> = {
     { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand", viz: "spark" },
   ],
   ai: [
-    { label: "Inzichten", num: 12, delta: "+4", descriptor: "deze week", viz: "bolt" },
-    { label: "Tijd bespaard", num: 18, suffix: "u", delta: "/ maand", descriptor: "op content", trend: false, viz: "spark" },
+    { label: "Reactietijd", num: 2, suffix: " min", delta: "gemiddeld", descriptor: "", trend: false, viz: "bolt" },
+    { label: "Tijd bespaard", num: 14, suffix: "u", delta: "/ maand", descriptor: "vs los regelen", trend: false, viz: "spark" },
   ],
 };
 
