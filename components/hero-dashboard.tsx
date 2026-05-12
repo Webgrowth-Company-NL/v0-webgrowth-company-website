@@ -16,25 +16,26 @@ const CYCLE_MS = 4200;
 
 type ViewKey = "leads" | "website" | "seo" | "ai";
 
-const VIEWS: { key: ViewKey; url: string; label: string; icon: typeof Users }[] = [
-  { key: "leads", url: "forester.app/leads", label: "CRM & Leads", icon: Users },
-  { key: "website", url: "forester.app/website", label: "Website", icon: Globe },
-  { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", icon: Search },
-  { key: "ai", url: "forester.app/ai", label: "AI-content", icon: Sparkles },
+const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: typeof Users }[] = [
+  { key: "leads", url: "forester.app/leads", label: "CRM & Leads", short: "Leads", icon: Users },
+  { key: "website", url: "forester.app/website", label: "Website", short: "Website", icon: Globe },
+  { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", short: "SEO", icon: Search },
+  { key: "ai", url: "forester.app/ai", label: "AI-content", short: "AI", icon: Sparkles },
 ];
 
 export function HeroDashboard() {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [userPicked, setUserPicked] = useState(false);
 
   useEffect(() => {
-    if (reduce || paused) return;
+    if (reduce || paused || userPicked) return;
     const id = window.setInterval(() => {
       setActive((i) => (i + 1) % VIEWS.length);
     }, CYCLE_MS);
     return () => window.clearInterval(id);
-  }, [reduce, paused]);
+  }, [reduce, paused, userPicked]);
 
   const view = VIEWS[active];
 
@@ -77,7 +78,31 @@ export function HeroDashboard() {
           </div>
         </div>
 
-        {/* Body - cycling views */}
+        {/* View tabs — pick which dashboard you want to see */}
+        <div className="flex items-center gap-1 px-2.5 py-2 border-b border-[color:var(--color-line)] bg-[color:var(--color-bg)]/40">
+          {VIEWS.map((v, i) => {
+            const isActive = i === active;
+            return (
+              <button
+                key={v.key}
+                type="button"
+                onClick={() => { setActive(i); setUserPicked(true); }}
+                aria-pressed={isActive}
+                className={[
+                  "flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg px-1.5 py-1.5 text-[11px] font-semibold transition-colors duration-200 ease-out",
+                  isActive
+                    ? "bg-[color:var(--color-purple-soft)] text-[color:var(--color-purple)]"
+                    : "text-[color:var(--color-ink-subtle)] hover:text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)]/70",
+                ].join(" ")}
+              >
+                <v.icon className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} />
+                {v.short}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Body - selected view */}
         <div className="relative flex-1 overflow-hidden">
           <AnimatePresence>
             <motion.div
@@ -86,7 +111,7 @@ export function HeroDashboard() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="absolute inset-0 px-5 pt-5 pb-3"
+              className="absolute inset-0 px-5 pt-5 pb-5"
             >
               {view.key === "leads" && <LeadsView reduce={reduce} />}
               {view.key === "website" && <WebsiteView />}
@@ -94,32 +119,6 @@ export function HeroDashboard() {
               {view.key === "ai" && <AiView reduce={reduce} />}
             </motion.div>
           </AnimatePresence>
-        </div>
-
-        {/* Tab dots + module label */}
-        <div className="flex items-center justify-between px-5 py-3 border-t border-[color:var(--color-line)]">
-          <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">
-            {view.label}
-          </span>
-          <div className="flex items-center gap-1.5">
-            {VIEWS.map((v, i) => (
-              <button
-                key={v.key}
-                onClick={() => setActive(i)}
-                aria-label={`Toon ${v.label}`}
-                className="group py-1.5"
-              >
-                <span
-                  className={[
-                    "block h-1.5 rounded-full transition-all duration-300 ease-out",
-                    i === active
-                      ? "w-5 bg-[color:var(--color-purple)]"
-                      : "w-1.5 bg-[color:var(--color-ink-faint)] group-hover:bg-[color:var(--color-ink-subtle)]",
-                  ].join(" ")}
-                />
-              </button>
-            ))}
-          </div>
         </div>
       </div>
     </motion.div>
