@@ -1,37 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { CASE_STUDIES } from "@/lib/cases";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
-
-const CASES = [
-  {
-    client: "Tornado Rent",
-    sector: "Infra & bouw",
-    headlineLead: "Een reserveringssysteem",
-    headlineHighlight: "dat écht voor B2B-verhuur werkt.",
-    pillars: ["Live prijscalculator", "WhatsApp-meldingen", "100% SEO Proof"],
-    img: "/images/clients/tornado-rent-hero.jpg",
-    imgAlt: "VAC-EX grondzuigmachine van Tornado Rent op trailer",
-    logo: "/images/clients/tornado-rent.png",
-    liveUrl: "https://tornado.rent",
-    liveLabel: "tornado.rent",
-  },
-  {
-    client: "Adalace",
-    sector: "Compliance-software",
-    headlineLead: "Een Quickscan",
-    headlineHighlight: "die compliance concreet maakt.",
-    pillars: ["5-stappen wizard", "BAG- & Kadaster-koppeling", "PDF-rapport op maat"],
-    img: "/images/clients/adalace-hero.jpg",
-    imgAlt: "Schoolgebouw, beheerd via Adalace",
-    logo: "/images/clients/adalace.png",
-    liveUrl: "https://adalace.webgrowth.company",
-    liveLabel: "adalace.webgrowth.company",
-  },
-];
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 18 },
@@ -64,24 +39,19 @@ export function SectionCases() {
 
         {/* Case cards */}
         <div className="mt-14 sm:mt-16 grid lg:grid-cols-2 gap-6 lg:gap-8">
-          {CASES.map((c, i) => (
+          {CASE_STUDIES.map((c, i) => (
             <motion.article
-              key={c.client}
+              key={c.slug}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, ease: EASE, delay: 0.15 + i * 0.1 }}
-              className="group relative rounded-[2rem] bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] overflow-hidden shadow-[0_18px_44px_-22px_rgba(12,6,18,0.16)] hover:shadow-[0_30px_64px_-24px_rgba(12,6,18,0.24)] transition-shadow duration-300 ease-out"
+              className="group relative flex flex-col rounded-[2rem] bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] overflow-hidden shadow-[0_18px_44px_-22px_rgba(12,6,18,0.16)] hover:shadow-[0_30px_64px_-24px_rgba(12,6,18,0.24)] transition-shadow duration-300 ease-out"
             >
+              <Link href={`/cases/${c.slug}`} className="absolute inset-0 z-10" aria-label={`Lees de case van ${c.client}`} />
               {/* image */}
               <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={c.img}
-                  alt={c.imgAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                  className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
-                />
+                <Image src={c.img} alt={c.imgAlt} fill sizes="(max-width: 1024px) 100vw, 560px" className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]" />
                 <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.5)] via-[rgba(12,6,18,0.12)] to-transparent" />
                 <div className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-full bg-white/95 backdrop-blur-sm pl-1.5 pr-3.5 py-1.5 shadow-[0_8px_24px_-10px_rgba(12,6,18,0.4)]">
                   <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-bg-muted)] overflow-hidden">
@@ -102,15 +72,10 @@ export function SectionCases() {
                     <span key={p} className="rounded-full bg-[color:var(--color-purple-soft)] px-2.5 py-1 text-[11.5px] font-medium text-[color:var(--color-purple)]">{p}</span>
                   ))}
                 </div>
-                <a
-                  href={c.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[color:var(--color-ink)] hover:text-[color:var(--color-purple)] transition-colors group/link"
-                >
-                  Bekijk live: {c.liveLabel}
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" strokeWidth={2.5} />
-                </a>
+                <span className="relative z-20 mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
+                  Lees verder
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
+                </span>
               </div>
             </motion.article>
           ))}
