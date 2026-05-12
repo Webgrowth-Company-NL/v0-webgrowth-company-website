@@ -1,8 +1,11 @@
 import { Hero } from "@/components/hero";
 import { SectionCases } from "@/components/section-cases";
+import { SectionCta } from "@/components/section-cta";
+import { SectionFaq } from "@/components/section-faq";
 import { SectionProof } from "@/components/section-proof";
 import { SectionShift } from "@/components/section-shift";
 import { SectionVideo } from "@/components/section-video";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SolutionSelector } from "@/components/solution-selector";
 import { WaveDivider } from "@/components/wave-divider";
@@ -28,7 +31,12 @@ export default function Home() {
         <SectionCases />
         <WaveDivider top={CREAM} bottom={WHITE} />
         <SectionVideo />
+        <WaveDivider top={WHITE} bottom={LAVENDER} />
+        <SectionFaq />
+        <WaveDivider top={LAVENDER} bottom={DEEP} />
+        <SectionCta />
       </main>
+      <SiteFooter />
     </>
   );
 }

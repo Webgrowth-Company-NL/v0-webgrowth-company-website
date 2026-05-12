@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import type { SeoPage } from "@/lib/pages";
 
 export function PlaceholderPage({
@@ -91,6 +92,7 @@ export function PlaceholderPage({
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import type { CaseStudy } from "@/lib/cases";
 
 export function CasePage({ study }: { study: CaseStudy }) {
@@ -91,6 +92,7 @@ export function CasePage({ study }: { study: CaseStudy }) {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }
