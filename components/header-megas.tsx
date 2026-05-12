@@ -114,7 +114,7 @@ function MegaPanel({ width, children }: { width: string; children: React.ReactNo
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <div className="px-3 pt-3 pb-1 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">
+    <div className="px-3.5 pt-3.5 pb-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">
       {children}
     </div>
   );
@@ -179,9 +179,9 @@ export function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
 
 export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <MegaPanel width="w-[600px]">
-      <div className="grid grid-cols-[1fr_220px]">
-        <div className="p-3">
+    <MegaPanel width="w-[680px]">
+      <div className="grid grid-cols-[1fr_244px]">
+        <div className="p-4">
           <ColumnHeading>Naar doel</ColumnHeading>
           <div className="grid grid-cols-1 gap-0.5">
             {OPLOSSINGEN_DOEL.map((m) => (
@@ -190,7 +190,7 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
           </div>
         </div>
 
-        <div className="border-l border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 p-3 flex flex-col">
+        <div className="border-l border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 p-4 flex flex-col">
           <ColumnHeading>Naar sector</ColumnHeading>
           <div className="flex flex-col">
             {OPLOSSINGEN_SECTOR.map((s) => (
@@ -198,7 +198,7 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
                 key={s.href}
                 href={s.href}
                 onClick={onNavigate}
-                className="px-3 py-2 rounded-lg text-[13px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] hover:bg-white transition-colors"
+                className="px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] hover:bg-white transition-colors"
               >
                 {s.label}
               </Link>
@@ -207,7 +207,7 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
           <Link
             href="/website-apk"
             onClick={onNavigate}
-            className="btn-press mt-auto inline-flex items-center justify-between gap-2 mx-1 mt-3 px-3 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[12px] font-semibold group shadow-[0_8px_20px_-10px_rgba(98,59,199,0.5)] hover:shadow-[0_12px_28px_-10px_rgba(98,59,199,0.7)]"
+            className="btn-press mt-auto inline-flex items-center justify-between gap-2 mx-1 mt-4 px-3.5 py-2.5 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[12px] font-semibold group shadow-[0_8px_20px_-10px_rgba(98,59,199,0.5)] hover:shadow-[0_12px_28px_-10px_rgba(98,59,199,0.7)]"
           >
             Niet zeker? Doe de APK
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
@@ -222,9 +222,9 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
 
 export function HulpmiddelenMega({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <MegaPanel width="w-[540px]">
+    <MegaPanel width="w-[620px]">
       <div className="grid grid-cols-2">
-        <div className="p-3">
+        <div className="p-4">
           <ColumnHeading>Ontdek</ColumnHeading>
           <div className="grid grid-cols-1 gap-0.5">
             {HULPMIDDELEN_ONTDEK.map((m) => (
@@ -232,7 +232,7 @@ export function HulpmiddelenMega({ onNavigate }: { onNavigate: () => void }) {
             ))}
           </div>
         </div>
-        <div className="p-3 border-l border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40">
+        <div className="p-4 border-l border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40">
           <ColumnHeading>Hulp</ColumnHeading>
           <div className="grid grid-cols-1 gap-0.5">
             {HULPMIDDELEN_HULP.map((m) => (
