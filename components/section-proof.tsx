@@ -11,6 +11,7 @@ const FEATURED = {
     "Dankzij Webgrowth Company hebben we nu een website die niet alleen mooi is, maar actief bijdraagt aan onze groei en processen automatiseert.",
   name: "Gil Lont",
   result: "Meer leads via de website, minder handmatig werk",
+  img: "/images/testimonials/gil-lont.webp",
 };
 
 const SECONDARY = {
@@ -18,6 +19,7 @@ const SECONDARY = {
     "Complexe technische keuzes worden helder gemaakt en snel uitgevoerd, waardoor wij kunnen focussen op marketing en strategie.",
   name: "Linda van der Zwan",
   result: "Focus op strategie in plaats van techniek",
+  img: "/images/testimonials/linda-van-der-zwan.jpg",
 };
 
 const STATS = [
@@ -85,7 +87,11 @@ export function SectionProof() {
               {FEATURED.quote}
             </blockquote>
             <figcaption className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-white/10 pt-6">
-              <span className="text-[15px] font-semibold text-white">{FEATURED.name}</span>
+              <span className="inline-flex items-center gap-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={FEATURED.img} alt={FEATURED.name} loading="lazy" className="h-11 w-11 rounded-full object-cover ring-2 ring-white/15" />
+                <span className="text-[15px] font-semibold text-white">{FEATURED.name}</span>
+              </span>
               <ResultTag>{FEATURED.result}</ResultTag>
             </figcaption>
           </motion.figure>
@@ -102,7 +108,11 @@ export function SectionProof() {
               <Quote className="h-6 w-6 text-[#c4b5fd]/40" strokeWidth={1.5} fill="currentColor" />
               <blockquote className="mt-3 text-[14.5px] leading-relaxed text-white/85">{SECONDARY.quote}</blockquote>
               <figcaption className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
-                <span className="text-[13.5px] font-semibold text-white">{SECONDARY.name}</span>
+                <span className="inline-flex items-center gap-2.5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={SECONDARY.img} alt={SECONDARY.name} loading="lazy" className="h-9 w-9 rounded-full object-cover ring-2 ring-white/15" />
+                  <span className="text-[13.5px] font-semibold text-white">{SECONDARY.name}</span>
+                </span>
                 <ResultTag>{SECONDARY.result}</ResultTag>
               </figcaption>
             </motion.figure>
