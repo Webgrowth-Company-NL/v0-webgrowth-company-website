@@ -26,7 +26,7 @@ const MEGA_TRIGGERS: { key: MegaKey; label: string; render: (p: { onNavigate: ()
   { key: "hulpmiddelen", label: "Hulpmiddelen", render: (p) => <HulpmiddelenMega {...p} /> },
 ];
 
-export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = {}) {
+export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<MegaKey | null>(null);
@@ -41,6 +41,10 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
 
   const closeMega = () => setActiveMega(null);
 
+  // Light vs. dark (purple) header palette
+  const txt = dark ? "text-white/70 hover:text-white" : "text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)]";
+  const txtActive = dark ? "text-white" : "text-[color:var(--color-ink)]";
+
   return (
     <motion.header
       initial={{ y: -64, opacity: 0 }}
@@ -49,7 +53,9 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
       className={[
         "fixed top-0 left-0 right-0 z-50",
         "transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
-        scrolled || activeMega || alwaysSolid
+        dark
+          ? "bg-[#231653]/82 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.55)]"
+          : scrolled || activeMega
           ? "bg-[color:var(--color-bg)]/90 backdrop-blur-xl border-b border-[color:var(--color-line)] shadow-[0_1px_0_rgba(12,6,18,0.02),0_8px_24px_-12px_rgba(12,6,18,0.08)]"
           : "bg-transparent",
       ].join(" ")}
@@ -79,7 +85,7 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
                   onClick={() => setActiveMega((v) => (v === key ? null : key))}
                   className={[
                     "inline-flex items-center gap-1 text-[14px] font-medium transition-colors duration-200 ease-out",
-                    activeMega === key ? "text-[color:var(--color-ink)]" : "text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)]",
+                    activeMega === key ? txtActive : txt,
                   ].join(" ")}
                 >
                   {label}
@@ -108,7 +114,7 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
 
             <Link
               href="/prijzen"
-              className="text-[14px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors duration-200 ease-out"
+              className={"text-[14px] font-medium transition-colors duration-200 ease-out " + txt}
             >
               Prijzen
             </Link>
@@ -118,7 +124,12 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
               href="https://www.google.com/search?q=Webgrowth+Company+reviews"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white/60 hover:bg-white hover:border-[color:var(--color-line-strong)] transition-[background-color,border-color] duration-200 ease-out"
+              className={[
+                "group inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border transition-[background-color,border-color] duration-200 ease-out",
+                dark
+                  ? "border-white/15 bg-white/10 hover:bg-white/15 hover:border-white/25"
+                  : "border-[color:var(--color-line)] bg-white/60 hover:bg-white hover:border-[color:var(--color-line-strong)]",
+              ].join(" ")}
               aria-label="Google reviews: 9,4 van de 10"
             >
               <span className="flex gap-[2px]">
@@ -126,8 +137,8 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
                   <Star key={i} className="h-[13px] w-[13px] fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
                 ))}
               </span>
-              <span className="text-[12.5px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
-              <span className="text-[11px] text-[color:var(--color-ink-subtle)] -ml-0.5">/10</span>
+              <span className={"text-[12.5px] font-semibold tabular-nums " + txtActive}>9,4</span>
+              <span className={"text-[11px] -ml-0.5 " + (dark ? "text-white/50" : "text-[color:var(--color-ink-subtle)]")}>/10</span>
             </a>
           </nav>
 
@@ -135,31 +146,45 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = 
           <div className="hidden lg:flex items-center gap-4 xl:gap-5">
             <Link
               href="/inloggen"
-              className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors duration-200 ease-out"
+              className={"inline-flex items-center gap-1.5 text-[13.5px] font-medium transition-colors duration-200 ease-out " + txt}
             >
               Inloggen
               <Lock className="h-3 w-3 opacity-60" strokeWidth={2.5} />
             </Link>
             <Link
               href="/website-apk"
-              className="btn-press group inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[13.5px] font-semibold shadow-[0_1px_2px_rgba(98,59,199,0.28),0_8px_24px_-8px_rgba(98,59,199,0.55)] hover:shadow-[0_6px_14px_rgba(98,59,199,0.36),0_20px_42px_-10px_rgba(98,59,199,0.75)]"
+              className={[
+                "btn-press group inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full text-[13.5px] font-semibold",
+                dark
+                  ? "bg-white hover:bg-white/90 text-[color:var(--color-purple)] shadow-[0_2px_4px_rgba(0,0,0,0.18),0_10px_28px_-10px_rgba(0,0,0,0.5)]"
+                  : "bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white shadow-[0_1px_2px_rgba(98,59,199,0.28),0_8px_24px_-8px_rgba(98,59,199,0.55)] hover:shadow-[0_6px_14px_rgba(98,59,199,0.36),0_20px_42px_-10px_rgba(98,59,199,0.75)]",
+              ].join(" ")}
             >
               Doe gratis APK
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/18 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:bg-white/30">
-                <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+              <span className={[
+                "inline-flex h-7 w-7 items-center justify-center rounded-full transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5",
+                dark ? "bg-[color:var(--color-purple)]/12 group-hover:bg-[color:var(--color-purple)]/20" : "bg-white/18 group-hover:bg-white/30",
+              ].join(" ")}>
+                <ArrowRight className={"h-3.5 w-3.5 " + (dark ? "text-[color:var(--color-purple)]" : "text-white")} strokeWidth={2.5} />
               </span>
             </Link>
           </div>
 
           {/* Mobile rating + hamburger */}
           <div className="lg:hidden flex items-center gap-2">
-            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/70 border border-[color:var(--color-line)]">
+            <span className={[
+              "flex items-center gap-1 px-2 py-1 rounded-full border",
+              dark ? "bg-white/10 border-white/15" : "bg-white/70 border-[color:var(--color-line)]",
+            ].join(" ")}>
               <Star className="h-3 w-3 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
-              <span className="text-[11px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
+              <span className={"text-[11px] font-semibold tabular-nums " + txtActive}>9,4</span>
             </span>
             <button
               onClick={() => setMobileOpen((v) => !v)}
-              className="btn-press inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--color-line)] bg-white/60 hover:bg-white text-[color:var(--color-ink)]"
+              className={[
+                "btn-press inline-flex h-9 w-9 items-center justify-center rounded-full border",
+                dark ? "border-white/15 bg-white/10 hover:bg-white/20 text-white" : "border-[color:var(--color-line)] bg-white/60 hover:bg-white text-[color:var(--color-ink)]",
+              ].join(" ")}
               aria-label={mobileOpen ? "Sluit menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >

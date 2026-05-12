@@ -20,7 +20,7 @@ const HERO_PURPLE = "#231653"; // keep in sync with components/hero.tsx
 export default function Home() {
   return (
     <>
-      <SiteHeader alwaysSolid />
+      <SiteHeader dark />
       <main className="flex-1">
         <Hero />
         <WaveDivider top={HERO_PURPLE} bottom={LAVENDER} />
