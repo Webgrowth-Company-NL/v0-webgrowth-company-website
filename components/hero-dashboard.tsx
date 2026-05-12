@@ -208,27 +208,23 @@ export function HeroDashboard() {
   );
 }
 
-/* ── View: Website (wireframe-pagina; de cursor vult een echt contactformulier in) ── */
-const WEB_FORM: { label: string; value: string; area?: boolean; y: number }[] = [
-  { label: "Naam", value: "Sanne de Vries", y: 35 },
-  { label: "E-mailadres", value: "sanne@studiopraline.nl", y: 51 },
-  { label: "Waar kunnen we je mee helpen?", value: "Nieuwe site + meer vindbaarheid", area: true, y: 69 },
+/* ── View: Website (wireframe-pagina; het formulier vult zich, de cursor scrolt naar verzenden) ── */
+const WEB_FORM: { label: string; value: string; area?: boolean }[] = [
+  { label: "Naam", value: "Mireille Bakker" },
+  { label: "E-mailadres", value: "hallo@buronord.nl" },
+  { label: "Waar kunnen we je mee helpen?", value: "Nieuwe website graag", area: true },
 ];
-const WEB_IDLE = { x: 84, y: 9 };
-const WEB_BUTTON = { x: 50, y: 87 };
-const WEB_IDLE_FRAMES = 5;
-const WEB_MOVE_FRAMES = 4;
-const WEB_CLICK_FRAMES = 1;
-const WEB_HOLD_FRAMES = 14;
-const WEB_TOTAL =
-  WEB_IDLE_FRAMES +
-  WEB_FORM.reduce((a, f) => a + WEB_MOVE_FRAMES + f.value.length, 0) +
-  WEB_MOVE_FRAMES + WEB_CLICK_FRAMES + WEB_HOLD_FRAMES;
+const WEB_CURSOR_IDLE = { x: 80, y: 86 };
+const WEB_CURSOR_BUTTON = { x: 50, y: 82 };
+const WEB_F = { idle: 4, pause: 5, scroll: 5, reach: 6, click: 1, hold: 16 };
+const WEB_FILL = WEB_FORM.reduce((a, f) => a + f.value.length, 0);
+const WEB_TOTAL = WEB_F.idle + WEB_FILL + WEB_F.pause + WEB_F.scroll + WEB_F.reach + WEB_F.click + WEB_F.hold;
 
 type WebState = {
   cursor: { x: number; y: number };
   typed: number[];
   caretField: number | null;
+  scrolled: boolean;
   submitted: boolean;
   click: boolean;
 };
@@ -236,25 +232,23 @@ type WebState = {
 function webStateFor(frame: number): WebState {
   let f = frame;
   const typed = [0, 0, 0];
-  if (f < WEB_IDLE_FRAMES) return { cursor: WEB_IDLE, typed, caretField: null, submitted: false, click: false };
-  f -= WEB_IDLE_FRAMES;
+  const base: WebState = { cursor: WEB_CURSOR_IDLE, typed, caretField: null, scrolled: false, submitted: false, click: false };
+  if (f < WEB_F.idle) return base;
+  f -= WEB_F.idle;
   for (let i = 0; i < WEB_FORM.length; i++) {
-    const field = WEB_FORM[i];
-    if (f < WEB_MOVE_FRAMES) return { cursor: { x: 24, y: field.y }, typed, caretField: null, submitted: false, click: false };
-    f -= WEB_MOVE_FRAMES;
-    const len = field.value.length;
-    if (f < len) {
-      typed[i] = f + 1;
-      const frac = (f + 1) / len;
-      return { cursor: { x: 24 + frac * (field.area ? 30 : 46), y: field.y }, typed, caretField: i, submitted: false, click: false };
-    }
+    const len = WEB_FORM[i].value.length;
+    if (f < len) { typed[i] = f + 1; return { ...base, caretField: i }; }
     f -= len;
     typed[i] = len;
   }
-  if (f < WEB_MOVE_FRAMES) return { cursor: WEB_BUTTON, typed, caretField: null, submitted: false, click: false };
-  f -= WEB_MOVE_FRAMES;
-  if (f < WEB_CLICK_FRAMES) return { cursor: WEB_BUTTON, typed, caretField: null, submitted: true, click: true };
-  return { cursor: WEB_BUTTON, typed, caretField: null, submitted: true, click: false };
+  if (f < WEB_F.pause) return { ...base };
+  f -= WEB_F.pause;
+  if (f < WEB_F.scroll) return { ...base, scrolled: true };
+  f -= WEB_F.scroll;
+  if (f < WEB_F.reach) return { ...base, scrolled: true, cursor: WEB_CURSOR_BUTTON };
+  f -= WEB_F.reach;
+  if (f < WEB_F.click) return { ...base, scrolled: true, cursor: WEB_CURSOR_BUTTON, submitted: true, click: true };
+  return { ...base, scrolled: true, cursor: WEB_CURSOR_BUTTON, submitted: true };
 }
 
 function WebsiteView() {
@@ -262,73 +256,79 @@ function WebsiteView() {
   const [frame, setFrame] = useState(0);
 
   useEffect(() => {
-    if (reduce) { setFrame(WEB_TOTAL - WEB_HOLD_FRAMES); return; }
+    if (reduce) { setFrame(WEB_TOTAL - WEB_F.hold); return; }
     setFrame(0);
-    const id = window.setInterval(() => setFrame((s) => (s + 1) % WEB_TOTAL), 65);
+    const id = window.setInterval(() => setFrame((s) => (s + 1) % WEB_TOTAL), 70);
     return () => window.clearInterval(id);
   }, [reduce]);
 
-  const st = reduce ? webStateFor(WEB_TOTAL - WEB_HOLD_FRAMES) : webStateFor(frame);
+  const st = reduce ? webStateFor(WEB_TOTAL - WEB_F.hold) : webStateFor(frame);
 
   return (
     <div className="relative h-full overflow-hidden">
-      {/* faux page chrome */}
-      <div className="flex items-center justify-between rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 px-2.5 py-1.5">
-        <span className="h-1.5 w-8 rounded bg-[color:var(--color-ink-faint)]" />
-        <span className="flex items-center gap-1.5">
-          <span className="h-1.5 w-5 rounded bg-[color:var(--color-ink-faint)]/60" />
-          <span className="h-1.5 w-5 rounded bg-[color:var(--color-ink-faint)]/60" />
-          <span className="h-3 w-9 rounded bg-[color:var(--color-purple)]/25" />
-        </span>
-      </div>
-      <div className="mt-2 space-y-1.5">
-        <span className="block h-2 w-3/5 rounded bg-[color:var(--color-ink-faint)]" />
-        <span className="block h-1.5 w-5/6 rounded bg-[color:var(--color-ink-faint)]/55" />
-      </div>
+      <div
+        style={{
+          transform: st.scrolled ? "translateY(-20px)" : "translateY(0)",
+          transition: reduce ? undefined : "transform 480ms cubic-bezier(0.23,1,0.32,1)",
+        }}
+      >
+        {/* faux page chrome */}
+        <div className="flex items-center justify-between rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 px-2.5 py-1.5">
+          <span className="h-1.5 w-8 rounded bg-[color:var(--color-ink-faint)]" />
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-5 rounded bg-[color:var(--color-ink-faint)]/60" />
+            <span className="h-1.5 w-5 rounded bg-[color:var(--color-ink-faint)]/60" />
+            <span className="h-3 w-9 rounded bg-[color:var(--color-purple)]/25" />
+          </span>
+        </div>
+        <div className="mt-2 space-y-1.5">
+          <span className="block h-2 w-3/5 rounded bg-[color:var(--color-ink-faint)]" />
+          <span className="block h-1.5 w-5/6 rounded bg-[color:var(--color-ink-faint)]/55" />
+        </div>
 
-      {/* the contact form */}
-      <div className="mt-2.5 rounded-lg border border-dashed border-[color:var(--color-purple)]/40 bg-white p-2.5 shadow-[0_10px_24px_-16px_rgba(98,59,199,0.3)]">
-        <div className="mb-2 text-[11px] font-semibold text-[color:var(--color-ink)]">Vraag een offerte aan</div>
-        <div className="space-y-2">
-          {WEB_FORM.map((field, i) => (
-            <div key={field.label}>
-              <div className="mb-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[color:var(--color-ink-subtle)]">{field.label}</div>
-              <div
-                className={[
-                  "rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 px-2 text-[10px] text-[color:var(--color-ink)]",
-                  field.area ? "h-9 py-1 leading-snug" : "h-6 flex items-center",
-                ].join(" ")}
-              >
-                <span className="break-words">{field.value.slice(0, st.typed[i])}</span>
-                {st.caretField === i && !reduce && (
-                  <span className="ml-px inline-block h-2.5 w-px align-middle bg-[color:var(--color-purple)]" style={{ animation: "soft-pulse 1s ease-in-out infinite" }} />
-                )}
+        {/* the contact form */}
+        <div className="mt-2.5 rounded-lg border border-dashed border-[color:var(--color-purple)]/40 bg-white p-2.5 shadow-[0_10px_24px_-16px_rgba(98,59,199,0.3)]">
+          <div className="mb-2 text-[11px] font-semibold text-[color:var(--color-ink)]">Vraag een offerte aan</div>
+          <div className="space-y-2">
+            {WEB_FORM.map((field, i) => (
+              <div key={field.label}>
+                <div className="mb-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[color:var(--color-ink-subtle)]">{field.label}</div>
+                <div
+                  className={[
+                    "rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 px-2 text-[10px] text-[color:var(--color-ink)]",
+                    field.area ? "h-9 py-1 leading-snug" : "h-6 flex items-center",
+                  ].join(" ")}
+                >
+                  <span className="break-words">{field.value.slice(0, st.typed[i])}</span>
+                  {st.caretField === i && !reduce && (
+                    <span className="ml-px inline-block h-2.5 w-px align-middle bg-[color:var(--color-purple)]" style={{ animation: "soft-pulse 1s ease-in-out infinite" }} />
+                  )}
+                </div>
               </div>
+            ))}
+            <div
+              className={[
+                "mt-0.5 h-6 rounded-md flex items-center justify-center text-[10px] font-semibold transition-colors duration-300",
+                st.submitted ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white",
+              ].join(" ")}
+            >
+              {st.submitted ? "✓ Verzonden, we nemen contact op" : "Verstuur aanvraag"}
             </div>
-          ))}
-          <div
-            className={[
-              "mt-0.5 h-6 rounded-md flex items-center justify-center text-[10px] font-semibold transition-colors duration-300",
-              st.submitted ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white",
-            ].join(" ")}
-          >
-            {st.submitted ? "✓ Verzonden, we nemen contact op" : "Verstuur aanvraag"}
           </div>
         </div>
       </div>
 
-      {/* moving cursor + click pulse */}
+      {/* moving cursor + single click pulse on the send button */}
       <div
         className="pointer-events-none absolute z-20"
         style={{
           left: `${st.cursor.x}%`,
           top: `${st.cursor.y}%`,
-          transition: reduce ? undefined : "left 320ms cubic-bezier(0.23,1,0.32,1), top 320ms cubic-bezier(0.23,1,0.32,1)",
+          transition: reduce ? undefined : "left 420ms cubic-bezier(0.23,1,0.32,1), top 420ms cubic-bezier(0.23,1,0.32,1)",
         }}
       >
         {st.click && !reduce && (
           <motion.span
-            key={frame}
             className="absolute -left-1 -top-1 h-7 w-7 rounded-full bg-[color:var(--color-purple)]/30"
             initial={{ scale: 0.4, opacity: 0.6 }}
             animate={{ scale: 2.4, opacity: 0 }}
@@ -411,11 +411,23 @@ function SeoView({ reduce }: { reduce: boolean | null }) {
   );
 }
 
-/* ── View: CRM (kanban — sleep een deal naar gewonnen, paarse confetti) ── */
+/* ── View: CRM (kanban — de cursor sleept een deal naar 'Gewonnen', dan confetti; speelt één keer) ── */
 const CRM_COLS: { title: string; statics: [string, string][] }[] = [
   { title: "Nieuw", statics: [["Bureau Klaverwijk", "€5,1k"], ["Atelier Mooij", "€1,9k"]] },
   { title: "In gesprek", statics: [["Architectenbureau Holm", "€8,0k"]] },
   { title: "Gewonnen", statics: [["Praktijk De Vijver", "€3,7k"]] },
+];
+/* delay (ms) in elke stage vóór doorschuiven; stage 7 = eindstand (geen loop) */
+const CRM_DELAYS = [600, 600, 320, 750, 600, 320, 750];
+const CRM_CURSOR_BY_STAGE = [
+  { x: 80, y: 84 }, // 0 idle
+  { x: 18, y: 30 }, // 1 naar kaart in Nieuw
+  { x: 18, y: 30 }, // 2 grijpen
+  { x: 50, y: 30 }, // 3 slepen → In gesprek
+  { x: 50, y: 30 }, // 4 loslaten
+  { x: 50, y: 30 }, // 5 grijpen
+  { x: 82, y: 30 }, // 6 slepen → Gewonnen
+  { x: 82, y: 30 }, // 7 gewonnen
 ];
 const CRM_CONFETTI_HEX = ["#8b5cf6", "#623bc7", "#c4b5fd"];
 
@@ -423,7 +435,7 @@ function crmInitials(name: string) {
   return name.split(" ").slice(0, 2).map((w) => w[0]).join("");
 }
 
-function CrmCard({ name, value, moving, won }: { name: string; value: string; moving?: boolean; won?: boolean }) {
+function CrmCard({ name, value, moving, lifted, won }: { name: string; value: string; moving?: boolean; lifted?: boolean; won?: boolean }) {
   return (
     <div
       className={[
@@ -431,7 +443,9 @@ function CrmCard({ name, value, moving, won }: { name: string; value: string; mo
         moving
           ? won
             ? "border-emerald-500/50 shadow-[0_10px_24px_-10px_rgba(16,185,129,0.4)]"
-            : "border-[color:var(--color-purple)]/45 ring-1 ring-[color:var(--color-purple)]/15 shadow-[0_10px_24px_-10px_rgba(98,59,199,0.45)]"
+            : lifted
+              ? "border-[color:var(--color-purple)]/55 ring-1 ring-[color:var(--color-purple)]/20 shadow-[0_20px_32px_-10px_rgba(98,59,199,0.5)]"
+              : "border-[color:var(--color-purple)]/45 ring-1 ring-[color:var(--color-purple)]/15 shadow-[0_10px_24px_-10px_rgba(98,59,199,0.4)]"
           : "border-[color:var(--color-line)] shadow-[0_4px_12px_-8px_rgba(12,6,18,0.12)]",
       ].join(" ")}
     >
@@ -461,17 +475,17 @@ function CrmCard({ name, value, moving, won }: { name: string; value: string; mo
 function CrmConfetti() {
   return (
     <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden">
-      {Array.from({ length: 20 }).map((_, i) => {
-        const dx = (Math.random() - 0.5) * 210;
-        const dy = -30 - Math.random() * 130;
-        const rot = (Math.random() - 0.5) * 600;
+      {Array.from({ length: 22 }).map((_, i) => {
+        const dx = (Math.random() - 0.5) * 220;
+        const dy = -30 - Math.random() * 140;
+        const rot = (Math.random() - 0.5) * 640;
         return (
           <motion.span
             key={i}
             className="absolute h-1.5 w-1.5 rounded-[1px]"
-            style={{ left: "82%", top: "32%", background: CRM_CONFETTI_HEX[i % 3] }}
+            style={{ left: "82%", top: "30%", background: CRM_CONFETTI_HEX[i % 3] }}
             initial={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
-            animate={{ x: dx, y: [0, dy, dy + 100], opacity: [1, 1, 0], rotate: rot }}
+            animate={{ x: dx, y: [0, dy, dy + 110], opacity: [1, 1, 0], rotate: rot }}
             transition={{ duration: 1.15, ease: "easeOut" }}
           />
         );
@@ -482,50 +496,60 @@ function CrmConfetti() {
 
 function CrmView() {
   const reduce = useReducedMotion();
-  const [stage, setStage] = useState(0); // 0 Nieuw → 1 In gesprek → 2 Gewonnen
-  const [wins, setWins] = useState(0);
+  const [stage, setStage] = useState(0); // 0..7 — speelt één keer en stopt op 7
 
   useEffect(() => {
-    if (reduce) { setStage(2); return; }
+    if (reduce) { setStage(7); return; }
     setStage(0);
-    setWins(0);
-    const id = window.setInterval(() => {
-      setStage((s) => {
-        if (s >= 2) { setWins((w) => w + 1); return 0; }
-        return s + 1;
-      });
-    }, 1500);
-    return () => window.clearInterval(id);
+    let i = 0;
+    const timers: number[] = [];
+    const advance = () => {
+      if (i >= CRM_DELAYS.length) return; // stage 7 bereikt → stoppen
+      const t = window.setTimeout(() => {
+        i += 1;
+        setStage(i);
+        advance();
+      }, CRM_DELAYS[i]);
+      timers.push(t);
+    };
+    advance();
+    return () => timers.forEach((t) => window.clearTimeout(t));
   }, [reduce]);
 
-  const won = stage === 2;
-  const totalDeals = CRM_COLS.reduce((a, c) => a + c.statics.length, 0) + 1;
+  const cardCol = stage <= 2 ? 0 : stage <= 5 ? 1 : 2;
+  const lifted = !reduce && (stage === 2 || stage === 3 || stage === 5 || stage === 6);
+  const won = stage >= 7;
+  const grabbing = stage === 2 || stage === 5;
+  const cur = CRM_CURSOR_BY_STAGE[stage] ?? CRM_CURSOR_BY_STAGE[0];
 
   return (
     <div className="relative h-full flex flex-col">
       <div className="flex items-center justify-between mb-3">
         <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Sales-pijplijn</div>
-        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{totalDeals} deals · €21k open</span>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">5 deals · €21k open</span>
       </div>
       <div className="flex-1 grid grid-cols-3 gap-2">
         {CRM_COLS.map((c, ci) => {
-          const count = c.statics.length + (stage === ci ? 1 : 0);
+          const count = c.statics.length + (cardCol === ci ? 1 : 0);
           return (
-            <div key={c.title} className={["rounded-xl border bg-[color:var(--color-bg)]/50 p-2 flex flex-col", stage === ci ? "border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]" : "border-[color:var(--color-line)]"].join(" ")}>
+            <div key={c.title} className={["rounded-xl border bg-[color:var(--color-bg)]/50 p-2 flex flex-col transition-colors duration-300", cardCol === ci ? "border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]" : "border-[color:var(--color-line)]"].join(" ")}>
               <div className="flex items-center justify-between px-1 mb-2">
                 <span className="text-[9.5px] font-semibold uppercase tracking-[0.06em] text-[color:var(--color-ink-subtle)]">{c.title}</span>
                 <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{count}</span>
               </div>
               <div className="space-y-2">
-                {stage === ci && (
-                  <motion.div
-                    key={`deal-${wins}`}
-                    layout
-                    transition={{ layout: { duration: 0.55, ease: EASE }, default: { duration: 0.3, ease: EASE } }}
-                    initial={reduce ? false : { opacity: 0, scale: 0.92 }}
-                    animate={{ opacity: 1, scale: won && !reduce ? [1, 1.05, 1] : 1 }}
-                  >
-                    <CrmCard name="Studio Praline" value="€2,4k" moving won={won} />
+                {cardCol === ci && (
+                  <motion.div layoutId="crm-deal" transition={{ duration: 0.6, ease: EASE }} className="relative z-10">
+                    <motion.div
+                      animate={{
+                        scale: reduce ? 1 : lifted ? 1.06 : won ? [1, 1.08, 1] : 1,
+                        rotate: reduce ? 0 : lifted ? -3 : 0,
+                      }}
+                      transition={{ duration: lifted ? 0.18 : 0.4, ease: EASE }}
+                      style={{ transformOrigin: "50% 50%" }}
+                    >
+                      <CrmCard name="Bureau Veldhuis" value="€2,4k" moving lifted={lifted} won={won} />
+                    </motion.div>
                   </motion.div>
                 )}
                 {c.statics.map(([name, value]) => (
@@ -541,7 +565,30 @@ function CrmView() {
         <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">7 open taken</span>
       </div>
 
-      {won && !reduce && <CrmConfetti key={`confetti-${wins}`} />}
+      {/* cursor that picks up & drags the deal */}
+      {!reduce && (
+        <div
+          className="pointer-events-none absolute z-20"
+          style={{
+            left: `${cur.x}%`,
+            top: `${cur.y}%`,
+            transition: "left 600ms cubic-bezier(0.23,1,0.32,1), top 600ms cubic-bezier(0.23,1,0.32,1)",
+          }}
+        >
+          {grabbing && (
+            <motion.span
+              key={stage}
+              className="absolute -left-1 -top-1 h-7 w-7 rounded-full bg-[color:var(--color-purple)]/30"
+              initial={{ scale: 0.4, opacity: 0.6 }}
+              animate={{ scale: 2.3, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            />
+          )}
+          <MousePointer2 className="h-4 w-4 fill-[color:var(--color-ink-strong)] text-white drop-shadow-[0_2px_4px_rgba(12,6,18,0.25)]" strokeWidth={1.5} />
+        </div>
+      )}
+
+      {won && !reduce && <CrmConfetti />}
     </div>
   );
 }
