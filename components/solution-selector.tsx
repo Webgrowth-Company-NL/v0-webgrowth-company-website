@@ -34,7 +34,7 @@ const GOALS: Goal[] = [
   {
     key: "website",
     label: "Een nieuwe website",
-    body: "Snel, vindbaar en altijd actueel. Pagina's, berichten en eigen contenttypes, zonder los CMS.",
+    body: "Snel, vindbaar en altijd actueel. Pagina's, berichten en eigen contenttypes, zonder los CMS. Je past zelf alles aan, geen developer of bureau nodig.",
     icon: Globe,
     href: "/forester-os/website",
     grad: "from-[#3f2a8f] via-[#4f2bb0] to-[#5e3bc0]",
@@ -43,7 +43,7 @@ const GOALS: Goal[] = [
   {
     key: "leads",
     label: "Meer leads uit mijn site",
-    body: "Quickscans, calculators en slimme formulieren die bezoekers omzetten in aanvragen.",
+    body: "Quickscans, calculators en slimme formulieren die bezoekers omzetten in aanvragen. Elke lead landt direct in je CRM, klaar om op te volgen.",
     icon: Magnet,
     href: "/forester-os/lead-engine",
     grad: "from-[#5b34bc] via-[#6d3fd6] to-[#7c3aed]",
@@ -52,7 +52,7 @@ const GOALS: Goal[] = [
   {
     key: "seo",
     label: "Beter gevonden worden",
-    body: "Search Console-data, AI-suggesties en rankings in één dashboard. Zonder los SEO-bureau.",
+    body: "Search Console-data, AI-suggesties en rankings in één dashboard. Zonder los SEO-bureau. Zie welke pagina's groeien en wat je nog kunt verbeteren.",
     icon: Search,
     href: "/forester-os/seo",
     grad: "from-[#6a3fd0] via-[#7c3aed] to-[#8b5cf6]",
@@ -61,7 +61,7 @@ const GOALS: Goal[] = [
   {
     key: "crm",
     label: "Klanten slim opvolgen",
-    body: "Elke aanvraag in je CRM, automatisch opgevolgd. Eén visuele pijplijn voor je hele team.",
+    body: "Elke aanvraag in je CRM, automatisch opgevolgd. Eén visuele pijplijn voor je hele team. Geen lead die nog tussen de mailtjes verdwijnt.",
     icon: Users,
     href: "/forester-os/crm",
     grad: "from-[#4f2bb0] via-[#623bc7] to-[#7c5be0]",
@@ -70,7 +70,7 @@ const GOALS: Goal[] = [
   {
     key: "ai",
     label: "Automatisch publiceren met AI",
-    body: "Q schrijft pagina's, blogs en updates en publiceert ze op een vast ritme op je site.",
+    body: "Q schrijft pagina's, blogs en updates en publiceert ze op een vast ritme op je site. Jij houdt de regie, de content blijft komen.",
     icon: Sparkles,
     href: "/forester-os/ai",
     grad: "from-[#5e3bc0] via-[#7c3aed] to-[#9333ea]",
@@ -79,7 +79,7 @@ const GOALS: Goal[] = [
   {
     key: "platform",
     label: "Alles op één plek",
-    body: "Website, CRM, marketing en AI in één abonnement. Geen losse facturen, geen losse logins.",
+    body: "Website, CRM, marketing en AI in één abonnement. Geen losse facturen, geen losse logins. Eén platform dat met je organisatie meegroeit.",
     icon: LayoutGrid,
     href: "/forester-os",
     grad: "from-[#3d2a6b] via-[#4f2bb0] to-[#623bc7]",
