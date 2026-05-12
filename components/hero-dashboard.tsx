@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
-import { ArrowUp, Globe, MousePointer2, Search, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowUp, Globe, MousePointer2, Search, Send, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 const CYCLE_MS = 6500;
@@ -14,7 +14,7 @@ const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: ty
   { key: "website", url: "forester.app/website", label: "Website & CMS", short: "Website", icon: Globe },
   { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", short: "SEO", icon: Search },
   { key: "crm", url: "forester.app/crm", label: "CRM & Sales", short: "CRM", icon: Users },
-  { key: "ai", url: "forester.app/ai", label: "AI-content met Q", short: "AI", icon: Sparkles },
+  { key: "ai", url: "forester.app/q", label: "Q, je AI-assistent", short: "Q", icon: Sparkles },
 ];
 
 type StatViz = "gauge" | "bars" | "spark" | "bolt";
@@ -154,7 +154,7 @@ export function HeroDashboard() {
               {view.key === "website" && <WebsiteView />}
               {view.key === "seo" && <SeoView reduce={reduce} />}
               {view.key === "crm" && <CrmView />}
-              {view.key === "ai" && <AiView />}
+              {view.key === "ai" && <QView />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -636,31 +636,62 @@ function CrmView() {
   );
 }
 
-/* ── View: AI (Q Insights, zoals op het Forester-dashboard) ── */
-function AiView() {
+/* ── View: Q (de assistent — jij stuurt een appje, Q regelt het) ── */
+const Q_THREAD: { from: "you" | "q"; text: string }[] = [
+  { from: "you", text: "Kun je de openingstijden op de contactpagina aanpassen? Volgende week dinsdag zijn we dicht." },
+  { from: "q", text: "Geregeld. Dinsdag staat nu op gesloten, en de structured data heb ik ook bijgewerkt zodat Google het meteen overneemt." },
+  { from: "you", text: "Wauw, dat was snel 👍" },
+  { from: "q", text: "Altijd. Laat maar weten als er meer is." },
+];
+
+function QView() {
+  const reduce = useReducedMotion();
   return (
     <div className="h-full flex flex-col">
-      <div className="flex items-center gap-2.5 mb-3.5">
-        <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full overflow-hidden ring-2 ring-[color:var(--color-purple)]/25">
-          <Image src="/images/q-insights.jpg" alt="Q" width={36} height={36} className="object-cover" />
+      {/* header */}
+      <div className="flex items-center gap-2.5 mb-3 shrink-0">
+        <span className="relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full overflow-hidden ring-2 ring-[color:var(--color-purple)]/25">
+          <Image src="/images/q-insights.jpg" alt="Q" width={32} height={32} className="object-cover" />
         </span>
         <div className="leading-tight">
-          <div className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">Inzicht van Q</div>
-          <div className="text-[12px] font-semibold text-[color:var(--color-ink)]">Je AI-assistent</div>
+          <div className="text-[12px] font-semibold text-[color:var(--color-ink)]">Q</div>
+          <div className="flex items-center gap-1 text-[10px] text-[color:var(--color-ink-subtle)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />Online · reageert meteen
+          </div>
         </div>
+        <Sparkles className="ml-auto h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
       </div>
-      <div className="flex-1 rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-4 flex flex-col">
-        <p className="text-[13px] leading-relaxed text-[color:var(--color-ink)]">
-          Je blogpagina trok deze maand <span className="font-semibold text-[color:var(--color-purple)]">3× meer bezoekers</span>, maar bijna niemand klikt door naar je contactpagina. Zal ik een opvallendere knop voorstellen?
-        </p>
-        <div className="mt-auto pt-4 flex items-center gap-2">
-          <span className="inline-flex items-center rounded-full bg-[color:var(--color-purple)] px-3 py-1.5 text-[11px] font-semibold text-white">Ja, doe maar</span>
-          <span className="rounded-full border border-[color:var(--color-line)] px-3 py-1.5 text-[11px] font-medium text-[color:var(--color-ink-subtle)]">Later</span>
-        </div>
+
+      {/* thread */}
+      <div className="flex-1 overflow-hidden rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/40 p-3 flex flex-col justify-end gap-2.5">
+        {Q_THREAD.map((m, i) => (
+          <motion.div
+            key={i}
+            initial={reduce ? false : { opacity: 0, y: 10, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.32, ease: EASE, delay: 0.2 + i * 0.55 }}
+            className={`flex ${m.from === "you" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={[
+                "max-w-[84%] px-3 py-2 text-[11px] leading-relaxed",
+                m.from === "you"
+                  ? "rounded-2xl rounded-br-sm bg-[color:var(--color-purple)] text-white shadow-[0_8px_20px_-12px_rgba(98,59,199,0.5)]"
+                  : "rounded-2xl rounded-bl-sm bg-white border border-[color:var(--color-line)] text-[color:var(--color-ink)]",
+              ].join(" ")}
+            >
+              {m.text}
+            </div>
+          </motion.div>
+        ))}
       </div>
-      <div className="mt-3 flex items-center gap-1.5 text-[10px] text-[color:var(--color-ink-subtle)]">
-        <Sparkles className="h-3 w-3 text-[color:var(--color-purple)]" strokeWidth={2.5} />
-        <span>Op basis van bezoekersdata · afgelopen 30 dagen</span>
+
+      {/* input strip */}
+      <div className="mt-3 flex items-center gap-2 shrink-0">
+        <div className="flex-1 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/60 px-3 py-1.5 text-[10.5px] text-[color:var(--color-ink-subtle)]">Stuur Q een appje…</div>
+        <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white">
+          <Send className="h-3.5 w-3.5" strokeWidth={2.25} />
+        </span>
       </div>
     </div>
   );
