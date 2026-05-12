@@ -38,7 +38,7 @@ const fadeUp = (delay = 0) => ({
 
 export function SectionShift() {
   return (
-    <section className="relative isolate overflow-hidden px-5 sm:px-8 py-28 sm:py-40 bg-[color:var(--color-bg-elevated)] border-y border-[color:var(--color-line)]">
+    <section className="relative isolate overflow-hidden px-5 sm:px-8 py-28 sm:py-40 bg-[color:var(--color-bg-elevated)] rounded-t-[2.5rem] sm:rounded-t-[4.5rem]">
       {/* High-tech backdrop: faint dot grid + a soft purple field */}
       <div
         aria-hidden
