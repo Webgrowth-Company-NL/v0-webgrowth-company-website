@@ -17,6 +17,7 @@ const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: ty
   { key: "ai", url: "forester.app/ai", label: "AI-content met Q", short: "AI", icon: Sparkles },
 ];
 
+type StatViz = "gauge" | "bars" | "spark" | "bolt";
 type Stat = {
   label: string;
   prefix?: string;
@@ -26,25 +27,26 @@ type Stat = {
   delta: string;
   descriptor: string;
   trend?: boolean;
+  viz: StatViz;
 };
 
-/** Floating stat-chips, afgestemd op de actieve view. Het cijfer telt op bij elke wissel. */
+/** Floating stat-chips, afgestemd op de actieve view. Cijfer telt op + de mini-viz speelt af bij elke wissel. */
 const FLOATING: Record<ViewKey, [Stat, Stat]> = {
   website: [
-    { label: "PageSpeed", num: 98, delta: "/100", descriptor: "mobiel", trend: false },
-    { label: "Conversie", num: 6.4, decimals: 1, suffix: "%", delta: "+1,1pt", descriptor: "vs vorige periode" },
+    { label: "PageSpeed", num: 98, delta: "/100", descriptor: "mobiel", trend: false, viz: "gauge" },
+    { label: "Conversie", num: 6.4, decimals: 1, suffix: "%", delta: "+1,1pt", descriptor: "vs vorige periode", viz: "bars" },
   ],
   seo: [
-    { label: "Top-10 posities", num: 47, delta: "+12", descriptor: "deze maand" },
-    { label: "Organisch verkeer", prefix: "+", num: 47, suffix: "%", delta: "afgelopen jaar", descriptor: "", trend: false },
+    { label: "Top-10 posities", num: 47, delta: "+12", descriptor: "deze maand", viz: "bars" },
+    { label: "Organisch verkeer", prefix: "+", num: 47, suffix: "%", delta: "afgelopen jaar", descriptor: "", trend: false, viz: "spark" },
   ],
   crm: [
-    { label: "Open deals", num: 23, delta: "+5", descriptor: "deze week" },
-    { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand" },
+    { label: "Open deals", num: 23, delta: "+5", descriptor: "deze week", viz: "bars" },
+    { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand", viz: "spark" },
   ],
   ai: [
-    { label: "Inzichten", num: 12, delta: "+4", descriptor: "deze week" },
-    { label: "Tijd bespaard", num: 18, suffix: "u", delta: "/ maand", descriptor: "op content", trend: false },
+    { label: "Inzichten", num: 12, delta: "+4", descriptor: "deze week", viz: "bolt" },
+    { label: "Tijd bespaard", num: 18, suffix: "u", delta: "/ maand", descriptor: "op content", trend: false, viz: "spark" },
   ],
 };
 
@@ -673,6 +675,90 @@ function Chip({ children }: { children: React.ReactNode }) {
   );
 }
 
+/* Mini-visualisaties voor de stat-chips — spelen één keer af bij (her)mount. */
+function MiniGauge({ value }: { value: number }) {
+  const reduce = useReducedMotion();
+  const p = Math.max(0, Math.min(1, value / 100));
+  return (
+    <svg viewBox="0 0 24 16" className="h-4 w-5 text-[color:var(--color-purple)]" fill="none">
+      <path d="M2.5 14.5 A 9.5 9.5 0 0 1 21.5 14.5" stroke="currentColor" strokeOpacity="0.16" strokeWidth="2.6" strokeLinecap="round" />
+      <path d="M2.5 14.5 A 9.5 9.5 0 0 1 21.5 14.5" stroke="currentColor" strokeOpacity="0.22" strokeWidth="2.6" strokeLinecap="round" strokeDasharray="0.6 4.2" />
+      <motion.path
+        d="M2.5 14.5 A 9.5 9.5 0 0 1 21.5 14.5"
+        stroke="currentColor"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        initial={reduce ? false : { pathLength: 0 }}
+        animate={{ pathLength: reduce ? p : [0, Math.min(1, p * 1.1), p] }}
+        transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.12, times: [0, 0.72, 1] }}
+      />
+      <circle cx="12" cy="14.5" r="1.7" fill="currentColor" />
+    </svg>
+  );
+}
+
+function MiniBars() {
+  const reduce = useReducedMotion();
+  const hs = [4.5, 7.5, 6, 11];
+  return (
+    <svg viewBox="0 0 16 13" className="h-3.5 w-4 text-[color:var(--color-purple)]" fill="currentColor">
+      {hs.map((h, i) => (
+        <motion.rect
+          key={i}
+          x={i * 4 + 0.6}
+          width="2.6"
+          rx="1"
+          initial={reduce ? false : { height: 0, y: 12 }}
+          animate={{ height: h, y: 12 - h }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.2 + i * 0.09 }}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function MiniSpark() {
+  const reduce = useReducedMotion();
+  return (
+    <svg viewBox="0 0 20 13" className="h-3.5 w-5 text-[color:var(--color-purple)]" fill="none">
+      <motion.path
+        d="M1.5 11 L6 7.5 L10 9.5 L14 3.5 L18.5 1.8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        initial={reduce ? false : { pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 1 }}
+        transition={{ duration: 0.85, ease: EASE, delay: 0.18 }}
+      />
+      <motion.circle
+        cx="18.5"
+        cy="1.8"
+        r="1.9"
+        fill="currentColor"
+        initial={reduce ? false : { scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3, ease: EASE, delay: 0.95 }}
+      />
+    </svg>
+  );
+}
+
+function StatVizIcon({ viz, num }: { viz: StatViz; num: number }) {
+  if (viz === "gauge") return <MiniGauge value={num} />;
+  if (viz === "bars") return <MiniBars />;
+  if (viz === "spark") return <MiniSpark />;
+  return (
+    <motion.span
+      initial={{ scale: 0.6, rotate: -25 }}
+      animate={{ scale: 1, rotate: 0 }}
+      transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+    >
+      <Zap className="h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.5} fill="currentColor" />
+    </motion.span>
+  );
+}
+
 /** Telt soepel op naar het doelgetal bij (her)mount — knipoog naar de Emil-motion-skill. */
 function AnimatedNumber({ value, decimals = 0 }: { value: number; decimals?: number }) {
   const reduce = useReducedMotion();
@@ -693,16 +779,16 @@ function AnimatedNumber({ value, decimals = 0 }: { value: number; decimals?: num
   return <>{text}</>;
 }
 
-function StatChip({ label, prefix, num, decimals = 0, suffix, delta, descriptor, trend = true }: Stat) {
+function StatChip({ label, prefix, num, decimals = 0, suffix, delta, descriptor, trend = true, viz }: Stat) {
   return (
-    <div className="relative flex flex-col gap-1.5 min-w-[150px] pl-3.5 pr-9 py-3 rounded-2xl bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_56px_-24px_rgba(12,6,18,0.22)]">
+    <div className="relative flex flex-col gap-1.5 min-w-[152px] pl-3.5 pr-11 py-3 rounded-2xl bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_56px_-24px_rgba(12,6,18,0.22)]">
       <motion.span
-        className="absolute top-2.5 right-2.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)]"
-        initial={{ scale: 0.6, rotate: -25 }}
-        animate={{ scale: 1, rotate: 0 }}
-        transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+        className="absolute top-2.5 right-2.5 inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[color:var(--color-purple-tint)] overflow-hidden"
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.4, ease: EASE }}
       >
-        <Zap className="h-3 w-3 text-[color:var(--color-purple)]" strokeWidth={2.5} fill="currentColor" />
+        <StatVizIcon viz={viz} num={num} />
       </motion.span>
       <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">{label}</span>
       <span className="font-[family-name:var(--font-display)] text-[26px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">
