@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
 import { ArrowUp, Globe, MousePointer2, Search, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -17,25 +17,34 @@ const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: ty
   { key: "ai", url: "forester.app/ai", label: "AI-content met Q", short: "AI", icon: Sparkles },
 ];
 
-type Stat = { label: string; value: string; delta: string; descriptor: string; trend?: boolean };
+type Stat = {
+  label: string;
+  prefix?: string;
+  num: number;
+  decimals?: number;
+  suffix?: string;
+  delta: string;
+  descriptor: string;
+  trend?: boolean;
+};
 
-/** Floating stat-chips, afgestemd op de actieve view. */
+/** Floating stat-chips, afgestemd op de actieve view. Het cijfer telt op bij elke wissel. */
 const FLOATING: Record<ViewKey, [Stat, Stat]> = {
   website: [
-    { label: "PageSpeed", value: "98", delta: "/100", descriptor: "mobiel", trend: false },
-    { label: "Conversie", value: "6,4%", delta: "+1,1pt", descriptor: "vs vorige periode" },
+    { label: "PageSpeed", num: 98, delta: "/100", descriptor: "mobiel", trend: false },
+    { label: "Conversie", num: 6.4, decimals: 1, suffix: "%", delta: "+1,1pt", descriptor: "vs vorige periode" },
   ],
   seo: [
-    { label: "Top-10 posities", value: "47", delta: "+12", descriptor: "deze maand" },
-    { label: "Organisch verkeer", value: "+47%", delta: "afgelopen jaar", descriptor: "", trend: false },
+    { label: "Top-10 posities", num: 47, delta: "+12", descriptor: "deze maand" },
+    { label: "Organisch verkeer", prefix: "+", num: 47, suffix: "%", delta: "afgelopen jaar", descriptor: "", trend: false },
   ],
   crm: [
-    { label: "Open deals", value: "23", delta: "+5", descriptor: "deze week" },
-    { label: "Gewonnen", value: "€18k", delta: "+22%", descriptor: "deze maand" },
+    { label: "Open deals", num: 23, delta: "+5", descriptor: "deze week" },
+    { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand" },
   ],
   ai: [
-    { label: "Inzichten", value: "12", delta: "+4", descriptor: "deze week" },
-    { label: "Tijd bespaard", value: "18u", delta: "/ maand", descriptor: "op content", trend: false },
+    { label: "Inzichten", num: 12, delta: "+4", descriptor: "deze week" },
+    { label: "Tijd bespaard", num: 18, suffix: "u", delta: "/ maand", descriptor: "op content", trend: false },
   ],
 };
 
@@ -172,7 +181,7 @@ export function HeroDashboard() {
         initial={{ opacity: 0, y: 12, scale: 0.94 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: EASE, delay: 1.15 }}
-        className="absolute -bottom-3 -right-2 sm:-right-6 z-10"
+        className="absolute -top-5 -right-2 sm:-right-10 z-10"
         style={{ animation: reduce ? undefined : "float-y 8.5s ease-in-out 0.6s infinite" }}
       >
         <AnimatePresence mode="wait">
@@ -186,7 +195,7 @@ export function HeroDashboard() {
         initial={{ opacity: 0, y: 12, scale: 0.94 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: EASE, delay: 1.3 }}
-        className="absolute top-[50%] -translate-y-1/2 -left-5 sm:-left-9 z-10 hidden sm:block"
+        className="absolute -bottom-5 -left-3 sm:-left-10 z-10 hidden sm:block"
         style={{ animation: reduce ? undefined : "float-y 10s ease-in-out 1.2s infinite" }}
       >
         <AnimatePresence mode="wait">
@@ -199,104 +208,134 @@ export function HeroDashboard() {
   );
 }
 
-/* ── View: Website (wireframe + cursor die een formulier invult) ── */
-const CURSOR_STEPS: { x: number; y: number; click?: boolean }[] = [
-  { x: 84, y: 9 },                 // 0 — idle, rechtsboven
-  { x: 26, y: 46 },                // 1 — naar veld 1
-  { x: 26, y: 46, click: true },   // 2 — klik veld 1 → ingevuld
-  { x: 26, y: 58 },                // 3 — naar veld 2
-  { x: 26, y: 58, click: true },   // 4 — klik veld 2 → ingevuld
-  { x: 26, y: 70 },                // 5 — naar veld 3
-  { x: 26, y: 70, click: true },   // 6 — klik veld 3 → ingevuld
-  { x: 50, y: 83 },                // 7 — naar verstuurknop
-  { x: 50, y: 83, click: true },   // 8 — klik versturen
-  { x: 50, y: 83 },                // 9 — vasthouden
+/* ── View: Website (wireframe-pagina; de cursor vult een echt contactformulier in) ── */
+const WEB_FORM: { label: string; value: string; area?: boolean; y: number }[] = [
+  { label: "Naam", value: "Sanne de Vries", y: 35 },
+  { label: "E-mailadres", value: "sanne@studiopraline.nl", y: 51 },
+  { label: "Waar kunnen we je mee helpen?", value: "Nieuwe site + meer vindbaarheid", area: true, y: 69 },
 ];
+const WEB_IDLE = { x: 84, y: 9 };
+const WEB_BUTTON = { x: 50, y: 87 };
+const WEB_IDLE_FRAMES = 5;
+const WEB_MOVE_FRAMES = 4;
+const WEB_CLICK_FRAMES = 1;
+const WEB_HOLD_FRAMES = 14;
+const WEB_TOTAL =
+  WEB_IDLE_FRAMES +
+  WEB_FORM.reduce((a, f) => a + WEB_MOVE_FRAMES + f.value.length, 0) +
+  WEB_MOVE_FRAMES + WEB_CLICK_FRAMES + WEB_HOLD_FRAMES;
 
-function FormField({ filled, fillW }: { filled: boolean; fillW: string }) {
-  return (
-    <div className="relative h-7 rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/50 overflow-hidden">
-      <span
-        className="absolute left-2.5 top-1/2 -translate-y-1/2 h-1.5 rounded bg-[color:var(--color-purple)]/45 transition-[width] duration-500 ease-out"
-        style={{ width: filled ? fillW : "0%" }}
-      />
-    </div>
-  );
+type WebState = {
+  cursor: { x: number; y: number };
+  typed: number[];
+  caretField: number | null;
+  submitted: boolean;
+  click: boolean;
+};
+
+function webStateFor(frame: number): WebState {
+  let f = frame;
+  const typed = [0, 0, 0];
+  if (f < WEB_IDLE_FRAMES) return { cursor: WEB_IDLE, typed, caretField: null, submitted: false, click: false };
+  f -= WEB_IDLE_FRAMES;
+  for (let i = 0; i < WEB_FORM.length; i++) {
+    const field = WEB_FORM[i];
+    if (f < WEB_MOVE_FRAMES) return { cursor: { x: 24, y: field.y }, typed, caretField: null, submitted: false, click: false };
+    f -= WEB_MOVE_FRAMES;
+    const len = field.value.length;
+    if (f < len) {
+      typed[i] = f + 1;
+      const frac = (f + 1) / len;
+      return { cursor: { x: 24 + frac * (field.area ? 30 : 46), y: field.y }, typed, caretField: i, submitted: false, click: false };
+    }
+    f -= len;
+    typed[i] = len;
+  }
+  if (f < WEB_MOVE_FRAMES) return { cursor: WEB_BUTTON, typed, caretField: null, submitted: false, click: false };
+  f -= WEB_MOVE_FRAMES;
+  if (f < WEB_CLICK_FRAMES) return { cursor: WEB_BUTTON, typed, caretField: null, submitted: true, click: true };
+  return { cursor: WEB_BUTTON, typed, caretField: null, submitted: true, click: false };
 }
 
 function WebsiteView() {
   const reduce = useReducedMotion();
-  const [step, setStep] = useState(0);
+  const [frame, setFrame] = useState(0);
 
   useEffect(() => {
-    if (reduce) { setStep(8); return; }
-    setStep(0);
-    const id = window.setInterval(() => setStep((s) => (s + 1) % CURSOR_STEPS.length), 650);
+    if (reduce) { setFrame(WEB_TOTAL - WEB_HOLD_FRAMES); return; }
+    setFrame(0);
+    const id = window.setInterval(() => setFrame((s) => (s + 1) % WEB_TOTAL), 65);
     return () => window.clearInterval(id);
   }, [reduce]);
 
-  const pos = CURSOR_STEPS[step];
-  const f1 = step >= 2;
-  const f2 = step >= 4;
-  const f3 = step >= 6;
-  const submitted = step >= 8;
+  const st = reduce ? webStateFor(WEB_TOTAL - WEB_HOLD_FRAMES) : webStateFor(frame);
 
   return (
     <div className="relative h-full overflow-hidden">
-      {/* faux page header */}
+      {/* faux page chrome */}
       <div className="flex items-center justify-between rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 px-2.5 py-1.5">
-        <span className="h-2 w-9 rounded bg-[color:var(--color-ink-faint)]" />
+        <span className="h-1.5 w-8 rounded bg-[color:var(--color-ink-faint)]" />
         <span className="flex items-center gap-1.5">
-          <span className="h-1.5 w-6 rounded bg-[color:var(--color-ink-faint)]/60" />
-          <span className="h-1.5 w-6 rounded bg-[color:var(--color-ink-faint)]/60" />
-          <span className="h-3 w-10 rounded bg-[color:var(--color-purple)]/25" />
+          <span className="h-1.5 w-5 rounded bg-[color:var(--color-ink-faint)]/60" />
+          <span className="h-1.5 w-5 rounded bg-[color:var(--color-ink-faint)]/60" />
+          <span className="h-3 w-9 rounded bg-[color:var(--color-purple)]/25" />
         </span>
       </div>
-
-      {/* faux hero copy */}
-      <div className="mt-2.5 space-y-1.5">
-        <span className="block h-2.5 w-3/5 rounded bg-[color:var(--color-ink-faint)]" />
-        <span className="block h-2.5 w-2/5 rounded bg-[color:var(--color-ink-faint)]" />
-        <span className="block h-1.5 w-4/5 rounded bg-[color:var(--color-ink-faint)]/55" />
+      <div className="mt-2 space-y-1.5">
+        <span className="block h-2 w-3/5 rounded bg-[color:var(--color-ink-faint)]" />
+        <span className="block h-1.5 w-5/6 rounded bg-[color:var(--color-ink-faint)]/55" />
       </div>
 
-      {/* the form the cursor fills in */}
-      <div className="mt-3 rounded-lg border border-dashed border-[color:var(--color-purple)]/40 bg-white p-3 shadow-[0_10px_24px_-16px_rgba(98,59,199,0.3)]">
-        <div className="mb-2.5 text-[11px] font-semibold text-[color:var(--color-ink)]">Vraag een offerte aan</div>
+      {/* the contact form */}
+      <div className="mt-2.5 rounded-lg border border-dashed border-[color:var(--color-purple)]/40 bg-white p-2.5 shadow-[0_10px_24px_-16px_rgba(98,59,199,0.3)]">
+        <div className="mb-2 text-[11px] font-semibold text-[color:var(--color-ink)]">Vraag een offerte aan</div>
         <div className="space-y-2">
-          <FormField filled={f1} fillW="58%" />
-          <FormField filled={f2} fillW="72%" />
-          <FormField filled={f3} fillW="44%" />
+          {WEB_FORM.map((field, i) => (
+            <div key={field.label}>
+              <div className="mb-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-[color:var(--color-ink-subtle)]">{field.label}</div>
+              <div
+                className={[
+                  "rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 px-2 text-[10px] text-[color:var(--color-ink)]",
+                  field.area ? "h-9 py-1 leading-snug" : "h-6 flex items-center",
+                ].join(" ")}
+              >
+                <span className="break-words">{field.value.slice(0, st.typed[i])}</span>
+                {st.caretField === i && !reduce && (
+                  <span className="ml-px inline-block h-2.5 w-px align-middle bg-[color:var(--color-purple)]" style={{ animation: "soft-pulse 1s ease-in-out infinite" }} />
+                )}
+              </div>
+            </div>
+          ))}
           <div
             className={[
-              "h-7 rounded-md flex items-center justify-center text-[10.5px] font-semibold transition-colors duration-300",
-              submitted ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white",
+              "mt-0.5 h-6 rounded-md flex items-center justify-center text-[10px] font-semibold transition-colors duration-300",
+              st.submitted ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white",
             ].join(" ")}
           >
-            {submitted ? "✓ Verzonden, we nemen contact op" : "Verstuur aanvraag"}
+            {st.submitted ? "✓ Verzonden, we nemen contact op" : "Verstuur aanvraag"}
           </div>
         </div>
       </div>
 
-      {/* the moving cursor + click pulse */}
+      {/* moving cursor + click pulse */}
       <div
         className="pointer-events-none absolute z-20"
         style={{
-          left: `${pos.x}%`,
-          top: `${pos.y}%`,
-          transition: reduce ? undefined : "left 520ms cubic-bezier(0.23,1,0.32,1), top 520ms cubic-bezier(0.23,1,0.32,1)",
+          left: `${st.cursor.x}%`,
+          top: `${st.cursor.y}%`,
+          transition: reduce ? undefined : "left 320ms cubic-bezier(0.23,1,0.32,1), top 320ms cubic-bezier(0.23,1,0.32,1)",
         }}
       >
-        {pos.click && !reduce && (
+        {st.click && !reduce && (
           <motion.span
-            key={step}
+            key={frame}
             className="absolute -left-1 -top-1 h-7 w-7 rounded-full bg-[color:var(--color-purple)]/30"
             initial={{ scale: 0.4, opacity: 0.6 }}
-            animate={{ scale: 2.3, opacity: 0 }}
+            animate={{ scale: 2.4, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           />
         )}
-        <MousePointer2 className="h-4 w-4 -translate-x-px -translate-y-px fill-[color:var(--color-ink-strong)] text-white drop-shadow-[0_2px_4px_rgba(12,6,18,0.25)]" strokeWidth={1.5} />
+        <MousePointer2 className="h-4 w-4 fill-[color:var(--color-ink-strong)] text-white drop-shadow-[0_2px_4px_rgba(12,6,18,0.25)]" strokeWidth={1.5} />
       </div>
     </div>
   );
@@ -372,47 +411,137 @@ function SeoView({ reduce }: { reduce: boolean | null }) {
   );
 }
 
-/* ── View: CRM (kanban / sales-pijplijn) ─────────── */
-function CrmView() {
-  const columns: { title: string; n: number; items: { name: string; value: string; hot?: boolean }[] }[] = [
-    { title: "Nieuw", n: 2, items: [{ name: "Studio Praline", value: "€2,4k", hot: true }, { name: "Bureau Klaverwijk", value: "€5,1k" }] },
-    { title: "In gesprek", n: 1, items: [{ name: "Architectenbureau Holm", value: "€8,0k" }] },
-    { title: "Voorstel", n: 2, items: [{ name: "Praktijk De Vijver", value: "€3,7k" }, { name: "Atelier Mooij", value: "€1,9k" }] },
-  ];
+/* ── View: CRM (kanban — sleep een deal naar gewonnen, paarse confetti) ── */
+const CRM_COLS: { title: string; statics: [string, string][] }[] = [
+  { title: "Nieuw", statics: [["Bureau Klaverwijk", "€5,1k"], ["Atelier Mooij", "€1,9k"]] },
+  { title: "In gesprek", statics: [["Architectenbureau Holm", "€8,0k"]] },
+  { title: "Gewonnen", statics: [["Praktijk De Vijver", "€3,7k"]] },
+];
+const CRM_CONFETTI_HEX = ["#8b5cf6", "#623bc7", "#c4b5fd"];
+
+function crmInitials(name: string) {
+  return name.split(" ").slice(0, 2).map((w) => w[0]).join("");
+}
+
+function CrmCard({ name, value, moving, won }: { name: string; value: string; moving?: boolean; won?: boolean }) {
   return (
-    <div className="h-full flex flex-col">
+    <div
+      className={[
+        "rounded-lg border bg-white p-2",
+        moving
+          ? won
+            ? "border-emerald-500/50 shadow-[0_10px_24px_-10px_rgba(16,185,129,0.4)]"
+            : "border-[color:var(--color-purple)]/45 ring-1 ring-[color:var(--color-purple)]/15 shadow-[0_10px_24px_-10px_rgba(98,59,199,0.45)]"
+          : "border-[color:var(--color-line)] shadow-[0_4px_12px_-8px_rgba(12,6,18,0.12)]",
+      ].join(" ")}
+    >
+      <div className="flex items-center gap-1.5 mb-1.5">
+        <span
+          className={[
+            "inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[8.5px] font-bold",
+            moving ? "bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)]" : "bg-[color:var(--color-bg-muted)] text-[color:var(--color-ink)]",
+          ].join(" ")}
+        >
+          {crmInitials(name)}
+        </span>
+        <span className="text-[10px] font-semibold text-[color:var(--color-ink)] truncate">{name}</span>
+      </div>
+      <div className="flex items-center justify-between">
+        <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)] tabular-nums">{value}</span>
+        {moving && won ? (
+          <span className="inline-flex items-center gap-0.5 text-[8.5px] font-bold text-emerald-600"><ArrowUp className="h-2.5 w-2.5 rotate-45" strokeWidth={3} />gewonnen</span>
+        ) : moving ? (
+          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+function CrmConfetti() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden">
+      {Array.from({ length: 20 }).map((_, i) => {
+        const dx = (Math.random() - 0.5) * 210;
+        const dy = -30 - Math.random() * 130;
+        const rot = (Math.random() - 0.5) * 600;
+        return (
+          <motion.span
+            key={i}
+            className="absolute h-1.5 w-1.5 rounded-[1px]"
+            style={{ left: "82%", top: "32%", background: CRM_CONFETTI_HEX[i % 3] }}
+            initial={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
+            animate={{ x: dx, y: [0, dy, dy + 100], opacity: [1, 1, 0], rotate: rot }}
+            transition={{ duration: 1.15, ease: "easeOut" }}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+function CrmView() {
+  const reduce = useReducedMotion();
+  const [stage, setStage] = useState(0); // 0 Nieuw → 1 In gesprek → 2 Gewonnen
+  const [wins, setWins] = useState(0);
+
+  useEffect(() => {
+    if (reduce) { setStage(2); return; }
+    setStage(0);
+    setWins(0);
+    const id = window.setInterval(() => {
+      setStage((s) => {
+        if (s >= 2) { setWins((w) => w + 1); return 0; }
+        return s + 1;
+      });
+    }, 1500);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
+  const won = stage === 2;
+  const totalDeals = CRM_COLS.reduce((a, c) => a + c.statics.length, 0) + 1;
+
+  return (
+    <div className="relative h-full flex flex-col">
       <div className="flex items-center justify-between mb-3">
         <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Sales-pijplijn</div>
-        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">5 deals · €21k open</span>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{totalDeals} deals · €21k open</span>
       </div>
       <div className="flex-1 grid grid-cols-3 gap-2">
-        {columns.map((c, ci) => (
-          <div key={c.title} className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-2 flex flex-col">
-            <div className="flex items-center justify-between px-1 mb-2">
-              <span className="text-[9.5px] font-semibold uppercase tracking-[0.06em] text-[color:var(--color-ink-subtle)]">{c.title}</span>
-              <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{c.n}</span>
+        {CRM_COLS.map((c, ci) => {
+          const count = c.statics.length + (stage === ci ? 1 : 0);
+          return (
+            <div key={c.title} className={["rounded-xl border bg-[color:var(--color-bg)]/50 p-2 flex flex-col", stage === ci ? "border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]" : "border-[color:var(--color-line)]"].join(" ")}>
+              <div className="flex items-center justify-between px-1 mb-2">
+                <span className="text-[9.5px] font-semibold uppercase tracking-[0.06em] text-[color:var(--color-ink-subtle)]">{c.title}</span>
+                <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{count}</span>
+              </div>
+              <div className="space-y-2">
+                {stage === ci && (
+                  <motion.div
+                    key={`deal-${wins}`}
+                    layout
+                    transition={{ layout: { duration: 0.55, ease: EASE }, default: { duration: 0.3, ease: EASE } }}
+                    initial={reduce ? false : { opacity: 0, scale: 0.92 }}
+                    animate={{ opacity: 1, scale: won && !reduce ? [1, 1.05, 1] : 1 }}
+                  >
+                    <CrmCard name="Studio Praline" value="€2,4k" moving won={won} />
+                  </motion.div>
+                )}
+                {c.statics.map(([name, value]) => (
+                  <CrmCard key={name} name={name} value={value} />
+                ))}
+              </div>
             </div>
-            <div className="space-y-2">
-              {c.items.map((it, i) => (
-                <div key={it.name} className="rounded-lg border border-[color:var(--color-line)] bg-white p-2 shadow-[0_4px_12px_-8px_rgba(12,6,18,0.12)]">
-                  <div className="flex items-center gap-1.5 mb-1.5">
-                    <span className={["inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[8.5px] font-bold text-[color:var(--color-ink)]", ci === 0 && i === 0 ? "bg-[color:var(--color-purple-tint)]" : "bg-[color:var(--color-bg-muted)]"].join(" ")}>{it.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}</span>
-                    <span className="text-[10px] font-semibold text-[color:var(--color-ink)] truncate">{it.name}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)] tabular-nums">{it.value}</span>
-                    {it.hot && <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div className="mt-3 flex items-center gap-1.5 text-[10px]">
         <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 font-semibold text-[color:var(--color-purple)]"><Users className="h-2.5 w-2.5" strokeWidth={2.5} />4 teamleden</span>
         <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">7 open taken</span>
       </div>
+
+      {won && !reduce && <CrmConfetti key={`confetti-${wins}`} />}
     </div>
   );
 }
@@ -456,14 +585,41 @@ function Chip({ children }: { children: React.ReactNode }) {
   );
 }
 
-function StatChip({ label, value, delta, descriptor, trend = true }: Stat) {
+/** Telt soepel op naar het doelgetal bij (her)mount — knipoog naar de Emil-motion-skill. */
+function AnimatedNumber({ value, decimals = 0 }: { value: number; decimals?: number }) {
+  const reduce = useReducedMotion();
+  const mv = useMotionValue(reduce ? value : 0);
+  const [display, setDisplay] = useState(value);
+  useEffect(() => {
+    if (reduce) { setDisplay(value); return; }
+    mv.set(0);
+    const controls = animate(mv, value, {
+      duration: 1,
+      ease: [0.23, 1, 0.32, 1],
+      onUpdate: (v) => setDisplay(v),
+    });
+    return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, decimals, reduce]);
+  const text = decimals > 0 ? display.toFixed(decimals).replace(".", ",") : Math.round(display).toString();
+  return <>{text}</>;
+}
+
+function StatChip({ label, prefix, num, decimals = 0, suffix, delta, descriptor, trend = true }: Stat) {
   return (
     <div className="relative flex flex-col gap-1.5 min-w-[150px] pl-3.5 pr-9 py-3 rounded-2xl bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_56px_-24px_rgba(12,6,18,0.22)]">
-      <span className="absolute top-2.5 right-2.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)]">
+      <motion.span
+        className="absolute top-2.5 right-2.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)]"
+        initial={{ scale: 0.6, rotate: -25 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+      >
         <Zap className="h-3 w-3 text-[color:var(--color-purple)]" strokeWidth={2.5} fill="currentColor" />
-      </span>
+      </motion.span>
       <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">{label}</span>
-      <span className="font-[family-name:var(--font-display)] text-[26px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">{value}</span>
+      <span className="font-[family-name:var(--font-display)] text-[26px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">
+        {prefix}<AnimatedNumber value={num} decimals={decimals} />{suffix}
+      </span>
       {trend ? (
         <span className="inline-flex items-center gap-1 text-[10.5px]">
           <TrendingUp className="h-3 w-3 text-emerald-600" strokeWidth={2.5} />
