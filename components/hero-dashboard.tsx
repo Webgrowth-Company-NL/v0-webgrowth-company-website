@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUp, Globe, Search, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowUp, Globe, MousePointer2, Search, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
-const CYCLE_MS = 4400;
+const CYCLE_MS = 6500;
 
 type ViewKey = "website" | "seo" | "crm" | "ai";
 
@@ -44,12 +44,7 @@ export function HeroDashboard() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [userPicked, setUserPicked] = useState(false);
-
-  useEffect(() => {
-    if (reduce || paused || userPicked) return;
-    const id = window.setInterval(() => setActive((i) => (i + 1) % VIEWS.length), CYCLE_MS);
-    return () => window.clearInterval(id);
-  }, [reduce, paused, userPicked]);
+  const autoCycle = !reduce && !paused && !userPicked;
 
   const view = VIEWS[active];
 
@@ -118,6 +113,20 @@ export function HeroDashboard() {
               </motion.button>
             );
           })}
+        </div>
+
+        {/* Timer bar — runs out → next view (pauses on hover, stops once you pick one) */}
+        <div className="h-[3px] bg-[color:var(--color-bg-muted)] overflow-hidden shrink-0">
+          {autoCycle && (
+            <motion.div
+              key={active}
+              className="h-full origin-left bg-[color:var(--color-purple)]"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: CYCLE_MS / 1000, ease: "linear" }}
+              onAnimationComplete={() => setActive((i) => (i + 1) % VIEWS.length)}
+            />
+          )}
         </div>
 
         {/* Body — selected view */}
@@ -190,40 +199,104 @@ export function HeroDashboard() {
   );
 }
 
-/* ── View: Website (conversiefunnel) ─────────────── */
-function WebsiteView() {
-  const stages = [
-    { label: "Bezoekers", value: "4.977", w: "100%", op: 0.9 },
-    { label: "Leads", value: "287", w: "62%", op: 0.7 },
-    { label: "Prospects", value: "41", w: "34%", op: 0.55 },
-  ];
+/* ── View: Website (wireframe + cursor die een formulier invult) ── */
+const CURSOR_STEPS: { x: number; y: number; click?: boolean }[] = [
+  { x: 84, y: 9 },                 // 0 — idle, rechtsboven
+  { x: 26, y: 46 },                // 1 — naar veld 1
+  { x: 26, y: 46, click: true },   // 2 — klik veld 1 → ingevuld
+  { x: 26, y: 58 },                // 3 — naar veld 2
+  { x: 26, y: 58, click: true },   // 4 — klik veld 2 → ingevuld
+  { x: 26, y: 70 },                // 5 — naar veld 3
+  { x: 26, y: 70, click: true },   // 6 — klik veld 3 → ingevuld
+  { x: 50, y: 83 },                // 7 — naar verstuurknop
+  { x: 50, y: 83, click: true },   // 8 — klik versturen
+  { x: 50, y: 83 },                // 9 — vasthouden
+];
+
+function FormField({ filled, fillW }: { filled: boolean; fillW: string }) {
   return (
-    <div className="h-full flex flex-col">
-      <div className="flex items-end justify-between mb-1">
-        <div>
-          <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Conversiefunnel · 30 dagen</div>
-          <div className="mt-1 font-[family-name:var(--font-display)] text-[22px] font-bold text-[color:var(--color-ink-strong)] leading-none">jouwsite.nl</div>
-        </div>
-        <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-emerald-600"><TrendingUp className="h-3 w-3" strokeWidth={2.5} />+11,1%</span>
+    <div className="relative h-7 rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/50 overflow-hidden">
+      <span
+        className="absolute left-2.5 top-1/2 -translate-y-1/2 h-1.5 rounded bg-[color:var(--color-purple)]/45 transition-[width] duration-500 ease-out"
+        style={{ width: filled ? fillW : "0%" }}
+      />
+    </div>
+  );
+}
+
+function WebsiteView() {
+  const reduce = useReducedMotion();
+  const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    if (reduce) { setStep(8); return; }
+    setStep(0);
+    const id = window.setInterval(() => setStep((s) => (s + 1) % CURSOR_STEPS.length), 650);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
+  const pos = CURSOR_STEPS[step];
+  const f1 = step >= 2;
+  const f2 = step >= 4;
+  const f3 = step >= 6;
+  const submitted = step >= 8;
+
+  return (
+    <div className="relative h-full overflow-hidden">
+      {/* faux page header */}
+      <div className="flex items-center justify-between rounded-md border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 px-2.5 py-1.5">
+        <span className="h-2 w-9 rounded bg-[color:var(--color-ink-faint)]" />
+        <span className="flex items-center gap-1.5">
+          <span className="h-1.5 w-6 rounded bg-[color:var(--color-ink-faint)]/60" />
+          <span className="h-1.5 w-6 rounded bg-[color:var(--color-ink-faint)]/60" />
+          <span className="h-3 w-10 rounded bg-[color:var(--color-purple)]/25" />
+        </span>
       </div>
-      <div className="flex-1 flex flex-col justify-center gap-3">
-        {stages.map((s, i) => (
-          <motion.div
-            key={s.label}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: EASE, delay: 0.15 + i * 0.1 }}
-            className="mx-auto rounded-xl flex items-center justify-between px-4 py-3 text-white shadow-[0_8px_22px_-12px_rgba(98,59,199,0.55)]"
-            style={{ width: s.w, background: `linear-gradient(100deg, rgba(98,59,199,${s.op}), rgba(124,58,237,${s.op}))` }}
+
+      {/* faux hero copy */}
+      <div className="mt-2.5 space-y-1.5">
+        <span className="block h-2.5 w-3/5 rounded bg-[color:var(--color-ink-faint)]" />
+        <span className="block h-2.5 w-2/5 rounded bg-[color:var(--color-ink-faint)]" />
+        <span className="block h-1.5 w-4/5 rounded bg-[color:var(--color-ink-faint)]/55" />
+      </div>
+
+      {/* the form the cursor fills in */}
+      <div className="mt-3 rounded-lg border border-dashed border-[color:var(--color-purple)]/40 bg-white p-3 shadow-[0_10px_24px_-16px_rgba(98,59,199,0.3)]">
+        <div className="mb-2.5 text-[11px] font-semibold text-[color:var(--color-ink)]">Vraag een offerte aan</div>
+        <div className="space-y-2">
+          <FormField filled={f1} fillW="58%" />
+          <FormField filled={f2} fillW="72%" />
+          <FormField filled={f3} fillW="44%" />
+          <div
+            className={[
+              "h-7 rounded-md flex items-center justify-center text-[10.5px] font-semibold transition-colors duration-300",
+              submitted ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white",
+            ].join(" ")}
           >
-            <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/85 whitespace-nowrap">{s.label}</span>
-            <span className="font-[family-name:var(--font-display)] text-[19px] font-bold tabular-nums whitespace-nowrap">{s.value}</span>
-          </motion.div>
-        ))}
+            {submitted ? "✓ Verzonden, we nemen contact op" : "Verstuur aanvraag"}
+          </div>
+        </div>
       </div>
-      <div className="mt-4 flex items-center gap-1.5 text-[10px]">
-        <span className="rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 font-semibold text-[color:var(--color-purple)]">5,8% lead-conversie</span>
-        <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">98/100 PageSpeed</span>
+
+      {/* the moving cursor + click pulse */}
+      <div
+        className="pointer-events-none absolute z-20"
+        style={{
+          left: `${pos.x}%`,
+          top: `${pos.y}%`,
+          transition: reduce ? undefined : "left 520ms cubic-bezier(0.23,1,0.32,1), top 520ms cubic-bezier(0.23,1,0.32,1)",
+        }}
+      >
+        {pos.click && !reduce && (
+          <motion.span
+            key={step}
+            className="absolute -left-1 -top-1 h-7 w-7 rounded-full bg-[color:var(--color-purple)]/30"
+            initial={{ scale: 0.4, opacity: 0.6 }}
+            animate={{ scale: 2.3, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          />
+        )}
+        <MousePointer2 className="h-4 w-4 -translate-x-px -translate-y-px fill-[color:var(--color-ink-strong)] text-white drop-shadow-[0_2px_4px_rgba(12,6,18,0.25)]" strokeWidth={1.5} />
       </div>
     </div>
   );
@@ -235,7 +308,12 @@ function SeoView({ reduce }: { reduce: boolean | null }) {
   useEffect(() => {
     if (reduce) { setOurPos(0); return; }
     setOurPos(3);
-    const id = window.setInterval(() => setOurPos((p) => (p === 0 ? 3 : p - 1)), 1500);
+    let n = 3;
+    const id = window.setInterval(() => {
+      n -= 1;
+      setOurPos(n);
+      if (n <= 0) window.clearInterval(id);
+    }, 1400);
     return () => window.clearInterval(id);
   }, [reduce]);
 
