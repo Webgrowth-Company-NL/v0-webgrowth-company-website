@@ -4,74 +4,33 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronDown, Lock, Menu, Star, X } from "lucide-react";
 import {
-  ArrowRight,
-  ArrowUpRight,
-  BarChart3,
-  Calculator,
-  ChevronDown,
-  Globe,
-  Lock,
-  Menu,
-  Search,
-  Sparkles,
-  Star,
-  Users,
-  X,
-} from "lucide-react";
+  HULPMIDDELEN_HULP,
+  HULPMIDDELEN_ONTDEK,
+  HulpmiddelenMega,
+  OPLOSSINGEN_DOEL,
+  OPLOSSINGEN_SECTOR,
+  OplossingenMega,
+  PLATFORM_MODULES,
+  PlatformMega,
+} from "@/components/header-megas";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-const platformModules = [
-  {
-    href: "/platform/website",
-    label: "Website",
-    desc: "Razendsnelle site, jij beheert de content",
-    icon: Globe,
-  },
-  {
-    href: "/platform/crm",
-    label: "CRM & Leads",
-    desc: "Elke lead op één plek, automatisch opgevolgd",
-    icon: Users,
-  },
-  {
-    href: "/platform/marketing",
-    label: "Marketing & SEO",
-    desc: "Vindbaar worden zonder los SEO-bureau",
-    icon: Search,
-  },
-  {
-    href: "/platform/ai",
-    label: "AI-content",
-    desc: "Teksten en inzichten die meegroeien",
-    icon: Sparkles,
-  },
-  {
-    href: "/platform/rapportages",
-    label: "Rapportages",
-    desc: "Zie wat werkt, in mensentaal",
-    icon: BarChart3,
-  },
-  {
-    href: "/platform/lead-tools",
-    label: "Lead-tools",
-    desc: "Quickscans en calculators die leads binnenhalen",
-    icon: Calculator,
-  },
-];
+type MegaKey = "platform" | "oplossingen" | "hulpmiddelen";
 
-const simpleNavLinks = [
-  { href: "#diensten", label: "Diensten" },
-  { href: "#cases", label: "Cases" },
-  { href: "#over", label: "Over" },
+const MEGA_TRIGGERS: { key: MegaKey; label: string; render: (p: { onNavigate: () => void }) => React.ReactNode }[] = [
+  { key: "platform", label: "Platform", render: (p) => <PlatformMega {...p} /> },
+  { key: "oplossingen", label: "Oplossingen", render: (p) => <OplossingenMega {...p} /> },
+  { key: "hulpmiddelen", label: "Hulpmiddelen", render: (p) => <HulpmiddelenMega {...p} /> },
 ];
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobilePlatform, setMobilePlatform] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<MegaKey | null>(null);
+  const [activeMega, setActiveMega] = useState<MegaKey | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -79,6 +38,8 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const closeMega = () => setActiveMega(null);
 
   return (
     <motion.header
@@ -88,7 +49,7 @@ export function SiteHeader() {
       className={[
         "fixed top-0 left-0 right-0 z-50",
         "transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
-        scrolled || megaOpen
+        scrolled || activeMega
           ? "bg-[color:var(--color-bg)]/90 backdrop-blur-xl border-b border-[color:var(--color-line)] shadow-[0_1px_0_rgba(12,6,18,0.02),0_8px_24px_-12px_rgba(12,6,18,0.08)]"
           : "bg-transparent",
       ].join(" ")}
@@ -104,59 +65,53 @@ export function SiteHeader() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
-            {/* Platform — mega-menu trigger */}
-            <div
-              className="relative"
-              onMouseEnter={() => setMegaOpen(true)}
-              onMouseLeave={() => setMegaOpen(false)}
-            >
-              <button
-                type="button"
-                aria-expanded={megaOpen}
-                aria-haspopup="true"
-                onClick={() => setMegaOpen((v) => !v)}
-                className={[
-                  "inline-flex items-center gap-1 text-[14px] font-medium transition-colors duration-200 ease-out",
-                  megaOpen
-                    ? "text-[color:var(--color-ink)]"
-                    : "text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)]",
-                ].join(" ")}
+            {MEGA_TRIGGERS.map(({ key, label, render }) => (
+              <div
+                key={key}
+                className="relative"
+                onMouseEnter={() => setActiveMega(key)}
+                onMouseLeave={() => setActiveMega(null)}
               >
-                Platform
-                <ChevronDown
+                <button
+                  type="button"
+                  aria-expanded={activeMega === key}
+                  aria-haspopup="true"
+                  onClick={() => setActiveMega((v) => (v === key ? null : key))}
                   className={[
-                    "h-3.5 w-3.5 opacity-70 transition-transform duration-200 ease-out",
-                    megaOpen ? "rotate-180" : "",
+                    "inline-flex items-center gap-1 text-[14px] font-medium transition-colors duration-200 ease-out",
+                    activeMega === key ? "text-[color:var(--color-ink)]" : "text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)]",
                   ].join(" ")}
-                  strokeWidth={2.5}
-                />
-              </button>
+                >
+                  {label}
+                  <ChevronDown
+                    className={["h-3.5 w-3.5 opacity-70 transition-transform duration-200 ease-out", activeMega === key ? "rotate-180" : ""].join(" ")}
+                    strokeWidth={2.5}
+                  />
+                </button>
 
-              <AnimatePresence>
-                {megaOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -6, scale: 0.985 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -4, scale: 0.99 }}
-                    transition={{ duration: 0.2, ease: EASE }}
-                    style={{ transformOrigin: "top left" }}
-                    className="absolute top-full left-0 pt-3 z-50"
-                  >
-                    <PlatformMega onNavigate={() => setMegaOpen(false)} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {simpleNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-[14px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors duration-200 ease-out"
-              >
-                {link.label}
-              </Link>
+                <AnimatePresence>
+                  {activeMega === key && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6, scale: 0.985 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -4, scale: 0.99 }}
+                      transition={{ duration: 0.18, ease: EASE }}
+                      style={{ transformOrigin: "top left" }}
+                      className="absolute top-full left-0 pt-3 z-50"
+                    >
+                      {render({ onNavigate: closeMega })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
+
+            <Link
+              href="/prijzen"
+              className="text-[14px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors duration-200 ease-out"
+            >
+              Prijzen
+            </Link>
 
             {/* Stars rating badge */}
             <a
@@ -222,69 +177,18 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.99 }}
             transition={{ duration: 0.2, ease: EASE }}
-            className="lg:hidden mx-5 mb-4 bg-white rounded-2xl border border-[color:var(--color-line)] shadow-[0_20px_60px_-20px_rgba(12,6,18,0.18)] overflow-hidden"
+            className="lg:hidden mx-5 mb-4 bg-white rounded-2xl border border-[color:var(--color-line)] shadow-[0_20px_60px_-20px_rgba(12,6,18,0.18)] overflow-hidden max-h-[78vh] overflow-y-auto"
             style={{ transformOrigin: "top center" }}
           >
             <div className="flex flex-col p-2">
-              {/* Platform accordion */}
-              <button
-                type="button"
-                onClick={() => setMobilePlatform((v) => !v)}
-                className="flex items-center justify-between px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)] transition-colors"
-                aria-expanded={mobilePlatform}
-              >
-                Platform
-                <ChevronDown
-                  className={["h-4 w-4 opacity-60 transition-transform duration-200 ease-out", mobilePlatform ? "rotate-180" : ""].join(" ")}
-                  strokeWidth={2.5}
-                />
-              </button>
-              <AnimatePresence initial={false}>
-                {mobilePlatform && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: EASE }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pl-2 pr-1 pb-1 flex flex-col gap-0.5">
-                      {platformModules.map((m) => (
-                        <Link
-                          key={m.href}
-                          href={m.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-[color:var(--color-bg-muted)] transition-colors"
-                        >
-                          <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[color:var(--color-purple-tint)]">
-                            <m.icon className="h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
-                          </span>
-                          <span className="min-w-0">
-                            <span className="block text-[13.5px] font-semibold text-[color:var(--color-ink)]">{m.label}</span>
-                            <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug">{m.desc}</span>
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <MobileAccordion mkey="platform" label="Platform" open={openAccordion === "platform"} onToggle={setOpenAccordion} items={PLATFORM_MODULES} onClose={() => setMobileOpen(false)} />
+              <MobileAccordion mkey="oplossingen" label="Oplossingen" open={openAccordion === "oplossingen"} onToggle={setOpenAccordion} items={OPLOSSINGEN_DOEL} extraLinks={OPLOSSINGEN_SECTOR} onClose={() => setMobileOpen(false)} />
+              <MobileAccordion mkey="hulpmiddelen" label="Hulpmiddelen" open={openAccordion === "hulpmiddelen"} onToggle={setOpenAccordion} items={[...HULPMIDDELEN_ONTDEK, ...HULPMIDDELEN_HULP]} onClose={() => setMobileOpen(false)} />
 
-              {simpleNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                href="/inloggen"
-                onClick={() => setMobileOpen(false)}
-                className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-bg-muted)] transition-colors inline-flex items-center gap-2"
-              >
+              <Link href="/prijzen" onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)] transition-colors">
+                Prijzen
+              </Link>
+              <Link href="/inloggen" onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-bg-muted)] transition-colors inline-flex items-center gap-2">
                 Inloggen
                 <Lock className="h-3 w-3 opacity-60" strokeWidth={2.5} />
               </Link>
@@ -306,73 +210,61 @@ export function SiteHeader() {
   );
 }
 
-function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
+function MobileAccordion({
+  mkey,
+  label,
+  open,
+  onToggle,
+  items,
+  extraLinks,
+  onClose,
+}: {
+  mkey: MegaKey;
+  label: string;
+  open: boolean;
+  onToggle: (k: MegaKey | null) => void;
+  items: readonly { href: string; label: string; desc?: string }[];
+  extraLinks?: readonly { href: string; label: string }[];
+  onClose: () => void;
+}) {
   return (
-    <div className="w-[680px] rounded-2xl border border-[color:var(--color-line)] bg-white shadow-[0_30px_80px_-24px_rgba(12,6,18,0.22)] overflow-hidden">
-      <div className="grid grid-cols-[1fr_240px]">
-        {/* Module grid */}
-        <div className="p-3 grid grid-cols-2 gap-1">
-          {platformModules.map((m) => (
-            <Link
-              key={m.href}
-              href={m.href}
-              onClick={onNavigate}
-              className="group flex items-start gap-3 p-3 rounded-xl hover:bg-[color:var(--color-bg-muted)]/70 transition-colors"
-            >
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)] transition-transform duration-200 ease-out group-hover:scale-105">
-                <m.icon className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />
-              </span>
-              <span className="min-w-0">
-                <span className="block text-[13.5px] font-semibold text-[color:var(--color-ink)]">{m.label}</span>
-                <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug mt-0.5">{m.desc}</span>
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        {/* Preview panel */}
-        <div className="relative border-l border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 p-5 flex flex-col">
-          <div
-            aria-hidden
-            className="absolute -top-10 -right-10 h-40 w-40 rounded-full"
-            style={{ background: "radial-gradient(closest-side, rgba(98,59,199,0.22), rgba(98,59,199,0) 70%)" }}
-          />
-          <span className="relative text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">
-            Eén platform
-          </span>
-          <p className="relative mt-1.5 text-[13.5px] leading-snug text-[color:var(--color-ink)]">
-            Negen losse leveranciers, samengebracht tot één login.
-          </p>
-
-          {/* tiny UI sketch */}
-          <div className="relative mt-4 flex-1 rounded-xl border border-[color:var(--color-line)] bg-white p-3 shadow-[0_10px_24px_-16px_rgba(12,6,18,0.18)]">
-            <div className="flex items-center gap-1.5 mb-2.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-ink-faint)]" />
-              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-ink-faint)]" />
-              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-ink-faint)]" />
-            </div>
-            <div className="h-2 w-12 rounded-full bg-[color:var(--color-purple)]/40 mb-2" />
-            <div className="space-y-1.5">
-              <div className="h-1.5 w-full rounded bg-[color:var(--color-ink-faint)]" />
-              <div className="h-1.5 w-[78%] rounded bg-[color:var(--color-ink-faint)]" />
-            </div>
-            <div className="mt-2.5 flex items-end gap-[3px] h-7">
-              {[28, 40, 34, 50, 58, 48, 66, 74].map((h, i) => (
-                <span key={i} className="block w-[5px] rounded-[1.5px] bg-[color:var(--color-purple)]/80" style={{ height: `${h}%`, opacity: 0.4 + (i / 8) * 0.6 }} />
+    <>
+      <button
+        type="button"
+        onClick={() => onToggle(open ? null : mkey)}
+        className="flex items-center justify-between px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)] transition-colors"
+        aria-expanded={open}
+      >
+        {label}
+        <ChevronDown className={["h-4 w-4 opacity-60 transition-transform duration-200 ease-out", open ? "rotate-180" : ""].join(" ")} strokeWidth={2.5} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: EASE }}
+            className="overflow-hidden"
+          >
+            <div className="pl-2 pr-1 pb-1 flex flex-col gap-0.5">
+              {items.map((m) => (
+                <Link key={m.href} href={m.href} onClick={onClose} className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-[color:var(--color-bg-muted)] transition-colors">
+                  <span className="min-w-0">
+                    <span className="block text-[13.5px] font-semibold text-[color:var(--color-ink)]">{m.label}</span>
+                    {m.desc && <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug">{m.desc}</span>}
+                  </span>
+                </Link>
+              ))}
+              {extraLinks?.map((s) => (
+                <Link key={s.href} href={s.href} onClick={onClose} className="px-3 py-2 rounded-lg text-[13px] font-medium text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-bg-muted)] transition-colors">
+                  {s.label}
+                </Link>
               ))}
             </div>
-          </div>
-
-          <Link
-            href="/platform"
-            onClick={onNavigate}
-            className="relative mt-4 inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-full bg-[color:var(--color-ink-strong)] text-white text-[12.5px] font-semibold group"
-          >
-            Bekijk het platform
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
-          </Link>
-        </div>
-      </div>
-    </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
