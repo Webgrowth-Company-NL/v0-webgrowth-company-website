@@ -142,10 +142,10 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/website-apk"
-              className="btn-press group inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[13.5px] font-semibold shadow-[0_1px_2px_rgba(98,59,199,0.28),0_8px_24px_-8px_rgba(98,59,199,0.6)]"
+              className="btn-press group inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[13.5px] font-semibold shadow-[0_1px_2px_rgba(98,59,199,0.28),0_8px_24px_-8px_rgba(98,59,199,0.55)] hover:shadow-[0_6px_14px_rgba(98,59,199,0.36),0_20px_42px_-10px_rgba(98,59,199,0.75)]"
             >
               Doe gratis APK
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/18 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:bg-white/24">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/18 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:bg-white/30">
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
               </span>
             </Link>
@@ -195,10 +195,10 @@ export function SiteHeader() {
               <Link
                 href="/website-apk"
                 onClick={() => setMobileOpen(false)}
-                className="btn-press group mt-2 mx-1 mb-1 inline-flex items-center justify-center gap-2 pl-5 pr-2 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[14px] font-semibold shadow-[0_8px_24px_-8px_rgba(98,59,199,0.6)]"
+                className="btn-press group mt-2 mx-1 mb-1 inline-flex items-center justify-center gap-2 pl-5 pr-2 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[14px] font-semibold shadow-[0_8px_24px_-8px_rgba(98,59,199,0.6)] hover:shadow-[0_14px_34px_-10px_rgba(98,59,199,0.75)]"
               >
                 Doe gratis APK
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/18 group-hover:translate-x-0.5 transition-transform duration-200 ease-out">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/18 group-hover:translate-x-0.5 group-hover:bg-white/30 transition-[transform,background-color] duration-200 ease-out">
                   <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </span>
               </Link>

@@ -94,11 +94,16 @@ body {
   color: white;
 }
 
-/* Buttons — Emil: instant press feedback */
+/* Buttons — visible hover lift, instant press feedback (Emil) */
 .btn-press {
-  transition: transform 160ms var(--ease-out-strong),
-    background-color 200ms ease, color 200ms ease,
-    box-shadow 200ms ease;
+  transition: transform 200ms var(--ease-out-strong),
+    background-color 220ms ease, color 200ms ease,
+    border-color 220ms ease, box-shadow 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-press:hover {
+    transform: translateY(-2px);
+  }
 }
 .btn-press:active {
   transform: scale(0.97);

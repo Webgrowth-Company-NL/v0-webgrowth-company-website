@@ -95,7 +95,7 @@ function ModuleItem({
       </span>
       <span className="min-w-0">
         <span className="flex items-center gap-1.5">
-          <span className="text-[13.5px] font-semibold text-[color:var(--color-ink)] leading-snug">{label}</span>
+          <span className="text-[13.5px] font-semibold text-[color:var(--color-ink)] leading-snug transition-colors duration-200 ease-out group-hover:text-[color:var(--color-purple)]">{label}</span>
           {soon && <SoonBadge />}
         </span>
         <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug mt-0.5">{desc}</span>
@@ -166,7 +166,7 @@ export function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
           <Link
             href="/platform"
             onClick={onNavigate}
-            className="relative mt-4 inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-full bg-[color:var(--color-ink-strong)] text-white text-[12.5px] font-semibold group"
+            className="btn-press relative mt-4 inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-full bg-[color:var(--color-ink-strong)] hover:bg-[color:var(--color-purple)] text-white text-[12.5px] font-semibold group shadow-[0_8px_20px_-10px_rgba(12,6,18,0.4)] hover:shadow-[0_12px_28px_-10px_rgba(98,59,199,0.55)]"
           >
             Bekijk het platform
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
@@ -209,7 +209,7 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
           <Link
             href="/website-apk"
             onClick={onNavigate}
-            className="mt-auto inline-flex items-center justify-between gap-2 mx-1 mt-3 px-3 py-2 rounded-full bg-[color:var(--color-purple)] text-white text-[12px] font-semibold group"
+            className="btn-press mt-auto inline-flex items-center justify-between gap-2 mx-1 mt-3 px-3 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[12px] font-semibold group shadow-[0_8px_20px_-10px_rgba(98,59,199,0.5)] hover:shadow-[0_12px_28px_-10px_rgba(98,59,199,0.7)]"
           >
             Niet zeker? Doe de APK
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
