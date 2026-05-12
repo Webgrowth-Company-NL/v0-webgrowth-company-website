@@ -100,7 +100,7 @@ export function SectionShift() {
                   <motion.div
                     key={v.label}
                     variants={{ hidden: { opacity: 0, scale: 0.9, y: 8 }, show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: EASE } } }}
-                    className="group relative flex flex-col items-center gap-2 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] px-3 py-4 transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[color:var(--color-line-strong)] hover:shadow-[0_10px_24px_-14px_rgba(12,6,18,0.18)]"
+                    className="group relative z-0 hover:z-30 flex flex-col items-center gap-2 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] px-3 py-4 transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[color:var(--color-line-strong)] hover:shadow-[0_10px_24px_-14px_rgba(12,6,18,0.18)]"
                   >
                     <v.icon className="h-5 w-5 text-[color:var(--color-ink-subtle)] transition-colors duration-200 group-hover:text-[color:var(--color-ink-muted)]" strokeWidth={2} />
                     <span className="text-[11.5px] font-medium text-[color:var(--color-ink-muted)] text-center leading-tight">{v.label}</span>
