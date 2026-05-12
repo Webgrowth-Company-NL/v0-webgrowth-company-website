@@ -86,7 +86,7 @@ function ModuleItem({
     <Link
       href={href}
       onClick={onNavigate}
-      className="group flex items-start gap-3 p-3 rounded-xl hover:bg-[color:var(--color-bg-muted)]/70 transition-colors"
+      className="group flex items-start gap-3 p-3.5 rounded-xl hover:bg-[color:var(--color-bg-muted)]/70 transition-colors"
     >
       <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)] transition-transform duration-200 ease-out group-hover:scale-105">
         <Icon className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />

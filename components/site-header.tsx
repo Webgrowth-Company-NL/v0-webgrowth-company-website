@@ -54,8 +54,8 @@ export function SiteHeader() {
           : "bg-transparent",
       ].join(" ")}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="flex items-center justify-between h-16 md:h-[72px]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="flex items-center justify-between gap-6 h-[68px] md:h-20">
           {/* Logo */}
           <Link href="/" className="inline-flex shrink-0 group" aria-label="Webgrowth Company home">
             <span className="relative inline-flex h-9 w-9 items-center justify-center transition-transform duration-200 ease-out group-hover:scale-[1.05]">
@@ -64,7 +64,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
             {MEGA_TRIGGERS.map(({ key, label, render }) => (
               <div
                 key={key}
@@ -132,7 +132,7 @@ export function SiteHeader() {
           </nav>
 
           {/* CTA group */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5">
             <Link
               href="/inloggen"
               className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors duration-200 ease-out"
