@@ -270,7 +270,12 @@ function WebsiteView() {
   useEffect(() => {
     if (reduce) { setFrame(WEB_TOTAL - WEB_F.hold); return; }
     setFrame(0);
-    const id = window.setInterval(() => setFrame((s) => (s + 1) % WEB_TOTAL), 70);
+    const id = window.setInterval(() => {
+      setFrame((s) => {
+        if (s >= WEB_TOTAL - 1) { window.clearInterval(id); return s; } // klaar na het versturen — geen herhaling
+        return s + 1;
+      });
+    }, 70);
     return () => window.clearInterval(id);
   }, [reduce]);
 
