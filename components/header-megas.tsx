@@ -28,8 +28,8 @@ export const PLATFORM_MODULES = [
   { href: "/forester-os/crm", label: "CRM & Sales-pijplijn", desc: "Leads en deals visueel door je pijplijn", icon: Users },
   { href: "/forester-os/seo", label: "SEO & vindbaarheid", desc: "Search Console-koppeling, AI-suggesties, rankings", icon: Search },
   { href: "/forester-os/ai", label: "AI-content & Q", desc: "Q schrijft mee aan content, inzichten en taken", icon: Sparkles },
-  { href: "/forester-os/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock, soon: true },
-  { href: "/forester-os/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail, soon: true },
+  { href: "/forester-os/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock },
+  { href: "/forester-os/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail },
 ] as const;
 
 export const OPLOSSINGEN_DOEL = [
