@@ -8,6 +8,9 @@ import { HeroDashboard } from "@/components/hero-dashboard";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
+/** Deep purple hero surface — keep in sync with the first <WaveDivider top=…> in app/page.tsx */
+const HERO_PURPLE = "#231653";
+
 const HEADLINE_LINE1 = "Eén abonnement, negen tools minder.";
 const HEADLINE_LINE2 = "Meer groei.";
 
@@ -58,37 +61,49 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 px-5 sm:px-8">
-      {/* ── Background art - soft purple glows ─── */}
+    <section
+      className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 px-5 sm:px-8 text-white"
+      style={{ backgroundColor: HERO_PURPLE }}
+    >
+      {/* ── Background art - violet glows on deep purple ─── */}
       <div
         aria-hidden
-        className="absolute -top-44 -right-44 h-[620px] w-[620px] rounded-full"
+        className="absolute -top-48 -right-48 h-[680px] w-[680px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(98,59,199,0.18), rgba(98,59,199,0) 70%)",
+            "radial-gradient(closest-side, rgba(139,92,246,0.42), rgba(139,92,246,0) 70%)",
         }}
       />
       <div
         aria-hidden
-        className="absolute -bottom-56 -left-44 h-[620px] w-[620px] rounded-full"
+        className="absolute -bottom-60 -left-48 h-[680px] w-[680px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(98,59,199,0.10), rgba(98,59,199,0) 70%)",
+            "radial-gradient(closest-side, rgba(124,58,237,0.30), rgba(124,58,237,0) 70%)",
         }}
       />
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
+        className="absolute top-1/3 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(255,0,150,0.12), rgba(255,0,150,0) 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(12,6,18,0.07) 1px, transparent 1px)",
+            "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
         }}
       />
-      {/* fade decorations to pure bg at the bottom edge so the wave-divider connects seamlessly */}
+      {/* fade decorations to the solid surface at the bottom edge so the wave-divider connects seamlessly */}
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 h-40 sm:h-52 pointer-events-none bg-gradient-to-b from-transparent to-[color:var(--color-bg)]"
+        className="absolute inset-x-0 bottom-0 h-40 sm:h-52 pointer-events-none"
+        style={{ background: `linear-gradient(to bottom, transparent, ${HERO_PURPLE})` }}
       />
 
       <div className="relative mx-auto max-w-7xl">
@@ -103,18 +118,18 @@ export function Hero() {
             <motion.div
               variants={fadeUp(0)}
               className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full
-                         border border-[color:var(--color-line)] bg-white
-                         text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+                         border border-white/15 bg-white/[0.07] backdrop-blur-sm
+                         text-[12.5px] font-medium text-white/75"
             >
               <span className="relative inline-flex h-1.5 w-1.5">
                 <span
-                  className="absolute inset-0 rounded-full bg-[color:var(--color-purple)]"
+                  className="absolute inset-0 rounded-full bg-[color:var(--color-lavender)]"
                   style={{ animation: reduce ? undefined : "soft-pulse 2.4s ease-in-out infinite" }}
                 />
               </span>
               Premium groeiplatform
-              <span className="text-[color:var(--color-ink-faint)]">·</span>
-              <span className="text-[color:var(--color-ink)] font-semibold">Sinds 2016</span>
+              <span className="text-white/35">·</span>
+              <span className="text-white font-semibold">Sinds 2016</span>
             </motion.div>
 
             {/* Headline */}
@@ -123,7 +138,7 @@ export function Hero() {
                 mt-7 font-[family-name:var(--font-display)] font-bold
                 text-[clamp(2.6rem,6.2vw,5rem)]
                 leading-[1.02] tracking-[-0.025em]
-                text-[color:var(--color-ink-strong)]
+                text-white
               "
             >
               <motion.span variants={containerStagger} className="block">
@@ -134,7 +149,7 @@ export function Hero() {
                   className="inline-block bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      "linear-gradient(110deg, #4d2da3 0%, #623bc7 35%, #8b5cf6 65%, #c4b5fd 100%)",
+                      "linear-gradient(110deg, #ffffff 0%, #e9d5ff 32%, #c4b5fd 62%, #ffffff 100%)",
                     backgroundSize: "220% 220%",
                     animation: reduce ? undefined : "shimmer 7s ease-in-out infinite",
                     WebkitBackgroundClip: "text",
@@ -150,7 +165,7 @@ export function Hero() {
               variants={fadeUp(0.7)}
               className="
                 mt-6 text-[17px] sm:text-[18px] leading-[1.6]
-                text-[color:var(--color-ink-muted)] max-w-lg
+                text-white/65 max-w-lg
               "
             >
               Eén abonnement voor groeiende organisaties.
@@ -165,22 +180,22 @@ export function Hero() {
                   btn-press group
                   inline-flex items-center gap-2 pl-6 pr-2 py-2
                   rounded-full
-                  bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)]
-                  text-white text-[14.5px] font-semibold
-                  shadow-[0_2px_4px_rgba(98,59,199,0.28),0_18px_40px_-12px_rgba(98,59,199,0.55)]
-                  hover:shadow-[0_8px_18px_rgba(98,59,199,0.36),0_28px_56px_-12px_rgba(98,59,199,0.78)]
+                  bg-white hover:bg-white/90
+                  text-[color:var(--color-purple)] text-[14.5px] font-semibold
+                  shadow-[0_2px_4px_rgba(0,0,0,0.18),0_18px_44px_-12px_rgba(0,0,0,0.45)]
+                  hover:shadow-[0_8px_18px_rgba(0,0,0,0.22),0_28px_60px_-12px_rgba(0,0,0,0.55)]
                 "
               >
                 Doe de gratis website APK
                 <span
                   className="
                     inline-flex h-9 w-9 items-center justify-center
-                    rounded-full bg-white/18
+                    rounded-full bg-[color:var(--color-purple)]/12
                     transition-[transform,background-color] duration-200 ease-out
-                    group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-white/30
+                    group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-[color:var(--color-purple)]/20
                   "
                 >
-                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                  <ArrowRight className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.5} />
                 </span>
               </Link>
               <Link
@@ -189,23 +204,21 @@ export function Hero() {
                   btn-press group
                   inline-flex items-center gap-2 pl-6 pr-2 py-2
                   rounded-full
-                  bg-white hover:bg-[color:var(--color-purple-soft)]
-                  border border-[color:var(--color-line-strong)] hover:border-[color:var(--color-purple)]/35
-                  text-[color:var(--color-ink)] hover:text-[color:var(--color-purple)] text-[14.5px] font-semibold
-                  shadow-[0_1px_2px_rgba(12,6,18,0.04)]
-                  hover:shadow-[0_10px_24px_-10px_rgba(98,59,199,0.3)]
+                  bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm
+                  border border-white/20 hover:border-white/30
+                  text-white text-[14.5px] font-semibold
                 "
               >
                 Boek een kennismaking
                 <span
                   className="
                     inline-flex h-9 w-9 items-center justify-center
-                    rounded-full bg-[color:var(--color-ink-strong)]/6
+                    rounded-full bg-white/15
                     transition-[transform,background-color] duration-200 ease-out
-                    group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-[color:var(--color-purple)]/15
+                    group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-white/25
                   "
                 >
-                  <ArrowRight className="h-4 w-4 text-[color:var(--color-ink)] transition-colors duration-200 ease-out group-hover:text-[color:var(--color-purple)]" strokeWidth={2.5} />
+                  <ArrowRight className="h-4 w-4 text-white" strokeWidth={2.5} />
                 </span>
               </Link>
             </motion.div>
@@ -231,25 +244,25 @@ export function Hero() {
                     />
                   ))}
                 </span>
-                <span className="text-[14px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
-                <span className="text-[13px] text-[color:var(--color-ink-muted)] group-hover:text-[color:var(--color-ink)] transition-colors">
+                <span className="text-[14px] font-semibold text-white tabular-nums">9,4</span>
+                <span className="text-[13px] text-white/55 group-hover:text-white/80 transition-colors">
                   op Google
                 </span>
               </a>
 
-              <div className="hidden sm:block h-4 w-px bg-[color:var(--color-line)]" />
+              <div className="hidden sm:block h-4 w-px bg-white/15" />
 
-              <div className="inline-flex items-center gap-2 text-[13.5px] text-[color:var(--color-ink-muted)]">
-                <span className="font-semibold text-[color:var(--color-ink)] tabular-nums">227</span>
+              <div className="inline-flex items-center gap-2 text-[13.5px] text-white/65">
+                <span className="font-semibold text-white tabular-nums">227</span>
                 tevreden klanten
               </div>
 
-              <div className="hidden sm:block h-4 w-px bg-[color:var(--color-line)]" />
+              <div className="hidden sm:block h-4 w-px bg-white/15" />
 
               {/* NL vlag - horizontaal rood/wit/blauw */}
-              <div className="inline-flex items-center gap-2 text-[13.5px] text-[color:var(--color-ink-muted)]">
+              <div className="inline-flex items-center gap-2 text-[13.5px] text-white/65">
                 <span
-                  className="inline-flex flex-col h-4 w-6 overflow-hidden rounded-[2px] ring-1 ring-[color:var(--color-line)]"
+                  className="inline-flex flex-col h-4 w-6 overflow-hidden rounded-[2px] ring-1 ring-white/20"
                   aria-label="Nederlandse vlag"
                 >
                   <span className="h-1/3 w-full bg-[#AE1C28]" />
@@ -270,4 +283,3 @@ export function Hero() {
     </section>
   );
 }
-

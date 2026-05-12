@@ -26,7 +26,7 @@ const MEGA_TRIGGERS: { key: MegaKey; label: string; render: (p: { onNavigate: ()
   { key: "hulpmiddelen", label: "Hulpmiddelen", render: (p) => <HulpmiddelenMega {...p} /> },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<MegaKey | null>(null);
@@ -49,7 +49,7 @@ export function SiteHeader() {
       className={[
         "fixed top-0 left-0 right-0 z-50",
         "transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
-        scrolled || activeMega
+        scrolled || activeMega || alwaysSolid
           ? "bg-[color:var(--color-bg)]/90 backdrop-blur-xl border-b border-[color:var(--color-line)] shadow-[0_1px_0_rgba(12,6,18,0.02),0_8px_24px_-12px_rgba(12,6,18,0.08)]"
           : "bg-transparent",
       ].join(" ")}
