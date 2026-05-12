@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero";
 import { SectionCases } from "@/components/section-cases";
 import { SectionProof } from "@/components/section-proof";
 import { SectionShift } from "@/components/section-shift";
+import { SectionVideo } from "@/components/section-video";
 import { SiteHeader } from "@/components/site-header";
 import { SolutionSelector } from "@/components/solution-selector";
 import { WaveDivider } from "@/components/wave-divider";
@@ -25,6 +26,8 @@ export default function Home() {
         <SectionProof />
         <WaveDivider top={DEEP} bottom={CREAM} />
         <SectionCases />
+        <WaveDivider top={CREAM} bottom={WHITE} />
+        <SectionVideo />
       </main>
     </>
   );
