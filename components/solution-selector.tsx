@@ -95,88 +95,85 @@ export function SolutionSelector() {
   };
 
   return (
-    <section className="relative px-5 sm:px-8 py-28 sm:py-40 border-t border-[color:var(--color-line)]">
-      <div className="mx-auto max-w-7xl">
-        {/* Heading */}
-        <div className="flex items-end justify-between gap-6">
-          <div className="max-w-xl">
-            <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4vw,3rem)] leading-[1.08] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">
-              Wat wil je bereiken?
-            </h2>
-            <p className="mt-3.5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-              Kies een doel, dan zie je hoe Forester OS je daarbij helpt.
-            </p>
-          </div>
-          {/* Arrows (desktop) */}
-          <div className="hidden md:flex items-center gap-2 shrink-0">
-            <button
-              type="button"
-              onClick={() => scrollBy(-1)}
-              aria-label="Vorige"
-              className="btn-press inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] bg-white text-[color:var(--color-ink)] hover:border-[color:var(--color-purple)]/40 hover:text-[color:var(--color-purple)] transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" strokeWidth={2.5} />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollBy(1)}
-              aria-label="Volgende"
-              className="btn-press inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] bg-white text-[color:var(--color-ink)] hover:border-[color:var(--color-purple)]/40 hover:text-[color:var(--color-purple)] transition-colors"
-            >
-              <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-            </button>
-          </div>
+    <section className="relative py-28 sm:py-44 bg-[#F2EFFB] rounded-t-[2.5rem] sm:rounded-t-[4.5rem]">
+      {/* Heading + arrows (aligned to the content grid) */}
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 flex items-end justify-between gap-6">
+        <div className="max-w-2xl">
+          <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.2rem,5vw,3.6rem)] leading-[1.06] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">
+            Wat wil je bereiken?
+          </h2>
+          <p className="mt-4 text-[16px] sm:text-[18px] leading-[1.6] text-[color:var(--color-ink-muted)]">
+            Kies een doel, dan zie je hoe Forester OS je daarbij helpt.
+          </p>
         </div>
-
-        {/* Cards carousel */}
-        <div className="relative mt-10 sm:mt-12">
-          <div
-            ref={scroller}
-            className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 sm:-mx-8 sm:px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        <div className="hidden md:flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={() => scrollBy(-1)}
+            aria-label="Vorige"
+            className="btn-press inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-ink)] hover:border-[color:var(--color-purple)]/40 hover:text-[color:var(--color-purple)] transition-colors"
           >
-            {GOALS.map((g) => (
-              <Link
-                key={g.key}
-                href={g.href}
-                className={[
-                  "group relative snap-start shrink-0 w-[270px] sm:w-[300px] h-[400px] sm:h-[440px] rounded-[1.75rem] overflow-hidden",
-                  "bg-gradient-to-br", g.grad,
-                  "shadow-[0_18px_44px_-20px_rgba(98,59,199,0.4)] hover:shadow-[0_30px_64px_-22px_rgba(98,59,199,0.55)]",
-                  "transition-[transform,box-shadow] duration-[450ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5",
-                ].join(" ")}
+            <ArrowLeft className="h-4 w-4" strokeWidth={2.5} />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollBy(1)}
+            aria-label="Volgende"
+            className="btn-press inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-ink)] hover:border-[color:var(--color-purple)]/40 hover:text-[color:var(--color-purple)] transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+          </button>
+        </div>
+      </div>
+
+      {/* Full-bleed carousel */}
+      <div
+        ref={scroller}
+        className="mt-12 sm:mt-16 overflow-x-auto pt-3 pb-14 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        <div className="flex w-max gap-5 sm:gap-7 pl-5 sm:pl-8 xl:pl-[calc((100vw-1280px)/2+2rem)] pr-8 sm:pr-20">
+          {GOALS.map((g) => (
+            <Link
+              key={g.key}
+              href={g.href}
+              className={[
+                "group relative shrink-0 w-[min(86vw,460px)] h-[480px] sm:h-[540px] lg:h-[560px] rounded-[2rem] overflow-hidden",
+                "bg-gradient-to-br", g.grad,
+                "shadow-[0_22px_52px_-22px_rgba(98,59,199,0.42)] hover:shadow-[0_36px_72px_-24px_rgba(98,59,199,0.58)]",
+                "transition-[transform,box-shadow] duration-[480ms] hover:-translate-y-2",
+              ].join(" ")}
+              style={{ transitionTimingFunction: EASE }}
+            >
+              <span aria-hidden className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/12" />
+              <span aria-hidden className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
+
+              {/* Copy zone */}
+              <div className="relative p-7 sm:p-8 pb-4 text-white">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-sm px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em]">
+                  <g.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                  Forester OS
+                </span>
+                <h3 className="mt-5 font-[family-name:var(--font-display)] font-bold text-[25px] sm:text-[29px] leading-[1.1] tracking-[-0.01em]">
+                  {g.label}
+                </h3>
+                <p className="mt-3 text-[13.5px] leading-snug text-white/78 max-w-[94%]">{g.body}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-[13.5px] font-semibold text-white">
+                  Bekijk
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/18 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
+                    <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  </span>
+                </span>
+              </div>
+
+              {/* Preview peeking from the bottom */}
+              <div
+                className="absolute inset-x-6 sm:inset-x-7 top-[300px] sm:top-[330px] bottom-[-60px] rounded-t-2xl bg-[color:var(--color-bg-elevated)] shadow-[0_-14px_34px_-12px_rgba(12,6,18,0.3),0_0_0_1px_rgba(12,6,18,0.04)] overflow-hidden transition-transform duration-[480ms] group-hover:-translate-y-4"
                 style={{ transitionTimingFunction: EASE }}
               >
-                {/* subtle inner highlight */}
-                <span aria-hidden className="pointer-events-none absolute inset-0 rounded-[1.75rem] ring-1 ring-inset ring-white/12" />
-
-                {/* Copy zone */}
-                <div className="relative p-6 pb-4 text-white">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-sm px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.12em]">
-                    <g.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-                    Forester OS
-                  </span>
-                  <h3 className="mt-4 font-[family-name:var(--font-display)] font-bold text-[22px] sm:text-[24px] leading-[1.12] tracking-[-0.01em]">
-                    {g.label}
-                  </h3>
-                  <p className="mt-2.5 text-[12.5px] leading-snug text-white/75 max-w-[92%]">{g.body}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-white transition-[gap] duration-200 group-hover:gap-2.5">
-                    Bekijk
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/18 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
-                      <ArrowRight className="h-3 w-3" strokeWidth={2.5} />
-                    </span>
-                  </span>
-                </div>
-
-                {/* Preview peeking from the bottom */}
-                <div className="absolute inset-x-5 top-[230px] sm:top-[252px] bottom-[-48px] rounded-t-2xl bg-[color:var(--color-bg-elevated)] shadow-[0_-12px_30px_-12px_rgba(12,6,18,0.28),0_0_0_1px_rgba(12,6,18,0.04)] overflow-hidden transition-transform duration-[450ms] group-hover:-translate-y-3" style={{ transitionTimingFunction: EASE }}>
-                  <GoalPreview visual={g.visual} />
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* right-edge fade hint */}
-          <div aria-hidden className="pointer-events-none absolute right-0 top-0 bottom-4 w-16 sm:w-24 bg-gradient-to-l from-[color:var(--color-bg)] to-transparent" />
+                <GoalPreview visual={g.visual} />
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
