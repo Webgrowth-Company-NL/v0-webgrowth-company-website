@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
-import { ArrowUp, Globe, MousePointer2, Search, Send, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowUp, Globe, MousePointer2, Search, Send, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 const CYCLE_MS = 6500;
@@ -18,6 +18,7 @@ const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: ty
 ];
 
 type StatViz = "gauge" | "bars" | "spark" | "bolt";
+type StatPos = "topRight" | "rightMid" | "bottomLeft";
 type Stat = {
   label: string;
   prefix?: string;
@@ -28,26 +29,29 @@ type Stat = {
   descriptor: string;
   trend?: boolean;
   viz: StatViz;
+  pos: StatPos;
 };
 
-/** Floating stat-chips, afgestemd op de actieve view. Cijfer telt op + de mini-viz speelt af bij elke wissel. */
-const FLOATING: Record<ViewKey, [Stat, Stat]> = {
+const STAT_POS: Record<StatPos, string> = {
+  topRight: "-top-5 -right-2 sm:-right-10",
+  rightMid: "top-1/2 -translate-y-1/2 -right-3 sm:-right-12",
+  bottomLeft: "-bottom-5 -left-3 sm:-left-10",
+};
+
+/** Floating stat-chips per view (0–2). Cijfer telt op + de mini-viz speelt af bij elke wissel. */
+const FLOATING: Record<ViewKey, Stat[]> = {
   website: [
-    { label: "PageSpeed", num: 98, delta: "/100", descriptor: "mobiel", trend: false, viz: "gauge" },
-    { label: "Conversie", num: 6.4, decimals: 1, suffix: "%", delta: "+1,1pt", descriptor: "vs vorige periode", viz: "bars" },
+    { label: "PageSpeed", num: 98, delta: "/100", descriptor: "mobiel", trend: false, viz: "gauge", pos: "topRight" },
+    { label: "Conversie", num: 6.4, decimals: 1, suffix: "%", delta: "+1,1pt", descriptor: "vs vorige periode", viz: "bars", pos: "bottomLeft" },
   ],
   seo: [
-    { label: "Top-10 posities", num: 47, delta: "+12", descriptor: "deze maand", viz: "bars" },
-    { label: "Organisch verkeer", prefix: "+", num: 47, suffix: "%", delta: "afgelopen jaar", descriptor: "", trend: false, viz: "spark" },
+    { label: "Top-10 posities", num: 47, delta: "+12", descriptor: "deze maand", viz: "bars", pos: "rightMid" },
+    { label: "Organisch verkeer", prefix: "+", num: 47, suffix: "%", delta: "afgelopen jaar", descriptor: "", trend: false, viz: "spark", pos: "bottomLeft" },
   ],
   crm: [
-    { label: "Open deals", num: 23, delta: "+5", descriptor: "deze week", viz: "bars" },
-    { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand", viz: "spark" },
+    { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand", viz: "spark", pos: "topRight" },
   ],
-  ai: [
-    { label: "Reactietijd", num: 2, suffix: " min", delta: "gemiddeld", descriptor: "", trend: false, viz: "bolt" },
-    { label: "Tijd bespaard", num: 14, suffix: "u", delta: "/ maand", descriptor: "vs los regelen", trend: false, viz: "spark" },
-  ],
+  ai: [],
 };
 
 export function HeroDashboard() {
@@ -160,52 +164,29 @@ export function HeroDashboard() {
         </div>
       </div>
 
-      {/* Floating chips — the stats change with the active view */}
-      <motion.div
-        initial={{ opacity: 0, y: 12, scale: 0.94 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: EASE, delay: 1.0 }}
-        className="absolute -top-1 left-2 sm:-left-5 z-10"
-        style={{ animation: reduce ? undefined : "float-y 7.5s ease-in-out infinite" }}
-      >
-        <Chip>
-          <span className="flex gap-[2px]">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-3.5 w-3.5 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
-            ))}
-          </span>
-          <span className="text-[12.5px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
-          <span className="text-[11.5px] text-[color:var(--color-ink-subtle)]">op Google</span>
-        </Chip>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 12, scale: 0.94 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: EASE, delay: 1.15 }}
-        className="absolute -top-5 -right-2 sm:-right-10 z-10"
-        style={{ animation: reduce ? undefined : "float-y 8.5s ease-in-out 0.6s infinite" }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div key={`s0-${view.key}`} initial={{ opacity: 0, y: 10, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.97 }} transition={{ duration: 0.35, ease: EASE }}>
-            <StatChip {...FLOATING[view.key][0]} />
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 12, scale: 0.94 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: EASE, delay: 1.3 }}
-        className="absolute -bottom-5 -left-3 sm:-left-10 z-10 hidden sm:block"
-        style={{ animation: reduce ? undefined : "float-y 10s ease-in-out 1.2s infinite" }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div key={`s1-${view.key}`} initial={{ opacity: 0, y: 10, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.97 }} transition={{ duration: 0.35, ease: EASE, delay: 0.05 }}>
-            <StatChip {...FLOATING[view.key][1]} />
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
+      {/* Floating stat chips — per view, op een eigen plek rond de widget */}
+      {FLOATING[view.key].map((stat, i) => (
+        <motion.div
+          key={stat.pos}
+          initial={{ opacity: 0, y: 12, scale: 0.94 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.6, ease: EASE, delay: 1.0 + i * 0.15 }}
+          className={`absolute z-10 ${STAT_POS[stat.pos]}${i > 0 ? " hidden sm:block" : ""}`}
+          style={{ animation: reduce ? undefined : `float-y ${8 + i * 1.6}s ease-in-out ${i * 0.6}s infinite` }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${stat.pos}-${view.key}`}
+              initial={{ opacity: 0, y: 10, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.35, ease: EASE }}
+            >
+              <StatChip {...stat} />
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      ))}
     </motion.div>
   );
 }
@@ -698,14 +679,6 @@ function QView() {
 }
 
 /* ── Floating chip primitives ────────────────────── */
-function Chip({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_48px_-24px_rgba(12,6,18,0.22)]">
-      {children}
-    </div>
-  );
-}
-
 /* Mini-visualisaties voor de stat-chips — spelen één keer af bij (her)mount. */
 function MiniGauge({ value }: { value: number }) {
   const reduce = useReducedMotion();
