@@ -242,7 +242,7 @@ export function Hero() {
               <div className="hidden sm:block h-4 w-px bg-[color:var(--color-line)]" />
 
               <div className="inline-flex items-center gap-2 text-[13.5px] text-[color:var(--color-ink-muted)]">
-                <span className="font-semibold text-[color:var(--color-ink)] tabular-nums">27</span>
+                <span className="font-semibold text-[color:var(--color-ink)] tabular-nums">227</span>
                 tevreden klanten
               </div>
 
