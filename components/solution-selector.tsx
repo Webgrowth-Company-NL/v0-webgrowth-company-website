@@ -22,6 +22,8 @@ type Visual = "website" | "leads" | "seo" | "crm" | "ai" | "platform";
 type Goal = {
   key: string;
   label: string;
+  /** Forester OS-module waar dit doel onder valt — getoond als chip */
+  module: string;
   body: string;
   icon: typeof Globe;
   href: string;
@@ -34,6 +36,7 @@ const GOALS: Goal[] = [
   {
     key: "website",
     label: "Een nieuwe website",
+    module: "Website & CMS",
     body: "Snel, vindbaar en altijd actueel. Pagina's, berichten en eigen contenttypes, zonder los CMS. Je past zelf alles aan, geen developer of bureau nodig.",
     icon: Globe,
     href: "/forester-os/website",
@@ -43,6 +46,7 @@ const GOALS: Goal[] = [
   {
     key: "leads",
     label: "Meer leads uit mijn site",
+    module: "Lead Engine",
     body: "Quickscans, calculators en slimme formulieren die bezoekers omzetten in aanvragen. Elke lead landt direct in je CRM, klaar om op te volgen.",
     icon: Magnet,
     href: "/forester-os/lead-engine",
@@ -52,6 +56,7 @@ const GOALS: Goal[] = [
   {
     key: "seo",
     label: "Beter gevonden worden",
+    module: "SEO & vindbaarheid",
     body: "Search Console-data, AI-suggesties en rankings in één dashboard. Zonder los SEO-bureau. Zie welke pagina's groeien en wat je nog kunt verbeteren.",
     icon: Search,
     href: "/forester-os/seo",
@@ -61,6 +66,7 @@ const GOALS: Goal[] = [
   {
     key: "crm",
     label: "Klanten slim opvolgen",
+    module: "CRM & pijplijn",
     body: "Elke aanvraag in je CRM, automatisch opgevolgd. Eén visuele pijplijn voor je hele team. Geen lead die nog tussen de mailtjes verdwijnt.",
     icon: Users,
     href: "/forester-os/crm",
@@ -70,6 +76,7 @@ const GOALS: Goal[] = [
   {
     key: "ai",
     label: "Automatisch publiceren met AI",
+    module: "Content publisher",
     body: "Q schrijft pagina's, blogs en updates en publiceert ze op een vast ritme op je site. Jij houdt de regie, de content blijft komen.",
     icon: Sparkles,
     href: "/forester-os/ai",
@@ -79,6 +86,7 @@ const GOALS: Goal[] = [
   {
     key: "platform",
     label: "Alles op één plek",
+    module: "Forester OS",
     body: "Website, CRM, marketing en AI in één abonnement. Geen losse facturen, geen losse logins. Eén platform dat met je organisatie meegroeit.",
     icon: LayoutGrid,
     href: "/forester-os",
@@ -151,7 +159,7 @@ export function SolutionSelector() {
               <div className="relative p-7 sm:p-8 pb-4 text-white">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-sm px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em]">
                   <g.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-                  Forester OS
+                  {g.module}
                 </span>
                 <h3 className="mt-5 font-[family-name:var(--font-display)] font-bold text-[25px] sm:text-[29px] leading-[1.1] tracking-[-0.01em]">
                   {g.label}
