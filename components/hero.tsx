@@ -92,6 +92,11 @@ export function Hero() {
           backgroundSize: "26px 26px",
         }}
       />
+      {/* fade decorations to pure bg at the bottom edge so the wave-divider connects seamlessly */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-40 sm:h-52 pointer-events-none bg-gradient-to-b from-transparent to-[color:var(--color-bg)]"
+      />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center">
