@@ -38,7 +38,7 @@ const fadeUp = (delay = 0) => ({
 
 export function SectionShift() {
   return (
-    <section className="relative isolate overflow-hidden px-5 sm:px-8 py-28 sm:py-40 bg-[color:var(--color-bg-elevated)] rounded-t-[2.5rem] sm:rounded-t-[4.5rem]">
+    <section className="relative isolate overflow-hidden px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-40 bg-[color:var(--color-bg-elevated)]">
       {/* High-tech backdrop: faint dot grid + a soft purple field */}
       <div
         aria-hidden
@@ -69,7 +69,7 @@ export function SectionShift() {
           </motion.span>
           <motion.h2
             variants={fadeUp(0.05)}
-            className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
+            className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2.2rem,5vw,3.8rem)] leading-[1.06] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
           >
             Je betaalt nu <span className="text-[color:var(--color-purple)]">negen rekeningen.</span>
           </motion.h2>
@@ -90,20 +90,20 @@ export function SectionShift() {
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
               variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } } }}
-              className="relative rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/70 p-6 sm:p-7"
+              className="relative rounded-[1.75rem] border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/70 p-6 sm:p-8"
             >
               <div className="absolute -top-3 left-6 rounded-full bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] px-3 py-1">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">9 leveranciers</span>
               </div>
-              <div className="grid grid-cols-3 gap-3 sm:gap-3.5">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 {VENDORS.map((v) => (
                   <motion.div
                     key={v.label}
                     variants={{ hidden: { opacity: 0, scale: 0.9, y: 8 }, show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: EASE } } }}
-                    className="group relative z-0 hover:z-30 flex flex-col items-center gap-2 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] px-3 py-4 transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[color:var(--color-line-strong)] hover:shadow-[0_10px_24px_-14px_rgba(12,6,18,0.18)]"
+                    className="group relative z-0 hover:z-30 flex flex-col items-center gap-2.5 rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] px-3 py-5 sm:py-6 transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-[color:var(--color-line-strong)] hover:shadow-[0_12px_28px_-14px_rgba(12,6,18,0.2)]"
                   >
-                    <v.icon className="h-5 w-5 text-[color:var(--color-ink-subtle)] transition-colors duration-200 group-hover:text-[color:var(--color-ink-muted)]" strokeWidth={2} />
-                    <span className="text-[11.5px] font-medium text-[color:var(--color-ink-muted)] text-center leading-tight">{v.label}</span>
+                    <v.icon className="h-6 w-6 text-[color:var(--color-ink-subtle)] transition-colors duration-200 group-hover:text-[color:var(--color-ink-muted)]" strokeWidth={2} />
+                    <span className="text-[12.5px] font-medium text-[color:var(--color-ink-muted)] text-center leading-tight">{v.label}</span>
                     {/* tooltip: monthly cost */}
                     <span
                       role="tooltip"
@@ -145,44 +145,48 @@ export function SectionShift() {
             <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-ink-subtle)] lg:hidden">wordt</span>
           </motion.div>
 
-          {/* 1 platform */}
+          {/* 1 platform — bold */}
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.5 }}
-            className="relative rounded-2xl border border-[color:var(--color-purple)]/30 bg-gradient-to-br from-[color:var(--color-purple-soft)] to-[color:var(--color-bg-elevated)] p-7 shadow-[0_28px_64px_-24px_rgba(98,59,199,0.42),inset_0_1px_0_rgba(255,255,255,0.7)]"
+            className="relative rounded-[2rem] bg-gradient-to-br from-[#3f2a8f] via-[#5e3bc0] to-[#7c3aed] p-7 sm:p-9 text-white shadow-[0_34px_72px_-22px_rgba(98,59,199,0.55)]"
           >
-            <div className="absolute -top-3 left-7 rounded-full bg-[color:var(--color-purple)] px-3 py-1 shadow-[0_8px_20px_-8px_rgba(98,59,199,0.6)]">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white">1 platform</span>
+            <span aria-hidden className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/12" />
+            <span aria-hidden className="pointer-events-none absolute -top-20 -right-16 h-52 w-52 rounded-full bg-white/10 blur-3xl" />
+            <div className="absolute -top-3 left-8 rounded-full bg-[color:var(--color-bg-elevated)] px-3 py-1 shadow-[0_8px_20px_-8px_rgba(12,6,18,0.25)]">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">1 platform</span>
             </div>
-            <div className="flex items-center gap-3 mt-2 mb-5">
-              <span className="inline-flex h-9 w-9 items-center justify-center">
-                <Image src="/logo-bolt.png" alt="Forester OS" width={36} height={36} className="object-contain" />
+            <div className="relative flex items-center gap-3 mt-2 mb-6">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/15">
+                <Image src="/logo-bolt.png" alt="Forester OS" width={26} height={26} className="object-contain" />
               </span>
-              <span className="font-[family-name:var(--font-display)] text-[18px] font-bold text-[color:var(--color-ink-strong)]">Forester OS</span>
+              <span className="font-[family-name:var(--font-display)] text-[20px] font-bold">Forester OS</span>
             </div>
-            <ul className="space-y-3">
+            <ul className="relative space-y-3.5">
               {["Eén abonnement, één factuur", "Eén login voor je hele team", "Data die wél met elkaar praat", "Website, CRM, marketing en AI inbegrepen"].map((t) => (
-                <li key={t} className="flex items-start gap-2.5 text-[13.5px] text-[color:var(--color-ink)] leading-snug">
-                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white mt-0.5">
+                <li key={t} className="flex items-start gap-2.5 text-[14px] leading-snug text-white/90">
+                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20 mt-px">
                     <Check className="h-2.5 w-2.5" strokeWidth={3} />
                   </span>
                   {t}
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex items-baseline gap-1.5">
-              <span className="text-[12.5px] text-[color:var(--color-ink-subtle)]">vanaf</span>
-              <span className="font-[family-name:var(--font-display)] text-[26px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">€399</span>
-              <span className="text-[12.5px] text-[color:var(--color-ink-subtle)]">per maand</span>
+            <div className="relative mt-7 flex items-baseline gap-1.5">
+              <span className="text-[13px] text-white/70">vanaf</span>
+              <span className="font-[family-name:var(--font-display)] text-[30px] font-bold tabular-nums leading-none">€399</span>
+              <span className="text-[13px] text-white/70">per maand</span>
             </div>
             <Link
               href="/forester-os"
-              className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors group"
+              className="btn-press group relative mt-6 inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-[color:var(--color-bg-elevated)] text-[color:var(--color-purple)] text-[13.5px] font-semibold hover:bg-white shadow-[0_8px_20px_-10px_rgba(12,6,18,0.3)]"
             >
               Bekijk Forester OS
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
+                <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+              </span>
             </Link>
           </motion.div>
         </div>
