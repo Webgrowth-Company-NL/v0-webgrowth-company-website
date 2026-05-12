@@ -89,7 +89,7 @@ export function SolutionSelector() {
   const goal = GOALS[active];
 
   return (
-    <section className="relative px-5 sm:px-8 py-24 sm:py-32 border-t border-[color:var(--color-line)]">
+    <section className="relative px-5 sm:px-8 py-28 sm:py-40 border-t border-[color:var(--color-line)]">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto">
@@ -106,7 +106,7 @@ export function SolutionSelector() {
         </div>
 
         {/* Selector cards */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {GOALS.map((g, i) => {
             const isActive = i === active;
             return (
@@ -144,7 +144,7 @@ export function SolutionSelector() {
         </div>
 
         {/* Panel */}
-        <div className="mt-12 sm:mt-14 grid lg:grid-cols-[0.82fr_1fr] gap-10 lg:gap-16 items-center">
+        <div className="mt-14 sm:mt-18 grid lg:grid-cols-[0.82fr_1fr] gap-10 lg:gap-16 items-center">
           {/* Copy */}
           <div className="relative min-h-[180px]">
             <AnimatePresence mode="wait">
