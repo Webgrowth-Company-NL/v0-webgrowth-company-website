@@ -1,48 +1,40 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import {
-  ArrowUpRight,
-  Globe,
-  Search,
-  Sparkles,
-  Star,
-  TrendingUp,
-  Users,
-  Zap,
-} from "lucide-react";
+import { ArrowUp, Globe, Search, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
-const CYCLE_MS = 4200;
+const CYCLE_MS = 4400;
 
-type ViewKey = "leads" | "website" | "seo" | "ai";
+type ViewKey = "website" | "seo" | "crm" | "ai";
 
-const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: typeof Users }[] = [
-  { key: "leads", url: "forester.app/leads", label: "CRM & Leads", short: "Leads", icon: Users },
-  { key: "website", url: "forester.app/website", label: "Website", short: "Website", icon: Globe },
+const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: typeof Globe }[] = [
+  { key: "website", url: "forester.app/website", label: "Website & CMS", short: "Website", icon: Globe },
   { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", short: "SEO", icon: Search },
-  { key: "ai", url: "forester.app/ai", label: "AI-content", short: "AI", icon: Sparkles },
+  { key: "crm", url: "forester.app/crm", label: "CRM & Sales", short: "CRM", icon: Users },
+  { key: "ai", url: "forester.app/ai", label: "AI-content met Q", short: "AI", icon: Sparkles },
 ];
 
 type Stat = { label: string; value: string; delta: string; descriptor: string; trend?: boolean };
 
 /** Floating stat-chips, afgestemd op de actieve view. */
 const FLOATING: Record<ViewKey, [Stat, Stat]> = {
-  leads: [
-    { label: "Leads", value: "4.714", delta: "+15,3%", descriptor: "engaged" },
-    { label: "Prospects", value: "183", delta: "+5,8%", descriptor: "formulier ingevuld" },
-  ],
   website: [
-    { label: "Bezoekers", value: "4.977", delta: "+11,1%", descriptor: "vs vorige periode" },
     { label: "PageSpeed", value: "98", delta: "/100", descriptor: "mobiel", trend: false },
+    { label: "Conversie", value: "6,4%", delta: "+1,1pt", descriptor: "vs vorige periode" },
   ],
   seo: [
     { label: "Top-10 posities", value: "47", delta: "+12", descriptor: "deze maand" },
-    { label: "Gem. positie", value: "#3,1", delta: "+1,8", descriptor: "verbeterd" },
+    { label: "Organisch verkeer", value: "+47%", delta: "afgelopen jaar", descriptor: "", trend: false },
+  ],
+  crm: [
+    { label: "Open deals", value: "23", delta: "+5", descriptor: "deze week" },
+    { label: "Gewonnen", value: "€18k", delta: "+22%", descriptor: "deze maand" },
   ],
   ai: [
-    { label: "Artikelen live", value: "34", delta: "+9", descriptor: "dit kwartaal" },
+    { label: "Inzichten", value: "12", delta: "+4", descriptor: "deze week" },
     { label: "Tijd bespaard", value: "18u", delta: "/ maand", descriptor: "op content", trend: false },
   ],
 };
@@ -55,9 +47,7 @@ export function HeroDashboard() {
 
   useEffect(() => {
     if (reduce || paused || userPicked) return;
-    const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % VIEWS.length);
-    }, CYCLE_MS);
+    const id = window.setInterval(() => setActive((i) => (i + 1) % VIEWS.length), CYCLE_MS);
     return () => window.clearInterval(id);
   }, [reduce, paused, userPicked]);
 
@@ -107,27 +97,30 @@ export function HeroDashboard() {
           {VIEWS.map((v, i) => {
             const isActive = i === active;
             return (
-              <button
+              <motion.button
                 key={v.key}
                 type="button"
                 onClick={() => { setActive(i); setUserPicked(true); }}
                 aria-pressed={isActive}
+                animate={isActive && !reduce ? { scale: [1, 1.06, 1] } : { scale: 1 }}
+                transition={{ duration: 0.4, ease: EASE }}
                 className={[
                   "flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg px-1.5 py-1.5 text-[11px] font-semibold cursor-pointer",
-                  "transition-[background-color,color,box-shadow,transform] duration-200 ease-out active:scale-[0.97]",
+                  "transition-[background-color,color] duration-200 ease-out",
                   isActive
-                    ? "bg-[color:var(--color-purple)] text-white shadow-[0_2px_8px_-2px_rgba(98,59,199,0.45)]"
+                    ? "bg-[color:var(--color-purple)] text-white"
                     : "bg-[color:var(--color-bg-muted)]/70 text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-purple-soft)] hover:text-[color:var(--color-purple)]",
                 ].join(" ")}
+                style={isActive && !reduce ? { animation: "tab-glow 2.4s ease-in-out infinite" } : undefined}
               >
                 <v.icon className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} />
                 {v.short}
-              </button>
+              </motion.button>
             );
           })}
         </div>
 
-        {/* Body - selected view */}
+        {/* Body — selected view */}
         <div className="relative flex-1 overflow-hidden">
           <AnimatePresence>
             <motion.div
@@ -138,10 +131,10 @@ export function HeroDashboard() {
               transition={{ duration: 0.5, ease: EASE }}
               className="absolute inset-0 px-5 pt-5 pb-5"
             >
-              {view.key === "leads" && <LeadsView reduce={reduce} />}
               {view.key === "website" && <WebsiteView />}
-              {view.key === "seo" && <SeoView />}
-              {view.key === "ai" && <AiView reduce={reduce} />}
+              {view.key === "seo" && <SeoView reduce={reduce} />}
+              {view.key === "crm" && <CrmView />}
+              {view.key === "ai" && <AiView />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -197,6 +190,186 @@ export function HeroDashboard() {
   );
 }
 
+/* ── View: Website (conversiefunnel) ─────────────── */
+function WebsiteView() {
+  const stages = [
+    { label: "Bezoekers", value: "4.977", w: "100%", op: 0.9 },
+    { label: "Leads", value: "287", w: "62%", op: 0.7 },
+    { label: "Prospects", value: "41", w: "34%", op: 0.55 },
+  ];
+  return (
+    <div className="h-full flex flex-col">
+      <div className="flex items-end justify-between mb-1">
+        <div>
+          <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Conversiefunnel · 30 dagen</div>
+          <div className="mt-1 font-[family-name:var(--font-display)] text-[22px] font-bold text-[color:var(--color-ink-strong)] leading-none">jouwsite.nl</div>
+        </div>
+        <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-emerald-600"><TrendingUp className="h-3 w-3" strokeWidth={2.5} />+11,1%</span>
+      </div>
+      <div className="flex-1 flex flex-col justify-center gap-3">
+        {stages.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: EASE, delay: 0.15 + i * 0.1 }}
+            className="mx-auto rounded-xl flex items-center justify-between px-4 py-3 text-white shadow-[0_8px_22px_-12px_rgba(98,59,199,0.55)]"
+            style={{ width: s.w, background: `linear-gradient(100deg, rgba(98,59,199,${s.op}), rgba(124,58,237,${s.op}))` }}
+          >
+            <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/85 whitespace-nowrap">{s.label}</span>
+            <span className="font-[family-name:var(--font-display)] text-[19px] font-bold tabular-nums whitespace-nowrap">{s.value}</span>
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-4 flex items-center gap-1.5 text-[10px]">
+        <span className="rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 font-semibold text-[color:var(--color-purple)]">5,8% lead-conversie</span>
+        <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">98/100 PageSpeed</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── View: SEO (ranking-klim animatie) ───────────── */
+function SeoView({ reduce }: { reduce: boolean | null }) {
+  const [ourPos, setOurPos] = useState(3);
+  useEffect(() => {
+    if (reduce) { setOurPos(0); return; }
+    setOurPos(3);
+    const id = window.setInterval(() => setOurPos((p) => (p === 0 ? 3 : p - 1)), 1500);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
+  const others = [
+    { id: "a", site: "websitebureau-x.nl" },
+    { id: "b", site: "marketingbureau-y.nl" },
+    { id: "c", site: "agency-zwart.nl" },
+    { id: "d", site: "designstudio-w.nl" },
+  ];
+  const rows: { id: string; site?: string; ours: boolean }[] = [];
+  let oi = 0;
+  for (let slot = 0; slot < 5; slot++) {
+    if (slot === ourPos) rows.push({ id: "ours", ours: true });
+    else { rows.push({ id: others[oi].id, site: others[oi].site, ours: false }); oi++; }
+  }
+
+  return (
+    <div className="h-full flex flex-col">
+      <div className="mb-3.5">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Positie in Google · &ldquo;website laten maken&rdquo;</div>
+        <div className="mt-1 flex items-baseline gap-2">
+          <span className="font-[family-name:var(--font-display)] text-[24px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">#{ourPos + 1}</span>
+          <span className="inline-flex items-center gap-0.5 text-[11.5px] font-semibold text-emerald-600">
+            <TrendingUp className="h-3 w-3" strokeWidth={2.5} />
+            {ourPos === 0 ? "staat bovenaan" : "klimt naar #1"}
+          </span>
+        </div>
+      </div>
+      <div className="flex-1 flex flex-col gap-1.5">
+        {rows.map((r, i) => (
+          <motion.div
+            layout
+            key={r.id}
+            transition={{ duration: 0.5, ease: EASE }}
+            className={[
+              "flex items-center gap-2.5 rounded-xl px-3 py-2",
+              r.ours ? "border border-[color:var(--color-purple)]/40 bg-[color:var(--color-purple-soft)]" : "border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50",
+            ].join(" ")}
+          >
+            <span className={["inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold tabular-nums", r.ours ? "bg-[color:var(--color-purple)] text-white" : "bg-[color:var(--color-bg-muted)] text-[color:var(--color-ink-subtle)]"].join(" ")}>{i + 1}</span>
+            <div className="min-w-0 flex-1">
+              {r.ours ? (
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[12px] font-semibold text-[color:var(--color-purple)] truncate">jouwsite.nl</span>
+                  <span className="inline-flex items-center gap-0.5 text-[9.5px] font-bold text-[color:var(--color-purple)]"><ArrowUp className="h-2.5 w-2.5" strokeWidth={3} />stijgt</span>
+                </div>
+              ) : (
+                <span className="text-[11.5px] text-[color:var(--color-ink-subtle)] truncate">{r.site}</span>
+              )}
+              <div className={["mt-1 h-1.5 rounded", r.ours ? "w-3/4 bg-[color:var(--color-purple)]/35" : "w-2/3 bg-[color:var(--color-ink-faint)]"].join(" ")} />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── View: CRM (kanban / sales-pijplijn) ─────────── */
+function CrmView() {
+  const columns: { title: string; n: number; items: { name: string; value: string; hot?: boolean }[] }[] = [
+    { title: "Nieuw", n: 2, items: [{ name: "Studio Praline", value: "€2,4k", hot: true }, { name: "Bureau Klaverwijk", value: "€5,1k" }] },
+    { title: "In gesprek", n: 1, items: [{ name: "Architectenbureau Holm", value: "€8,0k" }] },
+    { title: "Voorstel", n: 2, items: [{ name: "Praktijk De Vijver", value: "€3,7k" }, { name: "Atelier Mooij", value: "€1,9k" }] },
+  ];
+  return (
+    <div className="h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Sales-pijplijn</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">5 deals · €21k open</span>
+      </div>
+      <div className="flex-1 grid grid-cols-3 gap-2">
+        {columns.map((c, ci) => (
+          <div key={c.title} className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-2 flex flex-col">
+            <div className="flex items-center justify-between px-1 mb-2">
+              <span className="text-[9.5px] font-semibold uppercase tracking-[0.06em] text-[color:var(--color-ink-subtle)]">{c.title}</span>
+              <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{c.n}</span>
+            </div>
+            <div className="space-y-2">
+              {c.items.map((it, i) => (
+                <div key={it.name} className="rounded-lg border border-[color:var(--color-line)] bg-white p-2 shadow-[0_4px_12px_-8px_rgba(12,6,18,0.12)]">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span className={["inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[8.5px] font-bold text-[color:var(--color-ink)]", ci === 0 && i === 0 ? "bg-[color:var(--color-purple-tint)]" : "bg-[color:var(--color-bg-muted)]"].join(" ")}>{it.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}</span>
+                    <span className="text-[10px] font-semibold text-[color:var(--color-ink)] truncate">{it.name}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)] tabular-nums">{it.value}</span>
+                    {it.hot && <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex items-center gap-1.5 text-[10px]">
+        <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 font-semibold text-[color:var(--color-purple)]"><Users className="h-2.5 w-2.5" strokeWidth={2.5} />4 teamleden</span>
+        <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">7 open taken</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── View: AI (Q Insights, zoals op het Forester-dashboard) ── */
+function AiView() {
+  return (
+    <div className="h-full flex flex-col">
+      <div className="flex items-center gap-2.5 mb-3.5">
+        <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full overflow-hidden ring-2 ring-[color:var(--color-purple)]/25">
+          <Image src="/images/q-insights.jpg" alt="Q" width={36} height={36} className="object-cover" />
+        </span>
+        <div className="leading-tight">
+          <div className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">Inzicht van Q</div>
+          <div className="text-[12px] font-semibold text-[color:var(--color-ink)]">Je AI-assistent</div>
+        </div>
+      </div>
+      <div className="flex-1 rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-4 flex flex-col">
+        <p className="text-[13px] leading-relaxed text-[color:var(--color-ink)]">
+          Je blogpagina trok deze maand <span className="font-semibold text-[color:var(--color-purple)]">3× meer bezoekers</span>, maar bijna niemand klikt door naar je contactpagina. Zal ik een opvallendere knop voorstellen?
+        </p>
+        <div className="mt-auto pt-4 flex items-center gap-2">
+          <span className="inline-flex items-center rounded-full bg-[color:var(--color-purple)] px-3 py-1.5 text-[11px] font-semibold text-white">Ja, doe maar</span>
+          <span className="rounded-full border border-[color:var(--color-line)] px-3 py-1.5 text-[11px] font-medium text-[color:var(--color-ink-subtle)]">Later</span>
+        </div>
+      </div>
+      <div className="mt-3 flex items-center gap-1.5 text-[10px] text-[color:var(--color-ink-subtle)]">
+        <Sparkles className="h-3 w-3 text-[color:var(--color-purple)]" strokeWidth={2.5} />
+        <span>Op basis van bezoekersdata · afgelopen 30 dagen</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Floating chip primitives ────────────────────── */
 function Chip({ children }: { children: React.ReactNode }) {
   return (
     <div className="inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_48px_-24px_rgba(12,6,18,0.22)]">
@@ -217,270 +390,14 @@ function StatChip({ label, value, delta, descriptor, trend = true }: Stat) {
         <span className="inline-flex items-center gap-1 text-[10.5px]">
           <TrendingUp className="h-3 w-3 text-emerald-600" strokeWidth={2.5} />
           <span className="font-semibold text-emerald-600 tabular-nums">{delta}</span>
-          <span className="text-[color:var(--color-ink-subtle)] truncate">{descriptor}</span>
+          {descriptor && <span className="text-[color:var(--color-ink-subtle)] truncate">{descriptor}</span>}
         </span>
       ) : (
         <span className="inline-flex items-center gap-1 text-[10.5px] text-[color:var(--color-ink-subtle)]">
           <span className="font-semibold text-[color:var(--color-ink-muted)] tabular-nums">{delta}</span>
-          <span className="truncate">{descriptor}</span>
+          {descriptor && <span className="truncate">{descriptor}</span>}
         </span>
       )}
-    </div>
-  );
-}
-
-/* ── View 1: Leads ──────────────────────────────── */
-function LeadsView({ reduce }: { reduce: boolean | null }) {
-  const leads = [
-    { name: "Studio Praline", role: "Website APK", time: "2 min", live: true },
-    { name: "Architectenbureau Holm", role: "Demo aanvraag", time: "14 min", live: false },
-    { name: "Praktijk De Vijver", role: "Contact form", time: "1 uur", live: false },
-  ];
-  return (
-    <div className="h-full flex flex-col">
-      <div className="flex items-end justify-between mb-4">
-        <div>
-          <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">
-            Leads · 30 dagen
-          </div>
-          <div className="mt-1 flex items-baseline gap-2">
-            <span className="font-[family-name:var(--font-display)] text-[28px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">
-              287
-            </span>
-            <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-emerald-600">
-              <TrendingUp className="h-3 w-3" strokeWidth={2.5} />
-              +47%
-            </span>
-          </div>
-        </div>
-        <div className="flex items-end gap-[3px] h-9">
-          {[14, 22, 18, 26, 32, 28, 38, 44, 36, 48, 52, 60].map((h, i) => (
-            <span
-              key={i}
-              className="block w-[5px] rounded-[1.5px] bg-[color:var(--color-purple)]/85"
-              style={{ height: `${h}%`, opacity: 0.35 + (i / 12) * 0.65 }}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-semibold mb-2.5">
-        Recente leads
-      </div>
-      <ul className="space-y-2 flex-1">
-        {leads.map((lead, i) => (
-          <li
-            key={lead.name}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/60"
-          >
-            <span
-              className={[
-                "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-[color:var(--color-ink)]",
-                i === 0 ? "bg-[color:var(--color-purple-tint)]" : "bg-[color:var(--color-bg-muted)]",
-              ].join(" ")}
-            >
-              {lead.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}
-            </span>
-            <div className="min-w-0 flex-1">
-              <div className="text-[12.5px] font-semibold text-[color:var(--color-ink)] truncate">{lead.name}</div>
-              <div className="text-[10.5px] text-[color:var(--color-ink-subtle)] truncate">{lead.role}</div>
-            </div>
-            <div className="flex items-center gap-1.5 shrink-0">
-              {lead.live && (
-                <span className="relative inline-flex h-1.5 w-1.5">
-                  <span
-                    className="absolute inset-0 rounded-full bg-[color:var(--color-purple)]"
-                    style={{ animation: reduce ? undefined : "soft-pulse 1.8s ease-in-out infinite" }}
-                  />
-                </span>
-              )}
-              <span className="text-[10.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)] tabular-nums">
-                {lead.time}
-              </span>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-/* ── View 2: Website ────────────────────────────── */
-function WebsiteView() {
-  return (
-    <div className="h-full flex flex-col">
-      <div className="flex items-center justify-between mb-3">
-        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">
-          jouwsite.nl · concept
-        </div>
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[color:var(--color-purple)] text-white text-[10.5px] font-semibold">
-          Publiceren
-          <ArrowUpRight className="h-3 w-3" strokeWidth={2.5} />
-        </span>
-      </div>
-
-      {/* Mini site preview */}
-      <div className="flex-1 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 overflow-hidden">
-        {/* preview header */}
-        <div className="flex items-center justify-between px-3 py-2 border-b border-[color:var(--color-line)] bg-white/60">
-          <div className="h-2.5 w-12 rounded-full bg-[color:var(--color-ink-faint)]" />
-          <div className="flex gap-2">
-            <div className="h-2 w-6 rounded-full bg-[color:var(--color-ink-faint)]" />
-            <div className="h-2 w-6 rounded-full bg-[color:var(--color-ink-faint)]" />
-            <div className="h-2 w-8 rounded-full bg-[color:var(--color-purple)]/60" />
-          </div>
-        </div>
-        {/* preview hero */}
-        <div className="px-4 py-4">
-          <div className="h-2 w-16 rounded-full bg-[color:var(--color-purple)]/40 mb-2.5" />
-          <div className="h-3.5 w-[80%] rounded bg-[color:var(--color-ink-faint)] mb-1.5" />
-          <div className="h-3.5 w-[55%] rounded bg-[color:var(--color-purple)]/35 mb-3" />
-          <div className="flex gap-2">
-            <div className="h-6 w-20 rounded-full bg-[color:var(--color-purple)]/75" />
-            <div className="h-6 w-16 rounded-full border border-[color:var(--color-line-strong)]" />
-          </div>
-        </div>
-        {/* preview 3-col */}
-        <div className="px-4 pb-4 grid grid-cols-3 gap-2">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="rounded-lg border border-[color:var(--color-line)] bg-white/70 p-2">
-              <div className="h-4 w-4 rounded-md bg-[color:var(--color-purple)]/25 mb-1.5" />
-              <div className="h-1.5 w-full rounded bg-[color:var(--color-ink-faint)] mb-1" />
-              <div className="h-1.5 w-2/3 rounded bg-[color:var(--color-ink-faint)]" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* edit toolbar */}
-      <div className="mt-3 flex items-center gap-1.5">
-        {["Hero", "Diensten", "Reviews", "Footer"].map((b, i) => (
-          <span
-            key={b}
-            className={[
-              "px-2.5 py-1 rounded-full text-[10.5px] font-medium",
-              i === 0
-                ? "bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)]"
-                : "border border-[color:var(--color-line)] text-[color:var(--color-ink-subtle)]",
-            ].join(" ")}
-          >
-            {b}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ── View 3: SEO / vindbaarheid ─────────────────── */
-function SeoView() {
-  const rows = [
-    { kw: "interieurontwerp utrecht", pos: 2, up: 3 },
-    { kw: "fysiotherapie de baarsjes", pos: 1, up: 0 },
-    { kw: "architect verbouwing offerte", pos: 4, up: 1 },
-    { kw: "boekhouder zzp dordrecht", pos: 6, up: 2 },
-  ];
-  return (
-    <div className="h-full flex flex-col">
-      <div className="flex items-end justify-between mb-4">
-        <div>
-          <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">
-            Posities · 90 dagen
-          </div>
-          <div className="mt-1 flex items-baseline gap-2">
-            <span className="font-[family-name:var(--font-display)] text-[28px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">
-              #3,1
-            </span>
-            <span className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-emerald-600">
-              <TrendingUp className="h-3 w-3" strokeWidth={2.5} />
-              +1,8 gem.
-            </span>
-          </div>
-        </div>
-        {/* trend line going up */}
-        <svg viewBox="0 0 80 36" className="h-9 w-20" aria-hidden>
-          <polyline
-            points="0,32 14,28 26,30 38,20 50,22 62,12 80,6"
-            fill="none"
-            stroke="var(--color-purple)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.85"
-          />
-        </svg>
-      </div>
-      <div className="text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-semibold mb-2.5">
-        Zoekwoorden
-      </div>
-      <ul className="space-y-2 flex-1">
-        {rows.map((r) => (
-          <li
-            key={r.kw}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/60"
-          >
-            <span className="inline-flex h-7 min-w-7 px-1.5 items-center justify-center rounded-md bg-[color:var(--color-purple-tint)] text-[11px] font-bold text-[color:var(--color-purple)] tabular-nums shrink-0">
-              {r.pos}
-            </span>
-            <span className="text-[12px] font-medium text-[color:var(--color-ink)] truncate flex-1">{r.kw}</span>
-            {r.up > 0 ? (
-              <span className="inline-flex items-center gap-0.5 text-[10.5px] font-semibold text-emerald-600 shrink-0">
-                <TrendingUp className="h-3 w-3" strokeWidth={2.5} />
-                {r.up}
-              </span>
-            ) : (
-              <span className="text-[10.5px] text-[color:var(--color-ink-faint)] shrink-0">-</span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-/* ── View 4: AI-content ─────────────────────────── */
-function AiView({ reduce }: { reduce: boolean | null }) {
-  return (
-    <div className="h-full flex flex-col">
-      <div className="flex items-center gap-2 mb-3">
-        <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)]">
-          <Sparkles className="h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.5} />
-        </span>
-        <span className="text-[12.5px] font-semibold text-[color:var(--color-ink)]">Q schrijft mee</span>
-      </div>
-
-      {/* prompt bubble */}
-      <div className="self-end max-w-[80%] mb-2.5 px-3 py-2 rounded-2xl rounded-br-md bg-[color:var(--color-bg-muted)] text-[11.5px] text-[color:var(--color-ink)]">
-        Schrijf een blog over duurzaam ondernemen voor het MKB
-      </div>
-
-      {/* response bubble - generating */}
-      <div className="flex-1 max-w-[92%] px-3.5 py-3 rounded-2xl rounded-tl-md border border-[color:var(--color-line)] bg-white">
-        <div className="text-[12px] font-semibold text-[color:var(--color-ink)] mb-2">
-          Duurzaam ondernemen: 5 stappen die echt iets opleveren
-        </div>
-        <div className="space-y-1.5">
-          <div className="h-1.5 w-full rounded bg-[color:var(--color-ink-faint)]" />
-          <div className="h-1.5 w-[92%] rounded bg-[color:var(--color-ink-faint)]" />
-          <div className="h-1.5 w-[78%] rounded bg-[color:var(--color-ink-faint)]" />
-          <div
-            className="h-1.5 w-[40%] rounded bg-gradient-to-r from-[color:var(--color-purple)]/50 to-[color:var(--color-purple)]/10"
-            style={{
-              backgroundSize: "200% 100%",
-              animation: reduce ? undefined : "shimmer 1.6s ease-in-out infinite",
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="mt-3 flex items-center gap-2">
-        <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[color:var(--color-purple)] text-white text-[10.5px] font-semibold">
-          Plaats op site
-          <ArrowUpRight className="h-3 w-3" strokeWidth={2.5} />
-        </span>
-        <span className="px-3 py-1.5 rounded-full border border-[color:var(--color-line)] text-[10.5px] font-medium text-[color:var(--color-ink-subtle)]">
-          Herschrijf
-        </span>
-      </div>
     </div>
   );
 }
