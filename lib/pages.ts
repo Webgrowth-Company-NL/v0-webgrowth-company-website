@@ -22,6 +22,8 @@ export type SeoPage = {
   soon?: boolean;
   /** Uit de index houden (bv. login) */
   noindex?: boolean;
+  /** Illustratie-bestand in /public/illustrations (zonder extensie). Default: "growth" */
+  illustration?: "growth" | "writing" | "communication" | "not-found";
 };
 
 export const FORESTER_PAGES: SeoPage[] = [
@@ -83,6 +85,7 @@ export const FORESTER_PAGES: SeoPage[] = [
   {
     path: "/forester-os/ai",
     slug: "ai",
+    illustration: "writing",
     h1: "AI-content met Q",
     metaTitle: "AI-content met Q — teksten en inzichten die meegroeien | Forester OS",
     metaDescription:
@@ -94,6 +97,7 @@ export const FORESTER_PAGES: SeoPage[] = [
   {
     path: "/forester-os/content-publisher",
     slug: "content-publisher",
+    illustration: "writing",
     h1: "Automatische content publisher",
     metaTitle: "Automatische content publisher — AI publiceert op schema | Forester OS",
     metaDescription:
@@ -255,6 +259,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   },
   {
     path: "/blog",
+    illustration: "writing",
     h1: "Blog & inzichten",
     metaTitle: "Blog — praktische groei-artikelen voor ondernemers | Webgrowth",
     metaDescription:
@@ -295,6 +300,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   },
   {
     path: "/contact",
+    illustration: "communication",
     h1: "Neem contact op",
     metaTitle: "Contact — boek een kennismaking met Webgrowth Company",
     metaDescription:
