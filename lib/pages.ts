@@ -258,17 +258,6 @@ export const STANDALONE_PAGES: SeoPage[] = [
       "In een paar minuten zie je hoe jouw website scoort op snelheid, vindbaarheid en conversie, met concrete verbeterpunten.",
   },
   {
-    path: "/blog",
-    illustration: "writing",
-    h1: "Blog & inzichten",
-    metaTitle: "Blog — praktische groei-artikelen voor ondernemers | Webgrowth",
-    metaDescription:
-      "Concrete artikelen over websites, marketing, leads en AI, geschreven voor ondernemers die willen groeien.",
-    eyebrow: "Blog",
-    intro:
-      "Concrete artikelen over websites, marketing, leads en AI, geschreven voor ondernemers die willen groeien.",
-  },
-  {
     path: "/cases",
     h1: "Klantverhalen",
     metaTitle: "Klantverhalen — wat we voor anderen bouwden | Webgrowth Company",

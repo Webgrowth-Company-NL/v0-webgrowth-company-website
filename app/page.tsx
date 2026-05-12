@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero";
 import { SectionCases } from "@/components/section-cases";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
+import { SectionFieldLogs } from "@/components/section-field-logs";
 import { SectionProof } from "@/components/section-proof";
 import { SectionShift } from "@/components/section-shift";
 import { SectionVideo } from "@/components/section-video";
@@ -31,7 +32,9 @@ export default function Home() {
         <SectionCases />
         <WaveDivider top={CREAM} bottom={WHITE} />
         <SectionVideo />
-        <WaveDivider top={WHITE} bottom={LAVENDER} />
+        <WaveDivider top={WHITE} bottom={CREAM} />
+        <SectionFieldLogs />
+        <WaveDivider top={CREAM} bottom={LAVENDER} />
         <SectionFaq />
         <WaveDivider top={LAVENDER} bottom={DEEP} />
         <SectionCta />

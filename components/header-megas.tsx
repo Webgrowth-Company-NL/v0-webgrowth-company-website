@@ -47,7 +47,7 @@ export const OPLOSSINGEN_SECTOR = [
 
 export const HULPMIDDELEN_ONTDEK = [
   { href: "/website-apk", label: "Website APK", desc: "Gratis scan: hoe scoort jouw site?", icon: Gauge },
-  { href: "/blog", label: "Blog & inzichten", desc: "Praktische groei-artikelen", icon: FileText },
+  { href: "/field-logs", label: "Field Logs", desc: "Bevindingen uit de praktijk", icon: FileText },
   { href: "/cases", label: "Klantverhalen", desc: "Wat we voor anderen bouwden", icon: MessageSquareQuote },
   { href: "/over", label: "Over Webgrowth", desc: "Wie we zijn, waar we voor staan", icon: Building2 },
 ] as const;
