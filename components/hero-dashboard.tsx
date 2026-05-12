@@ -77,7 +77,7 @@ export function HeroDashboard() {
           </div>
         </div>
 
-        {/* Body — cycling views */}
+        {/* Body - cycling views */}
         <div className="relative flex-1 overflow-hidden">
           <AnimatePresence>
             <motion.div
@@ -325,7 +325,7 @@ function SeoView() {
                 {r.up}
               </span>
             ) : (
-              <span className="text-[10.5px] text-[color:var(--color-ink-faint)] shrink-0">–</span>
+              <span className="text-[10.5px] text-[color:var(--color-ink-faint)] shrink-0">-</span>
             )}
           </li>
         ))}
@@ -350,7 +350,7 @@ function AiView({ reduce }: { reduce: boolean | null }) {
         Schrijf een blog over duurzaam ondernemen voor het MKB
       </div>
 
-      {/* response bubble — generating */}
+      {/* response bubble - generating */}
       <div className="flex-1 max-w-[92%] px-3.5 py-3 rounded-2xl rounded-tl-md border border-[color:var(--color-line)] bg-white">
         <div className="text-[12px] font-semibold text-[color:var(--color-ink)] mb-2">
           Duurzaam ondernemen: 5 stappen die echt iets opleveren

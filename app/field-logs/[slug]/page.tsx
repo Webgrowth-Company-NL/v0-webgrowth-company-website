@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const l = fieldLogBySlug(slug);
   if (!l) return {};
   return {
-    title: `${l.title} | Field Logs — Webgrowth`,
+    title: `${l.title} | Webgrowth Field Logs`,
     description: l.excerpt,
     alternates: { canonical: `/field-logs/${slug}` },
     openGraph: { type: "article", title: l.title, description: l.excerpt },

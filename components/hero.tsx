@@ -66,7 +66,7 @@ export function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 px-5 sm:px-8">
-      {/* ── Background art — soft purple glows ─── */}
+      {/* ── Background art - soft purple glows ─── */}
       <div
         aria-hidden
         className="absolute -top-44 -right-44 h-[620px] w-[620px] rounded-full"
@@ -253,7 +253,7 @@ export function Hero() {
 
               <div className="hidden sm:block h-4 w-px bg-[color:var(--color-line)]" />
 
-              {/* NL vlag — horizontaal rood/wit/blauw */}
+              {/* NL vlag - horizontaal rood/wit/blauw */}
               <div className="inline-flex items-center gap-2 text-[13.5px] text-[color:var(--color-ink-muted)]">
                 <span
                   className="inline-flex flex-col h-4 w-6 overflow-hidden rounded-[2px] ring-1 ring-[color:var(--color-line)]"
@@ -272,7 +272,7 @@ export function Hero() {
           <div className="relative h-[520px] sm:h-[560px] lg:h-[580px]">
             <HeroDashboard />
 
-            {/* Rating chip — top-left */}
+            {/* Rating chip - top-left */}
             <motion.div
               variants={chipReveal(1.2)}
               initial="hidden"
@@ -295,7 +295,7 @@ export function Hero() {
               </Chip>
             </motion.div>
 
-            {/* Leads stat — bottom-right */}
+            {/* Leads stat - bottom-right */}
             <motion.div
               variants={chipReveal(1.4)}
               initial="hidden"
@@ -306,7 +306,7 @@ export function Hero() {
               <StatChip label="Leads" value="4.714" delta="+15,3%" descriptor="engaged" />
             </motion.div>
 
-            {/* Bezoekers stat — right-middle (hidden on small) */}
+            {/* Bezoekers stat - right-middle (hidden on small) */}
             <motion.div
               variants={chipReveal(1.6)}
               initial="hidden"
@@ -317,7 +317,7 @@ export function Hero() {
               <StatChip label="Bezoekers" value="4.977" delta="+11,1%" descriptor="vs vorige periode" />
             </motion.div>
 
-            {/* Prospects stat — left-middle (hidden on small) */}
+            {/* Prospects stat - left-middle (hidden on small) */}
             <motion.div
               variants={chipReveal(1.8)}
               initial="hidden"

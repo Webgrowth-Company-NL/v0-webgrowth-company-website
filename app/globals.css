@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────
-   Webgrowth Company — Premium Light
+   Webgrowth Company - Premium Light
    - Cream warm background, ink-tinted text
    - Pink #ff0096 as primary accent
    - Purple #623bc7 as secondary
@@ -24,7 +24,7 @@
   --color-ink-subtle: rgba(12, 6, 18, 0.42);
   --color-ink-faint: rgba(12, 6, 18, 0.22);
 
-  /* Brand — purple as primary, pink reserved for rare highlights */
+  /* Brand - purple as primary, pink reserved for rare highlights */
   --color-purple: #623bc7;
   --color-purple-hover: #5232b3;
   --color-purple-soft: rgba(98, 59, 199, 0.08);
@@ -44,7 +44,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Easings — strong custom curves */
+  /* Easings - strong custom curves */
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
@@ -94,7 +94,7 @@ body {
   color: white;
 }
 
-/* Buttons — visible hover lift, instant press feedback (Emil) */
+/* Buttons - visible hover lift, instant press feedback (Emil) */
 .btn-press {
   transition: transform 200ms var(--ease-out-strong),
     background-color 220ms ease, color 200ms ease,
@@ -109,7 +109,7 @@ body {
   transform: scale(0.97);
 }
 
-/* Shimmer keyframe — used by gradient text in hero */
+/* Shimmer keyframe - used by gradient text in hero */
 @keyframes shimmer {
   0%,
   100% {
@@ -151,7 +151,7 @@ body {
   }
 }
 
-/* Reduced motion — keep opacity, kill movement */
+/* Reduced motion - keep opacity, kill movement */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

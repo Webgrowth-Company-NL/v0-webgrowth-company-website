@@ -20,15 +20,15 @@ import {
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 const VENDORS = [
-  { icon: Palette, label: "Websitebureau", cost: "€150 – €500 p/m" },
-  { icon: Server, label: "Hoster", cost: "€15 – €50 p/m" },
-  { icon: Database, label: "HubSpot", cost: "€50 – €450 p/m" },
-  { icon: Mail, label: "E-mailtool", cost: "€20 – €150 p/m" },
-  { icon: Shield, label: "Security", cost: "€15 – €80 p/m" },
-  { icon: FileText, label: "Content-uurtjes", cost: "€200 – €800 p/m" },
-  { icon: Wrench, label: "Onderhoud", cost: "€50 – €200 p/m" },
-  { icon: Lock, label: "AVG-module", cost: "€10 – €50 p/m" },
-  { icon: Search, label: "SEO-bureau", cost: "€400 – €1.500 p/m" },
+  { icon: Palette, label: "Websitebureau", cost: "€150 - €500 p/m" },
+  { icon: Server, label: "Hoster", cost: "€15 - €50 p/m" },
+  { icon: Database, label: "HubSpot", cost: "€50 - €450 p/m" },
+  { icon: Mail, label: "E-mailtool", cost: "€20 - €150 p/m" },
+  { icon: Shield, label: "Security", cost: "€15 - €80 p/m" },
+  { icon: FileText, label: "Content-uurtjes", cost: "€200 - €800 p/m" },
+  { icon: Wrench, label: "Onderhoud", cost: "€50 - €200 p/m" },
+  { icon: Lock, label: "AVG-module", cost: "€10 - €50 p/m" },
+  { icon: Search, label: "SEO-bureau", cost: "€400 - €1.500 p/m" },
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -124,7 +124,7 @@ export function SectionShift() {
               className="mt-5 flex justify-center"
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg)] px-3.5 py-1.5 text-[12.5px] text-[color:var(--color-ink-muted)]">
-                Samen al snel <span className="font-semibold text-[color:var(--color-ink)] tabular-nums">€1.000 – €4.000+</span> per maand
+                Samen al snel <span className="font-semibold text-[color:var(--color-ink)] tabular-nums">€1.000 - €4.000+</span> per maand
               </span>
             </motion.div>
           </div>
@@ -145,7 +145,7 @@ export function SectionShift() {
             <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-ink-subtle)] lg:hidden">wordt</span>
           </motion.div>
 
-          {/* 1 platform — bold */}
+          {/* 1 platform - bold */}
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}

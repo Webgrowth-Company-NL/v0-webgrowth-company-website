@@ -18,5 +18,5 @@ const page: SeoPage = {
 };
 
 export default function NotFound() {
-  return <PlaceholderPage page={page} badgeText="404 — pagina niet gevonden" />;
+  return <PlaceholderPage page={page} badgeText="404: pagina niet gevonden" />;
 }

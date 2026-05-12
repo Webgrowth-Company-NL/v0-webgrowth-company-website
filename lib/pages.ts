@@ -10,7 +10,7 @@ export type SeoPage = {
   slug?: string;
   /** Zichtbare H1 op de pagina */
   h1: string;
-  /** <title> — geoptimaliseerd voor vindbaarheid */
+  /** <title>: geoptimaliseerd voor vindbaarheid */
   metaTitle: string;
   /** <meta name="description"> */
   metaDescription: string;
@@ -31,7 +31,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     path: "/forester-os/website",
     slug: "website",
     h1: "Website & CMS",
-    metaTitle: "Website & CMS in Forester OS — bouw en beheer je site | Webgrowth",
+    metaTitle: "Website & CMS in Forester OS: bouw en beheer je site | Webgrowth",
     metaDescription:
       "Een razendsnelle website die je zelf beheert: pagina's, berichten en eigen contenttypes, zonder los CMS of webbouwer.",
     eyebrow: "Forester OS",
@@ -42,7 +42,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     path: "/forester-os/lead-engine",
     slug: "lead-engine",
     h1: "Lead Engine",
-    metaTitle: "Lead Engine — quick quoters en calculators die leads opleveren | Forester OS",
+    metaTitle: "Lead Engine: quick quoters en calculators die leads opleveren | Forester OS",
     metaDescription:
       "Quickscans, prijscalculators en slimme formulieren die bezoekers omzetten in concrete aanvragen, rechtstreeks in je CRM.",
     eyebrow: "Forester OS",
@@ -53,7 +53,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     path: "/forester-os/sales-engine",
     slug: "sales-engine",
     h1: "Sales Engine",
-    metaTitle: "Sales Engine — AI-trainingen en quizzes voor warme prospects | Forester OS",
+    metaTitle: "Sales Engine: AI-trainingen en quizzes voor warme prospects | Forester OS",
     metaDescription:
       "AI-gestuurde trainingen, quizzes en e-learning die prospects opwarmen en kwalificeren voordat je in gesprek gaat.",
     eyebrow: "Forester OS",
@@ -64,7 +64,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     path: "/forester-os/crm",
     slug: "crm",
     h1: "CRM & sales-pijplijn",
-    metaTitle: "CRM & sales-pijplijn — leads en deals op één plek | Forester OS",
+    metaTitle: "CRM & sales-pijplijn: leads en deals op één plek | Forester OS",
     metaDescription:
       "Elke lead, taak en deal visueel door je pijplijn. Eén overzicht voor je hele team, automatisch bijgewerkt.",
     eyebrow: "Forester OS",
@@ -75,7 +75,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     path: "/forester-os/seo",
     slug: "seo",
     h1: "SEO & vindbaarheid",
-    metaTitle: "SEO & vindbaarheid — Search Console-koppeling en AI-suggesties | Forester OS",
+    metaTitle: "SEO & vindbaarheid: Search Console-koppeling en AI-suggesties | Forester OS",
     metaDescription:
       "Search Console-data, AI-suggesties en rankings in één dashboard. Beter gevonden worden zonder los SEO-bureau.",
     eyebrow: "Forester OS",
@@ -87,7 +87,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     slug: "ai",
     illustration: "writing",
     h1: "AI-content met Q",
-    metaTitle: "AI-content met Q — teksten en inzichten die meegroeien | Forester OS",
+    metaTitle: "AI-content met Q: teksten en inzichten die meegroeien | Forester OS",
     metaDescription:
       "Q, je AI-assistent, schrijft mee aan pagina's, blogs en rapporten en signaleert wat er moet gebeuren, in mensentaal.",
     eyebrow: "Forester OS",
@@ -99,7 +99,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     slug: "content-publisher",
     illustration: "writing",
     h1: "Automatische content publisher",
-    metaTitle: "Automatische content publisher — AI publiceert op schema | Forester OS",
+    metaTitle: "Automatische content publisher: AI publiceert op schema | Forester OS",
     metaDescription:
       "Laat AI op een vast ritme content schrijven én publiceren op je site, zodat je nooit meer met een lege blog zit.",
     eyebrow: "Forester OS",
@@ -111,7 +111,7 @@ export const FORESTER_PAGES: SeoPage[] = [
     path: "/forester-os/nieuwsbrieven",
     slug: "nieuwsbrieven",
     h1: "Nieuwsbrieven",
-    metaTitle: "Nieuwsbrieven vanuit je CRM — e-mailcampagnes in Forester OS | Webgrowth",
+    metaTitle: "Nieuwsbrieven vanuit je CRM: e-mailcampagnes in Forester OS | Webgrowth",
     metaDescription:
       "E-mailcampagnes en nieuwsbrieven rechtstreeks vanuit je eigen CRM-data, zonder los e-mailpakket.",
     eyebrow: "Forester OS",
@@ -126,7 +126,7 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     path: "/oplossingen/meer-leads",
     slug: "meer-leads",
     h1: "Meer leads uit je website",
-    metaTitle: "Meer leads uit je website — tools die bezoekers omzetten | Webgrowth",
+    metaTitle: "Meer leads uit je website: tools die bezoekers omzetten | Webgrowth",
     metaDescription:
       "Quickscans, calculators en slimme formulieren die van anonieme bezoekers concrete aanvragen maken.",
     eyebrow: "Oplossingen",
@@ -137,7 +137,7 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     path: "/oplossingen/vindbaarheid",
     slug: "vindbaarheid",
     h1: "Beter gevonden worden",
-    metaTitle: "Beter gevonden worden — SEO zonder los bureau | Webgrowth Company",
+    metaTitle: "Beter gevonden worden: SEO zonder los bureau | Webgrowth Company",
     metaDescription:
       "Search Console-inzichten, AI-suggesties en content die je rankings laat klimmen, allemaal in je groeiplatform.",
     eyebrow: "Oplossingen",
@@ -148,7 +148,7 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     path: "/oplossingen/opvolging",
     slug: "opvolging",
     h1: "Klanten slim opvolgen",
-    metaTitle: "Klanten slim opvolgen — één CRM voor je sales-pijplijn | Webgrowth",
+    metaTitle: "Klanten slim opvolgen: één CRM voor je sales-pijplijn | Webgrowth",
     metaDescription:
       "Geen lead meer kwijt: elke aanvraag landt in je CRM en wordt automatisch opgevolgd door je hele team.",
     eyebrow: "Oplossingen",
@@ -159,7 +159,7 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     path: "/oplossingen/ai-publiceren",
     slug: "ai-publiceren",
     h1: "Sneller publiceren met AI",
-    metaTitle: "Sneller publiceren met AI — content live in minuten | Webgrowth",
+    metaTitle: "Sneller publiceren met AI: content live in minuten | Webgrowth",
     metaDescription:
       "Laat AI pagina's, blogs en updates schrijven en zet ze met één klik live op je site.",
     eyebrow: "Oplossingen",
@@ -214,7 +214,7 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     path: "/oplossingen/mkb",
     slug: "mkb",
     h1: "Groeiplatform voor het MKB",
-    metaTitle: "Groeiplatform voor het MKB — website, CRM en marketing in één | Webgrowth",
+    metaTitle: "Groeiplatform voor het MKB: website, CRM en marketing in één | Webgrowth",
     metaDescription:
       "Negen losse leveranciers vervangen door één abonnement: alles wat je MKB-bedrijf nodig heeft om te groeien.",
     eyebrow: "Oplossingen",
@@ -227,7 +227,7 @@ export const INDEX_PAGES: SeoPage[] = [
   {
     path: "/forester-os",
     h1: "Forester OS",
-    metaTitle: "Forester OS — het AI-groeiplatform van Webgrowth Company",
+    metaTitle: "Forester OS: het AI-groeiplatform van Webgrowth Company",
     metaDescription:
       "Eén platform voor je website, CRM, marketing en AI. Negen losse leveranciers, samengebracht tot één login.",
     eyebrow: "Het platform",
@@ -237,7 +237,7 @@ export const INDEX_PAGES: SeoPage[] = [
   {
     path: "/oplossingen",
     h1: "Oplossingen",
-    metaTitle: "Oplossingen — groeien naar doel of naar sector | Webgrowth Company",
+    metaTitle: "Oplossingen: groeien naar doel of naar sector | Webgrowth Company",
     metaDescription:
       "Of je nu meer leads wilt, beter gevonden wilt worden of een platform zoekt dat past bij jouw sector: hier begin je.",
     eyebrow: "Oplossingen",
@@ -250,7 +250,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   {
     path: "/website-apk",
     h1: "De gratis Website APK",
-    metaTitle: "Gratis Website APK — hoe scoort jouw website? | Webgrowth Company",
+    metaTitle: "Gratis Website APK: hoe scoort jouw website? | Webgrowth Company",
     metaDescription:
       "In een paar minuten zie je hoe jouw website scoort op snelheid, vindbaarheid en conversie, met concrete verbeterpunten.",
     eyebrow: "Gratis scan",
@@ -260,7 +260,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   {
     path: "/cases",
     h1: "Klantverhalen",
-    metaTitle: "Klantverhalen — wat we voor anderen bouwden | Webgrowth Company",
+    metaTitle: "Klantverhalen: wat we voor anderen bouwden | Webgrowth Company",
     metaDescription:
       "Echte voorbeelden van bedrijven die met Webgrowth Company hun website, marketing en groei op orde brachten.",
     eyebrow: "Cases",
@@ -270,7 +270,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   {
     path: "/over",
     h1: "Over Webgrowth Company",
-    metaTitle: "Over Webgrowth Company — wie we zijn sinds 2016",
+    metaTitle: "Over Webgrowth Company: wie we zijn sinds 2016",
     metaDescription:
       "Sinds 2016 bouwen we aan één groeiplatform voor ondernemers. Dit is wie we zijn en waar we voor staan.",
     eyebrow: "Over ons",
@@ -280,7 +280,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   {
     path: "/help",
     h1: "Helpcentrum",
-    metaTitle: "Helpcentrum — antwoorden en handleidingen | Webgrowth Company",
+    metaTitle: "Helpcentrum: antwoorden en handleidingen | Webgrowth Company",
     metaDescription:
       "Antwoorden op veelgestelde vragen en stap-voor-stap handleidingen voor het hele platform.",
     eyebrow: "Help",
@@ -291,7 +291,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
     path: "/contact",
     illustration: "communication",
     h1: "Neem contact op",
-    metaTitle: "Contact — boek een kennismaking met Webgrowth Company",
+    metaTitle: "Contact: boek een kennismaking met Webgrowth Company",
     metaDescription:
       "Vragen of even sparren over jouw groei? Boek een vrijblijvende kennismaking, we denken graag mee.",
     eyebrow: "Contact",
@@ -301,7 +301,7 @@ export const STANDALONE_PAGES: SeoPage[] = [
   {
     path: "/prijzen",
     h1: "Prijzen",
-    metaTitle: "Prijzen — één abonnement voor het hele platform | Webgrowth Company",
+    metaTitle: "Prijzen: één abonnement voor het hele platform | Webgrowth Company",
     metaDescription:
       "Eén helder abonnement voor website, CRM, marketing en AI. Geen negen losse facturen meer.",
     eyebrow: "Prijzen",

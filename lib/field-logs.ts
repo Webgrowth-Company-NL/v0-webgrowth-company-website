@@ -1,5 +1,5 @@
 /**
- * Field Logs — de Webgrowth-blog: bevindingen uit de praktijk, "lief dagboek"-stijl.
+ * Field Logs - de Webgrowth-blog: bevindingen uit de praktijk, "lief dagboek"-stijl.
  * Content geport uit de v0-marketingsite. Body's volgen later; voorlopig dienen
  * titel + excerpt als content (genoeg voor een echte, indexeerbare pagina).
  */

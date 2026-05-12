@@ -29,7 +29,7 @@ const gottak = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://webgrowth.company"),
   title: {
-    default: "Webgrowth Company — Eén abonnement, negen tools minder. Meer groei.",
+    default: "Webgrowth Company: Eén abonnement, negen tools minder. Meer groei.",
     template: "%s",
   },
   description:
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "nl_NL",
     siteName: "Webgrowth Company",
-    title: "Webgrowth Company — Eén abonnement, negen tools minder. Meer groei.",
+    title: "Webgrowth Company: Eén abonnement, negen tools minder. Meer groei.",
     description:
       "Een AI-groeiplatform: website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
   },

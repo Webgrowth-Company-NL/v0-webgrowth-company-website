@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { FIELD_LOGS } from "@/lib/field-logs";
 
 export const metadata: Metadata = {
-  title: "Field Logs — bevindingen uit de praktijk over websites, leads & AI | Webgrowth",
+  title: "Field Logs: bevindingen uit de praktijk over websites, leads & AI | Webgrowth",
   description:
     "De Webgrowth-blog: wat we bouwden, wat we leerden en wat het opleverde. Praktische inzichten over websites, vindbaarheid, leads en AI voor groeiende organisaties.",
   alternates: { canonical: "/field-logs" },

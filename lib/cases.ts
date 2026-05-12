@@ -40,7 +40,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/tornado-rent.png",
     liveUrl: "https://tornado.rent",
     liveLabel: "tornado.rent",
-    metaTitle: "Case: Tornado Rent — reserveringssysteem voor B2B-verhuur | Webgrowth",
+    metaTitle: "Case Tornado Rent: reserveringssysteem voor B2B-verhuur | Webgrowth",
     metaDescription:
       "Hoe we voor Tornado Rent een website bouwden met live prijscalculator, slimme datumkiezer en WhatsApp-meldingen, 100% SEO Proof opgeleverd.",
   },
@@ -64,7 +64,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/adalace.png",
     liveUrl: "https://adalace.webgrowth.company",
     liveLabel: "adalace.webgrowth.company",
-    metaTitle: "Case: Adalace — Quickscan-wizard voor vastgoed-compliance | Webgrowth",
+    metaTitle: "Case Adalace: Quickscan-wizard voor vastgoed-compliance | Webgrowth",
     metaDescription:
       "Hoe we voor Adalace de Quickscan bouwden: een vijf-stappen wizard met BAG-koppeling en een PDF-rapport op maat voor vastgoedbeheerders.",
   },
