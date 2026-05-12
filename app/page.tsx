@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { SectionCases } from "@/components/section-cases";
 import { SectionProof } from "@/components/section-proof";
 import { SectionShift } from "@/components/section-shift";
 import { SiteHeader } from "@/components/site-header";
@@ -22,6 +23,8 @@ export default function Home() {
         <SectionShift />
         <WaveDivider top={WHITE} bottom={DEEP} />
         <SectionProof />
+        <WaveDivider top={DEEP} bottom={CREAM} />
+        <SectionCases />
       </main>
     </>
   );
