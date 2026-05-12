@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Star, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import { HeroDashboard } from "@/components/hero-dashboard";
 
@@ -31,16 +31,6 @@ const fadeUp = (delay = 0) => ({
     opacity: 1,
     y: 0,
     transition: { duration: 0.7, ease: EASE, delay },
-  },
-});
-
-const chipReveal = (delay = 0) => ({
-  hidden: { opacity: 0, y: 12, scale: 0.94 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.65, ease: EASE, delay },
   },
 });
 
@@ -268,65 +258,9 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ── Right: cycling dashboard + floating chips ── */}
+          {/* ── Right: cycling dashboard (with its own view-dependent floating chips) ── */}
           <div className="relative h-[520px] sm:h-[560px] lg:h-[580px]">
             <HeroDashboard />
-
-            {/* Rating chip - top-left */}
-            <motion.div
-              variants={chipReveal(1.2)}
-              initial="hidden"
-              animate="show"
-              className="absolute -top-1 left-2 sm:-left-2 z-10"
-              style={{ animation: reduce ? undefined : "float-y 7.5s ease-in-out infinite" }}
-            >
-              <Chip>
-                <span className="flex gap-[2px]">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-3.5 w-3.5 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]"
-                      strokeWidth={0}
-                    />
-                  ))}
-                </span>
-                <span className="text-[12.5px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
-                <span className="text-[11.5px] text-[color:var(--color-ink-subtle)]">op Google</span>
-              </Chip>
-            </motion.div>
-
-            {/* Leads stat - bottom-right */}
-            <motion.div
-              variants={chipReveal(1.4)}
-              initial="hidden"
-              animate="show"
-              className="absolute -bottom-3 -right-2 sm:-right-6 z-10"
-              style={{ animation: reduce ? undefined : "float-y 8.5s ease-in-out 0.6s infinite" }}
-            >
-              <StatChip label="Leads" value="4.714" delta="+15,3%" descriptor="engaged" />
-            </motion.div>
-
-            {/* Bezoekers stat - right-middle (hidden on small) */}
-            <motion.div
-              variants={chipReveal(1.6)}
-              initial="hidden"
-              animate="show"
-              className="absolute top-[18%] -right-4 sm:-right-8 z-10 hidden sm:block"
-              style={{ animation: reduce ? undefined : "float-y 9.2s ease-in-out 1.1s infinite" }}
-            >
-              <StatChip label="Bezoekers" value="4.977" delta="+11,1%" descriptor="vs vorige periode" />
-            </motion.div>
-
-            {/* Prospects stat - left-middle (hidden on small) */}
-            <motion.div
-              variants={chipReveal(1.8)}
-              initial="hidden"
-              animate="show"
-              className="absolute top-[52%] -left-4 sm:-left-10 z-10 hidden sm:block"
-              style={{ animation: reduce ? undefined : "float-y 10s ease-in-out 1.6s infinite" }}
-            >
-              <StatChip label="Prospects" value="183" delta="+5,8%" descriptor="formulier ingevuld" />
-            </motion.div>
           </div>
         </div>
       </div>
@@ -334,65 +268,3 @@ export function Hero() {
   );
 }
 
-function Chip({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      className="
-        inline-flex items-center gap-2
-        pl-2 pr-3 py-1.5 rounded-full
-        bg-white
-        border border-[color:var(--color-line)]
-        shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_48px_-24px_rgba(12,6,18,0.22)]
-      "
-    >
-      {children}
-    </div>
-  );
-}
-
-function StatChip({
-  label,
-  value,
-  delta,
-  descriptor,
-}: {
-  label: string;
-  value: string;
-  delta: string;
-  descriptor: string;
-}) {
-  return (
-    <div
-      className="
-        relative
-        flex flex-col gap-1.5
-        min-w-[152px] pl-3.5 pr-9 py-3
-        rounded-2xl bg-white
-        border border-[color:var(--color-line)]
-        shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_56px_-24px_rgba(12,6,18,0.22)]
-      "
-    >
-      <span
-        className="
-          absolute top-2.5 right-2.5
-          inline-flex h-6 w-6 items-center justify-center
-          rounded-full bg-[color:var(--color-purple-tint)]
-        "
-      >
-        <Zap className="h-3 w-3 text-[color:var(--color-purple)]" strokeWidth={2.5} fill="currentColor" />
-      </span>
-
-      <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">
-        {label}
-      </span>
-      <span className="font-[family-name:var(--font-display)] text-[26px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">
-        {value}
-      </span>
-      <span className="inline-flex items-center gap-1 text-[10.5px]">
-        <TrendingUp className="h-3 w-3 text-emerald-600" strokeWidth={2.5} />
-        <span className="font-semibold text-emerald-600 tabular-nums">{delta}</span>
-        <span className="text-[color:var(--color-ink-subtle)] truncate">{descriptor}</span>
-      </span>
-    </div>
-  );
-}

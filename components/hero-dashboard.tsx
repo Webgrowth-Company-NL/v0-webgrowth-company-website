@@ -7,8 +7,10 @@ import {
   Globe,
   Search,
   Sparkles,
+  Star,
   TrendingUp,
   Users,
+  Zap,
 } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -22,6 +24,28 @@ const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: ty
   { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", short: "SEO", icon: Search },
   { key: "ai", url: "forester.app/ai", label: "AI-content", short: "AI", icon: Sparkles },
 ];
+
+type Stat = { label: string; value: string; delta: string; descriptor: string; trend?: boolean };
+
+/** Floating stat-chips, afgestemd op de actieve view. */
+const FLOATING: Record<ViewKey, [Stat, Stat]> = {
+  leads: [
+    { label: "Leads", value: "4.714", delta: "+15,3%", descriptor: "engaged" },
+    { label: "Prospects", value: "183", delta: "+5,8%", descriptor: "formulier ingevuld" },
+  ],
+  website: [
+    { label: "Bezoekers", value: "4.977", delta: "+11,1%", descriptor: "vs vorige periode" },
+    { label: "PageSpeed", value: "98", delta: "/100", descriptor: "mobiel", trend: false },
+  ],
+  seo: [
+    { label: "Top-10 posities", value: "47", delta: "+12", descriptor: "deze maand" },
+    { label: "Gem. positie", value: "#3,1", delta: "+1,8", descriptor: "verbeterd" },
+  ],
+  ai: [
+    { label: "Artikelen live", value: "34", delta: "+9", descriptor: "dit kwartaal" },
+    { label: "Tijd bespaard", value: "18u", delta: "/ maand", descriptor: "op content", trend: false },
+  ],
+};
 
 export function HeroDashboard() {
   const reduce = useReducedMotion();
@@ -79,7 +103,7 @@ export function HeroDashboard() {
         </div>
 
         {/* View tabs — pick which dashboard you want to see */}
-        <div className="flex items-center gap-1 px-2.5 py-2 border-b border-[color:var(--color-line)] bg-[color:var(--color-bg)]/40">
+        <div className="flex items-center gap-1 px-2.5 py-2.5 border-b border-[color:var(--color-line)]">
           {VIEWS.map((v, i) => {
             const isActive = i === active;
             return (
@@ -89,10 +113,11 @@ export function HeroDashboard() {
                 onClick={() => { setActive(i); setUserPicked(true); }}
                 aria-pressed={isActive}
                 className={[
-                  "flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg px-1.5 py-1.5 text-[11px] font-semibold transition-colors duration-200 ease-out",
+                  "flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg px-1.5 py-1.5 text-[11px] font-semibold cursor-pointer",
+                  "transition-[background-color,color,box-shadow,transform] duration-200 ease-out active:scale-[0.97]",
                   isActive
-                    ? "bg-[color:var(--color-purple-soft)] text-[color:var(--color-purple)]"
-                    : "text-[color:var(--color-ink-subtle)] hover:text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)]/70",
+                    ? "bg-[color:var(--color-purple)] text-white shadow-[0_2px_8px_-2px_rgba(98,59,199,0.45)]"
+                    : "bg-[color:var(--color-bg-muted)]/70 text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-purple-soft)] hover:text-[color:var(--color-purple)]",
                 ].join(" ")}
               >
                 <v.icon className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} />
@@ -121,7 +146,86 @@ export function HeroDashboard() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Floating chips — the stats change with the active view */}
+      <motion.div
+        initial={{ opacity: 0, y: 12, scale: 0.94 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.6, ease: EASE, delay: 1.0 }}
+        className="absolute -top-1 left-2 sm:-left-5 z-10"
+        style={{ animation: reduce ? undefined : "float-y 7.5s ease-in-out infinite" }}
+      >
+        <Chip>
+          <span className="flex gap-[2px]">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-3.5 w-3.5 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
+            ))}
+          </span>
+          <span className="text-[12.5px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
+          <span className="text-[11.5px] text-[color:var(--color-ink-subtle)]">op Google</span>
+        </Chip>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12, scale: 0.94 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.6, ease: EASE, delay: 1.15 }}
+        className="absolute -bottom-3 -right-2 sm:-right-6 z-10"
+        style={{ animation: reduce ? undefined : "float-y 8.5s ease-in-out 0.6s infinite" }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div key={`s0-${view.key}`} initial={{ opacity: 0, y: 10, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.97 }} transition={{ duration: 0.35, ease: EASE }}>
+            <StatChip {...FLOATING[view.key][0]} />
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12, scale: 0.94 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.6, ease: EASE, delay: 1.3 }}
+        className="absolute top-[50%] -translate-y-1/2 -left-5 sm:-left-9 z-10 hidden sm:block"
+        style={{ animation: reduce ? undefined : "float-y 10s ease-in-out 1.2s infinite" }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div key={`s1-${view.key}`} initial={{ opacity: 0, y: 10, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.97 }} transition={{ duration: 0.35, ease: EASE, delay: 0.05 }}>
+            <StatChip {...FLOATING[view.key][1]} />
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
     </motion.div>
+  );
+}
+
+function Chip({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_48px_-24px_rgba(12,6,18,0.22)]">
+      {children}
+    </div>
+  );
+}
+
+function StatChip({ label, value, delta, descriptor, trend = true }: Stat) {
+  return (
+    <div className="relative flex flex-col gap-1.5 min-w-[150px] pl-3.5 pr-9 py-3 rounded-2xl bg-white border border-[color:var(--color-line)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_24px_56px_-24px_rgba(12,6,18,0.22)]">
+      <span className="absolute top-2.5 right-2.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)]">
+        <Zap className="h-3 w-3 text-[color:var(--color-purple)]" strokeWidth={2.5} fill="currentColor" />
+      </span>
+      <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">{label}</span>
+      <span className="font-[family-name:var(--font-display)] text-[26px] font-bold text-[color:var(--color-ink-strong)] tabular-nums leading-none">{value}</span>
+      {trend ? (
+        <span className="inline-flex items-center gap-1 text-[10.5px]">
+          <TrendingUp className="h-3 w-3 text-emerald-600" strokeWidth={2.5} />
+          <span className="font-semibold text-emerald-600 tabular-nums">{delta}</span>
+          <span className="text-[color:var(--color-ink-subtle)] truncate">{descriptor}</span>
+        </span>
+      ) : (
+        <span className="inline-flex items-center gap-1 text-[10.5px] text-[color:var(--color-ink-subtle)]">
+          <span className="font-semibold text-[color:var(--color-ink-muted)] tabular-nums">{delta}</span>
+          <span className="truncate">{descriptor}</span>
+        </span>
+      )}
+    </div>
   );
 }
 
