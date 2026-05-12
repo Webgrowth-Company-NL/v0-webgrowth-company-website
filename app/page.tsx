@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { SectionShift } from "@/components/section-shift";
 import { SiteHeader } from "@/components/site-header";
 import { SolutionSelector } from "@/components/solution-selector";
 
@@ -9,6 +10,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <SolutionSelector />
+        <SectionShift />
       </main>
     </>
   );
