@@ -21,7 +21,7 @@ const EASE = [0.23, 1, 0.32, 1] as const;
 type MegaKey = "platform" | "oplossingen" | "hulpmiddelen";
 
 const MEGA_TRIGGERS: { key: MegaKey; label: string; render: (p: { onNavigate: () => void }) => React.ReactNode }[] = [
-  { key: "platform", label: "Platform", render: (p) => <PlatformMega {...p} /> },
+  { key: "platform", label: "Forester OS", render: (p) => <PlatformMega {...p} /> },
   { key: "oplossingen", label: "Oplossingen", render: (p) => <OplossingenMega {...p} /> },
   { key: "hulpmiddelen", label: "Hulpmiddelen", render: (p) => <HulpmiddelenMega {...p} /> },
 ];
@@ -181,7 +181,7 @@ export function SiteHeader() {
             style={{ transformOrigin: "top center" }}
           >
             <div className="flex flex-col p-2">
-              <MobileAccordion mkey="platform" label="Platform" open={openAccordion === "platform"} onToggle={setOpenAccordion} items={PLATFORM_MODULES} onClose={() => setMobileOpen(false)} />
+              <MobileAccordion mkey="platform" label="Forester OS" open={openAccordion === "platform"} onToggle={setOpenAccordion} items={PLATFORM_MODULES} onClose={() => setMobileOpen(false)} />
               <MobileAccordion mkey="oplossingen" label="Oplossingen" open={openAccordion === "oplossingen"} onToggle={setOpenAccordion} items={OPLOSSINGEN_DOEL} extraLinks={OPLOSSINGEN_SECTOR} onClose={() => setMobileOpen(false)} />
               <MobileAccordion mkey="hulpmiddelen" label="Hulpmiddelen" open={openAccordion === "hulpmiddelen"} onToggle={setOpenAccordion} items={[...HULPMIDDELEN_ONTDEK, ...HULPMIDDELEN_HULP]} onClose={() => setMobileOpen(false)} />
 

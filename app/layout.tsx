@@ -27,9 +27,22 @@ const gottak = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Webgrowth Company — Eén platform. Negen tools minder.",
+  metadataBase: new URL("https://webgrowth.company"),
+  title: {
+    default: "Webgrowth Company — Eén abonnement, negen tools minder. Meer groei.",
+    template: "%s",
+  },
   description:
-    "Premium groeiplatform voor advocaten, notarissen en accountants. Website, CRM, marketing en AI — in één abonnement.",
+    "Webgrowth Company is een AI-groeiplatform: website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Webgrowth Company",
+    title: "Webgrowth Company — Eén abonnement, negen tools minder. Meer groei.",
+    description:
+      "Een AI-groeiplatform: website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
+  },
 };
 
 export default function RootLayout({

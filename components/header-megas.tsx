@@ -22,14 +22,14 @@ import {
 /* ── Data ─────────────────────────────────────────── */
 
 export const PLATFORM_MODULES = [
-  { href: "/platform/website", label: "Website & CMS", desc: "Bouw je site, beheer pagina's, berichten en CPT's", icon: Globe },
-  { href: "/platform/lead-engine", label: "Lead Engine", desc: "Quick quoters en calculators die leads opleveren", icon: Flame },
-  { href: "/platform/sales-engine", label: "Sales Engine", desc: "AI-trainingen en quizzes die prospects opwarmen", icon: ShoppingBag },
-  { href: "/platform/crm", label: "CRM & Sales-pijplijn", desc: "Leads en deals visueel door je pijplijn", icon: Users },
-  { href: "/platform/seo", label: "SEO & vindbaarheid", desc: "Search Console-koppeling, AI-suggesties, rankings", icon: Search },
-  { href: "/platform/ai", label: "AI-content & Q", desc: "Q schrijft mee aan content, inzichten en taken", icon: Sparkles },
-  { href: "/platform/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock, soon: true },
-  { href: "/platform/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail, soon: true },
+  { href: "/forester-os/website", label: "Website & CMS", desc: "Bouw je site, beheer pagina's, berichten en CPT's", icon: Globe },
+  { href: "/forester-os/lead-engine", label: "Lead Engine", desc: "Quick quoters en calculators die leads opleveren", icon: Flame },
+  { href: "/forester-os/sales-engine", label: "Sales Engine", desc: "AI-trainingen en quizzes die prospects opwarmen", icon: ShoppingBag },
+  { href: "/forester-os/crm", label: "CRM & Sales-pijplijn", desc: "Leads en deals visueel door je pijplijn", icon: Users },
+  { href: "/forester-os/seo", label: "SEO & vindbaarheid", desc: "Search Console-koppeling, AI-suggesties, rankings", icon: Search },
+  { href: "/forester-os/ai", label: "AI-content & Q", desc: "Q schrijft mee aan content, inzichten en taken", icon: Sparkles },
+  { href: "/forester-os/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock, soon: true },
+  { href: "/forester-os/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail, soon: true },
 ] as const;
 
 export const OPLOSSINGEN_DOEL = [
@@ -140,7 +140,7 @@ export function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
             className="absolute -top-10 -right-10 h-40 w-40 rounded-full"
             style={{ background: "radial-gradient(closest-side, rgba(98,59,199,0.22), rgba(98,59,199,0) 70%)" }}
           />
-          <span className="relative text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">Eén platform</span>
+          <span className="relative text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)]">Forester OS</span>
           <p className="relative mt-1.5 text-[13.5px] leading-snug text-[color:var(--color-ink)]">
             Negen losse leveranciers, samengebracht tot één login. Inclusief Momentum-rapporten en Genius-sessies.
           </p>
@@ -164,7 +164,7 @@ export function PlatformMega({ onNavigate }: { onNavigate: () => void }) {
           </div>
 
           <Link
-            href="/platform"
+            href="/forester-os"
             onClick={onNavigate}
             className="btn-press relative mt-4 inline-flex items-center justify-between gap-2 px-3.5 py-2 rounded-full bg-[color:var(--color-ink-strong)] hover:bg-[color:var(--color-purple)] text-white text-[12.5px] font-semibold group shadow-[0_8px_20px_-10px_rgba(12,6,18,0.4)] hover:shadow-[0_12px_28px_-10px_rgba(98,59,199,0.55)]"
           >
