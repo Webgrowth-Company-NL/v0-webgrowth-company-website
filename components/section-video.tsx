@@ -8,11 +8,12 @@ import { Play } from "lucide-react";
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 /**
- * TODO: vervang door de echte video-URL (Firebase Storage).
- * Voorlopig de video uit de Hydroroof-offerte; later de definitieve uitleg-video.
+ * Voorlopig de video uit de Hydroroof-offerte (Firebase Storage).
+ * TODO: vervangen door de definitieve uitleg-video zodra die er is.
  * Optioneel POSTER: een thumbnail-afbeelding in /public/ (anders toont 'ie de placeholder).
  */
-const VIDEO_SRC = "";
+const VIDEO_SRC =
+  "https://firebasestorage.googleapis.com/v0/b/webgrowth-company-lzz4e6.firebasestorage.app/o/Hydroroof.mp4?alt=media&token=ab60feaf-9020-4a94-8090-471aca1e815a";
 const VIDEO_POSTER = "";
 
 const fadeUp = (delay = 0) => ({
@@ -58,7 +59,7 @@ export function SectionVideo() {
           <div className="group relative aspect-video rounded-[2rem] overflow-hidden shadow-[0_30px_72px_-26px_rgba(98,59,199,0.45)] ring-1 ring-[color:var(--color-line)]">
             {canPlay && playing ? (
               // eslint-disable-next-line jsx-a11y/media-has-caption
-              <video src={VIDEO_SRC} poster={VIDEO_POSTER || undefined} controls autoPlay playsInline className="h-full w-full object-cover bg-black" />
+              <video src={VIDEO_SRC} poster={VIDEO_POSTER || undefined} controls autoPlay playsInline className="h-full w-full object-contain bg-black" />
             ) : (
               <>
                 {/* poster or placeholder */}
