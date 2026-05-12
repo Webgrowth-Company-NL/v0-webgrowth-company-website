@@ -105,8 +105,8 @@ export function SolutionSelector() {
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="mt-9 flex flex-wrap justify-center gap-2.5">
+        {/* Selector cards */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {GOALS.map((g, i) => {
             const isActive = i === active;
             return (
@@ -116,21 +116,28 @@ export function SolutionSelector() {
                 onClick={() => setActive(i)}
                 aria-pressed={isActive}
                 className={[
-                  "btn-press inline-flex items-center gap-2 pl-3 pr-4 py-2 rounded-full text-[13.5px] font-semibold border",
+                  "btn-press group relative flex flex-col items-start gap-3 p-4 rounded-2xl border text-left",
                   isActive
-                    ? "bg-[color:var(--color-purple)] border-[color:var(--color-purple)] text-white shadow-[0_8px_22px_-10px_rgba(98,59,199,0.6)]"
-                    : "bg-white border-[color:var(--color-line-strong)] text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-purple)] hover:border-[color:var(--color-purple)]/35 hover:bg-[color:var(--color-purple-soft)]",
+                    ? "border-[color:var(--color-purple)] bg-[color:var(--color-purple-soft)] shadow-[0_14px_34px_-12px_rgba(98,59,199,0.45)]"
+                    : "border-[color:var(--color-line-strong)] bg-white hover:border-[color:var(--color-purple)]/40 hover:bg-[color:var(--color-purple-soft)]/50 shadow-[0_1px_2px_rgba(12,6,18,0.04)]",
                 ].join(" ")}
               >
                 <span
                   className={[
-                    "inline-flex h-6 w-6 items-center justify-center rounded-full",
-                    isActive ? "bg-white/18" : "bg-[color:var(--color-purple-tint)]",
+                    "inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-200 ease-out",
+                    isActive ? "bg-[color:var(--color-purple)]" : "bg-[color:var(--color-purple-tint)] group-hover:bg-[color:var(--color-purple)]/20",
                   ].join(" ")}
                 >
-                  <g.icon className={isActive ? "h-3.5 w-3.5 text-white" : "h-3.5 w-3.5 text-[color:var(--color-purple)]"} strokeWidth={2.25} />
+                  <g.icon className={isActive ? "h-[18px] w-[18px] text-white" : "h-[18px] w-[18px] text-[color:var(--color-purple)]"} strokeWidth={2.25} />
                 </span>
-                {g.tab}
+                <span
+                  className={[
+                    "text-[13.5px] font-semibold leading-snug transition-colors duration-200 ease-out",
+                    isActive ? "text-[color:var(--color-ink-strong)]" : "text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)]",
+                  ].join(" ")}
+                >
+                  {g.tab}
+                </span>
               </button>
             );
           })}
