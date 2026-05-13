@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SolutionSelector } from "@/components/solution-selector";
 import { WaveDivider } from "@/components/wave-divider";
+import { FAQS } from "@/lib/faq";
 
 const CREAM = "#faf6f0";
 const LAVENDER = "#f2effb";
@@ -17,9 +18,64 @@ const WHITE = "#ffffff";
 const DEEP = "#2c1d5e";
 const HERO_PURPLE = "#231653"; // keep in sync with components/hero.tsx
 
+const SITE_URL = "https://webgrowth.company";
+
+const ORG_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Webgrowth Company",
+  legalName: "Webgrowth Company",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo-bolt.png`,
+  description:
+    "AI-groeiplatform met website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
+  foundingDate: "2016",
+  address: { "@type": "PostalAddress", addressCountry: "NL" },
+  vatID: "NL001363277B13",
+  taxID: "64809536",
+  sameAs: ["https://www.linkedin.com/company/webgrowth-company"],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "9.4",
+    bestRating: "10",
+    ratingCount: "227",
+  },
+};
+
+const FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const WEBSITE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Webgrowth Company",
+  url: SITE_URL,
+  inLanguage: "nl-NL",
+  publisher: { "@type": "Organization", name: "Webgrowth Company" },
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSONLD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }}
+      />
       <SiteHeader dark />
       <main className="flex-1">
         <Hero />

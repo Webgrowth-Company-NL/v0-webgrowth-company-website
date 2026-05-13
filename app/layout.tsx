@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -26,23 +26,61 @@ const gottak = localFont({
   display: "swap",
 });
 
+const TITLE = "Webgrowth Company — AI-groeiplatform met website, CRM, marketing en AI in één abonnement";
+const DESCRIPTION =
+  "Eén Nederlands AI-groeiplatform voor je website, CRM, marketing en AI-content, in plaats van negen losse leveranciers. Vanaf €399 per maand, opzegbaar per maand.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://webgrowth.company"),
   title: {
-    default: "Webgrowth Company: Eén abonnement, negen tools minder. Meer groei.",
+    default: TITLE,
     template: "%s",
   },
-  description:
-    "Webgrowth Company is een AI-groeiplatform: website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
+  description: DESCRIPTION,
+  keywords: [
+    "AI-groeiplatform",
+    "HubSpot alternatief Nederland",
+    "website laten maken",
+    "CRM voor MKB",
+    "marketing automation",
+    "AI content publisher",
+    "Forester OS",
+    "Webgrowth Company",
+  ],
   alternates: { canonical: "/" },
+  authors: [{ name: "Webgrowth Company", url: "https://webgrowth.company" }],
+  creator: "Webgrowth Company",
+  publisher: "Webgrowth Company",
+  category: "technology",
+  applicationName: "Webgrowth Company",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     type: "website",
     locale: "nl_NL",
+    url: "https://webgrowth.company",
     siteName: "Webgrowth Company",
-    title: "Webgrowth Company: Eén abonnement, negen tools minder. Meer groei.",
-    description:
-      "Een AI-groeiplatform: website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf6f0" },
+    { media: "(prefers-color-scheme: dark)", color: "#231653" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light",
 };
 
 export default function RootLayout({
