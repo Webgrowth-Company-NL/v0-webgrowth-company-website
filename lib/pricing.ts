@@ -120,26 +120,50 @@ export type PricingFaqItem = { q: string; a: string };
 export const PRICING_FAQS: PricingFaqItem[] = [
   {
     q: "Zit ik vast aan een lang contract?",
-    a: "Nee. Na de initiële periode is je abonnement maandelijks opzegbaar. Je content en data blijven van jou; bij vertrek krijg je een export. We willen dat je blijft omdat het werkt, niet omdat het moet.",
+    a: "Je start met een initiële contractperiode (standaard 12 maanden, zodat we de site goed kunnen opbouwen). Daarna is het abonnement maandelijks opzegbaar met 2 maanden opzegtermijn. Je content en data blijven van jou, bij vertrek krijg je een complete export.",
   },
   {
     q: "Wat zit er allemaal in de prijs?",
-    a: "Website, hosting, onderhoud, beveiliging, back-ups, AVG-compliance, CRM, je gekozen lead engines, SEO-monitoring, het Momentum Report en doorlopende optimalisatie door ons team. Geen losse facturen voor hosting of CMS-licenties.",
+    a: "Website, hosting in Nederland, wekelijks onderhoud, beveiliging, dagelijkse back-ups, SSL, AVG-maatregelen, CRM, je gekozen lead engines, SEO-monitoring, het maandelijkse Momentum Report en doorlopende optimalisatie door ons team. Geen losse facturen voor hosting, plugins of CMS-licenties.",
   },
   {
-    q: "Wat als ik over een jaar veel meer leads krijg?",
-    a: "Dan groei je mee naar Growth of Scale. We rekenen alleen het verschil bij; we sturen geen migratiekosten of setup-fees. Zakt je behoefte? Ook prima, je kunt teruggaan naar een lager pakket.",
+    q: "Ben ik eigenaar van de website?",
+    a: "Voor 100%. De code en content zijn van jou, geen wurgcontract. Wil je na je contract weg, dan krijg je een schone back-up mee en blijft je domein gewoon in eigen beheer. Specifieke bouw-plugins (Breakdance ~$99/jr, ACF Pro ~$49/jr, eventueel FacetWP ~$99/jr) hebben eigen licenties die je dan zelf afsluit; we helpen bij de overdracht.",
   },
   {
-    q: "Krijg ik echt een eigen ontwerp of is het een template?",
-    a: "Een eigen ontwerp, op basis van je merk en doel. We gebruiken Forester OS als platform, niet als template-machine. Je website lijkt op niemand anders.",
+    q: "Wat gebeurt er met onze data en Lead Engines als we vertrekken?",
+    a: "Standaard contactformulieren bouw je elders eenvoudig opnieuw (bijvoorbeeld in Gravity Forms). Voor onze custom Lead Engines krijg je een volledige blauwdruk en documentatie mee, zodat je nieuwe webbouwer ze één-op-één kan herbouwen. CRM-data exporteer je gewoon. Geen vendor lock-in.",
+  },
+  {
+    q: "Wat als ik over een jaar meer leads of een tweede site nodig heb?",
+    a: "Dan groei je mee naar Growth of Scale. We rekenen alleen het prijsverschil bij, geen migratiekosten of setup-fees. Zakt je behoefte, dan kun je terug naar een lager pakket.",
+  },
+  {
+    q: "Krijg ik een eigen ontwerp of is het een template?",
+    a: "Een eigen ontwerp, op basis van je merk en je doel. We bouwen op ons Marketing Genius-framework (WordPress) als fundament, maar je site lijkt op niemand anders.",
   },
   {
     q: "Is er een setup-fee?",
-    a: "Voor Core en Growth niet, mits we starten met een standaard onboarding. Voor Scale-projecten (custom platforms) maken we vooraf een vaste-prijs offerte.",
+    a: "Voor Core en Growth bij standaard onboarding niet, het maandbedrag is wat het is. Voor Scale-projecten (custom platforms) of niet-standaard migraties maken we vooraf een vaste-prijs offerte, eventueel met een eenmalige setup-fee. Altijd transparant vooraf.",
+  },
+  {
+    q: "Hoe snel sta ik live?",
+    a: "Voor een nieuwe site werken we standaard met 8 sprints van 2 weken (circa 4 maanden van krabbel tot livegang), inclusief kickoff, twee-wekelijkse meetings en testronde. Kleinere projecten of een losse Lead Engine kunnen sneller. We werken in vaste sprints, dus je weet elke twee weken precies wat klaar is.",
+  },
+  {
+    q: "Hoe betrouwbaar is de hosting?",
+    a: "De afgelopen jaren 99,99% uptime. Hollandsche hosting op snelle servers in Nederland, met SSL, dagelijkse back-ups en monitoring. We gaan eerder uit voor een biertje dan dat onze servers eruit liggen.",
+  },
+  {
+    q: "Hoe bereik ik jullie als er iets is?",
+    a: "App of bel Martijn (oprichter) tijdens kantoortijden op 076 204 5010. Geen keuzemenu's, geen ticket-loket. Daarnaast schiet je elke aanpassing in als taak via Forester OS, dan staan ze direct in onze pijplijn.",
+  },
+  {
+    q: "Wat is de betalingstermijn?",
+    a: "De facturen kennen een betalingstermijn van 14 dagen. Bij Jaarlijks krijg je een korting; bij Maandelijks loopt de incasso of betaling rond de eerste van de maand.",
   },
   {
     q: "Is mijn data veilig en AVG-proof?",
-    a: "Ja. Hosting in de EU, dagelijkse back-ups, en privacy- en cookie-compliance zit ingebakken, dus geen losse AVG-module nodig.",
+    a: "Ja. Hosting in de EU (Nederland), dagelijkse back-ups, SSL, en privacy- en cookie-compliance zit ingebakken in Forester OS. We verzamelen alleen wat nodig is om je site beter te laten presteren en verkopen nooit data aan derden. Stop je met Forester OS, dan blijft je data van jou en wordt 'm na de overdracht uit onze systemen verwijderd, tenzij anders afgesproken.",
   },
 ];

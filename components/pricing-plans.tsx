@@ -22,7 +22,7 @@ export function PricingPlans() {
         </div>
 
         <p className="mt-10 text-center text-[13px] text-[color:var(--color-ink-subtle)]">
-          Alle prijzen excl. BTW. Maandelijks opzegbaar na de initiële periode. Migratie en onboarding inbegrepen.
+          Alle prijzen excl. BTW. Initiële contractperiode van 12 maanden, daarna maandelijks opzegbaar met 2 maanden opzegtermijn. Onboarding inbegrepen, betaaltermijn 14 dagen.
         </p>
       </div>
     </section>

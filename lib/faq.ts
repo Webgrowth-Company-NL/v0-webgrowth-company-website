@@ -11,18 +11,18 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Zit ik vast aan een lang contract?",
-    a: "Nee. Na de initiële periode is het maandelijks opzegbaar. Je content en data blijven van jou; bij vertrek krijg je een export. We willen dat je blijft omdat het werkt, niet omdat het moet.",
+    a: "Je start met een initiële contractperiode (standaard 12 maanden, zodat we de site goed kunnen opbouwen). Daarna is het abonnement maandelijks opzegbaar met 2 maanden opzegtermijn. Je content en data blijven van jou; bij vertrek krijg je een complete export.",
   },
   {
     q: "Hoe snel sta ik live?",
-    a: "Een nieuwe site is doorgaans binnen 4 tot 8 weken live, afhankelijk van omvang en content. Een quickscan- of calculator-tool kan sneller. We werken in sprints en houden je elke week op de hoogte.",
+    a: "Voor een nieuwe site werken we standaard met 8 sprints van 2 weken, circa 4 maanden van krabbel tot livegang. Kleinere projecten of een losse Lead Engine kunnen sneller. Elke twee weken bel je met ons om door te nemen wat klaar is en wat we doen.",
   },
   {
     q: "Wat kost het?",
-    a: "Eén abonnement vanaf €399 per maand, inclusief website, hosting, onderhoud, CRM, marketing-tools en AI. Geen negen losse facturen, geen verrassingen. Op de prijzen-pagina staat wat er per pakket bij zit.",
+    a: "Eén abonnement vanaf €399 per maand (Core), Growth €699 of Scale vanaf €999. Inclusief website, hosting in Nederland, wekelijks onderhoud, CRM, marketing-tools en AI. Op de prijzen-pagina zie je per pakket wat erbij zit, plus een vergelijking met losse tools.",
   },
   {
     q: "Is mijn data veilig en AVG-proof?",
-    a: "Ja. Hosting in de EU, dagelijkse back-ups, en privacy- en cookie-compliance zit ingebakken, dus geen losse AVG-module nodig.",
+    a: "Ja. Hosting in Nederland, SSL, dagelijkse back-ups, en privacy- en cookie-compliance zit ingebakken in Forester OS. We verzamelen alleen wat nodig is om je site beter te laten presteren en verkopen nooit data aan derden.",
   },
 ];
