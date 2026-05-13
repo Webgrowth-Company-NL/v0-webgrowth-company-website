@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { APK_EMBED_URL } from "@/lib/website-apk";
 
-const INITIAL_HEIGHT = 820;
-const MIN_HEIGHT = 600;
+/** Beste-gok hoogte vóór de eerste postMessage uit Forester OS arriveert. */
+const INITIAL_HEIGHT = 640;
 
 export function WebsiteApkEmbed() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -18,10 +18,12 @@ export function WebsiteApkEmbed() {
         typeof data === "object" &&
         data.type === "website-scan-height" &&
         typeof data.height === "number" &&
-        Number.isFinite(data.height)
+        Number.isFinite(data.height) &&
+        data.height > 100
       ) {
-        const next = Math.max(MIN_HEIGHT, Math.round(data.height));
-        setHeight((prev) => (Math.abs(prev - next) > 4 ? next : prev));
+        // Trust the embed — geen extra floor, anders staat er witte ruimte
+        // onder de scan-content op de eerste (URL-)stap.
+        setHeight(Math.round(data.height));
       }
     };
     window.addEventListener("message", handleMessage);
@@ -42,9 +44,8 @@ export function WebsiteApkEmbed() {
             ref={iframeRef}
             src={APK_EMBED_URL}
             title="Gratis Website APK"
-            className="block w-full"
+            className="block w-full transition-[height] duration-300 ease-out"
             style={{ height: `${height}px`, border: 0, backgroundColor: "#2E186A" }}
-            loading="lazy"
             allow="clipboard-write"
           />
         </div>
