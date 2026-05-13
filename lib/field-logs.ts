@@ -22,9 +22,9 @@ export const FIELD_LOGS: FieldLog[] = [
     date: "2025-08-18",
     dateLabel: "Augustus 2025",
     tag: "E-commerce",
-    title: "E-commerce op Forester OS: één platform in plaats van een plug-in-jungle",
+    title: "E-commerce op Forester OS voor het MKB",
     excerpt:
-      "Waarom we e-commerce bouwen op Forester OS in Next.js: sneller, beter vindbaar en volledig geautomatiseerd voor het MKB, zonder een stapel losse plug-ins.",
+      "Waarom we e-commerce bouwen op Forester OS in Next.js: sneller, beter vindbaar en volledig geautomatiseerd, zonder afhankelijkheid van losse tools.",
     readTime: "7 min",
   },
   {

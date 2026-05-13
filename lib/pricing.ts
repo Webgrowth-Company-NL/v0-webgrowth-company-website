@@ -123,7 +123,7 @@ export const PRICING_FAQS: PricingFaqItem[] = [
   },
   {
     q: "Wat zit er allemaal in de prijs?",
-    a: "Website, hosting in Nederland, wekelijks onderhoud, beveiliging, dagelijkse back-ups, SSL, AVG-maatregelen, CRM, je gekozen lead engines, SEO-monitoring, het maandelijkse Momentum Report en doorlopende optimalisatie door ons team. Geen losse facturen voor hosting, plugins of CMS-licenties.",
+    a: "Website, hosting in Nederland, wekelijks onderhoud, beveiliging, dagelijkse back-ups, SSL, AVG-maatregelen, CRM, je gekozen lead engines, SEO-monitoring, het maandelijkse Momentum Report en doorlopende optimalisatie door ons team. Geen losse facturen voor hosting, integraties of softwarelicenties.",
   },
   {
     q: "Ben ik eigenaar van de website?",
@@ -131,7 +131,7 @@ export const PRICING_FAQS: PricingFaqItem[] = [
   },
   {
     q: "Wat gebeurt er met onze data en Lead Engines als we vertrekken?",
-    a: "Standaard contactformulieren bouw je elders eenvoudig opnieuw (bijvoorbeeld in Gravity Forms). Voor onze custom Lead Engines krijg je een volledige blauwdruk en documentatie mee, zodat je nieuwe webbouwer ze één-op-één kan herbouwen. CRM-data exporteer je gewoon. Geen vendor lock-in.",
+    a: "Bij vertrek krijg je een complete export van je content, leads en CRM-data. Van onze custom Lead Engines krijg je daarnaast een volledige blauwdruk en documentatie, zodat je nieuwe ontwikkelteam ze één-op-één kan herbouwen op een eigen stack. Geen vendor lock-in.",
   },
   {
     q: "Wat als ik over een jaar meer leads of een tweede site nodig heb?",
