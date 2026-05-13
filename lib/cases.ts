@@ -103,12 +103,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     headlineLead: "Een corporate site met",
     headlineHighlight: "een eigen volumecalculator.",
     intro:
-      "MOL Logistics is een internationale transporteur. We herbouwden de corporate website met een lichte ACF-laag voor flexibele templates, een vacaturecentrum en een volumecalculator die operationeel samenwerkt met het forwarding-team.",
-    pillars: ["Vacaturecentrum", "Volumecalculator", "ACF templates"],
+      "MOL Logistics is een internationale transporteur. We herbouwden de corporate website met een vacaturecentrum, een volumecalculator die operationeel samenwerkt met het forwarding-team, en een lichte content-laag waarmee het marketing-team templates zelf beheert.",
+    pillars: ["Vacaturecentrum", "Volumecalculator", "Beheerbare templates"],
     features: [
-      { label: "Vacaturecentrum", body: "Vacatures als CPT, met sjabloon-paginas voor cultuur, sollicitatieproces en gerelateerde rollen." },
+      { label: "Vacaturecentrum", body: "Vacatures als eigen content-type, met sjabloon-pagina's voor cultuur, sollicitatieproces en gerelateerde rollen." },
       { label: "Volumecalculator", body: "Een tool waarmee klanten zelf inschatten hoeveel pallets, kuubs en gewicht hun zending wordt." },
-      { label: "ACF-templates", body: "Het marketing-team beheert teksten, hero's en cases zelf via Custom Fields, geen Breakdance-editor nodig." },
+      { label: "Beheerbare templates", body: "Het marketing-team beheert teksten, hero's en cases zelf via een lichte content-laag, zonder developer." },
     ],
     img: "/images/clients/mol-logistics.png",
     imgAlt: "MOL Logistics logo",
@@ -118,7 +118,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     liveLabel: "mol-logistics.nl",
     metaTitle: "Case MOL Logistics: corporate site met volumecalculator | Webgrowth",
     metaDescription:
-      "Hoe we voor MOL Logistics een corporate WordPress-site bouwden met ACF-templates, een vacaturecentrum en een eigen volumecalculator.",
+      "Hoe we voor MOL Logistics een corporate site bouwden met een vacaturecentrum, een eigen volumecalculator en beheerbare templates voor het marketing-team.",
   },
   {
     slug: "the-africa-experience",
@@ -131,7 +131,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "The Africa Experience stelt op maat gemaakte Afrika-reizen samen. We bouwden hun reisplatform met een beheerbare catalogus van bestemmingen, lodges en activiteiten, plus een offerteflow die direct in de CRM-pijplijn van het reisteam landt.",
     pillars: ["Reiscatalogus", "Offerteflow", "CRM-integratie"],
     features: [
-      { label: "Reiscatalogus", body: "Bestemmingen, lodges en activiteiten als CPT's, met sjabloon-pagina's voor elk land en park." },
+      { label: "Reiscatalogus", body: "Bestemmingen, lodges en activiteiten als eigen content-types, met sjabloon-pagina's voor elk land en park." },
       { label: "Offerteflow", body: "Een meerstaps formulier waarin reizigers reis, lodge en activiteiten samenstellen voordat ze offerte aanvragen." },
       { label: "CRM-integratie", body: "Elke aanvraag landt direct in de pijplijn van het reisteam, met alle reisdetails als gestructureerde notitie." },
     ],

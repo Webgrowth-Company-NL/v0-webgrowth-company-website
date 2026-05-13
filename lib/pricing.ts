@@ -100,7 +100,7 @@ export type RivalTool = {
  * Bedragen excl. BTW, gemiddelde middentier. Vrij conservatief gekozen.
  */
 export const RIVAL_STACK: RivalTool[] = [
-  { category: "Website + hosting + onderhoud", name: "WordPress dev-retainer", monthly: 250, note: "doorlopend onderhoud" },
+  { category: "Website + hosting + onderhoud", name: "Externe webbouwer + dev-retainer", monthly: 250, note: "doorlopend onderhoud" },
   { category: "CRM", name: "HubSpot Sales Hub Pro", monthly: 450, note: "5 gebruikers" },
   { category: "E-mailmarketing", name: "Mailchimp Standard", monthly: 90, note: "10k contacten" },
   { category: "SEO-tools", name: "Ahrefs Lite", monthly: 99 },
@@ -128,7 +128,7 @@ export const PRICING_FAQS: PricingFaqItem[] = [
   },
   {
     q: "Ben ik eigenaar van de website?",
-    a: "Voor 100%. De code en content zijn van jou, geen wurgcontract. Wil je na je contract weg, dan krijg je een schone back-up mee en blijft je domein gewoon in eigen beheer. Specifieke bouw-plugins (Breakdance ~$99/jr, ACF Pro ~$49/jr, eventueel FacetWP ~$99/jr) hebben eigen licenties die je dan zelf afsluit; we helpen bij de overdracht.",
+    a: "Voor 100%. De code en content zijn van jou, geen wurgcontract. Wil je na je contract weg, dan krijg je een schone back-up van je content en data, en blijft je domein gewoon in eigen beheer. Geen vendor lock-in.",
   },
   {
     q: "Wat gebeurt er met onze data en Lead Engines als we vertrekken?",
@@ -140,7 +140,7 @@ export const PRICING_FAQS: PricingFaqItem[] = [
   },
   {
     q: "Krijg ik een eigen ontwerp of is het een template?",
-    a: "Een eigen ontwerp, op basis van je merk en je doel. We bouwen op ons Marketing Genius-framework (WordPress) als fundament, maar je site lijkt op niemand anders.",
+    a: "Een eigen ontwerp, op basis van je merk en je doel. Geen template-werk: we bouwen op Forester OS als platform-fundament, met een design dat alleen van jou is.",
   },
   {
     q: "Is er een setup-fee?",

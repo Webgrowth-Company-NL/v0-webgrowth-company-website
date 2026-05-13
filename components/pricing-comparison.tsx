@@ -45,7 +45,7 @@ export function PricingComparison() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            Een typische zakelijke stack: WordPress, HubSpot, Mailchimp en zeven andere tools. Allemaal apart afgerekend, allemaal apart te onderhouden. Met Forester OS krijg je dezelfde functionaliteit in één abonnement.
+            Een typische zakelijke stack: een externe webbouwer, HubSpot, Mailchimp en zes andere tools. Allemaal apart afgerekend, allemaal apart te onderhouden. Met Forester OS krijg je dezelfde functionaliteit in één abonnement.
           </motion.p>
         </div>
 

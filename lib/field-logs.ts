@@ -22,9 +22,9 @@ export const FIELD_LOGS: FieldLog[] = [
     date: "2025-08-18",
     dateLabel: "Augustus 2025",
     tag: "E-commerce",
-    title: "E-commerce op Forester OS: waarom we WooCommerce achter ons lieten",
+    title: "E-commerce op Forester OS: één platform in plaats van een plug-in-jungle",
     excerpt:
-      "Waarom we e-commerce bouwen op Forester OS in Next.js in plaats van WooCommerce. Sneller, beter vindbaar en volledig geautomatiseerd voor het MKB.",
+      "Waarom we e-commerce bouwen op Forester OS in Next.js: sneller, beter vindbaar en volledig geautomatiseerd voor het MKB, zonder een stapel losse plug-ins.",
     readTime: "7 min",
   },
   {
@@ -64,7 +64,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Maatwerk",
     title: "Next.js maatwerk voor The Africa Experience",
     excerpt:
-      "Hoe we de reiswebsite van The Africa Experience migreerden van WordPress naar Forester OS in Next.js: TypeScript-datamodellen, statische generatie en een directe Pipedrive-koppeling.",
+      "Hoe we de reiswebsite van The Africa Experience opnieuw opbouwden op Forester OS in Next.js: TypeScript-datamodellen voor bestemmingen en activiteiten, statische generatie en een directe Pipedrive-koppeling.",
     readTime: "6 min",
   },
   {
@@ -84,17 +84,17 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Maatwerk",
     title: "Vloot en projecten slim koppelen voor Roll Group",
     excerpt:
-      "Hoe we op Forester OS een Next.js-platform bouwden met TypeScript-relaties tussen vloot en projecten. Statische generatie, ISR en geen WordPress-overhead.",
+      "Hoe we op Forester OS een Next.js-platform bouwden met TypeScript-relaties tussen vloot en projecten. Statische generatie, ISR en directe content-updates zonder CMS-overhead.",
     readTime: "5 min",
   },
   {
-    slug: "dynamische-content-zonder-acf-repeater",
+    slug: "dynamische-content-met-typescript",
     date: "2025-05-26",
     dateLabel: "Mei 2025",
     tag: "Onder de motorkap",
-    title: "Van ACF Repeater naar TypeScript: hoe Forester OS dynamische content beheert",
+    title: "Hoe Forester OS dynamische content beheert met TypeScript",
     excerpt:
-      "Wat TypeScript-arrays in Forester OS beter doen dan ACF Repeater in WordPress: consistente structuur, hergebruik en een beheerpaneel dat Q actief bijhoudt.",
+      "Hoe TypeScript-arrays in Forester OS dynamische content beheren: consistente structuur, hergebruik tussen pagina's en een beheerpaneel dat Q actief bijhoudt.",
     readTime: "5 min",
   },
   {

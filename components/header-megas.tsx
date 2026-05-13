@@ -20,7 +20,7 @@ import {
 /* ── Data ─────────────────────────────────────────── */
 
 export const PLATFORM_MODULES = [
-  { href: "/forester-os/website", label: "Website & CMS", desc: "Bouw je site, beheer pagina's, berichten en CPT's", icon: Globe },
+  { href: "/forester-os/website", label: "Website & CMS", desc: "Bouw je site, beheer pagina's, berichten en eigen content-types", icon: Globe },
   { href: "/forester-os/lead-engine", label: "Lead Engine", desc: "Quick quoters en calculators die leads opleveren", icon: Flame },
   { href: "/forester-os/sales-engine", label: "Sales Engine", desc: "AI-trainingen en quizzes die prospects opwarmen", icon: ShoppingBag },
   { href: "/forester-os/crm", label: "CRM & Sales-pijplijn", desc: "Leads en deals visueel door je pijplijn", icon: Users },
