@@ -21,8 +21,7 @@ export function SectionFieldLogs() {
         {/* Heading + link */}
         <motion.div
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
+          animate="show"
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
         >
@@ -77,21 +76,21 @@ export function SectionFieldLogs() {
             </motion.article>
           ))}
 
-          {/* Digital Writing illustration tile in the third slot */}
+          {/* Digital Writing illustration in the third slot — no card chrome */}
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.55, ease: EASE, delay: 0.31 }}
-            className="relative rounded-2xl bg-[color:var(--color-bg-muted)]/55 border border-[color:var(--color-line)] overflow-hidden flex items-center justify-center p-4 sm:p-6 min-h-[280px]"
+            className="relative flex items-center justify-center min-h-[280px]"
             aria-hidden
           >
             <Image
               src="/illustrations/writing.svg"
               alt=""
-              width={500}
-              height={500}
-              className="h-full w-full max-h-[300px] object-contain"
+              width={520}
+              height={520}
+              className="w-full max-w-[340px] h-auto"
             />
           </motion.div>
         </div>
