@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { FAQS } from "@/lib/faq";
+import { FAQS, type FaqItem } from "@/lib/faq";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -13,7 +13,19 @@ const fadeUp = (delay = 0) => ({
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE, delay } },
 });
 
-export function SectionFaq() {
+type SectionFaqProps = {
+  items?: FaqItem[];
+  eyebrow?: string;
+  title?: string;
+  intro?: React.ReactNode;
+};
+
+export function SectionFaq({
+  items = FAQS,
+  eyebrow = "Veelgestelde vragen",
+  title = "Vragen die je waarschijnlijk hebt.",
+  intro,
+}: SectionFaqProps = {}) {
   const [open, setOpen] = useState(0);
 
   return (
@@ -29,23 +41,27 @@ export function SectionFaq() {
         >
           <motion.span variants={fadeUp(0)} className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-            Veelgestelde vragen
+            {eyebrow}
           </motion.span>
           <motion.h2 variants={fadeUp(0.05)} className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2.2rem,5vw,3.6rem)] leading-[1.06] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">
-            Vragen die je waarschijnlijk hebt.
+            {title}
           </motion.h2>
           <motion.p variants={fadeUp(0.1)} className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-            Staat je vraag er niet bij?{" "}
-            <Link href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">
-              Boek een kennismaking
-            </Link>
-            , dan beantwoorden we 'm direct.
+            {intro ?? (
+              <>
+                Staat je vraag er niet bij?{" "}
+                <Link href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">
+                  Boek een kennismaking
+                </Link>
+                , dan beantwoorden we 'm direct.
+              </>
+            )}
           </motion.p>
         </motion.div>
 
         {/* Accordion */}
         <div className="mt-12 sm:mt-14 flex flex-col gap-3">
-          {FAQS.map((f, i) => {
+          {items.map((f, i) => {
             const isOpen = open === i;
             return (
               <motion.div
