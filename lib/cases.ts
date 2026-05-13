@@ -120,6 +120,31 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaDescription:
       "Hoe we voor MOL Logistics een corporate WordPress-site bouwden met ACF-templates, een vacaturecentrum en een eigen volumecalculator.",
   },
+  {
+    slug: "the-africa-experience",
+    client: "The Africa Experience",
+    sector: "Reizen & safari",
+    location: "Online",
+    headlineLead: "Een reisplatform voor",
+    headlineHighlight: "Afrika op maat.",
+    intro:
+      "The Africa Experience stelt op maat gemaakte Afrika-reizen samen. We bouwden hun reisplatform met een beheerbare catalogus van bestemmingen, lodges en activiteiten, plus een offerteflow die direct in de CRM-pijplijn van het reisteam landt.",
+    pillars: ["Reiscatalogus", "Offerteflow", "CRM-integratie"],
+    features: [
+      { label: "Reiscatalogus", body: "Bestemmingen, lodges en activiteiten als CPT's, met sjabloon-pagina's voor elk land en park." },
+      { label: "Offerteflow", body: "Een meerstaps formulier waarin reizigers reis, lodge en activiteiten samenstellen voordat ze offerte aanvragen." },
+      { label: "CRM-integratie", body: "Elke aanvraag landt direct in de pijplijn van het reisteam, met alle reisdetails als gestructureerde notitie." },
+    ],
+    img: "/images/clients/the-africa-experience.png",
+    imgAlt: "The Africa Experience logo",
+    logo: "/images/clients/the-africa-experience.png",
+    thumbBg: "#fdf2dc",
+    liveUrl: "https://theafricaexperience.com",
+    liveLabel: "theafricaexperience.com",
+    metaTitle: "Case The Africa Experience: platform voor reizen op maat | Webgrowth",
+    metaDescription:
+      "Hoe we voor The Africa Experience een reisplatform bouwden met een beheerbare catalogus van bestemmingen, lodges en activiteiten plus een offerteflow.",
+  },
 ];
 
 export function caseBySlug(slug: string): CaseStudy | undefined {

@@ -14,7 +14,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 const featured = CASE_STUDIES[0];
-const compactCases = CASE_STUDIES.slice(1, 4);
+const compactCases = CASE_STUDIES.slice(1, 5);
 
 export function SectionCases() {
   return (
