@@ -136,8 +136,8 @@ export function Hero() {
             <h1
               className="
                 mt-7 font-[family-name:var(--font-display)] font-bold
-                text-[clamp(2.6rem,6.2vw,5rem)]
-                leading-[1.02] tracking-[-0.025em]
+                text-[clamp(2.3rem,5.3vw,4.2rem)]
+                leading-[1.05] tracking-[-0.022em]
                 text-white
               "
             >
