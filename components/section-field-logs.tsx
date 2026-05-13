@@ -86,7 +86,7 @@ export function SectionFieldLogs() {
             aria-hidden
           >
             <Image
-              src="/illustrations/writing.svg"
+              src="/illustrations/digital-writing.svg"
               alt=""
               width={520}
               height={520}
