@@ -27,7 +27,7 @@ export function PricingComparison() {
             className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-            Negen tools, één factuur
+            Acht tools, één factuur
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
@@ -45,7 +45,7 @@ export function PricingComparison() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            Een typische zakelijke stack: een externe webbouwer, HubSpot, Mailchimp en zes andere tools. Allemaal apart afgerekend, allemaal apart te onderhouden. Met Forester OS krijg je dezelfde functionaliteit in één abonnement.
+            Een typische zakelijke stack: een externe webbouwer, HubSpot, Mailchimp en vijf andere tools. Allemaal apart afgerekend, allemaal apart te onderhouden. Met Forester OS krijg je dezelfde functionaliteit in één abonnement.
           </motion.p>
         </div>
 

@@ -106,7 +106,6 @@ export const RIVAL_STACK: RivalTool[] = [
   { category: "SEO-tools", name: "Ahrefs Lite", monthly: 99 },
   { category: "Marketing automation", name: "ActiveCampaign Pro", monthly: 179 },
   { category: "Formulieren & quizzes", name: "Typeform Pro", monthly: 75 },
-  { category: "Live chat", name: "Intercom Starter", monthly: 74 },
   { category: "Reviews", name: "Trustpilot Standard", monthly: 175 },
   { category: "AI-content", name: "Jasper Boss", monthly: 69 },
 ];
