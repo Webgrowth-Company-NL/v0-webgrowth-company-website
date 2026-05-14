@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { animate, motion, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, Gauge as GaugeIcon, Star, TrendingUp, Zap } from "lucide-react";
@@ -16,6 +17,18 @@ import {
   type ForesterModule,
   type ModuleWidgetData,
 } from "@/lib/forester-os";
+
+const STEPS_ILLUSTRATIONS: Record<string, string> = {
+  website: "/illustrations/digital-writing.svg",
+  "lead-engine": "/illustrations/communication.svg",
+  "sales-engine": "/illustrations/growth.svg",
+  crm: "/illustrations/communication.svg",
+  seo: "/illustrations/growth.svg",
+  ai: "/illustrations/writing.svg",
+  "content-publisher": "/illustrations/digital-writing.svg",
+  nieuwsbrieven: "/illustrations/writing.svg",
+  advertenties: "/illustrations/growth.svg",
+};
 
 const CREAM = "#faf6f0";
 const LAVENDER = "#e9e4f7";
@@ -84,7 +97,10 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
               top={hasSectionWidgets ? LAVENDER : CREAM}
               bottom={WHITE}
             />
-            <ModuleStepsSection steps={detail.steps!} />
+            <ModuleStepsSection
+              steps={detail.steps!}
+              illustration={STEPS_ILLUSTRATIONS[slug]}
+            />
           </>
         )}
         {colorBeforeFeatures !== LAVENDER && (
@@ -766,8 +782,10 @@ function PageSpeedGauge({ label, score, delay }: { label: string; score: number;
 
 function ModuleStepsSection({
   steps,
+  illustration,
 }: {
   steps: NonNullable<(typeof MODULE_DETAILS)[string]["steps"]>;
+  illustration?: string;
 }) {
   return (
     <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-white">
@@ -798,6 +816,22 @@ function ModuleStepsSection({
             >
               {steps.intro}
             </motion.p>
+
+            {illustration && (
+              <motion.div
+                variants={fadeUp(0.16)}
+                className="mt-10 relative flex items-center justify-center lg:justify-start"
+                aria-hidden
+              >
+                <Image
+                  src={illustration}
+                  alt=""
+                  width={520}
+                  height={520}
+                  className="w-full max-w-[300px] lg:max-w-[340px] h-auto"
+                />
+              </motion.div>
+            )}
           </motion.div>
 
           <ol className="relative flex flex-col">

@@ -930,8 +930,8 @@ function LeadEngineView() {
 
 /* ── View: Sales Engine (kennisproduct in winkelmandje, verkoop landt) ────── */
 const SALES_PRODUCT = {
-  title: "AI-training · online vindbaarheid voor advocaten",
-  meta: "45 min · 6 modules · Q-begeleid",
+  title: "Online programma · slimmer acquireren",
+  meta: "5 modules · in eigen tempo · Q-begeleid",
   price: 197,
 };
 const SALES_STAGE_DELAYS = [800, 700, 700, 900]; // 0:idle, 1:hover-btn, 2:click, 3:cart-shown, 4:sold

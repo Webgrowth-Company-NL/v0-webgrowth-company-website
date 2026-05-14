@@ -55,10 +55,10 @@ export const FORESTER_MODULES: ForesterModule[] = [
     slug: "sales-engine",
     label: "Sales Engine",
     short: "Sales",
-    tagline: "Prospects opwarmen op de automatische piloot",
+    tagline: "Je expertise als product, niet alleen als uurtarief",
     body:
-      "AI-trainingen, quizzes en kennisproducten die prospects verleiden waarde te krijgen voordat ze met je praten. Vanaf het eerste klikje warmer.",
-    features: ["AI-trainingen", "Quizzes", "Lead scoring", "CRM-integratie"],
+      "Trainingen, 1-op-1 sessies, programma's of digitale downloads. Alles wat jouw kennis verpakt zodat klanten zelf kunnen leren, boeken en kopen. De winkel, het inplannen, betaling en CRM-opvolging zitten erin.",
+    features: ["Trainingen & cursussen", "Sessies & boekingen", "Digitale producten", "Lead scoring + CRM"],
     icon: ShoppingBag,
   },
   {
@@ -330,54 +330,95 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       items: [
         { title: "Briefing", body: "We bepalen welk type lead je wilt vangen (calculator, quickscan, kennistest, training) en wat je belangrijkste kwalificatievragen zijn." },
         { title: "Concept & content", body: "Q schrijft de eerste versie van vragen en uitkomsten. Jij stuurt bij tot het in jouw stem klinkt en bij je dienstverlening past." },
-        { title: "Bouw en CRM-koppeling", body: "Wij bouwen het mechanisme, plaatsen 'm op je site en koppelen 'm aan je CRM met de juiste tagging en notificaties." },
+        { title: "Bouw in Forester OS", body: "Wij bouwen het mechanisme rechtstreeks in Forester OS, met de juiste vraag-logica, tagging en WhatsApp-notificaties. Leads landen direct in je eigen CRM, geen koppeling of export nodig." },
         { title: "Soft launch + meten", body: "We zetten de engine eerst zachtjes live zodat we conversie en kwalificatie kunnen meten voor we 'm breed promoten." },
         { title: "Doorlopend optimaliseren", body: "We monitoren de funnel en passen vragen of UI aan op basis van wat we zien — geen losse CRO-opdracht meer." },
       ],
     },
   },
   "sales-engine": {
-    heroLead: "Prospects opwarmen",
-    heroHighlight: "voor jij belt.",
+    heroLead: "Schaal je expertise,",
+    heroHighlight: "niet je uurtarief.",
     heroIntro:
-      "AI-trainingen, quizzes en kennisproducten die prospects verleiden waarde te krijgen voordat ze met je praten. Vanaf het eerste klikje warmer, beter geïnformeerd en met een hogere koopintentie.",
+      "Je werkt al hard genoeg. Pak je kennis in als training, sessie, programma of digitaal product, en laat klanten zichzelf leren, boeken en kopen. Wij regelen de winkel, het inplannen, de betaling en de opvolging. Jij blijft expert, het platform schaalt.",
     featuresDetailed: [
-      { title: "AI-trainingen", body: "Korte interactieve trainingen die je expertise overdragen. Prospect leert iets, jij krijgt een gekwalificeerde lead met context." },
-      { title: "Quizzes", body: "Een persoonlijkheidstest, een kennischeck of een sector-benchmark. Resultaat in ruil voor contactgegevens, hoge engagement." },
-      { title: "Lead scoring", body: "Niet elke aanvraag is gelijk. Op basis van gedrag en antwoorden rangschikken we wie als eerste benaderd moet worden." },
-      { title: "CRM-integratie", body: "Wat een prospect leerde, las en bekeek komt automatisch in z'n CRM-record. Sales weet vanaf minuut één wat er speelt." },
+      {
+        title: "Trainingen & cursussen",
+        body: "Pak je expertise in als modules die cursisten in eigen tempo doorlopen, of plan klassikale dagen in. Werkt voor IT-trainingen, vakopleidingen, online cursussen en certificeringstrajecten. Voortgang per cursist zichtbaar in je CRM.",
+      },
+      {
+        title: "Sessies & boekingen",
+        body: "Verkoop losse sessies, strippenkaarten of abonnementen. Klanten boeken zelf in je agenda, betalen vooraf en krijgen automatisch een uitnodiging. Voor coaches, therapeuten, en consultants die hun tijd willen schalen.",
+      },
+      {
+        title: "Digitale producten & downloads",
+        body: "Werkboeken, templates, premium guides, audio-bibliotheken of video-bundels. Eén keer maken, oneindig vaak verkopen. Na betaling krijgt de klant direct toegang, zonder dat jij iets hoeft te doen.",
+      },
+      {
+        title: "Lead scoring + CRM",
+        body: "Wie deed welke module, kwam terug voor sessie drie, scoorde wat op de quiz? Sales weet vanaf de eerste klik wie warm is, en wat de volgende logische stap is. Geen losse academy-tool met losse data.",
+      },
     ],
     relatedSlugs: ["lead-engine", "ai", "crm"],
     faq: [
-      { q: "Voor wie is dit nuttig?", a: "Voor diensten waar prospects veel willen weten voordat ze tekenen: advocaten, consultants, software, onderwijs. Een training of quiz vervangt deels het eerste gesprek." },
-      { q: "Maken jullie de content?", a: "We helpen de structuur en het concept op te zetten. Q kan de basis schrijven; jij voegt je expertise toe. Zo blijft het herkenbaar jouw stem." },
+      {
+        q: "Voor wie is dit eigenlijk?",
+        a: "Voor iedereen die kennis verkoopt en niet meer uren wil draaien. We zien dit werken bij IT-trainers, therapeuten en coaches met audio-sessies, advocaten met whitepapers, accountants met mini-cursussen, en consultants met paid masterclasses. Als jouw expertise verpakbaar is, is dit relevant.",
+      },
+      {
+        q: "Wordt mijn premium dienstverlening dan niet gekannibaliseerd?",
+        a: "In de praktijk juist andersom. Een training of paid programma filtert wie serieus is, en wie zo'n product koopt komt vaak warm binnen voor je hoogwaardiger diensten. Het is een opwarmlaag, geen vervanging.",
+      },
+      {
+        q: "Maken jullie de content?",
+        a: "We helpen de structuur opzetten en Q schrijft basis-modules in jouw tone-of-voice. Jij voegt de expertise, voorbeelden en cases toe. Zo blijft het echt jouw verhaal, niet een generieke training.",
+      },
+      {
+        q: "Hoe verhoudt dit zich tot een academy-tool zoals Thinkific of Teachable?",
+        a: "Die zijn los van je CRM, marketing en website. Hier verkoopt je platform alles vanuit hetzelfde dashboard met dezelfde klantdata. Een deelnemer is meteen een lead, een lead die een module doet schuift door in je pijplijn.",
+      },
     ],
     metaDescription:
-      "Forester OS Sales Engine: AI-trainingen, quizzes en kennisproducten die prospects opwarmen voordat sales belt. Hogere koopintentie, betere kwalificatie.",
+      "Forester OS Sales Engine: pak je expertise in als training, sessie of digitaal product. Verkoop zonder dat jij elke deal zelf moet sluiten, met CRM, agenda en lead scoring ingebouwd.",
     widgets: [
       { kind: "hero-dashboard", view: "sales-engine" },
       {
         kind: "stats-cards",
-        eyebrow: "Wat Sales Engines opleveren",
-        title: "Prospects die warmer binnenkomen.",
-        intro: "Cijfers uit lopende AI-trainingen en quizzes bij klanten in advocatuur, accountancy en software.",
+        eyebrow: "Wat het oplevert",
+        title: "Klanten warmer, omzet hoger, jij niet aan tafel.",
+        intro: "Gemiddelde performance bij klanten die hun expertise verpakten als training, sessie of digitaal product, gemeten in het eerste jaar na livegang.",
         cards: [
           { label: "Deelnemers", value: 152, delta: "+38", descriptor: "deze maand", viz: "spark" },
-          { label: "Completion", value: 78, suffix: "%", delta: "+9pt", descriptor: "vs starters", viz: "gauge" },
-          { label: "Warme leads", value: 42, delta: "+15", descriptor: "doorgezet naar sales", viz: "bars" },
+          { label: "Maandomzet", prefix: "€", value: 12.4, decimals: 1, suffix: "k", delta: "+28%", descriptor: "vs handmatige verkoop", viz: "bars" },
+          { label: "Doorzet naar sales", value: 42, delta: "+15", descriptor: "warme vervolg-leads", viz: "gauge" },
         ],
       },
     ],
     steps: {
       eyebrow: "Zo werkt het",
-      title: "Van expertise tot opgewarmde prospect.",
-      intro: "Een training of quiz die echt iets oplevert voor de prospect, en jou een gekwalificeerde lead met context.",
+      title: "Van expertise tot draaiende verkoopmotor.",
+      intro: "Geen losse academy-tool die je los moet onderhouden. We bouwen je verkoopmotor in op je bestaande platform, in het format dat past bij wat jij wilt verkopen.",
       items: [
-        { title: "Strategie", body: "We kiezen samen welke training of quiz het beste past bij waar je doelgroep zoekt: gratis training, persoonlijkheidstest of diagnose-tool." },
-        { title: "Content samen", body: "Jij levert de expertise, Q structureert. Het resultaat is in jouw stem, met jouw cases en jouw inzichten — geen generieke shortcuts." },
-        { title: "Bouw met lead scoring", body: "Wij bouwen 'm op Forester OS met ingebouwde scoring, zodat sales meteen weet wie het heetst is." },
-        { title: "Live + integratie", body: "De engine landt op je site of in een eigen landingspagina, met directe doorzet naar je CRM en automatische follow-up." },
-        { title: "Continu bijschaven", body: "We zien wat werkt en wat niet, en passen modules of vragen aan op basis van echte data en feedback." },
+        {
+          title: "Strategie & format",
+          body: "Samen kiezen we het format: korte training, meerdaags programma, boekbare sessies, of digitaal product. We bepalen het prijsmodel (eenmalig, abonnement, strippenkaart) en de doelgroep.",
+        },
+        {
+          title: "Content samen met Q",
+          body: "Jij levert de expertise, Q structureert en schrijft de basis in jouw stem. Quizzes, vragen en herkenningspunten genereren we mee. Jij keurt en finetunet tot het in jouw woorden klinkt.",
+        },
+        {
+          title: "Bouw, betaling & toegang",
+          body: "Wij bouwen de winkel, koppelen de betaling (iDEAL, creditcard, factuur of abonnement) en regelen automatische toegang. Voor sessies koppelen we je agenda, voor producten de download-flow.",
+        },
+        {
+          title: "Lead scoring in CRM",
+          body: "Elke deelnemer of koper landt in je CRM met context: welke module deed hij, hoe scoorde hij, welke vragen liet hij liggen? Sales weet meteen wie warm is voor het vervolg.",
+        },
+        {
+          title: "Live + bijschaven",
+          body: "We zetten 'm voorzichtig live, kijken naar de eerste 50 deelnemers en passen modules of pricing aan op basis van echte data. Geen 'set and forget'.",
+        },
       ],
     },
   },
