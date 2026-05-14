@@ -12,6 +12,8 @@ export function SectionCta() {
       <div aria-hidden className="absolute -top-32 left-1/4 h-[560px] w-[560px] rounded-full" style={{ background: "radial-gradient(closest-side, rgba(139,92,246,0.36), rgba(139,92,246,0) 70%)" }} />
       <div aria-hidden className="absolute -bottom-40 right-1/4 h-[600px] w-[600px] rounded-full" style={{ background: "radial-gradient(closest-side, rgba(124,58,237,0.26), rgba(124,58,237,0) 70%)" }} />
       <div aria-hidden className="absolute inset-0 pointer-events-none opacity-70 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,black,transparent)]" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+      {/* fade decorations to the deep-purple surface at the top edge so the wave-divider connects seamlessly from lavender above */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-32 sm:h-40 pointer-events-none bg-gradient-to-b from-[#2c1d5e] to-transparent" />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
