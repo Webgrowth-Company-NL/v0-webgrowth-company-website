@@ -13,7 +13,7 @@ import { WaveDivider } from "@/components/wave-divider";
 import { FAQS } from "@/lib/faq";
 
 const CREAM = "#faf6f0";
-const LAVENDER = "#f2effb";
+const LAVENDER = "#e9e4f7";
 const WHITE = "#ffffff";
 const DEEP = "#2c1d5e";
 const HERO_PURPLE = "#231653"; // keep in sync with components/hero.tsx

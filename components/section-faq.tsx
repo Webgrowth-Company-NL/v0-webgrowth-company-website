@@ -29,7 +29,7 @@ export function SectionFaq({
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-40 bg-[#f2effb]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-40 bg-[#e9e4f7]">
       <div className="mx-auto max-w-3xl">
         {/* Heading */}
         <motion.div

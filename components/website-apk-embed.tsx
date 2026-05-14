@@ -33,7 +33,7 @@ export function WebsiteApkEmbed() {
   return (
     <section
       id="scan"
-      className="relative px-5 sm:px-8 pt-16 sm:pt-20 pb-20 sm:pb-28 bg-[#f2effb] scroll-mt-24"
+      className="relative px-5 sm:px-8 pt-16 sm:pt-20 pb-20 sm:pb-28 bg-[#e9e4f7] scroll-mt-24"
     >
       <div className="mx-auto max-w-5xl">
         <div

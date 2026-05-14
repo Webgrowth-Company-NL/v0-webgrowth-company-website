@@ -103,7 +103,7 @@ export function SolutionSelector() {
   };
 
   return (
-    <section className="relative pt-16 sm:pt-24 pb-28 sm:pb-44 bg-[#F2EFFB]">
+    <section className="relative pt-16 sm:pt-24 pb-28 sm:pb-44 bg-[#e9e4f7]">
       {/* Heading + arrows (aligned to the content grid) */}
       <div className="mx-auto max-w-7xl px-5 sm:px-8 flex items-end justify-between gap-6">
         <div className="max-w-2xl">

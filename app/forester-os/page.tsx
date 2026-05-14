@@ -10,7 +10,7 @@ import { WaveDivider } from "@/components/wave-divider";
 import { FORESTER_FAQS } from "@/lib/forester-os";
 
 const CREAM = "#faf6f0";
-const LAVENDER = "#f2effb";
+const LAVENDER = "#e9e4f7";
 const WHITE = "#ffffff";
 const DEEP = "#2c1d5e";
 

@@ -45,6 +45,11 @@ export function ForesterOsHero() {
           backgroundSize: "26px 26px",
         }}
       />
+      {/* fade decorations to the cream surface at the bottom edge so the wave-divider connects seamlessly to the lavender below */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-32 sm:h-40 pointer-events-none bg-gradient-to-b from-transparent to-[color:var(--color-bg)]"
+      />
 
       <motion.div
         variants={containerStagger}

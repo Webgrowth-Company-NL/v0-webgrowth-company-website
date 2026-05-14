@@ -14,7 +14,7 @@ const fadeUp = (delay = 0) => ({
 
 export function ForesterOsModules() {
   return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-[#f2effb]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-[#e9e4f7]">
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
