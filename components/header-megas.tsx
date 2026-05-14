@@ -98,10 +98,10 @@ function ModuleItem({
       </span>
       <span className="min-w-0">
         <span className="flex items-center gap-1.5">
-          <span className="text-[13.5px] font-semibold text-[color:var(--color-ink)] leading-snug transition-colors duration-200 ease-out group-hover:text-[color:var(--color-purple)]">{label}</span>
+          <span className="text-[13.5px] font-semibold text-[color:var(--color-ink-strong)] leading-snug transition-colors duration-200 ease-out group-hover:text-[color:var(--color-purple)]">{label}</span>
           {soon && <SoonBadge />}
         </span>
-        <span className="block text-[11.5px] text-[color:var(--color-ink-subtle)] leading-snug mt-0.5">{desc}</span>
+        <span className="block text-[11.5px] text-[color:var(--color-ink-muted)] leading-snug mt-0.5">{desc}</span>
       </span>
     </Link>
   );
@@ -203,7 +203,7 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
                 key={s.href}
                 href={s.href}
                 onClick={onNavigate}
-                className="px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] hover:bg-white transition-colors"
+                className="px-3.5 py-2.5 rounded-lg text-[13px] font-medium text-[color:var(--color-ink-strong)] hover:text-[color:var(--color-purple)] hover:bg-white transition-colors"
               >
                 {s.label}
               </Link>
