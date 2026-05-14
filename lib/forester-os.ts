@@ -165,7 +165,8 @@ export const FORESTER_FLOW: ForesterFlowStep[] = [
 
 /** Optionele, module-specifieke visual widget die tussen hero en features wordt getoond. */
 export type ModuleWidgetData =
-  | { kind: "pagespeed"; metrics: { label: string; score: number }[] };
+  | { kind: "pagespeed"; metrics: { label: string; score: number }[] }
+  | { kind: "hero-dashboard"; eyebrow?: string; title?: string; intro?: string };
 
 /** Stappenplan voor 'Zo werkt het voor de klant' — optioneel per module. */
 export type ProcessStep = { title: string; body: string };
@@ -185,8 +186,8 @@ export type ForesterModuleDetail = {
   faq: ForesterFaqItem[];
   /** SEO meta description, ~150-160 chars */
   metaDescription: string;
-  /** Optionele showcase-widget — sluit aan op wat deze module concreet oplevert. */
-  widget?: ModuleWidgetData;
+  /** Optionele showcase-widgets — sluiten aan op wat deze module concreet oplevert. Volgorde = volgorde op de pagina. */
+  widgets?: ModuleWidgetData[];
   /** Optioneel stappenplan: 'zo werkt het voor de klant', 4-6 stappen. */
   steps?: { eyebrow: string; title: string; intro: string; items: ProcessStep[] };
 };
@@ -213,15 +214,24 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Website & CMS: pagina's, berichten en eigen content-types beheren vanuit één dashboard, met hosting, beveiliging en wekelijks onderhoud inbegrepen.",
-    widget: {
-      kind: "pagespeed",
-      metrics: [
-        { label: "Snelheid", score: 98 },
-        { label: "Toegankelijkheid", score: 100 },
-        { label: "Best practices", score: 100 },
-        { label: "SEO", score: 100 },
-      ],
-    },
+    widgets: [
+      {
+        kind: "pagespeed",
+        metrics: [
+          { label: "Snelheid", score: 98 },
+          { label: "Toegankelijkheid", score: 100 },
+          { label: "Best practices", score: 100 },
+          { label: "SEO", score: 100 },
+        ],
+      },
+      {
+        kind: "hero-dashboard",
+        eyebrow: "Forester OS in actie",
+        title: "Het platform aan het werk.",
+        intro:
+          "Klik door de vier views om te zien hoe Website, SEO, CRM en Q samenwerken in één dashboard. Geen demo-account, gewoon de echte UI.",
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van handtekening tot livegang in acht sprints.",
@@ -270,6 +280,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Lead Engine: quickscans, prijscalculators en slimme formulieren die bezoekers omzetten in gekwalificeerde aanvragen, direct in je CRM met WhatsApp-melding.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van briefing tot eerste lead in 4 tot 6 weken.",
+      intro: "Geen wekenlang gepraat over waar het over zou kunnen gaan. We bepalen samen het mechanisme, bouwen het, en zetten 'm voorzichtig live.",
+      items: [
+        { title: "Briefing", body: "We bepalen welk type lead je wilt vangen (calculator, quickscan, kennistest, training) en wat je belangrijkste kwalificatievragen zijn." },
+        { title: "Concept & content", body: "Q schrijft de eerste versie van vragen en uitkomsten. Jij stuurt bij tot het in jouw stem klinkt en bij je dienstverlening past." },
+        { title: "Bouw en CRM-koppeling", body: "Wij bouwen het mechanisme, plaatsen 'm op je site en koppelen 'm aan je CRM met de juiste tagging en notificaties." },
+        { title: "Soft launch + meten", body: "We zetten de engine eerst zachtjes live zodat we conversie en kwalificatie kunnen meten voor we 'm breed promoten." },
+        { title: "Doorlopend optimaliseren", body: "We monitoren de funnel en passen vragen of UI aan op basis van wat we zien — geen losse CRO-opdracht meer." },
+      ],
+    },
   },
   "sales-engine": {
     heroLead: "Prospects opwarmen",
@@ -289,6 +311,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Sales Engine: AI-trainingen, quizzes en kennisproducten die prospects opwarmen voordat sales belt. Hogere koopintentie, betere kwalificatie.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van expertise tot opgewarmde prospect.",
+      intro: "Een training of quiz die echt iets oplevert voor de prospect, en jou een gekwalificeerde lead met context.",
+      items: [
+        { title: "Strategie", body: "We kiezen samen welke training of quiz het beste past bij waar je doelgroep zoekt: gratis training, persoonlijkheidstest of diagnose-tool." },
+        { title: "Content samen", body: "Jij levert de expertise, Q structureert. Het resultaat is in jouw stem, met jouw cases en jouw inzichten — geen generieke shortcuts." },
+        { title: "Bouw met lead scoring", body: "Wij bouwen 'm op Forester OS met ingebouwde scoring, zodat sales meteen weet wie het heetst is." },
+        { title: "Live + integratie", body: "De engine landt op je site of in een eigen landingspagina, met directe doorzet naar je CRM en automatische follow-up." },
+        { title: "Continu bijschaven", body: "We zien wat werkt en wat niet, en passen modules of vragen aan op basis van echte data en feedback." },
+      ],
+    },
   },
   crm: {
     heroLead: "Leads en deals visueel",
@@ -309,6 +343,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS CRM & sales-pijplijn: drag-and-drop kanban met leads, deals, taken en Q-suggesties. Eén overzicht voor je hele team, geen losse CRM-licentie.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van eerste lead tot vaste pijplijn.",
+      intro: "Geen droge import-export. We zetten jouw pijplijn op, lopen mee tijdens de eerste maand en passen aan wat nodig is.",
+      items: [
+        { title: "Migratie & opzet", body: "We nemen je bestaande contacten en deals over (uit Excel, HubSpot, Pipedrive of waar dan ook) en mappen ze naar Forester OS." },
+        { title: "Eigen statussen", body: "Samen tekenen we jouw pijplijn-stadia. Werk je met 5 of 9 stappen, met onderverdeling per sector? Jouw keuze, niet onze template." },
+        { title: "Team & rollen", body: "Iedereen krijgt een eigen login met de juiste rechten. Met meldingen, taken en notificaties op jouw werkritme." },
+        { title: "Eerste 30 dagen", body: "We kijken mee tijdens de eerste maand, doen wekelijks een sync en passen statussen of automations aan tot 'ie precies werkt." },
+        { title: "Doorlopend", body: "Q kijkt mee, signaleert deals die te lang stilstaan en stelt opvolgingen voor. Jij houdt de controle." },
+      ],
+    },
   },
   seo: {
     heroLead: "Wat werkt, wat niet, en",
@@ -328,6 +374,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS SEO & vindbaarheid: Search Console-data, ranking-tracking en AI-content-suggesties in één dashboard, geen los SEO-bureau meer nodig.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van eerste audit tot stijgende rankings.",
+      intro: "SEO als ingebouwde laag, niet als losse opdracht. Met maandelijkse data-driven aanpassingen die echt iets opleveren.",
+      items: [
+        { title: "Audit", body: "We koppelen je Search Console en doen een diepe analyse: welke pagina's groeien, welke zakken, waar laat je verkeer liggen." },
+        { title: "Strategie", body: "Op basis van de audit + concurrentie kiezen we 25-50 keywords om aan te werken. Long-tail, lokaal, brand of categorie, afhankelijk van waar de groei zit." },
+        { title: "Content-plan", body: "Q stelt voor wat eerst gemaakt of herschreven moet worden, met topic-clusters en interne links die elkaar versterken." },
+        { title: "Maandelijkse rapportage", body: "Elke maand laten we zien wat verbeterd is, wat tegenvalt en wat we hierna doen. Geen rapport om het rapport." },
+        { title: "Bijschaven op data", body: "Wat werkt schalen we op, wat niet werkt parkeren we. Geen droge SEO-best-practices, maar wat in jouw markt landt." },
+      ],
+    },
   },
   ai: {
     heroLead: "Q, je AI-assistent",
@@ -348,6 +406,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Q is de AI-assistent in Forester OS die je site, leads en CRM kent. Schrijft content, vat inzichten samen en stelt opvolgingen voor — een appje, hij regelt het.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van eerste setup tot dagelijkse assistent.",
+      intro: "Q is geen knop die je aanzet. Hij leert je merk en je context, en wordt elke week beter doordat we zijn output bijschaven.",
+      items: [
+        { title: "Onboarding", body: "We laten Q je website, CRM en bestaande content lezen. Daar leert hij je merk, je tone en je context van." },
+        { title: "Tone-of-voice afstemmen", body: "Aan de hand van een paar voorbeeldzinnen leren we Q hoe jij klinkt. Direct of warm, deskundig of toegankelijk, zoals jij wilt." },
+        { title: "Eerste taken", body: "We laten Q meelopen op concrete dingen: een blog schrijven, een aanvraag samenvatten, een opvolg-mail voorstellen. Jij keurt elke output." },
+        { title: "Integreren in workflow", body: "Q komt op de plekken waar jij werkt: in het CMS naast de tekst-editor, in het CRM naast elke deal, in een chat-window voor losse vragen." },
+        { title: "Bijschaven", body: "Wat goed werkt automatiseren we, wat soms misgaat passen we aan. Q wordt elke maand beter doordat we hem trainen op zijn eigen output." },
+      ],
+    },
   },
   "content-publisher": {
     heroLead: "Content op schema,",
@@ -367,6 +437,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Content Publisher: AI publiceert blogs en content op je site, op schema, in jouw tone-of-voice. Templates, planning, jij keurt het concept goed.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van strategie tot publicatie op de auto-piloot.",
+      intro: "Eerst handmatig, dan automatisch. We bouwen de motor op, jij houdt regie over wat erin gaat.",
+      items: [
+        { title: "Content-strategie", body: "Welke onderwerpen, hoe vaak, welk type? We bepalen het ritme en de mix (blogs, cases, updates) op basis van wat jouw doelgroep zoekt." },
+        { title: "Templates opzetten", body: "We bouwen herbruikbare templates per content-type. Zo voelt elke publicatie consistent, ook als Q ze vult." },
+        { title: "Schema instellen", body: "Wekelijks, twee-wekelijks of maandelijks — jij kiest. We zetten de auto-publicaties klaar met een goedkeurmoment vooraf." },
+        { title: "Eerste maand handmatig", body: "De eerste maand keuren jullie elke publicatie. Daarna kan een deel automatisch, als we zien dat de kwaliteit klopt." },
+        { title: "Doorlopend", body: "Q blijft schrijven, jij blijft keuren wat je wilt keuren. Geen schrijfblok meer, geen achterstand in content." },
+      ],
+    },
   },
   nieuwsbrieven: {
     heroLead: "E-mailcampagnes",
@@ -386,6 +468,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Nieuwsbrieven: e-mailcampagnes vanuit je eigen CRM, segmenten op live data, eigen verzenddomein, analytics gekoppeld aan deals. Geen losse Mailchimp.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van eerste lijst tot maandelijkse campagnes.",
+      intro: "Inbox-deliverability eerst, content tweede. Een kanaal dat presteert omdat je vanaf domein-niveau goed staat.",
+      items: [
+        { title: "Domein-setup", body: "We richten je verzenddomein in (SPF, DKIM, DMARC) zodat mails uit jouw naam in de inbox landen, niet in spam." },
+        { title: "Eerste segmenten", body: "Op basis van je CRM definiëren we de eerste lijsten: klanten, prospects, sector A vs B." },
+        { title: "Templates & stem", body: "We maken een huisstijl-template en stellen Q af op de tone die past bij e-mailcommunicatie (anders dan op je site)." },
+        { title: "Eerste campagne", body: "We doen de eerste verzending samen: content, timing, lijstkeuze. Daarna zie je de resultaten direct in het dashboard." },
+        { title: "Doorlopend", body: "Elke campagne genereert leer-data. Q leert van wat werkt en stelt verbeteringen voor de volgende keer voor." },
+      ],
+    },
   },
   advertenties: {
     heroLead: "Adverteren",
@@ -405,6 +499,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Advertenties: Google Ads en social-campagnes vanuit je eigen platform, met CRM-attributie, Q-ad copy en transparant beheer zonder mediabudget-mark-up.",
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van account-koppeling tot eerste opbrengst.",
+      intro: "We starten klein en schalen op wat werkt. Met volle attributie tot in je CRM, zodat je iedere euro kunt terughalen.",
+      items: [
+        { title: "Audit & doelen", body: "We bekijken je huidige campagnes (of starten vanaf nul) en bepalen meetbare doelen: cost per lead, ROAS, leads per maand." },
+        { title: "Setup & koppeling", body: "Google Ads, LinkedIn en/of Meta worden gekoppeld aan Forester OS, inclusief conversie-tracking via je CRM." },
+        { title: "Creatives & doelgroepen", body: "Q schrijft eerste advertentievarianten op basis van je merk en website. Doelgroepen baseren we op CRM-segmenten." },
+        { title: "Live + leren", body: "We zetten campagnes live met voorzichtig budget, leren wat werkt en schalen op wat presteert. Geen 'set and forget'." },
+        { title: "Maandelijkse rapportage", body: "Elke maand laten we zien wat elke euro opleverde, terug te halen tot specifieke advertentie en deal." },
+      ],
+    },
   },
 };
 

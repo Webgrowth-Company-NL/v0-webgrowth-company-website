@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { animate, motion, useInView, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, Gauge as GaugeIcon, Star } from "lucide-react";
+import { HeroDashboard } from "@/components/hero-dashboard";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
@@ -51,7 +52,9 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
       <SiteHeader />
       <main className="flex-1">
         <ModuleHero module={m} detail={detail} />
-        {detail.widget && <ModuleWidgetSection widget={detail.widget} />}
+        {detail.widgets?.map((w, i) => (
+          <ModuleWidgetSection key={`${w.kind}-${i}`} widget={w} />
+        ))}
         {detail.steps && <ModuleStepsSection steps={detail.steps} />}
         <WaveDivider top={CREAM} bottom={LAVENDER} />
         <ModuleFeatures module={m} detail={detail} />
@@ -376,7 +379,64 @@ function ModuleWidgetSection({ widget }: { widget: ModuleWidgetData }) {
   if (widget.kind === "pagespeed") {
     return <PageSpeedSection metrics={widget.metrics} />;
   }
+  if (widget.kind === "hero-dashboard") {
+    return (
+      <HeroDashboardShowcase
+        eyebrow={widget.eyebrow ?? "Forester OS in actie"}
+        title={widget.title ?? "Het platform aan het werk."}
+        intro={widget.intro ?? "Klik door om elk onderdeel in actie te zien."}
+      />
+    );
+  }
   return null;
+}
+
+function HeroDashboardShowcase({
+  eyebrow,
+  title,
+  intro,
+}: {
+  eyebrow: string;
+  title: string;
+  intro: string;
+}) {
+  return (
+    <section className="relative px-5 sm:px-8 pt-4 pb-20 sm:pb-28 bg-[color:var(--color-bg)]">
+      <div className="mx-auto max-w-5xl">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <motion.span
+            variants={fadeUp(0)}
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+            {eyebrow}
+          </motion.span>
+          <motion.h2
+            variants={fadeUp(0.05)}
+            className="mt-5 font-[family-name:var(--font-display)] font-bold text-[clamp(1.7rem,3.8vw,2.6rem)] leading-[1.1] tracking-[-0.015em] text-[color:var(--color-ink-strong)]"
+          >
+            {title}
+          </motion.h2>
+          <motion.p
+            variants={fadeUp(0.1)}
+            className="mt-4 text-[15px] sm:text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]"
+          >
+            {intro}
+          </motion.p>
+        </motion.div>
+
+        <div className="relative h-[520px] sm:h-[560px] lg:h-[580px] mt-12 mx-auto max-w-[480px]">
+          <HeroDashboard />
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function PageSpeedSection({ metrics }: { metrics: { label: string; score: number }[] }) {
