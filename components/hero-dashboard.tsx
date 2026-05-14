@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
-import { ArrowUp, CalendarClock, Check, Flame, Globe, Mail, Megaphone, MousePointer2, Search, Send, ShoppingBag, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowUp, CalendarClock, Check, Flame, Globe, Mail, Megaphone, MousePointer2, Search, Send, ShoppingBag, ShoppingCart, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 const CYCLE_MS = 6500;
@@ -928,63 +928,142 @@ function LeadEngineView() {
   );
 }
 
-/* ── View: Sales Engine (AI-training met multiple choice) ───────────────────── */
-const SALES_OPTIONS: { text: string; correct: boolean }[] = [
-  { text: "Een mooie homepage", correct: false },
-  { text: "Goed gevonden worden in Google", correct: false },
-  { text: "Het hele klanttraject van A tot Z", correct: true },
-  { text: "Veel social posts", correct: false },
-];
+/* ── View: Sales Engine (kennisproduct in winkelmandje, verkoop landt) ────── */
+const SALES_PRODUCT = {
+  title: "AI-training · online vindbaarheid voor advocaten",
+  meta: "45 min · 6 modules · Q-begeleid",
+  price: 197,
+};
+const SALES_STAGE_DELAYS = [800, 700, 700, 900]; // 0:idle, 1:hover-btn, 2:click, 3:cart-shown, 4:sold
 
 function SalesEngineView() {
   const reduce = useReducedMotion();
-  const [picked, setPicked] = useState(reduce ? 2 : -1);
+  const [stage, setStage] = useState(reduce ? 4 : 0);
 
   useEffect(() => {
-    if (reduce) return;
-    setPicked(-1);
-    const t = window.setTimeout(() => setPicked(2), 1300);
-    return () => window.clearTimeout(t);
+    if (reduce) { setStage(4); return; }
+    setStage(0);
+    let i = 0;
+    const timers: number[] = [];
+    const tick = () => {
+      if (i >= SALES_STAGE_DELAYS.length) return;
+      timers.push(window.setTimeout(() => { i += 1; setStage(i); tick(); }, SALES_STAGE_DELAYS[i]));
+    };
+    tick();
+    return () => timers.forEach((t) => window.clearTimeout(t));
   }, [reduce]);
+
+  const atBtn = stage >= 1;
+  const clicked = stage >= 2;
+  const inCart = stage >= 3;
+  const sold = stage >= 4;
 
   return (
     <div className="relative h-full flex flex-col">
+      {/* Mini-shop header */}
       <div className="flex items-center justify-between mb-3 shrink-0">
-        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Module 3 · Online groei</div>
-        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">3/8</span>
-      </div>
-      <div className="mb-3 h-1.5 rounded-full bg-[color:var(--color-bg-muted)] overflow-hidden shrink-0">
-        <motion.div
-          className="h-full rounded-full bg-[color:var(--color-purple)]"
-          initial={reduce ? false : { width: "0%" }}
-          animate={{ width: picked >= 0 ? "42%" : "30%" }}
-          transition={{ duration: 0.8, ease: EASE }}
-        />
-      </div>
-      <div className="rounded-xl border border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/45 p-2.5 mb-3 shrink-0">
-        <div className="text-[10.5px] font-semibold text-[color:var(--color-purple)] mb-0.5">Vraag 4 van 6</div>
-        <div className="text-[12px] font-semibold text-[color:var(--color-ink)] leading-snug">Wat bepaalt of een MKB-bedrijf online groeit?</div>
-      </div>
-      <div className="flex-1 space-y-1.5">
-        {SALES_OPTIONS.map((opt, i) => {
-          const isPicked = picked === i;
-          const showCorrect = picked >= 0 && opt.correct;
-          return (
-            <div
-              key={opt.text}
-              className={[
-                "flex items-center gap-2 rounded-lg border px-2.5 py-2 text-[11px] transition-colors duration-300",
-                showCorrect ? "border-emerald-500/50 bg-emerald-50" : isPicked ? "border-[color:var(--color-purple)] bg-[color:var(--color-purple-soft)]" : "border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50",
-              ].join(" ")}
+        <div className="flex items-center gap-1.5">
+          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)]">
+            <ShoppingBag className="h-3 w-3" strokeWidth={2.5} />
+          </span>
+          <span className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Forester · trainingen</span>
+        </div>
+        <div className="relative">
+          <ShoppingCart className="h-3.5 w-3.5 text-[color:var(--color-ink-subtle)]" strokeWidth={2.25} />
+          {inCart && (
+            <motion.span
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.35, ease: EASE }}
+              className="absolute -top-1.5 -right-2 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-[8px] font-bold text-white tabular-nums"
             >
-              <span className={["inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-200", showCorrect ? "border-emerald-600 bg-emerald-600 text-white" : "border-[color:var(--color-ink-faint)]"].join(" ")}>
-                {showCorrect && <Check className="h-2.5 w-2.5" strokeWidth={3} />}
-              </span>
-              <span className={showCorrect ? "font-semibold text-emerald-700" : "text-[color:var(--color-ink)]"}>{opt.text}</span>
-            </div>
-          );
-        })}
+              1
+            </motion.span>
+          )}
+        </div>
       </div>
+
+      {/* Product card */}
+      <div className="rounded-xl border border-[color:var(--color-line)] bg-white p-3 shadow-[0_10px_24px_-16px_rgba(98,59,199,0.18)] mb-3 shrink-0">
+        <div
+          className="h-20 rounded-lg flex items-center justify-center"
+          style={{ backgroundImage: "linear-gradient(140deg, #ff0096 0%, #8b5cf6 55%, #c4b5fd 100%)" }}
+        >
+          <Sparkles className="h-7 w-7 text-white drop-shadow-[0_2px_4px_rgba(12,6,18,0.35)]" strokeWidth={2} />
+        </div>
+        <div className="mt-2.5 text-[11.5px] font-semibold leading-tight text-[color:var(--color-ink)]">{SALES_PRODUCT.title}</div>
+        <div className="mt-1 text-[9.5px] text-[color:var(--color-ink-subtle)]">{SALES_PRODUCT.meta}</div>
+        <div className="mt-1.5 flex items-center gap-1">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className="h-2.5 w-2.5 fill-amber-400 text-amber-400" strokeWidth={0} />
+          ))}
+          <span className="text-[9.5px] text-[color:var(--color-ink-subtle)] ml-0.5">4,9 · 38 reviews</span>
+        </div>
+      </div>
+
+      {/* Price + buy button */}
+      <div className="rounded-xl border border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/40 p-2.5 mb-3 shrink-0 flex items-center justify-between">
+        <div>
+          <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-purple)]">Prijs</div>
+          <div className="font-[family-name:var(--font-display)] text-[20px] font-bold leading-none tabular-nums text-[color:var(--color-ink-strong)]">€{SALES_PRODUCT.price}</div>
+        </div>
+        <motion.div
+          animate={atBtn && !sold ? { scale: clicked ? [1, 0.96, 1] : 1.04 } : { scale: 1 }}
+          transition={{ duration: clicked ? 0.25 : 0.3, ease: EASE }}
+          className={[
+            "relative inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[11px] font-semibold transition-colors duration-300",
+            sold ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white shadow-[0_8px_18px_-8px_rgba(98,59,199,0.55)]",
+          ].join(" ")}
+        >
+          {sold ? (
+            <>
+              <Check className="h-3 w-3" strokeWidth={3} />
+              Gekocht
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="h-3 w-3" strokeWidth={2.5} />
+              Bestel direct
+            </>
+          )}
+          {clicked && !sold && !reduce && (
+            <motion.span
+              className="absolute inset-0 rounded-full bg-[color:var(--color-purple)]"
+              initial={{ scale: 1, opacity: 0.35 }}
+              animate={{ scale: 1.6, opacity: 0 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+            />
+          )}
+        </motion.div>
+      </div>
+
+      {/* Verkoop landt in CRM */}
+      <AnimatePresence>
+        {sold && (
+          <motion.div
+            key="sold"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="flex-1 flex flex-col gap-1.5 rounded-xl border border-emerald-500/40 bg-emerald-50 p-2.5"
+          >
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white">
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <span className="text-[11px] font-semibold text-emerald-700 leading-snug">Verkoop in CRM · deelnemer #38</span>
+            </div>
+            <div className="ml-7 text-[9.5px] text-emerald-700/80 leading-snug">
+              Toegang verstuurd · Q stelt vervolg-aanbod voor
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {!sold && (
+        <div className="flex-1" />
+      )}
     </div>
   );
 }
@@ -1116,61 +1195,129 @@ function NewsletterView() {
   );
 }
 
-/* ── View: Advertenties (campagne-performance, kanalen, leads-counter) ───── */
-const ADS_CHANNELS: { name: string; spend: string; leads: number; bar: number }[] = [
-  { name: "Google Ads", spend: "€1.420", leads: 28, bar: 92 },
-  { name: "LinkedIn", spend: "€680", leads: 14, bar: 58 },
-  { name: "Meta", spend: "€340", leads: 5, bar: 30 },
+/* ── View: Advertenties (Google SERP, ad op positie 1) ──────────────────── */
+const ADS_QUERY = "websitebureau dordrecht";
+const ADS_AD = {
+  domain: "webgrowth.company",
+  title: "Webgrowth Company · Websitebureau in Dordrecht",
+  description: "Next.js-sites met SEO, CRM en AI ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 9,4 op Google.",
+};
+const ADS_ORGANIC: { domain: string; title: string }[] = [
+  { domain: "agency-zwart.nl", title: "Agency Zwart · Maatwerk websites" },
+  { domain: "bureau-klaverwijk.nl", title: "Bureau Klaverwijk · WordPress-bouwer" },
 ];
 
 function AdsView() {
   const reduce = useReducedMotion();
+  const [typed, setTyped] = useState(reduce ? ADS_QUERY.length : 0);
+  const [adVisible, setAdVisible] = useState(reduce);
+
+  useEffect(() => {
+    if (reduce) return;
+    setTyped(0);
+    setAdVisible(false);
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += 1;
+      setTyped(i);
+      if (i >= ADS_QUERY.length) {
+        window.clearInterval(id);
+        window.setTimeout(() => setAdVisible(true), 350);
+      }
+    }, 65);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
   return (
     <div className="relative h-full flex flex-col">
-      <div className="flex items-center justify-between mb-3 shrink-0">
-        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Campagne-overzicht · april</div>
-        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">CRM-attributie</span>
+      {/* Google search bar */}
+      <div className="flex items-center gap-2 rounded-full border border-[color:var(--color-line)] bg-white px-3 py-2 shadow-[0_2px_8px_-4px_rgba(12,6,18,0.08)] shrink-0">
+        {/* mini Google "G" */}
+        <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center text-[10px] font-bold" style={{ color: "#4285F4" }}>G</span>
+        <div className="flex-1 text-[11px] text-[color:var(--color-ink)] truncate">
+          {ADS_QUERY.slice(0, typed)}
+          {typed < ADS_QUERY.length && !reduce && (
+            <span className="ml-px inline-block h-3 w-px align-middle bg-[color:var(--color-ink-strong)]" style={{ animation: "soft-pulse 1s ease-in-out infinite" }} />
+          )}
+        </div>
+        <Search className="h-3.5 w-3.5 text-[#4285F4]" strokeWidth={2.5} />
       </div>
 
-      <div className="grid grid-cols-2 gap-2 mb-3 shrink-0">
-        <div className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-2.5">
-          <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-ink-subtle)]">Besteed</div>
-          <div className="mt-1 font-[family-name:var(--font-display)] text-[20px] font-bold leading-none tabular-nums text-[color:var(--color-ink-strong)]">€2.440</div>
-        </div>
-        <div className="rounded-xl border border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/40 p-2.5">
-          <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-purple)]">Leads</div>
-          <div className="mt-1 font-[family-name:var(--font-display)] text-[20px] font-bold leading-none tabular-nums text-[color:var(--color-ink-strong)]">
-            47
-          </div>
-        </div>
+      {/* SERP tab strip */}
+      <div className="mt-2 flex items-center gap-3 border-b border-[color:var(--color-line)] pb-1 shrink-0">
+        <span className="text-[10px] font-semibold text-[#4285F4] border-b-2 border-[#4285F4] -mb-[5px] pb-1.5">Alle</span>
+        <span className="text-[10px] text-[color:var(--color-ink-subtle)]">Maps</span>
+        <span className="text-[10px] text-[color:var(--color-ink-subtle)]">Nieuws</span>
+        <span className="text-[10px] text-[color:var(--color-ink-subtle)]">Afbeeldingen</span>
+        <span className="ml-auto text-[9px] text-[color:var(--color-ink-faint)]">Ongeveer 2.420 resultaten</span>
       </div>
 
-      <div className="flex-1 space-y-2">
-        {ADS_CHANNELS.map((c, i) => (
-          <div key={c.name} className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/40 p-2">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-[10.5px] font-semibold text-[color:var(--color-ink)]">{c.name}</span>
-              <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)]">{c.spend} · {c.leads} leads</span>
+      {/* The ad on position 1 */}
+      <AnimatePresence>
+        {adVisible && (
+          <motion.div
+            key="ad"
+            initial={reduce ? false : { opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="mt-3 relative rounded-xl border-2 border-[color:var(--color-purple)]/30 bg-white p-3 shadow-[0_18px_40px_-18px_rgba(98,59,199,0.35)]"
+          >
+            {/* sponsored label */}
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-purple)] text-white px-1.5 py-0.5 text-[8.5px] font-bold uppercase tracking-[0.08em]">
+                Advertentie
+              </span>
+              <span className="text-[9.5px] text-[color:var(--color-ink-subtle)]">positie 1</span>
+              <span className="ml-auto inline-flex items-center gap-0.5 text-[9px] font-semibold text-emerald-600">
+                <TrendingUp className="h-2.5 w-2.5" strokeWidth={3} />
+                4,2% CTR
+              </span>
             </div>
-            <div className="h-1.5 rounded-full bg-[color:var(--color-bg-muted)] overflow-hidden">
-              <motion.div
-                className="h-full rounded-full"
-                style={{ background: "linear-gradient(90deg, #ff0096 0%, #8b5cf6 100%)" }}
-                initial={reduce ? false : { width: "0%" }}
-                animate={{ width: `${c.bar}%` }}
-                transition={{ duration: 0.9, ease: EASE, delay: 0.25 + i * 0.12 }}
+            <div className="flex items-center gap-1.5">
+              <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)]">
+                <Globe className="h-2.5 w-2.5 text-[color:var(--color-purple)]" strokeWidth={2.5} />
+              </span>
+              <span className="text-[10px] text-[color:var(--color-ink-subtle)] truncate">{ADS_AD.domain}</span>
+            </div>
+            <div className="mt-1 text-[12px] font-semibold leading-snug text-[#1a0dab] line-clamp-2">{ADS_AD.title}</div>
+            <div className="mt-1 text-[10px] leading-snug text-[color:var(--color-ink-muted)] line-clamp-2">{ADS_AD.description}</div>
+            <div className="mt-1.5 flex items-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-2.5 w-2.5 fill-amber-400 text-amber-400" strokeWidth={0} />
+              ))}
+              <span className="text-[9px] text-[color:var(--color-ink-subtle)] ml-0.5">9,4 · 227 reviews</span>
+            </div>
+
+            {/* highlight pulse around the ad once it lands */}
+            {!reduce && (
+              <motion.span
+                aria-hidden
+                className="absolute inset-0 rounded-xl border-2 border-[color:var(--color-purple)]"
+                initial={{ opacity: 0.7, scale: 1 }}
+                animate={{ opacity: 0, scale: 1.04 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
               />
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Organic results dimmed */}
+      <div className="mt-3 flex-1 space-y-2 opacity-65">
+        {ADS_ORGANIC.map((r) => (
+          <div key={r.domain} className="rounded-md p-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="inline-flex h-3.5 w-3.5 shrink-0 rounded-full bg-[color:var(--color-bg-muted)]" />
+              <span className="text-[9.5px] text-[color:var(--color-ink-subtle)] truncate">{r.domain}</span>
+            </div>
+            <div className="mt-0.5 text-[11px] font-medium text-[#1a0dab] line-clamp-1">{r.title}</div>
+            <div className="mt-1 space-y-0.5">
+              <span className="block h-1.5 w-5/6 rounded bg-[color:var(--color-ink-faint)]/55" />
+              <span className="block h-1.5 w-3/4 rounded bg-[color:var(--color-ink-faint)]/40" />
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="mt-3 flex items-center gap-1.5 text-[10px] shrink-0">
-        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 text-emerald-700 px-2 py-0.5 font-semibold">
-          <TrendingUp className="h-2.5 w-2.5" strokeWidth={2.5} />
-          €51 per lead
-        </span>
-        <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">-€12 vs vorige</span>
       </div>
     </div>
   );
