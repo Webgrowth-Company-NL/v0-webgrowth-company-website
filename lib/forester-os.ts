@@ -163,6 +163,13 @@ export const FORESTER_FLOW: ForesterFlowStep[] = [
 
 /* ── Detail-pagina content per module (gebruikt op /forester-os/[slug]) ───────────── */
 
+/** Optionele, module-specifieke visual widget die tussen hero en features wordt getoond. */
+export type ModuleWidgetData =
+  | { kind: "pagespeed"; metrics: { label: string; score: number }[] };
+
+/** Stappenplan voor 'Zo werkt het voor de klant' — optioneel per module. */
+export type ProcessStep = { title: string; body: string };
+
 export type ForesterModuleDetail = {
   /** Eerste deel van de hero-H1 (gewone tekst) */
   heroLead: string;
@@ -178,6 +185,10 @@ export type ForesterModuleDetail = {
   faq: ForesterFaqItem[];
   /** SEO meta description, ~150-160 chars */
   metaDescription: string;
+  /** Optionele showcase-widget — sluit aan op wat deze module concreet oplevert. */
+  widget?: ModuleWidgetData;
+  /** Optioneel stappenplan: 'zo werkt het voor de klant', 4-6 stappen. */
+  steps?: { eyebrow: string; title: string; intro: string; items: ProcessStep[] };
 };
 
 export type ForesterFaqItem = { q: string; a: string };
@@ -202,6 +213,43 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Website & CMS: pagina's, berichten en eigen content-types beheren vanuit één dashboard, met hosting, beveiliging en wekelijks onderhoud inbegrepen.",
+    widget: {
+      kind: "pagespeed",
+      metrics: [
+        { label: "Snelheid", score: 98 },
+        { label: "Toegankelijkheid", score: 100 },
+        { label: "Best practices", score: 100 },
+        { label: "SEO", score: 100 },
+      ],
+    },
+    steps: {
+      eyebrow: "Zo werkt het",
+      title: "Van handtekening tot livegang in acht sprints.",
+      intro:
+        "Geen vage trajecten. Een strak proces in vijf duidelijke stappen, met elke twee weken een meeting zodat je precies weet waar we staan.",
+      items: [
+        {
+          title: "Kickoff & sitemap",
+          body: "Eerste meeting: strategie bepalen, sitemap uittekenen. Op dag één weten we hoeveel sprints we nodig hebben en wat het einddoel is.",
+        },
+        {
+          title: "Wij bouwen, jij krijgt elke twee weken updates",
+          body: "Acht sprints van twee weken. Aan het einde van elke sprint zie je wat er staat, wat we hierna doen en waar we tegenaan lopen.",
+        },
+        {
+          title: "Content samen",
+          body: "Q schrijft basisteksten in jouw stem, jij levert het echte beeldmateriaal. Teamwork zonder dat we wachten op elkaar.",
+        },
+        {
+          title: "Testen en live",
+          body: "We slopen 'm bijna kapot, fixen wat we vinden, doen de DNS-flip. Geen verrassingen, geen downtime, geen zorgen.",
+        },
+        {
+          title: "Forester OS in jouw handen",
+          body: "Je krijgt de sleutels van je commandocentrum. Maandelijkse Momentum-rapporten, wekelijks onderhoud en vragen direct bij Martijn.",
+        },
+      ],
+    },
   },
   "lead-engine": {
     heroLead: "Bezoekers omzetten in",

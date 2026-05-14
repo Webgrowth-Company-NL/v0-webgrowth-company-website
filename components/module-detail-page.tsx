@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { animate, motion, useInView, useReducedMotion } from "framer-motion";
+import { ArrowRight, Check, Gauge as GaugeIcon, Star } from "lucide-react";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
@@ -12,6 +13,7 @@ import {
   FORESTER_MODULES,
   MODULE_DETAILS,
   type ForesterModule,
+  type ModuleWidgetData,
 } from "@/lib/forester-os";
 
 const CREAM = "#faf6f0";
@@ -49,6 +51,8 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
       <SiteHeader />
       <main className="flex-1">
         <ModuleHero module={m} detail={detail} />
+        {detail.widget && <ModuleWidgetSection widget={detail.widget} />}
+        {detail.steps && <ModuleStepsSection steps={detail.steps} />}
         <WaveDivider top={CREAM} bottom={LAVENDER} />
         <ModuleFeatures module={m} detail={detail} />
         <WaveDivider top={LAVENDER} bottom={WHITE} />
@@ -360,6 +364,202 @@ function ModuleRelated({
               </motion.article>
             );
           })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── PageSpeed-widget ─────────────────────────────── */
+
+function ModuleWidgetSection({ widget }: { widget: ModuleWidgetData }) {
+  if (widget.kind === "pagespeed") {
+    return <PageSpeedSection metrics={widget.metrics} />;
+  }
+  return null;
+}
+
+function PageSpeedSection({ metrics }: { metrics: { label: string; score: number }[] }) {
+  return (
+    <section className="relative px-5 sm:px-8 pt-4 pb-20 sm:pb-28 bg-[color:var(--color-bg)]">
+      <div className="mx-auto max-w-4xl">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <motion.span
+            variants={fadeUp(0)}
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+          >
+            <GaugeIcon className="h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
+            Google PageSpeed Insights
+          </motion.span>
+          <motion.h2
+            variants={fadeUp(0.05)}
+            className="mt-5 font-[family-name:var(--font-display)] font-bold text-[clamp(1.7rem,3.8vw,2.6rem)] leading-[1.1] tracking-[-0.015em] text-[color:var(--color-ink-strong)]"
+          >
+            Elke nieuwe site, opgeleverd met topscores.
+          </motion.h2>
+          <motion.p
+            variants={fadeUp(0.1)}
+            className="mt-4 text-[15px] sm:text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]"
+          >
+            Snelheid, toegankelijkheid, best practices en SEO, vier signalen waarop Google websites afrekent. We meten ze vóór livegang en monitoren ze maandelijks.
+          </motion.p>
+        </motion.div>
+
+        {/* Gedeelde gradient-defs voor alle gauges */}
+        <svg width="0" height="0" aria-hidden className="absolute">
+          <defs>
+            <linearGradient id="psi-gauge-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ff0096" />
+              <stop offset="55%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#c4b5fd" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {metrics.map((m, i) => (
+            <PageSpeedGauge key={m.label} label={m.label} score={m.score} delay={i * 0.08} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PageSpeedGauge({ label, score, delay }: { label: string; score: number; delay: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const reduce = useReducedMotion();
+  const [display, setDisplay] = useState<number>(reduce ? score : 0);
+
+  useEffect(() => {
+    if (!inView || reduce) return;
+    const controls = animate(0, score, {
+      duration: 1.2,
+      ease: [0.23, 1, 0.32, 1],
+      delay: delay + 0.15,
+      onUpdate: (v) => setDisplay(v),
+    });
+    return () => controls.stop();
+  }, [inView, score, delay, reduce]);
+
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference * (1 - score / 100);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 14 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, ease: EASE, delay }}
+      className="flex flex-col items-center"
+    >
+      <div className="relative h-28 w-28 sm:h-32 sm:w-32">
+        <svg viewBox="0 0 120 120" className="absolute inset-0 w-full h-full -rotate-90">
+          <circle cx="60" cy="60" r={radius} stroke="rgba(98,59,199,0.12)" strokeWidth="9" fill="none" />
+          <motion.circle
+            cx="60"
+            cy="60"
+            r={radius}
+            stroke="url(#psi-gauge-gradient)"
+            strokeWidth="9"
+            fill="none"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            initial={{ strokeDashoffset: circumference }}
+            animate={inView ? { strokeDashoffset: offset } : {}}
+            transition={{ duration: 1.2, ease: EASE, delay: delay + 0.15 }}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="font-[family-name:var(--font-display)] font-bold text-[34px] sm:text-[40px] leading-none tabular-nums text-[color:var(--color-ink-strong)]">
+            {Math.round(display)}
+          </span>
+        </div>
+      </div>
+      <span className="mt-3 text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-muted)]">{label}</span>
+    </motion.div>
+  );
+}
+
+/* ── Stappenplan: zo werkt het voor de klant ──────── */
+
+function ModuleStepsSection({
+  steps,
+}: {
+  steps: NonNullable<(typeof MODULE_DETAILS)[string]["steps"]>;
+}) {
+  return (
+    <section className="relative px-5 sm:px-8 pt-8 pb-24 sm:pb-32 bg-[color:var(--color-bg)]">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-14 items-start">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+          >
+            <motion.span
+              variants={fadeUp(0)}
+              className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+              {steps.eyebrow}
+            </motion.span>
+            <motion.h2
+              variants={fadeUp(0.05)}
+              className="mt-5 font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
+            >
+              {steps.title}
+            </motion.h2>
+            <motion.p
+              variants={fadeUp(0.1)}
+              className="mt-5 text-[15.5px] leading-[1.6] text-[color:var(--color-ink-muted)]"
+            >
+              {steps.intro}
+            </motion.p>
+          </motion.div>
+
+          <ol className="relative flex flex-col">
+            {steps.items.map((step, i) => (
+              <motion.li
+                key={step.title}
+                initial={{ opacity: 0, x: 16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.55, ease: EASE, delay: 0.15 + i * 0.08 }}
+                className="relative flex gap-5 pb-8 last:pb-0"
+              >
+                {i < steps.items.length - 1 && (
+                  <span
+                    aria-hidden
+                    className="absolute left-[19px] top-12 bottom-0 w-px bg-[color:var(--color-line)]"
+                  />
+                )}
+                <span
+                  className="relative z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white font-[family-name:var(--font-display)] font-bold text-[14px] shadow-[0_10px_22px_-8px_rgba(98,59,199,0.55)]"
+                  style={GRADIENT_TILE_STYLE}
+                >
+                  <span aria-hidden className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-b from-white/30 via-white/0 to-white/0" />
+                  <span aria-hidden className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/20" />
+                  <span className="relative tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                </span>
+                <div className="pt-1.5">
+                  <h3 className="font-[family-name:var(--font-display)] font-bold text-[18px] sm:text-[19px] leading-[1.25] tracking-[-0.005em] text-[color:var(--color-ink-strong)]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-[14.5px] leading-[1.6] text-[color:var(--color-ink-muted)]">{step.body}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
