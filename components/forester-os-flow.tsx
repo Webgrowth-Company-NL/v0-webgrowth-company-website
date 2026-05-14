@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { FORESTER_FLOW, FORESTER_MODULES } from "@/lib/forester-os";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -18,20 +18,6 @@ const CYCLE_POSITION: Record<number, string> = {
   1: "lg:col-start-2 lg:row-start-1",
   2: "lg:col-start-2 lg:row-start-2",
   3: "lg:col-start-1 lg:row-start-2",
-};
-
-/** Positie + rotatie van de richtingpijl die elke kaart koppelt aan de volgende fase op lg+. */
-const ARROW_POSITION: Record<number, string> = {
-  0: "lg:top-1/2 lg:-right-[58px] lg:-translate-y-1/2", // → naar 02
-  1: "lg:left-1/2 lg:-bottom-[58px] lg:-translate-x-1/2", // → naar 03
-  2: "lg:top-1/2 lg:-left-[58px] lg:-translate-y-1/2", // → naar 04
-  3: "lg:left-1/2 lg:-top-[58px] lg:-translate-x-1/2", // → terug naar 01
-};
-const ARROW_ROTATE: Record<number, string> = {
-  0: "",
-  1: "rotate-90",
-  2: "rotate-180",
-  3: "-rotate-90",
 };
 
 function moduleLabel(slug: string) {
@@ -72,8 +58,52 @@ export function ForesterOsFlow() {
           </motion.p>
         </motion.div>
 
-        {/* Cycle layout: 2x2 cards (lg) of vertical stack (mobile), met centrale hub */}
+        {/* Cycle layout: 2x2 kaarten kloksgewijs op lg, verticale stack op mobile, met centrale hub en getekende krommen */}
         <div className="relative mt-14 mx-auto max-w-4xl">
+          {/* Hand-drawn curved arrows — only on lg+ */}
+          <svg
+            aria-hidden
+            viewBox="0 0 132 100"
+            preserveAspectRatio="none"
+            className="hidden lg:block absolute inset-0 w-full h-full z-[1] pointer-events-none overflow-visible"
+            fill="none"
+          >
+            <defs>
+              <filter id="cycle-rough" x="-3%" y="-3%" width="106%" height="106%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="turb" />
+                <feDisplacementMap in="SourceGraphic" in2="turb" scale="0.9" />
+              </filter>
+              <marker
+                id="cycle-arrowhead"
+                viewBox="0 0 12 12"
+                refX="10"
+                refY="6"
+                markerWidth="4.5"
+                markerHeight="4.5"
+                orient="auto"
+              >
+                <path d="M 0 0 L 12 6 L 0 12 L 3 6 Z" fill="#623bc7" />
+              </marker>
+            </defs>
+            <g
+              stroke="#623bc7"
+              strokeOpacity="0.78"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="0.5"
+              filter="url(#cycle-rough)"
+            >
+              {/* 01 → 02 (top): curves up between the two top cards */}
+              <path d="M 53 18.5 Q 66 7 79 18.5" markerEnd="url(#cycle-arrowhead)" />
+              {/* 02 → 03 (right): curves right between the two right cards */}
+              <path d="M 105.5 37 Q 124 50 105.5 63" markerEnd="url(#cycle-arrowhead)" />
+              {/* 03 → 04 (bottom): curves down between the two bottom cards */}
+              <path d="M 79 81.5 Q 66 93 53 81.5" markerEnd="url(#cycle-arrowhead)" />
+              {/* 04 → 01 (left, the loop-back): curves left between the two left cards */}
+              <path d="M 26.5 63 Q 8 50 26.5 37" markerEnd="url(#cycle-arrowhead)" />
+            </g>
+          </svg>
+
           {/* Center hub — alleen op lg+ */}
           <div
             aria-hidden
@@ -108,7 +138,7 @@ export function ForesterOsFlow() {
           </div>
 
           {/* 4 fase-kaarten */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-x-[180px] lg:gap-y-[180px]">
+          <div className="relative z-[2] grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-x-[180px] lg:gap-y-[180px]">
             {FORESTER_FLOW.map((step, i) => (
               <motion.article
                 key={step.phase}
@@ -121,17 +151,6 @@ export function ForesterOsFlow() {
                   CYCLE_POSITION[i],
                 ].join(" ")}
               >
-                {/* Pijl naar de volgende fase (lg+) */}
-                <span
-                  aria-hidden
-                  className={[
-                    "hidden lg:flex lg:absolute z-20 h-10 w-10 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white shadow-[0_10px_22px_-6px_rgba(98,59,199,0.55),0_2px_4px_rgba(98,59,199,0.2)]",
-                    ARROW_POSITION[i],
-                  ].join(" ")}
-                >
-                  <ArrowRight className={`h-4 w-4 ${ARROW_ROTATE[i]}`} strokeWidth={2.5} />
-                </span>
-
                 <div className="flex items-center justify-between">
                   <span className="font-[family-name:var(--font-mono)] text-[11px] font-semibold text-[color:var(--color-ink-subtle)] tabular-nums">
                     {step.phase}
