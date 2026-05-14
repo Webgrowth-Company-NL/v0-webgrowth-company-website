@@ -26,7 +26,7 @@ const STEPS_ILLUSTRATIONS: Record<string, string> = {
   seo: "/illustrations/business-growth.svg",
   ai: "/illustrations/innovation-ideas.svg",
   "content-publisher": "/illustrations/take-on-the-project.svg",
-  nieuwsbrieven: "/illustrations/writing.svg",
+  nieuwsbrieven: "/illustrations/content-writing.svg",
   advertenties: "/illustrations/growth.svg",
 };
 
