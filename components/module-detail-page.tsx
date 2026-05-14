@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { animate, motion, useInView, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, Gauge as GaugeIcon, Star } from "lucide-react";
+import { animate, motion, useInView, useMotionValue, useReducedMotion } from "framer-motion";
+import { ArrowRight, Check, Gauge as GaugeIcon, Star, TrendingUp, Zap } from "lucide-react";
 import { HeroDashboard } from "@/components/hero-dashboard";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
@@ -47,16 +47,49 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
     .map((slug) => FORESTER_MODULES.find((mod) => mod.slug === slug))
     .filter((x): x is ForesterModule => !!x);
 
+  const heroWidget = detail.widgets?.find(
+    (w): w is Extract<ModuleWidgetData, { kind: "hero-dashboard" }> =>
+      w.kind === "hero-dashboard",
+  );
+  const sectionWidgets = (detail.widgets ?? []).filter(
+    (w) => w.kind !== "hero-dashboard",
+  );
+  const hasSectionWidgets = sectionWidgets.length > 0;
+  const hasSteps = !!detail.steps;
+
+  // Section rhythm:
+  //   hero (cream)
+  //   [if widgets] → lavender PSI
+  //   [if steps]   → white steps
+  //   features (lavender) → related (white) → faq (lavender) → cta (deep)
+  // The wave directly above features depends on what comes before it.
+  const colorBeforeFeatures = hasSteps ? WHITE : hasSectionWidgets ? LAVENDER : CREAM;
+
   return (
     <>
       <SiteHeader />
       <main className="flex-1">
-        <ModuleHero module={m} detail={detail} />
-        {detail.widgets?.map((w, i) => (
-          <ModuleWidgetSection key={`${w.kind}-${i}`} widget={w} />
-        ))}
-        {detail.steps && <ModuleStepsSection steps={detail.steps} />}
-        <WaveDivider top={CREAM} bottom={LAVENDER} />
+        <ModuleHero module={m} detail={detail} heroWidget={heroWidget} />
+        {hasSectionWidgets && (
+          <>
+            <WaveDivider top={CREAM} bottom={LAVENDER} />
+            {sectionWidgets.map((w, i) => (
+              <ModuleWidgetSection key={`${w.kind}-${i}`} widget={w} />
+            ))}
+          </>
+        )}
+        {hasSteps && (
+          <>
+            <WaveDivider
+              top={hasSectionWidgets ? LAVENDER : CREAM}
+              bottom={WHITE}
+            />
+            <ModuleStepsSection steps={detail.steps!} />
+          </>
+        )}
+        {colorBeforeFeatures !== LAVENDER && (
+          <WaveDivider top={colorBeforeFeatures} bottom={LAVENDER} />
+        )}
         <ModuleFeatures module={m} detail={detail} />
         <WaveDivider top={LAVENDER} bottom={WHITE} />
         <ModuleRelated current={m} related={related} />
@@ -91,11 +124,14 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
 function ModuleHero({
   module: m,
   detail,
+  heroWidget,
 }: {
   module: ForesterModule;
   detail: (typeof MODULE_DETAILS)[string];
+  heroWidget?: Extract<ModuleWidgetData, { kind: "hero-dashboard" }>;
 }) {
   const Icon = m.icon;
+  const split = !!heroWidget;
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24 px-5 sm:px-8 bg-[color:var(--color-bg)]">
       <div
@@ -121,12 +157,19 @@ function ModuleHero({
         className="absolute inset-x-0 bottom-0 h-32 sm:h-40 pointer-events-none bg-gradient-to-b from-transparent to-[color:var(--color-bg)]"
       />
 
-      <motion.div
-        variants={containerStagger}
-        initial="hidden"
-        animate="show"
-        className="relative mx-auto max-w-3xl text-center"
+      <div
+        className={
+          split
+            ? "relative mx-auto max-w-6xl grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center"
+            : "relative mx-auto max-w-3xl"
+        }
       >
+        <motion.div
+          variants={containerStagger}
+          initial="hidden"
+          animate="show"
+          className={split ? "text-left" : "text-center"}
+        >
         <motion.span
           variants={fadeUp(0)}
           className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
@@ -139,7 +182,7 @@ function ModuleHero({
 
         <motion.div
           variants={fadeUp(0.06)}
-          className="mt-7 flex items-center justify-center"
+          className={`mt-7 flex items-center ${split ? "justify-start" : "justify-center"}`}
         >
           <span
             className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl text-white shadow-[0_18px_36px_-10px_rgba(98,59,199,0.55),0_2px_4px_rgba(98,59,199,0.18)]"
@@ -153,7 +196,11 @@ function ModuleHero({
 
         <motion.h1
           variants={fadeUp(0.14)}
-          className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2.3rem,5.3vw,4.2rem)] leading-[1.05] tracking-[-0.022em] text-[color:var(--color-ink-strong)]"
+          className={`mt-6 font-[family-name:var(--font-display)] font-bold leading-[1.05] tracking-[-0.022em] text-[color:var(--color-ink-strong)] ${
+            split
+              ? "text-[clamp(2.1rem,4.6vw,3.6rem)]"
+              : "text-[clamp(2.3rem,5.3vw,4.2rem)]"
+          }`}
         >
           {detail.heroLead}{" "}
           <span
@@ -179,7 +226,7 @@ function ModuleHero({
 
         <motion.div
           variants={fadeUp(0.3)}
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          className={`mt-9 flex flex-wrap items-center gap-3 ${split ? "justify-start" : "justify-center"}`}
         >
           <Link
             href="/website-apk"
@@ -216,7 +263,19 @@ function ModuleHero({
             <span className="font-semibold text-[color:var(--color-ink)]">227</span> tevreden klanten
           </span>
         </motion.div>
-      </motion.div>
+        </motion.div>
+
+        {split && heroWidget && (
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.35 }}
+            className="relative h-[520px] sm:h-[560px] lg:h-[580px] mx-auto w-full max-w-[480px] lg:max-w-none"
+          >
+            <HeroDashboard view={heroWidget.view} />
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 }
@@ -379,29 +438,17 @@ function ModuleWidgetSection({ widget }: { widget: ModuleWidgetData }) {
   if (widget.kind === "pagespeed") {
     return <PageSpeedSection metrics={widget.metrics} />;
   }
-  if (widget.kind === "hero-dashboard") {
-    return (
-      <HeroDashboardShowcase
-        eyebrow={widget.eyebrow ?? "Forester OS in actie"}
-        title={widget.title ?? "Het platform aan het werk."}
-        intro={widget.intro ?? "Klik door om elk onderdeel in actie te zien."}
-      />
-    );
+  if (widget.kind === "stats-cards") {
+    return <StatsCardsSection widget={widget} />;
   }
   return null;
 }
 
-function HeroDashboardShowcase({
-  eyebrow,
-  title,
-  intro,
-}: {
-  eyebrow: string;
-  title: string;
-  intro: string;
-}) {
+type StatsCardsWidget = Extract<ModuleWidgetData, { kind: "stats-cards" }>;
+
+function StatsCardsSection({ widget }: { widget: StatsCardsWidget }) {
   return (
-    <section className="relative px-5 sm:px-8 pt-4 pb-20 sm:pb-28 bg-[color:var(--color-bg)]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-20 sm:pb-28 bg-[#e9e4f7]">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial="hidden"
@@ -412,36 +459,202 @@ function HeroDashboardShowcase({
         >
           <motion.span
             variants={fadeUp(0)}
-            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-            {eyebrow}
+            {widget.eyebrow}
           </motion.span>
           <motion.h2
             variants={fadeUp(0.05)}
             className="mt-5 font-[family-name:var(--font-display)] font-bold text-[clamp(1.7rem,3.8vw,2.6rem)] leading-[1.1] tracking-[-0.015em] text-[color:var(--color-ink-strong)]"
           >
-            {title}
+            {widget.title}
           </motion.h2>
           <motion.p
             variants={fadeUp(0.1)}
             className="mt-4 text-[15px] sm:text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            {intro}
+            {widget.intro}
           </motion.p>
         </motion.div>
 
-        <div className="relative h-[520px] sm:h-[560px] lg:h-[580px] mt-12 mx-auto max-w-[480px]">
-          <HeroDashboard />
+        <div className="mt-12 grid sm:grid-cols-3 gap-5 sm:gap-6">
+          {widget.cards.map((card, i) => (
+            <StatCard key={card.label} {...card} index={i} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
+function StatCard({
+  label,
+  prefix,
+  value,
+  decimals = 0,
+  suffix,
+  delta,
+  descriptor,
+  viz,
+  trend = true,
+  index,
+}: StatsCardsWidget["cards"][number] & { index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, ease: EASE, delay: 0.1 + index * 0.07 }}
+      className="relative flex flex-col gap-2 rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-6 sm:p-7 shadow-[0_1px_2px_rgba(12,6,18,0.04),0_18px_44px_-28px_rgba(12,6,18,0.16)]"
+    >
+      <span className="absolute top-5 right-5 inline-flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-[0_10px_22px_-8px_rgba(98,59,199,0.55)]" style={GRADIENT_TILE_STYLE}>
+        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-white/30 via-white/0 to-white/0" />
+        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/20" />
+        <StatCardViz viz={viz} value={value} />
+      </span>
+      <span className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-muted)] pr-14">
+        {label}
+      </span>
+      <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4vw,2.6rem)] leading-none tabular-nums text-[color:var(--color-ink-strong)]">
+        {prefix}
+        <AnimatedStatNumber value={value} decimals={decimals} />
+        {suffix}
+      </span>
+      {(delta || descriptor) && (
+        trend ? (
+          <span className="inline-flex items-center gap-1.5 text-[13px]">
+            {delta && (
+              <>
+                <TrendingUp className="h-3.5 w-3.5 text-emerald-600" strokeWidth={2.5} />
+                <span className="font-semibold text-emerald-600 tabular-nums">{delta}</span>
+              </>
+            )}
+            {descriptor && (
+              <span className="text-[color:var(--color-ink-muted)]">{descriptor}</span>
+            )}
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 text-[13px] text-[color:var(--color-ink-muted)]">
+            {delta && <span className="font-semibold text-[color:var(--color-ink)] tabular-nums">{delta}</span>}
+            {descriptor && <span>{descriptor}</span>}
+          </span>
+        )
+      )}
+    </motion.div>
+  );
+}
+
+function StatCardViz({ viz, value }: { viz: "gauge" | "bars" | "spark" | "bolt"; value: number }) {
+  if (viz === "gauge") return <SCGauge value={Math.min(100, value)} />;
+  if (viz === "bars") return <SCBars />;
+  if (viz === "spark") return <SCSpark />;
+  return <Zap className="h-5 w-5 drop-shadow-[0_1px_2px_rgba(12,6,18,0.25)]" strokeWidth={2.5} fill="currentColor" />;
+}
+
+function SCGauge({ value }: { value: number }) {
+  const reduce = useReducedMotion();
+  const p = Math.max(0, Math.min(1, value / 100));
+  return (
+    <svg viewBox="0 0 24 16" className="h-5 w-6" fill="none">
+      <path d="M3 14 A 9 9 0 0 1 21 14" stroke="rgba(255,255,255,0.3)" strokeWidth="2.4" strokeLinecap="round" />
+      <motion.path
+        d="M3 14 A 9 9 0 0 1 21 14"
+        stroke="white"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        initial={reduce ? false : { pathLength: 0 }}
+        whileInView={{ pathLength: p }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 1, ease: EASE, delay: 0.25 }}
+      />
+      <circle cx="12" cy="14" r="1.6" fill="white" />
+    </svg>
+  );
+}
+
+function SCBars() {
+  const reduce = useReducedMotion();
+  const hs = [4.5, 7.5, 6, 11];
+  return (
+    <svg viewBox="0 0 16 13" className="h-4 w-5" fill="white">
+      {hs.map((h, i) => (
+        <motion.rect
+          key={i}
+          x={i * 4 + 0.6}
+          width="2.6"
+          rx="1"
+          initial={reduce ? false : { height: 0, y: 12 }}
+          whileInView={{ height: h, y: 12 - h }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, ease: EASE, delay: 0.25 + i * 0.09 }}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function SCSpark() {
+  const reduce = useReducedMotion();
+  return (
+    <svg viewBox="0 0 20 13" className="h-4 w-5" fill="none">
+      <motion.path
+        d="M1.5 11 L6 7.5 L10 9.5 L14 3.5 L18.5 1.8"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        initial={reduce ? false : { pathLength: 0, opacity: 0 }}
+        whileInView={{ pathLength: 1, opacity: 1 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.85, ease: EASE, delay: 0.3 }}
+      />
+      <motion.circle
+        cx="18.5"
+        cy="1.8"
+        r="1.9"
+        fill="white"
+        initial={reduce ? false : { scale: 0 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.3, ease: EASE, delay: 1.05 }}
+      />
+    </svg>
+  );
+}
+
+function AnimatedStatNumber({ value, decimals = 0 }: { value: number; decimals?: number }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const mv = useMotionValue(reduce ? value : 0);
+  const [display, setDisplay] = useState(reduce ? value : 0);
+
+  useEffect(() => {
+    if (!inView || reduce) {
+      if (reduce) setDisplay(value);
+      return;
+    }
+    mv.set(0);
+    const controls = animate(mv, value, {
+      duration: 1.2,
+      ease: [0.23, 1, 0.32, 1],
+      delay: 0.25,
+      onUpdate: (v) => setDisplay(v),
+    });
+    return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView, value, reduce]);
+
+  const text = decimals > 0
+    ? display.toFixed(decimals).replace(".", ",")
+    : Math.round(display).toLocaleString("nl-NL");
+  return <span ref={ref}>{text}</span>;
+}
+
 function PageSpeedSection({ metrics }: { metrics: { label: string; score: number }[] }) {
   return (
-    <section className="relative px-5 sm:px-8 pt-4 pb-20 sm:pb-28 bg-[color:var(--color-bg)]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-20 sm:pb-28 bg-[#e9e4f7]">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial="hidden"
@@ -452,7 +665,7 @@ function PageSpeedSection({ metrics }: { metrics: { label: string; score: number
         >
           <motion.span
             variants={fadeUp(0)}
-            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
           >
             <GaugeIcon className="h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
             Google PageSpeed Insights
@@ -557,7 +770,7 @@ function ModuleStepsSection({
   steps: NonNullable<(typeof MODULE_DETAILS)[string]["steps"]>;
 }) {
   return (
-    <section className="relative px-5 sm:px-8 pt-8 pb-24 sm:pb-32 bg-[color:var(--color-bg)]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-white">
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-14 items-start">
           <motion.div
@@ -568,7 +781,7 @@ function ModuleStepsSection({
           >
             <motion.span
               variants={fadeUp(0)}
-              className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+              className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
               {steps.eyebrow}

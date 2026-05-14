@@ -166,7 +166,39 @@ export const FORESTER_FLOW: ForesterFlowStep[] = [
 /** Optionele, module-specifieke visual widget die tussen hero en features wordt getoond. */
 export type ModuleWidgetData =
   | { kind: "pagespeed"; metrics: { label: string; score: number }[] }
-  | { kind: "hero-dashboard"; eyebrow?: string; title?: string; intro?: string };
+  | {
+      kind: "hero-dashboard";
+      view?:
+        | "website"
+        | "seo"
+        | "crm"
+        | "ai"
+        | "lead-engine"
+        | "sales-engine"
+        | "content-publisher"
+        | "nieuwsbrieven"
+        | "advertenties";
+      eyebrow?: string;
+      title?: string;
+      intro?: string;
+    }
+  | {
+      kind: "stats-cards";
+      eyebrow: string;
+      title: string;
+      intro: string;
+      cards: {
+        label: string;
+        prefix?: string;
+        value: number;
+        decimals?: number;
+        suffix?: string;
+        delta?: string;
+        descriptor?: string;
+        viz: "gauge" | "bars" | "spark" | "bolt";
+        trend?: boolean;
+      }[];
+    };
 
 /** Stappenplan voor 'Zo werkt het voor de klant' — optioneel per module. */
 export type ProcessStep = { title: string; body: string };
@@ -226,10 +258,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       },
       {
         kind: "hero-dashboard",
-        eyebrow: "Forester OS in actie",
-        title: "Het platform aan het werk.",
-        intro:
-          "Klik door de vier views om te zien hoe Website, SEO, CRM en Q samenwerken in één dashboard. Geen demo-account, gewoon de echte UI.",
+        view: "website",
       },
     ],
     steps: {
@@ -280,6 +309,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Lead Engine: quickscans, prijscalculators en slimme formulieren die bezoekers omzetten in gekwalificeerde aanvragen, direct in je CRM met WhatsApp-melding.",
+    widgets: [
+      { kind: "hero-dashboard", view: "lead-engine" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Wat een Lead Engine oplevert",
+        title: "Meer aanvragen, beter gekwalificeerd.",
+        intro: "Een gemiddelde Lead Engine bij onze klanten in het tweede kwartaal van het eerste jaar live.",
+        cards: [
+          { label: "Aanvragen", value: 47, delta: "+22%", descriptor: "deze maand", viz: "spark" },
+          { label: "Conversie", value: 6.4, decimals: 1, suffix: "%", delta: "+1,2pt", descriptor: "vs vorige periode", viz: "bars" },
+          { label: "Gem. waarde", prefix: "€", value: 3.8, decimals: 1, suffix: "k", delta: "+€420", descriptor: "per lead", viz: "gauge" },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van briefing tot eerste lead in 4 tot 6 weken.",
@@ -311,6 +354,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Sales Engine: AI-trainingen, quizzes en kennisproducten die prospects opwarmen voordat sales belt. Hogere koopintentie, betere kwalificatie.",
+    widgets: [
+      { kind: "hero-dashboard", view: "sales-engine" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Wat Sales Engines opleveren",
+        title: "Prospects die warmer binnenkomen.",
+        intro: "Cijfers uit lopende AI-trainingen en quizzes bij klanten in advocatuur, accountancy en software.",
+        cards: [
+          { label: "Deelnemers", value: 152, delta: "+38", descriptor: "deze maand", viz: "spark" },
+          { label: "Completion", value: 78, suffix: "%", delta: "+9pt", descriptor: "vs starters", viz: "gauge" },
+          { label: "Warme leads", value: 42, delta: "+15", descriptor: "doorgezet naar sales", viz: "bars" },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van expertise tot opgewarmde prospect.",
@@ -343,6 +400,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS CRM & sales-pijplijn: drag-and-drop kanban met leads, deals, taken en Q-suggesties. Eén overzicht voor je hele team, geen losse CRM-licentie.",
+    widgets: [
+      { kind: "hero-dashboard", view: "crm" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Pijplijn op één plek",
+        title: "Het CRM ziet wat er beweegt.",
+        intro: "Live cijfers uit de pijplijn van een klant in de zakelijke dienstverlening, één maand na livegang.",
+        cards: [
+          { label: "Open deals", prefix: "€", value: 127, suffix: "k", delta: "+€18k", descriptor: "deze maand", viz: "spark" },
+          { label: "Conversie", value: 24, suffix: "%", delta: "+3pt", descriptor: "lead → klant", viz: "gauge" },
+          { label: "Doorlooptijd", value: 18, suffix: " dagen", delta: "-4 dagen", descriptor: "snellere deals", viz: "bars", trend: false },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van eerste lead tot vaste pijplijn.",
@@ -374,6 +445,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS SEO & vindbaarheid: Search Console-data, ranking-tracking en AI-content-suggesties in één dashboard, geen los SEO-bureau meer nodig.",
+    widgets: [
+      { kind: "hero-dashboard", view: "seo" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Search Console, live",
+        title: "Wat de SEO-laag in een jaar oplevert.",
+        intro: "Cijfers van een klant in zakelijke dienstverlening, 12 maanden na livegang met Forester OS.",
+        cards: [
+          { label: "Top-10 posities", value: 47, delta: "+12", descriptor: "deze maand", viz: "bars" },
+          { label: "Organisch verkeer", prefix: "+", value: 47, suffix: "%", delta: "afgelopen jaar", descriptor: "vs jaar ervoor", viz: "spark", trend: false },
+          { label: "Featured snippets", value: 8, delta: "+3", descriptor: "rich results in zoekresultaat", viz: "gauge" },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van eerste audit tot stijgende rankings.",
@@ -406,6 +491,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Q is de AI-assistent in Forester OS die je site, leads en CRM kent. Schrijft content, vat inzichten samen en stelt opvolgingen voor — een appje, hij regelt het.",
+    widgets: [
+      { kind: "hero-dashboard", view: "ai" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Q in actie",
+        title: "Wat Q in een maand wegneemt.",
+        intro: "Gemiddelde inzet van Q bij klanten op het Growth-pakket, gemeten over de laatste 30 dagen.",
+        cards: [
+          { label: "Q-acties", value: 412, delta: "+38%", descriptor: "vs vorige maand", viz: "spark" },
+          { label: "Tijd bespaard", value: 24, suffix: " uur", delta: "+9 uur", descriptor: "deze week", viz: "bars" },
+          { label: "Content gegenereerd", value: 47, delta: "+12", descriptor: "stuks deze maand", viz: "gauge" },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van eerste setup tot dagelijkse assistent.",
@@ -437,6 +536,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Content Publisher: AI publiceert blogs en content op je site, op schema, in jouw tone-of-voice. Templates, planning, jij keurt het concept goed.",
+    widgets: [
+      { kind: "hero-dashboard", view: "content-publisher" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Wat het oplevert",
+        title: "Een vol publicatieschema, zonder stress.",
+        intro: "Gemiddelde inzet bij klanten die de Publisher een kwartaal aan het draaien hebben.",
+        cards: [
+          { label: "Ingepland", value: 24, delta: "+6", descriptor: "deze maand", viz: "bars" },
+          { label: "Gepubliceerd", value: 18, delta: "+4", descriptor: "geautomatiseerd", viz: "spark" },
+          { label: "Engagement", prefix: "+", value: 34, suffix: "%", delta: "vs handmatig", descriptor: "tijdperk", viz: "gauge", trend: false },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van strategie tot publicatie op de auto-piloot.",
@@ -468,6 +581,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Nieuwsbrieven: e-mailcampagnes vanuit je eigen CRM, segmenten op live data, eigen verzenddomein, analytics gekoppeld aan deals. Geen losse Mailchimp.",
+    widgets: [
+      { kind: "hero-dashboard", view: "nieuwsbrieven" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Inbox-prestatie",
+        title: "Cijfers die je leverancier niet laat zien.",
+        intro: "Gemiddelde performance van een nieuwsbrief bij klanten, dankzij eigen verzenddomein en segmenten uit CRM.",
+        cards: [
+          { label: "Open rate", value: 38, suffix: "%", delta: "+6pt", descriptor: "vs branche-gemiddelde", viz: "gauge" },
+          { label: "Click rate", value: 8.4, decimals: 1, suffix: "%", delta: "+1,8pt", descriptor: "doorgeklikt", viz: "bars" },
+          { label: "Abonnees", value: 1247, delta: "+82", descriptor: "deze maand", viz: "spark" },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van eerste lijst tot maandelijkse campagnes.",
@@ -499,6 +626,20 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Forester OS Advertenties: Google Ads en social-campagnes vanuit je eigen platform, met CRM-attributie, Q-ad copy en transparant beheer zonder mediabudget-mark-up.",
+    widgets: [
+      { kind: "hero-dashboard", view: "advertenties" },
+      {
+        kind: "stats-cards",
+        eyebrow: "Wat campagnes opleveren",
+        title: "Iedere euro terug te halen tot bron.",
+        intro: "Gemiddelde campagne-performance bij een klant op het Growth-pakket, met CRM-attributie ingeschakeld.",
+        cards: [
+          { label: "Besteed", prefix: "€", value: 2.4, decimals: 1, suffix: "k", descriptor: "deze maand", viz: "bars", trend: false },
+          { label: "Leads", value: 47, delta: "+18", descriptor: "via campagnes", viz: "spark" },
+          { label: "Cost per lead", prefix: "€", value: 51, delta: "-€12", descriptor: "vs vorige periode", viz: "gauge" },
+        ],
+      },
+    ],
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van account-koppeling tot eerste opbrengst.",

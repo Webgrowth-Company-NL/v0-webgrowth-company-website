@@ -3,18 +3,32 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
-import { ArrowUp, Globe, MousePointer2, Search, Send, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowUp, CalendarClock, Check, Flame, Globe, Mail, Megaphone, MousePointer2, Search, Send, ShoppingBag, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 const CYCLE_MS = 6500;
 
-type ViewKey = "website" | "seo" | "crm" | "ai";
+export type ViewKey =
+  | "website"
+  | "seo"
+  | "crm"
+  | "ai"
+  | "lead-engine"
+  | "sales-engine"
+  | "content-publisher"
+  | "nieuwsbrieven"
+  | "advertenties";
 
 const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: typeof Globe }[] = [
   { key: "website", url: "forester.app/website", label: "Website & CMS", short: "Website", icon: Globe },
   { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", short: "SEO", icon: Search },
   { key: "crm", url: "forester.app/crm", label: "CRM & Sales", short: "CRM", icon: Users },
   { key: "ai", url: "forester.app/q", label: "Q, je AI-assistent", short: "Q", icon: Sparkles },
+  { key: "lead-engine", url: "forester.app/lead-engine", label: "Lead Engine", short: "Leads", icon: Flame },
+  { key: "sales-engine", url: "forester.app/sales-engine", label: "Sales Engine", short: "Sales", icon: ShoppingBag },
+  { key: "content-publisher", url: "forester.app/publisher", label: "Content Publisher", short: "Publish", icon: CalendarClock },
+  { key: "nieuwsbrieven", url: "forester.app/nieuwsbrieven", label: "Nieuwsbrieven", short: "Mail", icon: Mail },
+  { key: "advertenties", url: "forester.app/advertenties", label: "Advertenties", short: "Ads", icon: Megaphone },
 ];
 
 type StatViz = "gauge" | "bars" | "spark" | "bolt";
@@ -52,14 +66,33 @@ const FLOATING: Record<ViewKey, Stat[]> = {
     { label: "Gewonnen", prefix: "€", num: 18, suffix: "k", delta: "+22%", descriptor: "deze maand", viz: "spark", pos: "topRight" },
   ],
   ai: [],
+  "lead-engine": [
+    { label: "Aanvragen", num: 47, delta: "+22%", descriptor: "deze maand", viz: "spark", pos: "topRight" },
+  ],
+  "sales-engine": [
+    { label: "Completion", num: 78, suffix: "%", delta: "+9pt", descriptor: "vs starters", viz: "gauge", pos: "bottomLeft" },
+  ],
+  "content-publisher": [
+    { label: "Ingepland", num: 12, delta: "+6", descriptor: "deze maand", viz: "bars", pos: "topRight" },
+  ],
+  nieuwsbrieven: [
+    { label: "Open rate", num: 38, suffix: "%", delta: "+6pt", descriptor: "vs gemiddelde", viz: "gauge", pos: "topRight" },
+  ],
+  advertenties: [
+    { label: "Cost per lead", prefix: "€", num: 51, delta: "-€12", descriptor: "vs vorige periode", viz: "spark", pos: "topRight" },
+  ],
 };
 
-export function HeroDashboard() {
+export function HeroDashboard({ view: viewProp }: { view?: ViewKey } = {}) {
   const reduce = useReducedMotion();
-  const [active, setActive] = useState(0);
+  const single = viewProp !== undefined;
+  const initialIndex = single
+    ? Math.max(0, VIEWS.findIndex((v) => v.key === viewProp))
+    : 0;
+  const [active, setActive] = useState(initialIndex);
   const [paused, setPaused] = useState(false);
   const [userPicked, setUserPicked] = useState(false);
-  const autoCycle = !reduce && !paused && !userPicked;
+  const autoCycle = !single && !reduce && !paused && !userPicked;
 
   const view = VIEWS[active];
 
@@ -103,6 +136,7 @@ export function HeroDashboard() {
         </div>
 
         {/* View tabs — pick which dashboard you want to see */}
+        {!single && (
         <div className="flex items-center gap-1 px-2.5 py-2.5 border-b border-[color:var(--color-line)]">
           {VIEWS.map((v, i) => {
             const isActive = i === active;
@@ -129,20 +163,23 @@ export function HeroDashboard() {
             );
           })}
         </div>
+        )}
 
         {/* Timer bar — runs out → next view (pauses on hover, stops once you pick one) */}
-        <div className="h-[3px] bg-[color:var(--color-bg-muted)] overflow-hidden shrink-0">
-          {autoCycle && (
-            <motion.div
-              key={active}
-              className="h-full origin-left bg-[color:var(--color-purple)]"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: CYCLE_MS / 1000, ease: "linear" }}
-              onAnimationComplete={() => setActive((i) => (i + 1) % VIEWS.length)}
-            />
-          )}
-        </div>
+        {!single && (
+          <div className="h-[3px] bg-[color:var(--color-bg-muted)] overflow-hidden shrink-0">
+            {autoCycle && (
+              <motion.div
+                key={active}
+                className="h-full origin-left bg-[color:var(--color-purple)]"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: CYCLE_MS / 1000, ease: "linear" }}
+                onAnimationComplete={() => setActive((i) => (i + 1) % VIEWS.length)}
+              />
+            )}
+          </div>
+        )}
 
         {/* Body — selected view */}
         <div className="relative flex-1 overflow-hidden">
@@ -159,6 +196,11 @@ export function HeroDashboard() {
               {view.key === "seo" && <SeoView reduce={reduce} />}
               {view.key === "crm" && <CrmView />}
               {view.key === "ai" && <QView />}
+              {view.key === "lead-engine" && <LeadEngineView />}
+              {view.key === "sales-engine" && <SalesEngineView />}
+              {view.key === "content-publisher" && <ContentPublisherView />}
+              {view.key === "nieuwsbrieven" && <NewsletterView />}
+              {view.key === "advertenties" && <AdsView />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -810,6 +852,326 @@ function StatChip({ label, prefix, num, decimals = 0, suffix, delta, descriptor,
           {descriptor && <span className="truncate">{descriptor}</span>}
         </span>
       )}
+    </div>
+  );
+}
+
+/* ── View: Lead Engine (quickscan vult zich in, lead landt in CRM) ────────── */
+const LEAD_QUESTIONS: { q: string; options: string[]; pick: number }[] = [
+  { q: "Hoe groot is je team?", options: ["1-5", "6-25", "26-100", "100+"], pick: 1 },
+  { q: "Welke softwarestack?", options: ["Microsoft", "Google", "Mix", "Anders"], pick: 0 },
+  { q: "Wat is je grootste uitdaging?", options: ["Beheer", "Beveiliging", "Kosten", "Schaal"], pick: 1 },
+];
+const LEAD_STAGE_DELAYS = [600, 800, 800, 800, 700]; // 0:idle, 1-3: pick, 4: lead landed
+
+function LeadEngineView() {
+  const reduce = useReducedMotion();
+  const [stage, setStage] = useState(reduce ? 4 : 0);
+
+  useEffect(() => {
+    if (reduce) { setStage(4); return; }
+    setStage(0);
+    let i = 0;
+    const timers: number[] = [];
+    const tick = () => {
+      if (i >= LEAD_STAGE_DELAYS.length) return;
+      timers.push(window.setTimeout(() => { i += 1; setStage(i); tick(); }, LEAD_STAGE_DELAYS[i]));
+    };
+    tick();
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, [reduce]);
+
+  const answered = (qi: number) => stage > qi;
+  const landed = stage >= 4;
+
+  return (
+    <div className="relative h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3 shrink-0">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Quickscan IT-stack</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{Math.min(stage, 3)}/3 vragen</span>
+      </div>
+      <div className="flex-1 space-y-2.5">
+        {LEAD_QUESTIONS.map((q, qi) => (
+          <div key={q.q} className={["rounded-xl border p-2.5 transition-colors duration-300", answered(qi) ? "border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/45" : "border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50"].join(" ")}>
+            <div className="text-[10.5px] font-semibold text-[color:var(--color-ink)] mb-1.5">{q.q}</div>
+            <div className="grid grid-cols-4 gap-1.5">
+              {q.options.map((opt, oi) => {
+                const isPick = answered(qi) && oi === q.pick;
+                return (
+                  <span key={opt} className={["rounded-md px-1.5 py-1 text-center text-[9.5px] font-medium border transition-colors duration-200", isPick ? "border-[color:var(--color-purple)] bg-[color:var(--color-purple)] text-white" : "border-[color:var(--color-line)] bg-white text-[color:var(--color-ink-muted)]"].join(" ")}>
+                    {opt}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+      <AnimatePresence>
+        {landed && (
+          <motion.div
+            key="landed"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="mt-3 shrink-0 flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-50 px-3 py-2"
+          >
+            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white">
+              <Check className="h-3.5 w-3.5" strokeWidth={3} />
+            </span>
+            <span className="text-[11px] font-semibold text-emerald-700 leading-snug">Lead in CRM, WhatsApp verstuurd naar je telefoon</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+/* ── View: Sales Engine (AI-training met multiple choice) ───────────────────── */
+const SALES_OPTIONS: { text: string; correct: boolean }[] = [
+  { text: "Een mooie homepage", correct: false },
+  { text: "Goed gevonden worden in Google", correct: false },
+  { text: "Het hele klanttraject van A tot Z", correct: true },
+  { text: "Veel social posts", correct: false },
+];
+
+function SalesEngineView() {
+  const reduce = useReducedMotion();
+  const [picked, setPicked] = useState(reduce ? 2 : -1);
+
+  useEffect(() => {
+    if (reduce) return;
+    setPicked(-1);
+    const t = window.setTimeout(() => setPicked(2), 1300);
+    return () => window.clearTimeout(t);
+  }, [reduce]);
+
+  return (
+    <div className="relative h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3 shrink-0">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Module 3 · Online groei</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">3/8</span>
+      </div>
+      <div className="mb-3 h-1.5 rounded-full bg-[color:var(--color-bg-muted)] overflow-hidden shrink-0">
+        <motion.div
+          className="h-full rounded-full bg-[color:var(--color-purple)]"
+          initial={reduce ? false : { width: "0%" }}
+          animate={{ width: picked >= 0 ? "42%" : "30%" }}
+          transition={{ duration: 0.8, ease: EASE }}
+        />
+      </div>
+      <div className="rounded-xl border border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/45 p-2.5 mb-3 shrink-0">
+        <div className="text-[10.5px] font-semibold text-[color:var(--color-purple)] mb-0.5">Vraag 4 van 6</div>
+        <div className="text-[12px] font-semibold text-[color:var(--color-ink)] leading-snug">Wat bepaalt of een MKB-bedrijf online groeit?</div>
+      </div>
+      <div className="flex-1 space-y-1.5">
+        {SALES_OPTIONS.map((opt, i) => {
+          const isPicked = picked === i;
+          const showCorrect = picked >= 0 && opt.correct;
+          return (
+            <div
+              key={opt.text}
+              className={[
+                "flex items-center gap-2 rounded-lg border px-2.5 py-2 text-[11px] transition-colors duration-300",
+                showCorrect ? "border-emerald-500/50 bg-emerald-50" : isPicked ? "border-[color:var(--color-purple)] bg-[color:var(--color-purple-soft)]" : "border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50",
+              ].join(" ")}
+            >
+              <span className={["inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-200", showCorrect ? "border-emerald-600 bg-emerald-600 text-white" : "border-[color:var(--color-ink-faint)]"].join(" ")}>
+                {showCorrect && <Check className="h-2.5 w-2.5" strokeWidth={3} />}
+              </span>
+              <span className={showCorrect ? "font-semibold text-emerald-700" : "text-[color:var(--color-ink)]"}>{opt.text}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/* ── View: Content Publisher (weekkalender met geplande publicaties) ────────── */
+const PUBLISHER_DAYS = ["ma", "di", "wo", "do", "vr"];
+type PubItem = { day: number; type: "blog" | "social" | "mail"; title: string };
+const PUBLISHER_ITEMS: PubItem[] = [
+  { day: 0, type: "blog", title: "Trends Q2" },
+  { day: 1, type: "social", title: "LinkedIn post" },
+  { day: 2, type: "mail", title: "Nieuwsbrief #28" },
+  { day: 2, type: "blog", title: "Klantverhaal" },
+  { day: 4, type: "social", title: "Instagram reel" },
+];
+const PUB_COLOR: Record<PubItem["type"], string> = {
+  blog: "bg-[color:var(--color-purple-soft)] text-[color:var(--color-purple)]",
+  social: "bg-amber-100 text-amber-700",
+  mail: "bg-emerald-100 text-emerald-700",
+};
+
+function ContentPublisherView() {
+  const reduce = useReducedMotion();
+  return (
+    <div className="relative h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3 shrink-0">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Week 18 · publicatieschema</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">Q schrijft mee</span>
+      </div>
+      <div className="grid grid-cols-5 gap-1.5 flex-1">
+        {PUBLISHER_DAYS.map((d, di) => (
+          <div key={d} className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/40 p-1.5 flex flex-col">
+            <div className="text-[9.5px] font-semibold uppercase tracking-[0.1em] text-[color:var(--color-ink-subtle)] text-center mb-1.5">{d}</div>
+            <div className="space-y-1 flex-1">
+              {PUBLISHER_ITEMS.filter((it) => it.day === di).map((it, idx) => (
+                <motion.div
+                  key={`${di}-${idx}`}
+                  initial={reduce ? false : { opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.4, ease: EASE, delay: 0.2 + di * 0.18 + idx * 0.1 }}
+                  className={["rounded-md px-1.5 py-1 text-[8.5px] font-semibold leading-tight", PUB_COLOR[it.type]].join(" ")}
+                >
+                  {it.title}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-3 flex items-center gap-1.5 text-[10px] shrink-0">
+        <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 font-semibold text-[color:var(--color-purple)]">
+          <CalendarClock className="h-2.5 w-2.5" strokeWidth={2.5} />
+          5 ingepland deze week
+        </span>
+        <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">3 in Q-concept</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── View: Nieuwsbrieven (compose-flow, segment, verstuur) ──────────────────── */
+const NEWSLETTER_SUBJECT = "Nieuwe vacature in Dordrecht";
+
+function NewsletterView() {
+  const reduce = useReducedMotion();
+  const [typed, setTyped] = useState(reduce ? NEWSLETTER_SUBJECT.length : 0);
+  const [sent, setSent] = useState(reduce);
+
+  useEffect(() => {
+    if (reduce) return;
+    setTyped(0);
+    setSent(false);
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += 1;
+      setTyped(i);
+      if (i >= NEWSLETTER_SUBJECT.length) {
+        window.clearInterval(id);
+        window.setTimeout(() => setSent(true), 700);
+      }
+    }, 55);
+    return () => window.clearInterval(id);
+  }, [reduce]);
+
+  return (
+    <div className="relative h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3 shrink-0">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Nieuwe campagne</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">Concept</span>
+      </div>
+
+      <div className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-2.5 mb-2 shrink-0">
+        <div className="text-[8.5px] font-medium uppercase tracking-[0.1em] text-[color:var(--color-ink-subtle)] mb-0.5">Aan</div>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-purple-soft)] px-2 py-0.5 text-[10px] font-semibold text-[color:var(--color-purple)]">
+            <Users className="h-2.5 w-2.5" strokeWidth={2.5} />
+            Tech-sector
+          </span>
+          <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)]">247 contacten</span>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-2.5 mb-2 shrink-0">
+        <div className="text-[8.5px] font-medium uppercase tracking-[0.1em] text-[color:var(--color-ink-subtle)] mb-0.5">Onderwerp</div>
+        <div className="text-[11px] font-semibold text-[color:var(--color-ink)]">
+          {NEWSLETTER_SUBJECT.slice(0, typed)}
+          {typed < NEWSLETTER_SUBJECT.length && !reduce && (
+            <span className="ml-px inline-block h-3 w-px align-middle bg-[color:var(--color-purple)]" style={{ animation: "soft-pulse 1s ease-in-out infinite" }} />
+          )}
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-dashed border-[color:var(--color-purple)]/40 bg-white p-2.5 flex-1 overflow-hidden">
+        <div className="space-y-1">
+          <span className="block h-1.5 w-3/5 rounded bg-[color:var(--color-ink-faint)]" />
+          <span className="block h-1.5 w-5/6 rounded bg-[color:var(--color-ink-faint)]/55" />
+          <span className="block h-1.5 w-2/3 rounded bg-[color:var(--color-ink-faint)]/55" />
+        </div>
+        <div className="mt-2 rounded-md bg-[color:var(--color-purple-soft)]/50 px-2 py-1.5 text-[10px] text-[color:var(--color-purple)] font-medium">
+          Q stelt voor: voeg een quote toe van klant Bureau Veldhuis
+        </div>
+      </div>
+
+      <div className="mt-3 flex items-center gap-2 shrink-0">
+        <div className={["flex-1 rounded-full h-8 flex items-center justify-center text-[11px] font-semibold transition-colors duration-300", sent ? "bg-emerald-600 text-white" : "bg-[color:var(--color-purple)] text-white"].join(" ")}>
+          {sent ? "✓ Verstuurd · 38% openingsrate" : "Verstuur campagne"}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── View: Advertenties (campagne-performance, kanalen, leads-counter) ───── */
+const ADS_CHANNELS: { name: string; spend: string; leads: number; bar: number }[] = [
+  { name: "Google Ads", spend: "€1.420", leads: 28, bar: 92 },
+  { name: "LinkedIn", spend: "€680", leads: 14, bar: 58 },
+  { name: "Meta", spend: "€340", leads: 5, bar: 30 },
+];
+
+function AdsView() {
+  const reduce = useReducedMotion();
+  return (
+    <div className="relative h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3 shrink-0">
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Campagne-overzicht · april</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">CRM-attributie</span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2 mb-3 shrink-0">
+        <div className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50 p-2.5">
+          <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-ink-subtle)]">Besteed</div>
+          <div className="mt-1 font-[family-name:var(--font-display)] text-[20px] font-bold leading-none tabular-nums text-[color:var(--color-ink-strong)]">€2.440</div>
+        </div>
+        <div className="rounded-xl border border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/40 p-2.5">
+          <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-purple)]">Leads</div>
+          <div className="mt-1 font-[family-name:var(--font-display)] text-[20px] font-bold leading-none tabular-nums text-[color:var(--color-ink-strong)]">
+            47
+          </div>
+        </div>
+      </div>
+
+      <div className="flex-1 space-y-2">
+        {ADS_CHANNELS.map((c, i) => (
+          <div key={c.name} className="rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-bg)]/40 p-2">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10.5px] font-semibold text-[color:var(--color-ink)]">{c.name}</span>
+              <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)]">{c.spend} · {c.leads} leads</span>
+            </div>
+            <div className="h-1.5 rounded-full bg-[color:var(--color-bg-muted)] overflow-hidden">
+              <motion.div
+                className="h-full rounded-full"
+                style={{ background: "linear-gradient(90deg, #ff0096 0%, #8b5cf6 100%)" }}
+                initial={reduce ? false : { width: "0%" }}
+                animate={{ width: `${c.bar}%` }}
+                transition={{ duration: 0.9, ease: EASE, delay: 0.25 + i * 0.12 }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-3 flex items-center gap-1.5 text-[10px] shrink-0">
+        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 text-emerald-700 px-2 py-0.5 font-semibold">
+          <TrendingUp className="h-2.5 w-2.5" strokeWidth={2.5} />
+          €51 per lead
+        </span>
+        <span className="rounded-full border border-[color:var(--color-line)] px-2 py-0.5 text-[color:var(--color-ink-subtle)]">-€12 vs vorige</span>
+      </div>
     </div>
   );
 }
