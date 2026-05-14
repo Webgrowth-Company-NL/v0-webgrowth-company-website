@@ -100,7 +100,7 @@ function ModuleCard({ module: m, index }: { module: ForesterModule; index: numbe
         ))}
       </div>
 
-      <span className="relative z-20 mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
+      <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
         Bekijk module
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
       </span>

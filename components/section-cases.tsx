@@ -89,7 +89,7 @@ function FeaturedCaseCard({ c }: { c: CaseStudy }) {
             <span key={p} className="rounded-full bg-[color:var(--color-purple-soft)] px-2.5 py-1 text-[11.5px] font-medium text-[color:var(--color-purple)]">{p}</span>
           ))}
         </div>
-        <span className="relative z-20 mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
+        <span className="mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
           Lees verder
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
         </span>
@@ -131,7 +131,7 @@ function CompactCaseCard({ c, index }: { c: CaseStudy; index: number }) {
         <h3 className="mt-1 font-[family-name:var(--font-display)] font-bold text-[14.5px] sm:text-[15.5px] leading-[1.25] tracking-[-0.005em] text-[color:var(--color-ink-strong)] group-hover:text-[color:var(--color-purple)] transition-colors line-clamp-2">
           {c.headlineLead} <span className="text-[color:var(--color-purple)]">{c.headlineHighlight}</span>
         </h3>
-        <span className="relative z-20 mt-2 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[color:var(--color-ink-muted)] group-hover:text-[color:var(--color-purple)] transition-colors">
+        <span className="mt-2 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[color:var(--color-ink-muted)] group-hover:text-[color:var(--color-purple)] transition-colors">
           Lees verder
           <ArrowRight className="h-3 w-3 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
         </span>
