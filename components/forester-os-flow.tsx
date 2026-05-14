@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, RefreshCw } from "lucide-react";
 import { FORESTER_FLOW, FORESTER_MODULES } from "@/lib/forester-os";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -10,11 +12,34 @@ const fadeUp = (delay = 0) => ({
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE, delay } },
 });
 
+/** Plaats per fase in het 2×2-rooster op lg+ (kloksgewijs: TL → TR → BR → BL). */
+const CYCLE_POSITION: Record<number, string> = {
+  0: "lg:col-start-1 lg:row-start-1",
+  1: "lg:col-start-2 lg:row-start-1",
+  2: "lg:col-start-2 lg:row-start-2",
+  3: "lg:col-start-1 lg:row-start-2",
+};
+
+/** Positie + rotatie van de richtingpijl die elke kaart koppelt aan de volgende fase op lg+. */
+const ARROW_POSITION: Record<number, string> = {
+  0: "lg:top-1/2 lg:-right-[58px] lg:-translate-y-1/2", // → naar 02
+  1: "lg:left-1/2 lg:-bottom-[58px] lg:-translate-x-1/2", // → naar 03
+  2: "lg:top-1/2 lg:-left-[58px] lg:-translate-y-1/2", // → naar 04
+  3: "lg:left-1/2 lg:-top-[58px] lg:-translate-x-1/2", // → terug naar 01
+};
+const ARROW_ROTATE: Record<number, string> = {
+  0: "",
+  1: "rotate-90",
+  2: "rotate-180",
+  3: "-rotate-90",
+};
+
 function moduleLabel(slug: string) {
   return FORESTER_MODULES.find((m) => m.slug === slug)?.short ?? slug;
 }
 
 export function ForesterOsFlow() {
+  const reduce = useReducedMotion();
   return (
     <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-white">
       <div className="mx-auto max-w-6xl">
@@ -31,67 +56,117 @@ export function ForesterOsFlow() {
             className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-            Eén stroom
+            Eén cyclus
           </motion.span>
           <motion.h2
             variants={fadeUp(0.05)}
             className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
           >
-            Van bezoek tot vaste klant.
+            Van bezoek tot vaste klant. En weer terug.
           </motion.h2>
           <motion.p
             variants={fadeUp(0.1)}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            Eén database, één tone-of-voice, één login. Zo werken de modules samen door je hele funnel, in plaats van elk op een eigen eiland.
+            Eén database, één tone-of-voice, één login. Vaste klanten brengen nieuwe bezoekers. Forester OS houdt de cyclus voor je draaiend, zodat groei zichzelf voedt.
           </motion.p>
         </motion.div>
 
-        {/* Flow steps */}
-        <div className="mt-14 grid gap-5 sm:gap-6 lg:grid-cols-4">
-          {FORESTER_FLOW.map((step, i) => (
-            <motion.article
-              key={step.phase}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.55, ease: EASE, delay: 0.15 + i * 0.08 }}
-              className="relative rounded-2xl bg-[color:var(--color-bg)] border border-[color:var(--color-line)] p-6 sm:p-7 shadow-[0_1px_2px_rgba(12,6,18,0.04)]"
+        {/* Cycle layout: 2x2 cards (lg) of vertical stack (mobile), met centrale hub */}
+        <div className="relative mt-14 mx-auto max-w-4xl">
+          {/* Center hub — alleen op lg+ */}
+          <div
+            aria-hidden
+            className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 items-center justify-center"
+          >
+            <div
+              className="relative h-28 w-28 rounded-full flex items-center justify-center shadow-[0_24px_44px_-10px_rgba(98,59,199,0.55),0_3px_6px_rgba(98,59,199,0.18)]"
+              style={{ backgroundImage: "linear-gradient(140deg, #ff0096 0%, #8b5cf6 55%, #c4b5fd 100%)" }}
             >
-              {/* Connector line on lg+ */}
-              {i < FORESTER_FLOW.length - 1 && (
-                <span
-                  aria-hidden
-                  className="hidden lg:block absolute top-9 -right-[14px] z-10 h-px w-7 bg-gradient-to-r from-[color:var(--color-purple)]/45 to-[color:var(--color-purple)]/0"
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-b from-white/30 via-transparent to-transparent" />
+              <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/25" />
+              <div className="relative h-[68px] w-[68px] rounded-full bg-white flex items-center justify-center shadow-[inset_0_1px_2px_rgba(12,6,18,0.06)]">
+                <Image src="/logo-bolt.png" alt="" width={36} height={36} className="object-contain" />
+              </div>
+              {/* Continu draaiende accent-arc */}
+              {!reduce && (
+                <motion.span
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 22, ease: "linear", repeat: Infinity }}
+                  className="absolute -inset-[10px] rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, transparent 0deg, transparent 320deg, rgba(98,59,199,0.65) 345deg, rgba(255,0,150,0.55) 358deg, transparent 360deg)",
+                    WebkitMaskImage:
+                      "radial-gradient(closest-side, transparent 76%, black 78%, black 100%)",
+                    maskImage:
+                      "radial-gradient(closest-side, transparent 76%, black 78%, black 100%)",
+                  }}
                 />
               )}
+            </div>
+          </div>
 
-              <div className="flex items-center justify-between">
-                <span className="font-[family-name:var(--font-mono)] text-[11px] font-semibold text-[color:var(--color-ink-subtle)] tabular-nums">
-                  {step.phase}
+          {/* 4 fase-kaarten */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-x-[180px] lg:gap-y-[180px]">
+            {FORESTER_FLOW.map((step, i) => (
+              <motion.article
+                key={step.phase}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.55, ease: EASE, delay: 0.15 + i * 0.08 }}
+                className={[
+                  "relative rounded-2xl bg-[color:var(--color-bg)] border border-[color:var(--color-line)] p-6 sm:p-7 shadow-[0_1px_2px_rgba(12,6,18,0.04)]",
+                  CYCLE_POSITION[i],
+                ].join(" ")}
+              >
+                {/* Pijl naar de volgende fase (lg+) */}
+                <span
+                  aria-hidden
+                  className={[
+                    "hidden lg:flex lg:absolute z-20 h-10 w-10 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white shadow-[0_10px_22px_-6px_rgba(98,59,199,0.55),0_2px_4px_rgba(98,59,199,0.2)]",
+                    ARROW_POSITION[i],
+                  ].join(" ")}
+                >
+                  <ArrowRight className={`h-4 w-4 ${ARROW_ROTATE[i]}`} strokeWidth={2.5} />
                 </span>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white text-[11px] font-bold tabular-nums">
-                  {i + 1}
-                </span>
-              </div>
 
-              <h3 className="mt-4 font-[family-name:var(--font-display)] font-bold text-[19px] sm:text-[20px] leading-[1.2] tracking-[-0.005em] text-[color:var(--color-ink-strong)]">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-[13.5px] leading-[1.6] text-[color:var(--color-ink-muted)]">{step.body}</p>
-
-              <div className="mt-5 flex flex-wrap gap-1.5">
-                {step.modules.map((slug) => (
-                  <span
-                    key={slug}
-                    className="rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 text-[10.5px] font-semibold text-[color:var(--color-purple)]"
-                  >
-                    {moduleLabel(slug)}
+                <div className="flex items-center justify-between">
+                  <span className="font-[family-name:var(--font-mono)] text-[11px] font-semibold text-[color:var(--color-ink-subtle)] tabular-nums">
+                    {step.phase}
                   </span>
-                ))}
-              </div>
-            </motion.article>
-          ))}
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white text-[11px] font-bold tabular-nums">
+                    {i + 1}
+                  </span>
+                </div>
+
+                <h3 className="mt-4 font-[family-name:var(--font-display)] font-bold text-[19px] sm:text-[20px] leading-[1.2] tracking-[-0.005em] text-[color:var(--color-ink-strong)]">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[13.5px] leading-[1.6] text-[color:var(--color-ink-muted)]">{step.body}</p>
+
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {step.modules.map((slug) => (
+                    <span
+                      key={slug}
+                      className="rounded-full bg-[color:var(--color-purple-tint)] px-2 py-0.5 text-[10.5px] font-semibold text-[color:var(--color-purple)]"
+                    >
+                      {moduleLabel(slug)}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* Mobile loop-back-indicator */}
+          <div className="lg:hidden mt-10 flex flex-col items-center gap-2 text-center">
+            <RefreshCw className="h-5 w-5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
+            <p className="text-[12.5px] text-[color:var(--color-ink-muted)] max-w-[260px]">
+              En weer terug naar gevonden worden, vaste klanten brengen nieuwe bezoekers.
+            </p>
+          </div>
         </div>
       </div>
     </section>
