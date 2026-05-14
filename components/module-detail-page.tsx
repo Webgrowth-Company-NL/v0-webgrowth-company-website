@@ -804,23 +804,11 @@ function ModuleStepsSection({
               <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
               {steps.eyebrow}
             </motion.span>
-            <motion.h2
-              variants={fadeUp(0.05)}
-              className="mt-5 font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
-            >
-              {steps.title}
-            </motion.h2>
-            <motion.p
-              variants={fadeUp(0.1)}
-              className="mt-5 text-[15.5px] leading-[1.6] text-[color:var(--color-ink-muted)]"
-            >
-              {steps.intro}
-            </motion.p>
 
             {illustration && (
               <motion.div
-                variants={fadeUp(0.16)}
-                className="mt-10 relative flex items-center justify-center lg:justify-start"
+                variants={fadeUp(0.05)}
+                className="mt-6 relative flex items-center justify-center lg:justify-start"
                 aria-hidden
               >
                 <Image
@@ -828,10 +816,23 @@ function ModuleStepsSection({
                   alt=""
                   width={520}
                   height={520}
-                  className="w-full max-w-[300px] lg:max-w-[340px] h-auto"
+                  className="w-full max-w-[260px] lg:max-w-[280px] h-auto"
                 />
               </motion.div>
             )}
+
+            <motion.h2
+              variants={fadeUp(0.1)}
+              className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
+            >
+              {steps.title}
+            </motion.h2>
+            <motion.p
+              variants={fadeUp(0.15)}
+              className="mt-5 text-[15.5px] leading-[1.6] text-[color:var(--color-ink-muted)]"
+            >
+              {steps.intro}
+            </motion.p>
           </motion.div>
 
           <ol className="relative flex flex-col">
