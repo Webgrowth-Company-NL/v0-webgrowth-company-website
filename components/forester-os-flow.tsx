@@ -27,8 +27,25 @@ function moduleLabel(slug: string) {
 export function ForesterOsFlow() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-white">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative isolate overflow-hidden px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-[#2c1d5e] text-white">
+      {/* Ambient glows */}
+      <div
+        aria-hidden
+        className="absolute -top-40 -left-44 h-[620px] w-[620px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(closest-side, rgba(139,92,246,0.32), rgba(139,92,246,0) 70%)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-48 -right-44 h-[620px] w-[620px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(closest-side, rgba(255,0,150,0.18), rgba(255,0,150,0) 70%)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none opacity-60 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]"
+        style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "30px 30px" }}
+      />
+
+      <div className="relative mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
           initial="hidden"
@@ -39,20 +56,20 @@ export function ForesterOsFlow() {
         >
           <motion.span
             variants={fadeUp(0)}
-            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-white/15 bg-white/10 text-[12.5px] font-medium text-white/75 backdrop-blur-sm"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#c4b5fd]" />
             Eén cyclus
           </motion.span>
           <motion.h2
             variants={fadeUp(0.05)}
-            className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
+            className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-white"
           >
             Van bezoek tot vaste klant. En weer terug.
           </motion.h2>
           <motion.p
             variants={fadeUp(0.1)}
-            className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
+            className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-white/70"
           >
             Eén database, één tone-of-voice, één login. Vaste klanten brengen nieuwe bezoekers. Forester OS houdt de cyclus voor je draaiend, zodat groei zichzelf voedt.
           </motion.p>
@@ -82,15 +99,15 @@ export function ForesterOsFlow() {
                 markerHeight="4.5"
                 orient="auto"
               >
-                <path d="M 0 0 L 12 6 L 0 12 L 3 6 Z" fill="#623bc7" />
+                <path d="M 0 0 L 12 6 L 0 12 L 3 6 Z" fill="#c4b5fd" />
               </marker>
             </defs>
             <g
-              stroke="#623bc7"
-              strokeOpacity="0.78"
+              stroke="#c4b5fd"
+              strokeOpacity="0.9"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="0.5"
+              strokeWidth="0.55"
               filter="url(#cycle-rough)"
             >
               {/* 01 → 02 (top): curves up between the two top cards */}
@@ -181,8 +198,8 @@ export function ForesterOsFlow() {
 
           {/* Mobile loop-back-indicator */}
           <div className="lg:hidden mt-10 flex flex-col items-center gap-2 text-center">
-            <RefreshCw className="h-5 w-5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
-            <p className="text-[12.5px] text-[color:var(--color-ink-muted)] max-w-[260px]">
+            <RefreshCw className="h-5 w-5 text-[#c4b5fd]" strokeWidth={2.25} />
+            <p className="text-[12.5px] text-white/70 max-w-[260px]">
               En weer terug naar gevonden worden, vaste klanten brengen nieuwe bezoekers.
             </p>
           </div>

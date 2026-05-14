@@ -93,9 +93,9 @@ export default function Page() {
         <ForesterOsHero />
         <WaveDivider top={CREAM} bottom={LAVENDER} />
         <ForesterOsModules />
-        <WaveDivider top={LAVENDER} bottom={WHITE} />
+        <WaveDivider top={LAVENDER} bottom={DEEP} />
         <ForesterOsFlow />
-        <WaveDivider top={WHITE} bottom={LAVENDER} />
+        <WaveDivider top={DEEP} bottom={LAVENDER} />
         <SectionFaq
           items={FORESTER_FAQS}
           eyebrow="Vragen over het platform"
