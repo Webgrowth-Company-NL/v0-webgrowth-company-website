@@ -10,6 +10,7 @@ import {
   LifeBuoy,
   Magnet,
   Mail,
+  Megaphone,
   MessageSquareQuote,
   Search,
   ShoppingBag,
@@ -28,6 +29,7 @@ export const PLATFORM_MODULES = [
   { href: "/forester-os/ai", label: "AI-content & Q", desc: "Q schrijft mee aan content, inzichten en taken", icon: Sparkles },
   { href: "/forester-os/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock },
   { href: "/forester-os/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail },
+  { href: "/forester-os/advertenties", label: "Advertenties", desc: "Google Ads en social-campagnes vanuit je eigen platform", icon: Megaphone },
 ] as const;
 
 export const OPLOSSINGEN_DOEL = [

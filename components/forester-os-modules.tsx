@@ -29,13 +29,13 @@ export function ForesterOsModules() {
             className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-            Acht modules
+            Negen modules
           </motion.span>
           <motion.h2
             variants={fadeUp(0.05)}
             className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
           >
-            Acht modules die elkaar versterken.
+            Negen modules die elkaar versterken.
           </motion.h2>
           <motion.p
             variants={fadeUp(0.1)}
@@ -46,7 +46,7 @@ export function ForesterOsModules() {
         </motion.div>
 
         {/* Module grid */}
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {FORESTER_MODULES.map((m, i) => (
             <ModuleCard key={m.slug} module={m} index={i} />
           ))}

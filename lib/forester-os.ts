@@ -13,6 +13,7 @@ import {
   Globe,
   type LucideIcon,
   Mail,
+  Megaphone,
   Search,
   ShoppingBag,
   Sparkles,
@@ -110,6 +111,16 @@ export const FORESTER_MODULES: ForesterModule[] = [
     features: ["Segmenten uit CRM", "Q als ghostwriter", "Eigen verzenddomein", "Analytics inbegrepen"],
     icon: Mail,
   },
+  {
+    slug: "advertenties",
+    label: "Advertenties",
+    short: "Ads",
+    tagline: "Slimme campagnes, gestuurd vanuit je CRM",
+    body:
+      "Google Ads en social-campagnes draaien vanuit Forester OS, gevoed door wat er in je CRM gebeurt. Q schrijft varianten, het dashboard laat zien welke euro waar landt.",
+    features: ["Google Ads-koppeling", "Social campagnes", "Q-ad copy", "CRM-attributie"],
+    icon: Megaphone,
+  },
 ];
 
 export type ForesterFlowStep = {
@@ -124,8 +135,8 @@ export const FORESTER_FLOW: ForesterFlowStep[] = [
     phase: "01",
     title: "Gevonden worden",
     body:
-      "Snelle pagina's, geoptimaliseerde content en de Search Console-koppeling die laat zien wat werkt. Q stelt de volgende blog of pagina voor en de Content Publisher zet 'm op schema live.",
-    modules: ["website", "seo", "content-publisher"],
+      "Snelle pagina's, geoptimaliseerde content en de Search Console-koppeling die laat zien wat werkt. Q stelt de volgende blog voor, de Content Publisher zet 'm op schema live en advertenties zorgen voor extra duw waar dat nodig is.",
+    modules: ["website", "seo", "content-publisher", "advertenties"],
   },
   {
     phase: "02",

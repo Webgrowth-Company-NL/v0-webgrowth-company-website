@@ -64,7 +64,7 @@ export function ForesterOsHero() {
           <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
           Forester OS
           <span className="text-[color:var(--color-ink-faint)]">·</span>
-          <span className="text-[color:var(--color-ink)] font-semibold">Acht modules, één login</span>
+          <span className="text-[color:var(--color-ink)] font-semibold">Negen modules, één login</span>
         </motion.span>
 
         <motion.h1
