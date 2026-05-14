@@ -72,8 +72,14 @@ function ModuleCard({ module: m, index }: { module: ForesterModule; index: numbe
         aria-label={`Bekijk ${m.label}`}
       />
 
-      <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)]">
-        <Icon className="h-5 w-5" strokeWidth={2.25} />
+      <span
+        className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-[0_14px_28px_-10px_rgba(98,59,199,0.55),0_2px_4px_rgba(98,59,199,0.18)] transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04]"
+        style={{ backgroundImage: "linear-gradient(140deg, #ff0096 0%, #8b5cf6 55%, #c4b5fd 100%)" }}
+      >
+        {/* glass-like top highlight + inner ring for premium-icon-tile feel */}
+        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/30 via-white/0 to-white/0" />
+        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/20" />
+        <Icon className="relative h-6 w-6 drop-shadow-[0_1px_2px_rgba(12,6,18,0.25)]" strokeWidth={2} />
       </span>
 
       <h3 className="mt-5 font-[family-name:var(--font-display)] font-bold text-[18px] sm:text-[19px] leading-[1.25] tracking-[-0.005em] text-[color:var(--color-ink-strong)]">
