@@ -1,9 +1,15 @@
-// Recolor the hair fill (currently fill="black") to the blonde #EAC26A used on
-// digital-writing.svg. Picks the longest fill="black" path with Y<600 (head area).
+// Recolor hair to #EAC26A based on Storyset Digital Workforce path-size pattern.
+// Reference: digital-writing.svg's hair is a fill="black" path of ~5928 chars, near top of canvas.
+// We recolor every fill="black"/fill="#000" path with length in range [4000, 8000] AND Y<300.
+// That matches the consistent Storyset hair-fill size while skipping outlines (12k+), eyes (<1k), big art (>20k).
 // Usage: node scripts/recolor-hair.mjs <svg-file> [...more files]
 import { readFileSync, writeFileSync } from "node:fs";
 
 const HAIR_COLOR = "#EAC26A";
+const LEN_MIN = 4000;
+const LEN_MAX = 8000;
+const Y_MAX = 300;
+
 const files = process.argv.slice(2);
 if (!files.length) {
   console.error("usage: node scripts/recolor-hair.mjs <svg-file> [...]");
@@ -13,38 +19,34 @@ if (!files.length) {
 for (const file of files) {
   const src = readFileSync(file, "utf8");
   const pathRe = /<path\b[^>]*?>/g;
-  let bestStart = -1;
-  let bestEnd = -1;
-  let bestLen = -1;
-  let bestY = 0;
+  const targets = [];
   let m;
   while ((m = pathRe.exec(src)) !== null) {
     const tag = m[0];
-    if (!/fill="black"/.test(tag)) continue;
+    if (!/fill="(?:black|#000)"/.test(tag)) continue;
     const dMatch = tag.match(/d="([^"]+)"/);
     if (!dMatch) continue;
     const d = dMatch[1];
+    if (d.length < LEN_MIN || d.length > LEN_MAX) continue;
     const first = d.match(/M\s*(-?\d+(?:\.\d+)?)[ ,]+(-?\d+(?:\.\d+)?)/);
-    const y = first ? Number(first[2]) : 0;
-    if (y > 600) continue; // hair only — skip body/limbs lower down
-    if (d.length > bestLen) {
-      bestLen = d.length;
-      bestStart = m.index;
-      bestEnd = m.index + tag.length;
-      bestY = y;
-    }
+    if (!first) continue;
+    const y = Number(first[2]);
+    if (y > Y_MAX) continue;
+    const x = Number(first[1]);
+    targets.push({ start: m.index, end: m.index + tag.length, x, y, len: d.length, tag });
   }
-  if (bestStart < 0) {
-    console.log(`  SKIP ${file} — no fill="black" path with Y<600 found`);
+  if (!targets.length) {
+    console.log(`  SKIP ${file} — no candidate hair-fill path found`);
     continue;
   }
-  const original = src.slice(bestStart, bestEnd);
-  const recolored = original.replace(/fill="black"/, `fill="${HAIR_COLOR}"`);
-  if (recolored === original) {
-    console.log(`  SKIP ${file} — replacement didn't change the tag`);
-    continue;
-  }
-  const out = src.slice(0, bestStart) + recolored + src.slice(bestEnd);
+  // Apply replacements in reverse order to keep indices valid
+  targets.sort((a, b) => b.start - a.start);
+  let out = src;
+  targets.forEach((t) => {
+    const recolored = t.tag.replace(/fill="(?:black|#000)"/, `fill="${HAIR_COLOR}"`);
+    out = out.slice(0, t.start) + recolored + out.slice(t.end);
+  });
   writeFileSync(file, out);
-  console.log(`  OK   ${file} — hair path Y=${bestY} len=${bestLen} recolored to ${HAIR_COLOR}`);
+  console.log(`  OK   ${file} — recolored ${targets.length} hair path(s):`);
+  targets.forEach((t) => console.log(`         Y=${t.y.toFixed(0)} X=${t.x.toFixed(0)} len=${t.len}`));
 }
