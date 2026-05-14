@@ -4,15 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { animate, motion, useInView, useMotionValue, useReducedMotion } from "framer-motion";
-import { ArrowRight, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Check, Clock, ShieldCheck, TrendingUp, Zap } from "lucide-react";
 import { HeroDashboard } from "@/components/hero-dashboard";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WaveDivider } from "@/components/wave-divider";
-import { FORESTER_MODULES, type ForesterModule, type ModuleWidgetData } from "@/lib/forester-os";
-import { OPLOSSING_DETAILS, type OplossingDetail } from "@/lib/oplossingen";
+import { type ModuleWidgetData } from "@/lib/forester-os";
+import { OPLOSSING_DETAILS, type OplossingBundle, type OplossingDetail } from "@/lib/oplossingen";
 
 const CREAM = "#faf6f0";
 const LAVENDER = "#e9e4f7";
@@ -39,24 +39,25 @@ export function OplossingDetailPage({ slug }: { slug: string }) {
   const detail = OPLOSSING_DETAILS[slug];
   if (!detail) return null;
 
-  const modules = detail.moduleSlugs
-    .map((s) => FORESTER_MODULES.find((m) => m.slug === s))
-    .filter((m): m is ForesterModule => !!m);
-
   return (
     <>
       <SiteHeader />
       <main className="flex-1">
         <OplossingHero detail={detail} />
         <WaveDivider top={CREAM} bottom={LAVENDER} />
-        {detail.proofWidget && <ProofStatsSection widget={detail.proofWidget} />}
+        <BundleSection bundle={detail.bundle} />
         <WaveDivider top={LAVENDER} bottom={WHITE} />
         <PainsSection pains={detail.pains} />
         <WaveDivider top={WHITE} bottom={LAVENDER} />
-        <OplossingModulesSection modules={modules} />
-        <WaveDivider top={LAVENDER} bottom={WHITE} />
         <OplossingStepsSection steps={detail.steps} illustration={detail.illustration} />
-        <WaveDivider top={WHITE} bottom={LAVENDER} />
+        {detail.proofWidget && (
+          <>
+            <WaveDivider top={LAVENDER} bottom={WHITE} />
+            <ProofStatsSection widget={detail.proofWidget} />
+            <WaveDivider top={WHITE} bottom={LAVENDER} />
+          </>
+        )}
+        {!detail.proofWidget && <WaveDivider top={LAVENDER} bottom={LAVENDER} height="h-6" />}
         <SectionFaq
           items={detail.faq}
           eyebrow="Veelgestelde vragen"
@@ -199,6 +200,138 @@ function OplossingHero({ detail }: { detail: OplossingDetail }) {
   );
 }
 
+/* ── BundleSection: dé "WOW dit-voor-dit-bedrag"-sectie ────────────── */
+
+function BundleSection({ bundle }: { bundle: OplossingBundle }) {
+  return (
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-20 sm:pb-28 bg-[#e9e4f7]">
+      <div className="mx-auto max-w-5xl">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <motion.span
+            variants={fadeUp(0)}
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+            {bundle.eyebrow}
+          </motion.span>
+          <motion.h2
+            variants={fadeUp(0.05)}
+            className="mt-5 font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.07] tracking-[-0.015em] text-[color:var(--color-ink-strong)]"
+          >
+            {bundle.name}
+          </motion.h2>
+          <motion.p
+            variants={fadeUp(0.1)}
+            className="mt-4 text-[15.5px] sm:text-[16.5px] leading-[1.6] text-[color:var(--color-ink-muted)]"
+          >
+            {bundle.pitch}
+          </motion.p>
+        </motion.div>
+
+        {/* The card itself: deliverables left, price + CTA right */}
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.65, ease: EASE, delay: 0.18 }}
+          className="relative mt-12 rounded-[2rem] bg-white border border-[color:var(--color-line)] overflow-hidden shadow-[0_30px_80px_-30px_rgba(98,59,199,0.35),0_10px_30px_-15px_rgba(98,59,199,0.18)]"
+        >
+          {/* Top gradient accent */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-1"
+            style={{ backgroundImage: "linear-gradient(90deg, #ff0096 0%, #8b5cf6 55%, #c4b5fd 100%)" }}
+          />
+
+          <div className="grid md:grid-cols-[1.35fr_1fr] gap-0">
+            {/* Left: deliverables */}
+            <div className="p-7 sm:p-9 md:p-10 md:border-r border-[color:var(--color-line)]">
+              <div className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                Wat zit erin
+              </div>
+              <ul className="mt-5 space-y-3">
+                {bundle.includes.map((item, i) => (
+                  <motion.li
+                    key={item}
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.45, ease: EASE, delay: 0.25 + i * 0.05 }}
+                    className="flex items-start gap-3"
+                  >
+                    <span
+                      className="relative inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-white shadow-[0_6px_14px_-6px_rgba(98,59,199,0.5)]"
+                      style={GRADIENT_TILE_STYLE}
+                    >
+                      <span aria-hidden className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-b from-white/30 via-white/0 to-white/0" />
+                      <span aria-hidden className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/20" />
+                      <Check className="relative h-3.5 w-3.5" strokeWidth={3} />
+                    </span>
+                    <span className="text-[14.5px] leading-snug text-[color:var(--color-ink)]">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: price + CTA */}
+            <div className="bg-gradient-to-br from-[color:var(--color-purple-soft)]/45 to-white p-7 sm:p-9 md:p-10 flex flex-col justify-between gap-6">
+              <div>
+                <div className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                  Prijs
+                </div>
+                <div className="mt-3 flex items-baseline gap-1.5">
+                  <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.6rem,5vw,3.4rem)] leading-none tabular-nums text-[color:var(--color-ink-strong)]">
+                    €{bundle.monthlyPrice}
+                  </span>
+                  <span className="text-[14px] font-medium text-[color:var(--color-ink-muted)]">
+                    / maand
+                  </span>
+                </div>
+                <p className="mt-2 text-[12.5px] text-[color:var(--color-ink-subtle)]">
+                  Excl. BTW. Op basis van{" "}
+                  <Link href="/prijzen" className="underline underline-offset-2 hover:text-[color:var(--color-purple)] transition-colors font-medium text-[color:var(--color-ink-muted)]">
+                    {bundle.basedOnPlan}
+                  </Link>
+                  -abonnement.
+                </p>
+
+                <div className="mt-5 flex items-center gap-2 text-[13px] font-semibold text-[color:var(--color-ink)]">
+                  <Clock className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />
+                  {bundle.timing}
+                </div>
+              </div>
+
+              <div>
+                <Link
+                  href={bundle.ctaHref}
+                  className="btn-press group inline-flex items-center justify-between gap-2 w-full pl-5 pr-2 py-2.5 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[15px] font-semibold shadow-[0_2px_4px_rgba(98,59,199,0.28),0_18px_40px_-12px_rgba(98,59,199,0.55)] hover:shadow-[0_8px_18px_rgba(98,59,199,0.36),0_28px_56px_-12px_rgba(98,59,199,0.78)]"
+                >
+                  {bundle.ctaLabel}
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/18 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-white/30">
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                  </span>
+                </Link>
+                {bundle.trustLine && (
+                  <div className="mt-3 flex items-center gap-1.5 text-[12px] text-[color:var(--color-ink-muted)]">
+                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" strokeWidth={2.25} />
+                    {bundle.trustLine}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Pains: 'wat blijft er liggen' ───────────────── */
 
 function PainsSection({ pains }: { pains: OplossingDetail["pains"] }) {
@@ -249,88 +382,13 @@ function PainsSection({ pains }: { pains: OplossingDetail["pains"] }) {
   );
 }
 
-/* ── Modules die dit oplossen ────────────────────── */
-
-function OplossingModulesSection({ modules }: { modules: ForesterModule[] }) {
-  if (modules.length === 0) return null;
-  return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-[#e9e4f7]">
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-          className="text-center max-w-2xl mx-auto"
-        >
-          <motion.span
-            variants={fadeUp(0)}
-            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-            Wat Forester OS doet
-          </motion.span>
-          <motion.h2
-            variants={fadeUp(0.05)}
-            className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
-          >
-            De modules die dit oplossen.
-          </motion.h2>
-          <motion.p
-            variants={fadeUp(0.1)}
-            className="mt-5 text-[15.5px] sm:text-[16.5px] leading-[1.6] text-[color:var(--color-ink-muted)]"
-          >
-            Geen losse stack, één platform waar deze modules dezelfde data en dezelfde tone-of-voice delen.
-          </motion.p>
-        </motion.div>
-
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 gap-5 sm:gap-6">
-          {modules.map((m, i) => {
-            const Icon = m.icon;
-            return (
-              <motion.article
-                key={m.slug}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: EASE, delay: 0.1 + i * 0.06 }}
-                className="group relative flex items-start gap-4 rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-6 shadow-[0_1px_2px_rgba(12,6,18,0.04)] hover:shadow-[0_18px_40px_-22px_rgba(12,6,18,0.18)] hover:border-[color:var(--color-line-strong)] hover:-translate-y-[2px] transition-[box-shadow,border-color,transform] duration-300 ease-out"
-              >
-                <Link href={`/forester-os/${m.slug}`} className="absolute inset-0" aria-label={`Bekijk ${m.label}`} />
-                <span
-                  className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white shadow-[0_10px_20px_-8px_rgba(98,59,199,0.5)]"
-                  style={GRADIENT_TILE_STYLE}
-                >
-                  <span aria-hidden className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-white/30 via-white/0 to-white/0" />
-                  <span aria-hidden className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/20" />
-                  <Icon className="relative h-5 w-5" strokeWidth={2} />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-[family-name:var(--font-display)] font-bold text-[16px] sm:text-[17px] leading-[1.25] text-[color:var(--color-ink-strong)] group-hover:text-[color:var(--color-purple)] transition-colors">
-                    {m.label}
-                  </h3>
-                  <p className="mt-1 text-[13px] leading-snug text-[color:var(--color-ink-muted)]">{m.tagline}</p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
-                    Bekijk module
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
-                  </span>
-                </div>
-              </motion.article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ── Proof: stats-cards (kopie van module-detail-page) ───── */
 
 type StatsCardsWidget = Extract<ModuleWidgetData, { kind: "stats-cards" }>;
 
 function ProofStatsSection({ widget }: { widget: StatsCardsWidget }) {
   return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-20 sm:pb-28 bg-[#e9e4f7]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-20 sm:pb-28 bg-white">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial="hidden"
@@ -341,7 +399,7 @@ function ProofStatsSection({ widget }: { widget: StatsCardsWidget }) {
         >
           <motion.span
             variants={fadeUp(0)}
-            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+            className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
             {widget.eyebrow}
@@ -538,7 +596,7 @@ function OplossingStepsSection({
   illustration?: string;
 }) {
   return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-white">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-[#e9e4f7]">
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-14 items-start">
           <motion.div
@@ -549,7 +607,7 @@ function OplossingStepsSection({
           >
             <motion.span
               variants={fadeUp(0)}
-              className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+              className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
               {steps.eyebrow}

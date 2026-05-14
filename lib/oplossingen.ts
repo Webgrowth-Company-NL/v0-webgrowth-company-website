@@ -23,8 +23,32 @@ export type HeroDashboardView =
   | "nieuwsbrieven"
   | "advertenties";
 
+/** De bundle-card die het "WOW dit-voor-dit-bedrag" doet. Prominent ná de hero. */
+export type OplossingBundle = {
+  /** Bundle-naam, bv. "Het Lead-pakket" */
+  name: string;
+  /** Eyebrow boven de bundle */
+  eyebrow: string;
+  /** Korte propositie (1-2 zinnen) */
+  pitch: string;
+  /** 5-7 concrete deliverables ('alles wat erin zit') */
+  includes: string[];
+  /** Maandprijs in euro's (excl. BTW) */
+  monthlyPrice: number;
+  /** Timing-belofte, bv. "Live in 4-6 weken" */
+  timing: string;
+  /** CTA label op de hoofdknop */
+  ctaLabel: string;
+  /** CTA href */
+  ctaHref: string;
+  /** Trust-strip onder de prijs (geruststelling) */
+  trustLine?: string;
+  /** Welk Forester OS-abonnement de basis is (linkt naar /prijzen) */
+  basedOnPlan: "Core" | "Growth" | "Scale";
+};
+
 export type OplossingDetail = {
-  /** Eerste deel van de hero-H1 */
+  /** Eerste deel van de hero-H1, outcome-gericht (resultaat, niet feature) */
   heroLead: string;
   /** Tweede deel van de hero-H1 (gradient-shimmer accent) */
   heroHighlight: string;
@@ -32,11 +56,13 @@ export type OplossingDetail = {
   heroIntro: string;
   /** Welke single-view we in de hero-widget tonen */
   heroView?: HeroDashboardView;
+  /** Bundle met prijs + scope: dé wow-sectie ná de hero */
+  bundle: OplossingBundle;
   /** 3-4 herkenbare pains uit de doelgroep */
   pains: OplossingPain[];
-  /** Slug van Forester OS-modules die dit oplost (uit FORESTER_MODULES), 3-4 stuks */
+  /** Forester OS-modules die hier samenwerken (informatief, geen aparte sectie) */
   moduleSlugs: string[];
-  /** Section-2 proof: stats-cards widget (gedeeld type met module-pages) */
+  /** Section-proof: stats-cards widget */
   proofWidget?: Extract<ModuleWidgetData, { kind: "stats-cards" }>;
   /** Stappenplan voor 'zo bouwen we het op' */
   steps: { eyebrow: string; title: string; intro: string; items: OplossingStep[] };
@@ -50,11 +76,32 @@ export type OplossingDetail = {
 
 export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
   "meer-leads": {
-    heroLead: "Meer leads",
-    heroHighlight: "uit je eigen site.",
+    heroLead: "Meer aanvragen,",
+    heroHighlight: "minder lege mailboxen.",
     heroIntro:
-      "Quickscans, calculators en slimme formulieren die anonieme bezoekers omzetten in concrete aanvragen, met context en een seintje op je telefoon. Geen los marketingbureau, geen losse leadgen-tool.",
+      "Over 4 tot 6 weken staat er een leadflow op je eigen site die anonieme bezoekers omzet in concrete aanvragen, mét context en een seintje op je telefoon. Geen los marketingbureau, geen losse leadgen-tool, geen handmatige opvolging.",
     heroView: "lead-engine",
+    bundle: {
+      name: "Het Lead-pakket",
+      eyebrow: "Wat je krijgt, voor één maandprijs",
+      pitch:
+        "Alles wat je nodig hebt om bezoekers om te zetten in concrete aanvragen, in één abonnement. Hosting, CMS, CRM, marketing en AI: één login, één factuur, één team dat meedraait.",
+      includes: [
+        "Snelle Next.js-website op Forester OS",
+        "2 lead engines (quickscan, calculator of slim formulier)",
+        "CRM met taken, statussen en WhatsApp-notificaties",
+        "Q, je AI-assistent voor opvolg-mails en lead-samenvattingen",
+        "Maandelijks Momentum Report met conversiecijfers",
+        "Hosting, SSL, dagelijkse back-ups en AVG-compliance",
+        "Continu doorontwikkeld door ons team",
+      ],
+      monthlyPrice: 399,
+      timing: "Live in 4 tot 6 weken",
+      ctaLabel: "Boek een kennismaking",
+      ctaHref: "/contact?plan=core",
+      trustLine: "Maandelijks opzegbaar na 6 maanden. Geen setup-fee.",
+      basedOnPlan: "Core",
+    },
     pains: [
       {
         title: "Bezoekers vertrekken zonder spoor",
@@ -137,11 +184,32 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
   },
 
   "zakelijke-dienstverlening": {
-    heroLead: "Eén platform voor",
-    heroHighlight: "advocaten, notarissen en accountants.",
+    heroLead: "Acquisitie die niet afhangt van",
+    heroHighlight: "het netwerk van één partner.",
     heroIntro:
-      "Website, CRM, marketing en AI in één abonnement, afgestemd op kantoren in de zakelijke dienstverlening. Geen losse leveranciers, geen losse facturen, één login voor het hele team.",
+      "Eén platform voor je hele kantoor: website, CRM, marketing en AI in één abonnement. Junior en senior werken in dezelfde flow, jij krijgt één factuur per maand. Afgestemd op advocaten, notarissen en accountants.",
     heroView: "crm",
+    bundle: {
+      name: "Het Kantoor-pakket",
+      eyebrow: "Wat je krijgt, voor één maandprijs",
+      pitch:
+        "Een volledig groeiplatform voor je kantoor: vindbare site, kwalificerende leadflow, gedeeld CRM en Q-AI als extra paar handen voor elke dossier-opvolging. Geen losse leveranciers, geen losse contracten.",
+      includes: [
+        "Snelle, vindbare website met juridische tone-of-voice",
+        "4 lead engines (quickscans, kennistests, calculators)",
+        "CRM met dossier-pijplijn en team-rollen",
+        "Q-AI voor mails, samenvattingen en opvolging op maat",
+        "E-mailcampagnes en automations vanuit eigen domein",
+        "Tot 50 SEO-keywords met live Search Console-data",
+        "Maandelijkse momentum-meeting met Martijn",
+      ],
+      monthlyPrice: 699,
+      timing: "Live in 6 tot 8 weken, inclusief migratie",
+      ctaLabel: "Plan een kennismaking",
+      ctaHref: "/contact?plan=growth",
+      trustLine: "Maandelijks opzegbaar na 12 maanden. Migratie inbegrepen.",
+      basedOnPlan: "Growth",
+    },
     pains: [
       {
         title: "Acquisitie hangt aan persoonlijke netwerken",
