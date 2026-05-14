@@ -13,7 +13,7 @@ function formatPrice(p: number) {
 
 export function PricingPlans() {
   return (
-    <section className="relative px-5 sm:px-8 pt-12 sm:pt-16 pb-24 sm:pb-32 bg-[color:var(--color-bg)]">
+    <section className="relative px-5 sm:px-8 pt-16 sm:pt-20 pb-24 sm:pb-32 bg-[#f2effb]">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 lg:gap-7 md:grid-cols-3 items-stretch">
           {PRICING_PLANS.map((plan, i) => (

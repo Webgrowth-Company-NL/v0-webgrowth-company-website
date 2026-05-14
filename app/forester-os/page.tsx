@@ -91,8 +91,9 @@ export default function Page() {
       <SiteHeader />
       <main className="flex-1">
         <ForesterOsHero />
+        <WaveDivider top={CREAM} bottom={LAVENDER} />
         <ForesterOsModules />
-        <WaveDivider top={CREAM} bottom={WHITE} />
+        <WaveDivider top={LAVENDER} bottom={WHITE} />
         <ForesterOsFlow />
         <WaveDivider top={WHITE} bottom={LAVENDER} />
         <SectionFaq

@@ -82,8 +82,9 @@ export default function Page() {
       <SiteHeader />
       <main className="flex-1">
         <WebsiteApkHero />
+        <WaveDivider top={CREAM} bottom={LAVENDER} />
         <WebsiteApkEmbed />
-        <WaveDivider top={CREAM} bottom={WHITE} />
+        <WaveDivider top={LAVENDER} bottom={WHITE} />
         <WebsiteApkValue />
         <WaveDivider top={WHITE} bottom={LAVENDER} />
         <SectionFaq

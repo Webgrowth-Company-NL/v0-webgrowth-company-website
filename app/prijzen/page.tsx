@@ -102,8 +102,9 @@ export default function Page() {
       <SiteHeader />
       <main className="flex-1">
         <PricingHero />
+        <WaveDivider top={CREAM} bottom={LAVENDER} />
         <PricingPlans />
-        <WaveDivider top={CREAM} bottom={WHITE} />
+        <WaveDivider top={LAVENDER} bottom={WHITE} />
         <PricingComparison />
         <WaveDivider top={WHITE} bottom={LAVENDER} />
         <SectionFaq
