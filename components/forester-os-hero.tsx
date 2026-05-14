@@ -71,7 +71,7 @@ export function ForesterOsHero() {
             className="inline-block bg-clip-text text-transparent"
             style={{
               backgroundImage:
-                "linear-gradient(110deg, #4d2da3 0%, #623bc7 35%, #8b5cf6 65%, #c4b5fd 100%)",
+                "linear-gradient(110deg, #ff0096 0%, #8b5cf6 50%, #c4b5fd 100%)",
               backgroundSize: "220% 220%",
               animation: "shimmer 7s ease-in-out infinite",
               WebkitBackgroundClip: "text",

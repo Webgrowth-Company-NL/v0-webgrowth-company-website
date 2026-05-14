@@ -149,7 +149,7 @@ export function Hero() {
                   className="inline-block bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      "linear-gradient(110deg, #ffffff 0%, #e9d5ff 32%, #c4b5fd 62%, #ffffff 100%)",
+                      "linear-gradient(110deg, #ff0096 0%, #8b5cf6 50%, #c4b5fd 100%)",
                     backgroundSize: "220% 220%",
                     animation: reduce ? undefined : "shimmer 7s ease-in-out infinite",
                     WebkitBackgroundClip: "text",
