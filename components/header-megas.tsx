@@ -88,8 +88,13 @@ function ModuleItem({
       onClick={onNavigate}
       className="group flex items-start gap-3 p-3.5 rounded-xl hover:bg-[color:var(--color-bg-muted)]/70 transition-colors"
     >
-      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)] transition-transform duration-200 ease-out group-hover:scale-105">
-        <Icon className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />
+      <span
+        className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white shadow-[0_6px_14px_-6px_rgba(98,59,199,0.55),0_1px_2px_rgba(98,59,199,0.18)] transition-transform duration-200 ease-out group-hover:scale-105"
+        style={{ backgroundImage: "linear-gradient(140deg, #ff0096 0%, #8b5cf6 55%, #c4b5fd 100%)" }}
+      >
+        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-white/25 via-white/0 to-white/0" />
+        <span aria-hidden className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/18" />
+        <Icon className="relative h-4 w-4 drop-shadow-[0_1px_1px_rgba(12,6,18,0.2)]" strokeWidth={2} />
       </span>
       <span className="min-w-0">
         <span className="flex items-center gap-1.5">
