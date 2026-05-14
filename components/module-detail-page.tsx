@@ -20,12 +20,12 @@ import {
 
 const STEPS_ILLUSTRATIONS: Record<string, string> = {
   website: "/illustrations/digital-writing.svg",
-  "lead-engine": "/illustrations/communication.svg",
-  "sales-engine": "/illustrations/growth.svg",
+  "lead-engine": "/illustrations/digital-inspiration.svg",
+  "sales-engine": "/illustrations/biz-finance.svg",
   crm: "/illustrations/communication.svg",
-  seo: "/illustrations/growth.svg",
-  ai: "/illustrations/writing.svg",
-  "content-publisher": "/illustrations/digital-writing.svg",
+  seo: "/illustrations/business-growth.svg",
+  ai: "/illustrations/innovation-ideas.svg",
+  "content-publisher": "/illustrations/take-on-the-project.svg",
   nieuwsbrieven: "/illustrations/writing.svg",
   advertenties: "/illustrations/growth.svg",
 };
