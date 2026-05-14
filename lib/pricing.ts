@@ -143,7 +143,7 @@ export const PRICING_FAQS: PricingFaqItem[] = [
   },
   {
     q: "Is er een setup-fee?",
-    a: "Voor Core en Growth bij standaard onboarding niet, het maandbedrag is wat het is. Voor Scale-projecten (custom platforms) of niet-standaard migraties maken we vooraf een vaste-prijs offerte, eventueel met een eenmalige setup-fee. Altijd transparant vooraf.",
+    a: "Nooit. Geen opstartkosten, geen setup-fee, ook niet voor Scale-projecten. Het maandbedrag is wat het is, inclusief migratie en onboarding. Wat we afspreken staat vooraf op papier.",
   },
   {
     q: "Hoe snel sta ik live?",
