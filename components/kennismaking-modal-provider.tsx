@@ -179,6 +179,7 @@ function KennismakingModal({ open, onClose }: { open: boolean; onClose: () => vo
           time: selectedTime,
           subject,
           attendeeEmail: email.trim(),
+          attendeeName: name.trim(),
           firstName: name.trim().split(" ")[0],
           companyName: company.trim(),
         }),
