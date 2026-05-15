@@ -102,21 +102,29 @@ const FLOATING: Record<ViewKey, Stat[]> = {
   ],
 };
 
+/** Subset views die op de homepage-cycling getoond worden (4 originelen).
+ *  De andere 5 views zijn alleen beschikbaar via single-view op detailpagina's. */
+const CYCLE_VIEW_KEYS: ViewKey[] = ["website", "seo", "crm", "ai"];
+
 export function HeroDashboard({
   view: viewProp,
   config,
 }: { view?: ViewKey; config?: HeroDashboardConfig } = {}) {
   const reduce = useReducedMotion();
   const single = viewProp !== undefined;
+  // In cycling mode tonen we alleen de 4 originele views; in single-view zoeken we de juiste view op.
+  const viewsToShow = single
+    ? VIEWS
+    : VIEWS.filter((v) => CYCLE_VIEW_KEYS.includes(v.key));
   const initialIndex = single
-    ? Math.max(0, VIEWS.findIndex((v) => v.key === viewProp))
+    ? Math.max(0, viewsToShow.findIndex((v) => v.key === viewProp))
     : 0;
   const [active, setActive] = useState(initialIndex);
   const [paused, setPaused] = useState(false);
   const [userPicked, setUserPicked] = useState(false);
   const autoCycle = !single && !reduce && !paused && !userPicked;
 
-  const view = VIEWS[active];
+  const view = viewsToShow[active];
 
   return (
     <motion.div
@@ -160,7 +168,7 @@ export function HeroDashboard({
         {/* View tabs — pick which dashboard you want to see */}
         {!single && (
         <div className="flex items-center gap-1 px-2.5 py-2.5 border-b border-[color:var(--color-line)]">
-          {VIEWS.map((v, i) => {
+          {viewsToShow.map((v, i) => {
             const isActive = i === active;
             return (
               <motion.button
@@ -197,7 +205,7 @@ export function HeroDashboard({
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: CYCLE_MS / 1000, ease: "linear" }}
-                onAnimationComplete={() => setActive((i) => (i + 1) % VIEWS.length)}
+                onAnimationComplete={() => setActive((i) => (i + 1) % viewsToShow.length)}
               />
             )}
           </div>
