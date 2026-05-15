@@ -142,7 +142,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We beginnen klein, meten echt en schalen op wat werkt. Geen wekenlang strategisch zwabberen, gewoon iets dat leads oplevert en dat we kunnen verbeteren.",
       items: [
         {
-          title: "Strategie & kwalificatie",
+          title: "Kick-off meeting",
           body: "We bepalen welk lead-mechanisme past (quickscan, calculator, training of slim formulier) en welke kwalificatievragen sales écht nodig heeft om sneller te kunnen werken.",
         },
         {
@@ -263,7 +263,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "Geen big-bang migratie, geen 'eerst alles stoppen, dan iets nieuws beginnen'. We faseren in waar je nu staat en bouwen het kantoor stap voor stap om.",
       items: [
         {
-          title: "Audit & GTM-strategie",
+          title: "Kick-off meeting",
           body: "We brengen je huidige inkomende leadflow in kaart en bepalen waar de grootste lekken zitten: vindbaarheid, opvolging of acquisitie. Geen aanname, wel cijfers.",
         },
         {
@@ -370,7 +370,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "SEO als ingebouwde laag, niet als losse opdracht. Maandelijkse data-driven aanpassingen die echt iets opleveren.",
       items: [
         {
-          title: "Audit & nulmeting",
+          title: "Kick-off meeting",
           body: "We koppelen je Search Console en doen een diepe analyse: welke pagina's groeien, welke zakken, waar laat je verkeer liggen.",
         },
         {
@@ -474,7 +474,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "Geen droge import-export. We zetten jouw pijplijn op, lopen mee tijdens de eerste maand en passen aan wat nodig is.",
       items: [
         {
-          title: "Migratie & opzet",
+          title: "Kick-off meeting",
           body: "We nemen je bestaande contacten en deals over (uit Excel, HubSpot, Pipedrive of waar dan ook) en mappen ze naar Forester OS.",
         },
         {
@@ -582,7 +582,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "Eerst handmatig, dan automatisch. We bouwen de motor op, jij houdt regie over wat erin gaat.",
       items: [
         {
-          title: "Content-strategie",
+          title: "Kick-off meeting",
           body: "Welke onderwerpen, hoe vaak, welk type? We bepalen het ritme en de mix (blogs, cases, updates) op basis van wat jouw doelgroep zoekt.",
         },
         {
@@ -699,7 +699,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We faseren in waar je nu staat. Je hoeft niet alles tegelijk om te zetten, we beginnen met portfolio en leads en bouwen door.",
       items: [
         {
-          title: "Portfolio migratie",
+          title: "Kick-off meeting",
           body: "Je bestaande cases en projecten verhuizen we naar Forester OS. Snellere pagina's, betere SEO, beheerbaar zonder code.",
         },
         {
@@ -1043,7 +1043,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We migreren gefaseerd zodat je business niet stil hoeft te liggen. Eerst website en CRM, daarna leads en marketing.",
       items: [
         {
-          title: "Audit huidige stack",
+          title: "Kick-off meeting",
           body: "We brengen al je losse leveranciers en kosten in kaart. Vaak vinden we 3-5 contracten die overlappen of onnodig zijn.",
         },
         {
