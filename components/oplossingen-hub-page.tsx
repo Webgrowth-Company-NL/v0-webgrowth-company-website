@@ -165,7 +165,7 @@ function HubHero() {
         >
           Welk groeivraagstuk speelt er{" "}
           <span
-            className="inline-block bg-clip-text text-transparent"
+            className="inline bg-clip-text text-transparent"
             style={{
               backgroundImage: "linear-gradient(110deg, #ff0096 0%, #8b5cf6 50%, #c4b5fd 100%)",
               backgroundSize: "220% 220%",

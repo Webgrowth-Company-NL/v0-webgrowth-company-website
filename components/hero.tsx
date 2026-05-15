@@ -146,7 +146,7 @@ export function Hero() {
               </motion.span>
               <motion.span variants={fadeUp(0.5)} className="block mt-1">
                 <span
-                  className="inline-block bg-clip-text text-transparent"
+                  className="inline bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
                       "linear-gradient(110deg, #ff0096 0%, #8b5cf6 50%, #c4b5fd 100%)",
