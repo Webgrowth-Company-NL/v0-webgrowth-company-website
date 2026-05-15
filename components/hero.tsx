@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import { HeroDashboard } from "@/components/hero-dashboard";
+import { KennismakingButton } from "@/components/kennismaking-button";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -198,29 +199,7 @@ export function Hero() {
                   <ArrowRight className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.5} />
                 </span>
               </Link>
-              <Link
-                href="/contact"
-                className="
-                  btn-press group
-                  inline-flex items-center gap-2 pl-6 pr-2 py-2
-                  rounded-full
-                  bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm
-                  border border-white/20 hover:border-white/30
-                  text-white text-[14.5px] font-semibold
-                "
-              >
-                Boek een kennismaking
-                <span
-                  className="
-                    inline-flex h-9 w-9 items-center justify-center
-                    rounded-full bg-white/15
-                    transition-[transform,background-color] duration-200 ease-out
-                    group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-white/25
-                  "
-                >
-                  <ArrowRight className="h-4 w-4 text-white" strokeWidth={2.5} />
-                </span>
-              </Link>
+              <KennismakingButton variant="secondary-on-dark" />
             </motion.div>
 
             {/* Trust row */}

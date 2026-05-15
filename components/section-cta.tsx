@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { KennismakingButton } from "@/components/kennismaking-button";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -43,12 +44,7 @@ export function SectionCta() {
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </span>
           </Link>
-          <Link
-            href="/contact"
-            className="btn-press inline-flex items-center px-6 py-3 rounded-full border border-white/25 hover:border-white/45 hover:bg-white/5 text-white text-[15px] font-semibold transition-colors"
-          >
-            Boek een kennismaking
-          </Link>
+          <KennismakingButton variant="inline" />
         </div>
       </motion.div>
     </section>

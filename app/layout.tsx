@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { KennismakingModalProvider } from "@/components/kennismaking-modal-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -88,7 +89,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="nl" className={`${geistSans.variable} ${geistMono.variable} ${gottak.variable}`}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col">
+        <KennismakingModalProvider>{children}</KennismakingModalProvider>
+      </body>
     </html>
   );
 }

@@ -15,6 +15,7 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
+import { KennismakingButton } from "@/components/kennismaking-button";
 import { SectionCta } from "@/components/section-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -197,15 +198,7 @@ function HubHero() {
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </span>
           </Link>
-          <Link
-            href="/contact"
-            className="btn-press group inline-flex items-center gap-2 pl-6 pr-2 py-2.5 rounded-full bg-white hover:bg-[color:var(--color-purple-soft)] border border-[color:var(--color-line-strong)] hover:border-[color:var(--color-purple)]/35 text-[color:var(--color-ink)] hover:text-[color:var(--color-purple)] text-[15px] font-semibold shadow-[0_1px_2px_rgba(12,6,18,0.04)] hover:shadow-[0_10px_24px_-10px_rgba(98,59,199,0.3)]"
-          >
-            Boek een kennismaking
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[color:var(--color-ink-strong)]/6 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:scale-105 group-hover:bg-[color:var(--color-purple)]/15">
-              <ArrowRight className="h-4 w-4 text-[color:var(--color-ink)] transition-colors duration-200 ease-out group-hover:text-[color:var(--color-purple)]" strokeWidth={2.5} />
-            </span>
-          </Link>
+          <KennismakingButton variant="secondary" />
         </motion.div>
       </motion.div>
     </section>

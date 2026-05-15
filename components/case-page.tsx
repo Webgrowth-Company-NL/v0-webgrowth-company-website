@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { KennismakingButton } from "@/components/kennismaking-button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import type { CaseStudy } from "@/lib/cases";
@@ -85,9 +86,7 @@ export function CasePage({ study }: { study: CaseStudy }) {
                 Doe de gratis website APK
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-transform duration-200 ease-out group-hover:translate-x-0.5"><ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} /></span>
               </Link>
-              <Link href="/contact" className="btn-press inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/25 hover:border-white/45 text-white text-[14px] font-semibold transition-colors">
-                Boek een kennismaking
-              </Link>
+              <KennismakingButton variant="inline" />
             </div>
           </div>
         </section>
