@@ -286,8 +286,7 @@ function KennismakingModal({ open, onClose }: { open: boolean; onClose: () => vo
                   {step === "dates" && (
                     <div>
                       <p className="text-[14px] text-[color:var(--color-ink-muted)] leading-[1.55]">
-                        Een vrijblijvende kennismaking van 30 minuten met Martijn, op een tijdstip uit het{" "}
-                        <span className="font-semibold text-[color:var(--color-ink)]">💰 Sales & Meetings</span>-tijdvak.
+                        Leuk dat je een gesprek wilt plannen. Kies hieronder een dag die jou uitkomt, daarna kijken we samen naar een tijdstip. Het gesprek duurt 30 minuten en is geheel vrijblijvend.
                       </p>
                       {loadingDates && (
                         <div className="mt-6 flex items-center gap-2 text-[14px] text-[color:var(--color-ink-muted)]">
@@ -342,8 +341,9 @@ function KennismakingModal({ open, onClose }: { open: boolean; onClose: () => vo
                   {step === "times" && (
                     <div>
                       <p className="text-[14px] text-[color:var(--color-ink-muted)] leading-[1.55]">
-                        Beschikbare tijdsloten op{" "}
-                        <span className="font-semibold text-[color:var(--color-ink)] capitalize">{formatDate(selectedDate)}</span>. Elke slot duurt 30 minuten.
+                        Top, je hebt{" "}
+                        <span className="font-semibold text-[color:var(--color-ink)] capitalize">{formatDate(selectedDate)}</span>{" "}
+                        gekozen. Welk tijdstip past het beste? Elk gesprek duurt 30 minuten.
                       </p>
                       {loadingTimes && (
                         <div className="mt-6 flex items-center gap-2 text-[14px] text-[color:var(--color-ink-muted)]">
