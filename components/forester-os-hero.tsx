@@ -122,7 +122,7 @@ export function ForesterOsHero() {
             </span>
           </Link>
           <Link
-            href="/prijzen"
+            href="/contact"
             className="
               btn-press group
               inline-flex items-center gap-2 pl-6 pr-2 py-2.5
@@ -134,7 +134,7 @@ export function ForesterOsHero() {
               hover:shadow-[0_10px_24px_-10px_rgba(98,59,199,0.3)]
             "
           >
-            Bekijk de prijzen
+            Boek een kennismaking
             <span
               className="
                 inline-flex h-9 w-9 items-center justify-center
