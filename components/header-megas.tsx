@@ -43,7 +43,7 @@ export const OPLOSSINGEN_SECTOR = [
   { href: "/oplossingen/zakelijke-dienstverlening", label: "Zakelijke dienstverlening" },
   { href: "/oplossingen/creatief-design", label: "Creatief & design" },
   { href: "/oplossingen/bouw-techniek", label: "Bouw & techniek" },
-  { href: "/oplossingen/zorg-praktijk", label: "Zorg & praktijk" },
+  { href: "/oplossingen/transport", label: "Transport & logistiek" },
   { href: "/oplossingen/mkb", label: "MKB algemeen" },
 ] as const;
 

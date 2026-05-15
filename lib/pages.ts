@@ -200,15 +200,15 @@ export const OPLOSSING_PAGES: SeoPage[] = [
       "Offerteaanvragen, projecten en klantcommunicatie op één plek, met tools die concrete leads opleveren.",
   },
   {
-    path: "/oplossingen/zorg-praktijk",
-    slug: "zorg-praktijk",
-    h1: "Groeiplatform voor zorgpraktijken",
-    metaTitle: "Groeiplatform voor zorgpraktijken en behandelaars | Webgrowth Company",
+    path: "/oplossingen/transport",
+    slug: "transport",
+    h1: "Groeiplatform voor transport en logistiek",
+    metaTitle: "Groeiplatform voor transport en logistiek | Webgrowth Company",
     metaDescription:
-      "Een vindbare website, soepele aanmeldingen en overzichtelijke opvolging, afgestemd op de zorgpraktijk.",
+      "Aanvraagformulieren mét traject en lading, een CRM voor klanten en ritten, en Q-AI voor offerte-concepten. Voor transport, logistiek en koeriers.",
     eyebrow: "Oplossingen",
     intro:
-      "Een vindbare website, soepele aanmeldingen en overzichtelijke opvolging, afgestemd op de zorgpraktijk.",
+      "Aanvraagformulieren mét traject en lading, een CRM voor klanten en ritten, en Q-AI voor offerte-concepten. Voor transport, logistiek en koeriers.",
   },
   {
     path: "/oplossingen/mkb",
