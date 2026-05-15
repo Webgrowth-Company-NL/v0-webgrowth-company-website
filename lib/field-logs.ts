@@ -24,7 +24,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "E-commerce",
     title: "E-commerce op Forester OS voor het MKB",
     excerpt:
-      "Waarom we e-commerce bouwen op Forester OS in Next.js: sneller, beter vindbaar en volledig geautomatiseerd, zonder afhankelijkheid van losse tools.",
+      "Waarom we e-commerce bouwen op Forester OS: sneller, beter vindbaar en volledig geautomatiseerd, zonder afhankelijkheid van losse tools.",
     readTime: "7 min",
   },
   {
@@ -62,9 +62,9 @@ export const FIELD_LOGS: FieldLog[] = [
     date: "2025-06-23",
     dateLabel: "Juni 2025",
     tag: "Maatwerk",
-    title: "Next.js maatwerk voor The Africa Experience",
+    title: "Maatwerk-reisplatform voor The Africa Experience",
     excerpt:
-      "Hoe we de reiswebsite van The Africa Experience opnieuw opbouwden op Forester OS in Next.js: TypeScript-datamodellen voor bestemmingen en activiteiten, statische generatie en een directe Pipedrive-koppeling.",
+      "Hoe we de reiswebsite van The Africa Experience opnieuw opbouwden op Forester OS: typed datamodellen voor bestemmingen en activiteiten, razendsnelle pagina's en een directe Pipedrive-koppeling.",
     readTime: "6 min",
   },
   {
@@ -74,7 +74,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Automatisering",
     title: "Van websiteformulier naar kant-en-klare offerte in Pipedrive",
     excerpt:
-      "Hoe we een offerteflow bouwden in Forester OS zonder Zapier: Next.js API-route, directe Pipedrive-API en automatische prijsberekening. Van 25 minuten naar 3 minuten per aanvraag.",
+      "Hoe we een offerteflow bouwden in Forester OS zonder Zapier: directe Pipedrive-koppeling en automatische prijsberekening. Van 25 minuten naar 3 minuten per aanvraag.",
     readTime: "6 min",
   },
   {
@@ -84,7 +84,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Maatwerk",
     title: "Vloot en projecten slim koppelen voor Roll Group",
     excerpt:
-      "Hoe we op Forester OS een Next.js-platform bouwden met TypeScript-relaties tussen vloot en projecten. Statische generatie, ISR en directe content-updates zonder CMS-overhead.",
+      "Hoe we op Forester OS een maatwerk-platform bouwden met typed relaties tussen vloot en projecten. Razendsnelle pagina's en directe content-updates zonder CMS-overhead.",
     readTime: "5 min",
   },
   {

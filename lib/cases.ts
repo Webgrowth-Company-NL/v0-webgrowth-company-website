@@ -78,7 +78,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     headlineLead: "Een premium kachelplatform met",
     headlineHighlight: "twee scan-tools.",
     intro:
-      "NordFlame zet premium pelletkachels en hybride pellet+warmtepomp-systemen op de kaart, met Ecodesign 2027 als context. We bouwden de hele site in Next.js met catalogus, twee scan-tools (vervangingsscan + quickscan), Firebase als ruggengraat en een design dat luxe communiceert zonder vol bling te zijn.",
+      "NordFlame zet premium pelletkachels en hybride pellet+warmtepomp-systemen op de kaart, met Ecodesign 2027 als context. We bouwden een razendsnelle site met catalogus, twee scan-tools (vervangingsscan + quickscan), Firebase als ruggengraat en een design dat luxe communiceert zonder vol bling te zijn.",
     pillars: ["Vervangingsscan", "Hybride catalogus", "Ecodesign 2027"],
     features: [
       { label: "Vervangingsscan", body: "Een meerstaps lead-flow die in kaart brengt welke kachel jouw oude systeem het beste vervangt, mét rapport." },

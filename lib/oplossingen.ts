@@ -87,7 +87,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
       pitch:
         "Alles wat je nodig hebt om bezoekers om te zetten in concrete aanvragen, in één abonnement. Hosting, CMS, CRM, marketing en AI: één login, één factuur, één team dat meedraait.",
       includes: [
-        "Snelle Next.js-website op Forester OS",
+        "Razendsnelle website op Forester OS",
         "2 lead engines (quickscan, calculator of slim formulier)",
         "CRM met taken, statussen en WhatsApp-notificaties",
         "Q, je AI-assistent voor opvolg-mails en lead-samenvattingen",

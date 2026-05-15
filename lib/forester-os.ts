@@ -719,6 +719,6 @@ export const FORESTER_FAQS: ForesterFaqItem[] = [
   },
   {
     q: "Is Forester OS toekomstvast?",
-    a: "Het platform draait op Next.js en wordt continu door ons doorontwikkeld. Q (de AI-laag) krijgt elke maand nieuwe vaardigheden. Onze klanten krijgen die updates automatisch, zonder migratiekosten.",
+    a: "Het platform wordt continu door ons doorontwikkeld en draait op moderne web-tech die elke nieuwe site razendsnel maakt. Q (de AI-laag) krijgt elke maand nieuwe vaardigheden. Onze klanten krijgen die updates automatisch, zonder migratiekosten.",
   },
 ];

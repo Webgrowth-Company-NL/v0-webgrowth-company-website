@@ -1200,7 +1200,7 @@ const ADS_QUERY = "websitebureau dordrecht";
 const ADS_AD = {
   domain: "webgrowth.company",
   title: "Webgrowth Company · Websitebureau in Dordrecht",
-  description: "Next.js-sites met SEO, CRM en AI ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 9,4 op Google.",
+  description: "Razendsnelle sites met SEO, CRM en AI ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 9,4 op Google.",
 };
 const ADS_ORGANIC: { domain: string; title: string }[] = [
   { domain: "agency-zwart.nl", title: "Agency Zwart · Maatwerk websites" },
