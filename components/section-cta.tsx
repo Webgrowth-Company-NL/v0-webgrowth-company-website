@@ -32,7 +32,7 @@ export function SectionCta() {
           <span className="text-[#c4b5fd]">Meer groei.</span>
         </h2>
         <p className="mt-5 text-[16px] sm:text-[18px] leading-[1.6] text-white/75 max-w-lg mx-auto">
-          Doe de gratis website APK en zie wat er beter kan, of plan meteen een kennismaking.
+          Doe de gratis website APK en zie binnen een minuut wat er aan jouw site beter kan, of plan een kennismaking als je liever even doorpraat over wat jouw bedrijf nodig heeft.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Link

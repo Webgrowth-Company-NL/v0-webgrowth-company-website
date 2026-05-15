@@ -169,8 +169,9 @@ export function Hero() {
                 text-white/65 max-w-lg
               "
             >
-              Eén abonnement voor groeiende organisaties.
-              Website, CRM, marketing en AI op één plek, in plaats van negen losse leveranciers.
+              Eén platform brengt je website, CRM, marketing en AI samen, en wij
+              houden het voor je draaiende zonder dat er voor elk uurtje een factuur
+              achteraan komt. Zo kun jij je gewoon bezighouden met je klanten.
             </motion.p>
 
             {/* CTAs */}

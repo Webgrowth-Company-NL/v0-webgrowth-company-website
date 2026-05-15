@@ -36,7 +36,7 @@ export function SectionCases() {
             Wat we voor anderen bouwden.
           </motion.h2>
           <motion.p variants={fadeUp(0.1)} className="mt-5 text-[16px] sm:text-[17.5px] leading-[1.65] text-[color:var(--color-ink-muted)]">
-            Een greep uit de platforms die we recent opleverden, van reserveringssysteem tot compliance-wizard.
+            Hieronder een greep uit de platforms die we recent live brachten, van een reserveringssysteem voor een restaurant tot een compliance-wizard voor een verzekeraar.
           </motion.p>
         </motion.div>
 

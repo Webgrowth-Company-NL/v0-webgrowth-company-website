@@ -77,7 +77,7 @@ export function SectionShift() {
             variants={fadeUp(0.1)}
             className="mt-5 text-[16px] sm:text-[17.5px] leading-[1.65] text-[color:var(--color-ink-muted)]"
           >
-            Elke maand weer. Elk voor iets anders. Zonder dat ze met elkaar praten.
+            Elke maand komen er rekeningen binnen voor je site, je CRM, je mailtool en je SEO. En geen van die tools praat met elkaar, dus de data blijft hangen waar je 'm niet nodig hebt.
           </motion.p>
         </motion.div>
 

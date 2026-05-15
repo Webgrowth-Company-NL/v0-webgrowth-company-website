@@ -144,13 +144,13 @@ export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
 
           {/* CTA group */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-5">
-            <Link
-              href="/inloggen"
+            <a
+              href="https://app.webgrowth.company/"
               className={"inline-flex items-center gap-1.5 text-[13.5px] font-medium transition-colors duration-200 ease-out " + txt}
             >
               Inloggen
               <Lock className="h-3 w-3 opacity-60" strokeWidth={2.5} />
-            </Link>
+            </a>
             <Link
               href="/website-apk"
               className={[
@@ -213,10 +213,10 @@ export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
               <Link href="/prijzen" onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink)] hover:bg-[color:var(--color-bg-muted)] transition-colors">
                 Prijzen
               </Link>
-              <Link href="/inloggen" onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-bg-muted)] transition-colors inline-flex items-center gap-2">
+              <a href="https://app.webgrowth.company/" onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-xl text-[15px] font-medium text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-bg-muted)] transition-colors inline-flex items-center gap-2">
                 Inloggen
                 <Lock className="h-3 w-3 opacity-60" strokeWidth={2.5} />
-              </Link>
+              </a>
               <Link
                 href="/website-apk"
                 onClick={() => setMobileOpen(false)}

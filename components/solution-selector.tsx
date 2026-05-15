@@ -37,7 +37,7 @@ const GOALS: Goal[] = [
     key: "website",
     label: "Een nieuwe website",
     module: "Website & CMS",
-    body: "Snel, vindbaar en altijd actueel. Pagina's, berichten en eigen contenttypes, zonder los CMS. Je past zelf alles aan, geen developer of bureau nodig.",
+    body: "We bouwen een snelle, vindbare site waarop je zelf pagina's en blogs live zet zonder dat je daar een developer of los CMS voor nodig hebt. Wij houden de techniek scherp, jij houdt de regie.",
     icon: Globe,
     href: "/forester-os/website",
     grad: "from-[#3f2a8f] via-[#4f2bb0] to-[#5e3bc0]",
@@ -47,7 +47,7 @@ const GOALS: Goal[] = [
     key: "leads",
     label: "Meer leads uit mijn site",
     module: "Lead Engine",
-    body: "Quickscans, calculators en slimme formulieren die bezoekers omzetten in aanvragen. Elke lead landt direct in je CRM, klaar om op te volgen.",
+    body: "Met quickscans, calculators en slimme formulieren krijg je bezoekers in beweging, en elke lead landt direct in je CRM zodat er niets meer tussen de mailtjes verdwijnt.",
     icon: Magnet,
     href: "/forester-os/lead-engine",
     grad: "from-[#5b34bc] via-[#6d3fd6] to-[#7c3aed]",
@@ -57,7 +57,7 @@ const GOALS: Goal[] = [
     key: "seo",
     label: "Beter gevonden worden",
     module: "SEO & vindbaarheid",
-    body: "Search Console-data, AI-suggesties en rankings in één dashboard. Zonder los SEO-bureau. Zie welke pagina's groeien en wat je nog kunt verbeteren.",
+    body: "Search Console, AI-suggesties en je posities komen samen in één scherm, zodat je ziet welke pagina's groeien en wat er komende week beter kan. Een los SEO-bureau aan de zijlijn heb je daarvoor niet meer nodig.",
     icon: Search,
     href: "/forester-os/seo",
     grad: "from-[#6a3fd0] via-[#7c3aed] to-[#8b5cf6]",
@@ -67,7 +67,7 @@ const GOALS: Goal[] = [
     key: "crm",
     label: "Klanten slim opvolgen",
     module: "CRM & pijplijn",
-    body: "Elke aanvraag in je CRM, automatisch opgevolgd. Eén visuele pijplijn voor je hele team. Geen lead die nog tussen de mailtjes verdwijnt.",
+    body: "Elke aanvraag landt automatisch in je pijplijn, en je hele team werkt in hetzelfde overzicht met taken en herinneringen die meegroeien met de deal. Op die manier lekt er niets meer weg tussen het moment dat iemand belt en het moment dat de offerte staat.",
     icon: Users,
     href: "/forester-os/crm",
     grad: "from-[#4f2bb0] via-[#623bc7] to-[#7c5be0]",
@@ -77,7 +77,7 @@ const GOALS: Goal[] = [
     key: "ai",
     label: "Automatisch publiceren met AI",
     module: "Content publisher",
-    body: "Q schrijft pagina's, blogs en updates en publiceert ze op een vast ritme op je site. Jij houdt de regie, de content blijft komen.",
+    body: "Onze AI Q schrijft je pagina's, blogs en updates en plant ze in op een ritme dat bij je past, terwijl jij alleen nog hoeft goed te keuren. Zo blijft de content komen, ook in de weken dat jij er even geen tijd voor hebt.",
     icon: Sparkles,
     href: "/forester-os/ai",
     grad: "from-[#5e3bc0] via-[#7c3aed] to-[#9333ea]",
@@ -87,7 +87,7 @@ const GOALS: Goal[] = [
     key: "platform",
     label: "Alles op één plek",
     module: "Forester OS",
-    body: "Website, CRM, marketing en AI in één abonnement. Geen losse facturen, geen losse logins. Eén platform dat met je organisatie meegroeit.",
+    body: "Website, CRM, marketing en AI zitten samen in één abonnement, met één login en één factuur, en wij beheren het hele plaatje voor je. Het platform groeit met je mee zonder dat het uit z'n voegen barst.",
     icon: LayoutGrid,
     href: "/forester-os",
     grad: "from-[#3d2a6b] via-[#4f2bb0] to-[#623bc7]",
@@ -108,10 +108,10 @@ export function SolutionSelector() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 flex items-end justify-between gap-6">
         <div className="max-w-2xl">
           <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.2rem,5vw,3.6rem)] leading-[1.06] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">
-            Wat wil je bereiken?
+            Waar loop je op vast?
           </h2>
           <p className="mt-4 text-[16px] sm:text-[18px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-            Kies een doel, dan zie je hoe Forester OS je daarbij helpt.
+            Kies de plek waar het schuurt, dan laten we zien hoe Forester OS dat van je overneemt.
           </p>
         </div>
         <div className="hidden md:flex items-center gap-2 shrink-0">

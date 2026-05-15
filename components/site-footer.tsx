@@ -10,7 +10,7 @@ import {
 const BEDRIJF = [
   { href: "/prijzen", label: "Prijzen" },
   { href: "/contact", label: "Contact" },
-  { href: "/inloggen", label: "Inloggen" },
+  { href: "https://app.webgrowth.company/", label: "Inloggen" },
 ];
 
 function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
@@ -63,16 +63,20 @@ export function SiteFooter() {
           <FooterCol title="Hulpmiddelen & bedrijf" links={[...HULPMIDDELEN_ONTDEK.map((m) => ({ href: m.href, label: m.label })), ...BEDRIJF]} />
         </div>
 
-        <div className="mt-12 pt-7 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="text-[12.5px] text-white/55 space-y-1">
-            <p>© {new Date().getFullYear()} Webgrowth Company · Gebouwd in Nederland</p>
-            <p className="text-white/45">
-              <span className="font-semibold text-white/65">KvK</span> 64809536
-              <span className="mx-2 text-white/30">·</span>
-              <span className="font-semibold text-white/65">BTW</span> NL001363277B13
-            </p>
-          </div>
-          <p className="text-[12.5px] text-white/40">Privacy · Cookies · Voorwaarden</p>
+        <div className="mt-12 pt-7 border-t border-white/10 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[12.5px] text-white/55">
+          <span>© {new Date().getFullYear()} Webgrowth Company</span>
+          <span className="text-white/30">·</span>
+          <span>Gebouwd in Nederland</span>
+          <span className="text-white/30">·</span>
+          <span><span className="font-semibold text-white/70">KvK</span> 64809536</span>
+          <span className="text-white/30">·</span>
+          <span><span className="font-semibold text-white/70">BTW</span> NL001363277B13</span>
+          <span className="text-white/30">·</span>
+          <Link href="/privacy" className="text-white/55 hover:text-white transition-colors">Privacy</Link>
+          <span className="text-white/30">·</span>
+          <Link href="/cookies" className="text-white/55 hover:text-white transition-colors">Cookies</Link>
+          <span className="text-white/30">·</span>
+          <Link href="/voorwaarden" className="text-white/55 hover:text-white transition-colors">Voorwaarden</Link>
         </div>
       </div>
     </footer>

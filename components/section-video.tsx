@@ -44,7 +44,7 @@ export function SectionVideo() {
             Liever even uitgelegd?
           </motion.h2>
           <motion.p variants={fadeUp(0.1)} className="mt-5 text-[16px] sm:text-[17.5px] leading-[1.65] text-[color:var(--color-ink-muted)]">
-            In een paar minuten laat Martijn zien hoe Forester OS werkt en wat het voor jouw bedrijf betekent.
+            In twee minuten laat Martijn zien hoe Forester OS werkt, in gewone woorden en zonder jargon of powerpoint-glamour.
           </motion.p>
         </motion.div>
 

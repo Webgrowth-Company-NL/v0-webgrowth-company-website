@@ -34,7 +34,7 @@ export function SectionFieldLogs() {
               Bevindingen uit de praktijk.
             </motion.h2>
             <motion.p variants={fadeUp(0.1)} className="mt-4 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-              Geen theorie van een bureau. Wat we bouwden, wat we leerden en wat het opleverde.
+              In plaats van theorie uit een marketingblog vertellen we wat we deze week écht hebben gebouwd, waar we tegenaan liepen en hoe we het oplosten. Meestal met een korreltje zout en hier en daar wat humor.
             </motion.p>
           </div>
           <motion.div variants={fadeUp(0.15)} className="shrink-0">
