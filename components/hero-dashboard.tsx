@@ -19,6 +19,25 @@ export type ViewKey =
   | "nieuwsbrieven"
   | "advertenties";
 
+/** Configuratie om de hero-widgets per pagina aan te kleden (bv. kozijnen-quickscan voor bouw). */
+export type LeadEngineConfig = {
+  title?: string;
+  questions: { q: string; options: string[]; pick: number }[];
+  successText?: string;
+  successSub?: string;
+};
+export type CrmConfig = {
+  label?: string;
+  meta?: string;
+  columns: { title: string; statics: [string, string][] }[];
+  movingCard: { name: string; value: string };
+  wonLabel?: string;
+};
+export type HeroDashboardConfig = {
+  leadEngine?: LeadEngineConfig;
+  crm?: CrmConfig;
+};
+
 const VIEWS: { key: ViewKey; url: string; label: string; short: string; icon: typeof Globe }[] = [
   { key: "website", url: "forester.app/website", label: "Website & CMS", short: "Website", icon: Globe },
   { key: "seo", url: "forester.app/vindbaarheid", label: "Marketing & SEO", short: "SEO", icon: Search },
@@ -83,7 +102,10 @@ const FLOATING: Record<ViewKey, Stat[]> = {
   ],
 };
 
-export function HeroDashboard({ view: viewProp }: { view?: ViewKey } = {}) {
+export function HeroDashboard({
+  view: viewProp,
+  config,
+}: { view?: ViewKey; config?: HeroDashboardConfig } = {}) {
   const reduce = useReducedMotion();
   const single = viewProp !== undefined;
   const initialIndex = single
@@ -194,9 +216,9 @@ export function HeroDashboard({ view: viewProp }: { view?: ViewKey } = {}) {
             >
               {view.key === "website" && <WebsiteView />}
               {view.key === "seo" && <SeoView reduce={reduce} />}
-              {view.key === "crm" && <CrmView />}
+              {view.key === "crm" && <CrmView config={config?.crm} />}
               {view.key === "ai" && <QView />}
-              {view.key === "lead-engine" && <LeadEngineView />}
+              {view.key === "lead-engine" && <LeadEngineView config={config?.leadEngine} />}
               {view.key === "sales-engine" && <SalesEngineView />}
               {view.key === "content-publisher" && <ContentPublisherView />}
               {view.key === "nieuwsbrieven" && <NewsletterView />}
@@ -449,11 +471,12 @@ function SeoView({ reduce }: { reduce: boolean | null }) {
 }
 
 /* ── View: CRM (kanban — de cursor sleept een deal naar 'Gewonnen', dan confetti; speelt één keer) ── */
-const CRM_COLS: { title: string; statics: [string, string][] }[] = [
+const DEFAULT_CRM_COLS: { title: string; statics: [string, string][] }[] = [
   { title: "Nieuw", statics: [["Bureau Klaverwijk", "€5,1k"], ["Atelier Mooij", "€1,9k"]] },
   { title: "In gesprek", statics: [["Architectenbureau Holm", "€8,0k"]] },
   { title: "Gewonnen", statics: [["Praktijk De Vijver", "€3,7k"]] },
 ];
+const DEFAULT_CRM_MOVING = { name: "Bureau Veldhuis", value: "€2,4k" };
 /* delay (ms) in elke stage vóór doorschuiven; stage 7 = eindstand (geen loop) */
 const CRM_DELAYS = [650, 600, 320, 800, 600, 320, 800];
 const CRM_CURSOR_IDLE = { x: 78, y: 82 };
@@ -463,7 +486,7 @@ function crmInitials(name: string) {
   return name.split(" ").slice(0, 2).map((w) => w[0]).join("");
 }
 
-function CrmCard({ name, value, moving, lifted, won }: { name: string; value: string; moving?: boolean; lifted?: boolean; won?: boolean }) {
+function CrmCard({ name, value, moving, lifted, won, wonLabel }: { name: string; value: string; moving?: boolean; lifted?: boolean; won?: boolean; wonLabel?: string }) {
   return (
     <div
       className={[
@@ -491,7 +514,7 @@ function CrmCard({ name, value, moving, lifted, won }: { name: string; value: st
       <div className="flex items-center justify-between">
         <span className="text-[9.5px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-subtle)] tabular-nums">{value}</span>
         {moving && won ? (
-          <span className="inline-flex items-center gap-0.5 text-[8.5px] font-bold text-emerald-600"><ArrowUp className="h-2.5 w-2.5 rotate-45" strokeWidth={3} />gewonnen</span>
+          <span className="inline-flex items-center gap-0.5 text-[8.5px] font-bold text-emerald-600"><ArrowUp className="h-2.5 w-2.5 rotate-45" strokeWidth={3} />{wonLabel ?? "gewonnen"}</span>
         ) : moving ? (
           <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
         ) : null}
@@ -522,7 +545,12 @@ function CrmConfetti({ origin }: { origin: { x: number; y: number } }) {
   );
 }
 
-function CrmView() {
+function CrmView({ config }: { config?: CrmConfig }) {
+  const cols = config?.columns ?? DEFAULT_CRM_COLS;
+  const movingCard = config?.movingCard ?? DEFAULT_CRM_MOVING;
+  const pipelineLabel = config?.label ?? "Sales-pijplijn";
+  const pipelineMeta = config?.meta ?? "5 deals · €21k open";
+  const wonLabel = config?.wonLabel ?? "gewonnen";
   const reduce = useReducedMotion();
   const [stage, setStage] = useState(0); // 0..7 — speelt één keer en stopt op 7
   const rootRef = useRef<HTMLDivElement>(null);
@@ -587,11 +615,11 @@ function CrmView() {
   return (
     <div ref={rootRef} className="relative h-full flex flex-col">
       <div className="flex items-center justify-between mb-3">
-        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Sales-pijplijn</div>
-        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">5 deals · €21k open</span>
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">{pipelineLabel}</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{pipelineMeta}</span>
       </div>
       <div className="flex-1 grid grid-cols-3 gap-2">
-        {CRM_COLS.map((c, ci) => {
+        {cols.map((c, ci) => {
           const count = c.statics.length + (cardCol === ci ? 1 : 0);
           return (
             <div
@@ -614,7 +642,7 @@ function CrmView() {
                       transition={{ duration: lifted ? 0.18 : 0.4, ease: EASE }}
                       style={{ transformOrigin: "50% 50%" }}
                     >
-                      <CrmCard name="Bureau Veldhuis" value="€2,4k" moving lifted={lifted} won={won} />
+                      <CrmCard name={movingCard.name} value={movingCard.value} moving lifted={lifted} won={won} wonLabel={wonLabel} />
                     </motion.div>
                   </motion.div>
                 )}
@@ -857,41 +885,46 @@ function StatChip({ label, prefix, num, decimals = 0, suffix, delta, descriptor,
 }
 
 /* ── View: Lead Engine (quickscan vult zich in, lead landt in CRM) ────────── */
-const LEAD_QUESTIONS: { q: string; options: string[]; pick: number }[] = [
+const DEFAULT_LEAD_QUESTIONS: { q: string; options: string[]; pick: number }[] = [
   { q: "Hoe groot is je team?", options: ["1-5", "6-25", "26-100", "100+"], pick: 1 },
   { q: "Welke softwarestack?", options: ["Microsoft", "Google", "Mix", "Anders"], pick: 0 },
   { q: "Wat is je grootste uitdaging?", options: ["Beheer", "Beveiliging", "Kosten", "Schaal"], pick: 1 },
 ];
-const LEAD_STAGE_DELAYS = [600, 800, 800, 800, 700]; // 0:idle, 1-3: pick, 4: lead landed
-
-function LeadEngineView() {
+function LeadEngineView({ config }: { config?: LeadEngineConfig }) {
+  const questions = config?.questions ?? DEFAULT_LEAD_QUESTIONS;
+  const title = config?.title ?? "Quickscan IT-stack";
+  const successText = config?.successText ?? "Lead in CRM, WhatsApp verstuurd naar je telefoon";
+  const successSub = config?.successSub;
   const reduce = useReducedMotion();
-  const [stage, setStage] = useState(reduce ? 4 : 0);
+  // stages: 0 = idle, 1..N = question N answered, N+1 = lead landed
+  const finalStage = questions.length + 1;
+  const [stage, setStage] = useState(reduce ? finalStage : 0);
 
   useEffect(() => {
-    if (reduce) { setStage(4); return; }
+    if (reduce) { setStage(finalStage); return; }
     setStage(0);
+    const delays = [600, ...questions.map(() => 800), 700];
     let i = 0;
     const timers: number[] = [];
     const tick = () => {
-      if (i >= LEAD_STAGE_DELAYS.length) return;
-      timers.push(window.setTimeout(() => { i += 1; setStage(i); tick(); }, LEAD_STAGE_DELAYS[i]));
+      if (i >= delays.length) return;
+      timers.push(window.setTimeout(() => { i += 1; setStage(i); tick(); }, delays[i]));
     };
     tick();
     return () => timers.forEach((t) => window.clearTimeout(t));
-  }, [reduce]);
+  }, [reduce, finalStage, questions]);
 
   const answered = (qi: number) => stage > qi;
-  const landed = stage >= 4;
+  const landed = stage >= finalStage;
 
   return (
     <div className="relative h-full flex flex-col">
       <div className="flex items-center justify-between mb-3 shrink-0">
-        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">Quickscan IT-stack</div>
-        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{Math.min(stage, 3)}/3 vragen</span>
+        <div className="text-[10.5px] uppercase tracking-[0.16em] text-[color:var(--color-ink-subtle)] font-medium">{title}</div>
+        <span className="text-[10px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-faint)]">{Math.min(stage, questions.length)}/{questions.length} vragen</span>
       </div>
       <div className="flex-1 space-y-2.5">
-        {LEAD_QUESTIONS.map((q, qi) => (
+        {questions.map((q, qi) => (
           <div key={q.q} className={["rounded-xl border p-2.5 transition-colors duration-300", answered(qi) ? "border-[color:var(--color-purple)]/30 bg-[color:var(--color-purple-soft)]/45" : "border-[color:var(--color-line)] bg-[color:var(--color-bg)]/50"].join(" ")}>
             <div className="text-[10.5px] font-semibold text-[color:var(--color-ink)] mb-1.5">{q.q}</div>
             <div className="grid grid-cols-4 gap-1.5">
@@ -917,10 +950,13 @@ function LeadEngineView() {
             transition={{ duration: 0.4, ease: EASE }}
             className="mt-3 shrink-0 flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-50 px-3 py-2"
           >
-            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white">
+            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white shrink-0">
               <Check className="h-3.5 w-3.5" strokeWidth={3} />
             </span>
-            <span className="text-[11px] font-semibold text-emerald-700 leading-snug">Lead in CRM, WhatsApp verstuurd naar je telefoon</span>
+            <div className="flex flex-col gap-0.5">
+              <span className="text-[11px] font-semibold text-emerald-700 leading-snug">{successText}</span>
+              {successSub && <span className="text-[10px] text-emerald-700/80 leading-snug">{successSub}</span>}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

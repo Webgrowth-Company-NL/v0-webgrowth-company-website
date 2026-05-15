@@ -6,6 +6,7 @@
  * met OPLOSSING_PAGES in lib/pages.ts.
  */
 
+import type { HeroDashboardConfig } from "@/components/hero-dashboard";
 import type { ModuleWidgetData } from "./forester-os";
 
 export type OplossingPain = { title: string; body: string };
@@ -56,6 +57,8 @@ export type OplossingDetail = {
   heroIntro: string;
   /** Welke single-view we in de hero-widget tonen */
   heroView?: HeroDashboardView;
+  /** Doelgroep-specifieke content voor de hero-widget (bv. kozijnen-quickscan voor bouw) */
+  heroViewConfig?: HeroDashboardConfig;
   /** Bundle met prijs + scope: dé wow-sectie ná de hero */
   bundle: OplossingBundle;
   /** 3-4 herkenbare pains uit de doelgroep */
@@ -189,6 +192,19 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroIntro:
       "Eén platform voor je hele kantoor: website, CRM, marketing en AI in één abonnement. Junior en senior werken in dezelfde flow, jij krijgt één factuur per maand. Afgestemd op advocaten, notarissen en accountants.",
     heroView: "crm",
+    heroViewConfig: {
+      crm: {
+        label: "Dossier-pijplijn",
+        meta: "5 dossiers · €127k open",
+        columns: [
+          { title: "Intake", statics: [["Familie van Doorn", "€4,8k"], ["Aanvraag Klaver BV", "€2,5k"]] },
+          { title: "Lopend", statics: [["Beerens NV", "€12k"]] },
+          { title: "Afgerond", statics: [["Estate van Hees", "€8,5k"]] },
+        ],
+        movingCard: { name: "Overname Holtsma", value: "€18k" },
+        wonLabel: "afgerond",
+      },
+    },
     bundle: {
       name: "Het Kantoor-pakket",
       eyebrow: "Wat je krijgt, voor één maandprijs",
@@ -612,6 +628,19 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroIntro:
       "Eén platform voor je portfolio, je leads en je projecten. Je bureau werkt aan de creatieve klus, niet aan losse tools en bijhorende admin. Geen vijf logins meer voor één klant-traject.",
     heroView: "crm",
+    heroViewConfig: {
+      crm: {
+        label: "Project-pijplijn",
+        meta: "5 projecten · €34k open",
+        columns: [
+          { title: "Brief", statics: [["Klaverlaan brochure", "€3,4k"], ["Hex herhuisstijl", "€7,5k"]] },
+          { title: "Concept", statics: [["Kasterop campagne", "€9k"]] },
+          { title: "Oplevering", statics: [["Roomers Hotel rebrand", "€6,2k"]] },
+        ],
+        movingCard: { name: "Studio Polderdijk website", value: "€8,5k" },
+        wonLabel: "opgeleverd",
+      },
+    },
     bundle: {
       name: "Het Studio-pakket",
       eyebrow: "Wat je krijgt, voor één maandprijs",
@@ -720,6 +749,18 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroIntro:
       "Quickscans en prijscalculators die offertes opleveren mét context (foto's, afmetingen, budget) in plaats van 'kunt u een prijsindicatie sturen?'. Plus een CRM dat je projecten en planning bij elkaar houdt.",
     heroView: "lead-engine",
+    heroViewConfig: {
+      leadEngine: {
+        title: "Quickscan kozijnen",
+        questions: [
+          { q: "Type kozijn?", options: ["Kunststof", "Hout", "Aluminium", "Mix"], pick: 0 },
+          { q: "Aantal kozijnen?", options: ["1-3", "4-8", "9-15", "15+"], pick: 1 },
+          { q: "Indicatie planning?", options: ["Asap", "1-3 mnd", "3-6 mnd", "Verkennen"], pick: 1 },
+        ],
+        successText: "Aanvraag in CRM, mét foto's en specs",
+        successSub: "WhatsApp verstuurd naar je telefoon",
+      },
+    },
     bundle: {
       name: "Het Bouw-pakket",
       eyebrow: "Wat je krijgt, voor één maandprijs",
@@ -778,7 +819,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We bouwen een calculator die de juiste vragen stelt en een CRM dat je projecten bewaakt. Live in 4 tot 6 weken, jij wint tijd vanaf de eerste maand.",
       items: [
         {
-          title: "Audit & doelgroep",
+          title: "Kick-off meeting",
           body: "We brengen je bestaande offerte-flow in kaart: welke informatie heb je écht nodig en wat vraag je nu te laat?",
         },
         {
@@ -824,6 +865,18 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroIntro:
       "Soepele aanmeldingen, online intake-formulieren en automatische bevestigingen. Je site doet het voorwerk, jouw uren gaan naar de behandeling. Voor praktijken, therapeuten en behandelaars.",
     heroView: "lead-engine",
+    heroViewConfig: {
+      leadEngine: {
+        title: "Online intake-formulier",
+        questions: [
+          { q: "Waar wil je mee aan de slag?", options: ["Stress", "Slaap", "Relatie", "Anders"], pick: 1 },
+          { q: "Eerste keer bij ons?", options: ["Ja", "Lang geleden", "Regelmatig", "Verwezen"], pick: 0 },
+          { q: "Voorkeursdag?", options: ["Ma/Di", "Wo/Do", "Vrijdag", "Maakt niet uit"], pick: 2 },
+        ],
+        successText: "Aanmelding in CRM, agenda-link verstuurd",
+        successSub: "Cliënt boekt zelf, AVG-geborgd",
+      },
+    },
     bundle: {
       name: "Het Praktijk-pakket",
       eyebrow: "Wat je krijgt, voor één maandprijs",

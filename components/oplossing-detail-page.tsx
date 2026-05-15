@@ -192,7 +192,7 @@ function OplossingHero({ detail }: { detail: OplossingDetail }) {
             transition={{ duration: 0.9, ease: EASE, delay: 0.35 }}
             className="relative h-[520px] sm:h-[560px] lg:h-[580px] mx-auto w-full max-w-[480px] lg:max-w-none"
           >
-            <HeroDashboard view={detail.heroView} />
+            <HeroDashboard view={detail.heroView} config={detail.heroViewConfig} />
           </motion.div>
         )}
       </div>
