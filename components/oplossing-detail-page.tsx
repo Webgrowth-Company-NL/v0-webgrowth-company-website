@@ -286,6 +286,9 @@ function BundleSection({ bundle }: { bundle: OplossingBundle }) {
                   Prijs
                 </div>
                 <div className="mt-3 flex items-baseline gap-1.5">
+                  <span className="text-[15px] font-medium text-[color:var(--color-ink-muted)]">
+                    Vanaf
+                  </span>
                   <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.6rem,5vw,3.4rem)] leading-none tabular-nums text-[color:var(--color-ink-strong)]">
                     €{bundle.monthlyPrice}
                   </span>
@@ -298,7 +301,7 @@ function BundleSection({ bundle }: { bundle: OplossingBundle }) {
                   <Link href="/prijzen" className="underline underline-offset-2 hover:text-[color:var(--color-purple)] transition-colors font-medium text-[color:var(--color-ink-muted)]">
                     {bundle.basedOnPlan}
                   </Link>
-                  -abonnement.
+                  -abonnement. Schaalt mee naar Growth en Scale.
                 </p>
 
                 <div className="mt-5 flex items-center gap-2 text-[13px] font-semibold text-[color:var(--color-ink)]">
