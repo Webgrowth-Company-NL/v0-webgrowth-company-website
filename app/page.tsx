@@ -30,7 +30,12 @@ const ORG_JSONLD = {
   description:
     "AI-groeiplatform met website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
   foundingDate: "2016",
-  address: { "@type": "PostalAddress", addressCountry: "NL" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Ceresstraat 13",
+    addressLocality: "Breda",
+    addressCountry: "NL",
+  },
   vatID: "NL001363277B13",
   taxID: "64809536",
   sameAs: ["https://www.linkedin.com/company/webgrowth-company"],

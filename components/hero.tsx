@@ -209,7 +209,7 @@ export function Hero() {
               className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3"
             >
               <a
-                href="https://www.google.com/search?q=Webgrowth+Company+reviews"
+                href="https://www.google.com/search?q=Webgrowth+Company+Breda+reviews"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 group"

@@ -121,7 +121,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
 
             {/* Stars rating badge */}
             <a
-              href="https://www.google.com/search?q=Webgrowth+Company+reviews"
+              href="https://www.google.com/search?q=Webgrowth+Company+Breda+reviews"
               target="_blank"
               rel="noopener noreferrer"
               className={[

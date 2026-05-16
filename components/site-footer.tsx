@@ -43,7 +43,7 @@ export function SiteFooter() {
               Eén platform voor je website, CRM, marketing en AI-assistent Q. Negen losse leveranciers, samengebracht tot Forester OS.
             </p>
             <a
-              href="https://www.google.com/search?q=Webgrowth+Company+reviews"
+              href="https://www.google.com/search?q=Webgrowth+Company+Breda+reviews"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 group"
@@ -66,7 +66,7 @@ export function SiteFooter() {
         <div className="mt-12 pt-7 border-t border-white/10 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[12.5px] text-white/55">
           <span>© {new Date().getFullYear()} Webgrowth Company</span>
           <span className="text-white/30">·</span>
-          <span>Gebouwd in Nederland</span>
+          <span>Ceresstraat 13, Breda</span>
           <span className="text-white/30">·</span>
           <span><span className="font-semibold text-white/70">KvK</span> 64809536</span>
           <span className="text-white/30">·</span>
