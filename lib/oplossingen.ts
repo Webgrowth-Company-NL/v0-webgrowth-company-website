@@ -158,7 +158,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     faq: [
       {
         q: "Hoe snel staat zo'n lead engine live?",
-        a: "Een eerste versie kan binnen 4 weken (twee sprints) live. Daarna optimaliseren we 'm op basis van de eerste echte aanvragen, niet op basis van wat we vooraf denken.",
+        a: "We rekenen op drie tot vier sprints van twee weken, dus zo'n zes tot acht weken van briefing tot livegang. Daarna optimaliseren we 'm op basis van de eerste echte aanvragen, niet op basis van wat we vooraf denken.",
       },
       {
         q: "Werkt dit ook voor B2B?",
