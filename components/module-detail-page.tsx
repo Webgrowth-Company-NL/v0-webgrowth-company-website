@@ -190,15 +190,20 @@ function ModuleHero({
           animate="show"
           className={split ? "text-left" : "text-center"}
         >
-        <motion.span
+        <motion.div
           variants={fadeUp(0)}
-          className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
+          className={`flex flex-wrap items-center gap-2 ${split ? "justify-start" : "justify-center"}`}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-          Forester OS
-          <span className="text-[color:var(--color-ink-faint)]">·</span>
-          <span className="text-[color:var(--color-ink)] font-semibold">{m.label}</span>
-        </motion.span>
+          <span className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+            Forester OS
+            <span className="text-[color:var(--color-ink-faint)]">·</span>
+            <span className="text-[color:var(--color-ink)] font-semibold">{m.label}</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--color-purple-tint)] text-[11.5px] font-semibold text-[color:var(--color-purple)]">
+            Zit in elk Forester OS-pakket
+          </span>
+        </motion.div>
 
         <motion.div
           variants={fadeUp(0.06)}
@@ -328,7 +333,7 @@ function ModuleFeatures({
             variants={fadeUp(0.1)}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            {detail.featuresIntro ?? "Geen mysterieuze knop die alles doet, maar concrete onderdelen die elk een herkenbaar stuk werk uit handen nemen."}
+            {detail.featuresIntro ?? "Geen mysterieuze knop die alles doet, maar concrete onderdelen die elk een herkenbaar stuk werk uit handen nemen. En je kiest er geen losse uit, dit zit allemaal in elk Forester OS-pakket."}
           </motion.p>
         </motion.div>
 

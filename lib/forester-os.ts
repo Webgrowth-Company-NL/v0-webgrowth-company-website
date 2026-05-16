@@ -266,9 +266,9 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     steps: {
       eyebrow: "Zo werkt het",
-      title: "Van handtekening tot livegang in drie tot vier sprints.",
+      title: "Van handtekening tot doorlopende groei.",
       intro:
-        "Een strak traject in zeven duidelijke fases, met elke twee weken een meeting zodat je precies weet waar we staan en wat er aankomt.",
+        "Een strak traject in acht fases waarin we eerst je site bouwen en daarna doorgaan met de marketing-motor die we tijdens de bouw al hebben opgetuigd. Elke twee weken een meeting zodat je precies weet waar we staan en wat er aankomt.",
       items: [
         {
           title: "Kick-off meeting",
@@ -297,6 +297,10 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
         {
           title: "Live",
           body: "We doen de DNS-flip zonder downtime, zodat je klanten er niets van merken. Daarna krijg je de sleutels en blijft je site elke week door ons onderhouden, terwijl jij elke maand een Momentum-rapport krijgt met de cijfers die er toe doen.",
+        },
+        {
+          title: "Blijven groeien",
+          body: "Vanaf de eerste dag dat je site bouwt loopt onze marketing-motor al mee, en die blijft ook na livegang draaien. Wij werken doorlopend aan SEO, content, advertenties en aanpassingen aan je site, zodat je elke maand iets verder komt zonder dat er een nieuw project voor opgetuigd hoeft te worden.",
         },
       ],
     },
