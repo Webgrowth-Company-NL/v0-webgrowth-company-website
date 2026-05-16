@@ -60,8 +60,14 @@ export function CasePage({ study }: { study: CaseStudy }) {
         </section>
 
         {/* features */}
-        <section className="px-5 sm:px-8 pb-20 sm:pb-28">
+        <section className="px-5 sm:px-8 pb-16 sm:pb-20">
           <div className="mx-auto max-w-5xl">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                Wat we bouwden
+              </span>
+              <span className="h-px flex-1 bg-[color:var(--color-line)]" />
+            </div>
             <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
               {study.features.map((f) => (
                 <div key={f.label} className="rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-6 shadow-[0_1px_2px_rgba(12,6,18,0.04)]">
@@ -75,6 +81,113 @@ export function CasePage({ study }: { study: CaseStudy }) {
             </div>
           </div>
         </section>
+
+        {/* challenge */}
+        {study.challenge && (
+          <section className="px-5 sm:px-8 pb-16 sm:pb-20">
+            <div className="mx-auto max-w-3xl">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                  De uitdaging
+                </span>
+                <span className="h-px flex-1 bg-[color:var(--color-line)]" />
+              </div>
+              <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.7rem,3.5vw,2.6rem)] leading-[1.15] tracking-[-0.01em] text-[color:var(--color-ink-strong)]">
+                {study.challenge.title}
+              </h2>
+              <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.7] text-[color:var(--color-ink-muted)]">
+                {study.challenge.body}
+              </p>
+            </div>
+          </section>
+        )}
+
+        {/* solution */}
+        {study.solution && study.solution.length > 0 && (
+          <section className="px-5 sm:px-8 pb-16 sm:pb-20 bg-[color:var(--color-bg)]">
+            <div className="mx-auto max-w-3xl pt-16 sm:pt-20">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                  Onze aanpak
+                </span>
+                <span className="h-px flex-1 bg-[color:var(--color-line)]" />
+              </div>
+              <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.7rem,3.5vw,2.6rem)] leading-[1.15] tracking-[-0.01em] text-[color:var(--color-ink-strong)] mb-10">
+                Hoe we het hebben opgelost.
+              </h2>
+              <div className="space-y-10">
+                {study.solution.map((section, i) => (
+                  <article key={section.title} className="relative pl-12 sm:pl-14">
+                    <span className="absolute left-0 top-0 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white font-[family-name:var(--font-display)] font-bold text-[14px] tabular-nums shadow-[0_8px_22px_-10px_rgba(98,59,199,0.55)]">
+                      {i + 1}
+                    </span>
+                    <h3 className="font-[family-name:var(--font-display)] font-bold text-[19px] sm:text-[22px] leading-[1.25] tracking-[-0.005em] text-[color:var(--color-ink-strong)]">
+                      {section.title}
+                    </h3>
+                    <p className="mt-3 text-[15px] sm:text-[16px] leading-[1.7] text-[color:var(--color-ink-muted)]">
+                      {section.body}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* results */}
+        {study.results && study.results.length > 0 && (
+          <section className="px-5 sm:px-8 pb-16 sm:pb-20">
+            <div className="mx-auto max-w-5xl">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                  Wat het opleverde
+                </span>
+                <span className="h-px flex-1 bg-[color:var(--color-line)]" />
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                {study.results.map((r) => (
+                  <div key={r.label} className="rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-5 sm:p-6 shadow-[0_1px_2px_rgba(12,6,18,0.04)]">
+                    <div className="font-[family-name:var(--font-display)] font-bold text-[28px] sm:text-[32px] leading-none tracking-[-0.01em] text-[color:var(--color-purple)]">
+                      {r.value}
+                    </div>
+                    <div className="mt-3 text-[14px] font-semibold text-[color:var(--color-ink-strong)]">
+                      {r.label}
+                    </div>
+                    {r.descriptor && (
+                      <div className="mt-1 text-[12.5px] leading-[1.5] text-[color:var(--color-ink-muted)]">
+                        {r.descriptor}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* quote */}
+        {study.quote && (
+          <section className="px-5 sm:px-8 pb-16 sm:pb-20">
+            <div className="mx-auto max-w-3xl rounded-[2rem] bg-[color:var(--color-purple-soft)] border border-[color:var(--color-purple)]/20 p-8 sm:p-10">
+              <p className="font-[family-name:var(--font-display)] text-[19px] sm:text-[22px] leading-[1.45] text-[color:var(--color-ink-strong)] italic">
+                &ldquo;{study.quote.text}&rdquo;
+              </p>
+              <footer className="mt-6 flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white text-[13px] font-bold">
+                  {study.quote.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                </span>
+                <div>
+                  <div className="text-[13.5px] font-semibold text-[color:var(--color-ink)]">
+                    {study.quote.name}
+                  </div>
+                  {study.quote.role && (
+                    <div className="text-[12px] text-[color:var(--color-ink-subtle)]">{study.quote.role}</div>
+                  )}
+                </div>
+              </footer>
+            </div>
+          </section>
+        )}
 
         {/* closing CTA */}
         <section className="px-5 sm:px-8 pb-28 sm:pb-36">
