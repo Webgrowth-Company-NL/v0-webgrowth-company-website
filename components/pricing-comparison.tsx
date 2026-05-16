@@ -152,35 +152,44 @@ export function PricingComparison() {
               Eén abonnement vervangt deze hele lijst.
             </h3>
 
-            <ul className="mt-6 space-y-2.5 flex-1">
+            <ul className="mt-6 divide-y divide-white/15 flex-1">
               {[
-                "Websitebouw (geen eenmalige bouwfactuur)",
-                "Hosting in Nederland met SSL en back-ups",
-                "CRM voor contacten, leads en deals",
-                "E-mailtool met segmenten uit je CRM",
-                "Security: beveiliging, monitoring en updates",
-                "Content schrijven door Q in jouw stem",
-                "Wekelijks onderhoud door ons team",
-                "Ads-beheer met CRM-attributie",
-                "SEO met Search Console en rankings",
-              ].map((line) => (
-                <li key={line} className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-white/90">
-                  <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
-                    <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                { category: "Websitebureau", desc: "Wij bouwen je site, geen eenmalige bouwfactuur" },
+                { category: "Hoster", desc: "Hosting in Nederland met SSL en back-ups" },
+                { category: "CRM", desc: "Contacten, leads en deals in één dashboard" },
+                { category: "E-mailtool", desc: "Segmenten uit je CRM, eigen verzenddomein" },
+                { category: "Security", desc: "Monitoring, back-ups en wekelijkse updates" },
+                { category: "Content-uurtjes", desc: "Q schrijft mee in jouw stem" },
+                { category: "Onderhoud", desc: "Wekelijks door ons team verzorgd" },
+                { category: "Ads-beheer", desc: "Setup en optimalisatie met CRM-attributie" },
+                { category: "SEO-bureau", desc: "Search Console en rankings ingebouwd" },
+              ].map((item) => (
+                <li key={item.category} className="flex items-baseline justify-between gap-3 py-3">
+                  <div className="min-w-0">
+                    <span className="text-[13.5px] font-semibold text-white">{item.category}</span>
+                    <span className="block text-[11.5px] text-white/65 truncate">{item.desc}</span>
+                  </div>
+                  <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-[11.5px] font-semibold text-white">
+                    <Check className="h-3 w-3" strokeWidth={2.75} />
+                    Inbegrepen
                   </span>
-                  <span>{line}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6 pt-5 border-t border-white/15 flex items-baseline justify-between gap-3">
+            <div className="mt-6 pt-5 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-2 sm:gap-3">
               <span className="text-[12.5px] font-semibold uppercase tracking-[0.12em] text-white/65">
-                Forester OS Growth
+                Samen per maand
               </span>
-              <span className="font-[family-name:var(--font-display)] font-bold text-[28px] sm:text-[32px] tabular-nums leading-none tracking-[-0.01em]">
-                {fmt(FORESTER_GROWTH_PRICE)}
-                <span className="text-[12px] font-medium text-white/70 ml-1">/ mnd</span>
-              </span>
+              <div className="text-right">
+                <span className="font-[family-name:var(--font-display)] font-bold text-[24px] sm:text-[30px] tabular-nums leading-none tracking-[-0.01em]">
+                  {fmt(FORESTER_GROWTH_PRICE)}
+                  <span className="text-[12px] font-medium text-white/70 ml-1">/ mnd</span>
+                </span>
+                <span className="block mt-1 text-[12px] text-white/70">
+                  Geen eenmalige bouwfactuur, geen losse contracten
+                </span>
+              </div>
             </div>
 
             <Link
