@@ -12,6 +12,8 @@ export type CaseStudy = {
   features: CaseFeature[];
   img: string;
   imgAlt: string;
+  /** CSS object-position waarde voor 16/10-crops. Default 'center'. */
+  imgPosition?: string;
   logo: string;
   /** Optional tile background for the compact-card logo treatment. If unset, the card uses `img` as a photo. */
   thumbBg?: string;
@@ -39,6 +41,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     img: "/images/clients/mol-logistics-hero.jpg",
     imgAlt: "MOL Logistics warehouse in Tilburg met heftrucks en containers",
+    imgPosition: "center 60%",
     logo: "/images/clients/mol-logistics.png",
     liveUrl: "https://mol-logistics.eu",
     liveLabel: "mol-logistics.eu",
@@ -63,6 +66,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     img: "/images/clients/pink-elephant-hero.webp",
     imgAlt: "Trainingssessie van Pink Elephant met deelnemers achter laptops",
+    imgPosition: "center 25%",
     logo: "/images/clients/pink-elephant.png",
     liveUrl: "https://pinkelephant.co.uk",
     liveLabel: "pinkelephant.co.uk",
@@ -87,6 +91,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     img: "/images/clients/nordflame-hero.png",
     imgAlt: "NordFlame premium pelletkachel-platform",
+    imgPosition: "left center",
     logo: "/images/clients/nordflame.png",
     liveUrl: "https://nordflame.nl",
     liveLabel: "nordflame.nl",
@@ -111,6 +116,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     img: "/images/clients/adalace-hero.jpg",
     imgAlt: "Schoolgebouw met veilige leeromgeving, beheerd via Adalace",
+    imgPosition: "center 65%",
     logo: "/images/clients/adalace.png",
     liveUrl: "https://adalace.nl",
     liveLabel: "adalace.nl",
@@ -135,6 +141,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     img: "/images/clients/samenleesclub-hero.jpg",
     imgAlt: "Mensen die samen lezen tijdens een sessie van De Samenleesclub",
+    imgPosition: "center 30%",
     logo: "/images/clients/samenleesclub.png",
     liveUrl: "https://desamenleesclub.nl",
     liveLabel: "desamenleesclub.nl",

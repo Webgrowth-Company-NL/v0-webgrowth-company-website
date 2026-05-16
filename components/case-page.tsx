@@ -54,7 +54,7 @@ export function CasePage({ study }: { study: CaseStudy }) {
         <section className="px-5 sm:px-8 pb-14 sm:pb-20">
           <div className="mx-auto max-w-5xl">
             <div className="relative aspect-[16/9] rounded-[2rem] overflow-hidden border border-[color:var(--color-line)] shadow-[0_28px_64px_-26px_rgba(12,6,18,0.22)]">
-              <Image src={study.img} alt={study.imgAlt} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" priority />
+              <Image src={study.img} alt={study.imgAlt} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" style={{ objectPosition: study.imgPosition ?? "center" }} priority />
             </div>
           </div>
         </section>
