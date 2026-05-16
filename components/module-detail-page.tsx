@@ -328,7 +328,7 @@ function ModuleFeatures({
             variants={fadeUp(0.1)}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            {detail.featuresIntro ?? "Niet één black-box-knop, maar concrete onderdelen die elk een werkbaar stuk werk doen."}
+            {detail.featuresIntro ?? "Geen mysterieuze knop die alles doet, maar concrete onderdelen die elk een herkenbaar stuk werk uit handen nemen."}
           </motion.p>
         </motion.div>
 

@@ -182,7 +182,7 @@ function HubHero() {
           variants={fadeUp(0.18)}
           className="mt-6 text-[17px] sm:text-[18px] leading-[1.6] text-[color:var(--color-ink-muted)]"
         >
-          Of je nu meer aanvragen wilt, beter gevonden wilt worden of je hele kantoor wilt herstructureren — er is een Forester OS-pakket voor. Vanaf €399 per maand, één login, één factuur, één team dat meedraait.
+          Of je nu meer aanvragen wilt, beter gevonden wilt worden of je hele kantoor wilt herstructureren, er is altijd een Forester OS-pakket dat daarop aansluit. Vanaf €399 per maand, één login, één factuur, en één team dat meedraait.
         </motion.p>
 
         <motion.div

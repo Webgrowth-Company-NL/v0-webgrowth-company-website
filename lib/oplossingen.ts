@@ -142,24 +142,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We beginnen klein, meten echt en schalen op wat werkt. Geen wekenlang strategisch zwabberen, gewoon iets dat leads oplevert en dat we kunnen verbeteren.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We bepalen welk lead-mechanisme past (quickscan, calculator, training of slim formulier) en welke kwalificatievragen sales écht nodig heeft om sneller te kunnen werken.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off bepalen we ook welk soort Lead Engine bij jou past (een quickscan, prijscalculator, aanmeldformulier of een combinatie) en welke kwalificatievragen sales echt nodig heeft om sneller te kunnen werken.",
         },
         {
-          title: "Bouw in Forester OS",
-          body: "We zetten 'm op binnen je eigen platform, met de juiste tagging, WhatsApp-notificaties en CRM-routing. Geen losse tools, geen koppelingen die ooit breken.",
+          title: "Wij werken het uit",
+          body: "We bouwen 'm rechtstreeks in Forester OS met de juiste tagging, WhatsApp-notificaties en CRM-routing. Geen losse tools, geen koppelingen die ooit breken, en alles direct in je eigen platform.",
         },
         {
-          title: "Soft launch & meten",
-          body: "Eerst rustig live met klein budget om conversie en lead-kwaliteit te meten voordat we 'm breed promoten. Eerste 50 leads zijn een leerset, geen rampscenario.",
-        },
-        {
-          title: "Opschalen wat werkt",
-          body: "Op basis van echte data passen we vragen, copy en pricing aan tot de funnel staat. Dan komen advertenties en SEO erbij om volume te brengen.",
-        },
-        {
-          title: "Doorlopend optimaliseren",
-          body: "Q signaleert leads die afkoelen, sales krijgt wekelijks een overzicht van kansen, jij stuurt bij waar nodig. Geen losse rapportages, alles in één dashboard.",
+          title: "We zetten 'm live",
+          body: "We brengen 'm rustig online en kijken hoe de eerste aanvragen lopen. Op basis van wat we zien passen we vragen, teksten of design bij, en als 'ie staat schakelen we advertenties en SEO bij om er meer volume op te zetten.",
         },
       ],
     },
@@ -263,24 +255,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "Geen big-bang migratie, geen 'eerst alles stoppen, dan iets nieuws beginnen'. We faseren in waar je nu staat en bouwen het kantoor stap voor stap om.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We brengen je huidige inkomende leadflow in kaart en bepalen waar de grootste lekken zitten: vindbaarheid, opvolging of acquisitie. Geen aanname, wel cijfers.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off brengen we ook je huidige leadflow in kaart en bepalen we waar de grootste verliezen zitten, of het nu vindbaarheid, opvolging of acquisitie is. Geen aannames, wel cijfers.",
         },
         {
-          title: "Website + kennisproducten op Forester OS",
-          body: "Snelle, vindbare site met je expertise vertaald in quickscans, kennistests of paid programma's. Warme leads in plaats van koud-acquireren.",
+          title: "Wij werken het uit",
+          body: "We bouwen je snelle, vindbare site op Forester OS, vertalen je expertise in quickscans of kennistests waarmee je warme leads binnenharkt, en zetten één CRM op waarin dossiers, deals en taken voor het hele kantoor doorlopen. Q kent je site, je dossiers en je tone, en stelt eerste-versie-mails en samenvattingen voor.",
         },
         {
-          title: "CRM voor het hele kantoor",
-          body: "Eén pijplijn waar dossiers, deals en taken doorlopen. Junior krijgt context bij elke lead, senior houdt overzicht zonder elke keer te moeten vragen.",
-        },
-        {
-          title: "Q als kantoor-AI",
-          body: "Q kent je site, je dossiers en je tone-of-voice. Schrijft eerste-versie-mails, vat aanvragen samen en suggereert opvolging. Jij keurt, Q stuurt.",
-        },
-        {
-          title: "Maandelijkse momentum-meeting",
-          body: "Eén keer per maand: cijfers, wat groeit, wat blijft achter, wat is de volgende prioriteit. Geen losse rapporten, geen losse facturen, één overzicht.",
+          title: "We zetten 'm live",
+          body: "We brengen alles rustig online en gaan elke maand met je rond de tafel om te kijken wat groeit, wat achterblijft en wat de volgende prioriteit is. Eén overzicht, geen losse rapporten en geen losse facturen.",
         },
       ],
     },
@@ -370,24 +354,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "SEO als ingebouwde laag, niet als losse opdracht. Maandelijkse data-driven aanpassingen die echt iets opleveren.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We koppelen je Search Console en doen een diepe analyse: welke pagina's groeien, welke zakken, waar laat je verkeer liggen.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off koppelen we ook je Search Console en doen we een eerste analyse. Welke pagina's groeien, welke zakken, en waar laat je nu verkeer liggen aan de concurrent.",
         },
         {
-          title: "Keyword-strategie",
-          body: "Op basis van audit en concurrentie kiezen we 25 keywords om aan te werken: long-tail, lokaal, brand of categorie, afhankelijk van waar de groei zit.",
+          title: "Wij werken het uit",
+          body: "Op basis van de analyse en je concurrentie kiezen we zo'n 25 zoekwoorden om aan te werken, en Q stelt voor welke pagina's eerst gemaakt of herschreven moeten worden, met logische interne links die elkaar versterken.",
         },
         {
-          title: "Content-plan met Q",
-          body: "Q stelt voor wat eerst gemaakt of herschreven moet worden, met topic-clusters en interne links die elkaar versterken. Jij keurt.",
-        },
-        {
-          title: "Maandelijkse optimalisatie",
-          body: "Elke maand laten we zien wat verbeterd is, wat tegenviel en wat we hierna doen. Geen rapport om het rapport.",
-        },
-        {
-          title: "Doorlopend monitoren",
-          body: "Wat werkt schalen we op, wat niet werkt parkeren we. Geen droge SEO-best-practices, maar wat in jouw markt landt.",
+          title: "We zetten 'm live",
+          body: "Elke maand zie je wat verbeterd is, wat tegenviel en wat we hierna gaan doen. Wat werkt schalen we op, wat niet werkt parkeren we, zodat we bezig blijven met wat in jouw markt echt landt.",
         },
       ],
     },
@@ -474,24 +450,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "Geen droge import-export. We zetten jouw pijplijn op, lopen mee tijdens de eerste maand en passen aan wat nodig is.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We nemen je bestaande contacten en deals over (uit Excel, HubSpot, Pipedrive of waar dan ook) en mappen ze naar Forester OS.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off bekijken we ook hoe jouw pijplijn eruit moet zien, welke statussen daar logisch bij horen en welke rollen iedereen in het team krijgt. Werk je met 5 of 9 stadia, met onderverdeling per sector? Jouw keuze, niet onze template.",
         },
         {
-          title: "Eigen statussen",
-          body: "Samen tekenen we jouw pijplijn-stadia. Werk je met 5 of 9 stappen, met onderverdeling per sector? Jouw keuze, niet onze template.",
+          title: "Wij werken het uit",
+          body: "We nemen je bestaande contacten en deals over (uit Excel, HubSpot, Pipedrive of waar dan ook), zetten je pijplijn op met de juiste statussen en geven iedereen een eigen login met de juiste rechten en notificaties op jouw werkritme.",
         },
         {
-          title: "Team & rollen",
-          body: "Iedereen krijgt een eigen login met de juiste rechten. Met meldingen, taken en notificaties op jouw werkritme.",
-        },
-        {
-          title: "Eerste 30 dagen",
-          body: "We kijken mee tijdens de eerste maand, doen wekelijks een sync en passen statussen of automations aan tot 'ie precies werkt.",
-        },
-        {
-          title: "Doorlopend met Q",
-          body: "Q kijkt mee, signaleert deals die te lang stilstaan en stelt opvolgingen voor. Jij houdt de controle.",
+          title: "We zetten 'm live",
+          body: "De eerste maand kijken we intensief mee en doen we wekelijks een belletje om statussen of automations bij te schaven tot 'ie precies klopt. Daarna signaleert Q deals die te lang stilstaan en stelt hij opvolgingen voor, zodat jij de controle houdt zonder dat je overal achteraan moet zitten.",
         },
       ],
     },
@@ -582,24 +550,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "Eerst handmatig, dan automatisch. We bouwen de motor op, jij houdt regie over wat erin gaat.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "Welke onderwerpen, hoe vaak, welk type? We bepalen het ritme en de mix (blogs, cases, updates) op basis van wat jouw doelgroep zoekt.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off bepalen we ook welke onderwerpen je wilt publiceren, in welke mix (blogs, cases, klantverhalen, updates) en op welk ritme: wekelijks, twee-wekelijks of maandelijks.",
         },
         {
-          title: "Tone-of-voice afstemmen",
-          body: "We laten Q je bestaande site lezen en stemmen 'm af op jouw stem. Een paar voorbeeldteksten en Q schrijft herkenbaar.",
+          title: "Wij werken het uit",
+          body: "We laten Q je bestaande site lezen en stemmen hem af op jouw stem, en we bouwen herbruikbare templates per content-type. Daardoor voelt elke publicatie consistent, ook als Q ze vult.",
         },
         {
-          title: "Templates opzetten",
-          body: "We bouwen herbruikbare templates per content-type. Zo voelt elke publicatie consistent, ook als Q ze vult.",
-        },
-        {
-          title: "Schema instellen",
-          body: "Wekelijks, twee-wekelijks of maandelijks, jij kiest. We zetten de auto-publicaties klaar met een goedkeurmoment vooraf.",
-        },
-        {
-          title: "Doorlopend met Q",
-          body: "Q blijft schrijven, jij blijft keuren wat je wilt keuren. Geen schrijfblok meer, geen achterstand in content.",
+          title: "We zetten 'm live",
+          body: "De auto-publicaties staan klaar met een goedkeurmoment vooraf. De eerste maand keur jij elke publicatie, daarna kan een deel automatisch zodra we zien dat de kwaliteit klopt, en Q blijft schrijven terwijl jij keurt wat je wilt keuren.",
         },
       ],
     },
@@ -699,24 +659,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We faseren in waar je nu staat. Je hoeft niet alles tegelijk om te zetten, we beginnen met portfolio en leads en bouwen door.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "Je bestaande cases en projecten verhuizen we naar Forester OS. Snellere pagina's, betere SEO, beheerbaar zonder code.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off bekijken we ook welke cases en projecten naar Forester OS verhuizen, hoe je intake-flow eruit moet zien (doelgroep, budget, timing, stijl-voorkeuren) en hoe je projecten door je pijplijn moeten lopen.",
         },
         {
-          title: "Intake-flow opzetten",
-          body: "Een slim intake-formulier dat de juiste vragen stelt: doelgroep, budget, timing, stijl-voorkeuren. Klant levert vooraf, jij begint warm.",
+          title: "Wij werken het uit",
+          body: "We bouwen snellere portfolio-pagina's met betere SEO, zetten een slim intake-formulier op zodat klanten vooraf de juiste vragen beantwoorden, en richten één pijplijn in waar projecten, taken en deadlines doorlopen. Q vat intakes samen en schrijft eerste proposal-concepten in jouw stem.",
         },
         {
-          title: "CRM voor projecten",
-          body: "Projecten lopen door dezelfde pijplijn als leads. Status, taken, deadlines, alles op één plek.",
-        },
-        {
-          title: "Q voor briefings",
-          body: "Q vat intakes samen, schrijft eerste proposal-concepten en helpt bij follow-up mails. Jij keurt en stuurt.",
-        },
-        {
-          title: "Doorlopend met momentum",
-          body: "Maandelijks Momentum Report laat zien wat aanvragen oplevert en waar de funnel lekt. Bijsturen op data, niet op gevoel.",
+          title: "We zetten 'm live",
+          body: "Alles wordt rustig opgeleverd en je krijgt elke maand een Momentum-rapport waarin je ziet wat aanvragen oplevert en waar het stokt. Bijsturen op data, niet op gevoel.",
         },
       ],
     },
@@ -819,24 +771,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We bouwen een calculator die de juiste vragen stelt en een CRM dat je projecten bewaakt. Live in 4 tot 6 weken, jij wint tijd vanaf de eerste maand.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We brengen je bestaande offerte-flow in kaart: welke informatie heb je écht nodig en wat vraag je nu te laat?",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off brengen we ook je bestaande offerte-flow in kaart en bepalen we welke informatie je echt vooraf nodig hebt om snel een onderbouwde prijs neer te kunnen leggen.",
         },
         {
-          title: "Calculator + offerteformulier",
-          body: "We bouwen een lead-flow met foto-upload, afmetingen-velden, budget-indicatie en eventueel beschikbare data. Klant levert vooraf.",
+          title: "Wij werken het uit",
+          body: "We bouwen een calculator en offerteformulier met foto-upload, afmetingen-velden en budget-indicatie zodat de klant alles vooraf aanlevert. Aanvragen landen direct in je CRM met alle context, en Q schrijft de eerste offerte-concepten op basis van de intake.",
         },
         {
-          title: "CRM met projecten",
-          body: "Aanvragen landen direct in je CRM met alle context. Eigen statussen voor jouw werk-flow (intake, calc, akkoord, gepland, uitgevoerd).",
-        },
-        {
-          title: "Q als offerte-assistent",
-          body: "Q schrijft eerste offerte-concepten op basis van de intake. Jij past prijzen en condities aan, stuurt door.",
-        },
-        {
-          title: "Doorlopend optimaliseren",
-          body: "We monitoren waar de funnel lekt: aanvragen die niet door komen, offertes die niet getekend worden. Bijsturen op data.",
+          title: "We zetten 'm live",
+          body: "Alles gaat rustig live en we kijken mee waar het stokt, of dat nu aanvragen zijn die niet doorkomen of offertes die niet getekend worden. Op die manier sturen we bij op data, niet op gevoel.",
         },
       ],
     },
@@ -935,24 +879,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We bouwen een aanvraag-flow die direct de juiste vragen stelt en een CRM dat je ritten bewaakt. Live in 4 tot 6 weken, jij wint tijd vanaf de eerste maand.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We brengen je huidige offerte-flow in kaart: welke informatie heb je écht nodig en wat vraag je nu te laat na?",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off brengen we ook je huidige offerte-flow in kaart en bepalen we welke informatie je echt vooraf nodig hebt om snel een onderbouwde prijs te kunnen geven.",
         },
         {
-          title: "Aanvraagformulier opzet",
-          body: "Een lead-flow met velden voor traject, ladingtype, gewicht, datum en eventueel referentie. Klant levert vooraf, jij begint warm.",
+          title: "Wij werken het uit",
+          body: "We bouwen een aanvraagformulier met velden voor traject, ladingtype, gewicht en datum, en zetten een CRM op waarin klanten en ritten doorlopen met statussen als aanvraag, offerte, gepland, onderweg, geleverd en gefactureerd. Q schrijft de eerste offerte-concepten op basis van de aanvraag.",
         },
         {
-          title: "CRM met klanten en ritten",
-          body: "Aanvragen landen direct in je CRM. Eigen statussen voor jouw werk-flow (aanvraag, offerte, gepland, onderweg, geleverd, gefactureerd).",
-        },
-        {
-          title: "Q als offerte-assistent",
-          body: "Q schrijft eerste offerte-concepten op basis van de aanvraag. Jij past tarieven en condities aan, stuurt door.",
-        },
-        {
-          title: "Doorlopend optimaliseren",
-          body: "We monitoren waar de funnel lekt: aanvragen die niet door komen, offertes die niet getekend worden. Bijsturen op data, niet op gevoel.",
+          title: "We zetten 'm live",
+          body: "Alles gaat rustig live en we kijken mee waar het stokt, of het nu aanvragen zijn die niet doorkomen of offertes die blijven liggen. Op die manier sturen we bij op data in plaats van op gevoel.",
         },
       ],
     },
@@ -1043,24 +979,16 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
         "We migreren gefaseerd zodat je business niet stil hoeft te liggen. Eerst website en CRM, daarna leads en marketing.",
       items: [
         {
-          title: "Kick-off meeting",
-          body: "We brengen al je losse leveranciers en kosten in kaart. Vaak vinden we 3-5 contracten die overlappen of onnodig zijn.",
+          title: "Kick-off voor het hele traject",
+          body: "In de gezamenlijke kick-off brengen we ook al je losse leveranciers en kosten in kaart. Vaak vinden we drie tot vijf contracten die met elkaar overlappen of die je eigenlijk niet meer gebruikt.",
         },
         {
-          title: "Website + leadflow opzet",
-          body: "Snelle nieuwe site met lead-engines op Forester OS. Je oude site loopt door tot we klaar zijn voor de switch.",
+          title: "Wij werken het uit",
+          body: "We bouwen een snelle nieuwe site met Lead Engines op Forester OS, terwijl je oude site rustig blijft draaien tot we klaar zijn voor de switch. We nemen je bestaande contacten en deals over in het CRM en zetten Q klaar op de plekken waar jij werkt, in mail, CRM en content.",
         },
         {
-          title: "CRM-migratie",
-          body: "Bestaande klanten en deals nemen we over, met dezelfde statussen en eigen velden. Niemand merkt onderbreking.",
-        },
-        {
-          title: "Q in workflow",
-          body: "Q komt op de plekken waar jij werkt: in mail, in CRM, in content. Eerste maand keurt jouw team alles, daarna automatiseren we wat consistent goed gaat.",
-        },
-        {
-          title: "Maandelijkse momentum",
-          body: "Elke maand één meeting waarin we kijken wat groeit, wat stilstaat en wat de volgende prioriteit is. Eén rapport, één leverancier.",
+          title: "We zetten 'm live",
+          body: "Alles gaat rustig live en we kijken elke maand met je rond de tafel naar wat groeit, wat stilstaat en wat de volgende prioriteit is. Eén rapport, één leverancier en geen losse facturen meer.",
         },
       ],
     },
