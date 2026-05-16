@@ -82,7 +82,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Meer aanvragen,",
     heroHighlight: "minder lege mailboxen.",
     heroIntro:
-      "Binnen vier tot zes weken staat er een leadflow op je eigen site die anonieme bezoekers omzet in concrete aanvragen, compleet met context en een melding op je telefoon. Je hebt er geen los marketingbureau, geen aparte leadgen-tool en geen handmatige opvolging meer voor nodig, want alles draait rechtstreeks vanuit Forester OS.",
+      "Binnen zes tot acht weken staat er een leadflow op je eigen site die anonieme bezoekers omzet in concrete aanvragen, compleet met context en een melding op je telefoon. Je hebt er geen los marketingbureau, geen aparte leadgen-tool en geen handmatige opvolging meer voor nodig, want alles draait rechtstreeks vanuit Forester OS.",
     heroView: "lead-engine",
     bundle: {
       name: "Het Lead-pakket",
