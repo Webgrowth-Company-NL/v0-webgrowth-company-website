@@ -91,30 +91,41 @@ export const PRICING_PLANS: PricingPlan[] = [
 export type RivalTool = {
   category: string;
   name: string;
-  monthly: number;
-  note?: string;
+  /** Maandelijkse prijsrange in euro's; ontbreekt als de tool alleen eenmalig betaalt. */
+  monthlyMin?: number;
+  monthlyMax?: number;
   /** Eenmalige bouwkosten (bv. een website-bureau dat eenmalig een site oplevert). */
   oneTime?: number;
+  note?: string;
 };
 
 /**
  * Realistische marktprijzen voor een zakelijke stack van losse tools.
- * Dezelfde negen categorieën als op de homepage (SectionShift), met een
- * middentier-prijspunt per categorie. Bedragen excl. BTW.
+ * Dezelfde negen categorieën als op de homepage (SectionShift), met dezelfde
+ * prijsranges per categorie. Bedragen excl. BTW.
  */
 export const RIVAL_STACK: RivalTool[] = [
-  { category: "Websitebureau", name: "Externe webbouwer", monthly: 300, oneTime: 4000, note: "eenmalige bouw + onderhoud" },
-  { category: "Hoster", name: "Aparte hostingpartij", monthly: 30 },
-  { category: "CRM", name: "HubSpot Sales Hub Pro", monthly: 450, note: "5 gebruikers" },
-  { category: "E-mailtool", name: "Mailchimp Standard", monthly: 90, note: "10k contacten" },
-  { category: "Security", name: "Beveiligings-abonnement", monthly: 50 },
-  { category: "Content-uurtjes", name: "Copywriter of bureau", monthly: 500 },
-  { category: "Onderhoud", name: "Dev-retainer", monthly: 150 },
-  { category: "Ads-beheer", name: "Mediabureau-fee", monthly: 400, note: "los van mediabudget" },
-  { category: "SEO-bureau", name: "SEO-specialist", monthly: 800 },
+  { category: "Websitebureau", name: "Externe webbouwer", oneTime: 4000, note: "eenmalige bouw" },
+  { category: "Hoster", name: "Aparte hostingpartij", monthlyMin: 15, monthlyMax: 50 },
+  { category: "CRM", name: "HubSpot Sales Hub Pro", monthlyMin: 50, monthlyMax: 450, note: "afhankelijk van team" },
+  { category: "E-mailtool", name: "Mailchimp Standard", monthlyMin: 20, monthlyMax: 150 },
+  { category: "Security", name: "Beveiligings-abonnement", monthlyMin: 15, monthlyMax: 80 },
+  { category: "Content-uurtjes", name: "Copywriter of bureau", monthlyMin: 200, monthlyMax: 800 },
+  { category: "Onderhoud", name: "Dev-retainer", monthlyMin: 50, monthlyMax: 200 },
+  { category: "Ads-beheer", name: "Mediabureau-fee", monthlyMin: 200, monthlyMax: 600, note: "los van mediabudget" },
+  { category: "SEO-bureau", name: "SEO-specialist", monthlyMin: 400, monthlyMax: 1500 },
 ];
 
-export const RIVAL_STACK_TOTAL = RIVAL_STACK.reduce((sum, t) => sum + t.monthly, 0);
+export const RIVAL_STACK_TOTAL_MIN = RIVAL_STACK.reduce(
+  (sum, t) => sum + (t.monthlyMin ?? 0),
+  0,
+);
+export const RIVAL_STACK_TOTAL_MAX = RIVAL_STACK.reduce(
+  (sum, t) => sum + (t.monthlyMax ?? 0),
+  0,
+);
+export const RIVAL_WEBSITE_BUILD_ONE_TIME = 4000;
+
 
 /* ── FAQ specifiek voor de prijzen-pagina ──────────────────────────── */
 

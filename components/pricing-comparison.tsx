@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
-import { RIVAL_STACK, RIVAL_STACK_TOTAL } from "@/lib/pricing";
+import {
+  RIVAL_STACK,
+  RIVAL_STACK_TOTAL_MAX,
+  RIVAL_STACK_TOTAL_MIN,
+  RIVAL_WEBSITE_BUILD_ONE_TIME,
+} from "@/lib/pricing";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 const FORESTER_GROWTH_PRICE = 699;
-const SAVINGS_MONTHLY = RIVAL_STACK_TOTAL - FORESTER_GROWTH_PRICE;
-const SAVINGS_YEARLY = SAVINGS_MONTHLY * 12;
 
 const fmt = (n: number) => `€${n.toLocaleString("nl-NL")}`;
 
@@ -82,29 +85,40 @@ export function PricingComparison() {
                       {tool.note ? ` · ${tool.note}` : ""}
                     </span>
                   </div>
-                  <div className="shrink-0 text-right">
-                    <span className="text-[13.5px] font-semibold tabular-nums text-[color:var(--color-ink)]">
-                      {fmt(tool.monthly)}
-                      <span className="text-[11px] font-medium text-[color:var(--color-ink-subtle)]">/ mnd</span>
-                    </span>
-                    {tool.oneTime !== undefined && (
-                      <span className="block text-[11px] font-medium text-[color:var(--color-ink-subtle)] tabular-nums">
-                        + {fmt(tool.oneTime)} eenmalig
-                      </span>
+                  <span className="shrink-0 text-[13.5px] font-semibold tabular-nums text-[color:var(--color-ink)]">
+                    {tool.oneTime !== undefined ? (
+                      <>
+                        {fmt(tool.oneTime)}
+                        <span className="text-[11px] font-medium text-[color:var(--color-ink-subtle)]"> eenmalig</span>
+                      </>
+                    ) : (
+                      <>
+                        {fmt(tool.monthlyMin ?? 0)} - {fmt(tool.monthlyMax ?? 0)}
+                        <span className="text-[11px] font-medium text-[color:var(--color-ink-subtle)]"> p/m</span>
+                      </>
                     )}
-                  </div>
+                  </span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6 pt-5 border-t border-[color:var(--color-line-strong)] flex items-baseline justify-between gap-3">
+            <div className="mt-6 pt-5 border-t border-[color:var(--color-line-strong)] flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-2 sm:gap-3">
               <span className="text-[12.5px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-ink-subtle)]">
-                Totaal
+                Samen per maand
               </span>
-              <span className="font-[family-name:var(--font-display)] font-bold text-[28px] sm:text-[32px] tabular-nums leading-none tracking-[-0.01em] text-[color:var(--color-ink-strong)]">
-                {fmt(RIVAL_STACK_TOTAL)}
-                <span className="text-[12px] font-medium text-[color:var(--color-ink-subtle)] ml-1">/ mnd</span>
-              </span>
+              <div className="text-right">
+                <span className="font-[family-name:var(--font-display)] font-bold text-[24px] sm:text-[30px] tabular-nums leading-none tracking-[-0.01em] text-[color:var(--color-ink-strong)]">
+                  {fmt(RIVAL_STACK_TOTAL_MIN)} - {fmt(RIVAL_STACK_TOTAL_MAX)}
+                  <span className="text-[12px] font-medium text-[color:var(--color-ink-subtle)] ml-1">/ mnd</span>
+                </span>
+                <span className="block mt-1 text-[12px] text-[color:var(--color-ink-muted)]">
+                  Plus eenmalig{" "}
+                  <span className="font-semibold tabular-nums text-[color:var(--color-ink)]">
+                    {fmt(RIVAL_WEBSITE_BUILD_ONE_TIME)}
+                  </span>{" "}
+                  voor de website-bouw
+                </span>
+              </div>
             </div>
           </motion.div>
 
