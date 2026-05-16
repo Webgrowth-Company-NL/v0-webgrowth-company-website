@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
+import { AnimatePresence, animate, motion, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 import { ArrowUp, CalendarClock, Check, Flame, Globe, Mail, Megaphone, MousePointer2, Search, Send, ShoppingBag, ShoppingCart, Sparkles, Star, TrendingUp, Users, Zap } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -122,12 +122,24 @@ export function HeroDashboard({
   const [active, setActive] = useState(initialIndex);
   const [paused, setPaused] = useState(false);
   const [userPicked, setUserPicked] = useState(false);
-  const autoCycle = !single && !reduce && !paused && !userPicked;
+
+  // Pauzeer de cycle totdat de widget echt in beeld komt. Op mobiel scrollt de
+  // bezoeker doorgaans pas later naar het dashboard, en dan moet de cyclus
+  // vanaf de eerste view kunnen beginnen in plaats van halverwege.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(containerRef, { amount: 0.4 });
+  const [hasBeenSeen, setHasBeenSeen] = useState(false);
+  useEffect(() => {
+    if (inView && !hasBeenSeen) setHasBeenSeen(true);
+  }, [inView, hasBeenSeen]);
+
+  const autoCycle = !single && !reduce && !paused && !userPicked && inView;
 
   const view = viewsToShow[active];
 
   return (
     <motion.div
+      ref={containerRef}
       initial={{ opacity: 0, y: 24, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.9, ease: EASE, delay: 0.35 }}
@@ -211,28 +223,31 @@ export function HeroDashboard({
           </div>
         )}
 
-        {/* Body — selected view */}
+        {/* Body — selected view (mount pas wanneer de widget in beeld komt, anders
+            spelen de animaties zich af terwijl niemand kijkt) */}
         <div className="relative flex-1 overflow-hidden">
-          <AnimatePresence>
-            <motion.div
-              key={view.key}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="absolute inset-0 px-5 pt-5 pb-5"
-            >
-              {view.key === "website" && <WebsiteView />}
-              {view.key === "seo" && <SeoView reduce={reduce} />}
-              {view.key === "crm" && <CrmView config={config?.crm} />}
-              {view.key === "ai" && <QView />}
-              {view.key === "lead-engine" && <LeadEngineView config={config?.leadEngine} />}
-              {view.key === "sales-engine" && <SalesEngineView />}
-              {view.key === "content-publisher" && <ContentPublisherView />}
-              {view.key === "nieuwsbrieven" && <NewsletterView />}
-              {view.key === "advertenties" && <AdsView />}
-            </motion.div>
-          </AnimatePresence>
+          {(single || hasBeenSeen) && (
+            <AnimatePresence>
+              <motion.div
+                key={view.key}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="absolute inset-0 px-5 pt-5 pb-5"
+              >
+                {view.key === "website" && <WebsiteView />}
+                {view.key === "seo" && <SeoView reduce={reduce} />}
+                {view.key === "crm" && <CrmView config={config?.crm} />}
+                {view.key === "ai" && <QView />}
+                {view.key === "lead-engine" && <LeadEngineView config={config?.leadEngine} />}
+                {view.key === "sales-engine" && <SalesEngineView />}
+                {view.key === "content-publisher" && <ContentPublisherView />}
+                {view.key === "nieuwsbrieven" && <NewsletterView />}
+                {view.key === "advertenties" && <AdsView />}
+              </motion.div>
+            </AnimatePresence>
+          )}
         </div>
       </div>
 
