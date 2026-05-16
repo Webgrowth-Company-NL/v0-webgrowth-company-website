@@ -15,7 +15,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Hoe snel sta ik live?",
-    a: "Een nieuwe site bouwen we in maximaal vier sprints van twee weken, dus zo'n twee maanden van krabbel tot livegang. Een kleinere klus of een losse Lead Engine kan een stuk sneller. Elke twee weken bellen we even bij om door te lopen wat klaar is en wat eraan komt, zodat je nooit voor verrassingen komt te staan.",
+    a: "Een nieuwe site bouwen we in drie tot vier sprints van twee weken, dus zo'n zes tot acht weken van krabbel tot livegang. Een kleinere klus of een losse Lead Engine kan een stuk sneller. Elke twee weken bellen we even bij om door te lopen wat klaar is en wat eraan komt, zodat je nooit voor verrassingen komt te staan.",
   },
   {
     q: "Wat kost het?",

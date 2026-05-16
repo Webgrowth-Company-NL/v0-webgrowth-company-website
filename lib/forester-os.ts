@@ -266,7 +266,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     steps: {
       eyebrow: "Zo werkt het",
-      title: "Van handtekening tot livegang in maximaal vier sprints.",
+      title: "Van handtekening tot livegang in drie tot vier sprints.",
       intro:
         "Een strak traject in zeven duidelijke fases, met elke twee weken een meeting zodat je precies weet waar we staan en wat er aankomt.",
       items: [
@@ -280,7 +280,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
         },
         {
           title: "Bouwplaats open",
-          body: "Wij beginnen met bouwen in maximaal vier sprints van twee weken, samen zo'n twee maanden tot livegang. Aan het einde van elke sprint zie je wat klaar is en wat eraan komt, en kun je nog bijsturen zonder dat het hele traject ontspoort.",
+          body: "Wij beginnen met bouwen in drie tot vier sprints van twee weken, samen zo'n zes tot acht weken tot livegang. Aan het einde van elke sprint zie je wat klaar is en wat eraan komt, en kun je nog bijsturen zonder dat het hele traject ontspoort.",
         },
         {
           title: "Lead en Sales Engines erin",
