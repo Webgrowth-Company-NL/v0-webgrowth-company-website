@@ -205,12 +205,17 @@ export function PricingComparison() {
         >
           <div className="flex-1">
             <p className="text-[14.5px] sm:text-[15.5px] leading-[1.55] text-[color:var(--color-ink-strong)]">
-              <span className="font-bold">Je bespaart {fmt(SAVINGS_MONTHLY)} per maand</span> · <span className="font-semibold text-[color:var(--color-purple)]">{fmt(SAVINGS_YEARLY)} per jaar</span>{" "}
-              door de tools die je nu los inkoopt in één platform onder te brengen. Plus geen tijd meer kwijt aan tien losse logins en facturen.
+              Een losse stack komt al snel uit op{" "}
+              <span className="font-bold tabular-nums">
+                {fmt(RIVAL_STACK_TOTAL_MIN)} tot {fmt(RIVAL_STACK_TOTAL_MAX)} per maand
+              </span>
+              , bovenop de eenmalige bouw van een nieuwe website. Forester OS Growth doet hetzelfde voor{" "}
+              <span className="font-semibold text-[color:var(--color-purple)]">{fmt(FORESTER_GROWTH_PRICE)} per maand</span>,
+              zonder losse logins of facturen erbij.
             </p>
           </div>
           <span className="font-[family-name:var(--font-display)] font-bold text-[26px] sm:text-[34px] leading-none tracking-[-0.01em] text-[color:var(--color-purple)] tabular-nums shrink-0">
-            −{fmt(SAVINGS_MONTHLY)}/mnd
+            {fmt(FORESTER_GROWTH_PRICE)}/mnd
           </span>
         </motion.div>
       </div>
