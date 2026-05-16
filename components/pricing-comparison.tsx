@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
-import { RIVAL_STACK, RIVAL_STACK_TOTAL, RIVAL_WEBSITE_BUILD_ONE_TIME } from "@/lib/pricing";
+import { RIVAL_STACK, RIVAL_STACK_TOTAL } from "@/lib/pricing";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -82,10 +82,17 @@ export function PricingComparison() {
                       {tool.note ? ` · ${tool.note}` : ""}
                     </span>
                   </div>
-                  <span className="shrink-0 text-[13.5px] font-semibold tabular-nums text-[color:var(--color-ink)]">
-                    {fmt(tool.monthly)}
-                    <span className="text-[11px] font-medium text-[color:var(--color-ink-subtle)]">/ mnd</span>
-                  </span>
+                  <div className="shrink-0 text-right">
+                    <span className="text-[13.5px] font-semibold tabular-nums text-[color:var(--color-ink)]">
+                      {fmt(tool.monthly)}
+                      <span className="text-[11px] font-medium text-[color:var(--color-ink-subtle)]">/ mnd</span>
+                    </span>
+                    {tool.oneTime !== undefined && (
+                      <span className="block text-[11px] font-medium text-[color:var(--color-ink-subtle)] tabular-nums">
+                        + {fmt(tool.oneTime)} eenmalig
+                      </span>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
@@ -97,13 +104,6 @@ export function PricingComparison() {
               <span className="font-[family-name:var(--font-display)] font-bold text-[28px] sm:text-[32px] tabular-nums leading-none tracking-[-0.01em] text-[color:var(--color-ink-strong)]">
                 {fmt(RIVAL_STACK_TOTAL)}
                 <span className="text-[12px] font-medium text-[color:var(--color-ink-subtle)] ml-1">/ mnd</span>
-              </span>
-            </div>
-
-            <div className="mt-3 flex items-baseline justify-between gap-3 text-[12.5px] text-[color:var(--color-ink-muted)]">
-              <span>Plus eenmalige bouw van een nieuwe website</span>
-              <span className="font-semibold tabular-nums text-[color:var(--color-ink)]">
-                {fmt(RIVAL_WEBSITE_BUILD_ONE_TIME)} eenmalig
               </span>
             </div>
           </motion.div>
@@ -140,15 +140,15 @@ export function PricingComparison() {
 
             <ul className="mt-6 space-y-2.5 flex-1">
               {[
-                "Website, hosting, onderhoud en beveiliging",
+                "Websitebouw (geen eenmalige bouwfactuur)",
+                "Hosting in Nederland met SSL en back-ups",
                 "CRM voor contacten, leads en deals",
-                "E-mailmarketing met automations",
-                "SEO-monitoring met Search Console",
-                "Lead Engines (quickscan, calculator, …)",
-                "Advertentiebeheer met CRM-attributie",
-                "AI-assistent Q · content en publisher",
-                "Momentum Report met inzichten",
-                "Priority support van ons team",
+                "E-mailtool met segmenten uit je CRM",
+                "Security: beveiliging, monitoring en updates",
+                "Content schrijven door Q in jouw stem",
+                "Wekelijks onderhoud door ons team",
+                "Ads-beheer met CRM-attributie",
+                "SEO met Search Console en rankings",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-white/90">
                   <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">

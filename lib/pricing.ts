@@ -93,6 +93,8 @@ export type RivalTool = {
   name: string;
   monthly: number;
   note?: string;
+  /** Eenmalige bouwkosten (bv. een website-bureau dat eenmalig een site oplevert). */
+  oneTime?: number;
 };
 
 /**
@@ -101,7 +103,7 @@ export type RivalTool = {
  * middentier-prijspunt per categorie. Bedragen excl. BTW.
  */
 export const RIVAL_STACK: RivalTool[] = [
-  { category: "Websitebureau", name: "Externe webbouwer", monthly: 300, note: "onderhoud + meerwerk" },
+  { category: "Websitebureau", name: "Externe webbouwer", monthly: 300, oneTime: 4000, note: "eenmalige bouw + onderhoud" },
   { category: "Hoster", name: "Aparte hostingpartij", monthly: 30 },
   { category: "CRM", name: "HubSpot Sales Hub Pro", monthly: 450, note: "5 gebruikers" },
   { category: "E-mailtool", name: "Mailchimp Standard", monthly: 90, note: "10k contacten" },
@@ -111,9 +113,6 @@ export const RIVAL_STACK: RivalTool[] = [
   { category: "Ads-beheer", name: "Mediabureau-fee", monthly: 400, note: "los van mediabudget" },
   { category: "SEO-bureau", name: "SEO-specialist", monthly: 800 },
 ];
-
-/** Eenmalige bouwkosten voor een typische webbouwer, los van het maandbedrag. */
-export const RIVAL_WEBSITE_BUILD_ONE_TIME = 4000;
 
 export const RIVAL_STACK_TOTAL = RIVAL_STACK.reduce((sum, t) => sum + t.monthly, 0);
 
