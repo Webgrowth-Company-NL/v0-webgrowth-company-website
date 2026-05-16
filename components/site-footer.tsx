@@ -53,7 +53,7 @@ export function SiteFooter() {
                   <Star key={i} className="h-3.5 w-3.5 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
                 ))}
               </span>
-              <span className="text-[12.5px] font-semibold text-white">9,4</span>
+              <span className="text-[12.5px] font-semibold text-white">5,0</span>
               <span className="text-[12px] text-white/55 group-hover:text-white/75 transition-colors">op Google</span>
             </a>
           </div>

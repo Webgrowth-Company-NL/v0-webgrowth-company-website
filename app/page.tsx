@@ -41,8 +41,8 @@ const ORG_JSONLD = {
   sameAs: ["https://www.linkedin.com/company/webgrowth-company"],
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "9.4",
-    bestRating: "10",
+    ratingValue: "5",
+    bestRating: "5",
     ratingCount: "227",
   },
 };

@@ -130,15 +130,15 @@ export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
                   ? "border-white/15 bg-white/10 hover:bg-white/15 hover:border-white/25"
                   : "border-[color:var(--color-line)] bg-white/60 hover:bg-white hover:border-[color:var(--color-line-strong)]",
               ].join(" ")}
-              aria-label="Google reviews: 9,4 van de 10"
+              aria-label="Google reviews: 5 van de 5 sterren"
             >
               <span className="flex gap-[2px]">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-[13px] w-[13px] fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
                 ))}
               </span>
-              <span className={"text-[12.5px] font-semibold tabular-nums " + txtActive}>9,4</span>
-              <span className={"text-[11px] -ml-0.5 " + (dark ? "text-white/50" : "text-[color:var(--color-ink-subtle)]")}>/10</span>
+              <span className={"text-[12.5px] font-semibold tabular-nums " + txtActive}>5,0</span>
+              <span className={"text-[11px] -ml-0.5 " + (dark ? "text-white/50" : "text-[color:var(--color-ink-subtle)]")}>/5</span>
             </a>
           </nav>
 
@@ -177,7 +177,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
               dark ? "bg-white/10 border-white/15" : "bg-white/70 border-[color:var(--color-line)]",
             ].join(" ")}>
               <Star className="h-3 w-3 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
-              <span className={"text-[11px] font-semibold tabular-nums " + txtActive}>9,4</span>
+              <span className={"text-[11px] font-semibold tabular-nums " + txtActive}>5,0</span>
             </span>
             <button
               onClick={() => setMobileOpen((v) => !v)}

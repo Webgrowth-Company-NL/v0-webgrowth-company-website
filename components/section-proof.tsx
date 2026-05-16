@@ -26,7 +26,7 @@ const SECONDARY = {
 
 const STATS = [
   { value: "227", label: "tevreden klanten" },
-  { value: "9,4", label: "op Google", stars: true },
+  { value: "5,0", label: "op Google", stars: true },
   { value: "2016", label: "onze eerste klant" },
 ];
 

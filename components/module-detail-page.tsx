@@ -274,7 +274,7 @@ function ModuleHero({
               <Star key={i} className="h-4 w-4 fill-[color:var(--color-amber)] text-[color:var(--color-amber)]" strokeWidth={0} />
             ))}
           </span>
-          <span className="text-[14px] font-semibold text-[color:var(--color-ink)] tabular-nums">9,4</span>
+          <span className="text-[14px] font-semibold text-[color:var(--color-ink)] tabular-nums">5,0</span>
           <span className="text-[13px] text-[color:var(--color-ink-muted)]">·</span>
           <span className="text-[13px] text-[color:var(--color-ink-muted)]">
             <span className="font-semibold text-[color:var(--color-ink)]">227</span> tevreden klanten

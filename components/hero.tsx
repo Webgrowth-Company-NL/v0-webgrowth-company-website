@@ -213,7 +213,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 group"
-                aria-label="Google reviews: 9,4 van de 10"
+                aria-label="Google reviews: 5 van de 5 sterren"
               >
                 <span className="flex gap-[2px]">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -224,7 +224,7 @@ export function Hero() {
                     />
                   ))}
                 </span>
-                <span className="text-[14px] font-semibold text-white tabular-nums">9,4</span>
+                <span className="text-[14px] font-semibold text-white tabular-nums">5,0</span>
                 <span className="text-[13px] text-white/55 group-hover:text-white/80 transition-colors">
                   op Google
                 </span>

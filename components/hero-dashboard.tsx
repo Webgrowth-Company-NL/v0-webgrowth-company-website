@@ -1259,7 +1259,7 @@ const ADS_QUERY = "websitebureau dordrecht";
 const ADS_AD = {
   domain: "webgrowth.company",
   title: "Webgrowth Company · Websitebureau in Breda",
-  description: "Razendsnelle sites met SEO, CRM en AI-assistent Q ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 9,4 op Google.",
+  description: "Razendsnelle sites met SEO, CRM en AI-assistent Q ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 5 sterren op Google.",
 };
 const ADS_ORGANIC: { domain: string; title: string }[] = [
   { domain: "agency-zwart.nl", title: "Agency Zwart · Maatwerk websites" },
@@ -1345,7 +1345,7 @@ function AdsView() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-2.5 w-2.5 fill-amber-400 text-amber-400" strokeWidth={0} />
               ))}
-              <span className="text-[9px] text-[color:var(--color-ink-subtle)] ml-0.5">9,4 · 227 reviews</span>
+              <span className="text-[9px] text-[color:var(--color-ink-subtle)] ml-0.5">5,0 · 227 reviews</span>
             </div>
 
             {/* highlight pulse around the ad once it lands */}
