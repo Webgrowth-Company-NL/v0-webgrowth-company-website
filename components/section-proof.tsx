@@ -12,6 +12,7 @@ const FEATURED = {
   name: "Gil Lont",
   result: "Meer leads via de website, minder handmatig werk",
   img: "/images/testimonials/gil-lont.webp",
+  imgPosition: "center 25%",
 };
 
 const SECONDARY = {
@@ -20,6 +21,7 @@ const SECONDARY = {
   name: "Linda van der Zwan",
   result: "Focus op strategie in plaats van techniek",
   img: "/images/testimonials/linda-van-der-zwan.jpg",
+  imgPosition: "center 20%",
 };
 
 const STATS = [
@@ -89,7 +91,7 @@ export function SectionProof() {
             <figcaption className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-white/10 pt-6">
               <span className="inline-flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={FEATURED.img} alt={FEATURED.name} loading="lazy" className="h-11 w-11 rounded-full object-cover ring-2 ring-white/15" />
+                <img src={FEATURED.img} alt={FEATURED.name} loading="lazy" className="h-11 w-11 rounded-full object-cover ring-2 ring-white/15" style={{ objectPosition: FEATURED.imgPosition }} />
                 <span className="text-[15px] font-semibold text-white">{FEATURED.name}</span>
               </span>
               <ResultTag>{FEATURED.result}</ResultTag>
@@ -110,7 +112,7 @@ export function SectionProof() {
               <figcaption className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="inline-flex items-center gap-2.5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={SECONDARY.img} alt={SECONDARY.name} loading="lazy" className="h-9 w-9 rounded-full object-cover ring-2 ring-white/15" />
+                  <img src={SECONDARY.img} alt={SECONDARY.name} loading="lazy" className="h-9 w-9 rounded-full object-cover ring-2 ring-white/15" style={{ objectPosition: SECONDARY.imgPosition }} />
                   <span className="text-[13.5px] font-semibold text-white">{SECONDARY.name}</span>
                 </span>
                 <ResultTag>{SECONDARY.result}</ResultTag>
