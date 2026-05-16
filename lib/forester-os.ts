@@ -389,23 +389,23 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "Schaal je expertise,",
     heroHighlight: "niet je uurtarief.",
     heroIntro:
-      "Je werkt al hard genoeg. Pak je kennis in als training, sessie, programma of digitaal product, en laat klanten zichzelf leren, boeken en kopen. Wij regelen de winkel, het inplannen, de betaling en de opvolging. Jij blijft expert, het platform schaalt.",
+      "Je werkt al hard genoeg, dus pak je kennis in als training, sessie, programma of digitaal product en laat klanten zichzelf leren, boeken en kopen. Wij regelen de winkel, het inplannen, de betaling en de opvolging, zodat jij expert blijft terwijl het platform voor je schaalt.",
     featuresDetailed: [
       {
-        title: "Trainingen & cursussen",
-        body: "Pak je expertise in als modules die cursisten in eigen tempo doorlopen, of plan klassikale dagen in. Werkt voor IT-trainingen, vakopleidingen, online cursussen en certificeringstrajecten. Voortgang per cursist zichtbaar in je CRM.",
+        title: "Trainingen en cursussen",
+        body: "We pakken je expertise in als modules die cursisten in eigen tempo doorlopen, of we plannen klassikale dagen in waarmee je groepen tegelijk meeneemt. Werkt voor IT-trainingen, vakopleidingen, online cursussen en certificeringstrajecten, en de voortgang per cursist is realtime zichtbaar in je CRM.",
       },
       {
-        title: "Sessies & boekingen",
-        body: "Verkoop losse sessies, strippenkaarten of abonnementen. Klanten boeken zelf in je agenda, betalen vooraf en krijgen automatisch een uitnodiging. Voor coaches, therapeuten, en consultants die hun tijd willen schalen.",
+        title: "Sessies en boekingen",
+        body: "Je verkoopt losse sessies, strippenkaarten of abonnementen, en klanten boeken zelf in je agenda met betaling vooraf en een automatische uitnodiging in hun inbox. Perfect voor coaches, therapeuten en consultants die hun tijd willen schalen zonder dat alle planning op jouw bordje belandt.",
       },
       {
-        title: "Digitale producten & downloads",
-        body: "Werkboeken, templates, premium guides, audio-bibliotheken of video-bundels. Eén keer maken, oneindig vaak verkopen. Na betaling krijgt de klant direct toegang, zonder dat jij iets hoeft te doen.",
+        title: "Digitale producten en downloads",
+        body: "Werkboeken, templates, premium guides, audio-bibliotheken of video-bundels maak je één keer en verkoop je oneindig vaak. Na betaling krijgt de klant direct toegang, zonder dat jij er nog iets aan hoeft te doen.",
       },
       {
-        title: "Lead scoring + CRM",
-        body: "Wie deed welke module, kwam terug voor sessie drie, scoorde wat op de quiz? Sales weet vanaf de eerste klik wie warm is, en wat de volgende logische stap is. Geen losse academy-tool met losse data.",
+        title: "Lead scoring in je CRM",
+        body: "Wie deed welke module, wie kwam terug voor sessie drie en wie scoorde hoog op de quiz? Sales weet vanaf de eerste klik wie warm is en wat de volgende logische stap is, zonder dat je daar een losse academy-tool naast moet draaien.",
       },
     ],
     relatedSlugs: ["lead-engine", "ai", "crm"],
@@ -475,18 +475,18 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "Leads en deals visueel",
     heroHighlight: "door je pijplijn.",
     heroIntro:
-      "Eén kanban-overzicht voor je hele team. Leads vanuit je lead engines, deals met statussen en taken, en Q die meedenkt over wat de volgende stap is.",
+      "Eén visueel kanban-overzicht voor je hele team, met leads die binnenkomen via je Lead Engines, deals die je via statussen en taken door je pijplijn duwt, en Q die meedenkt over wat de volgende logische stap is voor elke deal.",
     featuresDetailed: [
-      { title: "Drag-and-drop pijplijn", body: "Verschuif deals tussen statussen met je muis. Iedereen ziet meteen waar elke deal staat en wie ermee bezig is." },
-      { title: "Taken per deal", body: "Bij elke deal hangen taken: bellen, offerte sturen, opvolgen. Met deadlines, team-toewijzing en notificaties." },
-      { title: "Eigen statussen", body: "Werk jij met 5 stappen of 9? Stel je eigen pijplijn-stadia in, kleurcodes en automations." },
-      { title: "Q-suggesties", body: "Q ziet wat er met de deal gebeurde en stelt voor wat de volgende actie is. Soms een mail, soms gewoon 'bel ze eens'." },
+      { title: "Drag-and-drop pijplijn", body: "Je verschuift deals met de muis tussen statussen, en je hele team ziet direct waar elke deal staat, wie ermee bezig is en wat er als laatste gebeurde. Geen tabbladen, geen losse spreadsheets en geen 'wie is hier ook alweer mee bezig?'." },
+      { title: "Taken per deal", body: "Bij elke deal hangen de bijbehorende taken zoals bellen, offerte sturen of opvolgen, met deadlines, team-toewijzing en notificaties zodat niemand vergeet om de volgende stap te zetten." },
+      { title: "Eigen statussen", body: "Werk je met vijf stadia of negen? Je stelt je eigen pijplijn-stadia in met de kleurcodes en automatische acties die bij jouw werk-flow passen, in plaats van dat je je aan een vaste template moet aanpassen." },
+      { title: "Suggesties van Q", body: "Q ziet wat er met een deal is gebeurd en stelt voor wat de volgende actie zou moeten zijn, of dat nu het versturen van een opvolg-mail is of gewoon een belletje plegen omdat er al twee weken niets is gebeurd." },
     ],
     relatedSlugs: ["lead-engine", "sales-engine", "ai"],
     faq: [
-      { q: "Kunnen meerdere teamleden tegelijk werken?", a: "Ja. Op Core tot 5 gebruikers, op Growth en Scale onbeperkt. Realtime sync, taken-notificaties, en je ziet wie wat heeft aangeraakt." },
-      { q: "Kan ik exporteren naar Excel?", a: "Altijd. Leads, deals, taken en contacten exporteren als CSV of Excel. Geen vendor lock-in." },
-      { q: "Werkt het met onze bestaande CRM?", a: "Op Growth en hoger koppelen we met HubSpot, Pipedrive of Teamleader. Dan kun je gefaseerd migreren of beide naast elkaar gebruiken." },
+      { q: "Kunnen meerdere teamleden tegelijk werken?", a: "Ja, op Core werken er tot vijf gebruikers tegelijk in het CRM, en op Growth en Scale is dat onbeperkt. Alles synchroniseert in realtime, taken-notificaties komen direct binnen en je ziet altijd wie wat het laatst heeft aangeraakt." },
+      { q: "Kan ik exporteren naar Excel?", a: "Altijd. Je leads, deals, taken en contacten exporteer je in één klik als CSV of Excel-bestand, dus je zit nooit vast aan onze omgeving als je ooit zou willen vertrekken." },
+      { q: "Werkt het met onze bestaande CRM?", a: "Op Growth en hoger koppelen we met HubSpot, Pipedrive of Teamleader, zodat je gefaseerd kunt migreren of beide systemen naast elkaar kunt gebruiken zolang dat nog nodig voelt." },
     ],
     metaDescription:
       "Forester OS CRM & sales-pijplijn: drag-and-drop kanban met leads, deals, taken en Q-suggesties. Eén overzicht voor je hele team, geen losse CRM-licentie.",
@@ -540,17 +540,17 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "Wat werkt, wat niet, en",
     heroHighlight: "wat hierna te schrijven.",
     heroIntro:
-      "Welke pagina's groeien, waar je positie zakte of verbeterde, en concrete content-suggesties van Q. Search Console-data, AI-analyse en rankings in één dashboard, geen los SEO-bureau nodig.",
+      "Je ziet in één dashboard welke pagina's groeien, waar je positie zakte of verbeterde en welke concrete content-suggesties Q voor je heeft. Search Console-data, Q's analyses en je ranking-tracking komen samen op één plek, zodat je geen los SEO-bureau aan de zijlijn meer nodig hebt.",
     featuresDetailed: [
-      { title: "Search Console-koppeling", body: "Echte Google-data, niet een tool die dingen verzint. Welke keywords je vindt, welke pagina's groeien, welke clicks krijgen wat ze verdienen." },
-      { title: "Rankings dashboard", body: "Tot 50 keywords gevolgd op Growth, met dagelijkse updates. Zie schommelingen voordat ze klanten kosten." },
-      { title: "Q-suggesties", body: "Q analyseert je content en suggereert: deze pagina kan een sectie over X gebruiken, deze blog mist een interne link naar Y." },
-      { title: "Keyword-tracking", body: "Niet alleen je hoofdterm, ook de long-tail rondom je business. Inclusief lokale variaties als je in een specifieke regio actief bent." },
+      { title: "Search Console-koppeling", body: "Je krijgt echte Google-data te zien, en geen tool die dingen verzint op basis van scrape-werk. Je ziet welke zoekwoorden je nu al vindt, welke pagina's groeien en welke clicks die pagina's krijgen die ze ook werkelijk verdienen." },
+      { title: "Rankings dashboard", body: "Op Growth volgen we tot vijftig zoekwoorden met dagelijkse updates, zodat je schommelingen ziet vóórdat ze je klanten kosten. Wat onderaan zakt pakken we op voordat het echt verdwijnt." },
+      { title: "Suggesties van Q", body: "Q analyseert je hele content en stelt concreet voor wat er moet gebeuren, zoals dat een pagina een extra sectie over een bepaald onderwerp kan gebruiken of dat een blog nog een interne link mist naar een verwante pagina." },
+      { title: "Keyword-tracking met lokale variaties", body: "We volgen niet alleen je hoofdterm maar ook de long-tail rondom je business, inclusief lokale variaties als je in een specifieke regio of stad actief bent en daar gevonden wilt worden." },
     ],
     relatedSlugs: ["ai", "content-publisher", "website"],
     faq: [
-      { q: "Vervangt dit een SEO-bureau?", a: "Voor de meeste klanten: ja. Wat een bureau wekelijks aan rapportjes stuurt zit hier ingebouwd, plus de tools om er op te acteren. Voor sterk technische audits werken we met een gespecialiseerde partner samen." },
-      { q: "Werkt het ook voor lokale SEO?", a: "Ja. Rankings, Google Business-signalen en lokale content-suggesties zitten erin. Voor regio-specifieke organisaties (zorg, dienstverlening) is dit vaak het grootste kanaal." },
+      { q: "Vervangt dit een SEO-bureau?", a: "Voor de meeste klanten ja, want wat een bureau wekelijks aan rapportjes stuurt zit hier in het dashboard ingebouwd, met de tools om er direct op te acteren. Voor sterk technische audits werken we daarnaast samen met een gespecialiseerde partner, dus die expertise blijft binnen handbereik als je 'm nodig hebt." },
+      { q: "Werkt het ook voor lokale SEO?", a: "Ja, rankings, Google Business-signalen en lokale content-suggesties zitten standaard ingebouwd. Voor regio-specifieke organisaties zoals zorg of zakelijke dienstverlening is lokale SEO vaak het grootste kanaal waar de meeste leads vandaan komen." },
     ],
     metaDescription:
       "Forester OS SEO & vindbaarheid: Search Console-data, ranking-tracking en AI-content-suggesties in één dashboard, geen los SEO-bureau meer nodig.",
@@ -602,16 +602,16 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroIntro:
       "Q kent je site, je leads en je CRM. Hij schrijft pagina's, vat inzichten samen en stelt opvolgingen voor in gewone taal. Jij stuurt 'm een appje, hij regelt het.",
     featuresDetailed: [
-      { title: "Content schrijven", body: "Pagina's, blogs, e-mails en advertentieteksten in jouw stem, omdat Q je hele site kent en daarop traint." },
-      { title: "Inzichten samenvatten", body: "Q leest je Search Console, CRM- en Momentum-data en zegt: dit is wat er deze maand gebeurde, hier zit groei, hier zit risico." },
-      { title: "Opvolgingen voorstellen", body: "Lead niet gereageerd? Q schrijft een passende follow-up mail. Jij keurt 'm, hij stuurt 'm. Of laat 'm de optimale tijd kiezen om te versturen." },
-      { title: "Q-chat", body: "Vraag Q gewoon iets, zoals 'wat doen we deze week?'. Hij kent de context van je platform en geeft een onderbouwd antwoord." },
+      { title: "Content schrijven", body: "Q schrijft pagina's, blogs, e-mails en advertentieteksten in jouw stem, omdat hij je hele site kent en zich daarop traint zodra je hem nieuwe content laat zien." },
+      { title: "Inzichten samenvatten", body: "Q leest je Search Console, je CRM en je Momentum-data en vertelt je in gewone taal wat er deze maand gebeurde, waar de groei zit en waar het risico ligt." },
+      { title: "Opvolgingen voorstellen", body: "Heeft een lead nog niet gereageerd? Q schrijft een passende opvolg-mail die jij goedkeurt voor hij 'm verstuurt, en hij kiest zelf de tijd waarop de mail het meeste kans van slagen heeft." },
+      { title: "Q-chat", body: "Vraag Q gewoon iets, zoals 'wat doen we deze week?' of 'welke deal staat al te lang stil?', en hij geeft je een onderbouwd antwoord op basis van de context van je platform." },
     ],
     relatedSlugs: ["seo", "content-publisher", "crm"],
     faq: [
-      { q: "Gebruikt Q mijn data om andere klanten te helpen?", a: "Nee. Je content, leads en CRM blijven in jouw omgeving. Q's onderliggende modellen leren niet van jouw specifieke data; ze worden alleen geprompt met jouw context." },
-      { q: "Hoe accuraat is Q?", a: "Voor concept-content, samenvattingen en suggesties bespaart Q veel tijd. Het laatste woord is altijd van jou. We bouwen niet op de illusie dat een AI feilloos is." },
-      { q: "Kan ik Q's stem afstellen?", a: "Ja. Op Growth kun je per content-type een tone-of-voice instellen (zakelijk, speels, deskundig) en Q traint zich op jouw bestaande pagina's." },
+      { q: "Gebruikt Q mijn data om andere klanten te helpen?", a: "Nee, je content, leads en CRM blijven in jouw omgeving. De onderliggende modellen van Q leren niet van jouw specifieke data, we voeren ze alleen tijdens een vraag jouw context mee zodat het antwoord op maat is." },
+      { q: "Hoe accuraat is Q?", a: "Voor concept-content, samenvattingen en suggesties bespaart Q je veel tijd, maar het laatste woord is altijd van jou. We bouwen niet op de illusie dat een AI feilloos werkt, dus alles wat Q schrijft of voorstelt komt langs jouw goedkeuring voordat het de deur uitgaat." },
+      { q: "Kan ik Q's stem afstellen?", a: "Ja, op Growth kun je per content-type een toon instellen (zakelijk, speels of deskundig bijvoorbeeld) en Q traint zich op jouw bestaande pagina's zodat hij in jouw stem schrijft en niet in die van een algemene chatbot." },
     ],
     metaDescription:
       "Q is de AI-assistent in Forester OS die je site, leads en CRM kent. Hij schrijft content, vat inzichten samen en stelt opvolgingen voor. Eén appje en hij regelt het.",
@@ -634,17 +634,17 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "Content op schema,",
     heroHighlight: "zonder schrijfblok.",
     heroIntro:
-      "Een planning, een stem, een aantal templates en Q publiceert op vaste momenten. Jij keurt vooraf, het ritme van publicaties komt vanzelf en je content-machine blijft draaien.",
+      "Met een planning, een vaste stem en een aantal templates publiceert Q op vaste momenten content op je site, zodat jij alleen nog vooraf hoeft goed te keuren. Het ritme komt vanzelf en je content-machine blijft draaien, ook in de weken dat je het te druk hebt om zelf te schrijven.",
     featuresDetailed: [
-      { title: "Publicatie-schema", body: "Bepaal hoe vaak: wekelijks, twee-wekelijks, maandelijks. Met Q automatisch volgens schema, of handmatig naar keuze." },
-      { title: "Tone-of-voice", body: "Q schrijft in jouw stem, geleerd uit je bestaande content. Niet generiek, wel herkenbaar." },
-      { title: "Template-library", body: "Type-content (case study, tip-blog, nieuwsupdate, klantverhaal) als templates. Q vult ze in, jij keurt het concept." },
-      { title: "Q als ghostwriter", body: "Jij geeft de brief in 3 zinnen, Q schrijft het hele verhaal. Of laat Q van scratch beginnen op basis van een topic of een artikel-idee." },
+      { title: "Publicatie-schema", body: "Je bepaalt hoe vaak je wilt publiceren, of dat nu wekelijks, twee-wekelijks of maandelijks wordt, en Q werkt automatisch volgens dat schema. Wil je tussendoor handmatig iets eruit gooien? Dat kan altijd." },
+      { title: "Jouw eigen stem", body: "Q leert van je bestaande content hoe jij schrijft en gebruikt diezelfde stem voor elke nieuwe publicatie. Daardoor klinkt het nooit generiek, maar wel herkenbaar als jouw bedrijf." },
+      { title: "Template-bibliotheek", body: "We zetten templates klaar voor elk type content dat jij regelmatig publiceert, of het nu cases, tip-blogs, nieuwsupdates of klantverhalen zijn. Q vult de templates in, jij keurt het concept goed voordat het live gaat." },
+      { title: "Q als ghostwriter", body: "Geef Q een briefing van drie zinnen en hij schrijft er een heel artikel uit, of laat hem juist vanaf nul beginnen op basis van een topic of een artikel-idee dat door je hoofd schiet." },
     ],
     relatedSlugs: ["ai", "seo", "nieuwsbrieven"],
     faq: [
-      { q: "Wordt mijn site nu een Q-spamkanaal?", a: "Nee. Jij keurt elke publicatie vooraf of stelt een rust-modus in. Q produceert concept, het ritme bepaal jij. Geen massa-publishing." },
-      { q: "Wat als Q iets schrijft dat niet klopt?", a: "Dan keur je het niet goed. We hebben een revisie-flow waarin je per stuk content kunt aanpassen of opnieuw genereren tot het klopt." },
+      { q: "Wordt mijn site nu een Q-spamkanaal?", a: "Nee, jij keurt elke publicatie vooraf goed of stelt een rust-modus in. Q produceert het concept, het ritme bepaal jij volledig, dus er is geen kans dat je site ineens vol massa-content komt te staan." },
+      { q: "Wat als Q iets schrijft dat niet klopt?", a: "Dan keur je het simpelweg niet goed. We hebben een revisie-flow waarin je per stuk content kunt aanpassen of opnieuw kunt laten genereren tot het wél klopt, zonder dat je vanaf nul hoeft te beginnen." },
     ],
     metaDescription:
       "Forester OS Content Publisher: AI publiceert blogs en content op je site, op schema, in jouw tone-of-voice. Templates, planning, jij keurt het concept goed.",
@@ -686,17 +686,17 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "E-mailcampagnes",
     heroHighlight: "vanuit je eigen CRM.",
     heroIntro:
-      "Segmenteer op basis van wat in je CRM staat, schrijf met Q als sparringpartner, en stuur vanuit je eigen domein. Geen losse Mailchimp-account, geen losse contactenlijst.",
+      "Je segmenteert op basis van wat er in je CRM staat, schrijft met Q als sparringpartner en verstuurt vanuit je eigen domein. Geen losse Mailchimp-account, geen losse contactenlijst die uit de pas loopt met de rest van je business.",
     featuresDetailed: [
-      { title: "Segmenten uit CRM", body: "Stuur alleen aan klanten in een bepaalde fase, sector of regio. Filter live op CRM-data zonder ze te exporteren." },
-      { title: "Q als ghostwriter", body: "Vertel Q wat je wilt zeggen, hij schrijft de mail. Aanpassen tot het past, dan plannen en versturen." },
-      { title: "Eigen verzenddomein", body: "Vanuit jouw domein, met goede inbox-reputatie. Niet via een mailchimp-subdomein dat als spam aanvoelt." },
-      { title: "Analytics inbegrepen", body: "Open-rate, click-rate, conversies. Direct gekoppeld aan welke deal er door komt, niet alleen 'iemand klikte'." },
+      { title: "Segmenten uit je CRM", body: "Je stuurt alleen aan klanten die in een bepaalde fase, sector of regio passen, en je filtert daarbij live op de data uit je CRM zonder dat je eerst hoeft te exporteren en importeren." },
+      { title: "Q als ghostwriter", body: "Vertel Q in een paar zinnen wat je wilt zeggen en hij schrijft de mail voor je in jouw stem. Je past 'm aan tot het klopt, en daarna plant en verstuurt Q 'm op het moment dat jij kiest." },
+      { title: "Eigen verzenddomein", body: "We versturen vanaf jouw eigen domein met een goede inbox-reputatie, zodat je mails niet via een Mailchimp-subdomein binnenkomen dat door je ontvangers automatisch als spam wordt herkend." },
+      { title: "Analytics inbegrepen", body: "Open-rate, click-rate en conversies zie je direct in het dashboard, en ze zijn gekoppeld aan welke deal er uiteindelijk uit voortkwam, zodat je verder kijkt dan alleen 'iemand klikte ergens op'." },
     ],
     relatedSlugs: ["crm", "ai", "advertenties"],
     faq: [
-      { q: "Wat met AVG en double opt-in?", a: "Standaard ingebakken. Elke ontvanger heeft een afmeld-link, double-opt-in is configureerbaar per lijst, en logs van toestemming bewaren we automatisch." },
-      { q: "Hoeveel mailings per maand zit erin?", a: "Onbeperkt qua aantal. We werken niet met staffel-licenties per contact of per mailing. Wel verwachten we dat je waarde stuurt, niet ruis." },
+      { q: "Wat met AVG en double opt-in?", a: "Dat zit standaard ingebakken. Elke ontvanger heeft een afmeld-link, double opt-in is configureerbaar per lijst en de logs van toestemmingen bewaren we automatisch, dus daar hoef je zelf niets aan te doen." },
+      { q: "Hoeveel mailings per maand zit erin?", a: "Onbeperkt qua aantal verzendingen. We werken niet met staffel-licenties per contact of per mailing, maar we verwachten wel dat je waarde stuurt en geen ruis, want anders heeft het op de lange termijn geen effect op je inbox-reputatie." },
     ],
     metaDescription:
       "Forester OS Nieuwsbrieven: e-mailcampagnes vanuit je eigen CRM, segmenten op live data, eigen verzenddomein, analytics gekoppeld aan deals. Geen losse Mailchimp.",
@@ -738,17 +738,17 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "Adverteren",
     heroHighlight: "met je eigen data.",
     heroIntro:
-      "Google Ads en social-campagnes draaien vanuit Forester OS, gevoed door wat er in je CRM gebeurt. Q schrijft varianten, het dashboard laat zien welke euro waar landt.",
+      "Je Google Ads en social-campagnes draaien rechtstreeks vanuit Forester OS, gevoed door wat er in jouw CRM gebeurt. Q schrijft de varianten en het dashboard laat zien welke euro waar uiteindelijk landt, zodat je nooit meer hoeft te raden wat je advertenties opleveren.",
     featuresDetailed: [
-      { title: "Google Ads-koppeling", body: "Beheer campagnes vanuit het Forester OS-dashboard, met dezelfde audiences en attributie als je CRM. Geen losse Google-tabblad meer." },
-      { title: "Social campagnes", body: "LinkedIn-, Meta- en TikTok-campagnes vanuit één plek. Doelgroepen op basis van CRM-segmenten (klanten, prospects, sectoren)." },
-      { title: "Q-ad copy", body: "Q schrijft ad-varianten op basis van je merk en wat je website nu zegt. A/B-tests op de automaat, jij keurt de winnaar." },
-      { title: "CRM-attributie", body: "Welke campagne leidde tot welke deal? Iedere euro terug te halen tot bron-kanaal en specifieke advertentie." },
+      { title: "Google Ads-koppeling", body: "We beheren je campagnes vanuit het Forester OS-dashboard met dezelfde doelgroepen en attributie als je CRM, zodat je nooit meer hoeft te switchen tussen losse Google-tabbladen om te zien hoe het ervoor staat." },
+      { title: "Social campagnes", body: "LinkedIn-, Meta- en TikTok-campagnes draaien vanuit één plek, en de doelgroepen baseren we op de segmenten uit je CRM zoals bestaande klanten, warme prospects of een specifieke sector waarop je focust." },
+      { title: "Q schrijft je advertenties", body: "Q schrijft advertentie-varianten op basis van je merk en wat je website op dit moment zegt, en draait A/B-tests automatisch terwijl jij alleen nog de winnaar hoeft goed te keuren." },
+      { title: "Volledige CRM-attributie", body: "Je ziet precies welke campagne tot welke deal heeft geleid, zodat je iedere geadverteerde euro kunt terughalen tot het bron-kanaal en zelfs tot de specifieke advertentie die het in beweging zette." },
     ],
     relatedSlugs: ["lead-engine", "seo", "ai"],
     faq: [
-      { q: "Beheren jullie het mediabudget?", a: "Wij doen de setup, optimalisatie en rapportage. Het mediabudget zelf (de betalingen aan Google en Meta) loopt via jouw eigen creditcard of factuur, dus dat blijft volledig transparant en wij rekenen daar geen opslag op." },
-      { q: "Wat als ik nog geen advertentiebudget heb?", a: "Geen probleem. We kunnen al vanaf €25 per maand starten en op basis van CRM-attributie laten zien wat het oplevert. Op wat werkt, schalen we op." },
+      { q: "Beheren jullie het mediabudget?", a: "Wij doen de setup, de optimalisatie en de rapportage, terwijl het mediabudget zelf (de betalingen aan Google en Meta) via jouw eigen creditcard of factuur loopt. Dat blijft volledig transparant en wij rekenen daar geen opslag op, dus je weet altijd precies wat naar advertentiebudget gaat en wat naar ons." },
+      { q: "Wat als ik nog geen advertentiebudget heb?", a: "Geen probleem, we kunnen al vanaf €25 per maand starten en aan de hand van de CRM-attributie laten zien wat het je oplevert. Op de campagnes die werken schalen we daarna op, zodat je voorzichtig kunt beginnen zonder dat je in één keer een groot bedrag op tafel hoeft te leggen." },
     ],
     metaDescription:
       "Forester OS Advertenties: Google Ads en social-campagnes vanuit je eigen platform, met CRM-attributie, Q-ad copy en transparant beheer zonder mediabudget-mark-up.",
