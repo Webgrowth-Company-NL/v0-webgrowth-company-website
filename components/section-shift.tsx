@@ -8,8 +8,8 @@ import {
   Check,
   Database,
   FileText,
-  Lock,
   Mail,
+  Megaphone,
   Palette,
   Search,
   Server,
@@ -27,7 +27,7 @@ const VENDORS = [
   { icon: Shield, label: "Security", cost: "€15 - €80 p/m" },
   { icon: FileText, label: "Content-uurtjes", cost: "€200 - €800 p/m" },
   { icon: Wrench, label: "Onderhoud", cost: "€50 - €200 p/m" },
-  { icon: Lock, label: "AVG-module", cost: "€10 - €50 p/m" },
+  { icon: Megaphone, label: "Ads-beheer", cost: "€200 - €600 p/m" },
   { icon: Search, label: "SEO-bureau", cost: "€400 - €1.500 p/m" },
 ];
 

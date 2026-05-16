@@ -91,23 +91,80 @@ export const PRICING_PLANS: PricingPlan[] = [
 export type RivalTool = {
   category: string;
   name: string;
+  description: string;
   monthly: number;
-  note?: string;
+  icon: "palette" | "server" | "database" | "mail" | "shield" | "fileText" | "wrench" | "megaphone" | "search";
 };
 
 /**
  * Realistische marktprijzen voor een zakelijke stack van losse tools.
- * Bedragen excl. BTW, gemiddelde middentier. Vrij conservatief gekozen.
+ * Dezelfde negen categorieën als op de homepage (SectionShift), met een
+ * middentier-prijspunt per categorie. Bedragen excl. BTW.
  */
 export const RIVAL_STACK: RivalTool[] = [
-  { category: "Website + hosting + onderhoud", name: "Externe webbouwer + dev-retainer", monthly: 250, note: "doorlopend onderhoud" },
-  { category: "CRM", name: "HubSpot Sales Hub Pro", monthly: 450, note: "5 gebruikers" },
-  { category: "E-mailmarketing", name: "Mailchimp Standard", monthly: 90, note: "10k contacten" },
-  { category: "SEO-tools", name: "Ahrefs Lite", monthly: 99 },
-  { category: "Marketing automation", name: "ActiveCampaign Pro", monthly: 179 },
-  { category: "Formulieren & quizzes", name: "Typeform Pro", monthly: 75 },
-  { category: "Reviews", name: "Trustpilot Standard", monthly: 175 },
-  { category: "AI-content", name: "Jasper Boss", monthly: 69 },
+  {
+    category: "Websitebureau",
+    name: "Externe webbouwer",
+    description: "Een bureau dat je site bouwt en daarna alleen tegen meerwerk-tarief blijft aanpassen.",
+    monthly: 300,
+    icon: "palette",
+  },
+  {
+    category: "Hoster",
+    name: "Aparte hostingpartij",
+    description: "Servers, SSL en uptime-monitoring bij een losse leverancier met een eigen factuur en eigen support-loket.",
+    monthly: 30,
+    icon: "server",
+  },
+  {
+    category: "CRM",
+    name: "HubSpot Sales Hub Pro",
+    description: "Een los CRM met sales-pijplijn, contactbeheer en rapportages, los van je website-data.",
+    monthly: 450,
+    icon: "database",
+  },
+  {
+    category: "E-mailtool",
+    name: "Mailchimp Standard",
+    description: "Een eigen platform voor nieuwsbrieven en e-mailcampagnes, los van je CRM-segmenten.",
+    monthly: 90,
+    icon: "mail",
+  },
+  {
+    category: "Security",
+    name: "Beveiligings-abonnement",
+    description: "Een aparte partij voor malware-scans, backups en site-monitoring boven op je hosting.",
+    monthly: 50,
+    icon: "shield",
+  },
+  {
+    category: "Content-uurtjes",
+    name: "Copywriter of bureau",
+    description: "Doorlopend uurtarief voor blogs, landingspagina's en social-content die je site nodig heeft.",
+    monthly: 500,
+    icon: "fileText",
+  },
+  {
+    category: "Onderhoud",
+    name: "Dev-retainer",
+    description: "Maandelijkse strippenkaart bij een ontwikkelaar voor updates, bugfixes en kleine aanpassingen.",
+    monthly: 150,
+    icon: "wrench",
+  },
+  {
+    category: "Ads-beheer",
+    name: "Mediabureau-fee",
+    description: "Fee voor het beheer van je Google- en social-campagnes, los van het mediabudget zelf.",
+    monthly: 400,
+    icon: "megaphone",
+  },
+  {
+    category: "SEO-bureau",
+    name: "SEO-specialist",
+    description: "Een extern bureau dat maandelijks rapporteert op rankings, content-suggesties en technische audits.",
+    monthly: 800,
+    icon: "search",
+  },
 ];
 
 export const RIVAL_STACK_TOTAL = RIVAL_STACK.reduce((sum, t) => sum + t.monthly, 0);
