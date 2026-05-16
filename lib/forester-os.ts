@@ -236,15 +236,15 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroIntro:
       "Pagina's, berichten en eigen content-types beheer je in hetzelfde dashboard waar ook je CRM, SEO en marketing draaien. Hosting, beveiliging en onderhoud zitten erin, geen los CMS-systeem nodig.",
     featuresDetailed: [
-      { title: "Eigen content-types", body: "Naast pagina's en blogs maak je je eigen structuren aan: cases, vacatures, gebouwen, producten. Beheer ze in een tabel-view, publiceer met één klik." },
-      { title: "Live preview", body: "Wijzig een tekst of foto, druk op preview, zie meteen hoe het op desktop én mobile staat. Pas aan tot het klopt, dan live." },
-      { title: "Geen losse hosting", body: "Snelle Nederlandse hosting met SSL, dagelijkse back-ups en CDN. Geen aparte rekening, geen los contract met een hostingpartij." },
-      { title: "Wekelijks onderhoud", body: "We updaten, monitoren en testen elke week. Storingen vangen we voor je af, niet andersom." },
+      { title: "Eigen content-types", body: "Naast pagina's en blogs richten we je eigen content-structuren in voor bijvoorbeeld cases, vacatures, appartementen of producten, en die beheer je daarna zelf in een handige tabel-weergave waarin je met één klik kunt publiceren." },
+      { title: "Live preview", body: "Wijzig een tekst of vervang een foto, druk op preview en zie meteen hoe het op desktop én op mobiel staat, zodat je rustig kunt schuiven tot het klopt voordat je het live zet." },
+      { title: "Geen losse hosting", body: "Je krijgt snelle Nederlandse hosting met SSL, dagelijkse back-ups en CDN ingebouwd, zonder aparte rekening of los contract met een hostingpartij." },
+      { title: "Wekelijks onderhoud", body: "We updaten, monitoren en testen je site elke week zodat we storingen voor je afvangen voordat ze klanten kosten, in plaats van dat jij ons moet bellen als er iets stuk gaat." },
     ],
     relatedSlugs: ["seo", "lead-engine", "content-publisher"],
     faq: [
-      { q: "Werkt mijn bestaande domein?", a: "Ja. We verhuizen je domein zonder downtime en regelen DNS, SSL en e-mail-routing. Tijdens en na de migratie loopt alles door." },
-      { q: "Is mijn site mobile-first?", a: "Ja. Alles wat we bouwen is mobile-first ontworpen en getest op echte toestellen. Voor de meeste klanten komt 70% van het verkeer mobiel binnen, daar bouwen we op." },
+      { q: "Werkt mijn bestaande domein?", a: "Ja, we verhuizen je domein zonder downtime en regelen DNS, SSL en e-mail-routing voor je. Tijdens en na de migratie loopt alles gewoon door, dus je klanten merken er niets van." },
+      { q: "Is mijn site mobile-first?", a: "Ja, alles wat we bouwen is mobile-first ontworpen en getest op echte toestellen. Voor de meeste klanten komt zo'n zeventig procent van het verkeer via mobiel binnen, en daar bouwen we de hele site op." },
       { q: "Kan ik zelf nieuwe content-types aanmaken?", a: "Nee, dat doen wij voor je. In de kick-off bespreken we welke content-types je bedrijf nodig heeft (denk aan appartementen, auto's, je vloot, vacatures, teamgenoten of een productcatalogus) en wij richten ze in. Wil je er later eentje bij? Schiet 'm in als taak, dan regelen wij dat binnen een sprint." },
     ],
     metaDescription:
@@ -344,19 +344,27 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van briefing tot eerste lead in een paar weken.",
-      intro: "Geen wekenlang gepraat over wat het zou kunnen worden. We bepalen samen het mechanisme, bouwen het op en zetten 'm rustig live.",
+      intro: "Geen wekenlang gepraat over wat het zou kunnen worden. We bespreken samen het mechanisme, tekenen het uit, bouwen het voor je en koppelen 'm aan Forester OS.",
       items: [
         {
-          title: "Kick-off voor het hele traject",
-          body: "In de gezamenlijke kick-off bespreken we ook welk soort Lead Engine bij jou past (een quickscan, prijscalculator, aanmeldformulier of een combinatie daarvan) en welke kwalificatievragen daar logisch bij horen.",
+          title: "Kick-off meeting",
+          body: "In de gezamenlijke kick-off bespreken we welk soort Lead Engine bij jou past, of het nu een quickscan, prijscalculator, aanmeldformulier of een combinatie daarvan wordt, en welke kwalificatievragen daar logisch bij horen om sales sneller op het juiste spoor te zetten.",
         },
         {
-          title: "Wij werken het uit",
-          body: "Wij bouwen de Lead Engine rechtstreeks in Forester OS, Q schrijft de eerste versie van de vragen en uitkomsten in jouw stem, en we richten de notificaties zo in dat je elke aanvraag direct op je telefoon binnenkrijgt.",
+          title: "Wij tekenen 'm uit",
+          body: "Op basis van wat we tijdens de kick-off hebben besproken werken wij de Lead Engine uit, met de vragen, de logica, de uitkomsten en de uitnodigende teksten. Q levert de eerste versie aan in jouw stem, zodat je niet vanaf een wit vel begint.",
         },
         {
-          title: "We zetten 'm live",
-          body: "We zetten 'm eerst rustig live om te kijken hoe de eerste aanvragen binnenkomen, en passen vragen of design bij op basis van wat we zien. Dat doorlopende bijschaven hoort gewoon bij het abonnement.",
+          title: "Wij bouwen 'm voor je",
+          body: "We bouwen de Lead Engine rechtstreeks in Forester OS, met de juiste tagging, WhatsApp-notificaties en routing naar je CRM. Zo komt elke nieuwe aanvraag direct op je telefoon binnen, mét alle context die we eerder hebben uitgevraagd.",
+        },
+        {
+          title: "Jij test en geeft feedback",
+          body: "Voordat we 'm live zetten loop je 'm zelf door alsof je een prospect bent, en stuur je ons door wat aanvoelt als kort of houtje-touwtje. Wij verwerken je opmerkingen zodat het eindresultaat klopt met hoe jouw bedrijf zich wil presenteren.",
+        },
+        {
+          title: "We passen aan en koppelen aan Forester OS",
+          body: "We verwerken je feedback, finetunen de vragen of het design en koppelen de Lead Engine zo aan Forester OS dat elke aanvraag automatisch in de juiste pijplijn landt. Vanaf dat moment kijken we doorlopend met je mee om vragen of ritme bij te schaven.",
         },
       ],
     },
