@@ -7,6 +7,7 @@ import { animate, motion, useInView, useMotionValue, useReducedMotion } from "fr
 import { ArrowRight, Check, Gauge as GaugeIcon, Star, TrendingUp, Zap } from "lucide-react";
 import { HeroDashboard } from "@/components/hero-dashboard";
 import { KennismakingButton } from "@/components/kennismaking-button";
+import { useKennismakingModal } from "@/components/kennismaking-modal-provider";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
@@ -56,6 +57,7 @@ const GRADIENT_TILE_STYLE = {
 export function ModuleDetailPage({ slug }: { slug: string }) {
   const m = FORESTER_MODULES.find((x) => x.slug === slug);
   const detail = MODULE_DETAILS[slug];
+  const { open: openKennismaking } = useKennismakingModal();
   if (!m || !detail) return null;
   const related = (detail.relatedSlugs ?? [])
     .map((slug) => FORESTER_MODULES.find((mod) => mod.slug === slug))
@@ -118,12 +120,13 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
           intro={
             <>
               Andere vraag?{" "}
-              <a
-                href="/contact"
+              <button
+                type="button"
+                onClick={openKennismaking}
                 className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2"
               >
                 Boek een kennismaking
-              </a>
+              </button>
               , dan lopen we het samen door.
             </>
           }
@@ -319,13 +322,13 @@ function ModuleFeatures({
             variants={fadeUp(0.05)}
             className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
           >
-            {m.label} bestaat uit deze onderdelen.
+            {detail.featuresHeading ?? `${m.label} bestaat uit deze onderdelen.`}
           </motion.h2>
           <motion.p
             variants={fadeUp(0.1)}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            Niet één black-box-knop, maar concrete onderdelen die elk een werkbaar stuk werk doen.
+            {detail.featuresIntro ?? "Niet één black-box-knop, maar concrete onderdelen die elk een werkbaar stuk werk doen."}
           </motion.p>
         </motion.div>
 

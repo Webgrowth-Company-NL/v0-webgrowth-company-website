@@ -169,8 +169,8 @@ export function Hero() {
                 text-white/65 max-w-lg
               "
             >
-              Eén platform brengt je website, CRM, marketing en AI samen, en wij
-              houden het voor je draaiende zonder dat er voor elk uurtje een factuur
+              Eén platform brengt je website, CRM, marketing en AI-assistent Q samen,
+              en wij houden het voor je draaiende zonder dat er voor elk uurtje een factuur
               achteraan komt. Zo kun jij je gewoon bezighouden met je klanten.
             </motion.p>
 

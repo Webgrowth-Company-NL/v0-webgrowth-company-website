@@ -87,7 +87,7 @@ const GOALS: Goal[] = [
     key: "platform",
     label: "Alles op één plek",
     module: "Forester OS",
-    body: "Website, CRM, marketing en AI zitten samen in één abonnement, met één login en één factuur, en wij beheren het hele plaatje voor je. Het platform groeit met je mee zonder dat het uit z'n voegen barst.",
+    body: "Website, CRM, marketing en AI-assistent Q zitten samen in één abonnement, met één login en één factuur, en wij beheren het hele plaatje voor je. Het platform groeit met je mee zonder dat het uit z'n voegen barst.",
     icon: LayoutGrid,
     href: "/forester-os",
     grad: "from-[#3d2a6b] via-[#4f2bb0] to-[#623bc7]",

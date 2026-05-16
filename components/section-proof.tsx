@@ -67,7 +67,7 @@ export function SectionProof() {
             227 organisaties gingen je voor.
           </motion.h2>
           <motion.p variants={fadeUp(0.1)} className="mt-5 text-[16px] sm:text-[17.5px] leading-[1.65] text-white/70">
-            Sinds 2016 bouwen we platforms die hun werk doen terwijl jij slaapt en die je verder helpen dan je in eerste instantie voor mogelijk hield. Dit is wat onze klanten er zelf van zeggen.
+            Sinds 2016 bouwen we websites die hun werk doen terwijl jij slaapt en die je verder helpen dan je in eerste instantie voor mogelijk hield. Dit is wat onze klanten er zelf van zeggen.
           </motion.p>
         </motion.div>
 

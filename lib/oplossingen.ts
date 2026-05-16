@@ -88,7 +88,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
       name: "Het Lead-pakket",
       eyebrow: "Wat je krijgt, voor één maandprijs",
       pitch:
-        "Alles wat je nodig hebt om bezoekers om te zetten in concrete aanvragen, in één abonnement. Hosting, CMS, CRM, marketing en AI: één login, één factuur, één team dat meedraait.",
+        "Alles wat je nodig hebt om bezoekers om te zetten in concrete aanvragen, in één abonnement. Hosting, CMS, CRM, marketing en Q: één login, één factuur, één team dat meedraait.",
       includes: [
         "Razendsnelle website op Forester OS",
         "2 lead engines (quickscan, calculator of slim formulier)",
@@ -190,7 +190,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Acquisitie die niet afhangt van",
     heroHighlight: "het netwerk van één partner.",
     heroIntro:
-      "Eén platform voor je hele kantoor: website, CRM, marketing en AI in één abonnement. Junior en senior werken in dezelfde flow, jij krijgt één factuur per maand. Afgestemd op advocaten, notarissen en accountants.",
+      "Eén platform voor je hele kantoor: website, CRM, marketing en Q in één abonnement. Junior en senior werken in dezelfde flow, jij krijgt één factuur per maand. Afgestemd op advocaten, notarissen en accountants.",
     heroView: "crm",
     heroViewConfig: {
       crm: {
@@ -303,7 +303,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
       },
     ],
     metaDescription:
-      "Groeiplatform voor advocaten, notarissen en accountants: website, CRM, marketing en AI in één abonnement. Eén login, één factuur, één team dat meedraait.",
+      "Groeiplatform voor advocaten, notarissen en accountants: website, CRM, marketing en Q in één abonnement. Eén login, één factuur, één team dat meedraait.",
     illustration: "/illustrations/biz-finance.svg",
   },
 
@@ -983,13 +983,13 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Negen tools minder,",
     heroHighlight: "één maandfactuur.",
     heroIntro:
-      "Website, CRM, marketing en AI in één abonnement voor het MKB. Geen losse leveranciers, geen losse contracten, geen synchronisatie-ellende. Eén login voor het hele team.",
+      "Website, CRM, marketing en Q in één abonnement voor het MKB. Geen losse leveranciers, geen losse contracten, geen synchronisatie-ellende. Eén login voor het hele team.",
     heroView: "crm",
     bundle: {
       name: "Het MKB-pakket",
       eyebrow: "Wat je krijgt, voor één maandprijs",
       pitch:
-        "Een platform dat alles doet wat een groeiend MKB-bedrijf nodig heeft: website, leads, CRM, marketing en AI. Eén leverancier, één login, één maandfactuur.",
+        "Een platform dat alles doet wat een groeiend MKB-bedrijf nodig heeft: website, leads, CRM, marketing en Q. Eén leverancier, één login, één maandfactuur.",
       includes: [
         "Razendsnelle website op Forester OS",
         "2 lead engines (offerteformulier, calculator of quickscan)",
@@ -1083,7 +1083,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
       },
     ],
     metaDescription:
-      "Eén groeiplatform voor het MKB: website, CRM, leads, marketing en AI in één abonnement. Negen losse leveranciers vervangen, één maandfactuur.",
+      "Eén groeiplatform voor het MKB: website, CRM, leads, marketing en Q in één abonnement. Negen losse leveranciers vervangen, één maandfactuur.",
     illustration: "/illustrations/business-growth.svg",
   },
 };

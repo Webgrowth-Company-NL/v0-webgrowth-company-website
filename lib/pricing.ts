@@ -147,7 +147,7 @@ export const PRICING_FAQS: PricingFaqItem[] = [
   },
   {
     q: "Hoe snel sta ik live?",
-    a: "Voor een nieuwe site werken we standaard met 8 sprints van 2 weken (circa 4 maanden van krabbel tot livegang), inclusief kickoff, twee-wekelijkse meetings en testronde. Kleinere projecten of een losse Lead Engine kunnen sneller. We werken in vaste sprints, dus je weet elke twee weken precies wat klaar is.",
+    a: "Voor een nieuwe site werken we met maximaal 4 sprints van 2 weken (zo'n 2 maanden van krabbel tot livegang), inclusief kickoff, twee-wekelijkse meetings en testronde. Kleinere projecten of een losse Lead Engine kunnen sneller. We werken in vaste sprints, dus je weet elke twee weken precies wat klaar is.",
   },
   {
     q: "Hoe betrouwbaar is de hosting?",

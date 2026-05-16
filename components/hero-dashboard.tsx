@@ -1168,7 +1168,7 @@ function ContentPublisherView() {
 }
 
 /* ── View: Nieuwsbrieven (compose-flow, segment, verstuur) ──────────────────── */
-const NEWSLETTER_SUBJECT = "Nieuwe vacature in Dordrecht";
+const NEWSLETTER_SUBJECT = "Nieuwe vacature in Breda";
 
 function NewsletterView() {
   const reduce = useReducedMotion();
@@ -1243,8 +1243,8 @@ function NewsletterView() {
 const ADS_QUERY = "websitebureau dordrecht";
 const ADS_AD = {
   domain: "webgrowth.company",
-  title: "Webgrowth Company · Websitebureau in Dordrecht",
-  description: "Razendsnelle sites met SEO, CRM en AI ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 9,4 op Google.",
+  title: "Webgrowth Company · Websitebureau in Breda",
+  description: "Razendsnelle sites met SEO, CRM en AI-assistent Q ingebouwd. Vaste prijs, geen losse contracten. 227 tevreden klanten · 9,4 op Google.",
 };
 const ADS_ORGANIC: { domain: string; title: string }[] = [
   { domain: "agency-zwart.nl", title: "Agency Zwart · Maatwerk websites" },

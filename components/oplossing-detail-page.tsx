@@ -7,6 +7,7 @@ import { animate, motion, useInView, useMotionValue, useReducedMotion } from "fr
 import { ArrowRight, Check, Clock, ShieldCheck, TrendingUp, Zap } from "lucide-react";
 import { HeroDashboard } from "@/components/hero-dashboard";
 import { KennismakingButton } from "@/components/kennismaking-button";
+import { useKennismakingModal } from "@/components/kennismaking-modal-provider";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
@@ -38,6 +39,7 @@ const GRADIENT_TILE_STYLE = {
 
 export function OplossingDetailPage({ slug }: { slug: string }) {
   const detail = OPLOSSING_DETAILS[slug];
+  const { open: openKennismaking } = useKennismakingModal();
   if (!detail) return null;
 
   return (
@@ -66,12 +68,13 @@ export function OplossingDetailPage({ slug }: { slug: string }) {
           intro={
             <>
               Andere vraag?{" "}
-              <a
-                href="/contact"
+              <button
+                type="button"
+                onClick={openKennismaking}
                 className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2"
               >
                 Boek een kennismaking
-              </a>
+              </button>
               , dan lopen we het samen door.
             </>
           }

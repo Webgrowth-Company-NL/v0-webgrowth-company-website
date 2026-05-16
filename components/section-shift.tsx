@@ -165,7 +165,7 @@ export function SectionShift() {
               <span className="font-[family-name:var(--font-display)] text-[20px] font-bold">Forester OS</span>
             </div>
             <ul className="relative space-y-3.5">
-              {["Eén abonnement, één factuur", "Eén login voor je hele team", "Data die wél met elkaar praat", "Website, CRM, marketing en AI inbegrepen"].map((t) => (
+              {["Eén abonnement, één factuur", "Eén login voor je hele team", "Data die wél met elkaar praat", "Website, CRM, marketing en AI-assistent Q inbegrepen"].map((t) => (
                 <li key={t} className="flex items-start gap-2.5 text-[14px] leading-snug text-white/90">
                   <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20 mt-px">
                     <Check className="h-2.5 w-2.5" strokeWidth={3} />

@@ -15,11 +15,11 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Hoe snel sta ik live?",
-    a: "Een nieuwe site bouwen we in acht sprints van twee weken, dus circa vier maanden van krabbel tot livegang. Een kleinere klus of een losse Lead Engine kan een stuk sneller. Elke twee weken bellen we even bij om door te lopen wat klaar is en wat eraan komt, zodat je nooit voor verrassingen komt te staan.",
+    a: "Een nieuwe site bouwen we in maximaal vier sprints van twee weken, dus zo'n twee maanden van krabbel tot livegang. Een kleinere klus of een losse Lead Engine kan een stuk sneller. Elke twee weken bellen we even bij om door te lopen wat klaar is en wat eraan komt, zodat je nooit voor verrassingen komt te staan.",
   },
   {
     q: "Wat kost het?",
-    a: "Eén abonnement begint bij €399 per maand (Core), met daarboven Growth voor €699 en Scale vanaf €999. In elk pakket zitten je website, hosting in Nederland, wekelijks onderhoud, CRM, marketing-tools en AI inbegrepen. Een extra rekening voor 'een uurtje werk' krijg je niet, want dat hebben we expres zo afgesproken. Op de prijzenpagina zie je per pakket precies wat erbij zit, plus een vergelijking met losse tools.",
+    a: "Eén abonnement begint bij €399 per maand (Core), met daarboven Growth voor €699 en Scale vanaf €999. In elk pakket zitten je website, hosting in Nederland, wekelijks onderhoud, CRM, marketing-tools en AI-assistent Q inbegrepen. Een extra rekening voor 'een uurtje werk' krijg je niet, want dat hebben we expres zo afgesproken. Op de prijzenpagina zie je per pakket precies wat erbij zit, plus een vergelijking met losse tools.",
   },
   {
     q: "Is mijn data veilig en AVG-proof?",

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { FAQS, type FaqItem } from "@/lib/faq";
+import { useKennismakingModal } from "@/components/kennismaking-modal-provider";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -27,6 +27,7 @@ export function SectionFaq({
   intro,
 }: SectionFaqProps = {}) {
   const [open, setOpen] = useState(0);
+  const { open: openKennismaking } = useKennismakingModal();
 
   return (
     <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-40 bg-[#e9e4f7]">
@@ -50,9 +51,13 @@ export function SectionFaq({
             {intro ?? (
               <>
                 Staat je vraag er niet bij?{" "}
-                <Link href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">
+                <button
+                  type="button"
+                  onClick={openKennismaking}
+                  className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2"
+                >
                   Boek een kennismaking
-                </Link>
+                </button>
                 , dan beantwoorden we 'm direct.
               </>
             )}

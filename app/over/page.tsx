@@ -300,7 +300,7 @@ export default function OverPage() {
               </h2>
               <div className="mt-7 space-y-5 text-[16.5px] sm:text-[17.5px] leading-[1.75] text-white/80">
                 <p>
-                  De naam Forester OS heeft een persoonlijk verhaal achter zich. Onze dochters Bo en Soof zijn
+                  De naam Forester OS heeft een persoonlijk verhaal achter zich. Onze dochters Soof en Bo zijn
                   gek van paars en roze, terwijl onze zoon Kick juist gek is van groen. Combineer dat met onze
                   liefde voor het merk{" "}
                   <strong className="text-white">Dr. Squatch</strong>, dat zo rauw, eerlijk en vol karakter is,
@@ -329,7 +329,7 @@ export default function OverPage() {
               <span aria-hidden className="pointer-events-none absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-white/12" />
               <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[rgba(12,6,18,0.65)] via-[rgba(12,6,18,0.15)] to-transparent" />
               <figcaption className="absolute bottom-5 left-5 right-5 text-white">
-                <div className="text-[13px] font-semibold">Bo, Soof, Kick en het thuisfront</div>
+                <div className="text-[13px] font-semibold">Soof, Bo, Kick en het thuisfront</div>
                 <div className="mt-0.5 text-[11.5px] text-white/70">Paars, roze en groen. Daar begint Forester OS.</div>
               </figcaption>
             </div>
@@ -415,7 +415,7 @@ export default function OverPage() {
               <TeamCard
                 icon={MapPin}
                 title="Gebouwd in Nederland."
-                body="We staan met onze voeten in Dordrecht en daarmee heb je korte lijnen en zijn we snel ter plekke. Voor data, hosting en AVG-compliance is het bovendien fijn dat alles in Nederland staat."
+                body="We staan met onze voeten in Breda en daarmee heb je korte lijnen en zijn we snel ter plekke. Voor data, hosting en AVG-compliance is het bovendien fijn dat alles in Nederland staat."
               />
             </div>
           </div>
@@ -447,7 +447,7 @@ export default function OverPage() {
             <p className="mt-6 text-[16.5px] sm:text-[18px] leading-[1.65] text-white/75 max-w-xl mx-auto">
               Eerst bouwen we hét marketing-platform voor het klein-MKB in Nederland, en zodra dat draait
               hebben we onze pijlen op Amerika gericht. Ooit, als alles loopt, zou Martijn dat het liefst
-              vanaf een ranch in Montana of Wyoming doen. Tot die tijd zitten we hier in Dordrecht, en jij
+              vanaf een ranch in Montana of Wyoming doen. Tot die tijd zitten we hier in Breda, en jij
               mag mee.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">

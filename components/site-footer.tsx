@@ -40,7 +40,7 @@ export function SiteFooter() {
               <span className="font-[family-name:var(--font-display)] text-[16px] font-bold text-white">Webgrowth Company</span>
             </Link>
             <p className="mt-4 text-[13.5px] leading-relaxed max-w-xs">
-              Eén platform voor je website, CRM, marketing en AI. Negen losse leveranciers, samengebracht tot Forester OS.
+              Eén platform voor je website, CRM, marketing en AI-assistent Q. Negen losse leveranciers, samengebracht tot Forester OS.
             </p>
             <a
               href="https://www.google.com/search?q=Webgrowth+Company+reviews"

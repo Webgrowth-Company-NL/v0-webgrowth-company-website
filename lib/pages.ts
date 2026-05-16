@@ -172,10 +172,10 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     h1: "Groeiplatform voor zakelijke dienstverleners",
     metaTitle: "Groeiplatform voor advocaten, notarissen en accountants | Webgrowth",
     metaDescription:
-      "Website, CRM, marketing en AI in één abonnement, afgestemd op kantoren in de zakelijke dienstverlening.",
+      "Website, CRM, marketing en Q in één abonnement, afgestemd op kantoren in de zakelijke dienstverlening.",
     eyebrow: "Oplossingen",
     intro:
-      "Website, CRM, marketing en AI in één abonnement, afgestemd op advocaten-, notaris- en accountantskantoren.",
+      "Website, CRM, marketing en Q in één abonnement, afgestemd op advocaten-, notaris- en accountantskantoren.",
   },
   {
     path: "/oplossingen/creatief-design",
@@ -229,10 +229,10 @@ export const INDEX_PAGES: SeoPage[] = [
     h1: "Forester OS",
     metaTitle: "Forester OS: het AI-groeiplatform van Webgrowth Company",
     metaDescription:
-      "Eén platform voor je website, CRM, marketing en AI. Negen losse leveranciers, samengebracht tot één login.",
+      "Eén platform voor je website, CRM, marketing en Q. Negen losse leveranciers, samengebracht tot één login.",
     eyebrow: "Het platform",
     intro:
-      "Eén platform voor je website, CRM, marketing en AI. Negen losse leveranciers, samengebracht tot één login.",
+      "Eén platform voor je website, CRM, marketing en Q. Negen losse leveranciers, samengebracht tot één login.",
   },
   {
     path: "/oplossingen",
@@ -303,10 +303,10 @@ export const STANDALONE_PAGES: SeoPage[] = [
     h1: "Prijzen",
     metaTitle: "Prijzen: één abonnement voor het hele platform | Webgrowth Company",
     metaDescription:
-      "Eén helder abonnement voor website, CRM, marketing en AI. Geen negen losse facturen meer.",
+      "Eén helder abonnement voor website, CRM, marketing en Q. Geen negen losse facturen meer.",
     eyebrow: "Prijzen",
     intro:
-      "Eén helder abonnement voor website, CRM, marketing en AI. Geen negen losse facturen meer.",
+      "Eén helder abonnement voor website, CRM, marketing en Q. Geen negen losse facturen meer.",
   },
   {
     path: "/inloggen",

@@ -91,7 +91,7 @@ export function ForesterOsHero() {
           variants={fadeUp(0.2)}
           className="mt-6 text-[17px] sm:text-[18px] leading-[1.6] text-[color:var(--color-ink-muted)]"
         >
-          Forester OS is ons eigen groeiplatform: je website, CRM, marketing en AI delen één database, één tone-of-voice en één login. Geen aparte facturen, geen integratielijm, geen losse aanspreekpunten.
+          Forester OS is ons eigen groeiplatform: je website, CRM, marketing en AI-assistent Q delen één database, één tone-of-voice en één login. Geen aparte facturen, geen integratielijm, geen losse aanspreekpunten.
         </motion.p>
 
         <motion.div
