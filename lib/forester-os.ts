@@ -268,19 +268,35 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       eyebrow: "Zo werkt het",
       title: "Van handtekening tot livegang in maximaal vier sprints.",
       intro:
-        "Een strak traject in drie duidelijke fases, met elke twee weken een meeting zodat je precies weet waar we staan en wat er aankomt.",
+        "Een strak traject in zeven duidelijke fases, met elke twee weken een meeting zodat je precies weet waar we staan en wat er aankomt.",
       items: [
         {
-          title: "Kick-off voor het hele traject",
-          body: "In één meeting nemen we de strategie, sitemap, content-types, lead engines en alles wat verder bij Forester OS komt kijken door. Op dag één weten we hoeveel sprints we nodig hebben en wat het einddoel is.",
+          title: "Kick-off meeting",
+          body: "In één meeting nemen we de strategie, sitemap, content-types, Lead Engines en alles wat verder bij Forester OS komt kijken samen door. Op dag één weten we hoeveel sprints we nodig hebben en wat het einddoel is.",
         },
         {
-          title: "Wij werken het uit",
-          body: "Maximaal vier sprints van twee weken, samen zo'n twee maanden tot livegang. Wij bouwen, Q schrijft de basisteksten in jouw stem, en aan het einde van elke sprint zie je wat klaar is en wat eraan komt.",
+          title: "Marketing plan",
+          body: "Op basis van je doelgroep, je merk en wat we tijdens de kick-off bespraken stellen we een marketing-plan op waarin we vastleggen welke boodschap je site moet uitstralen, op welke zoekwoorden we mikken en welke Lead Engines we daarvoor inzetten.",
         },
         {
-          title: "We zetten 'm live",
-          body: "We slopen 'm eerst bijna kapot tijdens het testen, fixen wat we vinden en doen daarna de DNS-flip zonder downtime. Daarna krijg je de sleutels en blijft 'ie elke week onderhouden, zodat jij er niet meer naar om hoeft te kijken.",
+          title: "Bouwplaats open",
+          body: "Wij beginnen met bouwen in maximaal vier sprints van twee weken, samen zo'n twee maanden tot livegang. Aan het einde van elke sprint zie je wat klaar is en wat eraan komt, en kun je nog bijsturen zonder dat het hele traject ontspoort.",
+        },
+        {
+          title: "Lead en Sales Engines erin",
+          body: "De Lead Engines en Sales Engines die we tijdens de kick-off hebben afgesproken bouwen we mee in de site, met de juiste vraag-logica, WhatsApp-notificaties en routing naar je CRM. Q schrijft de eerste versie van vragen en uitkomsten in jouw stem.",
+        },
+        {
+          title: "Testen",
+          body: "We slopen 'm bijna kapot voordat we 'm aan jou laten zien, op laadtijd, op mobiel, op alle gangbare browsers en op de doorstroming van de Lead Engines. Wat we tegenkomen lossen we direct op.",
+        },
+        {
+          title: "Feedback",
+          body: "Jij loopt de hele site door alsof je een nieuwe bezoeker bent, klikt op elke pagina en geeft door waar het schuurt of waar je nog iets anders had verwacht. Wij verwerken al je opmerkingen voordat we 'm online zetten.",
+        },
+        {
+          title: "Live",
+          body: "We doen de DNS-flip zonder downtime, zodat je klanten er niets van merken. Daarna krijg je de sleutels en blijft je site elke week door ons onderhouden, terwijl jij elke maand een Momentum-rapport krijgt met de cijfers die er toe doen.",
         },
       ],
     },
@@ -430,19 +446,27 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van expertise tot draaiende verkoopmotor.",
-      intro: "Geen losse academy-tool die je los moet onderhouden. We bouwen je verkoopmotor in op je bestaande platform, in het format dat past bij wat jij wilt verkopen.",
+      intro: "Geen losse academy-tool die je apart moet onderhouden. We bouwen je verkoopmotor rechtstreeks in op je bestaande platform, in het format dat past bij wat jij wilt verkopen.",
       items: [
         {
-          title: "Kick-off voor het hele traject",
-          body: "In de gezamenlijke kick-off kiezen we ook het format dat bij jouw expertise past (korte training, meerdaags programma, boekbare sessies of een digitaal product) en bepalen we het prijsmodel en de doelgroep.",
+          title: "Kick-off meeting",
+          body: "In de gezamenlijke kick-off kiezen we ook het format dat bij jouw expertise past, of dat nu een korte training, een meerdaags programma, boekbare sessies of een digitaal product wordt. Ook het prijsmodel en de doelgroep leggen we daar samen vast.",
         },
         {
-          title: "Wij werken het uit",
-          body: "Jij levert de expertise en Q schrijft de basis in jouw stem, terwijl wij de winkel, de betalingen (iDEAL, creditcard, factuur of abonnement) en de automatische toegang bouwen. Voor sessies koppelen we je agenda, voor producten de download-flow.",
+          title: "Wij tekenen 'm uit",
+          body: "We tekenen je leerflow uit op papier: welke modules elkaar opvolgen, welke quizzes erin zitten en welke verkooppagina's daarbij horen. Q levert een eerste versie van content in jouw stem aan, zodat je niet vanaf een wit vel hoeft te beginnen.",
         },
         {
-          title: "We zetten 'm live",
-          body: "We zetten je verkoopmotor voorzichtig live en kijken mee bij de eerste deelnemers of kopers. Op basis van wat we zien stellen we modules of prijzen bij, zodat 'ie elke maand beter loopt.",
+          title: "Wij bouwen 'm voor je",
+          body: "Wij bouwen de winkel en koppelen iDEAL, creditcard, factuur of abonnement zodat klanten zichzelf kunnen aanmelden en betalen. Voor sessies koppelen we je agenda, voor digitale producten zetten we de download-flow op en voor trainingen regelen we de toegang per cursist.",
+        },
+        {
+          title: "Jij test en geeft feedback",
+          body: "Voordat 't live gaat loop je je eigen verkoopmotor zelf door alsof je een cursist of koper bent, koop je je eigen product en geef je door waar het stroef voelt of waar de uitleg ontbreekt.",
+        },
+        {
+          title: "We passen aan en koppelen aan Forester OS",
+          body: "We verwerken je feedback, finetunen modules of prijzen en zorgen dat elke deelnemer of koper automatisch in je CRM landt met de juiste context. Vanaf dat moment kijken we doorlopend mee om aan te passen wat beter kan.",
         },
       ],
     },
@@ -483,19 +507,31 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van eerste lead tot vaste pijplijn.",
-      intro: "Geen droge import-export. We zetten jouw pijplijn op, lopen mee tijdens de eerste maand en passen aan wat nodig is.",
+      intro: "Geen droge import-export. We tekenen jouw sales-flow uit, koppelen alles aan elkaar en lopen mee tot het CRM precies past bij hoe jouw team werkt.",
       items: [
         {
-          title: "Kick-off voor het hele traject",
-          body: "In de gezamenlijke kick-off bekijken we ook hoe jouw pijplijn eruit moet zien, welke statussen daar logisch bij horen en welke rollen iedereen in het team krijgt.",
+          title: "Kick-off meeting",
+          body: "In de gezamenlijke kick-off bekijken we ook hoe jouw sales-pijplijn eruit moet zien, welke statussen daar logisch bij horen en welke rollen iedereen in het team krijgt, of je nu met vijf of negen stadia werkt en of er onderverdeling per sector nodig is.",
         },
         {
-          title: "Wij werken het uit",
-          body: "We nemen je bestaande contacten en deals over (uit Excel, HubSpot, Pipedrive of waar dan ook), zetten je pijplijn op met de statussen die jij wilt en geven iedereen een eigen login met de juiste rechten en meldingen.",
+          title: "Uittekenen sales flow",
+          body: "We tekenen je sales-flow stap voor stap uit, van eerste contact via offerte naar getekende deal, met de bijbehorende statussen, taken en herinneringen. Je bestaande contacten en deals nemen we daarbij over uit Excel, HubSpot, Pipedrive of waar je ze nu ook hebt staan.",
         },
         {
-          title: "We zetten 'm live",
-          body: "De eerste maand kijken we intensief mee en passen statussen of meldingen aan tot 'ie precies bij jouw werkritme past. Daarna signaleert Q deals die te lang stilstaan en stelt hij opvolgingen voor, zodat jij de controle houdt zonder elke dag te hoeven duwen.",
+          title: "Koppelen Engines",
+          body: "We koppelen je Lead Engines, Sales Engines en formulieren aan het CRM zodat elke aanvraag automatisch in de juiste pijplijn-stap landt mét alle context. Je hele team krijgt een eigen login met de juiste rechten en meldingen op jullie werkritme.",
+        },
+        {
+          title: "Testen",
+          body: "We rollen wat test-leads door de pijplijn om te zien of statussen, automatische taken en notificaties precies doen wat we tijdens het uittekenen hadden bedacht. Wat we tegenkomen passen we direct aan.",
+        },
+        {
+          title: "Feedback verwerken",
+          body: "Jij loopt het CRM zelf door, gooit een paar deals door de stadia heen en geeft door waar het schuurt of waar je nog een melding mist. Wij verwerken al je opmerkingen tot het écht jouw werk-flow weerspiegelt.",
+        },
+        {
+          title: "Live",
+          body: "Je CRM gaat live, je team kan ermee aan de slag en Q kijkt vanaf dag één mee door deals te signaleren die te lang stilstaan en opvolgingen voor te stellen. Jij houdt de controle, zonder dat je overal achteraan moet zitten.",
         },
       ],
     },
@@ -535,19 +571,27 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     steps: {
       eyebrow: "Zo werkt het",
       title: "Van eerste analyse tot stijgende rankings.",
-      intro: "SEO als ingebouwde laag in Forester OS, niet als losse opdracht aan een bureau. Met maandelijkse aanpassingen op basis van data die echt iets oplevert.",
+      intro: "SEO als ingebouwde laag in Forester OS, niet als losse opdracht aan een bureau. We bouwen de SEO-laag in vijf stappen op en blijven daarna maandelijks bijschaven op wat er echt gebeurt in Search Console.",
       items: [
         {
-          title: "Kick-off voor het hele traject",
-          body: "In de gezamenlijke kick-off koppelen we ook je Search Console en doen we een eerste analyse. Welke pagina's groeien, welke zakken en waar laat je nu verkeer liggen aan je concurrenten.",
+          title: "Kick-off meeting",
+          body: "In de gezamenlijke kick-off koppelen we ook je Search Console en doen we een eerste analyse: welke pagina's groeien, welke zakken en waar laat je nu verkeer liggen aan je concurrenten. Daarmee weten we op dag één waar het laaghangende fruit hangt en waar de uitdagingen zitten.",
         },
         {
-          title: "Wij werken het uit",
-          body: "Op basis van de analyse en je concurrentie kiezen we 25 tot 50 zoekwoorden om aan te werken, en Q stelt voor welke pagina's eerst gemaakt of herschreven moeten worden, met logische interne links die elkaar versterken.",
+          title: "SEO plan",
+          body: "Op basis van die eerste analyse, je concurrentie en de markt waarin je actief bent stellen we een SEO-plan op waarin we vastleggen op welke vijfentwintig zoekwoorden we de eerste maanden mikken en welk soort content daarbij hoort om die posities te winnen.",
         },
         {
-          title: "We zetten 'm live",
-          body: "Elke maand zie je wat verbeterd is, wat tegenvalt en wat we hierna gaan doen. Wat werkt schalen we op, wat niet werkt parkeren we, zonder rapport om het rapport.",
+          title: "SEO verwerken",
+          body: "We verwerken de technische SEO door je hele site: snelheid, structured data, interne links, alt-teksten en alle signalen die Google in zijn oordeel meeneemt. Daar waar bestaande pagina's beter kunnen, herschrijven we ze in jouw stem.",
+        },
+        {
+          title: "Content plan",
+          body: "Q stelt op basis van het SEO-plan een content-plan voor met topic-clusters die elkaar versterken, en samen met jou bepalen we welke teksten wanneer geschreven en gepubliceerd worden zodat je site organisch blijft groeien.",
+        },
+        {
+          title: "Search Console en constante updates",
+          body: "Elke maand zien we in Search Console wat verbeterd is, wat tegenvalt en wat we hierna doen. Wat werkt schalen we op, wat niet werkt parkeren we, en samen blijven we het content-plan elke maand bijschaven op wat de cijfers laten zien.",
         },
       ],
     },
@@ -585,25 +629,6 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
         ],
       },
     ],
-    steps: {
-      eyebrow: "Zo werkt het",
-      title: "Van eerste setup tot dagelijkse assistent.",
-      intro: "Q is geen knop die je aanzet. Hij leert je merk en je context, en wordt elke week beter doordat we zijn output bijschaven.",
-      items: [
-        {
-          title: "Kick-off voor het hele traject",
-          body: "In de gezamenlijke kick-off laten we Q ook je website, je CRM en je bestaande content lezen. Daar leert hij je merk, je toon en je context van, en aan de hand van een paar voorbeeldzinnen leren we hem hoe jij klinkt.",
-        },
-        {
-          title: "Wij werken het uit",
-          body: "We geven Q de eerste concrete taken (een blog schrijven, een aanvraag samenvatten, een opvolg-mail voorstellen) en zetten hem klaar op de plekken waar jij werkt: in het CMS naast de tekst-editor, in het CRM naast elke deal, en in een chat-window voor losse vragen.",
-        },
-        {
-          title: "We zetten 'm live",
-          body: "Jij keurt zijn output, wij blijven 'm bijschaven op basis van wat goed gaat en wat soms misgaat. Op die manier wordt Q elke maand een beetje beter, omdat we hem trainen op zijn eigen werk in jouw context.",
-        },
-      ],
-    },
   },
   "content-publisher": {
     heroLead: "Content op schema,",
