@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { KennismakingTextLink } from "@/components/kennismaking-text-link";
 import { PricingHero } from "@/components/pricing-hero";
 import { PricingPlans } from "@/components/pricing-plans";
 import { PricingComparison } from "@/components/pricing-comparison";
@@ -17,7 +18,7 @@ const DEEP = "#2c1d5e";
 const TITLE =
   "Prijzen — Eén abonnement vanaf €399 per maand | Webgrowth Company";
 const DESCRIPTION =
-  "Eén platform voor je website, CRM, marketing en AI vanaf €399/maand. Drie pakketten (Core, Growth, Scale), maandelijks opzegbaar, alles inclusief. Bespaar ten opzichte van losse tools.";
+  "Eén platform voor je website, CRM, marketing en AI-assistent Q vanaf €399 per maand. Drie pakketten (Core, Growth, Scale), maandelijks opzegbaar en alles inclusief. Bespaar ten opzichte van losse tools.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -113,7 +114,7 @@ export default function Page() {
           title="Wat klanten vaak vragen over de prijs."
           intro={
             <>
-              Andere vraag? <a href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">Boek een kennismaking</a>, dan rekenen we het samen door.
+              Andere vraag? <KennismakingTextLink />, dan rekenen we het samen door.
             </>
           }
         />

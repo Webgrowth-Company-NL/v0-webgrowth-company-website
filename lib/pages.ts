@@ -101,10 +101,10 @@ export const FORESTER_PAGES: SeoPage[] = [
     h1: "Automatische content publisher",
     metaTitle: "Automatische content publisher: AI publiceert op schema | Forester OS",
     metaDescription:
-      "Laat AI op een vast ritme content schrijven én publiceren op je site, zodat je nooit meer met een lege blog zit.",
+      "Laat Q op een vast ritme content schrijven én publiceren op je site, zodat je nooit meer met een lege blog zit.",
     eyebrow: "Forester OS",
     intro:
-      "Laat AI op een vast ritme content schrijven én publiceren op je site, zodat je nooit meer met een lege blog zit. Binnenkort onderdeel van Forester OS.",
+      "Laat Q op een vast ritme content schrijven én publiceren op je site, zodat je nooit meer met een lege blog zit. Binnenkort onderdeel van Forester OS.",
     soon: true,
   },
   {
@@ -161,10 +161,10 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     h1: "Sneller publiceren met AI",
     metaTitle: "Sneller publiceren met AI: content live in minuten | Webgrowth",
     metaDescription:
-      "Laat AI pagina's, blogs en updates schrijven en zet ze met één klik live op je site.",
+      "Laat Q je pagina's, blogs en updates schrijven en zet ze met één klik live op je site.",
     eyebrow: "Oplossingen",
     intro:
-      "Laat AI pagina's, blogs en updates schrijven en zet ze met één klik live op je site.",
+      "Laat Q je pagina's, blogs en updates schrijven en zet ze met één klik live op je site.",
   },
   {
     path: "/oplossingen/zakelijke-dienstverlening",
@@ -262,10 +262,10 @@ export const STANDALONE_PAGES: SeoPage[] = [
     h1: "Klantverhalen",
     metaTitle: "Klantverhalen: wat we voor anderen bouwden | Webgrowth Company",
     metaDescription:
-      "Echte voorbeelden van bedrijven die met Webgrowth Company hun website, marketing en groei op orde brachten.",
+      "Echte voorbeelden van bedrijven die met ons hun website, marketing en groei op orde brachten.",
     eyebrow: "Cases",
     intro:
-      "Echte voorbeelden van bedrijven die met Webgrowth Company hun website, marketing en groei op orde brachten.",
+      "Hier vind je echte voorbeelden van bedrijven die met ons hun website, marketing en groei op orde hebben gebracht, plus wat dat ze opleverde in cijfers en in dagelijks gemak.",
   },
   {
     path: "/over",
@@ -282,10 +282,10 @@ export const STANDALONE_PAGES: SeoPage[] = [
     h1: "Helpcentrum",
     metaTitle: "Helpcentrum: antwoorden en handleidingen | Webgrowth Company",
     metaDescription:
-      "Antwoorden op veelgestelde vragen en stap-voor-stap handleidingen voor het hele platform.",
+      "Antwoorden op veelgestelde vragen en stap-voor-stap uitleg over alles wat er in jouw Forester OS-omgeving zit.",
     eyebrow: "Help",
     intro:
-      "Antwoorden op veelgestelde vragen en stap-voor-stap handleidingen voor het hele platform.",
+      "Hier vind je antwoorden op veelgestelde vragen en stap-voor-stap uitleg over alles wat er in jouw Forester OS-omgeving zit. Kom je er niet uit? Bel of app gewoon Martijn, dan zoeken we het samen uit.",
   },
   {
     path: "/contact",
@@ -293,28 +293,30 @@ export const STANDALONE_PAGES: SeoPage[] = [
     h1: "Neem contact op",
     metaTitle: "Contact: boek een kennismaking met Webgrowth Company",
     metaDescription:
-      "Vragen of even sparren over jouw groei? Boek een vrijblijvende kennismaking, we denken graag mee.",
+      "Heb je een vraag of wil je even sparren over jouw groei? Boek een vrijblijvende kennismaking, we denken graag mee.",
     eyebrow: "Contact",
     intro:
-      "Vragen of even sparren over jouw groei? Boek een vrijblijvende kennismaking, we denken graag mee.",
+      "Heb je een vraag of wil je even sparren over jouw groei? Boek een vrijblijvende kennismaking, dan kijken we samen waar Forester OS jou bij kan helpen en waar we beter geen tijd in steken.",
   },
   {
     path: "/prijzen",
     h1: "Prijzen",
     metaTitle: "Prijzen: één abonnement voor het hele platform | Webgrowth Company",
     metaDescription:
-      "Eén helder abonnement voor website, CRM, marketing en Q. Geen negen losse facturen meer.",
+      "Eén helder abonnement voor je website, CRM, marketing en AI-assistent Q, vanaf €399 per maand. Geen negen losse facturen meer, geen verrassingen achteraf.",
     eyebrow: "Prijzen",
     intro:
-      "Eén helder abonnement voor website, CRM, marketing en Q. Geen negen losse facturen meer.",
+      "Eén helder abonnement voor je website, CRM, marketing en AI-assistent Q, vanaf €399 per maand. Geen negen losse facturen meer, geen verrassingen achteraf.",
   },
   {
     path: "/inloggen",
     h1: "Inloggen",
     metaTitle: "Inloggen op Forester OS | Webgrowth Company",
-    metaDescription: "Log in op je Forester OS-omgeving om je website, leads en marketing te beheren.",
+    metaDescription:
+      "Log in op je Forester OS-omgeving en beheer vanuit één scherm je website, je leads, je CRM en je marketing.",
     eyebrow: "Inloggen",
-    intro: "Log in op je Forester OS-omgeving om je website, leads en marketing te beheren.",
+    intro:
+      "Log in op je Forester OS-omgeving en beheer vanuit één scherm je website, je leads, je CRM en je marketing.",
     noindex: true,
   },
 ];
