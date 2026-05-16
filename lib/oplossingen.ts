@@ -82,7 +82,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Meer aanvragen,",
     heroHighlight: "minder lege mailboxen.",
     heroIntro:
-      "Over 4 tot 6 weken staat er een leadflow op je eigen site die anonieme bezoekers omzet in concrete aanvragen, mét context en een seintje op je telefoon. Geen los marketingbureau, geen losse leadgen-tool, geen handmatige opvolging.",
+      "Binnen vier tot zes weken staat er een leadflow op je eigen site die anonieme bezoekers omzet in concrete aanvragen, compleet met context en een melding op je telefoon. Je hebt er geen los marketingbureau, geen aparte leadgen-tool en geen handmatige opvolging meer voor nodig, want alles draait rechtstreeks vanuit Forester OS.",
     heroView: "lead-engine",
     bundle: {
       name: "Het Lead-pakket",
@@ -182,7 +182,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Acquisitie die niet afhangt van",
     heroHighlight: "het netwerk van één partner.",
     heroIntro:
-      "Eén platform voor je hele kantoor: website, CRM, marketing en Q in één abonnement. Junior en senior werken in dezelfde flow, jij krijgt één factuur per maand. Afgestemd op advocaten, notarissen en accountants.",
+      "Eén platform voor je hele kantoor waarin je website, CRM, marketing en AI-assistent Q samenkomen in één abonnement. Junior en senior werken in dezelfde flow, jij krijgt één factuur per maand, en alles is afgestemd op het ritme van advocaten-, notaris- en accountantskantoren.",
     heroView: "crm",
     heroViewConfig: {
       crm: {
@@ -295,7 +295,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Beter gevonden,",
     heroHighlight: "zonder los SEO-bureau.",
     heroIntro:
-      "Search Console-data, AI-suggesties en ranking-tracking in één dashboard. Q zegt welke pagina je het eerst moet aanpakken, jij houdt het bij. Geen losse rapporten, geen losse contracten.",
+      "Search Console-data, suggesties van Q en ranking-tracking komen samen in één dashboard, zodat je in één oogopslag ziet welke pagina je het eerst moet aanpakken. Daarvoor heb je geen losse rapporten of losse contracten met een SEO-bureau meer nodig, want het zit gewoon ingebouwd in je platform.",
     heroView: "seo",
     bundle: {
       name: "Het SEO-pakket",
@@ -390,7 +390,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Geen lead meer kwijt,",
     heroHighlight: "geen deal vergeten.",
     heroIntro:
-      "Eén kanban-pijplijn voor je hele team. Leads vanuit je site, deals met taken en statussen, Q die meedenkt over de volgende stap. Geen losse CRM-licenties, geen synchronisatie-ellende.",
+      "Eén kanban-pijplijn voor je hele team waarin leads vanuit je site, deals met taken en statussen en de meedenkende voorstellen van Q allemaal op één plek samenkomen. Je hebt er geen losse CRM-licenties meer voor nodig en je hoeft je nooit meer druk te maken om systemen die niet meer met elkaar synchroniseren.",
     heroView: "crm",
     bundle: {
       name: "Het Pijplijn-pakket",
@@ -490,7 +490,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Content op schema,",
     heroHighlight: "zonder schrijfblok.",
     heroIntro:
-      "Q schrijft mee aan blogs, cases en nieuwsupdates in jouw stem. Jij keurt vooraf, Q publiceert. Een vol publicatieschema zonder dat je elke maandagochtend met een leeg scherm zit.",
+      "Q schrijft in jouw stem mee aan je blogs, cases en nieuwsupdates, en publiceert ze nadat jij ze vooraf hebt goedgekeurd. Zo krijg je een vol publicatieschema zonder dat je elke maandagochtend met een leeg scherm zit en moet bedenken wat je deze week gaat schrijven.",
     heroView: "content-publisher",
     bundle: {
       name: "Het Content-pakket",
@@ -586,7 +586,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Tijd terug voor",
     heroHighlight: "creatief werk.",
     heroIntro:
-      "Eén platform voor je portfolio, je leads en je projecten. Je bureau werkt aan de creatieve klus, niet aan losse tools en bijhorende admin. Geen vijf logins meer voor één klant-traject.",
+      "Eén platform waarin je portfolio, je leads en je projecten samenkomen, zodat je bureau aan de creatieve klussen kan werken in plaats van aan losse tools en de admin die daarbij hoort. Geen vijf verschillende logins meer voor één klant-traject, gewoon één plek waar alles samenkomt.",
     heroView: "crm",
     heroViewConfig: {
       crm: {
@@ -699,7 +699,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Offerte-aanvragen waar je",
     heroHighlight: "echt iets aan hebt.",
     heroIntro:
-      "Quickscans en prijscalculators die offertes opleveren mét context (foto's, afmetingen, budget) in plaats van 'kunt u een prijsindicatie sturen?'. Plus een CRM dat je projecten en planning bij elkaar houdt.",
+      "Quickscans en prijscalculators leveren je offerte-aanvragen op compleet met foto's, afmetingen en budget, in plaats van die kale 'kunt u een prijsindicatie sturen?'-mails waar je dan zelf naar moet bellen voor context. Daarnaast houden we je projecten en planning bij elkaar in één CRM, zodat je weet wat er waar staat.",
     heroView: "lead-engine",
     heroViewConfig: {
       leadEngine: {
@@ -807,7 +807,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Offerteaanvragen mét",
     heroHighlight: "traject, lading en datum.",
     heroIntro:
-      "Geen losse 'kunt u een prijs sturen?'-mails meer. Het aanvraagformulier vraagt direct uit waar het over gaat, jij stuurt een onderbouwde offerte. Plus een CRM dat klanten, ritten en facturen bij elkaar houdt. Voor transport, logistiek en koeriers.",
+      "Geen kale 'kunt u een prijs sturen?'-mails meer in je inbox, want het aanvraagformulier vraagt direct uit waar het over gaat zodat jij een onderbouwde offerte terug kunt sturen. Daarnaast houdt het CRM je klanten, je ritten en je facturen bij elkaar, zodat transport, logistiek en koeriers in één overzicht draaien.",
     heroView: "lead-engine",
     heroViewConfig: {
       leadEngine: {
@@ -919,7 +919,7 @@ export const OPLOSSING_DETAILS: Record<string, OplossingDetail> = {
     heroLead: "Negen tools minder,",
     heroHighlight: "één maandfactuur.",
     heroIntro:
-      "Website, CRM, marketing en Q in één abonnement voor het MKB. Geen losse leveranciers, geen losse contracten, geen synchronisatie-ellende. Eén login voor het hele team.",
+      "Website, CRM, marketing en AI-assistent Q komen samen in één abonnement dat past bij het MKB, zonder losse leveranciers, losse contracten of systemen die niet meer met elkaar synchroniseren. Eén login voor je hele team, en alle data praat onderling met elkaar.",
     heroView: "crm",
     bundle: {
       name: "Het MKB-pakket",
