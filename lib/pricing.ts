@@ -79,9 +79,6 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Dedicated development-team",
       "Strategisch partnership",
       "Onbeperkte lead engines en formulieren",
-      "Multi-site, multi-brand of multi-vestiging",
-      "SLA met response-tijden",
-      "Eigen accountmanager",
     ],
   },
 ];

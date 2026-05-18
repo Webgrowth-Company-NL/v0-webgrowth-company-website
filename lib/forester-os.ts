@@ -189,28 +189,6 @@ export const FORESTER_MODULES: ForesterModule[] = [
     icon: Layers,
     availableFrom: "scale",
   },
-  {
-    slug: "multi-site",
-    label: "Multi-site & multi-brand",
-    short: "Multi-site",
-    tagline: "Meerdere merken, vestigingen of regio's onder één dak",
-    body:
-      "Heeft jouw organisatie meerdere merken, vestigingen of internationale sites die elk hun eigen identiteit en taal moeten houden? Wij beheren ze allemaal vanuit één Forester OS-omgeving, zodat je dezelfde data, dezelfde Q en hetzelfde team gebruikt zonder dat de merken op elkaar lijken.",
-    features: ["Meerdere merken", "Multi-language", "Eén CRM-database", "Per merk eigen stijl"],
-    icon: Boxes,
-    availableFrom: "scale",
-  },
-  {
-    slug: "sla",
-    label: "SLA & eigen accountmanager",
-    short: "SLA",
-    tagline: "Vaste response-tijden en iemand die jouw business in z'n hoofd heeft",
-    body:
-      "Bij Scale leggen we de afspraken vast in een SLA met heldere response-tijden, uptime-garanties en escalatie-routes. Daarnaast krijg je een eigen accountmanager die jouw bedrijf én jouw doelen kent, zodat je niet elke keer opnieuw hoeft uit te leggen waar je heen wilt.",
-    features: ["Response-SLA", "Uptime-garanties", "Vaste accountmanager", "Roadmap-overleg"],
-    icon: ShieldCheck,
-    availableFrom: "scale",
-  },
 ];
 
 export type ForesterFlowStep = {
@@ -1002,7 +980,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
           "We werken in Nederlandse kantoortijden met dezelfde feestdagen die jij ook viert. Geen offshore-team waar je elke vraag tegen het tijdsverschil aan moet duwen, en geen taal-issues bij ingewikkelde uitleg.",
       },
     ],
-    relatedSlugs: ["website", "crm", "sla"],
+    relatedSlugs: ["website", "crm", "automations"],
     faq: [
       {
         q: "Wat is de response-tijd precies?",
@@ -1048,7 +1026,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
           "Voor Scale werken we met een eigen roadmap die we elk kwartaal bijschaven, in plaats van losse sprints zonder lange-termijn-zicht. Zo bouw je gestaag richting iets groters, in plaats van dat je iedere keer brandjes blust zonder dat je echt vooruit komt.",
       },
     ],
-    relatedSlugs: ["website", "multi-site", "sla"],
+    relatedSlugs: ["website", "crm", "priority-support"],
     faq: [
       {
         q: "Wordt mijn platform ook echt mijn eigendom?",
@@ -1063,95 +1041,6 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       "Bouw je eigen platform of app op het Forester OS-fundament. Een dedicated dev-team, custom features en je eigen roadmap. Alleen in Scale.",
   },
 
-  "multi-site": {
-    heroLead: "Meerdere merken,",
-    heroHighlight: "één Forester-omgeving.",
-    heroIntro:
-      "Heeft jouw organisatie meerdere merken, vestigingen of internationale sites die elk hun eigen identiteit en taal moeten houden? Wij beheren ze allemaal vanuit één Forester OS-omgeving, zodat je dezelfde CRM-data, dezelfde Q en hetzelfde team gebruikt zonder dat de merken op elkaar gaan lijken.",
-    featuresHeading: "Hoe multi-site bij ons werkt.",
-    featuresIntro:
-      "Centrale infrastructuur waar het zinnig is, lokale autonomie waar het ertoe doet. Zo blijft een groot bedrijf snel en wendbaar, ook als er meerdere merken onder vallen.",
-    featuresDetailed: [
-      {
-        title: "Meerdere sites, één database",
-        body:
-          "Of je nu twee, vijf of vijftien sites draait, ze leven allemaal binnen één Forester OS-omgeving. Eén team beheert het geheel, je mensen loggen één keer in, en CRM-data uit elk merk landt op de juiste plek in dezelfde overkoepelende pijplijn.",
-      },
-      {
-        title: "Multi-language voor internationale spelers",
-        body:
-          "Per site stel je in welke talen aan staan, met hreflang, canonicals en geografische targeting correct ingesteld voor Google. Zo concurreren je eigen sites niet met elkaar in zoekresultaten, en weet elke bezoeker direct dat 'ie in de juiste taalversie is geland.",
-      },
-      {
-        title: "Per merk eigen huisstijl en stem",
-        body:
-          "Hoewel het allemaal op één fundament draait krijgt elk merk z'n eigen design-systeem, z'n eigen tone-of-voice en z'n eigen instellingen voor Q. Een buitenstaander kan niet zien dat het achterliggend hetzelfde platform is, en dat is precies de bedoeling.",
-      },
-      {
-        title: "Centrale rapportage, lokale autonomie",
-        body:
-          "Het marketing-team van elk merk werkt zelfstandig in z'n eigen omgeving, terwijl jij als organisatie het totaalplaatje ziet in één rapportage. Zo behoud je controle zonder dat lokale teams in een keurslijf zitten dat groei juist tegenhoudt.",
-      },
-    ],
-    relatedSlugs: ["custom-platform", "sla", "website"],
-    faq: [
-      {
-        q: "Hoeveel sites kunnen we tegelijk draaien?",
-        a: "Bij Scale is er geen harde limiet. We hebben klanten met twee tot tien actieve sites op één Forester OS-fundament. Bij grotere aantallen kijken we samen met je naar de optimale opzet, omdat soms een sub-organisatie of een aparte tenant zinnig is.",
-      },
-      {
-        q: "Kan elk merk een eigen sub-team aanstellen?",
-        a: "Ja, met rechten per merk. Een marketing-medewerker van merk A ziet alleen wat zij nodig hebben voor merk A, terwijl de organisatie-rol toegang heeft tot het hele plaatje. Q kent de context van elk merk, dus suggesties en content zijn altijd gericht op dat ene merk.",
-      },
-    ],
-    metaDescription:
-      "Beheer meerdere merken, vestigingen of internationale sites vanuit één Forester OS. Centrale rapportage, lokale autonomie. Alleen in Scale.",
-  },
-
-  sla: {
-    heroLead: "Vaste afspraken,",
-    heroHighlight: "zwart op wit.",
-    heroIntro:
-      "Bij Scale leggen we onze afspraken vast in een SLA met heldere response-tijden, uptime-garanties en escalatie-routes. Daarnaast krijg je een eigen accountmanager die jouw bedrijf én jouw doelen kent, zodat je niet elke keer opnieuw hoeft uit te leggen waar je heen wilt.",
-    featuresHeading: "Wat we bij een SLA vastleggen.",
-    featuresIntro:
-      "Geen vage beloftes, maar concrete afspraken die jou houvast geven en die wij waarmaken. Mocht het ooit niet lukken, dan is daar ook een afgesproken consequentie aan verbonden.",
-    featuresDetailed: [
-      {
-        title: "Response-tijden zwart op wit",
-        body:
-          "In jouw SLA staan exacte response-tijden per type vraag, urgent of niet, en wat er gebeurt als we die niet halen. Het maakt onze afspraken concreet, en geeft jou als organisatie iets om op te koersen in plaats van te hopen dat 'er ooit iemand reageert'.",
-      },
-      {
-        title: "Uptime-garanties met 24/7 monitoring",
-        body:
-          "We garanderen 99,99% uptime over een jaar en monitoren je site 24 uur per dag zodat we problemen oppakken voordat jij of je klanten ze opmerken. Bij elk incident krijg je achteraf een rapportage met wat er is gebeurd, hoe we het hebben opgelost en wat we doen om herhaling te voorkomen.",
-      },
-      {
-        title: "Een vaste accountmanager die jouw business kent",
-        body:
-          "Eén persoon kent jouw bedrijf, jouw doelen en jouw voorkeuren door en door. Zo zit je niet elke keer met een ander tegenover je in een meeting, en weet je zelf precies waar je terecht kan als er iets dwars zit of als je iets nieuws wilt opzetten.",
-      },
-      {
-        title: "Kwartaal-overleg over je roadmap",
-        body:
-          "We zitten elk kwartaal aan tafel om door te lopen wat we hebben bereikt, waar we naartoe willen en wat de volgende prioriteiten zijn. Geen 'sprintje en wegwezen'-mentaliteit, maar een doorlopend partnership waarin we samen aan de lange lijn werken.",
-      },
-    ],
-    relatedSlugs: ["priority-support", "custom-platform", "multi-site"],
-    faq: [
-      {
-        q: "Wat gebeurt er als jullie de SLA niet halen?",
-        a: "Als wij onze response-tijden of uptime-belofte niet halen, krijg je een afgesproken korting op je abonnement. In de praktijk hebben we dat de afgelopen jaren niet hoeven uit te betalen, maar de garantie staat zwart op wit in elke Scale-overeenkomst.",
-      },
-      {
-        q: "Kan ik mijn accountmanager altijd bereiken?",
-        a: "Op werkdagen direct via WhatsApp, telefoon of mail. Buiten kantooruren staat de urgent-route van het hele team open, en daar wordt elk critical issue direct opgepakt zonder dat we wachten tot maandag.",
-      },
-    ],
-    metaDescription:
-      "SLA met response-tijden en uptime-garanties, plus een eigen accountmanager die jouw business kent. Alleen in Scale.",
-  },
 };
 
 export const FORESTER_FAQS: ForesterFaqItem[] = [
