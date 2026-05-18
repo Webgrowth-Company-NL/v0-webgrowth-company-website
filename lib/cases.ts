@@ -49,10 +49,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     headlineHighlight: "die elke aanvraag goed laat landen.",
     intro:
       "MOL Logistics is een internationale forwarder met vestigingen door heel Europa. Voor hun Nederlandse organisatie bouwden we de corporate site opnieuw, met een eigen volumecalculator voor transport-aanvragen, een vacature-flow met content-blocks per rol en een mu-plugin onder de motorkap die de site razendsnel houdt. Aanvragen, sollicitaties en contact landen elk bij het juiste team, in plaats van in één algemene mailbox.",
-    pillars: ["Volumecalculator", "Vacature-flow", "Performance-tuning"],
+    pillars: ["Volumecalculator", "HubSpot + Klaviyo", "Performance-tuning"],
     features: [
       { label: "Volumecalculator voor transport", body: "Bezoekers stellen zelf hun zending samen met traject, lading en eisen, en de aanvraag landt direct bij de juiste accountmanager mét alle context." },
-      { label: "Vacature-flow met content-blocks", body: "Elke vacature heeft een eigen detail-template met hero, cultuur, sollicitatieproces, gerelateerde rollen en CTA's, beheerbaar via velden door HR." },
+      { label: "HubSpot + Klaviyo gekoppeld", body: "Elke aanvraag synct automatisch naar HubSpot (CRM) en Klaviyo (e-mailmarketing), zodat sales en marketing met dezelfde data werken zonder handmatig overpennen." },
       { label: "Performance-mu-plugin", body: "Onder de motorkap optimaliseert een eigen plug-in fonts, scripts, fetchpriority en assets, zodat de site snel blijft ondanks de zware Breakdance-builder." },
     ],
     img: "/images/clients/mol-logistics-hero.jpg",
@@ -86,6 +86,11 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Elke aanvraag-flow op de site heeft een eigen mail-routing: transport-aanvragen gaan naar de juiste accountmanager, warehousing naar het magazijn-team, vacature-sollicitaties naar HR en algemene contact-mails naar de juiste vestiging. Eén centrale form-handler regelt al die routing via filter-hooks, dus er is geen losse 'info@'-mailbox meer waar alles in een grote bak verdwijnt.",
       },
       {
+        title: "HubSpot en Klaviyo gekoppeld aan elke aanvraag",
+        body:
+          "Naast de directe mail-routing synct elke aanvraag automatisch door naar HubSpot voor sales en Klaviyo voor marketing-opvolging, beide via integraties met externe tools die we voor MOL hebben opgezet. Een lead die de volumecalculator invult komt zo binnen een paar seconden in beide systemen binnen met dezelfde context, zodat sales en marketing nooit meer met losse, ongesynchroniseerde lijsten zitten en marketing-automations in Klaviyo direct kunnen starten waar de site-aanvraag eindigt.",
+      },
+      {
         title: "Performance-mu-plugin onder de motorkap",
         body:
           "Voor een Breakdance-site is je mu-plugin de stille held van je PageSpeed-score. Voor MOL draaiden we een eigen mol-perf.php die Google Fonts subsette, third-party JS deferde, jquery-migrate dequeue'de en fetchpriority + alt op de juiste plekken zette. Het resultaat is een PSI-score die opmerkelijk goed is voor een Breakdance-site, zonder dat we content of layout-vrijheid hoefden in te leveren.",
@@ -98,9 +103,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     results: [
       { value: "Per aanvraag", label: "Routing naar het juiste team", descriptor: "geen algemene info-mailbox meer" },
+      { value: "2 systemen", label: "HubSpot + Klaviyo gesynct", descriptor: "elke lead automatisch in CRM én marketing-tool" },
       { value: "ACF", label: "CMS-bestuurbaar", descriptor: "vacatures en transportoplossingen door MOL zelf beheerd" },
       { value: "mu-plugin", label: "Performance-tuning", descriptor: "snelle Breakdance-site via mol-perf.php" },
-      { value: "1512", label: "Consistent alignment", descriptor: "elke sectie netjes uitgelijnd, desktop én mobiel" },
     ],
   },
   {
