@@ -125,12 +125,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                         <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
                       </div>
                       {s.title && (
-                        <p
-                          className="font-[family-name:var(--font-display)] italic font-semibold text-[color:var(--color-ink-strong)]"
-                          style={{ marginBottom: "32px" }}
+                        <h2
+                          className="font-[family-name:var(--font-display)] italic font-semibold text-[color:var(--color-ink-strong)] text-[15.5px]"
+                          style={{ marginBottom: "32px", lineHeight: "32px" }}
                         >
                           {s.title}
-                        </p>
+                        </h2>
                       )}
                       {s.paragraphs.map((p, j) => (
                         <p key={`sec-${i}-p-${j}`} style={{ marginBottom: "32px" }}>
