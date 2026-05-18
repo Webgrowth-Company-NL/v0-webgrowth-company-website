@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FIELD_LOGS, fieldLogBySlug } from "@/lib/field-logs";
+import { linkifyText } from "@/lib/internal-links";
 
 export function generateStaticParams() {
   return FIELD_LOGS.map((l) => ({ slug: l.slug }));
@@ -57,13 +58,58 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             </div>
             <h1 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.1] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">{l.title}</h1>
             <p className="mt-5 text-[18px] sm:text-[19px] leading-[1.6] text-[color:var(--color-ink-muted)]">{l.excerpt}</p>
-            <div className="mt-10 rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 p-7 sm:p-9 text-center">
-              <p className="text-[14.5px] leading-relaxed text-[color:var(--color-ink-muted)]">
-                Het volledige artikel verschijnt binnenkort. Wil je hier niet op wachten?{" "}
-                <Link href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">Plan een kennismaking</Link>{" "}
-                en we vertellen je er alles over.
-              </p>
-            </div>
+
+            {l.body ? (
+              <div className="mt-10 space-y-7">
+                {l.body.greeting && (
+                  <p className="font-[family-name:var(--font-display)] italic text-[17px] sm:text-[18px] text-[color:var(--color-purple)]">
+                    {l.body.greeting}
+                  </p>
+                )}
+                {l.body.intro.map((p, i) => (
+                  <p key={`intro-${i}`} className="text-[16px] sm:text-[17px] leading-[1.75] text-[color:var(--color-ink)]">
+                    {linkifyText(p)}
+                  </p>
+                ))}
+
+                {l.body.sections.map((s, i) => (
+                  <section key={`sec-${i}`} className="mt-10">
+                    {s.title && (
+                      <h2 className="font-[family-name:var(--font-display)] font-bold text-[22px] sm:text-[26px] leading-[1.2] tracking-[-0.01em] text-[color:var(--color-ink-strong)] mb-4">
+                        {s.title}
+                      </h2>
+                    )}
+                    <div className="space-y-5">
+                      {s.paragraphs.map((p, j) => (
+                        <p key={`sec-${i}-p-${j}`} className="text-[16px] sm:text-[17px] leading-[1.75] text-[color:var(--color-ink)]">
+                          {linkifyText(p)}
+                        </p>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+
+                {l.body.outro.map((p, i) => (
+                  <p key={`outro-${i}`} className="text-[16px] sm:text-[17px] leading-[1.75] text-[color:var(--color-ink)]">
+                    {linkifyText(p)}
+                  </p>
+                ))}
+
+                {l.body.signature && (
+                  <p className="mt-8 font-[family-name:var(--font-display)] italic text-[16px] text-[color:var(--color-ink-muted)]">
+                    {l.body.signature}
+                  </p>
+                )}
+              </div>
+            ) : (
+              <div className="mt-10 rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 p-7 sm:p-9 text-center">
+                <p className="text-[14.5px] leading-relaxed text-[color:var(--color-ink-muted)]">
+                  Het volledige artikel verschijnt binnenkort. Wil je hier niet op wachten?{" "}
+                  <Link href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">Plan een kennismaking</Link>{" "}
+                  en we vertellen je er alles over.
+                </p>
+              </div>
+            )}
           </div>
         </article>
 

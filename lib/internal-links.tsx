@@ -39,6 +39,13 @@ const MODULE_TERMS: Array<{ term: string; href: string }> = [
   { term: "marketing automations", href: "/forester-os/automations" },
   { term: "priority support", href: "/forester-os/priority-support" },
   { term: "custom platform", href: "/forester-os/custom-platform" },
+
+  // Klant-cases (voor cross-linking in field logs en case-content)
+  { term: "Pink Elephant", href: "/cases/pink-elephant" },
+  { term: "MOL Logistics", href: "/cases/mol-logistics" },
+  { term: "NordFlame", href: "/cases/nordflame" },
+  { term: "Adalace", href: "/cases/adalace" },
+  { term: "De Samenleesclub", href: "/cases/de-samenleesclub" },
 ];
 
 const LINK_CLASS =

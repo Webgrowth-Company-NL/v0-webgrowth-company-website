@@ -3,6 +3,24 @@
  * Content geport uit de v0-marketingsite. Body's volgen later; voorlopig dienen
  * titel + excerpt als content (genoeg voor een echte, indexeerbare pagina).
  */
+export type FieldLogSection = {
+  title?: string;
+  paragraphs: string[];
+};
+
+export type FieldLogBody = {
+  /** Aanhef, bv. "Lief dagboek, 18 mei 2026" */
+  greeting?: string;
+  /** Intro-paragrafen vóór de tussenkopjes */
+  intro: string[];
+  /** Genummerde of getitelde tussen-secties */
+  sections: FieldLogSection[];
+  /** Afsluiter-paragrafen */
+  outro: string[];
+  /** Handtekening, bv. "Martijn Duin" */
+  signature?: string;
+};
+
 export type FieldLog = {
   slug: string;
   /** ISO-datum, voor sortering + <time> */
@@ -14,9 +32,69 @@ export type FieldLog = {
   title: string;
   excerpt: string;
   readTime: string;
+  /** Volledige body. Logs zonder body tonen alleen titel + excerpt + 'binnenkort'-blok. */
+  body?: FieldLogBody;
 };
 
 export const FIELD_LOGS: FieldLog[] = [
+  {
+    slug: "bag-integratie-quickscan-adalace",
+    date: "2026-05-18",
+    dateLabel: "Mei 2026",
+    tag: "Maatwerk & integraties",
+    title: "BAG-integratie in de Quickscan van Adalace: één adres als startpunt voor je hele intake",
+    excerpt:
+      "Adres invullen en de wizard weet al bouwjaar, oppervlakte en gebruiksdoel. Hoe we voor Adalace de BAG van het Kadaster koppelden aan een Quickscan-Lead Engine, en wat een kleine API-integratie voor het MKB betekent.",
+    readTime: "8 min",
+    body: {
+      greeting: "Lief dagboek, 18 mei 2026",
+      intro: [
+        "Vandaag een mooie technische verbouwing afgerond. We hadden voor Adalace al een Quickscan-wizard gebouwd op Forester OS, met een paar slimme vragen waar je in een paar minuten doorheen liep. Maar Edwin, de adviseur van Adalace, kwam terug met feedback die je eigenlijk al maanden zag aankomen: 'mensen haken alsnog af bij de eerste vragen'. En hij had gelijk. Op het moment dat een bezoeker zijn pand moest beschrijven, moest 'ie als het ware nog naast z'n PC kruipen om bouwjaar, oppervlakte en gebruiksdoel op te zoeken. Dat is precies het type wrijving waar wij allergisch voor zijn.",
+        "Dus hebben we de BAG erbij gepakt. De Basisregistratie Adressen en Gebouwen, de overheidsdatabase waarin van letterlijk elk Nederlands pand de basisgegevens staan vastgelegd. En vandaag zit die koppeling live in de Quickscan van Adalace. Eén adres invullen, en de wizard weet de rest.",
+      ],
+      sections: [
+        {
+          title: "De vraag van Adalace: één adres als startpunt",
+          paragraphs: [
+            "Adalace adviseert organisaties over de verduurzaming en compliance van vastgoed. Voordat een adviseur überhaupt iets zinnigs kan zeggen over een pand, moet er een berg basisinformatie op tafel komen: bouwjaar, gebruiksdoel, oppervlakte, energielabel en type constructie. En dat zijn precies de dingen die de meeste pand-eigenaren niet uit hun hoofd weten.",
+            "Edwin's vraag was concreet: 'Kunnen we dit zo maken dat ik alleen nog de échte adviezen hoef te bespreken, en niet eerst tien basisvragen hoef te stellen?'. Op een goeie ochtend met koffie kwam het idee los. De overheid weet die basis al, de bezoeker hoeft het alleen maar door te geven via z'n postcode + huisnummer.",
+          ],
+        },
+        {
+          title: "Wat de BAG eigenlijk is, en waarom je 'm wilt gebruiken",
+          paragraphs: [
+            "De BAG is een open dataset die door het Kadaster en de Nederlandse gemeentes wordt onderhouden. Voor elk Nederlands adres zijn een paar basisgegevens beschikbaar: bouwjaar, oppervlakte, gebruiksdoel (woon-, kantoor- of industriefunctie), pandstatus en de geometrie van het gebouw. De data is publiek, gratis op te vragen en betrouwbaar omdat 'ie direct uit de officiële gemeente-administratie komt.",
+            "Voor formulieren waarin een bezoeker iets over een pand moet vertellen is dat een gouden bron. Want waarom zou je je gebruiker dingen laten typen die de overheid al weet? Op het moment dat iemand zijn adres invult, kun je een tweede vraag overslaan, een derde vraag overslaan en doorgaan met wat er écht toe doet voor het advies.",
+          ],
+        },
+        {
+          title: "Slimme vraagvolgorde: alleen vragen wat we nog niet weten",
+          paragraphs: [
+            "Aan de basis is de Quickscan een Lead Engine in Forester OS: een wizard met conditionele vragen die zich aanpast aan wat de bezoeker tot nu toe heeft beantwoord. Met de BAG-koppeling werd die conditionele logica zoveel rijker. Als het bouwjaar uit BAG bekend is, slaan we de bouwjaar-vraag over. Als het gebruiksdoel 'kantoor' zegt, schiet de wizard direct door naar de compliance-vragen die voor kantoren spelen.",
+            "We hebben gemeten dat we daarmee gemiddeld zo'n vier tot vijf vragen kunnen overslaan per pand. Een Quickscan die voorheen vijf minuten kostte, doe je nu in twee. En voor de bezoeker voelt het slim aan, want het systeem 'kent' z'n pand al, in plaats van dat 'ie het allemaal opnieuw moet uitleggen.",
+          ],
+        },
+        {
+          title: "PDF-rapport op maat als afsluiter van de scan",
+          paragraphs: [
+            "Aan het einde van de Quickscan rolt er een persoonlijk rapport in PDF-vorm uit, met de exacte verplichte keuringen, certificaten en aanbevolen vervolgstappen voor dat specifieke pand. Dat rapport gebruikt Edwin direct als startpunt van een offerte-gesprek, zodat hij niet meer aan tafel hoeft te beginnen met 'wat is uw bouwjaar?'.",
+            "De PDF wordt server-side gegenereerd op basis van een template, gevuld met de antwoorden uit de wizard én de BAG-data. Dezelfde mail komt direct in z'n persoonlijke inbox en parallel in z'n CRM, zodat 'ie niets hoeft over te tikken voordat 'ie de bezoeker kan terugbellen.",
+          ],
+        },
+        {
+          title: "Wat dit voor het MKB betekent",
+          paragraphs: [
+            "Een BAG-koppeling is een typische 'kleine integratie met grote impact'. Voor de bezoeker valt er een halve berg uitzoekwerk weg, voor Adalace landt er een lead met scherpe context in plaats van een mailtje 'wilt u meer informatie?'. En het is volledig in onze hand, want het draait via Forester OS in plaats van via een derde-partij-formulier-tool met eigen API-limieten en eigen rekening.",
+            "Wat ik vooral mooi vind: dit is geen sci-fi-techniek of dure enterprise-koppeling. De BAG is open data, een API-call van ons systeem naar het Kadaster, en de logica past in een paar honderd regels code. Maar de uitkomst voelt voor de bezoeker alsof 'ie iets bijzonders meemaakt. Dat is precies waar Forester OS over gaat: slimme automatiseringen die voor het klein-MKB toegankelijk zijn.",
+          ],
+        },
+      ],
+      outro: [
+        "Voor wie nieuwsgierig is naar hoe Adalace dit in z'n geheel heeft staan, lees de hele case. En heb je zelf een wizard of Quickscan op het oog waarin overheids- of API-data automatisch zou kunnen invullen, dan zoek je iemand om mee te sparren. Bij dezen.",
+      ],
+      signature: "Martijn Duin",
+    },
+  },
   {
     slug: "webshop-bouwen-voor-mkb",
     date: "2025-08-18",
