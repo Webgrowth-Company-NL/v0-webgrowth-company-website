@@ -22,7 +22,6 @@ const gottak = localFont({
     { path: "../public/fonts/Gottak-Regular.ttf", weight: "400", style: "normal" },
     { path: "../public/fonts/Gottak-SemiBoldItalic.ttf", weight: "600", style: "italic" },
     { path: "../public/fonts/Gottak-Bold.ttf", weight: "700", style: "normal" },
-    { path: "../public/fonts/Gottak-Thin.ttf", weight: "200", style: "normal" },
   ],
   variable: "--font-gottak",
   display: "swap",
@@ -90,6 +89,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="nl" className={`${geistSans.variable} ${geistMono.variable} ${gottak.variable}`}>
+      <head>
+        {/* Preconnect naar third-party origins die we tijdens de pagelife laden,
+            zodat de TLS-handshake al klaar is wanneer Fathom of de Cloudflare-
+            insights-beacon hun script ophalen. */}
+        <link rel="preconnect" href="https://cdn.usefathom.com" />
+        <link rel="dns-prefetch" href="https://cdn.usefathom.com" />
+        <link rel="preconnect" href="https://static.cloudflareinsights.com" />
+        <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+      </head>
       <body className="min-h-screen flex flex-col">
         <KennismakingModalProvider>{children}</KennismakingModalProvider>
         {/* Fathom Analytics — privacy-vriendelijke website-analytics, geen cookie-banner
