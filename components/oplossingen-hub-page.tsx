@@ -5,12 +5,10 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Briefcase,
-  Building2,
   Magnet,
   Palette,
   Search,
   Sparkles,
-  Truck,
   Users,
   Wrench,
   type LucideIcon,
@@ -48,20 +46,20 @@ const DOEL_TILES: DoelTile[] = [
     icon: Magnet,
   },
   {
-    href: "/oplossingen/vindbaarheid",
+    href: "/forester-os/seo",
     label: "Beter gevonden worden",
-    desc: "Search Console-data en AI-suggesties die laten zien welke pagina je het eerst moet aanpakken.",
+    desc: "Search Console-data en Q-suggesties die laten zien welke pagina je het eerst moet aanpakken.",
     icon: Search,
   },
   {
-    href: "/oplossingen/opvolging",
+    href: "/forester-os/crm",
     label: "Klanten slim opvolgen",
     desc: "Eén kanban-pijplijn voor je hele team, met taken, statussen en Q die meedenkt.",
     icon: Users,
   },
   {
     href: "/oplossingen/ai-publiceren",
-    label: "Sneller publiceren met AI",
+    label: "Sneller publiceren met Q",
     desc: "Q schrijft in jouw stem, jij keurt vooraf, publicatie-schema loopt door.",
     icon: Sparkles,
   },
@@ -85,18 +83,6 @@ const SECTOR_TILES: SectorTile[] = [
     label: "Bouw & techniek",
     desc: "Voor aannemers en installateurs. Offerte-aanvragen mét context (foto, afmetingen, budget).",
     icon: Wrench,
-  },
-  {
-    href: "/oplossingen/transport",
-    label: "Transport & logistiek",
-    desc: "Voor transportbedrijven en koeriers. Offerteaanvragen mét traject en lading, CRM voor ritten.",
-    icon: Truck,
-  },
-  {
-    href: "/oplossingen/mkb",
-    label: "MKB algemeen",
-    desc: "Voor MKB-bedrijven die negen losse tools willen vervangen door één maandfactuur.",
-    icon: Building2,
   },
 ];
 
