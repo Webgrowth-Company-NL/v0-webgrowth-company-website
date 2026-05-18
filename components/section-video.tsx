@@ -2,19 +2,21 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { CalendarClock, Play, X } from "lucide-react";
+import { KennismakingButton } from "@/components/kennismaking-button";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 /**
- * Voorlopig de video uit de Hydroroof-offerte (Firebase Storage).
- * TODO: vervangen door de definitieve uitleg-video zodra die er is.
- * Optioneel POSTER: een thumbnail-afbeelding in /public/ (anders toont 'ie de placeholder).
+ * Live-moment van de uitleg-video. Tot die tijd toont de play-knop een
+ * 'Komt binnenkort live'-overlay in plaats van de video af te spelen.
+ * Zet VIDEO_SRC weer op een echte URL én VIDEO_GOES_LIVE_LABEL leeg
+ * zodra de definitieve video gepubliceerd is.
  */
-const VIDEO_SRC =
-  "https://firebasestorage.googleapis.com/v0/b/webgrowth-company-lzz4e6.firebasestorage.app/o/Hydroroof.mp4?alt=media&token=ab60feaf-9020-4a94-8090-471aca1e815a";
+const VIDEO_SRC = "";
 const VIDEO_POSTER = "";
+const VIDEO_GOES_LIVE_LABEL = "dinsdag 19 mei om 12:00 uur";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 18 },
@@ -23,7 +25,9 @@ const fadeUp = (delay = 0) => ({
 
 export function SectionVideo() {
   const [playing, setPlaying] = useState(false);
+  const [noticeOpen, setNoticeOpen] = useState(false);
   const canPlay = VIDEO_SRC.length > 0;
+  const showsComingSoon = !canPlay && VIDEO_GOES_LIVE_LABEL.length > 0;
 
   return (
     <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-40 bg-[color:var(--color-bg-elevated)]">
@@ -81,8 +85,11 @@ export function SectionVideo() {
                 {/* play button */}
                 <button
                   type="button"
-                  onClick={() => canPlay && setPlaying(true)}
-                  aria-label={canPlay ? "Speel video af" : "Video volgt binnenkort"}
+                  onClick={() => {
+                    if (canPlay) setPlaying(true);
+                    else if (showsComingSoon) setNoticeOpen(true);
+                  }}
+                  aria-label={canPlay ? "Speel video af" : `Video komt live op ${VIDEO_GOES_LIVE_LABEL}`}
                   className="btn-press absolute inset-0 flex items-center justify-center"
                 >
                   <span className="inline-flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white text-[color:var(--color-purple)] shadow-[0_18px_44px_-12px_rgba(12,6,18,0.5)] transition-transform duration-200 ease-out group-hover:scale-105">
@@ -91,8 +98,60 @@ export function SectionVideo() {
                 </button>
                 {/* label */}
                 <span className="absolute bottom-5 left-6 inline-flex items-center gap-2 rounded-full bg-white/12 backdrop-blur-sm px-3 py-1.5 text-[12px] font-medium text-white">
-                  {canPlay ? "± 2 min · Martijn legt het uit" : "Video volgt binnenkort"}
+                  {canPlay ? "± 2 min · Martijn legt het uit" : showsComingSoon ? `Live op ${VIDEO_GOES_LIVE_LABEL}` : "Video volgt binnenkort"}
                 </span>
+
+                {/* coming-soon notice (open on play-click as long as VIDEO_SRC nog leeg is) */}
+                <AnimatePresence>
+                  {noticeOpen && (
+                    <motion.div
+                      key="notice"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2, ease: EASE }}
+                      className="absolute inset-0 z-20 flex items-center justify-center px-5 sm:px-8 bg-[rgba(12,6,18,0.62)] backdrop-blur-sm"
+                      onClick={() => setNoticeOpen(false)}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, y: 16, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                        transition={{ duration: 0.35, ease: EASE }}
+                        className="relative w-full max-w-md rounded-3xl bg-white p-7 sm:p-9 text-center shadow-[0_30px_80px_-22px_rgba(12,6,18,0.55)]"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setNoticeOpen(false)}
+                          aria-label="Sluit melding"
+                          className="absolute top-3 right-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-bg-muted)] transition-colors"
+                        >
+                          <X className="h-4 w-4" strokeWidth={2.25} />
+                        </button>
+                        <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)] mb-5">
+                          <CalendarClock className="h-5 w-5" strokeWidth={2.25} />
+                        </span>
+                        <h3 className="font-[family-name:var(--font-display)] font-bold text-[20px] sm:text-[22px] leading-[1.2] tracking-[-0.01em] text-[color:var(--color-ink-strong)]">
+                          De video komt morgen live.
+                        </h3>
+                        <p className="mt-3 text-[14.5px] leading-[1.65] text-[color:var(--color-ink-muted)]">
+                          Op <strong className="text-[color:var(--color-ink)]">{VIDEO_GOES_LIVE_LABEL}</strong> staat 'ie hier klaar. Geen zin om te wachten? Plan een kennismaking, dan praten we het zo door.
+                        </p>
+                        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                          <KennismakingButton variant="primary" />
+                          <button
+                            type="button"
+                            onClick={() => setNoticeOpen(false)}
+                            className="btn-press inline-flex items-center px-5 py-2.5 rounded-full text-[14px] font-semibold text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-ink)] transition-colors"
+                          >
+                            Begrepen
+                          </button>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </>
             )}
           </div>
