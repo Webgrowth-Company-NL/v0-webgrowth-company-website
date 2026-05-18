@@ -8,16 +8,23 @@
  */
 
 import {
+  Boxes,
   CalendarClock,
   Flame,
   Globe,
+  Headphones,
+  Layers,
+  LayoutGrid,
   type LucideIcon,
   Mail,
   Megaphone,
+  Plug,
   Search,
+  ShieldCheck,
   ShoppingBag,
   Sparkles,
   Users,
+  Workflow,
 } from "lucide-react";
 
 export type ForesterModule = {
@@ -28,7 +35,20 @@ export type ForesterModule = {
   body: string;
   features: string[];
   icon: LucideIcon;
+  /**
+   * Vanaf welk abonnement deze module of feature beschikbaar is.
+   * Default 'core' (zit in elk pakket). 'growth' = Growth + Scale.
+   * 'scale' = alleen Scale.
+   */
+  availableFrom?: "core" | "growth" | "scale";
 };
+
+/** Tekst-label voor de pakket-pill op module-detail-pagina's. */
+export function packageAvailabilityLabel(availableFrom?: "core" | "growth" | "scale"): string {
+  if (availableFrom === "scale") return "Alleen in Scale";
+  if (availableFrom === "growth") return "Zit in Growth en Scale";
+  return "Zit in elk Forester OS-pakket";
+}
 
 export const FORESTER_MODULES: ForesterModule[] = [
   {
@@ -120,6 +140,76 @@ export const FORESTER_MODULES: ForesterModule[] = [
       "Google Ads en social-campagnes draaien vanuit Forester OS, gevoed door wat er in je CRM gebeurt. Q schrijft varianten, het dashboard laat zien welke euro waar landt.",
     features: ["Google Ads-koppeling", "Social campagnes", "Q-ad copy", "CRM-attributie"],
     icon: Megaphone,
+  },
+
+  /* ──── Growth-features (Growth + Scale) ──── */
+  {
+    slug: "integraties",
+    label: "Integraties met externe tools",
+    short: "Integraties",
+    tagline: "Pipedrive, HubSpot, Mailchimp en al je andere systemen",
+    body:
+      "Heb je al een CRM, mailtool of boekhoudpakket waar je niet zomaar afscheid van wilt nemen? Wij koppelen jouw systemen aan Forester OS, zodat leads en klantdata heen en weer stromen zonder dat iemand iets handmatig hoeft over te tikken.",
+    features: ["Pipedrive & HubSpot", "Mailchimp & Postmark", "Webhooks & API", "Onderhouden door ons"],
+    icon: Plug,
+    availableFrom: "growth",
+  },
+  {
+    slug: "automations",
+    label: "Marketing automations",
+    short: "Automations",
+    tagline: "Workflows die leads opvolgen terwijl jij ergens anders bent",
+    body:
+      "Vanuit het Forester-dashboard bouwen we automations die nieuwe leads verwelkomen, opvolgingen versturen, taken aan je team aanmaken en deals door je pijplijn duwen. Jij stelt de regels op, het systeem voert ze 24/7 uit.",
+    features: ["Welkom-flows", "Opvolg-sequenties", "Taken automatisch", "Triggers uit CRM"],
+    icon: Workflow,
+    availableFrom: "growth",
+  },
+  {
+    slug: "priority-support",
+    label: "Priority support",
+    short: "Priority",
+    tagline: "Wij zitten dichter op de bal als jij dat nodig hebt",
+    body:
+      "Bij Growth en hoger sta jij vooraan in onze pijplijn als er iets moet gebeuren. Vragen worden binnen kantooruren snel beantwoord, urgente issues pakken we direct op en je hebt een vast aanspreekpunt dat jouw business kent.",
+    features: ["Snelle response", "Vast aanspreekpunt", "Urgent-route", "Werkdagen ondersteund"],
+    icon: Headphones,
+    availableFrom: "growth",
+  },
+
+  /* ──── Scale-features (alleen Scale) ──── */
+  {
+    slug: "custom-platform",
+    label: "Custom platform of app",
+    short: "Custom",
+    tagline: "Je eigen idee, gebouwd op het Forester OS-fundament",
+    body:
+      "Heb je een platform-idee, een marketplace, een portal of een app die jouw business uniek maakt? Bij Scale bouwen we dat van scratch op het Forester OS-fundament, met een dedicated team dat jouw product behandelt alsof het van henzelf is.",
+    features: ["Custom features op maat", "Dedicated dev-team", "Mee-ontwerpen", "Eigen roadmap"],
+    icon: Layers,
+    availableFrom: "scale",
+  },
+  {
+    slug: "multi-site",
+    label: "Multi-site & multi-brand",
+    short: "Multi-site",
+    tagline: "Meerdere merken, vestigingen of regio's onder één dak",
+    body:
+      "Heeft jouw organisatie meerdere merken, vestigingen of internationale sites die elk hun eigen identiteit en taal moeten houden? Wij beheren ze allemaal vanuit één Forester OS-omgeving, zodat je dezelfde data, dezelfde Q en hetzelfde team gebruikt zonder dat de merken op elkaar lijken.",
+    features: ["Meerdere merken", "Multi-language", "Eén CRM-database", "Per merk eigen stijl"],
+    icon: Boxes,
+    availableFrom: "scale",
+  },
+  {
+    slug: "sla",
+    label: "SLA & eigen accountmanager",
+    short: "SLA",
+    tagline: "Vaste response-tijden en iemand die jouw business in z'n hoofd heeft",
+    body:
+      "Bij Scale leggen we de afspraken vast in een SLA met heldere response-tijden, uptime-garanties en escalatie-routes. Daarnaast krijg je een eigen accountmanager die jouw bedrijf én jouw doelen kent, zodat je niet elke keer opnieuw hoeft uit te leggen waar je heen wilt.",
+    features: ["Response-SLA", "Uptime-garanties", "Vaste accountmanager", "Roadmap-overleg"],
+    icon: ShieldCheck,
+    availableFrom: "scale",
   },
 ];
 
@@ -807,7 +897,7 @@ export const FORESTER_FAQS: ForesterFaqItem[] = [
   },
   {
     q: "Wie zit er achter Forester OS?",
-    a: "Webgrowth Company. We bouwen sinds 2016 platforms voor groeiende organisaties en hebben Forester OS sinds 2024 als ons eigen fundament. Inmiddels draait het bij 227 klanten in Nederland, met een 9,4 op Google.",
+    a: "Webgrowth Company. We bouwen sinds 2016 websites voor groeiende organisaties en hebben Forester OS sinds 2024 als ons eigen fundament. Inmiddels draait het bij 227 klanten in Nederland, met 5 sterren op Google.",
   },
   {
     q: "Werkt Forester OS ook met onze bestaande tools?",

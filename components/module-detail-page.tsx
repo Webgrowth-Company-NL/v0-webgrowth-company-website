@@ -16,6 +16,7 @@ import { WaveDivider } from "@/components/wave-divider";
 import {
   FORESTER_MODULES,
   MODULE_DETAILS,
+  packageAvailabilityLabel,
   type ForesterModule,
   type ModuleWidgetData,
 } from "@/lib/forester-os";
@@ -201,7 +202,7 @@ function ModuleHero({
             <span className="text-[color:var(--color-ink)] font-semibold">{m.label}</span>
           </span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--color-purple-tint)] text-[11.5px] font-semibold text-[color:var(--color-purple)]">
-            Zit in elk Forester OS-pakket
+            {packageAvailabilityLabel(m.availableFrom)}
           </span>
         </motion.div>
 

@@ -45,9 +45,9 @@ export function ForesterOsModules() {
           </motion.p>
         </motion.div>
 
-        {/* Module grid */}
+        {/* Module grid — alleen modules die in elk pakket zitten; extra Growth/Scale-features krijgen elders een eigen plek. */}
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {FORESTER_MODULES.map((m, i) => (
+          {FORESTER_MODULES.filter((m) => (m.availableFrom ?? "core") === "core").map((m, i) => (
             <ModuleCard key={m.slug} module={m} index={i} />
           ))}
         </div>
