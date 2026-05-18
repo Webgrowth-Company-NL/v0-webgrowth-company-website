@@ -5,6 +5,7 @@ import { KennismakingButton } from "@/components/kennismaking-button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import type { CaseStudy, PsiMetric } from "@/lib/cases";
+import { linkifyText } from "@/lib/internal-links";
 
 export function CasePage({ study }: { study: CaseStudy }) {
   return (
@@ -32,7 +33,7 @@ export function CasePage({ study }: { study: CaseStudy }) {
             <h1 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.08] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">
               {study.headlineLead} <span className="text-[color:var(--color-purple)]">{study.headlineHighlight}</span>
             </h1>
-            <p className="mt-5 text-[17px] sm:text-[18px] leading-[1.65] text-[color:var(--color-ink-muted)] max-w-2xl">{study.intro}</p>
+            <p className="mt-5 text-[17px] sm:text-[18px] leading-[1.65] text-[color:var(--color-ink-muted)] max-w-2xl">{linkifyText(study.intro)}</p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
                 href={study.liveUrl}
@@ -96,7 +97,7 @@ export function CasePage({ study }: { study: CaseStudy }) {
                 {study.challenge.title}
               </h2>
               <p className="mt-5 text-[16px] sm:text-[17px] leading-[1.7] text-[color:var(--color-ink-muted)]">
-                {study.challenge.body}
+                {linkifyText(study.challenge.body)}
               </p>
             </div>
           </section>
@@ -125,7 +126,7 @@ export function CasePage({ study }: { study: CaseStudy }) {
                       {section.title}
                     </h3>
                     <p className="mt-3 text-[15px] sm:text-[16px] leading-[1.7] text-[color:var(--color-ink-muted)]">
-                      {section.body}
+                      {linkifyText(section.body)}
                     </p>
                   </article>
                 ))}
