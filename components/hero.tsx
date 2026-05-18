@@ -161,9 +161,11 @@ export function Hero() {
               </motion.span>
             </h1>
 
-            {/* Subhead */}
+            {/* Subhead - LCP-element. Korte delay (0.15s) zodat de hero
+                animatie iets later begint dan de headline maar de LCP-tijd
+                niet onnodig oploopt op mobiel. */}
             <motion.p
-              variants={fadeUp(0.7)}
+              variants={fadeUp(0.15)}
               className="
                 mt-6 text-[17px] sm:text-[18px] leading-[1.6]
                 text-white/65 max-w-lg

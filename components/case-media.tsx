@@ -14,6 +14,7 @@ export function CaseMedia({
   sizes,
   priority,
   className,
+  forceImage = false,
 }: {
   c: CaseStudy;
   /** Wordt alleen gebruikt op de <Image>-variant. */
@@ -22,11 +23,18 @@ export function CaseMedia({
   priority?: boolean;
   /** Aanvullende classnames voor positie en hover-effect. */
   className?: string;
+  /**
+   * Forceer de Image-variant ook als c.videoSrc gezet is. Bedoeld voor
+   * overzicht-thumbnails (homepage, /cases overview) waar een autoplay-video
+   * van enkele MB's de mobile-LCP omlaag trekt. Op de detail-page laten we
+   * de video gewoon draaien.
+   */
+  forceImage?: boolean;
 }) {
   const objectPosition = c.imgPosition ?? "center";
   const baseClass = `object-cover ${className ?? ""}`.trim();
 
-  if (c.videoSrc) {
+  if (c.videoSrc && !forceImage) {
     return (
       // eslint-disable-next-line jsx-a11y/media-has-caption
       <video

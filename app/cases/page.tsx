@@ -106,6 +106,7 @@ export default function CasesPage() {
                       sizes="(max-width: 1024px) 100vw, 720px"
                       className="transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
                       priority
+                      forceImage
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-[rgba(12,6,18,0.1)] to-transparent" />
                     <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
@@ -168,6 +169,7 @@ export default function CasesPage() {
                         c={c}
                         sizes="(max-width: 768px) 100vw, 500px"
                         className="transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
+                        forceImage
                       />
                       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-[rgba(12,6,18,0.1)] to-transparent" />
                       {c.liveStatus === "coming-soon" && (
