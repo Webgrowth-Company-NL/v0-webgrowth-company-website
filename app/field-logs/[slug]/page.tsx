@@ -44,8 +44,18 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader />
       <main className="flex-1">
-        <article className="relative px-5 sm:px-8 pt-32 sm:pt-40 pb-16 sm:pb-20">
-          <div className="mx-auto max-w-3xl">
+        <article className="relative px-5 sm:px-8 pt-32 sm:pt-40 pb-16 sm:pb-20 bg-[#faf6f0]">
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(98,59,199,0.06) 1px, transparent 1px)",
+              backgroundSize: "22px 22px",
+            }}
+          />
+
+          <div className="relative mx-auto max-w-2xl">
             <Link href="/field-logs" className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-purple)] transition-colors mb-7">
               <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
               Alle field logs
@@ -60,28 +70,43 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <p className="mt-5 text-[18px] sm:text-[19px] leading-[1.6] text-[color:var(--color-ink-muted)]">{l.excerpt}</p>
 
             {l.body ? (
-              <div className="mt-10 space-y-7">
+              <div className="mt-12 relative rounded-[1.5rem] bg-white border border-[color:var(--color-line)] px-6 sm:px-10 py-10 sm:py-14 shadow-[0_28px_64px_-30px_rgba(98,59,199,0.18)]">
+                {/* Linker 'paginalijn' om de dagboek-vibe te geven */}
+                <span
+                  aria-hidden
+                  className="absolute inset-y-8 left-4 w-px bg-[color:var(--color-purple)]/15 hidden sm:block"
+                />
+
                 {l.body.greeting && (
-                  <p className="font-[family-name:var(--font-display)] italic text-[17px] sm:text-[18px] text-[color:var(--color-purple)]">
+                  <p className="font-[family-name:var(--font-display)] italic text-[20px] sm:text-[22px] text-[color:var(--color-purple)] mb-8">
                     {l.body.greeting}
                   </p>
                 )}
-                {l.body.intro.map((p, i) => (
-                  <p key={`intro-${i}`} className="text-[16px] sm:text-[17px] leading-[1.75] text-[color:var(--color-ink)]">
-                    {linkifyText(p)}
-                  </p>
-                ))}
+
+                <div className="space-y-5">
+                  {l.body.intro.map((p, i) => (
+                    <p key={`intro-${i}`} className="text-[16.5px] sm:text-[17.5px] leading-[1.8] text-[color:var(--color-ink)]">
+                      {linkifyText(p)}
+                    </p>
+                  ))}
+                </div>
 
                 {l.body.sections.map((s, i) => (
-                  <section key={`sec-${i}`} className="mt-10">
+                  <section key={`sec-${i}`} className="mt-12">
+                    {/* Sierlijke divider tussen secties */}
+                    <div className="mb-8 flex items-center gap-3 text-[color:var(--color-purple)]/30">
+                      <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
+                      <span className="text-[14px] tracking-[0.4em] font-semibold">∗ ∗ ∗</span>
+                      <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
+                    </div>
                     {s.title && (
-                      <h2 className="font-[family-name:var(--font-display)] font-bold text-[22px] sm:text-[26px] leading-[1.2] tracking-[-0.01em] text-[color:var(--color-ink-strong)] mb-4">
+                      <h2 className="font-[family-name:var(--font-display)] italic font-semibold text-[20px] sm:text-[24px] leading-[1.25] tracking-[-0.005em] text-[color:var(--color-ink-strong)] mb-5">
                         {s.title}
                       </h2>
                     )}
                     <div className="space-y-5">
                       {s.paragraphs.map((p, j) => (
-                        <p key={`sec-${i}-p-${j}`} className="text-[16px] sm:text-[17px] leading-[1.75] text-[color:var(--color-ink)]">
+                        <p key={`sec-${i}-p-${j}`} className="text-[16.5px] sm:text-[17.5px] leading-[1.8] text-[color:var(--color-ink)]">
                           {linkifyText(p)}
                         </p>
                       ))}
@@ -89,14 +114,25 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                   </section>
                 ))}
 
-                {l.body.outro.map((p, i) => (
-                  <p key={`outro-${i}`} className="text-[16px] sm:text-[17px] leading-[1.75] text-[color:var(--color-ink)]">
-                    {linkifyText(p)}
-                  </p>
-                ))}
+                {l.body.outro.length > 0 && (
+                  <div className="mt-12">
+                    <div className="mb-8 flex items-center gap-3 text-[color:var(--color-purple)]/30">
+                      <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
+                      <span className="text-[14px] tracking-[0.4em] font-semibold">∗ ∗ ∗</span>
+                      <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
+                    </div>
+                    <div className="space-y-5">
+                      {l.body.outro.map((p, i) => (
+                        <p key={`outro-${i}`} className="text-[16.5px] sm:text-[17.5px] leading-[1.8] text-[color:var(--color-ink)]">
+                          {linkifyText(p)}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {l.body.signature && (
-                  <p className="mt-8 font-[family-name:var(--font-display)] italic text-[16px] text-[color:var(--color-ink-muted)]">
+                  <p className="mt-10 font-[family-name:var(--font-display)] italic text-[18px] text-[color:var(--color-purple)]">
                     {l.body.signature}
                   </p>
                 )}
