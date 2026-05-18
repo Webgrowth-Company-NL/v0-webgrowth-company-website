@@ -108,8 +108,16 @@ export default function CasesPage() {
                       priority
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-[rgba(12,6,18,0.1)] to-transparent" />
-                    <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-[color:var(--color-purple)] text-white px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] shadow-[0_8px_20px_-8px_rgba(98,59,199,0.6)]">
-                      Nieuwste case
+                    <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[color:var(--color-purple)] text-white px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] shadow-[0_8px_20px_-8px_rgba(98,59,199,0.6)]">
+                        Nieuwste case
+                      </span>
+                      {featured.liveStatus === "coming-soon" && (
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[color:var(--color-purple)] px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] shadow-[0_8px_20px_-8px_rgba(12,6,18,0.35)]">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+                          Binnenkort live
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="p-7 sm:p-9 flex flex-col">
@@ -162,6 +170,12 @@ export default function CasesPage() {
                         className="transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
                       />
                       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-[rgba(12,6,18,0.1)] to-transparent" />
+                      {c.liveStatus === "coming-soon" && (
+                        <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[color:var(--color-purple)] px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] shadow-[0_8px_20px_-8px_rgba(12,6,18,0.35)]">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
+                          Binnenkort live
+                        </span>
+                      )}
                       <div className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-full bg-white/95 backdrop-blur-sm pl-1.5 pr-3.5 py-1.5 shadow-[0_8px_24px_-10px_rgba(12,6,18,0.4)]">
                         <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-bg-muted)] overflow-hidden">
                           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -25,6 +25,8 @@ export type CaseStudy = {
   thumbBg?: string;
   liveUrl: string;
   liveLabel: string;
+  /** 'coming-soon' als de nieuwe site nog niet live staat. Default 'live'. */
+  liveStatus?: "live" | "coming-soon";
   metaTitle: string;
   metaDescription: string;
   /** Uitgewerkte probleemstelling die de klant had voor we begonnen. */
@@ -63,6 +65,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/mol-logistics.png",
     liveUrl: "https://mol-logistics.eu",
     liveLabel: "mol-logistics.eu",
+    liveStatus: "coming-soon",
     metaTitle: "Case MOL Logistics: corporate site met volumecalculator | Webgrowth",
     metaDescription:
       "Hoe we voor MOL Logistics een corporate site bouwden met een volumecalculator, een vacature-flow en een performance-mu-plugin onder de motorkap.",
@@ -131,6 +134,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/pink-elephant.png",
     liveUrl: "https://pinkelephant.co.uk",
     liveLabel: "pinkelephant.co.uk",
+    liveStatus: "coming-soon",
     metaTitle: "Case Pink Elephant: ITSM-site met vijf Lead Engines + PSI 99 | Webgrowth",
     metaDescription:
       "Hoe we voor Pink Elephant een ITSM-site opnieuw opbouwden in Forester OS: vijf Lead Engines, 744 redirects voor de domein-migratie en PSI-prestaties van 42 naar 99.",

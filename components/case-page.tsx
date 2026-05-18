@@ -36,17 +36,27 @@ export function CasePage({ study }: { study: CaseStudy }) {
             </h1>
             <p className="mt-5 text-[17px] sm:text-[18px] leading-[1.65] text-[color:var(--color-ink-muted)] max-w-2xl">{linkifyText(study.intro)}</p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href={study.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-press group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[14px] font-semibold shadow-[0_2px_4px_rgba(98,59,199,0.28),0_14px_32px_-12px_rgba(98,59,199,0.55)] hover:shadow-[0_6px_14px_rgba(98,59,199,0.34),0_22px_46px_-12px_rgba(98,59,199,0.75)]"
-              >
-                Bekijk de live site
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/18 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
-                  <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+              {study.liveStatus === "coming-soon" ? (
+                <span className="inline-flex items-center gap-2 pl-3 pr-4 py-2 rounded-full bg-[color:var(--color-purple-tint)] border border-[color:var(--color-purple)]/25 text-[color:var(--color-purple)] text-[13.5px] font-semibold">
+                  <span className="relative inline-flex h-2 w-2">
+                    <span className="absolute inset-0 rounded-full bg-[color:var(--color-purple)] opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--color-purple)]" />
+                  </span>
+                  Binnenkort live
                 </span>
-              </a>
+              ) : (
+                <a
+                  href={study.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-press group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[14px] font-semibold shadow-[0_2px_4px_rgba(98,59,199,0.28),0_14px_32px_-12px_rgba(98,59,199,0.55)] hover:shadow-[0_6px_14px_rgba(98,59,199,0.34),0_22px_46px_-12px_rgba(98,59,199,0.75)]"
+                >
+                  Bekijk de live site
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/18 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
+                    <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  </span>
+                </a>
+              )}
               <span className="text-[13px] text-[color:var(--color-ink-subtle)] font-[family-name:var(--font-mono)]">{study.liveLabel}</span>
             </div>
           </div>
