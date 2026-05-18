@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { CaseMedia } from "@/components/case-media";
 import { KennismakingButton } from "@/components/kennismaking-button";
 import { SectionCta } from "@/components/section-cta";
 import { SiteFooter } from "@/components/site-footer";
@@ -101,13 +101,10 @@ export default function CasesPage() {
                 <Link href={`/cases/${featured.slug}`} className="absolute inset-0 z-10" aria-label={`Lees de case van ${featured.client}`} />
                 <div className="grid lg:grid-cols-[1.1fr_1fr]">
                   <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
-                    <Image
-                      src={featured.img}
-                      alt={featured.imgAlt}
-                      fill
+                    <CaseMedia
+                      c={featured}
                       sizes="(max-width: 1024px) 100vw, 720px"
-                      className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
-                      style={{ objectPosition: featured.imgPosition ?? "center" }}
+                      className="transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
                       priority
                     />
                     <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-[rgba(12,6,18,0.1)] to-transparent" />
@@ -159,13 +156,10 @@ export default function CasesPage() {
                   >
                     <Link href={`/cases/${c.slug}`} className="absolute inset-0 z-10" aria-label={`Lees de case van ${c.client}`} />
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={c.img}
-                        alt={c.imgAlt}
-                        fill
+                      <CaseMedia
+                        c={c}
                         sizes="(max-width: 768px) 100vw, 500px"
-                        className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
-                        style={{ objectPosition: c.imgPosition ?? "center" }}
+                        className="transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
                       />
                       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-[rgba(12,6,18,0.1)] to-transparent" />
                       <div className="absolute bottom-4 left-4 inline-flex items-center gap-2.5 rounded-full bg-white/95 backdrop-blur-sm pl-1.5 pr-3.5 py-1.5 shadow-[0_8px_24px_-10px_rgba(12,6,18,0.4)]">

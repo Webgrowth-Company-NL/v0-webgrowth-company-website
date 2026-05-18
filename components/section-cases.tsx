@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { CaseMedia } from "@/components/case-media";
 import { CASE_STUDIES, type CaseStudy } from "@/lib/cases";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -65,7 +66,7 @@ function FeaturedCaseCard({ c }: { c: CaseStudy }) {
     >
       <Link href={`/cases/${c.slug}`} className="absolute inset-0 z-10" aria-label={`Lees de case van ${c.client}`} />
       <div className="relative aspect-[16/10] overflow-hidden">
-        <Image src={c.img} alt={c.imgAlt} fill sizes="(max-width: 1024px) 100vw, 640px" className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]" style={{ objectPosition: c.imgPosition ?? "center" }} />
+        <CaseMedia c={c} sizes="(max-width: 1024px) 100vw, 640px" className="transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(12,6,18,0.5)] via-[rgba(12,6,18,0.12)] to-transparent" />
         <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-[color:var(--color-purple)] text-white px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] shadow-[0_8px_20px_-8px_rgba(98,59,199,0.6)]">
           Nieuwste case
