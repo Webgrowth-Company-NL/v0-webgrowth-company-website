@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FIELD_LOGS, fieldLogBySlug } from "@/lib/field-logs";
+import { KennismakingButton } from "@/components/kennismaking-button";
+import { KennismakingTextLink } from "@/components/kennismaking-text-link";
 import { linkifyText } from "@/lib/internal-links";
 
 export function generateStaticParams() {
@@ -168,9 +170,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             ) : (
               <div className="mt-10 rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-bg-muted)]/40 p-7 sm:p-9 text-center">
                 <p className="text-[14.5px] leading-relaxed text-[color:var(--color-ink-muted)]">
-                  Het volledige artikel verschijnt binnenkort. Wil je hier niet op wachten?{" "}
-                  <Link href="/contact" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2">Plan een kennismaking</Link>{" "}
-                  en we vertellen je er alles over.
+                  Het volledige artikel verschijnt binnenkort. Wil je hier niet op wachten? <KennismakingTextLink>Plan een kennismaking</KennismakingTextLink> en we vertellen je er alles over.
                 </p>
               </div>
             )}
@@ -186,7 +186,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 Doe de gratis website APK
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-transform duration-200 ease-out group-hover:translate-x-0.5"><ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} /></span>
               </Link>
-              <Link href="/contact" className="btn-press inline-flex items-center px-5 py-2.5 rounded-full border border-white/25 hover:border-white/45 text-white text-[14px] font-semibold transition-colors">Boek een kennismaking</Link>
+              <KennismakingButton variant="inline" />
             </div>
           </div>
         </section>

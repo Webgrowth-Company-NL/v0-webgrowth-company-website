@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { KennismakingTextLink } from "@/components/kennismaking-text-link";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
@@ -93,14 +94,7 @@ export default function Page() {
           title="Wat klanten vooraf vaak vragen."
           intro={
             <>
-              Andere vraag?{" "}
-              <a
-                href="/contact"
-                className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2"
-              >
-                Boek een kennismaking
-              </a>
-              , dan rekenen we het samen door.
+              Andere vraag? <KennismakingTextLink />, dan rekenen we het samen door.
             </>
           }
         />

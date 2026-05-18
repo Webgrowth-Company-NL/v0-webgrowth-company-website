@@ -3,6 +3,7 @@ import { ForesterOsFlow } from "@/components/forester-os-flow";
 import { ForesterOsHero } from "@/components/forester-os-hero";
 import { ForesterOsIncluded } from "@/components/forester-os-included";
 import { ForesterOsModules } from "@/components/forester-os-modules";
+import { KennismakingTextLink } from "@/components/kennismaking-text-link";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
@@ -105,14 +106,7 @@ export default function Page() {
           title="Wat klanten over Forester OS vragen."
           intro={
             <>
-              Andere vraag?{" "}
-              <a
-                href="/contact"
-                className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors underline underline-offset-2"
-              >
-                Boek een kennismaking
-              </a>
-              , dan lopen we het samen door.
+              Andere vraag? <KennismakingTextLink />, dan lopen we het samen door.
             </>
           }
         />

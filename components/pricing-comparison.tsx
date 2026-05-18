@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, X } from "lucide-react";
+import { Check, X } from "lucide-react";
+import { KennismakingButton } from "@/components/kennismaking-button";
 import {
   RIVAL_STACK,
   RIVAL_STACK_TOTAL_MAX,
@@ -192,15 +192,9 @@ export function PricingComparison() {
               </div>
             </div>
 
-            <Link
-              href="/contact?plan=growth"
-              className="btn-press group mt-6 inline-flex items-center justify-between gap-2 pl-5 pr-2 py-2.5 rounded-full bg-white text-[color:var(--color-purple)] text-[14px] font-semibold shadow-[0_8px_22px_-10px_rgba(0,0,0,0.4)]"
-            >
-              Kies Growth
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:bg-[color:var(--color-purple)]/22">
-                <ArrowRight className="h-3.5 w-3.5 text-[color:var(--color-purple)]" strokeWidth={2.5} />
-              </span>
-            </Link>
+            <div className="mt-6">
+              <KennismakingButton variant="on-purple" label="Kies Growth" />
+            </div>
           </motion.div>
         </div>
 

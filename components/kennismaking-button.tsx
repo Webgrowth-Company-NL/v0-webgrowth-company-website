@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { useKennismakingModal } from "@/components/kennismaking-modal-provider";
 
-type Variant = "primary" | "secondary" | "secondary-on-dark" | "full" | "inline";
+type Variant = "primary" | "secondary" | "secondary-on-dark" | "full" | "inline" | "on-purple";
 
 const VARIANTS: Record<Variant, { wrapper: string; arrowWrapper: string; arrowColor?: string }> = {
   primary: {
@@ -35,6 +35,13 @@ const VARIANTS: Record<Variant, { wrapper: string; arrowWrapper: string; arrowCo
     wrapper:
       "btn-press inline-flex items-center px-6 py-3 rounded-full border border-white/25 hover:border-white/45 hover:bg-white/5 text-white text-[15px] font-semibold transition-colors",
     arrowWrapper: "",
+  },
+  "on-purple": {
+    wrapper:
+      "btn-press group inline-flex items-center justify-between gap-2 w-full pl-5 pr-2 py-2.5 rounded-full bg-white hover:bg-white/90 text-[color:var(--color-purple)] text-[14px] font-semibold shadow-[0_8px_22px_-10px_rgba(0,0,0,0.4)]",
+    arrowWrapper:
+      "inline-flex h-8 w-8 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:bg-[color:var(--color-purple)]/22",
+    arrowColor: "text-[color:var(--color-purple)]",
   },
 };
 

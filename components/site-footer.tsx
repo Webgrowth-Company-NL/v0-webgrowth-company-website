@@ -16,7 +16,7 @@ const BEDRIJF = [
 function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
   return (
     <div>
-      <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45 mb-4">{title}</h3>
+      <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/65 mb-4">{title}</h3>
       <ul className="space-y-2.5">
         {links.map((l) => (
           <li key={l.href}>
