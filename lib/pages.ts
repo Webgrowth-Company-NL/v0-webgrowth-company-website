@@ -308,17 +308,6 @@ export const STANDALONE_PAGES: SeoPage[] = [
     intro:
       "Eén helder abonnement voor je website, CRM, marketing en AI-assistent Q, vanaf €399 per maand. Geen negen losse facturen meer, geen verrassingen achteraf.",
   },
-  {
-    path: "/inloggen",
-    h1: "Inloggen",
-    metaTitle: "Inloggen op Forester OS | Webgrowth Company",
-    metaDescription:
-      "Log in op je Forester OS-omgeving en beheer vanuit één scherm je website, je leads, je CRM en je marketing.",
-    eyebrow: "Inloggen",
-    intro:
-      "Log in op je Forester OS-omgeving en beheer vanuit één scherm je website, je leads, je CRM en je marketing.",
-    noindex: true,
-  },
 ];
 
 export const ALL_PAGES: SeoPage[] = [
