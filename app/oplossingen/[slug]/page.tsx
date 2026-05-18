@@ -44,9 +44,45 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const page = pageBySlug(OPLOSSING_PAGES, slug);
   if (!page) notFound();
 
+  const detail = OPLOSSING_DETAILS[slug];
+
+  /* JSON-LD Service-schema voor oplossingspagina's met detail-data,
+     zodat Google snapt dat dit een dienst-aanbod is binnen Forester OS. */
+  const serviceJsonLd = detail
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: page.h1,
+        description: detail.metaDescription ?? page.metaDescription,
+        url: `${SITE_URL}${page.path}`,
+        serviceType: "Webgrowth Company-oplossing",
+        provider: {
+          "@type": "Organization",
+          name: "Webgrowth Company",
+          url: SITE_URL,
+        },
+        areaServed: "NL",
+        isPartOf: {
+          "@type": "SoftwareApplication",
+          name: "Forester OS",
+          url: `${SITE_URL}/forester-os`,
+        },
+      }
+    : null;
+
   // Volledig uitgewerkte oplossingspagina als er detail-data is, anders placeholder
-  if (OPLOSSING_DETAILS[slug]) {
-    return <OplossingDetailPage slug={slug} />;
+  if (detail) {
+    return (
+      <>
+        {serviceJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+          />
+        )}
+        <OplossingDetailPage slug={slug} />
+      </>
+    );
   }
   return <PlaceholderPage page={page} />;
 }
