@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { KennismakingModalProvider } from "@/components/kennismaking-modal-provider";
 import "./globals.css";
 
@@ -91,6 +92,12 @@ export default function RootLayout({
     <html lang="nl" className={`${geistSans.variable} ${geistMono.variable} ${gottak.variable}`}>
       <body className="min-h-screen flex flex-col">
         <KennismakingModalProvider>{children}</KennismakingModalProvider>
+        {/* Fathom Analytics — privacy-vriendelijke website-analytics, geen cookie-banner nodig. */}
+        <Script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="XDEYWMOV"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
