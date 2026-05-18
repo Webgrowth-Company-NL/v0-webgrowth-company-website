@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 
 const gottak = localFont({
   src: [
-    { path: "../public/fonts/Gottak-Regular.ttf", weight: "400", style: "normal" },
-    { path: "../public/fonts/Gottak-SemiBoldItalic.ttf", weight: "600", style: "italic" },
-    { path: "../public/fonts/Gottak-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/Gottak-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/Gottak-SemiBoldItalic.woff2", weight: "600", style: "italic" },
+    { path: "../public/fonts/Gottak-Bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-gottak",
   display: "swap",
