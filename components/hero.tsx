@@ -255,7 +255,7 @@ export function Hero() {
           </motion.div>
 
           {/* ── Right: cycling dashboard (with its own view-dependent floating chips) ── */}
-          <div className="relative h-[520px] sm:h-[560px] lg:h-[580px]">
+          <div className="relative h-[440px] sm:h-[560px] lg:h-[580px]">
             <HeroDashboard />
           </div>
         </div>

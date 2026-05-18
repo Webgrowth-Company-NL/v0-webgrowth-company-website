@@ -34,8 +34,8 @@ export const PLATFORM_MODULES = [
 
 export const OPLOSSINGEN_DOEL = [
   { href: "/oplossingen/meer-leads", label: "Meer leads uit je site", desc: "Tools die bezoekers omzetten in afspraken", icon: Magnet },
-  { href: "/oplossingen/vindbaarheid", label: "Beter gevonden worden", desc: "SEO en content zonder los bureau", icon: Search },
-  { href: "/oplossingen/opvolging", label: "Klanten slim opvolgen", desc: "Eén CRM voor je hele pijplijn", icon: Users },
+  { href: "/forester-os/seo", label: "Beter gevonden worden", desc: "SEO en content zonder los bureau", icon: Search },
+  { href: "/forester-os/crm", label: "Klanten slim opvolgen", desc: "Eén CRM voor je hele pijplijn", icon: Users },
   { href: "/oplossingen/ai-publiceren", label: "Sneller publiceren met AI", desc: "Content live op je site in minuten", icon: Sparkles },
 ] as const;
 
@@ -43,8 +43,6 @@ export const OPLOSSINGEN_SECTOR = [
   { href: "/oplossingen/zakelijke-dienstverlening", label: "Zakelijke dienstverlening" },
   { href: "/oplossingen/creatief-design", label: "Creatief & design" },
   { href: "/oplossingen/bouw-techniek", label: "Bouw & techniek" },
-  { href: "/oplossingen/transport", label: "Transport & logistiek" },
-  { href: "/oplossingen/mkb", label: "MKB algemeen" },
 ] as const;
 
 export const HULPMIDDELEN_ONTDEK = [
