@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
-import { HeroDashboard } from "@/components/hero-dashboard";
+import { HeroDashboardLazy } from "@/components/hero-dashboard-lazy";
 import { KennismakingButton } from "@/components/kennismaking-button";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -161,11 +161,9 @@ export function Hero() {
               </motion.span>
             </h1>
 
-            {/* Subhead - LCP-element. Korte delay (0.15s) zodat de hero
-                animatie iets later begint dan de headline maar de LCP-tijd
-                niet onnodig oploopt op mobiel. */}
-            <motion.p
-              variants={fadeUp(0.15)}
+            {/* Subhead - LCP-element. Direct zichtbaar (geen framer-motion)
+                zodat de LCP-meting op mobiel niet wacht op een animation-start. */}
+            <p
               className="
                 mt-6 text-[17px] sm:text-[18px] leading-[1.6]
                 text-white/65 max-w-lg
@@ -174,7 +172,7 @@ export function Hero() {
               Eén platform brengt je website, CRM, marketing en AI-assistent Q samen,
               en wij houden het voor je draaiende zonder dat er voor elk uurtje een factuur
               achteraan komt. Zo kun jij je gewoon bezighouden met je klanten.
-            </motion.p>
+            </p>
 
             {/* CTAs */}
             <motion.div variants={fadeUp(0.85)} className="mt-9 flex flex-wrap items-center gap-3">
@@ -258,7 +256,7 @@ export function Hero() {
 
           {/* ── Right: cycling dashboard (with its own view-dependent floating chips) ── */}
           <div className="relative h-[440px] sm:h-[560px] lg:h-[580px]">
-            <HeroDashboard />
+            <HeroDashboardLazy />
           </div>
         </div>
       </div>

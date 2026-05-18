@@ -92,11 +92,13 @@ export default function RootLayout({
     <html lang="nl" className={`${geistSans.variable} ${geistMono.variable} ${gottak.variable}`}>
       <body className="min-h-screen flex flex-col">
         <KennismakingModalProvider>{children}</KennismakingModalProvider>
-        {/* Fathom Analytics — privacy-vriendelijke website-analytics, geen cookie-banner nodig. */}
+        {/* Fathom Analytics — privacy-vriendelijke website-analytics, geen cookie-banner
+            nodig. lazyOnload zorgt dat 't script pas laadt nadat de pagina volledig
+            geladen is, zodat LCP en TBT er niet door beïnvloed worden. */}
         <Script
           src="https://cdn.usefathom.com/script.js"
           data-site="XDEYWMOV"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
