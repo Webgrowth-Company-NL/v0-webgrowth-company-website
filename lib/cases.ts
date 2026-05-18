@@ -18,6 +18,8 @@ export type CaseStudy = {
   imgAlt: string;
   /** CSS object-position waarde voor 16/10-crops. Default 'center'. */
   imgPosition?: string;
+  /** Optionele auto-loopende video als hero in plaats van img. img dient als poster-fallback. */
+  videoSrc?: string;
   logo: string;
   /** Optional tile background for the compact-card logo treatment. If unset, the card uses `img` as a photo. */
   thumbBg?: string;
@@ -140,22 +142,61 @@ export const CASE_STUDIES: CaseStudy[] = [
     headlineLead: "Een premium kachelplatform met",
     headlineHighlight: "twee scan-tools.",
     intro:
-      "NordFlame zet premium pelletkachels en hybride pellet+warmtepomp-systemen op de kaart, met Ecodesign 2027 als context. We bouwden een razendsnelle site met catalogus, twee scan-tools (vervangingsscan + quickscan), Firebase als ruggengraat en een design dat luxe communiceert zonder vol bling te zijn.",
-    pillars: ["Vervangingsscan", "Hybride catalogus", "Ecodesign 2027"],
+      "NordFlame zet premium pelletkachels en het hybride Aurora-systeem op de kaart in Nederland, met Ecodesign 2027 als context. We bouwden hun complete site in Forester OS met productpagina's voor zes modellen, een Vervangingsscan die toetst of bezoekers in aanmerking komen voor subsidie en een Quickscan voor mensen die nog aan het oriënteren zijn. Aurora rekent direct mee met de warmtepomp van de klant in de calculator.",
+    pillars: ["6 modellen", "Vervangingsscan", "Aurora-combinatie"],
     features: [
-      { label: "Vervangingsscan", body: "Een meerstaps lead-flow die in kaart brengt welke kachel jouw oude systeem het beste vervangt, mét rapport." },
-      { label: "Hybride catalogus", body: "Productpagina's voor de hybride pellet+warmtepomp-oplossing, inclusief filters en specs per model." },
-      { label: "Ecodesign 2027", body: "Een eigen pagina die de aankomende regelgeving uitlegt en NordFlame als oplossing positioneert." },
+      { label: "Zes modellen, eigen pagina's", body: "Voor elk model een eigen productpagina met magazine-stijl content, specs en filmische videoloops, in plaats van een dorre productlijst." },
+      { label: "Vervangingsscan + Ecodesign 2027", body: "Een Lead Engine die in een paar vragen bepaalt of een bezoeker subsidie-recht heeft en welk model bij z'n woning past." },
+      { label: "Aurora-combineerlogica", body: "Het hybride model rekent automatisch mee met een warmtepomp die de bezoeker al heeft of overweegt, en wordt dan actief voorgesteld." },
     ],
     img: "/images/clients/nordflame-hero.png",
     imgAlt: "NordFlame premium pelletkachel-platform",
     imgPosition: "left center",
+    videoSrc: "/videos/clients/nordflame-hero.mp4",
     logo: "/images/clients/nordflame.png",
     liveUrl: "https://nordflame.nl",
     liveLabel: "nordflame.nl",
     metaTitle: "Case NordFlame: premium kachelplatform met scan-tools | Webgrowth",
     metaDescription:
-      "Hoe we voor NordFlame een premium platform bouwden voor pelletkachels en hybride warmtepomp-oplossingen, met een vervangingsscan en quickscan als lead-engines.",
+      "Hoe we voor NordFlame een premium platform bouwden met zes modellen, een Vervangingsscan met Ecodesign 2027-check en de Aurora-combinatie met warmtepompen.",
+    challenge: {
+      title: "Premium positioneren én twee heel verschillende bezoekers bedienen",
+      body:
+        "NordFlame wilde van de Nederlandse markt-launch geen wedstrijd-in-prijzen maken, maar een verhaal over Scandinavisch design, kwaliteit en bewuste warmte-keuzes. De uitdaging was om die premium positionering ook online te laten landen, terwijl de site tegelijk twee heel verschillende type bezoekers moest bedienen: de georiënteerde koper die het verschil tussen modellen wil snappen, en de bewuste vervanger die wil weten of een pelletkachel past binnen Ecodesign 2027 én subsidie-recht oplevert. Eén site, twee invalshoeken, geen compromissen op design.",
+    },
+    solution: [
+      {
+        title: "Productpagina's die lezen als een magazine",
+        body:
+          "Voor elk van de zes modellen bouwden we een eigen productpagina in de Website-module van Forester OS, met specs, een verhalend stuk over wat dat model bijzonder maakt, productvideo's en de bijbehorende warmte-output. De pagina's lezen als magazine-content in plaats van een productlijst, wat past bij de premium positionering die NordFlame wilde uitstralen vanaf het eerste contact-moment.",
+      },
+      {
+        title: "Vervangingsscan met Ecodesign 2027 en subsidie-logica",
+        body:
+          "We bouwden een Lead Engine specifiek voor mensen die hun oude stooksysteem willen vervangen. In vier of vijf vragen bepaalt de Vervangingsscan of een bezoeker in aanmerking komt voor de subsidieregeling rond Ecodesign 2027, plus welk NordFlame-model het beste past bij de woning. Het rapport komt direct in de mail van de bezoeker, en de lead met alle score-context landt in het CRM klaar voor opvolging.",
+      },
+      {
+        title: "Quickscan voor oriënterende bezoekers",
+        body:
+          "Voor mensen die nog vroeg in hun reis zitten draait een tweede, lichtere Lead Engine: een paar vragen over woning-type, oppervlakte en huidig stooksysteem en de bezoeker krijgt direct een persoonlijk advies welk model en welk vermogen erbij past. Ook hier landt de lead in het CRM zodat sales een gerichte vervolgactie kan plannen in plaats van vanaf nul te beginnen.",
+      },
+      {
+        title: "Aurora combineert direct met een warmtepomp",
+        body:
+          "NordFlame's vlaggenschip Aurora is een hybride model dat samenwerkt met een warmtepomp. In de Vervangingsscan weegt het systeem dat letterlijk mee: als een bezoeker aangeeft dat 'ie al een warmtepomp heeft of er één overweegt, dan past de berekening daarop aan en wordt Aurora actief voorgesteld in plaats van een puur-pellet-model. Eén calculator, alle scenarios.",
+      },
+      {
+        title: "Fathom Analytics in plaats van Google Analytics",
+        body:
+          "Voor de premium positionering en het privacy-vriendelijke imago dat NordFlame wilde uitstralen, hebben we Fathom Analytics gekoppeld in plaats van Google Analytics. Een lichtere site, geen cookie-banner-frictie en privacy-by-default. De waardevolle conversie-data uit de Lead Engines landt sowieso in het CRM, dus voor verkoop maakt het niets uit.",
+      },
+    ],
+    results: [
+      { value: "6", label: "Modellen actief", descriptor: "elk met eigen pagina, video en specs" },
+      { value: "2", label: "Lead Engines", descriptor: "Vervangingsscan en Quickscan" },
+      { value: "Aurora", label: "Hybride logica", descriptor: "combineert direct met warmtepomp van de klant" },
+      { value: "Privacy", label: "Fathom in plaats van GA", descriptor: "snellere site, geen cookie-banner-frictie" },
+    ],
   },
   {
     slug: "adalace",
@@ -165,12 +206,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     headlineLead: "Een Quickscan",
     headlineHighlight: "die compliance concreet maakt.",
     intro:
-      "Adalace helpt vastgoedbeheerders hun keuringen en certificaten op orde te krijgen. We bouwden de Quickscan: een vijf-stappen wizard die in een paar minuten laat zien wat er voor jouw pand verplicht is. Met automatische BAG-koppeling en een persoonlijk PDF-rapport als afsluiter.",
-    pillars: ["5-stappen wizard", "BAG- & Kadaster-koppeling", "PDF-rapport op maat"],
+      "Adalace helpt vastgoedbeheerders en scholen om hun keuringen en certificaten op orde te krijgen. Voor hen ontwikkelden we de Quickscan: een wizard die op basis van het adres direct BAG-data van het pand ophaalt, een persoonlijke duurzaamheids- en compliance-scan uitvoert en een rapport-PDF op maat oplevert. Een bezoeker hoeft alleen z'n adres in te vullen, de rest doet onze logica.",
+    pillars: ["5-stappen wizard", "BAG-koppeling", "PDF-rapport op maat"],
     features: [
-      { label: "Vijf-stappen wizard", body: "Adres, functie, triggers, installaties, resultaat. Lichte vragen, concrete uitkomst." },
-      { label: "BAG en Kadaster", body: "Bouwjaar, oppervlakte en gebruiksdoel komen automatisch uit overheidsdata." },
-      { label: "PDF op maat", body: "Aan het einde een rapport met de exacte lijst voor dit specifieke pand." },
+      { label: "Vijf-stappen wizard", body: "Adres, functie, triggers, installaties, resultaat. Lichte vragen, concrete uitkomst, geen formulier-moeheid." },
+      { label: "BAG en Kadaster", body: "Bouwjaar, oppervlakte en gebruiksdoel komen automatisch uit overheidsdata, dus geen onnodige vragen meer." },
+      { label: "PDF op maat", body: "Aan het einde een persoonlijk rapport met de exacte verplichte lijst voor dit specifieke pand." },
     ],
     img: "/images/clients/adalace-hero.jpg",
     imgAlt: "Schoolgebouw met veilige leeromgeving, beheerd via Adalace",
@@ -180,22 +221,55 @@ export const CASE_STUDIES: CaseStudy[] = [
     liveLabel: "adalace.nl",
     metaTitle: "Case Adalace: Quickscan-wizard voor vastgoed-compliance | Webgrowth",
     metaDescription:
-      "Hoe we voor Adalace de Quickscan bouwden: een vijf-stappen wizard met BAG-koppeling en een PDF-rapport op maat voor vastgoedbeheerders.",
+      "Hoe we voor Adalace de Quickscan bouwden: een wizard met BAG-koppeling en een PDF-rapport op maat voor vastgoedbeheerders en scholen.",
+    challenge: {
+      title: "Een intake-traject dat een potentiële klant kostte voordat er een advies lag",
+      body:
+        "Adalace's grootste obstakel was tijd. Een potentiële klant moest eerst een aantal omslachtige vragen beantwoorden voordat een adviseur überhaupt iets kon zeggen over de verplichte keuringen voor zijn pand. De wens was om dat hele intake-proces voor de bezoeker te laten verdwijnen: één veld voor het adres, en de wizard zou intelligent uitvragen wat nog echt nodig is op basis van wat al automatisch over het pand bekend is. Zo verdwijnt de wrijving aan de voorkant en blijft er aan de adviseur-kant een lead over met scherpe context.",
+    },
+    solution: [
+      {
+        title: "Quickscan-wizard met dynamische vraag-volgorde",
+        body:
+          "De Quickscan is een Lead Engine waarbij de vraagstroom zich aanpast aan wat de bezoeker tot nu toe heeft beantwoord. Type pand, bouwjaar, oppervlakte, gebruiksdoel: pas als die data nog niet uit BAG kan worden afgeleid, vragen we het expliciet. Dat scheelt aan de voorkant gemiddeld de helft van de vragen die een traditioneel formulier zou stellen, en houdt de doorlooptijd voor de bezoeker laagdrempelig.",
+      },
+      {
+        title: "BAG-koppeling voor adres naar pand-data",
+        body:
+          "Zodra de bezoeker zijn adres invult, koppelen we direct naar de BAG (Basisregistratie Adressen en Gebouwen). Bouwjaar, oppervlakte, pand-type en gebruiksdoel komen daarmee automatisch beschikbaar. De wizard slaat de bijbehorende vragen over, want het antwoord heeft 'ie al, en de bezoeker beantwoordt alleen wat de overheidsdata nog niet weet over zijn specifieke situatie.",
+      },
+      {
+        title: "Rapport-PDF op maat na de scan",
+        body:
+          "Na de scan genereert het systeem een persoonlijk rapport in PDF-vorm dat de bezoeker direct ontvangt en kan downloaden. De adviseurs van Adalace gebruiken hetzelfde rapport als startpunt van een offerte-gesprek, zodat ze al met scherpe context aan tafel komen in plaats van vanaf nul te moeten beginnen.",
+      },
+      {
+        title: "Bevestigingsmail vanuit een persoonlijk inbox-adres",
+        body:
+          "De bevestigings- en rapportmails worden verstuurd vanuit het persoonlijke adres van Edwin, de Adalace-adviseur. Geen 'noreply@adalace.nl' of een algemene 'info@'-mailbox waar antwoorden in een zwart gat verdwijnen, maar een echt persoonlijk inbox-adres waar de bezoeker direct op kan antwoorden als 'ie nog vragen heeft.",
+      },
+    ],
+    results: [
+      { value: "BAG", label: "Automatische pand-data", descriptor: "bouwjaar, oppervlakte en gebruiksdoel uit overheidsdata" },
+      { value: "PDF", label: "Rapport op maat", descriptor: "direct bij de bezoeker én bij de adviseur" },
+      { value: "1 veld", label: "Voor de bezoeker", descriptor: "adres invullen, de wizard doet de rest" },
+      { value: "Inbox", label: "Persoonlijk antwoorden", descriptor: "mails komen vanuit Edwin's eigen adres" },
+    ],
   },
   {
     slug: "de-samenleesclub",
     client: "De Samenleesclub",
     sector: "Cultuur & community",
     location: "Heel Nederland",
-    headlineLead: "Een leesclub-platform met",
-    headlineHighlight: "een locatiekaart.",
+    headlineLead: "Een leesclub-site die",
+    headlineHighlight: "leesplekken bij mensen brengt.",
     intro:
-      "De Samenleesclub organiseert begeleide samenleessessies door heel Nederland. We bouwden de website met een eigen content-laag voor locaties (Leaflet-kaart die de zalen toont), een aanmeldflow per sessie en SEO-templates per locatie zodat lokale zoekopdrachten een eigen pagina krijgen.",
+      "De Samenleesclub is een landelijk initiatief dat mensen via begeleide samenleessessies dichter bij elkaar brengt. Voor hen bouwden we een site met een interactieve Leaflet-kaart waarop bezoekers leesplekken in heel Nederland kunnen vinden, een aanmeldflow per sessie en SEO-instellingen per locatie zodat lokale bezoekers via Google direct op de juiste plek landen.",
     pillars: ["Leaflet-locatiekaart", "Aanmeldflow per sessie", "SEO per locatie"],
     features: [
-      { label: "Locatiekaart", body: "Een interactieve kaart met alle samenleessessies in Nederland, gegroepeerd per regio en aanklikbaar naar de detailpagina." },
-      { label: "Aanmeldflow", body: "Bezoekers melden zich direct aan voor een sessie, de organisator krijgt een melding en de plek staat in het CRM." },
-      { label: "SEO per locatie", body: "Elke vestiging heeft een eigen pagina met meta-templates, zodat 'samenlezen in [stad]' lokaal vindbaar is." },
+      { label: "Locatiekaart", body: "Een interactieve Leaflet-kaart met alle samenleessessies in Nederland, gegroepeerd per regio en direct aanklikbaar naar de detailpagina van die locatie." },
+      { label: "Aanmeldflow per sessie", body: "Bezoekers melden zich direct aan voor een specifieke sessie, de coördinator krijgt een melding en de plek staat in het CRM van de centrale organisatie." },
+      { label: "SEO per locatie", body: "Elke vestiging heeft een eigen pagina met meta-templates die de plaatsnaam meenemen, zodat 'samenleesclub Breda' direct lokaal vindbaar is." },
     ],
     img: "/images/clients/samenleesclub-hero.jpg",
     imgAlt: "Mensen die samen lezen tijdens een sessie van De Samenleesclub",
@@ -203,9 +277,42 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/samenleesclub.png",
     liveUrl: "https://desamenleesclub.nl",
     liveLabel: "desamenleesclub.nl",
-    metaTitle: "Case De Samenleesclub: platform met locatiekaart en aanmeldflow | Webgrowth",
+    metaTitle: "Case De Samenleesclub: site met locatiekaart en aanmeldflow | Webgrowth",
     metaDescription:
-      "Hoe we voor De Samenleesclub een platform bouwden met een interactieve locatiekaart, aanmeldflow per sessie en SEO-templates per locatie.",
+      "Hoe we voor De Samenleesclub een site bouwden met een interactieve Leaflet-kaart, aanmeldflow per sessie en SEO-templates per locatie.",
+    challenge: {
+      title: "Een landelijke beweging die lokaal vindbaar én aanmeldbaar moest zijn",
+      body:
+        "De Samenleesclub is een landelijk initiatief met tientallen leesplekken verspreid over Nederland. De uitdaging was om bezoekers vanuit elke regio direct de relevante locatie bij hen in de buurt te laten vinden, ze laagdrempelig te laten aanmelden voor een specifieke sessie op een specifieke datum, en tegelijk lokaal vindbaar te zijn in Google zodat iemand die 'samenleesclub Breda' zoekt direct op de juiste plek landt en niet op een algemene landingspagina. Daarbij wilden de lokale coördinatoren wel zelf zicht houden op aanmeldingen in hun eigen regio, zonder dat de centrale administratie de regie kwijtraakte.",
+    },
+    solution: [
+      {
+        title: "Een eigen content-type 'locatie' met Leaflet-kaart op de homepage",
+        body:
+          "We bouwden een custom content-type voor locaties in de Website-module van Forester OS, en koppelden die aan een interactieve Leaflet-kaart op de homepage. Bezoekers zien direct alle leesplekken bij hen in de buurt, met klik-doorlinks naar de detailpagina van die specifieke locatie inclusief contactpersoon, aankomende sessies en wat ze daar kunnen verwachten.",
+      },
+      {
+        title: "Aanmeldflow per sessie met dubbele CRM-routing",
+        body:
+          "Voor elke sessie op elke locatie bouwden we een Lead Engine die de bezoeker meeneemt door welke locatie, welke datum, persoonlijke gegevens en eventuele toelichting. De aanmelding landt direct in de mailbox van de coördinator van die locatie én in de centrale administratie. Zo blijft het lokaal beheersbaar terwijl het hoofdkantoor het totaalbeeld behoudt.",
+      },
+      {
+        title: "SEO per locatie met automatische meta-templates",
+        body:
+          "Elke locatie heeft een eigen SEO-pagina met meta-titels, descriptions en structured data die afgestemd zijn op de plaatsnaam. Slim SEO Pro regelt de redirects en de sitemap, en een mu-plugin zorgt dat nieuwe locaties automatisch correcte default-meta's krijgen zonder dat iemand handmatig per CPT-veld hoeft te tikken. Toevoegen van een nieuwe leesplek is daardoor een handeling van vijf minuten in plaats van een SEO-traject.",
+      },
+      {
+        title: "Bevestigingsmails per aanmelding, voor deelnemer én coördinator",
+        body:
+          "Bij elke aanmelding krijgt de deelnemer direct een persoonlijke bevestigingsmail met de exacte sessie-info, het adres en wat ze kunnen verwachten. De coördinator krijgt parallel z'n eigen samenvatting met de aanmeldingen voor die week. Geen handmatig overpennen, geen verloren aanmeldingen.",
+      },
+    ],
+    results: [
+      { value: "Landelijk", label: "Locatiekaart actief", descriptor: "alle leesplekken interactief op de homepage" },
+      { value: "Per sessie", label: "Aanmeldflow", descriptor: "directe routing naar lokale coördinator én centraal CRM" },
+      { value: "Lokaal", label: "SEO geoptimaliseerd", descriptor: "elke plaats heeft z'n eigen vindbare pagina" },
+      { value: "5 min", label: "Nieuwe locatie toevoegen", descriptor: "geen SEO-traject, gewoon invullen en publiceren" },
+    ],
   },
 ];
 
