@@ -41,7 +41,7 @@ const INCLUDED: Included[] = [
 
 export function ForesterOsIncluded() {
   return (
-    <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-36 bg-[#faf6f0]">
+    <section id="inbegrepen" className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-28 sm:pb-36 bg-[#faf6f0] scroll-mt-24">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial="hidden"

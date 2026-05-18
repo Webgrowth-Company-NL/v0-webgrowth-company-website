@@ -83,6 +83,52 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
+/**
+ * Map een feature-tekst uit PRICING_PLANS naar de bijbehorende uitlegpagina.
+ * Returns null als er geen aparte pagina voor bestaat (dan blijft de feature
+ * gewoon platte tekst op de prijzenpagina).
+ */
+export function getFeatureLink(feature: string): string | null {
+  const s = feature.toLowerCase();
+
+  if (s.includes("website op maat")) return "/forester-os/website";
+  if (s.includes("forester os-toegang")) return "/forester-os";
+  if (s.includes("crm voor contacten")) return "/forester-os/crm";
+
+  if (s.includes("contactformulier") || s.includes("lead engine") || s.includes("lead engines en formulieren")) {
+    return "/forester-os/lead-engine";
+  }
+  if (s.includes("seo-keywords")) return "/forester-os/seo";
+
+  if (s.includes("koppelingen met externe tools")) return "/forester-os/integraties";
+  if (s.includes("automation") || s.includes("automatische lead-opvolging")) return "/forester-os/automations";
+  if (s.includes("e-mailcampagne")) return "/forester-os/nieuwsbrieven";
+  if (s.includes("priority support")) return "/forester-os/priority-support";
+  if (s.includes("ai-assistent")) return "/forester-os/ai";
+
+  if (
+    s.includes("custom platform") ||
+    s.includes("scratch gebouwd") ||
+    s.includes("dedicated development") ||
+    s.includes("strategisch partnership")
+  ) {
+    return "/forester-os/custom-platform";
+  }
+
+  // Features die op de hub-pagina onder 'In elk pakket inbegrepen' worden uitgelegd.
+  if (
+    s.includes("momentum report") ||
+    s.includes("live dashboard") ||
+    s.includes("continu geoptimaliseerd") ||
+    s.includes("hosting") ||
+    s.includes("beveiliging en avg")
+  ) {
+    return "/forester-os#inbegrepen";
+  }
+
+  return null;
+}
+
 /* ── Vergelijking met losse tools (typische zakelijke stack) ───────── */
 
 export type RivalTool = {

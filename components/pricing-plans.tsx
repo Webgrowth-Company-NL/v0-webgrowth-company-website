@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
-import { PRICING_PLANS, type PricingPlan } from "@/lib/pricing";
+import { getFeatureLink, PRICING_PLANS, type PricingPlan } from "@/lib/pricing";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -92,14 +92,26 @@ function PlanCard({ plan, index }: { plan: PricingPlan; index: number }) {
       <div className="mt-7 h-px bg-[color:var(--color-line)]" />
 
       <ul className="mt-6 space-y-3 flex-1">
-        {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-[color:var(--color-ink)]">
-            <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)]">
-              <Check className="h-2.5 w-2.5" strokeWidth={3} />
-            </span>
-            <span>{f}</span>
-          </li>
-        ))}
+        {plan.features.map((f) => {
+          const href = getFeatureLink(f);
+          return (
+            <li key={f} className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-[color:var(--color-ink)]">
+              <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-purple-tint)] text-[color:var(--color-purple)]">
+                <Check className="h-2.5 w-2.5" strokeWidth={3} />
+              </span>
+              {href ? (
+                <Link
+                  href={href}
+                  className="text-[color:var(--color-ink)] underline decoration-[color:var(--color-purple)]/35 decoration-1 underline-offset-[3px] hover:decoration-[color:var(--color-purple)] hover:text-[color:var(--color-purple)] transition-colors"
+                >
+                  {f}
+                </Link>
+              ) : (
+                <span>{f}</span>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </motion.article>
   );
