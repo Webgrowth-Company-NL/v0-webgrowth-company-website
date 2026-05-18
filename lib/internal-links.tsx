@@ -9,7 +9,7 @@ import Link from "next/link";
  * "AI-assistent Q" niet alleen "Q" linkt, en "Lead Engine-module" niet
  * alleen "Lead Engine".
  */
-const MODULE_TERMS: Array<{ term: string; href: string }> = [
+const MODULE_TERMS: Array<{ term: string; href: string; external?: boolean }> = [
   // Lead engine variants
   { term: "Lead Engine-module", href: "/forester-os/lead-engine" },
   { term: "Lead Engines", href: "/forester-os/lead-engine" },
@@ -46,6 +46,13 @@ const MODULE_TERMS: Array<{ term: string; href: string }> = [
   { term: "NordFlame", href: "/cases/nordflame" },
   { term: "Adalace", href: "/cases/adalace" },
   { term: "De Samenleesclub", href: "/cases/de-samenleesclub" },
+
+  // Externe authority-links (autoritaire bronnen) — SEO-boost
+  {
+    term: "Basisregistratie Adressen en Gebouwen",
+    href: "https://www.kadaster.nl/zakelijk/registraties/basisregistraties/bag",
+    external: true,
+  },
 ];
 
 const LINK_CLASS =
@@ -82,10 +89,23 @@ export function linkifyText(text: string): React.ReactNode {
     if (earliest.index > 0) {
       nodes.push(remaining.slice(0, earliest.index));
     }
+    const isExternal = sortedTerms.find((t) => t.href === earliest!.href)?.external;
     nodes.push(
-      <Link key={`il-${keyCounter++}`} href={earliest.href} className={LINK_CLASS}>
-        {earliest.term}
-      </Link>,
+      isExternal ? (
+        <a
+          key={`il-${keyCounter++}`}
+          href={earliest.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK_CLASS}
+        >
+          {earliest.term}
+        </a>
+      ) : (
+        <Link key={`il-${keyCounter++}`} href={earliest.href} className={LINK_CLASS}>
+          {earliest.term}
+        </Link>
+      ),
     );
     remaining = remaining.slice(earliest.index + earliest.term.length);
     usedHrefs.add(earliest.href);

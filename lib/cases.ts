@@ -37,6 +37,8 @@ export type CaseStudy = {
   psiComparison?: PsiMetric[];
   /** Optionele klantquote. */
   quote?: CaseQuote;
+  /** Slug van een bijbehorende field-log voor cross-linking. */
+  fieldLogSlug?: string;
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -202,6 +204,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle: "Case NordFlame: premium kachelplatform met scan-tools | Webgrowth",
     metaDescription:
       "Hoe we voor NordFlame een premium platform bouwden met zes modellen, een Vervangingsscan met Ecodesign 2027-check en de Aurora-combinatie met warmtepompen.",
+    fieldLogSlug: "vervangingsscan-quickscan-nordflame",
     challenge: {
       title: "Premium positioneren én twee heel verschillende bezoekers bedienen",
       body:
@@ -265,6 +268,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaTitle: "Case Adalace: Quickscan-wizard voor vastgoed-compliance | Webgrowth",
     metaDescription:
       "Hoe we voor Adalace de Quickscan bouwden: een wizard met BAG-koppeling en een PDF-rapport op maat voor vastgoedbeheerders en scholen.",
+    fieldLogSlug: "bag-integratie-quickscan-adalace",
     challenge: {
       title: "Een intake-traject dat een potentiële klant kostte voordat er een advies lag",
       body:

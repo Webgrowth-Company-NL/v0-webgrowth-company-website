@@ -5,6 +5,7 @@ import { KennismakingButton } from "@/components/kennismaking-button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import type { CaseStudy, PsiMetric } from "@/lib/cases";
+import { fieldLogBySlug } from "@/lib/field-logs";
 import { linkifyText } from "@/lib/internal-links";
 
 export function CasePage({ study }: { study: CaseStudy }) {
@@ -231,6 +232,40 @@ export function CasePage({ study }: { study: CaseStudy }) {
             </div>
           </section>
         )}
+
+        {/* Field log cross-link */}
+        {study.fieldLogSlug &&
+          (() => {
+            const log = fieldLogBySlug(study.fieldLogSlug);
+            if (!log) return null;
+            return (
+              <section className="px-5 sm:px-8 pb-16 sm:pb-20">
+                <div className="mx-auto max-w-3xl">
+                  <Link
+                    href={`/field-logs/${log.slug}`}
+                    className="group block rounded-[1.5rem] border border-[color:var(--color-line)] bg-white p-6 sm:p-7 transition-[box-shadow,border-color] duration-300 ease-out hover:shadow-[0_18px_44px_-22px_rgba(98,59,199,0.22)] hover:border-[color:var(--color-purple)]/35"
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                        Lees ook in het dagboek
+                      </span>
+                      <span className="rounded-full bg-[color:var(--color-purple-soft)] px-2 py-0.5 text-[10.5px] font-semibold text-[color:var(--color-purple)]">{log.tag}</span>
+                    </div>
+                    <h3 className="font-[family-name:var(--font-display)] font-semibold text-[18px] sm:text-[20px] leading-[1.3] text-[color:var(--color-ink-strong)] group-hover:text-[color:var(--color-purple)] transition-colors">
+                      {log.title}
+                    </h3>
+                    <p className="mt-2 text-[14px] leading-[1.6] text-[color:var(--color-ink-muted)]">
+                      {log.excerpt}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
+                      Lees het verhaal
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
+                    </span>
+                  </Link>
+                </div>
+              </section>
+            );
+          })()}
 
         {/* closing CTA */}
         <section className="px-5 sm:px-8 pb-28 sm:pb-36">
