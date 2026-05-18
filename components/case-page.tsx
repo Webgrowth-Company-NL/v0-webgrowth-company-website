@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { KennismakingButton } from "@/components/kennismaking-button";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import type { CaseStudy } from "@/lib/cases";
+import type { CaseStudy, PsiMetric } from "@/lib/cases";
 
 export function CasePage({ study }: { study: CaseStudy }) {
   return (
@@ -134,6 +134,32 @@ export function CasePage({ study }: { study: CaseStudy }) {
           </section>
         )}
 
+        {/* PSI comparison */}
+        {study.psiComparison && study.psiComparison.length > 0 && (
+          <section className="px-5 sm:px-8 pb-16 sm:pb-20">
+            <div className="mx-auto max-w-5xl rounded-[2rem] bg-[color:var(--color-bg)] border border-[color:var(--color-line)] p-8 sm:p-10">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-purple)]">
+                  PageSpeed Insights
+                </span>
+                <span className="h-px flex-1 bg-[color:var(--color-line)]" />
+              </div>
+              <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.5rem,3vw,2rem)] leading-[1.2] tracking-[-0.01em] text-[color:var(--color-ink-strong)]">
+                Voor de migratie, en daarna.
+              </h2>
+              <p className="mt-2 text-[14.5px] leading-[1.6] text-[color:var(--color-ink-muted)] max-w-xl">
+                Mobiele scores volgens Google PageSpeed Insights, gemeten direct voor en na de migratie naar Forester OS.
+              </p>
+
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                {study.psiComparison.map((m) => (
+                  <PsiPair key={m.label} metric={m} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* results */}
         {study.results && study.results.length > 0 && (
           <section className="px-5 sm:px-8 pb-16 sm:pb-20">
@@ -206,5 +232,56 @@ export function CasePage({ study }: { study: CaseStudy }) {
       </main>
       <SiteFooter />
     </>
+  );
+}
+
+function PsiPair({ metric }: { metric: PsiMetric }) {
+  const improved = metric.after > metric.before;
+  const unchanged = metric.after === metric.before;
+  const afterColor = unchanged
+    ? "text-[color:var(--color-ink-strong)]"
+    : "text-emerald-600";
+  const afterRing = unchanged
+    ? "ring-[color:var(--color-line-strong)]"
+    : "ring-emerald-500";
+  // Kleur 'voor' op basis van Google's eigen PSI-thresholds: <50 rood, 50-89 oranje, 90+ groen.
+  const beforeColor =
+    metric.before < 50
+      ? "text-red-500"
+      : metric.before < 90
+        ? "text-amber-500"
+        : "text-emerald-500";
+  const beforeRing =
+    metric.before < 50
+      ? "ring-red-200"
+      : metric.before < 90
+        ? "ring-amber-200"
+        : "ring-emerald-200";
+
+  return (
+    <div className="text-center">
+      <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-ink-subtle)] mb-3">
+        {metric.label}
+      </div>
+      <div className="flex items-center justify-center gap-2 sm:gap-3">
+        <div className={`relative inline-flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-full ring-2 ${beforeRing} bg-white ${beforeColor}`}>
+          <span className="font-[family-name:var(--font-display)] font-bold text-[15px] sm:text-[17px] tabular-nums leading-none">
+            {metric.before}
+          </span>
+        </div>
+        <ArrowRight
+          className={`h-3.5 w-3.5 ${improved ? "text-[color:var(--color-purple)]" : "text-[color:var(--color-ink-faint)]"}`}
+          strokeWidth={2.75}
+        />
+        <div className={`relative inline-flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 rounded-full ring-2 ${afterRing} bg-white ${afterColor} shadow-[0_8px_18px_-10px_rgba(16,185,129,0.55)]`}>
+          <span className="font-[family-name:var(--font-display)] font-bold text-[19px] sm:text-[22px] tabular-nums leading-none">
+            {metric.after}
+          </span>
+        </div>
+      </div>
+      <div className="mt-3 text-[11.5px] text-[color:var(--color-ink-muted)] tabular-nums">
+        {unchanged ? "Stabiel gebleven" : `+${metric.after - metric.before} punten`}
+      </div>
+    </div>
   );
 }

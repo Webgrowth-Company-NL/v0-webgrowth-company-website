@@ -2,6 +2,7 @@ export type CaseFeature = { label: string; body: string };
 export type CaseSection = { title: string; body: string };
 export type CaseResult = { value: string; label: string; descriptor?: string };
 export type CaseQuote = { text: string; name: string; role?: string };
+export type PsiMetric = { label: string; before: number; after: number };
 
 export type CaseStudy = {
   slug: string;
@@ -30,6 +31,8 @@ export type CaseStudy = {
   solution?: CaseSection[];
   /** Meetbare resultaten in cijfers en feiten. */
   results?: CaseResult[];
+  /** PageSpeed Insights voor/na-vergelijking (op /100). */
+  psiComparison?: PsiMetric[];
   /** Optionele klantquote. */
   quote?: CaseQuote;
 };
@@ -65,15 +68,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Pink Elephant",
     sector: "IT-consultancy & ITSM",
     location: "Vught",
-    headlineLead: "Een ITSM-platform met",
-    headlineHighlight: "vijf lead engines.",
+    headlineLead: "Een ITSM-site die hoger scoort,",
+    headlineHighlight: "sneller laadt en zelf leads vangt.",
     intro:
-      "Pink Elephant is een internationale ITSM-consultancy met tientallen jaren ervaring in IT-support, trainingen en E-Learning. We hebben hun website opnieuw gebouwd, vijf Lead Engines op maat gemaakt en een complete rebrand naar pinkelephant.co.uk begeleid, inclusief 744 redirects die de jarenlang opgebouwde SEO-posities netjes meeverhuisden naar het nieuwe domein.",
-    pillars: ["5 Lead Engines", "Internationale rebrand", "744 redirects"],
+      "Pink Elephant is een internationale ITSM-consultancy met tientallen jaren ervaring in IT-support, trainingen en E-Learning. We hebben hun site opnieuw opgebouwd in Forester OS, vijf Lead Engines op maat gemaakt en 744 redirects ingericht voor de domein-migratie naar pinkelephant.co.uk. Onderweg hebben we van een trage WordPress-omgeving (Prestaties 42) een razendsnel platform gemaakt waar Google nu 99 voor geeft.",
+    pillars: ["5 Lead Engines", "42 → 99 PageSpeed", "744 redirects"],
     features: [
       { label: "Vijf Lead Engines", body: "Technology QuickQuote, IT-Support QuickQuote, training-aanmelding, E-Learning demo en het slim contactformulier, elk met eigen routing en CRM-koppeling." },
-      { label: "Internationale rebrand", body: "Begeleiding bij de migratie naar pinkelephant.co.uk: meta's, taal-switches, hreflang en een consistente tone-of-voice door de hele site." },
-      { label: "744 redirects", body: "Alle oude URL's van pinkelephant.co.uk en pinkelephant.nl naar de nieuwe structuur, met bewaakte 200's en zonder traffic-verlies na de switch." },
+      { label: "PageSpeed van 42 naar 99", body: "Snellere hosting, geoptimaliseerde assets en moderne web-tech onder de motorkap brachten de PSI-prestatie van 42 naar 99, met scores van 100 op toegankelijkheid en praktische tips." },
+      { label: "744 redirects", body: "Alle oude URL's van pinkelephant.co.uk en pinkelephant.nl naar de nieuwe structuur, met bewaakte 200's en zonder traffic-verlies na de domein-switch." },
     ],
     img: "/images/clients/pink-elephant-hero.webp",
     imgAlt: "Trainingssessie van Pink Elephant met deelnemers achter laptops",
@@ -81,46 +84,52 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/pink-elephant.png",
     liveUrl: "https://pinkelephant.co.uk",
     liveLabel: "pinkelephant.co.uk",
-    metaTitle: "Case Pink Elephant: ITSM-platform met vijf Lead Engines | Webgrowth",
+    metaTitle: "Case Pink Elephant: ITSM-site met vijf Lead Engines + PSI 99 | Webgrowth",
     metaDescription:
-      "Hoe we voor Pink Elephant een internationaal ITSM-platform bouwden met vijf Lead Engines, een rebrand naar pinkelephant.co.uk en 744 redirects zonder traffic-verlies.",
+      "Hoe we voor Pink Elephant een ITSM-site opnieuw opbouwden in Forester OS: vijf Lead Engines, 744 redirects voor de domein-migratie en PSI-prestaties van 42 naar 99.",
     challenge: {
-      title: "Een internationaal merk dat over de jaren versplinterd was geraakt",
+      title: "Een site die mooi was maar niet meer presteerde",
       body:
-        "Pink Elephant heeft decennia ervaring in ITSM, IT-support en E-Learning, met klanten en trainers in meerdere landen en een omvangrijk dienstenpakket. Hun bestaande webomgeving was over de jaren echter gegroeid in een patroon van losse landingspagina's, gedateerde formulieren en regio-specifieke CMS-omgevingen die niet meer met elkaar praatten. Tegelijk lag er een rebrand op tafel: het oude pinkelephant.nl-domein moest plaatsmaken voor één internationale pinkelephant.co.uk, en dat zonder dat de SEO-posities die in jaren waren opgebouwd verloren zouden gaan.",
+        "Pink Elephant heeft decennia ervaring in ITSM, IT-support, trainingen en E-Learning, met een dienstenpakket dat over de jaren is gegroeid. De bestaande site was alleen niet meegegroeid met die complexiteit: zwaar, traag, met gedateerde formulieren en losse landingspagina's. PageSpeed scoorde een magere 42 op mobiel, leads kwamen binnen via een mailadres in plaats van via een goede flow, en het marketing-team moest voor elke kleine aanpassing een developer bellen. Daarbovenop stond er ook nog een domein-migratie op stapel naar het internationale pinkelephant.co.uk, zonder dat de SEO-posities die in jaren waren opgebouwd verloren mochten gaan.",
     },
     solution: [
       {
         title: "Vijf Lead Engines voor vijf manieren waarop een aanvraag binnenkomt",
         body:
-          "Voor elke kerndienst van Pink Elephant hebben we een Lead Engine op maat gemaakt die past bij hoe die specifieke klant een offerte of demo aanvraagt. De Technology QuickQuote rekent direct door op basis van licenties, looptijd en day-rate. De IT-Support QuickQuote stelt vragen over teamgrootte en de complexiteit van de omgeving. Daarnaast draaien de training-inschrijving, de E-Learning demo-aanvraag en een slim contactformulier, allemaal met de aanvraag direct in het CRM en een notificatie op de telefoon van de juiste accountmanager.",
+          "Voor elke kerndienst van Pink Elephant hebben we een eigen Lead Engine op maat gemaakt, gebouwd op de Lead Engine-module van Forester OS. De Technology QuickQuote rekent live door op basis van licenties, looptijd en day-rate. De IT-Support QuickQuote stelt slimme vragen over teamgrootte en complexiteit. Daarnaast draaien de training-inschrijving, de E-Learning demo-aanvraag en een slim contactformulier, allemaal met de aanvraag direct in het CRM en een WhatsApp-notificatie op de telefoon van de juiste accountmanager.",
       },
       {
-        title: "Een eigen module per dienst, met dezelfde herkenbare structuur",
+        title: "Een module per dienst, in het CMS van Forester OS",
         body:
-          "Elke kerndienst heeft een eigen module-pagina gekregen met dezelfde opbouw: de uitdaging waarin klanten zich herkennen, de aanpak van Pink Elephant, klantcases, een FAQ en de bijbehorende Lead Engine. Zo weten bezoekers direct waar ze beland zijn en kan het marketing-team nieuwe diensten in dezelfde stijl uitrollen zonder dat er een developer aan te pas hoeft te komen.",
+          "Met de eigen content-types van de Website-module hebben we een herhaalbaar template per dienst gebouwd: dezelfde structuur van probleem, aanpak, klantcases, FAQ en bijbehorende Lead Engine. Het marketing-team rolt nieuwe diensten en cases zelf uit in dezelfde stijl, zonder dat er een developer aan te pas hoeft te komen. Wat in andere systemen een meerwerk-factuur kostte, is hier een routine-handeling geworden.",
       },
       {
-        title: "Complete rebrand naar pinkelephant.co.uk met SEO als rode draad",
+        title: "Van PageSpeed 42 naar 99 zonder concessies aan design",
         body:
-          "We hebben de internationale rebrand begeleid van strategie tot livegang. Een nieuwe huisstijl over de hele site, een tone-of-voice die past bij de internationale doelgroep, ondersteuning voor zowel Nederlands als Engels en alle technische signalen die zoekmachines nodig hebben om te snappen welke versie waar hoort (hreflang, canonicals en structured data).",
+          "Door de migratie naar Forester OS kregen we toegang tot moderne web-tech onder de motorkap: snellere hosting, geoptimaliseerde assets, server-side rendering en uitgekiend laden van afbeeldingen. Het resultaat is een PSI-score die op alle dimensies de 99 of 100 raakt, terwijl het visuele resultaat juist rijker is geworden dan op de oude site.",
       },
       {
-        title: "744 redirects zonder dat er traffic tussen wal en schip valt",
+        title: "Domein-migratie met 744 redirects en Search Console-monitoring",
         body:
-          "Van de oude pinkelephant.co.uk én pinkelephant.nl naar de nieuwe structuur hebben we 744 redirects ingericht, gebouwd in een CSV-import, getest in staging en gemonitord rond de switch. Tijdens en na de migratie hielden we Search Console intensief in de gaten om te zien of er pagina's tussen wal en schip dreigden te vallen, zodat we direct konden bijschaven voordat een ranking-positie verloren ging.",
+          "Van de oude pinkelephant.co.uk en pinkelephant.nl naar de nieuwe structuur hebben we 744 redirects ingericht, gebouwd in een CSV, getest in staging en bewaakt rond de switch. Tijdens en na de domein-flip hielden we Search Console intensief in de gaten om te zien of er pagina's tussen wal en schip dreigden te vallen, zodat we direct konden bijschaven voordat een ranking-positie verloren ging.",
       },
       {
         title: "Q schrijft mee aan content op basis van Search Console-data",
         body:
-          "Onze AI-assistent Q kijkt continu naar wat Search Console laat zien en stelt voor welke pagina's nog content missen, welke zoekvragen niet beantwoord worden en welke onderwerpen kansen bieden om hoger te ranken. Het marketing-team van Pink Elephant krijgt die suggesties in begrijpelijke taal aangeleverd en kan ze met één klik tot een eerste concept laten uitwerken.",
+          "Q, onze AI-assistent in Forester OS, kijkt continu naar wat Search Console laat zien en stelt voor welke pagina's nog content missen, welke zoekvragen onbeantwoord blijven en welke onderwerpen ranking-kansen bieden. Het marketing-team van Pink Elephant krijgt die suggesties in begrijpelijke taal aangeleverd en kan ze met één klik laten uitwerken tot een eerste concept.",
       },
     ],
+    psiComparison: [
+      { label: "Prestaties", before: 42, after: 99 },
+      { label: "Toegankelijkheid", before: 75, after: 100 },
+      { label: "Praktische tips", before: 77, after: 100 },
+      { label: "SEO", before: 92, after: 92 },
+    ],
     results: [
-      { value: "5", label: "Lead Engines", descriptor: "actief op de site, elk met eigen routing en CRM-koppeling" },
-      { value: "744", label: "Redirects", descriptor: "van oude domeinen bewaakt, zonder traffic-verlies" },
-      { value: "2 talen", label: "Multi-language", descriptor: "Nederlands en Engels, met hreflang en canonicals correct" },
+      { value: "5", label: "Lead Engines actief", descriptor: "elk met eigen routing en CRM-koppeling" },
+      { value: "744", label: "Redirects bewaakt", descriptor: "domein-migratie zonder traffic-verlies" },
       { value: "Zelfbeheer", label: "Marketing-team aan zet", descriptor: "nieuwe pagina's en cases live zonder developer" },
+      { value: "+57", label: "PageSpeed-punten", descriptor: "van Prestaties 42 naar 99 op mobiel" },
     ],
   },
   {
