@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail, MapPin, Phone, Star } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Star } from "lucide-react";
 import { KennismakingButton } from "@/components/kennismaking-button";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -131,24 +131,41 @@ export default function ContactPage() {
             </div>
 
             <div className="grid sm:grid-cols-3 gap-5 sm:gap-6">
-              {/* Bellen */}
-              <a
-                href="tel:+31762045010"
-                className="group rounded-3xl border border-[color:var(--color-line)] bg-white p-7 transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-22px_rgba(98,59,199,0.22)] hover:border-[color:var(--color-purple)]/35"
-              >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)]">
-                  <Phone className="h-5 w-5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
-                </span>
+              {/* Bellen of WhatsApp */}
+              <div className="group rounded-3xl border border-[color:var(--color-line)] bg-white p-7 transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-22px_rgba(98,59,199,0.22)] hover:border-[color:var(--color-purple)]/35">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)]">
+                    <Phone className="h-5 w-5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
+                  </span>
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--color-purple-tint)]">
+                    <MessageCircle className="h-5 w-5 text-[color:var(--color-purple)]" strokeWidth={2.25} />
+                  </span>
+                </div>
                 <h3 className="mt-5 font-[family-name:var(--font-display)] font-bold text-[18px] text-[color:var(--color-ink-strong)]">
-                  Bel direct met Martijn
+                  Bel of WhatsApp met Martijn
                 </h3>
                 <p className="mt-3 text-[14px] leading-[1.65] text-[color:var(--color-ink-muted)]">
-                  Geen keuzemenu, geen tussenstap. Werkdagen tussen 9 en 17 uur opnemen we zelf. Daarbuiten een korte voicemail en je krijgt nog dezelfde dag een terugbel.
+                  Geen keuzemenu, geen tussenstap. Werkdagen tussen 9 en 17 uur nemen we zelf op, en op WhatsApp lezen we ook 's avonds nog even mee als 't dringend is.
                 </p>
-                <p className="mt-4 font-[family-name:var(--font-mono)] text-[15px] font-semibold text-[color:var(--color-purple)]">
-                  076 204 5010
-                </p>
-              </a>
+                <div className="mt-5 flex flex-col gap-2">
+                  <a
+                    href="tel:+31762045010"
+                    className="inline-flex items-center gap-2 font-[family-name:var(--font-mono)] text-[14.5px] font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors"
+                  >
+                    <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    076 204 5010
+                  </a>
+                  <a
+                    href="https://wa.me/31762045010"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-[family-name:var(--font-mono)] text-[14.5px] font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] transition-colors"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    WhatsApp 076 204 5010
+                  </a>
+                </div>
+              </div>
 
               {/* Mailen */}
               <a
@@ -192,7 +209,7 @@ export default function ContactPage() {
         <section className="px-5 sm:px-8 pb-24 sm:pb-32 bg-[#faf6f0]">
           <div className="mx-auto max-w-5xl">
             <div className="rounded-[2rem] bg-white border border-[color:var(--color-line)] p-7 sm:p-10">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              <div className="grid sm:grid-cols-2 gap-8 sm:gap-12">
                 {/* Adres */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
@@ -217,44 +234,6 @@ export default function ContactPage() {
                   </a>
                 </div>
 
-                {/* Telefoon */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Phone className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">
-                      Telefoon
-                    </span>
-                  </div>
-                  <a
-                    href="tel:+31762045010"
-                    className="text-[15px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-strong)] hover:text-[color:var(--color-purple)] transition-colors"
-                  >
-                    076 204 5010
-                  </a>
-                  <p className="mt-2 text-[12.5px] text-[color:var(--color-ink-muted)]">
-                    Werkdagen tussen 9 en 17 uur
-                  </p>
-                </div>
-
-                {/* E-mail */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Mail className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2.25} />
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-subtle)]">
-                      E-mail
-                    </span>
-                  </div>
-                  <a
-                    href="mailto:martijn@webgrowth.company"
-                    className="text-[15px] font-[family-name:var(--font-mono)] text-[color:var(--color-ink-strong)] hover:text-[color:var(--color-purple)] transition-colors break-all"
-                  >
-                    martijn@webgrowth.company
-                  </a>
-                  <p className="mt-2 text-[12.5px] text-[color:var(--color-ink-muted)]">
-                    Werkdagen binnen een paar uur antwoord
-                  </p>
-                </div>
-
                 {/* Bedrijfsgegevens */}
                 <div>
                   <div className="mb-3">
@@ -262,7 +241,7 @@ export default function ContactPage() {
                       Bedrijfsgegevens
                     </span>
                   </div>
-                  <p className="text-[13.5px] leading-[1.7] text-[color:var(--color-ink)]">
+                  <p className="text-[14px] leading-[1.7] text-[color:var(--color-ink)]">
                     <span className="font-semibold">KvK</span> 64809536<br />
                     <span className="font-semibold">BTW</span> NL001363277B13
                   </p>
