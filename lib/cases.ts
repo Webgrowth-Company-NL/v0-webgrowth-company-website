@@ -45,15 +45,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "MOL Logistics",
     sector: "Logistiek & transport",
     location: "Tilburg",
-    headlineLead: "Een corporate platform voor",
-    headlineHighlight: "internationaal transport.",
+    headlineLead: "Een corporate logistiek-site",
+    headlineHighlight: "die elke aanvraag goed laat landen.",
     intro:
-      "MOL Logistics is een internationale forwarder met vestigingen door heel Europa. We bouwden de corporate site opnieuw: een vacaturecentrum, een eigen volumecalculator die operationeel samenwerkt met het forwarding-team, en een lichte content-laag waarmee het marketing-team templates zelf beheert.",
-    pillars: ["Vacaturecentrum", "Volumecalculator", "Beheerbare templates"],
+      "MOL Logistics is een internationale forwarder met vestigingen door heel Europa. Voor hun Nederlandse organisatie bouwden we de corporate site opnieuw, met een eigen volumecalculator voor transport-aanvragen, een vacature-flow met content-blocks per rol en een mu-plugin onder de motorkap die de site razendsnel houdt. Aanvragen, sollicitaties en contact landen elk bij het juiste team, in plaats van in één algemene mailbox.",
+    pillars: ["Volumecalculator", "Vacature-flow", "Performance-tuning"],
     features: [
-      { label: "Vacaturecentrum", body: "Vacatures als eigen content-type, met sjabloon-pagina's voor cultuur, sollicitatieproces en gerelateerde rollen." },
-      { label: "Volumecalculator", body: "Een tool waarmee klanten zelf inschatten hoeveel pallets, kuubs en gewicht hun zending wordt." },
-      { label: "Beheerbare templates", body: "Het marketing-team beheert teksten, hero's en cases zelf via een lichte content-laag, zonder developer." },
+      { label: "Volumecalculator voor transport", body: "Bezoekers stellen zelf hun zending samen met traject, lading en eisen, en de aanvraag landt direct bij de juiste accountmanager mét alle context." },
+      { label: "Vacature-flow met content-blocks", body: "Elke vacature heeft een eigen detail-template met hero, cultuur, sollicitatieproces, gerelateerde rollen en CTA's, beheerbaar via velden door HR." },
+      { label: "Performance-mu-plugin", body: "Onder de motorkap optimaliseert een eigen plug-in fonts, scripts, fetchpriority en assets, zodat de site snel blijft ondanks de zware Breakdance-builder." },
     ],
     img: "/images/clients/mol-logistics-hero.jpg",
     imgAlt: "MOL Logistics warehouse in Tilburg met heftrucks en containers",
@@ -63,7 +63,45 @@ export const CASE_STUDIES: CaseStudy[] = [
     liveLabel: "mol-logistics.eu",
     metaTitle: "Case MOL Logistics: corporate site met volumecalculator | Webgrowth",
     metaDescription:
-      "Hoe we voor MOL Logistics een corporate site bouwden met een vacaturecentrum, een eigen volumecalculator en beheerbare templates voor het marketing-team.",
+      "Hoe we voor MOL Logistics een corporate site bouwden met een volumecalculator, een vacature-flow en een performance-mu-plugin onder de motorkap.",
+    challenge: {
+      title: "Een corporate site die over de jaren versplinterd was, met aanvragen in één grote bak",
+      body:
+        "MOL Logistics had een site die over de jaren was uitgegroeid maar inconsistent was geworden in styling, formulier-flows en SEO. Voor elk type aanvraag (transport, warehousing, projectlogistiek) bestond een ander formulier en weer een andere mailroute, vacature-pagina's stonden los van de hoofdsite en de performance liet te wensen over door de zware Breakdance-builder. MOL wilde tegelijk wel op WordPress + Breakdance blijven vanwege hun bestaande beheerprocessen, maar dan met de kwaliteit, snelheid en routing-discipline van een modern platform.",
+    },
+    solution: [
+      {
+        title: "Volumecalculator als eigen Lead Engine",
+        body:
+          "We bouwden een interactieve volumecalculator als Lead Engine waarin bezoekers het traject (laden + lossen), de lading en de bijbehorende eisen kunnen samenstellen. De aanvraag landt direct in de mailbox van de juiste accountmanager, met alle context die we al hebben uitgevraagd. Aan de achterkant is alles CMS-bestuurbaar via ACF-velden, zodat MOL zelf nieuwe transportoplossingen of varianten kan toevoegen zonder dat er een developer aan te pas hoeft te komen.",
+      },
+      {
+        title: "Vacature-flow met eigen body-block structuur",
+        body:
+          "Elke vacature heeft een eigen detailpagina met dezelfde herkenbare structuur: hero, body, split-content, klantlogo's, cultuur-blok, sollicitatieproces, mid-CTA, gerelateerde vacatures en een footer-CTA. De recruiters voegen nieuwe rollen toe via een gestandaardiseerd set ACF-velden, en het Breakdance-template doet de rest. Wat vroeger een ontwerper kostte is nu een handeling van een halfuur.",
+      },
+      {
+        title: "Form-handler met dynamische mail-routing",
+        body:
+          "Elke aanvraag-flow op de site heeft een eigen mail-routing: transport-aanvragen gaan naar de juiste accountmanager, warehousing naar het magazijn-team, vacature-sollicitaties naar HR en algemene contact-mails naar de juiste vestiging. Eén centrale form-handler regelt al die routing via filter-hooks, dus er is geen losse 'info@'-mailbox meer waar alles in een grote bak verdwijnt.",
+      },
+      {
+        title: "Performance-mu-plugin onder de motorkap",
+        body:
+          "Voor een Breakdance-site is je mu-plugin de stille held van je PageSpeed-score. Voor MOL draaiden we een eigen mol-perf.php die Google Fonts subsette, third-party JS deferde, jquery-migrate dequeue'de en fetchpriority + alt op de juiste plekken zette. Het resultaat is een PSI-score die opmerkelijk goed is voor een Breakdance-site, zonder dat we content of layout-vrijheid hoefden in te leveren.",
+      },
+      {
+        title: "Section-alignment voor visuele rust over de hele site",
+        body:
+          "Breakdance heeft een eigenaardigheid waarbij de inner-container van elke sectie een eigen max-width kan hebben, waardoor decoratieve elementen na een paar releases niet meer netjes uitlijnen met de copy. Voor MOL trokken we de max-width gelijk op 1512 pixels met een clamp-padding, zodat de site visueel rustig blijft van bovenaan tot helemaal beneden, op zowel desktop als mobiel.",
+      },
+    ],
+    results: [
+      { value: "Per aanvraag", label: "Routing naar het juiste team", descriptor: "geen algemene info-mailbox meer" },
+      { value: "ACF", label: "CMS-bestuurbaar", descriptor: "vacatures en transportoplossingen door MOL zelf beheerd" },
+      { value: "mu-plugin", label: "Performance-tuning", descriptor: "snelle Breakdance-site via mol-perf.php" },
+      { value: "1512", label: "Consistent alignment", descriptor: "elke sectie netjes uitgelijnd, desktop én mobiel" },
+    ],
   },
   {
     slug: "pink-elephant",
