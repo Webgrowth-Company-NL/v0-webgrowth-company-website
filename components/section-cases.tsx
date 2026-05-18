@@ -41,10 +41,10 @@ export function SectionCases() {
           </motion.p>
         </motion.div>
 
-        {/* 1 featured left + up to 3 compact right */}
+        {/* 1 featured left + up to 4 compact right (rechter kolom strekt mee met de hoogte van de featured-card via flex-1 per item). */}
         <div className="mt-14 sm:mt-16 grid lg:grid-cols-[1.35fr_1fr] gap-6 lg:gap-8 items-stretch">
           <FeaturedCaseCard c={featured} />
-          <div className="flex flex-col gap-4 sm:gap-5">
+          <div className="flex flex-col gap-4 sm:gap-5 h-full">
             {compactCases.map((c, i) => (
               <CompactCaseCard key={c.slug} c={c} index={i} />
             ))}
@@ -115,7 +115,7 @@ function CompactCaseCard({ c, index }: { c: CaseStudy; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, ease: EASE, delay: 0.2 + index * 0.08 }}
-      className="group relative flex items-center gap-4 rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-3 sm:p-4 shadow-[0_1px_2px_rgba(12,6,18,0.04)] hover:shadow-[0_18px_40px_-22px_rgba(12,6,18,0.18)] hover:border-[color:var(--color-line-strong)] transition-[box-shadow,border-color,transform] duration-300 ease-out hover:-translate-y-[2px]"
+      className="group relative flex-1 flex items-center gap-4 rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-3 sm:p-4 shadow-[0_1px_2px_rgba(12,6,18,0.04)] hover:shadow-[0_18px_40px_-22px_rgba(12,6,18,0.18)] hover:border-[color:var(--color-line-strong)] transition-[box-shadow,border-color,transform] duration-300 ease-out hover:-translate-y-[2px]"
     >
       <Link href={`/cases/${c.slug}`} className="absolute inset-0" aria-label={`Lees de case van ${c.client}`} />
       {/* Thumbnail */}
@@ -123,13 +123,21 @@ function CompactCaseCard({ c, index }: { c: CaseStudy; index: number }) {
         className="relative shrink-0 h-24 w-24 sm:h-28 sm:w-28 rounded-xl overflow-hidden"
         style={{ backgroundColor: c.thumbBg ?? "var(--color-bg-muted)" }}
       >
-        <Image
-          src={isLogoTile ? c.logo : c.img}
-          alt={c.imgAlt}
-          fill
-          sizes="(max-width: 640px) 96px, 112px"
-          className={isLogoTile ? "object-contain p-3" : "object-cover transition-transform duration-500 ease-out group-hover:scale-105"}
-        />
+        {isLogoTile ? (
+          <Image
+            src={c.logo}
+            alt={c.imgAlt}
+            fill
+            sizes="(max-width: 640px) 96px, 112px"
+            className="object-contain p-3"
+          />
+        ) : (
+          <CaseMedia
+            c={c}
+            sizes="(max-width: 640px) 96px, 112px"
+            className="transition-transform duration-500 ease-out group-hover:scale-105"
+          />
+        )}
       </div>
       {/* Copy */}
       <div className="min-w-0 flex-1">
