@@ -880,6 +880,278 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       ],
     },
   },
+
+  /* ──────── Growth-features ──────── */
+  integraties: {
+    heroLead: "Je bestaande tools blijven",
+    heroHighlight: "doen wat ze deden.",
+    heroIntro:
+      "Heb je al Pipedrive, HubSpot of Mailchimp draaien en wil je daar niet zomaar afscheid van nemen? Dat hoeft ook niet. Wij koppelen jouw systemen aan Forester OS zodat leads, contacten en klantdata automatisch heen en weer stromen, en niemand bij jullie nog iets handmatig hoeft over te tikken.",
+    featuresHeading: "Wat we voor je koppelen.",
+    featuresIntro:
+      "We hebben de gangbare zakelijke tools al in onze koppel-bibliotheek staan. Wat er nog niet in staat bouwen we op maat via webhooks of de API van die partij.",
+    featuresDetailed: [
+      {
+        title: "Pipedrive, HubSpot en de bekende CRM's",
+        body:
+          "Voor de CRM's die het MKB al jaren draait hebben we kant-en-klare koppelingen klaar staan, zodat leads vanuit Forester direct in jouw bestaande pijplijn landen. De synchronisatie loopt twee kanten op en met velden die jij zelf hebt gekozen, zodat het CRM-overzicht klopt aan beide kanten.",
+      },
+      {
+        title: "Mailchimp, Postmark en je mailtool",
+        body:
+          "Of je nu vanuit Forester wilt mailen of vanuit een mailtool die al staat opgesteld, we sluiten 'm aan op je CRM-segmenten zodat je niet langer dubbele lijsten hoeft bij te houden. Wat in je CRM gebeurt zie je terug in je mailtool, en wat in je mailtool gebeurt landt terug in je CRM.",
+      },
+      {
+        title: "Webhooks en je eigen API",
+        body:
+          "Voor de systemen waar nog geen kant-en-klare koppeling voor is bouwen we 'm op maat, op basis van de API of webhooks van die partij. Niet de meest opvallende functionaliteit, maar wel een die ervoor zorgt dat alles soepel met elkaar samenwerkt.",
+      },
+      {
+        title: "Doorlopend onderhouden door ons team",
+        body:
+          "Als een externe partij iets aan z'n API verandert merken wij dat als eerste, en herstellen we de koppeling voordat jouw flow eronder lijdt. Zo loop je nooit tegen een stille storing aan waarbij een dag lang geen leads doorkomen omdat een veld is verschoven.",
+      },
+    ],
+    relatedSlugs: ["crm", "nieuwsbrieven", "automations"],
+    faq: [
+      {
+        q: "Welke tools koppelen jullie?",
+        a: "We koppelen alles waar een API of webhook op zit. Pipedrive, HubSpot, Mailchimp, Postmark, Slack, Trello en Notion zijn de gangbare keuzes voor onze klanten, maar als er bij jullie iets anders staat draaien we het tijdens de kick-off door en bouwen we de koppeling daar omheen.",
+      },
+      {
+        q: "Wat gebeurt er als die externe tool ineens verandert?",
+        a: "Dan repareren wij de koppeling voor je zonder dat je daar een meerwerk-factuur voor krijgt. Het onderhoud van je integraties zit gewoon in je Forester-abonnement, zodat een wijziging aan de andere kant nooit jouw business platlegt.",
+      },
+    ],
+    metaDescription:
+      "Pipedrive, HubSpot, Mailchimp en je andere systemen koppelen aan Forester OS, met onderhoud inbegrepen. Beschikbaar vanaf Growth.",
+  },
+
+  automations: {
+    heroLead: "Workflows die opvolgen,",
+    heroHighlight: "terwijl jij wat anders doet.",
+    heroIntro:
+      "Vanuit Forester OS bouwen we automations die nieuwe leads verwelkomen, opvolgingen versturen, taken aan je team uitdelen en deals door je pijplijn duwen. Jij stelt tijdens de kick-off vast welke regels logisch zijn voor jouw business, en het systeem voert ze 24 uur per dag voor je uit, ook 's nachts en in het weekend.",
+    featuresHeading: "Wat een automation voor je doet.",
+    featuresIntro:
+      "We starten meestal met twee tot drie kern-flows die echt het meeste werk overnemen, en bouwen daar maandelijks op verder als we zien hoe ze zich in jouw CRM gedragen.",
+    featuresDetailed: [
+      {
+        title: "Welkom-flows voor nieuwe leads",
+        body:
+          "Iemand vult je quickscan in en krijgt direct een persoonlijke vervolgmail in jouw stem, met de juiste bijlage of een afspraakvoorstel. Zo voorkom je dat een lead pas om vier uur 's middags wordt opgevolgd terwijl 'ie 's ochtends al een offerte aan een concurrent heeft gevraagd.",
+      },
+      {
+        title: "Opvolg-sequenties die weten waar de deal staat",
+        body:
+          "Op basis van de pijplijn-status van een lead sturen we de juiste herinneringen, follow-ups of materialen. Sluit de deal, dan stoppen we de sequentie. Vraagt 'ie meer tijd, dan stellen we 'm uit. Q kijkt mee en levert de eerste versie van elke mail in jouw tone-of-voice aan.",
+      },
+      {
+        title: "Taken automatisch bij het juiste teamlid",
+        body:
+          "Zodra een lead een bepaalde fase bereikt of een formulier-veld op een specifieke manier invult, maken we automatisch een taak aan voor het juiste teamlid mét een deadline. Geen 'oh, ik dacht dat jij dat zou doen'-mailtjes meer tussen collega's.",
+      },
+      {
+        title: "Triggers vanuit je CRM",
+        body:
+          "Een deal die van status verandert, een offerte die wordt geopend of een cursist die een quiz haalt, het zijn allemaal momenten waarop een vervolgactie zinvol is. Wij bepalen samen met je welke triggers er moeten zijn en welke acties daarbij horen, zodat het CRM niet alleen registreert maar ook iets in beweging zet.",
+      },
+    ],
+    relatedSlugs: ["crm", "lead-engine", "nieuwsbrieven"],
+    faq: [
+      {
+        q: "Hoeveel automations kunnen we draaien?",
+        a: "Vanaf Growth heb je geen limiet op het aantal workflows. We adviseren wel om klein te beginnen met twee of drie kern-flows die echt het meeste werk overnemen, en die maandelijks bij te schaven op basis van wat we zien gebeuren in je CRM.",
+      },
+      {
+        q: "Mailen jullie automations vanuit ons eigen domein?",
+        a: "Ja, we koppelen je eigen verzenddomein zodat opvolg-mails er niet uitzien alsof ze van een sjabloon-tool komen. Dat merk je vooral terug aan de open-rates, die voor onze klanten een stuk hoger liggen dan het sector-gemiddelde.",
+      },
+    ],
+    metaDescription:
+      "Marketing automations en workflows in Forester OS: leads opvolgen, taken uitdelen en deals door je pijplijn duwen. Vanaf Growth.",
+  },
+
+  "priority-support": {
+    heroLead: "Als jij belt,",
+    heroHighlight: "zitten we al op de bal.",
+    heroIntro:
+      "Een Forester OS-abonnement betekent dat je niet via een ticketsysteem hoeft te wachten op een willekeurige medewerker. Bij Growth en Scale schuif je vooraan in onze pijplijn aan, met snellere response-tijden, een vast aanspreekpunt dat jouw business kent en een directe lijn voor wanneer iets dringend is.",
+    featuresHeading: "Wat priority support concreet betekent.",
+    featuresIntro:
+      "Geen wazige beloftes over 'snel reageren'. Voor onze Growth en Scale-klanten leggen we vast wat de response-tijden zijn en wie jouw vaste contactpersoon is.",
+    featuresDetailed: [
+      {
+        title: "Snelle response binnen kantooruren",
+        body:
+          "Vragen die je via WhatsApp of mail stelt komen op werkdagen binnen een paar uur terug, niet pas de volgende ochtend. Voor urgente issues hebben we een aparte route die direct bij het juiste teamlid landt, zonder tussenstap.",
+      },
+      {
+        title: "Vast aanspreekpunt dat jouw business kent",
+        body:
+          "Je hoeft niet bij elke vraag opnieuw uit te leggen wat jullie doen en waar jullie naartoe willen. Eén of twee vaste mensen kennen je site, je doelen en je voorkeuren, en weten zelf wat ze wel en niet aan je hoeven voor te leggen.",
+      },
+      {
+        title: "Urgent-route voor wanneer 't echt brandt",
+        body:
+          "Als er iets gebeurt waar je klanten last van hebben, schiet je dat in onze urgent-route en pakken we het direct op. Geen wachttijd, geen radiostilte over het weekend, geen 'het ticket is geregistreerd, een collega neemt contact op'.",
+      },
+      {
+        title: "Werkdagen in Nederlandse tijdzone",
+        body:
+          "We werken in Nederlandse kantoortijden met dezelfde feestdagen die jij ook viert. Geen offshore-team waar je elke vraag tegen het tijdsverschil aan moet duwen, en geen taal-issues bij ingewikkelde uitleg.",
+      },
+    ],
+    relatedSlugs: ["website", "crm", "sla"],
+    faq: [
+      {
+        q: "Wat is de response-tijd precies?",
+        a: "Standaard reageren we binnen vier uur op werkdagen. Voor urgente issues waar klanten last van hebben schuiven we het bovenaan en pakken we het binnen een uur op. We zitten standaard op WhatsApp, dus de lijn is heel direct.",
+      },
+      {
+        q: "Hebben jullie wachtdienst in het weekend?",
+        a: "Voor critical issues op je productie-site staan we ook in het weekend klaar, omdat een lekkende site dan geld kost. Voor 'kan deze tekst even worden aangepast'-vragen zijn we maandagochtend weer wakker, en dat is voor iedereen prima.",
+      },
+    ],
+    metaDescription:
+      "Priority support bij Growth en Scale: snelle response, vast aanspreekpunt en directe lijn voor urgente issues. Onderdeel van Forester OS.",
+  },
+
+  /* ──────── Scale-features ──────── */
+  "custom-platform": {
+    heroLead: "Jouw eigen platform,",
+    heroHighlight: "op een bewezen fundament.",
+    heroIntro:
+      "Heb je een eigen idee voor een platform, marketplace, klantenportaal of app die jouw business uniek maakt? Bij Scale bouwen we dat van scratch op het Forester OS-fundament, met een dedicated team dat jouw product behandelt alsof het van henzelf is. Jij houdt de strategische regie, wij maken het waar.",
+    featuresHeading: "Wat een Scale-traject inhoudt.",
+    featuresIntro:
+      "Geen standaard CMS-vinkjes of plugin-marktplaats. Bij Scale draait alles om wat jouw product uniek maakt en hoe we dat technisch laten kloppen.",
+    featuresDetailed: [
+      {
+        title: "Custom features op maat van jouw business",
+        body:
+          "We bouwen wat jouw business onderscheidt, of dat nu een complexe berekening is, een wizard die een prospect door een offerteflow leidt, een klantportaal of een eigen workflow die in geen enkele standaard-tool past. Het krijgt de plek die het verdient binnen jouw product, in plaats van een aangeplakte plugin te zijn.",
+      },
+      {
+        title: "Dedicated dev-team dat jouw product kent",
+        body:
+          "Een vast team bouwt aan jouw platform, kent de codebase van binnenuit en weet waar elke beslissing vandaan komt. Zo voorkom je dat een nieuwe partij telkens vanaf nul moet beginnen als er iets bijgebouwd moet worden, en dat ingewikkelde technische schuld zich opstapelt.",
+      },
+      {
+        title: "We ontwerpen mee, geen klakkeloos uitvoeren",
+        body:
+          "Voordat we beginnen denken we met je mee over hoe het product moet werken, welke use-cases het echt moet ondersteunen en wat je beter wel én niet moet bouwen. Een goede dev is namelijk ook een sparringpartner, niet alleen een uitvoerder met een toetsenbord.",
+      },
+      {
+        title: "Eigen roadmap in kwartaal-sprints",
+        body:
+          "Voor Scale werken we met een eigen roadmap die we elk kwartaal bijschaven, in plaats van losse sprints zonder lange-termijn-zicht. Zo bouw je gestaag richting iets groters, in plaats van dat je iedere keer brandjes blust zonder dat je echt vooruit komt.",
+      },
+    ],
+    relatedSlugs: ["website", "multi-site", "sla"],
+    faq: [
+      {
+        q: "Wordt mijn platform ook echt mijn eigendom?",
+        a: "Ja, de code, het ontwerp en de data zijn volledig van jou. We bouwen op Forester OS als fundament, maar wat we aan custom werk maken is in jouw eigendom. Mocht je ooit met een ander team verder willen, dan kan dat team daar gewoon op verder bouwen zonder dat we kunstmatige hindernissen opwerpen.",
+      },
+      {
+        q: "Hoe lang duurt een Scale-traject doorgaans?",
+        a: "Dat hangt af van wat we precies bouwen, maar reken op minimaal vier tot zes maanden voor een eerste werkende versie. Daarna blijven we doorontwikkelen in kwartaal-sprints, omdat een platform pas echt waarde geeft als 'm op echte gebruikers wordt losgelaten en op basis van die feedback verder groeit.",
+      },
+    ],
+    metaDescription:
+      "Bouw je eigen platform of app op het Forester OS-fundament. Een dedicated dev-team, custom features en je eigen roadmap. Alleen in Scale.",
+  },
+
+  "multi-site": {
+    heroLead: "Meerdere merken,",
+    heroHighlight: "één Forester-omgeving.",
+    heroIntro:
+      "Heeft jouw organisatie meerdere merken, vestigingen of internationale sites die elk hun eigen identiteit en taal moeten houden? Wij beheren ze allemaal vanuit één Forester OS-omgeving, zodat je dezelfde CRM-data, dezelfde Q en hetzelfde team gebruikt zonder dat de merken op elkaar gaan lijken.",
+    featuresHeading: "Hoe multi-site bij ons werkt.",
+    featuresIntro:
+      "Centrale infrastructuur waar het zinnig is, lokale autonomie waar het ertoe doet. Zo blijft een groot bedrijf snel en wendbaar, ook als er meerdere merken onder vallen.",
+    featuresDetailed: [
+      {
+        title: "Meerdere sites, één database",
+        body:
+          "Of je nu twee, vijf of vijftien sites draait, ze leven allemaal binnen één Forester OS-omgeving. Eén team beheert het geheel, je mensen loggen één keer in, en CRM-data uit elk merk landt op de juiste plek in dezelfde overkoepelende pijplijn.",
+      },
+      {
+        title: "Multi-language voor internationale spelers",
+        body:
+          "Per site stel je in welke talen aan staan, met hreflang, canonicals en geografische targeting correct ingesteld voor Google. Zo concurreren je eigen sites niet met elkaar in zoekresultaten, en weet elke bezoeker direct dat 'ie in de juiste taalversie is geland.",
+      },
+      {
+        title: "Per merk eigen huisstijl en stem",
+        body:
+          "Hoewel het allemaal op één fundament draait krijgt elk merk z'n eigen design-systeem, z'n eigen tone-of-voice en z'n eigen instellingen voor Q. Een buitenstaander kan niet zien dat het achterliggend hetzelfde platform is, en dat is precies de bedoeling.",
+      },
+      {
+        title: "Centrale rapportage, lokale autonomie",
+        body:
+          "Het marketing-team van elk merk werkt zelfstandig in z'n eigen omgeving, terwijl jij als organisatie het totaalplaatje ziet in één rapportage. Zo behoud je controle zonder dat lokale teams in een keurslijf zitten dat groei juist tegenhoudt.",
+      },
+    ],
+    relatedSlugs: ["custom-platform", "sla", "website"],
+    faq: [
+      {
+        q: "Hoeveel sites kunnen we tegelijk draaien?",
+        a: "Bij Scale is er geen harde limiet. We hebben klanten met twee tot tien actieve sites op één Forester OS-fundament. Bij grotere aantallen kijken we samen met je naar de optimale opzet, omdat soms een sub-organisatie of een aparte tenant zinnig is.",
+      },
+      {
+        q: "Kan elk merk een eigen sub-team aanstellen?",
+        a: "Ja, met rechten per merk. Een marketing-medewerker van merk A ziet alleen wat zij nodig hebben voor merk A, terwijl de organisatie-rol toegang heeft tot het hele plaatje. Q kent de context van elk merk, dus suggesties en content zijn altijd gericht op dat ene merk.",
+      },
+    ],
+    metaDescription:
+      "Beheer meerdere merken, vestigingen of internationale sites vanuit één Forester OS. Centrale rapportage, lokale autonomie. Alleen in Scale.",
+  },
+
+  sla: {
+    heroLead: "Vaste afspraken,",
+    heroHighlight: "zwart op wit.",
+    heroIntro:
+      "Bij Scale leggen we onze afspraken vast in een SLA met heldere response-tijden, uptime-garanties en escalatie-routes. Daarnaast krijg je een eigen accountmanager die jouw bedrijf én jouw doelen kent, zodat je niet elke keer opnieuw hoeft uit te leggen waar je heen wilt.",
+    featuresHeading: "Wat we bij een SLA vastleggen.",
+    featuresIntro:
+      "Geen vage beloftes, maar concrete afspraken die jou houvast geven en die wij waarmaken. Mocht het ooit niet lukken, dan is daar ook een afgesproken consequentie aan verbonden.",
+    featuresDetailed: [
+      {
+        title: "Response-tijden zwart op wit",
+        body:
+          "In jouw SLA staan exacte response-tijden per type vraag, urgent of niet, en wat er gebeurt als we die niet halen. Het maakt onze afspraken concreet, en geeft jou als organisatie iets om op te koersen in plaats van te hopen dat 'er ooit iemand reageert'.",
+      },
+      {
+        title: "Uptime-garanties met 24/7 monitoring",
+        body:
+          "We garanderen 99,99% uptime over een jaar en monitoren je site 24 uur per dag zodat we problemen oppakken voordat jij of je klanten ze opmerken. Bij elk incident krijg je achteraf een rapportage met wat er is gebeurd, hoe we het hebben opgelost en wat we doen om herhaling te voorkomen.",
+      },
+      {
+        title: "Een vaste accountmanager die jouw business kent",
+        body:
+          "Eén persoon kent jouw bedrijf, jouw doelen en jouw voorkeuren door en door. Zo zit je niet elke keer met een ander tegenover je in een meeting, en weet je zelf precies waar je terecht kan als er iets dwars zit of als je iets nieuws wilt opzetten.",
+      },
+      {
+        title: "Kwartaal-overleg over je roadmap",
+        body:
+          "We zitten elk kwartaal aan tafel om door te lopen wat we hebben bereikt, waar we naartoe willen en wat de volgende prioriteiten zijn. Geen 'sprintje en wegwezen'-mentaliteit, maar een doorlopend partnership waarin we samen aan de lange lijn werken.",
+      },
+    ],
+    relatedSlugs: ["priority-support", "custom-platform", "multi-site"],
+    faq: [
+      {
+        q: "Wat gebeurt er als jullie de SLA niet halen?",
+        a: "Als wij onze response-tijden of uptime-belofte niet halen, krijg je een afgesproken korting op je abonnement. In de praktijk hebben we dat de afgelopen jaren niet hoeven uit te betalen, maar de garantie staat zwart op wit in elke Scale-overeenkomst.",
+      },
+      {
+        q: "Kan ik mijn accountmanager altijd bereiken?",
+        a: "Op werkdagen direct via WhatsApp, telefoon of mail. Buiten kantooruren staat de urgent-route van het hele team open, en daar wordt elk critical issue direct opgepakt zonder dat we wachten tot maandag.",
+      },
+    ],
+    metaDescription:
+      "SLA met response-tijden en uptime-garanties, plus een eigen accountmanager die jouw business kent. Alleen in Scale.",
+  },
 };
 
 export const FORESTER_FAQS: ForesterFaqItem[] = [
