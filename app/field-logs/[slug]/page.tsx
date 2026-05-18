@@ -71,12 +71,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
             {l.body ? (
               <div
-                className="mt-12 relative rounded-[1.5rem] bg-white border border-[color:var(--color-line)] pl-10 pr-6 sm:pl-16 sm:pr-10 py-8 sm:py-10 shadow-[0_28px_64px_-30px_rgba(98,59,199,0.18)] overflow-hidden"
+                className="mt-12 relative rounded-[1.5rem] bg-white border border-[color:var(--color-line)] pl-10 pr-6 sm:pl-16 sm:pr-10 pt-8 pb-8 shadow-[0_28px_64px_-30px_rgba(98,59,199,0.18)] overflow-hidden"
                 style={{
                   backgroundImage:
                     "repeating-linear-gradient(to bottom, transparent 0, transparent 31px, rgba(98,59,199,0.18) 31px, rgba(98,59,199,0.18) 32px)",
                   backgroundSize: "100% 32px",
-                  backgroundPosition: "0 32px",
+                  backgroundPosition: "0 0",
                 }}
               >
                 {/* Rode dagboek-marge links, zoals op echt schoolschrift */}
@@ -94,62 +94,72 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                   className="absolute bottom-7 left-2 sm:left-4 h-2 w-2 rounded-full bg-[color:var(--color-bg)] ring-1 ring-[color:var(--color-line)]"
                 />
 
-                <div className="relative space-y-8 [&_p]:leading-8 [&_h2]:leading-8">
+                {/* Alles in deze container houdt zich aan een 32px baseline-grid: line-height 32px, marges in veelvouden van 32px. */}
+                <div
+                  className="relative text-[15.5px] text-[color:var(--color-ink)]"
+                  style={{ lineHeight: "32px" }}
+                >
                   {l.body.greeting && (
-                    <p className="font-[family-name:var(--font-display)] italic !text-[20px] sm:!text-[22px] text-[color:var(--color-purple)]">
+                    <p
+                      className="font-[family-name:var(--font-display)] italic text-[color:var(--color-purple)]"
+                      style={{ marginBottom: "32px" }}
+                    >
                       {l.body.greeting}
                     </p>
                   )}
 
-                  <div className="space-y-6">
-                    {l.body.intro.map((p, i) => (
-                      <p key={`intro-${i}`} className="text-[16px] sm:text-[16.5px] text-[color:var(--color-ink)]">
-                        {linkifyText(p)}
-                      </p>
-                    ))}
-                  </div>
+                  {l.body.intro.map((p, i) => (
+                    <p key={`intro-${i}`} style={{ marginBottom: "32px" }}>
+                      {linkifyText(p)}
+                    </p>
+                  ))}
 
                   {l.body.sections.map((s, i) => (
                     <section key={`sec-${i}`}>
-                      <div className="my-8 flex items-center gap-3 text-[color:var(--color-purple)]/30">
+                      <div
+                        className="flex items-center gap-3 text-[color:var(--color-purple)]/30"
+                        style={{ marginBottom: "32px", height: "32px" }}
+                      >
                         <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
-                        <span className="text-[14px] tracking-[0.4em] font-semibold">∗ ∗ ∗</span>
+                        <span className="text-[13px] tracking-[0.4em] font-semibold">∗ ∗ ∗</span>
                         <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
                       </div>
                       {s.title && (
-                        <h2 className="font-[family-name:var(--font-display)] italic font-semibold !text-[20px] sm:!text-[22px] tracking-[-0.005em] text-[color:var(--color-ink-strong)] mb-6">
+                        <p
+                          className="font-[family-name:var(--font-display)] italic font-semibold text-[color:var(--color-ink-strong)]"
+                          style={{ marginBottom: "32px" }}
+                        >
                           {s.title}
-                        </h2>
+                        </p>
                       )}
-                      <div className="space-y-6">
-                        {s.paragraphs.map((p, j) => (
-                          <p key={`sec-${i}-p-${j}`} className="text-[16px] sm:text-[16.5px] text-[color:var(--color-ink)]">
-                            {linkifyText(p)}
-                          </p>
-                        ))}
-                      </div>
+                      {s.paragraphs.map((p, j) => (
+                        <p key={`sec-${i}-p-${j}`} style={{ marginBottom: "32px" }}>
+                          {linkifyText(p)}
+                        </p>
+                      ))}
                     </section>
                   ))}
 
                   {l.body.outro.length > 0 && (
                     <div>
-                      <div className="my-8 flex items-center gap-3 text-[color:var(--color-purple)]/30">
+                      <div
+                        className="flex items-center gap-3 text-[color:var(--color-purple)]/30"
+                        style={{ marginBottom: "32px", height: "32px" }}
+                      >
                         <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
-                        <span className="text-[14px] tracking-[0.4em] font-semibold">∗ ∗ ∗</span>
+                        <span className="text-[13px] tracking-[0.4em] font-semibold">∗ ∗ ∗</span>
                         <span className="h-px flex-1 bg-[color:var(--color-purple)]/15" />
                       </div>
-                      <div className="space-y-6">
-                        {l.body.outro.map((p, i) => (
-                          <p key={`outro-${i}`} className="text-[16px] sm:text-[16.5px] text-[color:var(--color-ink)]">
-                            {linkifyText(p)}
-                          </p>
-                        ))}
-                      </div>
+                      {l.body.outro.map((p, i) => (
+                        <p key={`outro-${i}`} style={{ marginBottom: "32px" }}>
+                          {linkifyText(p)}
+                        </p>
+                      ))}
                     </div>
                   )}
 
                   {l.body.signature && (
-                    <p className="font-[family-name:var(--font-display)] italic !text-[18px] text-[color:var(--color-purple)]">
+                    <p className="font-[family-name:var(--font-display)] italic text-[color:var(--color-purple)]">
                       {l.body.signature}
                     </p>
                   )}
