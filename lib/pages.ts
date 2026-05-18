@@ -134,6 +134,28 @@ export const OPLOSSING_PAGES: SeoPage[] = [
       "Quickscans, calculators en slimme formulieren die van anonieme bezoekers concrete aanvragen maken, rechtstreeks in je CRM.",
   },
   {
+    path: "/oplossingen/vindbaarheid",
+    slug: "vindbaarheid",
+    h1: "Beter gevonden worden",
+    metaTitle: "Beter gevonden worden: SEO zonder los bureau | Webgrowth Company",
+    metaDescription:
+      "Search Console-inzichten, Q-suggesties en content die je rankings laat klimmen, allemaal in je groeiplatform.",
+    eyebrow: "Oplossingen",
+    intro:
+      "Search Console-inzichten, Q-suggesties en content die je rankings laat klimmen, allemaal in je groeiplatform.",
+  },
+  {
+    path: "/oplossingen/opvolging",
+    slug: "opvolging",
+    h1: "Klanten slim opvolgen",
+    metaTitle: "Klanten slim opvolgen: één CRM voor je sales-pijplijn | Webgrowth",
+    metaDescription:
+      "Geen lead meer kwijt: elke aanvraag landt in je CRM en wordt automatisch opgevolgd door je hele team.",
+    eyebrow: "Oplossingen",
+    intro:
+      "Geen lead meer kwijt: elke aanvraag landt in je CRM en wordt automatisch opgevolgd door je hele team.",
+  },
+  {
     path: "/oplossingen/ai-publiceren",
     slug: "ai-publiceren",
     h1: "Sneller publiceren met AI",
@@ -176,6 +198,28 @@ export const OPLOSSING_PAGES: SeoPage[] = [
     eyebrow: "Oplossingen",
     intro:
       "Offerteaanvragen, projecten en klantcommunicatie op één plek, met tools die concrete leads opleveren.",
+  },
+  {
+    path: "/oplossingen/transport",
+    slug: "transport",
+    h1: "Groeiplatform voor transport en logistiek",
+    metaTitle: "Groeiplatform voor transport en logistiek | Webgrowth Company",
+    metaDescription:
+      "Aanvraagformulieren mét traject en lading, een CRM voor klanten en ritten, en Q voor offerte-concepten. Voor transport, logistiek en koeriers.",
+    eyebrow: "Oplossingen",
+    intro:
+      "Aanvraagformulieren mét traject en lading, een CRM voor klanten en ritten, en Q voor offerte-concepten. Voor transport, logistiek en koeriers.",
+  },
+  {
+    path: "/oplossingen/mkb",
+    slug: "mkb",
+    h1: "Groeiplatform voor het MKB",
+    metaTitle: "Groeiplatform voor het MKB: website, CRM en marketing in één | Webgrowth",
+    metaDescription:
+      "Negen losse leveranciers vervangen door één abonnement: alles wat je MKB-bedrijf nodig heeft om te groeien.",
+    eyebrow: "Oplossingen",
+    intro:
+      "Negen losse leveranciers vervangen door één abonnement: alles wat je MKB-bedrijf nodig heeft om te groeien.",
   },
 ];
 

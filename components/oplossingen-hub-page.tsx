@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Briefcase,
+  Building2,
   Magnet,
   Palette,
   Search,
   Sparkles,
+  Truck,
   Users,
   Wrench,
   type LucideIcon,
@@ -46,13 +48,13 @@ const DOEL_TILES: DoelTile[] = [
     icon: Magnet,
   },
   {
-    href: "/forester-os/seo",
+    href: "/oplossingen/vindbaarheid",
     label: "Beter gevonden worden",
     desc: "Search Console-data en Q-suggesties die laten zien welke pagina je het eerst moet aanpakken.",
     icon: Search,
   },
   {
-    href: "/forester-os/crm",
+    href: "/oplossingen/opvolging",
     label: "Klanten slim opvolgen",
     desc: "Eén kanban-pijplijn voor je hele team, met taken, statussen en Q die meedenkt.",
     icon: Users,
@@ -83,6 +85,18 @@ const SECTOR_TILES: SectorTile[] = [
     label: "Bouw & techniek",
     desc: "Voor aannemers en installateurs. Offerte-aanvragen mét context (foto, afmetingen, budget).",
     icon: Wrench,
+  },
+  {
+    href: "/oplossingen/transport",
+    label: "Transport & logistiek",
+    desc: "Voor transportbedrijven en koeriers. Offerteaanvragen mét traject en lading, CRM voor ritten.",
+    icon: Truck,
+  },
+  {
+    href: "/oplossingen/mkb",
+    label: "MKB algemeen",
+    desc: "Voor MKB-bedrijven die negen losse tools willen vervangen door één maandfactuur.",
+    icon: Building2,
   },
 ];
 

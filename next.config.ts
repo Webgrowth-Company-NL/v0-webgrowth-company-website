@@ -18,12 +18,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      /* ── Placeholder-oplossingen die nog geen volle detail-content hebben,
-            doorverwijzen naar de meest relevante echte pagina. ────────── */
-      { source: "/oplossingen/vindbaarheid", destination: "/forester-os/seo", permanent: true },
-      { source: "/oplossingen/opvolging", destination: "/forester-os/crm", permanent: true },
-      { source: "/oplossingen/transport", destination: "/cases/mol-logistics", permanent: true },
-      { source: "/oplossingen/mkb", destination: "/oplossingen", permanent: true },
 
       /* ── Succesverhaal-specifieke matches ──── */
       {
