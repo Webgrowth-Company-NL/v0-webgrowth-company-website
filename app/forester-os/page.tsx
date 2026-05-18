@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ForesterOsFlow } from "@/components/forester-os-flow";
 import { ForesterOsHero } from "@/components/forester-os-hero";
+import { ForesterOsIncluded } from "@/components/forester-os-included";
 import { ForesterOsModules } from "@/components/forester-os-modules";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
@@ -61,8 +62,8 @@ const SOFTWARE_JSONLD = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "9.4",
-    bestRating: "10",
+    ratingValue: "5",
+    bestRating: "5",
     ratingCount: "227",
   },
 };
@@ -95,7 +96,9 @@ export default function Page() {
         <ForesterOsModules />
         <WaveDivider top={LAVENDER} bottom={DEEP} />
         <ForesterOsFlow />
-        <WaveDivider top={DEEP} bottom={LAVENDER} />
+        <WaveDivider top={DEEP} bottom={CREAM} />
+        <ForesterOsIncluded />
+        <WaveDivider top={CREAM} bottom={LAVENDER} />
         <SectionFaq
           items={FORESTER_FAQS}
           eyebrow="Vragen over het platform"
