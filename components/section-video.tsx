@@ -11,8 +11,13 @@ const EASE = [0.23, 1, 0.32, 1] as const;
  * Loom-embed laadt pas na een klik, zodat het Loom-script niet meteen op
  * pagelife het kritieke pad belast. De aspect-ratio (1000/651) komt
  * letterlijk uit de embed-code die Loom genereert.
+ *
+ * Thumbnail-GIF van Loom toont een preview-clip; loading=lazy zorgt dat
+ * de GIF pas geladen wordt zodra de sectie in de buurt van viewport komt.
  */
 const LOOM_EMBED_ID = "6003917f612844eda54a257777a41cd1";
+const LOOM_THUMBNAIL =
+  "https://cdn.loom.com/sessions/thumbnails/6003917f612844eda54a257777a41cd1-d2c6b7edb33d640c-full-play.gif";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 18 },
@@ -76,24 +81,22 @@ export function SectionVideo() {
               />
             ) : (
               <>
-                {/* gradient placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#2c1d5e] via-[#3a2570] to-[#5e3bc0]">
-                  <span aria-hidden className="absolute -top-24 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-                  <span aria-hidden className="absolute -bottom-28 -left-16 h-72 w-72 rounded-full bg-[#7c3aed]/30 blur-3xl" />
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
-                      backgroundSize: "28px 28px",
-                    }}
-                  />
-                </div>
+                {/* Loom preview-GIF als thumbnail. Plain <img> (geen Next/Image)
+                    om de GIF-animatie intact te houden en geen extra
+                    remotePatterns-config te hoeven onderhouden. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={LOOM_THUMBNAIL}
+                  alt=""
+                  aria-hidden
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
                 {/* dark overlay for legibility */}
                 <span
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-[rgba(12,6,18,0.45)] via-transparent to-[rgba(12,6,18,0.12)]"
+                  className="absolute inset-0 bg-gradient-to-t from-[rgba(12,6,18,0.55)] via-[rgba(12,6,18,0.18)] to-[rgba(12,6,18,0.25)]"
                 />
                 {/* bolt watermark */}
                 <span aria-hidden className="absolute top-5 left-6 inline-flex h-8 w-8 items-center justify-center opacity-90">
