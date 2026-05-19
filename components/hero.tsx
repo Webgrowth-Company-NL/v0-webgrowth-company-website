@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
@@ -20,19 +19,6 @@ const containerStagger = {
   show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
 };
 
-/* Geen filter:blur in de entrance: filter-animaties zijn niet composited en
-   geven juist op mobiel een stoterig gevoel + flag van PSI ("Een aan filters
-   gerelateerde eigenschap kan pixels verplaatsen"). Transform + opacity zijn
-   beide composited en voelen smooth. */
-const wordReveal = {
-  hidden: { opacity: 0, y: 14 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: EASE },
-  },
-};
-
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 14 },
   show: {
@@ -41,25 +27,6 @@ const fadeUp = (delay = 0) => ({
     transition: { duration: 0.7, ease: EASE, delay },
   },
 });
-
-function Words({ text }: { text: string }) {
-  const words = text.split(" ");
-  return (
-    <>
-      {words.map((w, i) => (
-        <Fragment key={`${w}-${i}`}>
-          <motion.span
-            variants={wordReveal}
-            className="inline-block will-change-[transform,opacity]"
-          >
-            {w}
-          </motion.span>
-          {i < words.length - 1 ? " " : null}
-        </Fragment>
-      ))}
-    </>
-  );
-}
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -136,7 +103,10 @@ export function Hero() {
               <span className="text-white font-semibold">Sinds 2016</span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline - LCP-element. Direct zichtbaar (geen framer-motion entrance)
+                zodat LCP gelijk valt aan FCP en niet wacht op JS-hydratie. De
+                hero heeft visueel genoeg leven via de eyebrow-puls, gradient en
+                het cyclende dashboard rechts. */}
             <h1
               className="
                 mt-7 font-[family-name:var(--font-display)] font-bold
@@ -145,10 +115,8 @@ export function Hero() {
                 text-white
               "
             >
-              <motion.span variants={containerStagger} className="block">
-                <Words text={HEADLINE_LINE1} />
-              </motion.span>
-              <motion.span variants={fadeUp(0.5)} className="block mt-1">
+              <span className="block">{HEADLINE_LINE1}</span>
+              <span className="block mt-1">
                 <span
                   className="inline bg-clip-text text-transparent"
                   style={{
@@ -159,7 +127,7 @@ export function Hero() {
                 >
                   {HEADLINE_LINE2}
                 </span>
-              </motion.span>
+              </span>
             </h1>
 
             {/* Subhead - LCP-element. Direct zichtbaar (geen framer-motion)
