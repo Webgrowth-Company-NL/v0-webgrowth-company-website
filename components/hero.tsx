@@ -1,12 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import { HeroDashboardLazy } from "@/components/hero-dashboard-lazy";
 import { KennismakingButton } from "@/components/kennismaking-button";
-
-const EASE = [0.23, 1, 0.32, 1] as const;
 
 /** Deep purple hero surface — keep in sync with the first <WaveDivider top=…> in app/page.tsx */
 const HERO_PURPLE = "#231653";
@@ -14,23 +11,12 @@ const HERO_PURPLE = "#231653";
 const HEADLINE_LINE1 = "Eén abonnement, negen tools minder.";
 const HEADLINE_LINE2 = "Meer groei.";
 
-const containerStagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
-};
-
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 14 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: EASE, delay },
-  },
-});
+/* De hero entrance draait nu volledig via CSS @keyframes hero-rise (zie
+   globals.css). Reden: framer-motion in de hero-bundle koste ~50KB gzip extra
+   op het kritieke pad voor een eenvoudige fade-up. CSS keyframes draaien
+   zonder JS-hydratie en respecteren prefers-reduced-motion via globals.css. */
 
 export function Hero() {
-  const reduce = useReducedMotion();
-
   return (
     <section
       className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 px-5 sm:px-8 text-white"
@@ -80,33 +66,25 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-center">
           {/* ── Left: copy ─────────────────────────── */}
-          <motion.div
-            variants={containerStagger}
-            initial="hidden"
-            animate="show"
-            className="max-w-2xl"
-          >
-            <motion.div
-              variants={fadeUp(0)}
-              className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full
+          <div className="max-w-2xl">
+            <div
+              className="hero-rise inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full
                          border border-white/15 bg-white/[0.07] backdrop-blur-sm
                          text-[12.5px] font-medium text-white/75"
             >
               <span className="relative inline-flex h-1.5 w-1.5">
                 <span
                   className="absolute inset-0 rounded-full bg-[color:var(--color-lavender)]"
-                  style={{ animation: reduce ? undefined : "soft-pulse 2.4s ease-in-out infinite" }}
+                  style={{ animation: "soft-pulse 2.4s ease-in-out infinite" }}
                 />
               </span>
               Premium groeiplatform
               <span className="text-white/35">·</span>
               <span className="text-white font-semibold">Sinds 2016</span>
-            </motion.div>
+            </div>
 
-            {/* Headline - LCP-element. Direct zichtbaar (geen framer-motion entrance)
-                zodat LCP gelijk valt aan FCP en niet wacht op JS-hydratie. De
-                hero heeft visueel genoeg leven via de eyebrow-puls, gradient en
-                het cyclende dashboard rechts. */}
+            {/* Headline - LCP-element. Geen entrance-animatie zodat LCP gelijk
+                valt aan FCP. */}
             <h1
               className="
                 mt-7 font-[family-name:var(--font-display)] font-bold
@@ -130,13 +108,16 @@ export function Hero() {
               </span>
             </h1>
 
-            {/* Subhead - LCP-element. Direct zichtbaar (geen framer-motion)
-                zodat de LCP-meting op mobiel niet wacht op een animation-start. */}
+            {/* Subhead - LCP-element. Forceer system-ui zodat de paint niet
+                wacht op een Geist-swap (Lighthouse measured 2,7s render delay
+                door font swap timing). System-ui is op iOS SF Pro en op
+                Android Roboto — kwalitatief hoog en direct beschikbaar. */}
             <p
               className="
                 mt-6 text-[17px] sm:text-[18px] leading-[1.6]
                 text-white/65 max-w-lg
               "
+              style={{ fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" }}
             >
               Eén platform brengt je website, CRM, marketing en AI-assistent Q samen,
               en wij houden het voor je draaiende zonder dat er voor elk uurtje een factuur
@@ -144,7 +125,10 @@ export function Hero() {
             </p>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp(0.85)} className="mt-9 flex flex-wrap items-center gap-3">
+            <div
+              className="hero-rise mt-9 flex flex-wrap items-center gap-3"
+              style={{ animationDelay: "0.85s" }}
+            >
               <Link
                 href="/website-apk"
                 className="
@@ -170,12 +154,12 @@ export function Hero() {
                 </span>
               </Link>
               <KennismakingButton variant="secondary-on-dark" />
-            </motion.div>
+            </div>
 
             {/* Trust row */}
-            <motion.div
-              variants={fadeUp(1.0)}
-              className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3"
+            <div
+              className="hero-rise mt-10 flex flex-wrap items-center gap-x-7 gap-y-3"
+              style={{ animationDelay: "1s" }}
             >
               <a
                 href="https://www.google.com/search?q=Webgrowth+Company+Breda+reviews"
@@ -221,8 +205,8 @@ export function Hero() {
                 </span>
                 Gebouwd in Nederland
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* ── Right: cycling dashboard (with its own view-dependent floating chips) ── */}
           <div className="relative h-[440px] sm:h-[560px] lg:h-[580px]">
