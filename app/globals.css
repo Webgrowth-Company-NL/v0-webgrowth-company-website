@@ -20,9 +20,9 @@
   /* Ink / text */
   --color-ink: #0c0612;
   --color-ink-strong: #050308;
-  --color-ink-muted: rgba(12, 6, 18, 0.62);
-  --color-ink-subtle: rgba(12, 6, 18, 0.42);
-  --color-ink-faint: rgba(12, 6, 18, 0.22);
+  --color-ink-muted: rgba(12, 6, 18, 0.68);
+  --color-ink-subtle: rgba(12, 6, 18, 0.55);
+  --color-ink-faint: rgba(12, 6, 18, 0.32);
 
   /* Brand - purple as primary, pink reserved for rare highlights */
   --color-purple: #623bc7;
@@ -50,34 +50,9 @@
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-@font-face {
-  font-family: "Gottak";
-  src: url("/fonts/Gottak-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gottak";
-  src: url("/fonts/Gottak-SemiBoldItalic.ttf") format("truetype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gottak";
-  src: url("/fonts/Gottak-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gottak";
-  src: url("/fonts/Gottak-Thin.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
+/* Gottak wordt geladen via next/font/local in app/layout.tsx (WOFF2 + automatische
+   preload). Hier dus geen @font-face nodig, anders triggert deze CSS de TTF-bestanden
+   weer op het kritieke pad en blijft LCP hangen. */
 
 html,
 body {
@@ -109,17 +84,6 @@ body {
   transform: scale(0.97);
 }
 
-/* Shimmer keyframe - used by gradient text in hero */
-@keyframes shimmer {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 /* Pulse dot for eyebrow */
 @keyframes soft-pulse {
   0%,
@@ -148,17 +112,6 @@ body {
 @keyframes orb-spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-/* Pulsing glow on the active dashboard tab */
-@keyframes tab-glow {
-  0%,
-  100% {
-    box-shadow: 0 2px 8px -2px rgba(98, 59, 199, 0.45), 0 0 0 0 rgba(98, 59, 199, 0.45);
-  }
-  50% {
-    box-shadow: 0 3px 11px -2px rgba(98, 59, 199, 0.6), 0 0 0 5px rgba(98, 59, 199, 0.12);
   }
 }
 

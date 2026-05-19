@@ -192,12 +192,11 @@ export function HeroDashboard({
                 transition={{ duration: 0.4, ease: EASE }}
                 className={[
                   "flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg px-1.5 py-1.5 text-[11px] font-semibold cursor-pointer",
-                  "transition-[background-color,color] duration-200 ease-out",
+                  "transition-[background-color,color,box-shadow] duration-200 ease-out",
                   isActive
-                    ? "bg-[color:var(--color-purple)] text-white"
+                    ? "bg-[color:var(--color-purple)] text-white shadow-[0_2px_10px_-2px_rgba(98,59,199,0.55),0_0_0_3px_rgba(98,59,199,0.14)]"
                     : "bg-[color:var(--color-bg-muted)]/70 text-[color:var(--color-ink-muted)] hover:bg-[color:var(--color-purple-soft)] hover:text-[color:var(--color-purple)]",
                 ].join(" ")}
-                style={isActive && !reduce ? { animation: "tab-glow 2.4s ease-in-out infinite" } : undefined}
               >
                 <v.icon className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} />
                 {v.short}

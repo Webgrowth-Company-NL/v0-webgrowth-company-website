@@ -20,12 +20,15 @@ const containerStagger = {
   show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
 };
 
+/* Geen filter:blur in de entrance: filter-animaties zijn niet composited en
+   geven juist op mobiel een stoterig gevoel + flag van PSI ("Een aan filters
+   gerelateerde eigenschap kan pixels verplaatsen"). Transform + opacity zijn
+   beide composited en voelen smooth. */
 const wordReveal = {
-  hidden: { opacity: 0, y: 14, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 14 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.7, ease: EASE },
   },
 };
@@ -47,7 +50,7 @@ function Words({ text }: { text: string }) {
         <Fragment key={`${w}-${i}`}>
           <motion.span
             variants={wordReveal}
-            className="inline-block will-change-[transform,opacity,filter]"
+            className="inline-block will-change-[transform,opacity]"
           >
             {w}
           </motion.span>
@@ -151,8 +154,6 @@ export function Hero() {
                   style={{
                     backgroundImage:
                       "linear-gradient(110deg, #ff0096 0%, #8b5cf6 50%, #c4b5fd 100%)",
-                    backgroundSize: "220% 220%",
-                    animation: reduce ? undefined : "shimmer 7s ease-in-out infinite",
                     WebkitBackgroundClip: "text",
                   }}
                 >
@@ -242,12 +243,13 @@ export function Hero() {
               {/* NL vlag - horizontaal rood/wit/blauw */}
               <div className="inline-flex items-center gap-2 text-[13.5px] text-white/65">
                 <span
-                  className="inline-flex flex-col h-4 w-6 overflow-hidden rounded-[2px] ring-1 ring-white/20"
+                  role="img"
                   aria-label="Nederlandse vlag"
+                  className="inline-flex flex-col h-4 w-6 overflow-hidden rounded-[2px] ring-1 ring-white/20"
                 >
-                  <span className="h-1/3 w-full bg-[#AE1C28]" />
-                  <span className="h-1/3 w-full bg-white" />
-                  <span className="h-1/3 w-full bg-[#21468B]" />
+                  <span aria-hidden className="h-1/3 w-full bg-[#AE1C28]" />
+                  <span aria-hidden className="h-1/3 w-full bg-white" />
+                  <span aria-hidden className="h-1/3 w-full bg-[#21468B]" />
                 </span>
                 Gebouwd in Nederland
               </div>
