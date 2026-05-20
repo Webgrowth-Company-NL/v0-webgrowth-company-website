@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { FieldLogPostit } from "@/components/field-log-postit";
 import { FIELD_LOGS } from "@/lib/field-logs";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -47,33 +48,19 @@ export function SectionFieldLogs() {
           </motion.div>
         </motion.div>
 
-        {/* Latest 2 + illustration tile */}
-        <div className="mt-12 sm:mt-14 grid md:grid-cols-3 gap-5 sm:gap-6">
+        {/* Latest 2 als lijntjes-notes + illustration tile als 3e cell */}
+        <div className="mt-12 sm:mt-14 grid md:grid-cols-3 gap-6 sm:gap-7 items-start">
           {LATEST.map((log, i) => (
-            <motion.article
+            <motion.div
               key={log.slug}
               initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.55, ease: EASE, delay: 0.15 + i * 0.08 }}
-              className="group relative flex flex-col rounded-2xl bg-[color:var(--color-bg-elevated)] border border-[color:var(--color-line)] p-6 sm:p-7 shadow-[0_1px_2px_rgba(12,6,18,0.04)] hover:shadow-[0_18px_44px_-22px_rgba(12,6,18,0.18)] hover:border-[color:var(--color-line-strong)] transition-[box-shadow,border-color] duration-300 ease-out"
+              className="will-change-[transform,opacity]"
             >
-              <Link href={`/field-logs/${log.slug}`} className="absolute inset-0" aria-label={log.title} />
-              <div className="flex items-center gap-2.5 text-[11.5px]">
-                <span className="rounded-full bg-[color:var(--color-purple-soft)] px-2.5 py-1 font-semibold text-[color:var(--color-purple)]">{log.tag}</span>
-                <span className="text-[color:var(--color-ink-subtle)]">{log.dateLabel}</span>
-                <span className="text-[color:var(--color-ink-faint)]">·</span>
-                <span className="text-[color:var(--color-ink-subtle)]">{log.readTime}</span>
-              </div>
-              <h3 className="mt-4 font-[family-name:var(--font-display)] font-bold text-[17px] sm:text-[18px] leading-[1.25] tracking-[-0.005em] text-[color:var(--color-ink-strong)] group-hover:text-[color:var(--color-purple)] transition-colors">
-                {log.title}
-              </h3>
-              <p className="mt-2.5 text-[13.5px] leading-relaxed text-[color:var(--color-ink-muted)] flex-1">{log.excerpt}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[color:var(--color-ink)] group-hover:text-[color:var(--color-purple)] transition-colors">
-                Lees verder
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2.5} />
-              </span>
-            </motion.article>
+              <FieldLogPostit log={log} index={i} />
+            </motion.div>
           ))}
 
           {/* Digital Writing illustration in the third slot — no card chrome */}

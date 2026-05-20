@@ -10,6 +10,7 @@ import { KennismakingButton } from "@/components/kennismaking-button";
 import { useKennismakingModal } from "@/components/kennismaking-modal-provider";
 import { SectionCta } from "@/components/section-cta";
 import { SectionFaq } from "@/components/section-faq";
+import { SectionRelatedFieldLogs } from "@/components/section-related-field-logs";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WaveDivider } from "@/components/wave-divider";
@@ -113,7 +114,19 @@ export function ModuleDetailPage({ slug }: { slug: string }) {
         <ModuleFeatures module={m} detail={detail} />
         <WaveDivider top={LAVENDER} bottom={WHITE} />
         <ModuleRelated current={m} related={related} />
-        <WaveDivider top={WHITE} bottom={LAVENDER} />
+        {detail.relatedFieldLogs && detail.relatedFieldLogs.length > 0 && (
+          <>
+            <WaveDivider top={WHITE} bottom={CREAM} />
+            <SectionRelatedFieldLogs
+              slugs={detail.relatedFieldLogs}
+              moduleLabel={m.label}
+            />
+            <WaveDivider top={CREAM} bottom={LAVENDER} />
+          </>
+        )}
+        {(!detail.relatedFieldLogs || detail.relatedFieldLogs.length === 0) && (
+          <WaveDivider top={WHITE} bottom={LAVENDER} />
+        )}
         <SectionFaq
           items={detail.faq}
           eyebrow={`Vragen over ${m.label}`}

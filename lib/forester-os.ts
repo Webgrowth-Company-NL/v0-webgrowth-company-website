@@ -293,6 +293,8 @@ export type ForesterModuleDetail = {
   widgets?: ModuleWidgetData[];
   /** Optioneel stappenplan: 'zo werkt het voor de klant', 4-6 stappen. */
   steps?: { eyebrow: string; title: string; intro: string; items: ProcessStep[] };
+  /** Slugs van field logs die dit moduleverhaal in de praktijk laten zien. */
+  relatedFieldLogs?: string[];
 };
 
 export type ForesterFaqItem = { q: string; a: string };
@@ -456,6 +458,10 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
         },
       ],
     },
+    relatedFieldLogs: [
+      "vervangingsscan-quickscan-nordflame",
+      "bag-integratie-quickscan-adalace",
+    ],
   },
   "sales-engine": {
     heroLead: "Schaal je expertise,",
@@ -542,6 +548,9 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
         },
       ],
     },
+    relatedFieldLogs: [
+      "training-enrollment-sales-engine-pink-elephant",
+    ],
   },
   crm: {
     heroLead: "Leads en deals visueel",
