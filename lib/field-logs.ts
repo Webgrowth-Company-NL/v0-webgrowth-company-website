@@ -38,6 +38,71 @@ export type FieldLog = {
 
 export const FIELD_LOGS: FieldLog[] = [
   {
+    slug: "training-enrollment-sales-engine-pink-elephant",
+    date: "2026-05-20",
+    dateLabel: "Mei 2026",
+    tag: "Sales Engines",
+    title: "De Training enrollment van Pink Elephant zit verkeerd ingedeeld in Forester OS, en dat zegt iets",
+    excerpt:
+      "Op de Pink-trainingpagina's staat een inschrijfflow die in twee minuten je collega-trio plant, bedrijfsgegevens vraagt en met iDeal of kaart afrekent. Wij hebben hem onder Lead Engines hangen, maar het ding doet eigenlijk een verkoop. Een notitie over waarom een engine die je geld oplevert iets anders is dan een engine die je een gesprek oplevert.",
+    readTime: "7 min",
+    body: {
+      greeting: "Lief dagboek, woensdag 20 mei 2026",
+      intro: [
+        "Volgende week gaat Pink Elephant live op pinkelephant.co.uk. We zitten in de laatste loodjes-fase: redirects controleren, popups uit het oude WordPress weghalen, mu-plugins testen. Maar tussendoor zat ik vanmiddag in de Forester-config van Pink een nieuwsbrief-template aan te passen, en mijn oog viel op iets dat me al een week of twee dwars zit.",
+        "Pink's Training enrollment staat in onze interface onder Lead Engines. Naast hun Tech Quick Quote, hun IT-Support Quick Quote, hun E-Learning demo en hun contactformulier. Logische plek, want het is dezelfde technologie: een wizardje op de WordPress-pagina dat een formulier opbouwt en aan onze backend hangt. Maar als ik kijk wat dat ding feitelijk doet, hoort 'ie daar helemaal niet.",
+        "Het genereert namelijk geen leads. Het genereert omzet. En dat verschil is groter dan een classificatie-detail.",
+      ],
+      sections: [
+        {
+          title: "Het winkelwagentje dat nooit echt werkte",
+          paragraphs: [
+            "Trainingen verkopen via een klassieke WooCommerce-winkelwagen is een dans van compromissen. Trainingen hebben datums, en datums zijn lastig als variant van een product. Trainingen hebben zaalcapaciteit, en voorraad-per-datum is iets waar een gemiddelde e-commerce-plugin van begint te bibberen. Trainingen worden zakelijk geboekt, vaak voor drie of vier collega's tegelijk, en een winkelwagen-UX die je laat klikken op 'voeg toe aan winkelwagen' en je dan naar een aparte checkout-pagina stuurt, is ontworpen voor één consument met één boek.",
+            "Het oude scenario bij dit type opdrachtgever is bijna altijd hetzelfde: een training-pagina met een datum-dropdown, een knop 'inschrijven', een redirect naar een winkelwagen-pagina die al niet meer dezelfde branding heeft, een checkout waar de bezoeker een hele rits velden tegenkomt die voor B2C-aankopen zijn bedacht (geen factuuradres, geen BTW-nummer, geen kostenplaats), en aan het eind een betaalmodule die misschien wel met iDeal werkt maar niet met de manier waarop een bedrijfs-administratie wíl betalen. Cart-abandonment is hier geen marketing-buzzword. Het is een meetbare deuk in de omzet.",
+            "Pink had die deuk dus ook. En het is precies het soort wrijving waar Forester voor bedoeld is om weg te halen.",
+          ],
+        },
+        {
+          title: "Alles in één flow op de course-pagina zelf",
+          paragraphs: [
+            "Wat we gebouwd hebben is geen winkelwagen, geen aparte checkout en zelfs niet echt een 'formulier' in de klassieke zin. Het is een multi-step enrollment die rechtstreeks op de course-pagina zelf draait. De bezoeker leest het verhaal van de training, scrollt naar beneden, en de inschrijving start daar. Geen redirect, geen contextverlies, geen 'wacht, naar welke pagina ben ik nu eigenlijk?'.",
+            "Onder de motorkap pakt de engine de huidige WordPress-pagina als bron (course-CPT), leest de ACF-repeater 'dates' uit voor de beschikbare data, en bouwt daar zelf de keuze-opties uit op. Pink's content-team zet dus simpelweg een nieuwe trainingsdatum in de CPT en de inschrijfflow weet het. Geen koppeling te configureren, geen synchronisatie te onderhouden.",
+            "Daarna komt het zakelijke deel: aantal deelnemers (tot vier per inschrijving, want bedrijfs-trios en kwartetten zijn de norm), bedrijfsgegevens, telefoonnummer, en pas dan de betaalstap. Per datum kan de engine maximaal 20 inschrijvingen ontvangen voordat de optie automatisch verdwijnt, dus de zaal kan niet overboeken. En als laatste rolt de bezoeker langs drie betaalroutes: factuur (voor de boekhoudingen die per se zo willen), Mollie voor iDeal en EU-creditcards, en Worldpay voor de UK-betalingen die op pinkelephant.co.uk straks binnenstromen.",
+            "Heel dat ding, van inhoudelijk-trainingsverhaal tot betalingsbevestiging, blijft op de course-pagina. De bezoeker switcht niet één keer van context.",
+          ],
+        },
+        {
+          title: "Waarom dit feitelijk een Sales Engine is",
+          paragraphs: [
+            "En hier komt de notitie waar dit dagboek-stukje eigenlijk over gaat. Een Lead Engine eindigt met een lead. Iemand vult een wizard in, jij krijgt context, en daarna start het mens-naar-mens-gesprek. De wizard heeft 't gesprek beter, sneller en gerichter gemaakt, maar het is nog steeds een vervolg-stap waar een sales-collega bij betrokken is. Onze Quick Quote-engines werken zo. De E-Learning demo werkt zo. Het contactformulier werkt zo.",
+            "Een Sales Engine eindigt niet met een lead. Die eindigt met een order. Iemand klikt op 'inschrijven', kiest een datum, vult de bedrijfsgegevens, betaalt direct, en is klaar. Geen telefoontje meer nodig. Geen offerte. Geen handmatige factuur. De training is geboekt, het geld staat klaar, en in het CRM van Pink staat alleen nog een bevestigde deelnemer.",
+            "Dat is geen Lead Engine met een betaalknopje. Dat is iets fundamenteel anders, omdat de uitkomst geld is, geen gesprek. En in onze interface staat 't dus op de verkeerde plek.",
+          ],
+        },
+        {
+          title: "Wat dat betekent voor de mensen die ermee werken",
+          paragraphs: [
+            "Het verschil zit niet alleen in semantiek. Een Lead Engine en een Sales Engine vragen om totaal andere metrics. Bij een Lead Engine wil je weten: hoeveel gesprekken levert dit op, wat is de gespreks-naar-deal conversie, wat is de gemiddelde deal-waarde van wat eruit volgt. Bij een Sales Engine wil je weten: hoeveel orders per week, gemiddelde ordergrootte, omzet per maand, no-show-rate. Compleet andere dashboards, compleet andere vervolgvragen.",
+            "Voor het Pink-team is het verschil ook praktisch. Op een Lead Engine moet sales een telefoontje plegen na elke binnenkomende submission, want anders blijft de lead in z'n eentje af te koelen liggen. Op de Training enrollment hoeft sales niets te doen. De deelnemer staat al in het systeem, de factuur is al verstuurd of de betaling al binnen, de mail met praktische info is al uit. Het sales-team kan zich richten op de échte advisory-trainingen-conversaties, de Tech-QQ-leads, de IT-support-vragen. Dingen waar een mens nog wezenlijk waarde toevoegt.",
+          ],
+        },
+        {
+          title: "Forester-werk voor mezelf voor binnenkort",
+          paragraphs: [
+            "De observatie is op zichzelf alleen iets, als er ook iets uit voortkomt. Dus de to-do voor Forester OS is helder: Sales Engines moet een eigen categorie worden in onze interface, naast Lead Engines. Met andere standaard-metrics (omzet, ordergrootte, doorlooptijd van wizard tot betaling), andere notificatie-templates (transactioneel, niet sales-opvolging) en een aparte filter in het CRM-overzicht waarmee je orders apart kunt bekijken van leads.",
+            "Het is een kleine UI-verschuiving met een grote conceptuele winst, want het maakt voor onze klanten direct duidelijk welk type wrijving Forester OS uit hun proces haalt. Een Lead Engine pakt de wrijving uit het kennismakingsmoment. Een Sales Engine pakt de wrijving uit het transactiemoment. Dat is een ander verhaal richting de markt, en het is een veel scherper verhaal als beide concepten naast elkaar staan.",
+            "Geen idee wanneer ik 't bouw, maar ik denk dat-ie er voor de zomer staat. Het is precies het soort kleine herindeling dat je productinterface jaren beter laat aanvoelen.",
+          ],
+        },
+      ],
+      outro: [
+        "Wil je het hele Pink Elephant-verhaal lezen, met de overgang van de oude pinkelephant.co.uk naar de nieuwe Webgrowth-stack, dan staat de case klaar. En heb je zelf een product of dienst waar je nu in een winkelwagen-trechter zit te wurmen terwijl het eigenlijk een directe enrollment of inschrijving moet zijn, dan loont 't gegarandeerd om die flow van de grond af opnieuw na te denken. Een winkelwagen is niet altijd het antwoord, soms is het juist het probleem.",
+        "PS, Janne, jij weet als geen ander hoe het is om grip te houden op een complex order-proces. Eerst bij Roll Group, nu bij Pink. Doorzetter, scherp en accuraat. Mooi om met je samen te werken.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
     slug: "bag-integratie-quickscan-adalace",
     date: "2026-05-18",
     dateLabel: "Mei 2026",
