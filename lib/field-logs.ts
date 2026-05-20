@@ -44,7 +44,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Sales Engines",
     title: "De Training enrollment van Pink Elephant zit verkeerd ingedeeld in Forester OS, en dat zegt iets",
     excerpt:
-      "Op de Pink-trainingpagina's staat een inschrijfflow die in twee minuten je collega-trio plant, bedrijfsgegevens vraagt en met iDeal of kaart afrekent. Wij hebben hem onder Lead Engines hangen, maar het ding doet eigenlijk een verkoop. Een notitie over waarom een engine die je geld oplevert iets anders is dan een engine die je een gesprek oplevert.",
+      "Op de Pink-trainingpagina's staat een Sales Engine: een inschrijfflow die in twee minuten een datum kiest, bedrijfsgegevens invult en met iDeal of kaart afrekent. In Forester OS staat-ie nog onder Lead Engines, maar het ding produceert directe omzet, geen gesprekken. Een notitie over waarom een engine die je geld oplevert iets anders is dan een engine die je een gesprek oplevert.",
     readTime: "7 min",
     body: {
       greeting: "Lief dagboek, woensdag 20 mei 2026",
