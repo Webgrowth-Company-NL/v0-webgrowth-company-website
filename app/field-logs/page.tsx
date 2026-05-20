@@ -59,7 +59,7 @@ export default function FieldLogsPage() {
                 className="hidden lg:flex items-center justify-center"
               >
                 <Image
-                  src="/illustrations/writing.svg"
+                  src="/illustrations/digital-writing.svg"
                   alt=""
                   width={520}
                   height={520}
