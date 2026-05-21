@@ -58,9 +58,11 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Marketing automations en workflows",
       "Automatische lead-opvolging",
       "E-mailcampagnes vanuit Forester",
+      "Advertentiecampagnes (Google & social)",
       "Priority support",
       "4 contactformulieren",
       "4 lead engines",
+      "2 sales engines (trainingen, cursussen, boekingen)",
       "Maximaal 50 SEO-keywords gemonitord",
       "Q (AI-assistent) met onbeperkt gebruik",
     ],
@@ -79,6 +81,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Dedicated development-team",
       "Strategisch partnership",
       "Onbeperkte lead engines en formulieren",
+      "Onbeperkte sales engines",
     ],
   },
 ];
@@ -95,6 +98,7 @@ export function getFeatureLink(feature: string): string | null {
   if (s.includes("forester os-toegang")) return "/forester-os";
   if (s.includes("crm voor contacten")) return "/forester-os/crm";
 
+  if (s.includes("sales engine")) return "/forester-os/sales-engine";
   if (s.includes("contactformulier") || s.includes("lead engine") || s.includes("lead engines en formulieren")) {
     return "/forester-os/lead-engine";
   }
@@ -103,6 +107,7 @@ export function getFeatureLink(feature: string): string | null {
   if (s.includes("koppelingen met externe tools")) return "/forester-os/integraties";
   if (s.includes("automation") || s.includes("automatische lead-opvolging")) return "/forester-os/automations";
   if (s.includes("e-mailcampagne")) return "/forester-os/nieuwsbrieven";
+  if (s.includes("advertentie")) return "/forester-os/advertenties";
   if (s.includes("priority support")) return "/forester-os/priority-support";
   if (s.includes("ai-assistent")) return "/forester-os/ai";
 

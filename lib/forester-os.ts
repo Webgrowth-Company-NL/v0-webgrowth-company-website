@@ -80,6 +80,7 @@ export const FORESTER_MODULES: ForesterModule[] = [
       "Trainingen, 1-op-1 sessies, programma's of digitale downloads. Alles wat jouw kennis verpakt zodat klanten zelf kunnen leren, boeken en kopen. De winkel, het inplannen, betaling en CRM-opvolging zitten erin.",
     features: ["Trainingen & cursussen", "Sessies & boekingen", "Digitale producten", "Lead scoring + CRM"],
     icon: ShoppingBag,
+    availableFrom: "growth",
   },
   {
     slug: "crm",
