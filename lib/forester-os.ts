@@ -130,6 +130,7 @@ export const FORESTER_MODULES: ForesterModule[] = [
       "Segmenteer op basis van wat in je CRM staat, schrijf met Q als sparring partner, en stuur vanuit je eigen domein. Geen losse Mailchimp meer.",
     features: ["Segmenten uit CRM", "Q als ghostwriter", "Eigen verzenddomein", "Analytics inbegrepen"],
     icon: Mail,
+    availableFrom: "growth",
   },
   {
     slug: "advertenties",
@@ -140,6 +141,7 @@ export const FORESTER_MODULES: ForesterModule[] = [
       "Google Ads en social-campagnes draaien vanuit Forester OS, gevoed door wat er in je CRM gebeurt. Q schrijft varianten, het dashboard laat zien welke euro waar landt.",
     features: ["Google Ads-koppeling", "Social campagnes", "Q-ad copy", "CRM-attributie"],
     icon: Megaphone,
+    availableFrom: "growth",
   },
 
   /* ──── Growth-features (Growth + Scale) ──── */
