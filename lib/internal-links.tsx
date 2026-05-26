@@ -46,6 +46,7 @@ const MODULE_TERMS: Array<{ term: string; href: string; external?: boolean }> = 
   { term: "NordFlame", href: "/cases/nordflame" },
   { term: "Adalace", href: "/cases/adalace" },
   { term: "De Samenleesclub", href: "/cases/de-samenleesclub" },
+  { term: "Balude", href: "/cases/balude" },
 
   // Externe authority-links (autoritaire bronnen) — SEO-boost
   {

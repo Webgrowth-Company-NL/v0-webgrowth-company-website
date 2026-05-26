@@ -114,6 +114,74 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
+    slug: "balude",
+    client: "Balude",
+    sector: "IT-dienstverlening & AI",
+    location: "Nederland",
+    headlineLead: "Een AI-first IT-partner",
+    headlineHighlight: "met een eigen betaalde online training.",
+    intro:
+      "Balude is een AI-first IT-dienstverlener die bedrijven helpt met AI-automatisering, software op maat, cloud op Europese servers en consultancy rond compliance. We bouwden voor hen balude.com in onze eigen dark-stijl en koppelden er meteen een primeur aan vast: de eerste Sales Engine in Forester OS. Bezoekers kopen daar de Balude AI-training online af, krijgen direct toegang via een magic-link, doen de eindtoets en ontvangen automatisch hun gepersonaliseerde certificaat per mail.",
+    pillars: ["Sales Engine primeur", "Mollie + Gemini + certificaat", "Vier diensten op één site"],
+    features: [
+      { label: "Eerste Sales Engine in Forester OS", body: "Balude is de allereerste klant op het nieuwe Sales Engine pattern. Een betaald digitaal product met checkout, levering, toets en certificaat zonder dat er ook maar één handmatige stap tussen zit." },
+      { label: "Gemini beoordeelt open vragen", body: "Open antwoorden in de eindtoets worden door Gemini 2.5 Flash gelezen en gescoord aan de hand van een rubric. Gesloten vragen rekenen we deterministisch af, scores zijn niet client-side te manipuleren." },
+      { label: "Mollie + magic-link + PDF op maat", body: "Bezoekers rekenen af via iDEAL of kaart, krijgen een magic-link in hun mailbox, doen de toets en ontvangen een persoonlijk A4 PDF-certificaat met uniek nummer in Balude's huisstijl." },
+    ],
+    img: "/images/clients/balude-hero.png",
+    imgAlt: "Balude website-hero: ICT die jouw bedrijf vooruit brengt, dark theme met paars en cyaan",
+    imgPosition: "center top",
+    logo: "/images/clients/balude.png",
+    liveUrl: "https://balude.com",
+    liveLabel: "balude.com",
+    metaTitle: "Case Balude: AI-first IT-partner met eigen Sales Engine | Webgrowth",
+    metaDescription:
+      "Hoe we voor Balude balude.com bouwden en er meteen de eerste Sales Engine van Forester OS aan koppelden: betaalde AI-training met Mollie-checkout, Gemini-grading en automatisch PDF-certificaat.",
+    challenge: {
+      title: "Een nieuwe IT-propositie scherp neerzetten, en er meteen een betaald product op laten draaien",
+      body:
+        "Balude bestaat uit Remco met een vast netwerk van specialisten en bouwt een AI-first IT-praktijk op. De propositie is breed: AI-agents en automatisering, software op maat (waaronder hun eigen PractiPlan), cloud op Europese servers in plaats van standaard Microsoft 365 en consultancy rond ISO 27001 en AI-roadmaps. Tegelijk wilde Remco direct vanaf de live-gang een betaalde AI-training kunnen verkopen als digitaal product, inclusief eindtoets en certificaat, zonder dat de afhandeling daarvan dagen handwerk kostte per cursist. Eén site, vier diensten die elk hun eigen verhaal verdienen, plus een betaalde leerlijn die volledig zelfstandig moet draaien.",
+    },
+    solution: [
+      {
+        title: "Een dark, AI-first site die vier diensten elk hun eigen pagina geeft",
+        body:
+          "We bouwden balude.com in een dark theme met paarse en cyaan accenten, conform de Balude-huisstijl. Elke kerndienst (AI-automatisering, Software op maat, Cloud Europa-first en Consultancy) kreeg een eigen landingspagina met dezelfde herkenbare structuur: hero met glass card, features-grid, klantcases, USP-video en formulier. De homepage geleidt bezoekers per intent naar de juiste dienst in plaats van alles op één hoop te gooien.",
+      },
+      {
+        title: "Yankee Free pakket: het cloud-verhaal naast Microsoft 365",
+        body:
+          "Op de cloud-pagina staat naast het reguliere Microsoft 365-verhaal het Yankee Free pakket: een Europees alternatief met Proton, OVH, Nextcloud en Tuta voor klanten die hun data bewust niet bij Amerikaanse hyperscalers willen onderbrengen. Een US/EU-toggle laat bezoekers direct de prijzen en featurevergelijking zien per stack, zodat de keuze concreet wordt in plaats van abstract.",
+      },
+      {
+        title: "Sales Engine: een nieuw concept in Forester OS, eerst getest op Balude",
+        body:
+          "De Balude AI-training is de eerste implementatie van een gloednieuw concept in Forester OS: de Sales Engine. Waar onze Lead Engines kwalificeren en routeren, verkoopt een Sales Engine een digitaal product end-to-end. Bezoekers rekenen af, krijgen direct toegang, doen de eindtoets en ontvangen automatisch hun certificaat. De architectuur is generiek opgezet, dus toekomstige klanten die online een training, examen of digitaal product willen verkopen kunnen op dezelfde rails meeliften.",
+      },
+      {
+        title: "Mollie-checkout met magic-link toegang en automatische facturen",
+        body:
+          "Cursisten rekenen af via Mollie (iDEAL, kaart, bancontact) en krijgen na betaling direct een magic-link in hun mailbox waarmee ze de training kunnen starten zonder eerst een account aan te maken. De tier-prijzen lopen door op aantallen: één tot 25 cursisten 79 euro per persoon (intro 59 euro), 25 tot 99 cursisten 49 euro en honderd of meer 39 euro. Volumekortingen zonder dat Remco met een offerteflow hoeft te beginnen.",
+      },
+      {
+        title: "Gemini beoordeelt open vragen, certificaten rollen automatisch uit",
+        body:
+          "De eindtoets bevat dertig vragen: gesloten vragen scoren we deterministisch, open vragen laten we Gemini 2.5 Flash beoordelen aan de hand van een gestructureerde rubric in JSON-output. De score komt server-side tot stand, dus client-side knoeien is uitgesloten. Bij een voldoende genereert het systeem een A4 landscape PDF-certificaat in Balude's huisstijl met een uniek volgnummer (BLD-YYYY-NNNN via een atomic counter) en stuurt dat direct als attachment naar de cursist via Postmark.",
+      },
+      {
+        title: "Multi-tenant van dag één, zodat het patroon herbruikbaar is",
+        body:
+          "Hoewel Balude de eerste Sales Engine-klant is, hebben we het patroon meteen multi-tenant gebouwd. Mollie-keys staan per website-document in Firestore, branding (kleuren, lettertype, certificaat-template) is per engine instelbaar en het admin-dashboard kan meerdere Sales Engines naast elkaar beheren. De volgende klant die een betaalde training of digitaal product wil verkopen plugt in op hetzelfde systeem zonder dat we het opnieuw hoeven uit te vinden.",
+      },
+    ],
+    results: [
+      { value: "Eerste", label: "Sales Engine in Forester OS", descriptor: "primeur op het platform, multi-tenant opgezet" },
+      { value: "End-to-end", label: "Geen handmatige stappen", descriptor: "betalen, toegang, toets, certificaat, mail" },
+      { value: "Gemini", label: "Open-vraag beoordeling", descriptor: "server-side scoring, niet te manipuleren" },
+      { value: "EU-first", label: "Cloud-alternatief", descriptor: "Yankee Free pakket naast Microsoft 365" },
+    ],
+  },
+  {
     slug: "pink-elephant",
     client: "Pink Elephant",
     sector: "IT-consultancy & ITSM",
@@ -134,7 +202,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     logo: "/images/clients/pink-elephant.png",
     liveUrl: "https://pinkelephant.co.uk",
     liveLabel: "pinkelephant.co.uk",
-    liveStatus: "coming-soon",
     metaTitle: "Case Pink Elephant: ITSM-site met vijf Lead Engines + PSI 99 | Webgrowth",
     metaDescription:
       "Hoe we voor Pink Elephant een ITSM-site opnieuw opbouwden in Forester OS: vijf Lead Engines, 744 redirects voor de domein-migratie en PSI-prestaties van 42 naar 99.",
