@@ -180,6 +180,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: "Gemini", label: "Open-vraag beoordeling", descriptor: "server-side scoring, niet te manipuleren" },
       { value: "EU-first", label: "Cloud-alternatief", descriptor: "Yankee Free pakket naast Microsoft 365" },
     ],
+    fieldLogSlug: "balude-ai-training-sales-engine",
   },
   {
     slug: "pink-elephant",

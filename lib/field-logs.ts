@@ -38,6 +38,73 @@ export type FieldLog = {
 
 export const FIELD_LOGS: FieldLog[] = [
   {
+    slug: "balude-ai-training-sales-engine",
+    date: "2026-05-26",
+    dateLabel: "Mei 2026",
+    tag: "Sales Engines",
+    title: "Balude's betaalde AI-training: een Sales Engine die geen zaal en geen agenda nodig heeft",
+    excerpt:
+      "Sinds 13 mei verkoopt Remco van Balude z'n eerste online AI-training. Geen Teachable, geen Coursebox, geen LMS-abonnement van honderd euro per maand. Wel een Sales Engine in Forester OS, met dertig vragen die deels door een taalmodel worden nagekeken en een certificaat dat direct in de mail valt. Een notitie over wat er gebeurt als je expertise digitaal wil verzilveren zonder dat je agenda erbij in de weg gaat zitten.",
+    readTime: "7 min",
+    body: {
+      greeting: "Lief dagboek, dinsdag 26 mei 2026",
+      intro: [
+        "Twee weken geleden, op 13 mei, ging de AI-training van Balude live. Vandaag pas zit ik er voor het eerst rustig achterover bij om op te schrijven wat we eigenlijk gebouwd hebben. Want in de hectiek van een livegang ben je vooral bezig met checken of de betaling doorkomt, of de mails op de juiste mailservers aankomen, of het certificaat de juiste naam draagt. De vraag wat dit ding in onze platform-architectuur betekent, schoof ik door naar later. Vandaag is later.",
+        "De training zelf is een mooi product. Remco geeft al jaren AI-advies aan advocatenkantoren, accountants en MKB-management, en die vraag werd elke maand groter, terwijl z'n agenda dat niet werd. Iedereen die in een gereguleerde sector werkt, wil z'n team aan een gemeenschappelijke basis krijgen: wat mag wel, wat mag niet, hoe prompt je zonder een cliëntdossier in een publiek model te kieperen. Dat is geen vraag die zich leent voor één-op-één-workshops als je het op enige schaal wilt doen.",
+        "Dus zochten we een manier om z'n expertise digitaal in een doosje te stoppen. En het bijzondere is: het is de eerste keer dat we een Sales Engine bouwen die volledig zonder agenda werkt. Geen datum-keuze, geen zaalcapaciteit, geen reisafstand, geen menselijke instructeur die op een ochtend in Utrecht moet staan. Pure software die een product levert, een toets afneemt en een certificaat genereert.",
+      ],
+      sections: [
+        {
+          title: "Het andere uiteinde van het Sales Engine-spectrum",
+          paragraphs: [
+            "Een paar weken geleden schreef ik over de Training enrollment van Pink Elephant, die qua techniek óók een Sales Engine is, maar met een heel andere fysieke realiteit erachter. Pink verkoopt klassikale trainingen met datums, zalen, instructeurs en koffieautomaten. Hun engine kiest een datum, telt deelnemers tegen zaalcapaciteit, en regelt vier mogelijke betaalvarianten. De wrijving die we daar wegnemen, zit aan de inschrijfkant, niet aan de leverkant. Het product zelf is fysiek en wordt door mensen geleverd.",
+            "Balude's AI-training zit aan het andere uiteinde van dat spectrum. Hier is het product óók de software. De engine verkoopt de training, levert hem en certificeert de afronding, allemaal in dezelfde keten zonder dat er iemand fysiek iets moet doen. Klant betaalt 's avonds om half elf via iDEAL, krijgt direct een welkomstmail, doorloopt de training in dertig minuten, beantwoordt de eindtoets, en heeft het certificaat in de mail voor middernacht. Geen wachtlijst, geen datumvoorkeur, geen instructeur die in z'n agenda moet kijken.",
+            "Dat zet onze Sales Engines op een spectrum van helemaal-mens-aan-de-andere-kant tot helemaal-software-aan-de-andere-kant. Pink zit op de menselijke pool, Balude op de softwarepool, en daartussen passen straks alle varianten waar het sales-team van een MKB nog wel moet bevestigen of inplannen maar geen offerte meer hoeft te bouwen. Dat hele midden hebben we nu in zicht, en dat voelt als een platform dat z'n vorm begint te vinden.",
+            "Voor de volledigheid: Balude is hiermee ook officieel de allereerste klant op het nieuwe Sales Engine-pattern in Forester OS. We hadden 't lang in onze tekentekeningen staan, en hij is dus letterlijk degene die ons ertoe heeft aangezet om 't ook werkelijk te bouwen.",
+          ],
+        },
+        {
+          title: "De toets die zichzelf nakijkt",
+          paragraphs: [
+            "Het stuk van de training waar ik me het meest aan heb verkneukeld is de toets aan het eind. Dertig vragen verdeeld over vier praktijkthema's: veilig delen van gegevens, effectief prompten, hallucinaties herkennen en algemeen begrip van wat een taalmodel feitelijk is. Een deel meerkeuze, een fors deel open. Want voor een training over verantwoord AI-gebruik werkt een binaire goed-of-fout-vraag niet altijd. Nuance is hier het halve verhaal.",
+            "Die open vragen laten we beoordelen door Gemini 2.5 Flash, server-side, zodat de score niet vanuit de browser te manipuleren is. Niet met een simpele woord-match, maar met een gestructureerde prompt die per vraag de rubric kent: wat moet er minimaal in het antwoord staan, welke nuances mogen ontbreken, wat is een rode vlag die op verkeerd begrip wijst. Het model krijgt de modelantwoorden als referentie mee, scoort het antwoord op die rubric, en geeft de cursist een korte motivatie te zien. Geen blackbox-cijfer, wel een feedback-zin waar je iets aan hebt.",
+            "Het werd pas goed nadat we de prompt een paar iteraties hadden gestrest met antwoorden van uiteenlopende strengheid. Een te scherp model wijst slim geformuleerde antwoorden af omdat ze niet letterlijk genoeg de termen herhalen. Een te mild model laat een slap antwoord door. We hebben de prompt zo lang aangepast tot Remco zelf zei: ja, dit lijkt op hoe ik 't zou doen. Dat moment, waarop een mens en het model op een set toets-antwoorden hetzelfde oordeel geven, voelde als een mijlpaaltje. Het is overigens precies het soort meta-grapje waar je in een AI-training niet onderuit kunt: de toets over verantwoord AI-gebruik wordt zelf door AI nagekeken, en de cursist krijgt te zien waarom.",
+            "Wie slaagt, krijgt een persoonlijk A4 PDF-certificaat met uniek nummer in Balude's huisstijl, direct in de mailbox. Geen plaatje uit een template, maar een echt document dat je kunt printen, ophangen of als bewijs van naleving in een dossier kunt stoppen. Dat detail bleek voor de juridische en accountancy-doelgroep belangrijker dan we vooraf hadden ingeschat.",
+          ],
+        },
+        {
+          title: "Twee Firestore-valkuilen die ons even stilzetten",
+          paragraphs: [
+            "In de eerste week na de livegang liepen we tegen twee silent fails aan die zo typisch Firestore zijn dat ik ze maar even opschrijf voor de volgende keer. De eerste was een order waarbij de organisatie-context undefined was. Firestore weigert documenten met undefined velden te schrijven, maar geeft daar geen duidelijke melding op terug. Resultaat: een order die in onze backend leek door te lopen maar nooit aankwam in het CRM-overzicht. We hebben 'm gevonden via de Mollie-webhook-log, waar de payment wel netjes als succesvol stond.",
+            "De tweede was een geneste array bij volume-orders. Voor een team van veertig advocaten houd je de deelnemers bij in een array. Maar als die deelnemers zelf weer een sub-array hebben (bijvoorbeeld een lijstje gekochte modules), weigert Firestore vanaf een bepaald nestingsniveau om dat netjes weg te schrijven. Opgelost door de structuur plat te slaan voor we wegschrijven.",
+            "Allebei opgespoord, allebei gefixt, en sinds die fixes loopt de hele keten van eerste klik tot certificaat in de inbox stabiel. Beide valkuilen staan nu op een interne checklist voor de volgende Sales Engine die we uitrollen, want ze gaan niet alleen over Balude. Elke order-flow die in Firestore landt zal vroeg of laat tegen één van die twee aanlopen.",
+          ],
+        },
+        {
+          title: "De volume-staffel maakt het verhaal pas écht interessant",
+          paragraphs: [
+            "Een individueel ticket kost normaal 79 euro, in de introductieperiode 59 euro. Maar het echte sales-mechaniek zit in de staffel. Vanaf 25 deelnemers zakt de prijs naar 49 euro per persoon, vanaf 100 deelnemers naar 39 euro. Dat zijn de tarieven waarmee een advocaten- of accountantskantoor z'n hele team in één keer mee laat doen. Eén centrale link, één factuur, één afronding van een AVG-discussie die anders nog maanden door blijft borrelen.",
+            "Voor Remco werkt dat businessmodel ineens heel anders dan een losse cursus. Hij hoeft per kantoor maar één gesprek te voeren, en de checkout doet de rest. Wie veertig licenties wil heeft binnen vier minuten z'n bestelling rond, krijgt z'n centrale dashboard, en deelt de plekken toe aan medewerkers. Iedere deelnemer een eigen account, eigen voortgang, eigen certificaat op naam. De manager ziet wie afgerond heeft en wie nog moet beginnen. Geen Excel-export, geen losse rapportages, alles in dezelfde omgeving.",
+            "Wat ik mooi vind aan die hele opzet: het businessmodel werkt zonder dat het op een marketplace of platform-as-a-service moet draaien. Geen 25% commissie aan Udemy, geen 30 euro per maand aan Teachable, geen tussenhandelaar die de relatie met de klant overneemt. Remco verkoopt onder z'n eigen merk, op z'n eigen domein, met z'n eigen klantenrelatie. Forester OS is de motor, maar Balude blijft de leverancier. Dat onderscheid is voor onze MKB-doelgroep belangrijker dan het op het eerste oog lijkt.",
+          ],
+        },
+        {
+          title: "Waar deze Sales Engine straks naartoe gaat",
+          paragraphs: [
+            "Het mooiste van deze opzet is dat we eigenlijk net een sjabloon hebben gebouwd. De magic-link-toegang na betaling, de Gemini-beoordeelde toets, het centrale dashboard voor teambeheer, de Mollie-checkout, het A4 PDF-certificaat per mail: allemaal componenten die nu klaar staan en die we voor een volgende cursus opnieuw kunnen samenstellen.",
+            "Remco heeft al een gevorderde variant in z'n hoofd, een AI-training specifiek voor juridische teams die dieper ingaat op tucht- en aansprakelijkheidsvraagstukken. Dat is straks geen tweede build, dat is een nieuwe Sales Engine op dezelfde infrastructuur met andere vragen, andere rubric en een ander certificaat. Hetzelfde geldt voor andere klanten die met een trainingsproduct zitten en niet weten hoe ze het zonder LMS-abonnement online moeten zetten. We hebben ze nu iets te laten zien dat werkt.",
+            "Voor Forester OS als platform betekent het ook iets. We hadden al de Lead Engines, met de Quickscans en Quick Quotes die een gesprek opleveren. We hebben nu twee duidelijke smaken Sales Engines: de menselijke (Pink's Training enrollment, met datum en zaal) en de pure software (Balude's AI-training, zonder agenda). Daartussen zit straks ruimte voor alles wat een MKB digitaal kan verkopen, van consultancy-uren tot abonnementen tot complete licentiemodellen. Eén keer goed bouwen, op heel veel plekken verzilveren.",
+          ],
+        },
+      ],
+      outro: [
+        "Wil je het hele Balude-verhaal lezen, met de wisseling van consulting naar productized expertise en hoe Remco z'n positionering opnieuw heeft scherpgesteld, dan komt die case er nog aan. En zit je zelf op zo'n moment dat je expertise begint te dichtslibben in één-op-één-gesprekken, dan kan een eigen digitale cursus of certificering een uitweg zijn. Niet voor iedereen, niet altijd, maar als de vraag zich herhaalt en je doelgroep ervoor wil betalen, is het tegenwoordig minder werk dan je denkt om 't goed op te zetten. Loop er gerust eens met mij doorheen.",
+        "PS, Remco, dat je in een paar weken tijd je positionering van advies naar product hebt durven kantelen, mét z'n eigen prijspunt en z'n eigen merkbeeld, vind ik typerend voor hoe jij in je vak staat. Mooi werk om aan mee te bouwen.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
     slug: "training-enrollment-sales-engine-pink-elephant",
     date: "2026-05-20",
     dateLabel: "Mei 2026",

@@ -552,6 +552,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       ],
     },
     relatedFieldLogs: [
+      "balude-ai-training-sales-engine",
       "training-enrollment-sales-engine-pink-elephant",
     ],
   },
