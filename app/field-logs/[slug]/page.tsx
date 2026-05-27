@@ -13,15 +13,73 @@ export function generateStaticParams() {
   return FIELD_LOGS.map((l) => ({ slug: l.slug }));
 }
 
+function truncate(text: string, max: number): string {
+  if (text.length <= max) return text;
+  return text.slice(0, max - 1).trimEnd() + "…";
+}
+
+function wordCount(l: ReturnType<typeof fieldLogBySlug>): number {
+  if (!l?.body) return 0;
+  const parts: string[] = [];
+  l.body.intro.forEach((p) => parts.push(p));
+  l.body.sections.forEach((s) => {
+    if (s.title) parts.push(s.title);
+    s.paragraphs.forEach((p) => parts.push(p));
+  });
+  l.body.outro.forEach((p) => parts.push(p));
+  return parts.join(" ").split(/\s+/).filter(Boolean).length;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const l = fieldLogBySlug(slug);
-  if (!l) return {};
+  if (!l) return { title: "Field log niet gevonden | Webgrowth" };
+
+  const seoTitle = `${l.metaTitle ?? l.title} | Webgrowth`;
+  const seoDescription = truncate(l.metaDescription ?? l.excerpt, 158);
+  const url = `https://webgrowth.company/field-logs/${slug}`;
+  const ogUrl = `${url}/opengraph-image`;
+
   return {
-    title: `${l.title} | Webgrowth Field Logs`,
-    description: l.excerpt,
+    title: seoTitle,
+    description: seoDescription,
+    keywords: l.keywords,
     alternates: { canonical: `/field-logs/${slug}` },
-    openGraph: { type: "article", title: l.title, description: l.excerpt },
+    authors: [{ name: "Martijn Duin", url: "https://webgrowth.company/over" }],
+    creator: "Martijn Duin",
+    publisher: "Webgrowth Company",
+    category: l.tag,
+    openGraph: {
+      type: "article",
+      locale: "nl_NL",
+      siteName: "Webgrowth Company",
+      url,
+      title: l.metaTitle ?? l.title,
+      description: seoDescription,
+      publishedTime: l.date,
+      modifiedTime: l.dateModified ?? l.date,
+      authors: ["Martijn Duin"],
+      section: l.tag,
+      tags: l.keywords,
+      images: [{ url: ogUrl, width: 1200, height: 630, alt: l.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: l.metaTitle ?? l.title,
+      description: seoDescription,
+      images: [ogUrl],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
 
@@ -30,16 +88,74 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const l = fieldLogBySlug(slug);
   if (!l) notFound();
 
-  const jsonLd = {
+  const url = `https://webgrowth.company/field-logs/${l.slug}`;
+  const ogUrl = `${url}/opengraph-image`;
+  const wc = wordCount(l);
+  const seoDescription = truncate(l.metaDescription ?? l.excerpt, 158);
+
+  const blogPostingLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: l.title,
-    description: l.excerpt,
+    "@id": `${url}#article`,
+    headline: l.metaTitle ?? l.title,
+    alternativeHeadline: l.title,
+    name: l.title,
+    description: seoDescription,
+    abstract: l.excerpt,
+    image: { "@type": "ImageObject", url: ogUrl, width: 1200, height: 630 },
     datePublished: l.date,
-    url: `https://webgrowth.company/field-logs/${l.slug}`,
-    author: { "@type": "Organization", name: "Webgrowth Company" },
-    publisher: { "@type": "Organization", name: "Webgrowth Company", url: "https://webgrowth.company" },
+    dateModified: l.dateModified ?? l.date,
+    inLanguage: "nl-NL",
+    isAccessibleForFree: true,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    articleSection: l.tag,
+    keywords: l.keywords?.join(", "),
+    wordCount: wc || undefined,
+    timeRequired: l.readTime ? `PT${parseInt(l.readTime, 10) || 5}M` : undefined,
+    author: {
+      "@type": "Person",
+      "@id": "https://webgrowth.company/over#martijn",
+      name: "Martijn Duin",
+      url: "https://webgrowth.company/over",
+      jobTitle: "Founder",
+      worksFor: { "@type": "Organization", name: "Webgrowth Company", url: "https://webgrowth.company" },
+      sameAs: ["https://www.linkedin.com/in/martijnduin/"],
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": "https://webgrowth.company#organization",
+      name: "Webgrowth Company",
+      url: "https://webgrowth.company",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://webgrowth.company/logo.png",
+        width: 512,
+        height: 512,
+      },
+    },
+    about: l.about?.map((a) => ({
+      "@type": "Thing",
+      name: a.name,
+      ...(a.sameAs ? { sameAs: a.sameAs } : {}),
+    })),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "[data-speakable]"],
+    },
   };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://webgrowth.company" },
+      { "@type": "ListItem", position: 2, name: "Field Logs", item: "https://webgrowth.company/field-logs" },
+      { "@type": "ListItem", position: 3, name: l.title, item: url },
+    ],
+  };
+
+  const jsonLd = [blogPostingLd, breadcrumbLd];
 
   return (
     <>
@@ -69,7 +185,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               <span className="text-[color:var(--color-ink-subtle)]">{l.readTime}</span>
             </div>
             <h1 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.1] tracking-[-0.02em] text-[color:var(--color-ink-strong)]">{l.title}</h1>
-            <p className="mt-5 text-[18px] sm:text-[19px] leading-[1.6] text-[color:var(--color-ink-muted)]">{l.excerpt}</p>
+            <p data-speakable className="mt-5 text-[18px] sm:text-[19px] leading-[1.6] text-[color:var(--color-ink-muted)]">{l.excerpt}</p>
 
             {l.body ? (
               <div

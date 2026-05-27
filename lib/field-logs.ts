@@ -25,6 +25,8 @@ export type FieldLog = {
   slug: string;
   /** ISO-datum, voor sortering + <time> */
   date: string;
+  /** Laatste-update-datum (ISO). Voor SEO/AI-search; fallback = date. */
+  dateModified?: string;
   /** Leesbare datum, bv. "Augustus 2025" */
   dateLabel: string;
   /** Onderwerp-tag, bv. "SEO", "Automatisering" */
@@ -32,6 +34,14 @@ export type FieldLog = {
   title: string;
   excerpt: string;
   readTime: string;
+  /** SEO-titel ≤60 chars (zonder " | Webgrowth Field Logs"-suffix). Fallback = title. */
+  metaTitle?: string;
+  /** SEO meta-description, ≤155 chars. Fallback = excerpt (vaak te lang voor SERP). */
+  metaDescription?: string;
+  /** Zoektermen die Google en AI-search aan dit log koppelen. */
+  keywords?: string[];
+  /** Entiteiten waar het log over gaat (voor AI Overviews / schema.org about). */
+  about?: Array<{ name: string; sameAs?: string }>;
   /** Volledige body. Logs zonder body tonen alleen titel + excerpt + 'binnenkort'-blok. */
   body?: FieldLogBody;
 };
@@ -45,6 +55,25 @@ export const FIELD_LOGS: FieldLog[] = [
     title: "Balude's betaalde AI-training: een Sales Engine die geen zaal en geen agenda nodig heeft",
     excerpt:
       "Sinds 13 mei verkoopt Remco van Balude z'n eerste online AI-training. Geen Teachable, geen Coursebox, geen LMS-abonnement van honderd euro per maand. Wel een Sales Engine in Forester OS, met dertig vragen die deels door een taalmodel worden nagekeken en een certificaat dat direct in de mail valt. Een notitie over wat er gebeurt als je expertise digitaal wil verzilveren zonder dat je agenda erbij in de weg gaat zitten.",
+    metaTitle: "Balude AI-training: Sales Engine in Forester OS",
+    metaDescription:
+      "Hoe Balude z'n betaalde AI-training online verkoopt via een Sales Engine in Forester OS: Mollie-checkout, Gemini-grading, magic-link en A4-certificaat.",
+    keywords: [
+      "Balude AI-training",
+      "Sales Engine",
+      "Forester OS",
+      "betaalde online cursus",
+      "AI-training advocaten",
+      "AI-training accountants",
+      "Gemini AI-grading",
+      "Mollie cursus checkout",
+    ],
+    about: [
+      { name: "Balude", sameAs: "https://balude.com" },
+      { name: "Mollie", sameAs: "https://www.mollie.com" },
+      { name: "Google Gemini", sameAs: "https://deepmind.google/technologies/gemini/" },
+      { name: "Forester OS" },
+    ],
     readTime: "7 min",
     body: {
       greeting: "Lief dagboek, dinsdag 26 mei 2026",
@@ -112,6 +141,25 @@ export const FIELD_LOGS: FieldLog[] = [
     title: "De Training enrollment van Pink Elephant zit verkeerd ingedeeld in Forester OS, en dat zegt iets",
     excerpt:
       "Op de Pink-trainingpagina's staat een Sales Engine: een inschrijfflow die in twee minuten een datum kiest, bedrijfsgegevens invult en met iDeal of kaart afrekent. In Forester OS staat-ie nog onder Lead Engines, maar het ding produceert directe omzet, geen gesprekken. Een notitie over waarom een engine die je geld oplevert iets anders is dan een engine die je een gesprek oplevert.",
+    metaTitle: "Pink Elephant training-inschrijving: Sales Engine",
+    metaDescription:
+      "Pink Elephant's training-inschrijving in twee minuten van datum tot betaling. Waarom een Sales Engine fundamenteel anders is dan een Lead Engine.",
+    keywords: [
+      "Pink Elephant",
+      "training inschrijven",
+      "Sales Engine",
+      "Lead Engine verschil",
+      "Forester OS",
+      "ITSM training",
+      "iDeal training betalen",
+      "WorldPay UK",
+    ],
+    about: [
+      { name: "Pink Elephant", sameAs: "https://www.pinkelephant.co.uk" },
+      { name: "Mollie", sameAs: "https://www.mollie.com" },
+      { name: "WorldPay", sameAs: "https://www.worldpay.com" },
+      { name: "Forester OS" },
+    ],
     readTime: "7 min",
     body: {
       greeting: "Lief dagboek, woensdag 20 mei 2026",
@@ -177,6 +225,28 @@ export const FIELD_LOGS: FieldLog[] = [
     title: "BAG-integratie in de Quickscan van Adalace: één adres als startpunt voor je hele intake",
     excerpt:
       "Adres invullen en de wizard weet al bouwjaar, oppervlakte en gebruiksdoel. Hoe we voor Adalace de BAG van het Kadaster koppelden aan een Quickscan-Lead Engine, en wat een kleine API-integratie voor het MKB betekent.",
+    metaTitle: "BAG-koppeling in Adalace Quickscan: adres als intake",
+    metaDescription:
+      "Hoe we de BAG van het Kadaster koppelden aan Adalace's Quickscan-Lead Engine: één adres, en bouwjaar, oppervlakte en gebruiksdoel zijn al bekend.",
+    keywords: [
+      "BAG-integratie",
+      "Kadaster API",
+      "Adalace",
+      "Quickscan Lead Engine",
+      "BAG koppeling website",
+      "intake automatiseren",
+      "Forester OS",
+      "MKB integratie",
+    ],
+    about: [
+      { name: "Adalace", sameAs: "https://adalace.nl" },
+      {
+        name: "Basisregistratie Adressen en Gebouwen",
+        sameAs: "https://www.kadaster.nl/zakelijk/registraties/basisregistraties/bag",
+      },
+      { name: "Kadaster", sameAs: "https://www.kadaster.nl" },
+      { name: "Forester OS" },
+    ],
     readTime: "8 min",
     body: {
       greeting: "Lief dagboek, maandag 18 mei 2026",
@@ -238,6 +308,25 @@ export const FIELD_LOGS: FieldLog[] = [
     title: "Twee scans, twee bezoekers: hoe we bij NordFlame de Vervangingsscan en Quickscan naast elkaar bouwden",
     excerpt:
       "Een pelletkachel-site moet twee soorten mensen tegelijk bedienen: de bewuste vervanger met Ecodesign 2027 in z'n hoofd, en de oriëntator die nog niet weet welk model bij z'n huis past. Hoe we voor NordFlame twee Lead Engine-scans naast elkaar bouwden, met Aurora-logica die meedenkt over een eventuele warmtepomp.",
+    metaTitle: "NordFlame: Vervangingsscan en Quickscan op één site",
+    metaDescription:
+      "Twee soorten bezoekers, twee Lead Engines. Hoe we voor NordFlame een Vervangingsscan (Ecodesign 2027) en Quickscan naast elkaar lieten draaien.",
+    keywords: [
+      "NordFlame",
+      "pelletkachel vervangen",
+      "Ecodesign 2027",
+      "Vervangingsscan",
+      "Quickscan pelletkachel",
+      "Lead Engine",
+      "Aurora warmtepomp",
+      "Forester OS",
+    ],
+    about: [
+      { name: "NordFlame", sameAs: "https://nordflame.nl" },
+      { name: "Ecodesign 2027" },
+      { name: "Aurora warmtepomp" },
+      { name: "Forester OS" },
+    ],
     readTime: "7 min",
     body: {
       greeting: "Lief dagboek, woensdag 13 mei 2026",
