@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   title: "Field Logs: bevindingen uit de praktijk over websites, leads & AI | Webgrowth",
   description:
     "De Webgrowth-blog: wat we bouwden, wat we leerden en wat het opleverde. Praktische inzichten over websites, vindbaarheid, leads en AI voor groeiende organisaties.",
-  alternates: { canonical: "/field-logs" },
+  alternates: {
+    canonical: "/field-logs",
+    types: { "application/rss+xml": "/field-logs/feed.xml" },
+  },
 };
 
 const jsonLd = {
