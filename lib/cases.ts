@@ -271,7 +271,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     imgPosition: "left center",
     videoSrc: "/videos/clients/nordflame-hero.mp4",
     logo: "/images/clients/nordflame.png",
-    liveUrl: "https://nordflame.nl",
+    liveUrl: "https://www.nordflame.nl",
     liveLabel: "nordflame.nl",
     metaTitle: "Case NordFlame: premium kachelplatform met scan-tools | Webgrowth",
     metaDescription:

@@ -322,7 +322,7 @@ export const FIELD_LOGS: FieldLog[] = [
       "Forester OS",
     ],
     about: [
-      { name: "NordFlame", sameAs: "https://nordflame.nl" },
+      { name: "NordFlame", sameAs: "https://www.nordflame.nl" },
       { name: "Ecodesign 2027" },
       { name: "Aurora warmtepomp" },
       { name: "Forester OS" },
