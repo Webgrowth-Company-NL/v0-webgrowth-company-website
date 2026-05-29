@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calendar, Check, ExternalLink, Loader2, X } from "lucide-react";
+import { captureUtmFromUrl, getStoredUtm } from "@/lib/utm";
 
 const FORESTER_API_BASE =
   process.env.NEXT_PUBLIC_FORESTER_API_BASE || "https://app.webgrowth.company";
@@ -26,6 +27,9 @@ export function KennismakingModalProvider({ children }: { children: React.ReactN
   const [isOpen, setIsOpen] = useState(false);
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
+
+  // Vang UTM van de landingspagina op (ad-herkomst) voor lead-attributie.
+  useEffect(() => { captureUtmFromUrl(); }, []);
 
   return (
     <KennismakingCtx.Provider value={{ isOpen, open, close }}>
@@ -182,10 +186,13 @@ function KennismakingModal({ open, onClose }: { open: boolean; onClose: () => vo
           attendeeName: name.trim(),
           firstName: name.trim().split(" ")[0],
           companyName: company.trim(),
+          utm: getStoredUtm(),
         }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Kon kennismaking niet inplannen");
+      // Fathom-conversie voor het lead-engine-event (ad-funnel + dashboard).
+      try { (window as unknown as { fathom?: { trackEvent?: (n: string) => void } }).fathom?.trackEvent?.("Lead engine: Kennismaking"); } catch { /* analytics nooit blokkerend */ }
       setMeetingLink(data.meetingLink ?? null);
       setStep("success");
     } catch (err) {
