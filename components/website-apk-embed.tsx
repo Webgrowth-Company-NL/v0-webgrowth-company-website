@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { APK_EMBED_URL } from "@/lib/website-apk";
+import { getStoredUtm } from "@/lib/utm";
 
 /** Beste-gok hoogte vóór de eerste postMessage uit Forester OS arriveert. */
 const INITIAL_HEIGHT = 640;
@@ -9,6 +10,23 @@ const INITIAL_HEIGHT = 640;
 export function WebsiteApkEmbed() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(INITIAL_HEIGHT);
+  const [src, setSrc] = useState<string>(APK_EMBED_URL);
+
+  // Geef de UTM-herkomst van de bezoeker door aan de scan-iframe, zodat een
+  // APK-aanvraag uit een advertentie als prospect in de ads-funnel telt.
+  useEffect(() => {
+    const here = new URLSearchParams(window.location.search);
+    const stored = getStoredUtm();
+    const source = here.get("utm_source") || stored.source || "";
+    const medium = here.get("utm_medium") || stored.medium || "";
+    const campaign = here.get("utm_campaign") || stored.campaign || "";
+    if (!source && !medium && !campaign) return;
+    const u = new URL(APK_EMBED_URL);
+    if (source) u.searchParams.set("utm_source", source);
+    if (medium) u.searchParams.set("utm_medium", medium);
+    if (campaign) u.searchParams.set("utm_campaign", campaign);
+    setSrc(u.toString());
+  }, []);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -42,7 +60,7 @@ export function WebsiteApkEmbed() {
         >
           <iframe
             ref={iframeRef}
-            src={APK_EMBED_URL}
+            src={src}
             title="Gratis Website APK"
             className="block w-full transition-[height] duration-300 ease-out"
             style={{ height: `${height}px`, border: 0, backgroundColor: "#2E186A" }}

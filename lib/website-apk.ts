@@ -8,7 +8,7 @@
  */
 
 export const APK_EMBED_URL =
-  "https://app.webgrowth.company/website-scan/embed?theme=forester";
+  "https://app.webgrowth.company/website-scan/embed?theme=forester&leadEngine=website-apk&ownerWebsiteId=C1PlnFQIFM1iEhrrwGfy";
 
 export type ApkFeature = { title: string; body: string; icon: ApkIconKey };
 
