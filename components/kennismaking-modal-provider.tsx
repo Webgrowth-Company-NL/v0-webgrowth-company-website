@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calendar, Check, ExternalLink, Loader2, X } from "lucide-react";
 import { captureUtmFromUrl, getStoredUtm } from "@/lib/utm";
+import { fireLeadConversion } from "@/lib/ads-conversion";
 
 const FORESTER_API_BASE =
   process.env.NEXT_PUBLIC_FORESTER_API_BASE || "https://app.webgrowth.company";
@@ -30,6 +31,20 @@ export function KennismakingModalProvider({ children }: { children: React.ReactN
 
   // Vang UTM van de landingspagina op (ad-herkomst) voor lead-attributie.
   useEffect(() => { captureUtmFromUrl(); }, []);
+
+  // Luister op een succesvolle APK-inzending uit de Forester-iframe; vuur de
+  // Google Ads-conversie af op het marketing-domein (waar de gclid-cookie staat).
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== "https://app.webgrowth.company") return;
+      const data = event.data;
+      if (data && typeof data === "object" && data.type === "website-scan-submitted") {
+        fireLeadConversion();
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
 
   return (
     <KennismakingCtx.Provider value={{ isOpen, open, close }}>
@@ -193,6 +208,8 @@ function KennismakingModal({ open, onClose }: { open: boolean; onClose: () => vo
       if (!res.ok) throw new Error(data.error || "Kon kennismaking niet inplannen");
       // Fathom-conversie voor het lead-engine-event (ad-funnel + dashboard).
       try { (window as unknown as { fathom?: { trackEvent?: (n: string) => void } }).fathom?.trackEvent?.("Lead engine: Kennismaking"); } catch { /* analytics nooit blokkerend */ }
+      // Google Ads-conversie (PMax-signaal) op het marketing-domein, waar de gclid-cookie staat.
+      fireLeadConversion();
       setMeetingLink(data.meetingLink ?? null);
       setStep("success");
     } catch (err) {

@@ -97,6 +97,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cdn.usefathom.com" />
         <link rel="preconnect" href="https://static.cloudflareinsights.com" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="min-h-screen flex flex-col">
         <KennismakingModalProvider>{children}</KennismakingModalProvider>
@@ -108,6 +110,19 @@ export default function RootLayout({
           data-site="XDEYWMOV"
           strategy="lazyOnload"
         />
+        {/* Google Ads gtag — vangt gclid op landingspagina en vuurt een
+            online lead-conversie af bij kennismaking + APK-inzending. */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-2301238639"
+          strategy="afterInteractive"
+        />
+        <Script id="ads-gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'AW-2301238639');
+        `}</Script>
       </body>
     </html>
   );
