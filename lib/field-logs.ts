@@ -48,6 +48,92 @@ export type FieldLog = {
 
 export const FIELD_LOGS: FieldLog[] = [
   {
+    slug: "forester-ads-google-ads-zonder-jargon",
+    date: "2026-06-01",
+    dateLabel: "Juni 2026",
+    tag: "Advertenties",
+    title: "Forester Ads: hoe je Google Ads bruikbaar maakt voor iemand die er doodsbang voor is",
+    excerpt:
+      "Forester ving bezoekers al op met Lead Engines en liet ze afrekenen met Sales Engines, maar al die tijd ging het over mensen die er al wáren. Met de Ads-feature pakken we eindelijk de bovenkant van de trechter. Het lastigste was niet de Google Ads API, maar de vraag hoe je een heel vakgebied terugbrengt tot één woord: Advertentie. Een notitie over PMax onder water, een budget dat niet kan ontsporen, en een funnel die je van euro tot aanvraag volgt.",
+    metaTitle: "Forester Ads: Google Ads zonder de jargon",
+    metaDescription:
+      "Hoe Forester OS Google Ads behapbaar maakt zonder SEA-kennis: één Advertentie in plaats van een campagne, PMax onder water en een funnel die spend tot prospect volgt.",
+    keywords: [
+      "Google Ads MKB",
+      "Forester OS",
+      "Performance Max",
+      "adverteren zonder SEA-kennis",
+      "Google Ads advocaten",
+      "Google Ads accountants",
+      "ads-funnel",
+      "advertentie maken zonder bureau",
+    ],
+    about: [
+      { name: "Google Ads", sameAs: "https://ads.google.com" },
+      { name: "Performance Max" },
+      { name: "Google Gemini", sameAs: "https://deepmind.google/technologies/gemini/" },
+      { name: "Forester OS" },
+    ],
+    readTime: "7 min",
+    body: {
+      greeting: "Lief dagboek, maandag 1 juni 2026",
+      intro: [
+        "Eerste maandag van juni, koffie binnen handbereik, en de Ads-feature van Forester draait nu een week of twee écht. De eerste advertenties staan live in echte Google Ads-accounts, met echt budget en echte vertoningen. Tijd dus om rustig op te schrijven wat we hier eigenlijk aan het platform hebben toegevoegd, want in de bouwhectiek zelf kom je daar nooit aan toe.",
+        "Want als ik er met wat afstand naar kijk, zie ik dat we een gat hebben gedicht waar ik lang overheen heb gekeken. Forester kon een bezoeker altijd al opvangen met een Lead Engine, een Quickscan of Quick Quote die iemand iets oplevert en ons parallel context geeft. En sinds kort kan Forester die bezoeker ook direct laten afrekenen met een Sales Engine. Maar allebei die dingen gaan ervan uit dat de bezoeker er al is. De vraag hoe iemand überhaupt op de site komt, lieten we stilzwijgend aan de klant zelf over.",
+        "En het lastigste aan deze hele feature was niet de Google Ads API, hoe taai die ook is. Het lastigste was de vraag waar ik wekenlang op heb zitten broeden: hoe maak je Google Ads bruikbaar voor iemand die er doodsbang voor is.",
+      ],
+      sections: [
+        {
+          title: "De bovenkant van de trechter die we steeds oversloegen",
+          paragraphs: [
+            "Forester begon met Lead Engines: wizards die een bezoeker een rapport, een aanbeveling of een berekening geven terwijl wij parallel de context binnenkrijgen. Daarna kwamen de Sales Engines, die niet eindigen met een gesprek maar met een order. Twee mooie stukken machine, maar ze hebben allebei hetzelfde blinde vlekje: ze beginnen pas te werken als er iemand op de pagina staat.",
+            "En precies dáár zit bij onze doelgroep het grootste gat. Advocaten, notarissen, accountants en hun teams hebben vaak een prima site met een prima Lead Engine erop, en dan komt er domweg te weinig volk langs. De trechter is keurig gebouwd, maar er valt bovenin bijna niks in. Een conversie-machine zonder verkeer is een hele nette etalage in een straat waar niemand loopt.",
+            "Ons antwoord op 'hoe kom ik aan bezoekers' was tot nu toe een schouderophaal richting SEO, dat traag is en geduld vraagt, of richting een SEA-bureau, dat duur is en waarbij de klant de grip op z'n eigen data kwijtraakt. Geen van beide past bij wat Forester wil zijn. Dus bouwden we de bovenkant van die trechter er zelf bij, in dezelfde omgeving als de rest.",
+          ],
+        },
+        {
+          title: "Eén woord in plaats van een heel vakgebied",
+          paragraphs: [
+            "De grootste ontwerp-knoop is dat Google Ads geen knop is maar een vakgebied. Campagnes, advertentiegroepen, asset groups, biedstrategieën, zoekwoorden, match-types, CPC, CPM, ROAS. Voor iemand die daar z'n brood niet mee verdient is dat een muur van jargon waar 'ie het liefst met een grote boog omheen loopt. En terecht, want elk van die knoppen kan je geld kosten als je 'm verkeerd zet.",
+            "Onze keuze was om die hele muur weg te hakken en er één woord van over te houden: Advertentie. Niet campagne. Je maakt in Forester een Advertentie, en onder water draait daarachter precies één Google Performance Max-campagne. Maar dat woord, en alle bijbehorende terminologie, komt de gebruiker simpelweg nooit tegen.",
+            "In deze eerste versie is het bewust alléén Performance Max. Geen Search met zoekwoorden, geen Display, geen power-user-toggle voor wie het naadje van de kous wil. Want PMax dekt het overgrote deel van wat onze klanten nodig hebben, namelijk iemand naar een bestaande landingspagina krijgen die al converteert. En het mooie is dat Google's eigen AI de zoekwoorden, het bieden en de plaatsingen kiest. Dat is precies het werk waar een SEA-specialist z'n uren aan besteedt, en precies het werk waar onze doelgroep geen verstand van wil hebben.",
+            "Het is dezelfde moeder-proof-filosofie als de rest van Forester. We verbergen de complexiteit niet door 'm weg te laten, maar door 'm achter Google's AI en een handvol slimme defaults te parkeren. De gebruiker neemt de beslissingen die ertoe doen, de machine doet de rest.",
+          ],
+        },
+        {
+          title: "Vijf vragen, geen muur van knoppen",
+          paragraphs: [
+            "Een Advertentie bouw je in vijf stappen, en alle vijf zijn ze in gewone taal gesteld. Welke pagina wil je promoten. Wat bied je aan. Voor wie is het. Wat mag het per maand kosten. En tot slot: wanneer is het geslaagd, een ingevuld formulier, een telefoontje of een mail. Dat is de hele flow. Geen tabblad met dertig instellingen, geen veld waarvan je je afvraagt of je het wel goed invult.",
+            "Wat de gebruiker niet ziet, is dat Gemini tussen die vragen door de headlines, de beschrijvingen en de doelgroep-signalen schrijft op basis van wat 'ie heeft ingevuld. Het beeldmateriaal trekt het systeem automatisch van de eigen website, de og:image en het app-icoon, en snijdt dat met sharp naar de vierkante en liggende formaten die Google voor PMax verlangt. De gebruiker hoeft dus geen advertentietekst te verzinnen en geen plaatjes aan te leveren. Dat doet de motor.",
+            "En de conversie-meting, juist het stukje waar de meeste zelf-geknutselde Google Ads-accounts stilletjes op stuklopen, koppelen we automatisch aan het Webgrowth Connector lead-formulier. De GCLID die Google meegeeft vangen we al bij binnenkomst af, dus een ingevulde Lead Engine telt vanzelf mee als conversie. Geen tag-manager-gedoe, geen losse pixel die je zelf ergens moet plakken en waarvan je nooit zeker weet of 'ie wel vuurt.",
+          ],
+        },
+        {
+          title: "Het budget dat niet kan ontsporen",
+          paragraphs: [
+            "De grootste angst bij Google Ads, zeker bij wie er niet dagelijks in zit, is dat het ding 's nachts ongemerkt je hele bankrekening leegtrekt. Dat is geen irrationele angst, het gebeurt mensen echt. Dus bouwden we daar een harde grens omheen.",
+            "Per website stel je één totaal-maandbudget in. Daarbinnen mag je meerdere advertenties hebben, bijvoorbeeld één per regio, één per dienst of één per landingspagina. Maar de budget-sliders van die losse advertenties kunnen samen nooit boven dat totaal uitkomen, het systeem laat het domweg niet toe. Pauzeer of verwijder je een advertentie, dan komt dat budget weer vrij voor de rest.",
+            "Het is een kleine technische ingreep met een groot psychologisch effect. De gebruiker weet dat het nooit meer kan worden dan het bedrag dat 'ie zelf heeft ingesteld, en dat is nu precies de zekerheid die iemand nodig heeft om überhaupt te dúrven beginnen met adverteren. Veiligheid is hier geen feature, het is de voorwaarde om de stap te zetten.",
+          ],
+        },
+        {
+          title: "De trechter die zichzelf eindelijk dichtmaakt",
+          paragraphs: [
+            "Het stuk waar ik het meest tevreden over ben is niet het aanmaken van een advertentie, maar wat je daarna ziet. Sinds eind mei taggen we elke advertentie-link automatisch met UTM-parameters, en hetzelfde doen we voor de nieuwsbrieven. Daardoor kunnen we voor het eerst de hele keten in één scherm laten zien.",
+            "Bovenin de trechter: vertoningen en kliks, die halen we rechtstreeks uit de Google Ads-sync. Daaronder de leads, het aantal bezoekers dat via een advertentie binnenkwam en niet meteen weer wegklikte. En onderin de prospects, de mensen die daadwerkelijk een Lead Engine hebben ingevuld en die we aan hun UTM-spoor als afkomstig uit een advertentie herkennen. Forester is daarbij bewust de bron van waarheid voor die onderkant, niet een los analytics-pakket.",
+            "Dat is de heilige graal voor een MKB-ondernemer. Niet 'we hebben zoveel vertoningen gehad', maar 'deze advertentie heeft me deze week drie ingevulde aanvragen opgeleverd, en dit is wat het me heeft gekost'. Spend bovenaan, een echte prospect onderaan, en alles ertussen zichtbaar in dezelfde omgeving. Geen Google Ads-tabblad naast een los analytics-tabblad naast een CRM-export, maar één verhaal van euro tot aanvraag.",
+            "Eerlijk is eerlijk: de onderkant van die trechter vult zich pas sinds de UTM-tagging er staat, dus historie is er nog nauwelijks. Maar vanaf nu telt elke klik mee, en over een paar weken hebben de eerste klanten een funnel die ze van het uitgegeven bedrag tot de binnengekomen aanvraag kunnen volgen. Dat is het moment waarop adverteren ophoudt een gok te zijn.",
+          ],
+        },
+      ],
+      outro: [
+        "Wil je het naadje van de Ads-feature weten, of zit je zelf met een prima site waar simpelweg te weinig volk op afkomt, dan is dit precies het gesprek dat ik graag voer. Adverteren hoeft geen vakgebied te zijn dat je noodgedwongen uitbesteedt of jarenlang vermijdt. Soms is het een kwestie van de juiste vijf vragen en een budget dat niet kan ontsporen.",
+        "PS, voor iedereen die Google Ads tot nu toe heeft weggewuifd als te ingewikkeld of als iets voor een bureau: dat was je goed recht, want het wás ingewikkeld. Het hele punt van deze feature is dat dat excuus nu vervalt. En dat vind ik bijna nog het mooiste eraan.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
     slug: "balude-ai-training-sales-engine",
     date: "2026-05-26",
     dateLabel: "Mei 2026",
