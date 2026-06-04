@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { APK_EMBED_URL } from "@/lib/website-apk";
 import { getStoredUtm } from "@/lib/utm";
+import { fireLeadConversion } from "@/lib/ads-conversion";
 
 /** Beste-gok hoogte vóór de eerste postMessage uit Forester OS arriveert. */
 const INITIAL_HEIGHT = 640;
@@ -11,6 +12,8 @@ export function WebsiteApkEmbed() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(INITIAL_HEIGHT);
   const [src, setSrc] = useState<string>(APK_EMBED_URL);
+  // Eén keer vuren: de scan-iframe kan het submitted-bericht meerdere keren sturen.
+  const conversionFired = useRef(false);
 
   // Geef de UTM-herkomst van de bezoeker door aan de scan-iframe, zodat een
   // APK-aanvraag uit een advertentie als prospect in de ads-funnel telt.
@@ -42,6 +45,16 @@ export function WebsiteApkEmbed() {
         // Trust the embed — geen extra floor, anders staat er witte ruimte
         // onder de scan-content op de eerste (URL-)stap.
         setHeight(Math.round(data.height));
+      } else if (
+        data &&
+        typeof data === "object" &&
+        data.type === "website-scan-submitted" &&
+        !conversionFired.current
+      ) {
+        // Een ingevulde APK uit de iframe (ander domein) → vuur hier op de
+        // marketingsite de Google Ads-conversie, want de gclid-cookie staat hier.
+        conversionFired.current = true;
+        fireLeadConversion();
       }
     };
     window.addEventListener("message", handleMessage);
