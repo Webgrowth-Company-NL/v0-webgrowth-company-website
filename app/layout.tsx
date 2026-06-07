@@ -113,7 +113,7 @@ export default function RootLayout({
         {/* Google Ads gtag — vangt gclid op landingspagina en vuurt een
             online lead-conversie af bij kennismaking + APK-inzending. */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-2301238639"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-10995475278"
           strategy="afterInteractive"
         />
         <Script id="ads-gtag-init" strategy="afterInteractive">{`
@@ -121,7 +121,7 @@ export default function RootLayout({
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
           gtag('js', new Date());
-          gtag('config', 'AW-2301238639');
+          gtag('config', 'AW-10995475278');
         `}</Script>
       </body>
     </html>
