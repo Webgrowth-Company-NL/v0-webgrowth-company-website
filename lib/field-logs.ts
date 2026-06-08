@@ -56,7 +56,7 @@ export const FIELD_LOGS: FieldLog[] = [
     title: "Forester Ads: hoe je Google Ads bruikbaar maakt voor iemand die er doodsbang voor is",
     excerpt:
       "Forester ving bezoekers al op met Lead Engines en liet ze afrekenen met Sales Engines, maar al die tijd ging het over mensen die er al wáren. Met de Ads-feature pakken we eindelijk de bovenkant van de trechter. Het lastigste was niet de Google Ads API, maar de vraag hoe je een heel vakgebied terugbrengt tot één woord: Advertentie. Een notitie over waarom we van Performance Max naar Google Search zijn omgeslagen, een budget dat niet kan ontsporen, en een funnel die je van euro tot aanvraag volgt.",
-    metaTitle: "Forester Ads: Google Ads zonder de jargon",
+    metaTitle: "Forester Ads: Google Ads zonder jargon",
     metaDescription:
       "Hoe Forester OS Google Ads behapbaar maakt zonder SEA-kennis: één Advertentie in plaats van een campagne, Google Search als default en een funnel die spend tot prospect volgt.",
     keywords: [
