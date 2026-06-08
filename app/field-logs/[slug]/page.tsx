@@ -38,7 +38,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const seoTitle = `${l.metaTitle ?? l.title} | Webgrowth`;
   const seoDescription = truncate(l.metaDescription ?? l.excerpt, 158);
   const url = `https://webgrowth.company/field-logs/${slug}`;
-  const ogUrl = `${url}/opengraph-image`;
+  // Vaste field-log share-afbeelding (WhatsApp/social rendert geen SVG of
+  // extensieloze edge-OG-routes betrouwbaar, daarom een statische .png).
+  const ogUrl = "https://webgrowth.company/og/field-log.png";
 
   return {
     title: seoTitle,
@@ -61,7 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       authors: ["Martijn Duin"],
       section: l.tag,
       tags: l.keywords,
-      images: [{ url: ogUrl, width: 1200, height: 630, alt: l.title }],
+      images: [{ url: ogUrl, width: 1200, height: 630, alt: l.title, type: "image/png" }],
     },
     twitter: {
       card: "summary_large_image",
@@ -89,7 +91,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (!l) notFound();
 
   const url = `https://webgrowth.company/field-logs/${l.slug}`;
-  const ogUrl = `${url}/opengraph-image`;
+  const ogUrl = "https://webgrowth.company/og/field-log.png";
   const wc = wordCount(l);
   const seoDescription = truncate(l.metaDescription ?? l.excerpt, 158);
 
