@@ -49,18 +49,20 @@ export type FieldLog = {
 export const FIELD_LOGS: FieldLog[] = [
   {
     slug: "forester-ads-google-ads-zonder-jargon",
-    date: "2026-06-01",
+    date: "2026-06-08",
+    dateModified: "2026-06-08",
     dateLabel: "Juni 2026",
     tag: "Advertenties",
     title: "Forester Ads: hoe je Google Ads bruikbaar maakt voor iemand die er doodsbang voor is",
     excerpt:
-      "Forester ving bezoekers al op met Lead Engines en liet ze afrekenen met Sales Engines, maar al die tijd ging het over mensen die er al wáren. Met de Ads-feature pakken we eindelijk de bovenkant van de trechter. Het lastigste was niet de Google Ads API, maar de vraag hoe je een heel vakgebied terugbrengt tot één woord: Advertentie. Een notitie over PMax onder water, een budget dat niet kan ontsporen, en een funnel die je van euro tot aanvraag volgt.",
+      "Forester ving bezoekers al op met Lead Engines en liet ze afrekenen met Sales Engines, maar al die tijd ging het over mensen die er al wáren. Met de Ads-feature pakken we eindelijk de bovenkant van de trechter. Het lastigste was niet de Google Ads API, maar de vraag hoe je een heel vakgebied terugbrengt tot één woord: Advertentie. Een notitie over waarom we van Performance Max naar Google Search zijn omgeslagen, een budget dat niet kan ontsporen, en een funnel die je van euro tot aanvraag volgt.",
     metaTitle: "Forester Ads: Google Ads zonder de jargon",
     metaDescription:
-      "Hoe Forester OS Google Ads behapbaar maakt zonder SEA-kennis: één Advertentie in plaats van een campagne, PMax onder water en een funnel die spend tot prospect volgt.",
+      "Hoe Forester OS Google Ads behapbaar maakt zonder SEA-kennis: één Advertentie in plaats van een campagne, Google Search als default en een funnel die spend tot prospect volgt.",
     keywords: [
       "Google Ads MKB",
       "Forester OS",
+      "Google Search advertenties",
       "Performance Max",
       "adverteren zonder SEA-kennis",
       "Google Ads advocaten",
@@ -71,14 +73,16 @@ export const FIELD_LOGS: FieldLog[] = [
     about: [
       { name: "Google Ads", sameAs: "https://ads.google.com" },
       { name: "Performance Max" },
+      { name: "Claude", sameAs: "https://www.anthropic.com/claude" },
+      { name: "Anthropic", sameAs: "https://www.anthropic.com" },
       { name: "Google Gemini", sameAs: "https://deepmind.google/technologies/gemini/" },
       { name: "Forester OS" },
     ],
-    readTime: "7 min",
+    readTime: "8 min",
     body: {
-      greeting: "Lief dagboek, maandag 1 juni 2026",
+      greeting: "Lief dagboek, maandag 8 juni 2026",
       intro: [
-        "Eerste maandag van juni, koffie binnen handbereik, en de Ads-feature van Forester draait nu een week of twee écht. De eerste advertenties staan live in echte Google Ads-accounts, met echt budget en echte vertoningen. Tijd dus om rustig op te schrijven wat we hier eigenlijk aan het platform hebben toegevoegd, want in de bouwhectiek zelf kom je daar nooit aan toe.",
+        "Tweede maandag van juni, koffie binnen handbereik, en de Ads-feature van Forester draait nu een paar weken écht. De eerste advertenties staan live in echte Google Ads-accounts, met echt budget, echte vertoningen en inmiddels de eerste echte cijfers. En precies die cijfers hebben ons de afgelopen week iets geleerd dat de feature op een belangrijk punt heeft omgegooid. Tijd dus om rustig op te schrijven waar we staan, want in de bouwhectiek zelf kom je daar nooit aan toe.",
         "Want als ik er met wat afstand naar kijk, zie ik dat we een gat hebben gedicht waar ik lang overheen heb gekeken. Forester kon een bezoeker altijd al opvangen met een Lead Engine, een Quickscan of Quick Quote die iemand iets oplevert en ons parallel context geeft. En sinds kort kan Forester die bezoeker ook direct laten afrekenen met een Sales Engine. Maar allebei die dingen gaan ervan uit dat de bezoeker er al is. De vraag hoe iemand überhaupt op de site komt, lieten we stilzwijgend aan de klant zelf over.",
         "En het lastigste aan deze hele feature was niet de Google Ads API, hoe taai die ook is. Het lastigste was de vraag waar ik wekenlang op heb zitten broeden: hoe maak je Google Ads bruikbaar voor iemand die er doodsbang voor is.",
       ],
@@ -95,16 +99,17 @@ export const FIELD_LOGS: FieldLog[] = [
           title: "Eén woord in plaats van een heel vakgebied",
           paragraphs: [
             "De grootste ontwerp-knoop is dat Google Ads geen knop is maar een vakgebied. Campagnes, advertentiegroepen, asset groups, biedstrategieën, zoekwoorden, match-types, CPC, CPM, ROAS. Voor iemand die daar z'n brood niet mee verdient is dat een muur van jargon waar 'ie het liefst met een grote boog omheen loopt. En terecht, want elk van die knoppen kan je geld kosten als je 'm verkeerd zet.",
-            "Onze keuze was om die hele muur weg te hakken en er één woord van over te houden: Advertentie. Niet campagne. Je maakt in Forester een Advertentie, en onder water draait daarachter precies één Google Performance Max-campagne. Maar dat woord, en alle bijbehorende terminologie, komt de gebruiker simpelweg nooit tegen.",
-            "In deze eerste versie is het bewust alléén Performance Max. Geen Search met zoekwoorden, geen Display, geen power-user-toggle voor wie het naadje van de kous wil. Want PMax dekt het overgrote deel van wat onze klanten nodig hebben, namelijk iemand naar een bestaande landingspagina krijgen die al converteert. En het mooie is dat Google's eigen AI de zoekwoorden, het bieden en de plaatsingen kiest. Dat is precies het werk waar een SEA-specialist z'n uren aan besteedt, en precies het werk waar onze doelgroep geen verstand van wil hebben.",
-            "Het is dezelfde moeder-proof-filosofie als de rest van Forester. We verbergen de complexiteit niet door 'm weg te laten, maar door 'm achter Google's AI en een handvol slimme defaults te parkeren. De gebruiker neemt de beslissingen die ertoe doen, de machine doet de rest.",
+            "Onze keuze was om die hele muur weg te hakken en er één woord van over te houden: Advertentie. Niet campagne, niet advertentiegroep, niet asset group. Je maakt in Forester een Advertentie, en wat daarachter precies aan Google-machinerie draait, krijgt de gebruiker simpelweg nooit te zien.",
+            "In de eerste weken draaide daarachter standaard één Performance Max-campagne, Google's volautomatische variant die zelf zoekwoorden, bieden en plaatsingen kiest. Op papier ideaal voor onze doelgroep. In de praktijk zagen we iets anders. PMax kocht vooral goedkope ruis: klikken van vier tienden van een cent, duizenden vertoningen, en aan het eind van de rit nul aanvragen. Een net cijfer in het dashboard dat onderaan de streep niks opleverde.",
+            "Dus hebben we de motor omgedraaid. Een nieuwe Advertentie draait sinds deze maand standaard op Google Search, de gewone tekstadvertenties die bovenaan verschijnen als iemand letterlijk intypt wat 'ie zoekt. Dat is duurder per klik, maar je betaalt voor iemand met een vraag in z'n hoofd in plaats van voor een willekeurige scroll. En dat verschil zien we nu live terug: van de mensen die via Search op een scan binnenkomen, start een flink deel daadwerkelijk de funnel. Performance Max is niet weg, maar verhuisd naar een knop Geavanceerd, voor wie 'm bewust wil aanzetten. De default is nu de variant die mensen trekt die écht zoeken.",
+            "Het is dezelfde moeder-proof-filosofie als de rest van Forester. We verbergen de complexiteit niet door 'm weg te laten, maar door 'm achter een handvol slimme defaults en wat eigen rekenwerk te parkeren. De gebruiker neemt de beslissingen die ertoe doen, de machine doet de rest.",
           ],
         },
         {
           title: "Vijf vragen, geen muur van knoppen",
           paragraphs: [
             "Een Advertentie bouw je in vijf stappen, en alle vijf zijn ze in gewone taal gesteld. Welke pagina wil je promoten. Wat bied je aan. Voor wie is het. Wat mag het per maand kosten. En tot slot: wanneer is het geslaagd, een ingevuld formulier, een telefoontje of een mail. Dat is de hele flow. Geen tabblad met dertig instellingen, geen veld waarvan je je afvraagt of je het wel goed invult.",
-            "Wat de gebruiker niet ziet, is dat Gemini tussen die vragen door de headlines, de beschrijvingen en de doelgroep-signalen schrijft op basis van wat 'ie heeft ingevuld. Het beeldmateriaal trekt het systeem automatisch van de eigen website, de og:image en het app-icoon, en snijdt dat met sharp naar de vierkante en liggende formaten die Google voor PMax verlangt. De gebruiker hoeft dus geen advertentietekst te verzinnen en geen plaatjes aan te leveren. Dat doet de motor.",
+            "Wat de gebruiker niet ziet, is dat er tussen die vragen door een hoop wordt geschreven op basis van wat 'ie heeft ingevuld. De zoekwoorden en de advertentieteksten voor Search laten we door Claude bedenken, het taalmodel waar we ook de rest van onze copy mee maken, omdat dat in onze tests simpelweg de scherpste, meest mensentaal-achtige zoekzinnen oplevert. Voor wie Performance Max aanzet, blijft Gemini de beeld- en asset-teksten verzorgen. Het beeldmateriaal trekt het systeem sowieso automatisch van de eigen website, de og:image en het app-icoon, en snijdt dat met sharp naar de vierkante en liggende formaten die Google verlangt. De gebruiker hoeft dus geen advertentietekst te verzinnen, geen zoekwoorden te bedenken en geen plaatjes aan te leveren. Dat doet de motor.",
             "En de conversie-meting, juist het stukje waar de meeste zelf-geknutselde Google Ads-accounts stilletjes op stuklopen, koppelen we automatisch aan het Webgrowth Connector lead-formulier. De GCLID die Google meegeeft vangen we al bij binnenkomst af, dus een ingevulde Lead Engine telt vanzelf mee als conversie. Geen tag-manager-gedoe, geen losse pixel die je zelf ergens moet plakken en waarvan je nooit zeker weet of 'ie wel vuurt.",
           ],
         },
@@ -117,12 +122,20 @@ export const FIELD_LOGS: FieldLog[] = [
           ],
         },
         {
+          title: "De slimme start die na tien dagen weer gas terugneemt",
+          paragraphs: [
+            "Er zit nog een tweede knop in dat budget-verhaal, en die hebben we er net bij gebouwd. Een gloednieuwe advertentie heeft een probleem dat niks met geld te maken heeft maar er wel op lijkt: Google weet in het begin nog niks. Het algoritme moet eerst leren wie er klikt, wie er converteert en wie alleen maar langs scrolt, en met een krap dagbudget duurt dat leren tergend lang.",
+            "Dus geven we elke nieuwe advertentie een aanloop. De eerste tien dagen draait 'ie op een wat ruimer dagbudget, zodat Google in korte tijd genoeg signaal binnenkrijgt om te snappen wie de moeite waard is. Daarna zakt de advertentie helemaal vanzelf terug naar het vaste dagbudget dat bij je maandbedrag hoort. De gebruiker hoeft daar niks voor te doen en niks van te weten, het gebeurt onder water.",
+            "En het mooie is dat het keurig binnen die harde maandgrens van net blijft. De aanloop verbruikt wat meer aan het begin van de maand en wat minder aan het eind, maar het totaal dat je hebt ingesteld blijft het plafond. Je betaalt dus niet meer, je betaalt het alleen slimmer: vooraan wat extra om Google snel te laten leren, daarna rustig op kruissnelheid. Veiligheid en een vliegende start hoeven elkaar niet te bijten.",
+          ],
+        },
+        {
           title: "De trechter die zichzelf eindelijk dichtmaakt",
           paragraphs: [
             "Het stuk waar ik het meest tevreden over ben is niet het aanmaken van een advertentie, maar wat je daarna ziet. Sinds eind mei taggen we elke advertentie-link automatisch met UTM-parameters, en hetzelfde doen we voor de nieuwsbrieven. Daardoor kunnen we voor het eerst de hele keten in één scherm laten zien.",
             "Bovenin de trechter: vertoningen en kliks, die halen we rechtstreeks uit de Google Ads-sync. Daaronder de leads, het aantal bezoekers dat via een advertentie binnenkwam en niet meteen weer wegklikte. En onderin de prospects, de mensen die daadwerkelijk een Lead Engine hebben ingevuld en die we aan hun UTM-spoor als afkomstig uit een advertentie herkennen. Forester is daarbij bewust de bron van waarheid voor die onderkant, niet een los analytics-pakket.",
             "Dat is de heilige graal voor een MKB-ondernemer. Niet 'we hebben zoveel vertoningen gehad', maar 'deze advertentie heeft me deze week drie ingevulde aanvragen opgeleverd, en dit is wat het me heeft gekost'. Spend bovenaan, een echte prospect onderaan, en alles ertussen zichtbaar in dezelfde omgeving. Geen Google Ads-tabblad naast een los analytics-tabblad naast een CRM-export, maar één verhaal van euro tot aanvraag.",
-            "Eerlijk is eerlijk: de onderkant van die trechter vult zich pas sinds de UTM-tagging er staat, dus historie is er nog nauwelijks. Maar vanaf nu telt elke klik mee, en over een paar weken hebben de eerste klanten een funnel die ze van het uitgegeven bedrag tot de binnengekomen aanvraag kunnen volgen. Dat is het moment waarop adverteren ophoudt een gok te zijn.",
+            "En anders dan een paar weken geleden is dit nu geen belofte meer maar een meting. De keten is rond: van de eerste vertoning tot de ingevulde Lead Engine zien we het in hetzelfde scherm gebeuren, live. De eerste klanten kunnen nu al teruglezen wat een advertentie deze week aan kliks heeft gekost en hoeveel echte aanvragen daar onderaan uitrolden. Dat is het moment waarop adverteren ophoudt een gok te zijn en een rekensom wordt.",
           ],
         },
       ],
