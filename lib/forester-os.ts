@@ -823,20 +823,21 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroLead: "Adverteren",
     heroHighlight: "met je eigen data.",
     heroIntro:
-      "Je Google Ads en social-campagnes draaien rechtstreeks vanuit Forester OS, gevoed door wat er in jouw CRM gebeurt. Q schrijft de varianten en het dashboard laat zien welke euro waar uiteindelijk landt, zodat je nooit meer hoeft te raden wat je advertenties opleveren.",
+      "Je Google Ads draaien rechtstreeks vanuit Forester OS, gevoed door wat er in jouw CRM gebeurt. Wij zetten ze standaard op Google Search zodat je betaalt voor mensen die écht zoeken, jij stelt één maandbudget in dat nooit kan ontsporen, en het dashboard laat zien welke euro waar uiteindelijk landt. Zo hoef je nooit meer te raden wat je advertenties opleveren.",
     featuresDetailed: [
-      { title: "Google Ads-koppeling", body: "We beheren je campagnes vanuit het Forester OS-dashboard met dezelfde doelgroepen en attributie als je CRM, zodat je nooit meer hoeft te switchen tussen losse Google-tabbladen om te zien hoe het ervoor staat." },
-      { title: "Social campagnes", body: "LinkedIn-, Meta- en TikTok-campagnes draaien vanuit één plek, en de doelgroepen baseren we op de segmenten uit je CRM zoals bestaande klanten, warme prospects of een specifieke sector waarop je focust." },
-      { title: "Q schrijft je advertenties", body: "Q schrijft advertentie-varianten op basis van je merk en wat je website op dit moment zegt, en draait A/B-tests automatisch terwijl jij alleen nog de winnaar hoeft goed te keuren." },
-      { title: "Volledige CRM-attributie", body: "Je ziet precies welke campagne tot welke deal heeft geleid, zodat je iedere geadverteerde euro kunt terughalen tot het bron-kanaal en zelfs tot de specifieke advertentie die het in beweging zette." },
+      { title: "Google Search als basis", body: "We zetten je advertenties standaard op Google Search, de tekstregels die bovenaan verschijnen als iemand letterlijk intypt wat 'ie zoekt. Zo betaal je voor mensen met een vraag in hun hoofd in plaats van voor een willekeurige scroll. De volautomatische variant van Google zetten we er alleen bij waar dat aantoonbaar loont, nooit als standaard." },
+      { title: "Een budget dat niet kan ontsporen", body: "Je stelt één maandbudget in en dat is een harde bovengrens. Heb je meerdere advertenties lopen, bijvoorbeeld per regio of per dienst, dan kunnen die daar samen nooit overheen. De grootste angst bij Google Ads, dat het 's nachts ongemerkt je rekening leegtrekt, halen we er zo gewoon uit." },
+      { title: "Q schrijft je advertenties", body: "Q schrijft de zoekwoorden en de advertentieteksten op basis van je merk en wat je website op dit moment zegt. Niemand hoeft dus zelf zoekwoorden te bedenken of teksten te verzinnen, dat doet de motor terwijl wij de hand aan het stuur houden." },
+      { title: "Volledige CRM-attributie", body: "Je ziet de hele keten in één scherm: van wat een advertentie kostte tot de specifieke aanvraag en de deal die eruit kwam. Geen los Google-tabblad naast een los meetpakket, maar één verhaal van euro tot aanvraag, terug te halen tot iedere geadverteerde euro." },
     ],
     relatedSlugs: ["lead-engine", "seo", "ai"],
     faq: [
       { q: "Beheren jullie het mediabudget?", a: "Wij doen de setup, de optimalisatie en de rapportage, terwijl het mediabudget zelf (de betalingen aan Google en Meta) via jouw eigen creditcard of factuur loopt. Dat blijft volledig transparant en wij rekenen daar geen opslag op, dus je weet altijd precies wat naar advertentiebudget gaat en wat naar ons." },
       { q: "Wat als ik nog geen advertentiebudget heb?", a: "Geen probleem, we kunnen al vanaf €25 per maand starten en aan de hand van de CRM-attributie laten zien wat het je oplevert. Op de campagnes die werken schalen we daarna op, zodat je voorzichtig kunt beginnen zonder dat je in één keer een groot bedrag op tafel hoeft te leggen." },
+      { q: "Kan ik er per ongeluk te veel aan uitgeven?", a: "Nee. Je stelt vooraf één maandbudget in en dat is een harde bovengrens; alle advertenties samen kunnen daar nooit overheen. Wil je een maand meer of minder inzetten, dan pas je dat zelf aan. Je weet dus altijd precies wat het maximaal kan worden." },
     ],
     metaDescription:
-      "Forester OS Advertenties: Google Ads en social-campagnes vanuit je eigen platform, met CRM-attributie, Q-ad copy en transparant beheer zonder mediabudget-mark-up.",
+      "Forester OS Advertenties: Google Ads vanuit je eigen platform, standaard op Google Search, met een budget dat niet kan ontsporen en CRM-attributie tot de deal.",
     widgets: [
       { kind: "hero-dashboard", view: "advertenties" },
       {
@@ -862,11 +863,11 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
         },
         {
           title: "Wij werken het uit",
-          body: "We koppelen Google, LinkedIn en Meta aan Forester OS inclusief de conversie-tracking via je CRM, en Q schrijft de eerste advertentievarianten op basis van je merk en website. Doelgroepen baseren we op de segmenten uit je eigen CRM.",
+          body: "We koppelen je Google Ads aan Forester OS inclusief de conversie-meting via je CRM, en Q schrijft de eerste zoekwoorden en advertentieteksten op basis van je merk en website. We zetten de boel standaard op Google Search, zodat je betaalt voor mensen die echt zoeken.",
         },
         {
           title: "We zetten 'm live",
-          body: "We starten met een voorzichtig budget (vanaf €25 per maand is genoeg om te beginnen), leren wat werkt en schalen op wat presteert. Elke maand laten we zien wat elke euro opleverde, terug te halen tot de specifieke advertentie en de deal die eruit kwam.",
+          body: "We starten met een voorzichtig budget (vanaf €25 per maand is genoeg om te beginnen) binnen een harde maandgrens die jij bepaalt. Een nieuwe advertentie krijgt de eerste tien dagen wat extra aanloop zodat Google snel leert wie de moeite waard is, daarna zakt 'ie vanzelf terug. Elke maand laten we zien wat elke euro opleverde, terug te halen tot de specifieke advertentie en de deal die eruit kwam.",
         },
       ],
     },
