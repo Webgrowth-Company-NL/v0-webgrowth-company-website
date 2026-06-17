@@ -433,6 +433,70 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: "5 min", label: "Nieuwe locatie toevoegen", descriptor: "geen SEO-traject, gewoon invullen en publiceren" },
     ],
   },
+  {
+    slug: "mind-movement",
+    client: "Mind Movement",
+    sector: "Mentale wellness",
+    location: "Rotterdam",
+    headlineLead: "Een wellness-platform",
+    headlineHighlight: "van gratis app tot retraite.",
+    intro:
+      "Mind Movement is de mentale-wellness-praktijk van Gil Sol, met een eigen methode die Calmfulness heet. We bouwden voor hen een compleet digitaal platform in drie lagen die op dezelfde data draaien: een mobiele app, een nieuwe website op mindmovementapp.nl en een eigen CMS waarmee Gil alles zelf beheert. Samen vormen ze één commitment-ladder die een bezoeker van een gratis app via groepssessies en 1-op-1-begeleiding tot een meerdaagse retraite begeleidt, zonder dat het ooit pusherig aanvoelt.",
+    pillars: ["App, site én CMS", "Eén Firebase als bron", "Drie boekbare producten"],
+    features: [
+      { label: "App, site en CMS op één Firebase", body: "De mobiele app, de Next.js-site en het eigen CMS delen één Firebase-project. Eén bron van waarheid voor accounts, content en boekingen, dus een prijs of programma wijzig je één keer en het klopt overal." },
+      { label: "Eén commitment-ladder", body: "Van een gratis app met dagelijkse oefeningen, via groepssessies van €19,99 en 1-op-1-begeleiding van €149, tot meerdaagse retraites. Elke tree is een echt product met eigen boeking en betaling." },
+      { label: "Gil beheert alles zelf", body: "Via het custom CMS zet Gil retraite-prijzen en -edities klaar, genereert sessie-agenda's weken vooruit en beheert de app-content (Journey, Practices, Programs) zonder dat er een developer aan te pas komt." },
+    ],
+    img: "/images/clients/mind-movement-hero.webp",
+    imgAlt: "Deelnemers tijdens een Mind Movement-retraite in Azië",
+    imgPosition: "center",
+    logo: "/images/clients/mind-movement.png",
+    liveUrl: "https://mindmovementapp.nl",
+    liveLabel: "mindmovementapp.nl",
+    metaTitle: "Case Mind Movement: app, site en CMS op één platform | Webgrowth",
+    metaDescription:
+      "Hoe we voor Mind Movement een compleet platform bouwden: een mobiele app, een nieuwe website en een eigen CMS op één Firebase, samen één commitment-ladder van gratis app tot retraite.",
+    fieldLogSlug: "commitment-ladder-mind-movement",
+    challenge: {
+      title: "Een aanbod met vier niveaus van toewijding dat niet in één website paste",
+      body:
+        "Mind Movement verkoopt geen los product, maar een reis. Iemand begint vaak nieuwsgierig met een ademhalingsoefening en is pas veel later toe aan een groepssessie, persoonlijke begeleiding of een meerdaagse retraite. Een klassieke website met één call-to-action paste daar niet bij: te pusherig voor een merk dat juist rust uitstraalt, en te plat voor een aanbod dat over vier niveaus loopt. Daar kwam bij dat content zoals oefeningen, journeys en programma's op meerdere plekken tegelijk moest blijven kloppen, in de app én op de site. Gil wilde één samenhangend systeem dat de hele reis ondersteunt en dat hij bovendien zelf kon beheren, in plaats van een bureau dat hij voor elke prijswijziging moet bellen.",
+    },
+    solution: [
+      {
+        title: "Eén gedeelde Firebase voor app, site en CMS",
+        body:
+          "We bouwden de drie oppervlakken (de mobiele app, de website en het CMS) op één gedeeld Firebase-project. Accounts, content en boekingen leven daardoor op één plek: log je in de app in, dan ben je ook op de site ingelogd, en content die Gil in het CMS aanpast verschijnt zowel op de site als in de app. Geen synchronisatie tussen losse systemen, geen data die uit elkaar loopt.",
+      },
+      {
+        title: "De app als gratis instap met dagelijkse Journey en Practices",
+        body:
+          "De onderste tree van de ladder is de app: gratis te proberen en €9,99 per maand voor het volledige aanbod. Daarin zit de Mind Journey met vier programma's van 21 dagen (van 'Meer rust in je hoofd' tot 'Mijn beste versie'), dagelijkse Practices als NSDR, ademwerk, meditatie en beweging, en een Library met kortere trajecten rond slaap en angst. Zo bouwt iemand eerst een dagelijkse gewoonte en vertrouwen op, voordat er ook maar één keer een mens aan te pas komt.",
+      },
+      {
+        title: "Drie boekbare producten op de site, elk een echte flow",
+        body:
+          "Boven de app staan drie producten die je rechtstreeks op de site boekt. Voor de Calmfulness-sessies (€19,99) is er een agenda met aankomende groepssessies, directe inschrijving en de mogelijkheid om tot 48 uur van tevoren te ruilen. Voor 1-op-1-begeleiding (€149) kiest de bezoeker een tijdslot in een kalender die de echte beschikbaarheid van Gil kent, met automatisch een videogesprek erbij. En voor de meerdaagse retraites loopt een boeking met aanbetaling via Mollie, zodat een plek direct vaststaat. Elke flow stuurt z'n eigen bevestigings- en herinneringsmails, volledig in de huisstijl.",
+      },
+      {
+        title: "Een eigen CMS waarmee Gil de hele ladder beheert",
+        body:
+          "In plaats van een stapel losse tools (een agenda-plugin, een webshop, een los e-learningpakket) bouwden we één CMS op maat. Gil zet daarin retraite-prijzen en -edities klaar, met een vroegboek-window dat zichzelf op de juiste datum omschakelt, genereert sessie-agenda's voor weken vooruit, ziet de inschrijvingen binnenkomen en beheert de app-content. Omdat het CMS op dezelfde Firebase werkt als de app en de site, is één wijziging meteen overal correct.",
+      },
+      {
+        title: "Member-portal en automatische herinneringen",
+        body:
+          "Ingelogde deelnemers hebben een eigen dashboard met hun boekingen, profiel en facturen, met dezelfde login als de app. Betalingen lopen via Mollie, transactionele mails via Postmark, en een automatische taak stuurt deelnemers een herinnering voordat hun sessie begint. De stijl van de site is rechtstreeks afgeleid van de app, zodat de twee als één wereld aanvoelen en de overgang van app naar site nergens wringt.",
+      },
+    ],
+    results: [
+      { value: "3", label: "Oppervlakken op één Firebase", descriptor: "app, website en CMS delen dezelfde data" },
+      { value: "4", label: "Niveaus op de ladder", descriptor: "van gratis app tot meerdaagse retraite" },
+      { value: "3", label: "Boekbare producten", descriptor: "sessie, 1-op-1 en retraite, elk met eigen flow" },
+      { value: "Zelfbeheer", label: "Gil aan de knoppen", descriptor: "prijzen, agenda's en app-content zonder developer" },
+    ],
+  },
 ];
 
 export function caseBySlug(slug: string): CaseStudy | undefined {
