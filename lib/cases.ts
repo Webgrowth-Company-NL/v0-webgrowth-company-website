@@ -113,15 +113,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "MOL Logistics",
     sector: "Logistiek & transport",
     location: "Tilburg",
-    headlineLead: "Een corporate logistiek-site",
-    headlineHighlight: "die elke aanvraag goed laat landen.",
+    headlineLead: "Een nette transport-site",
+    headlineHighlight: "waar elke aanvraag bij de juiste persoon belandt.",
     intro:
-      "MOL Logistics is een internationale forwarder met vestigingen door heel Europa. Voor hun Nederlandse organisatie bouwden we de corporate site opnieuw, met een eigen volumecalculator voor transport-aanvragen, een vacature-flow met content-blocks per rol en een mu-plugin onder de motorkap die de site razendsnel houdt. Aanvragen, sollicitaties en contact landen elk bij het juiste team, in plaats van in één algemene mailbox.",
-    pillars: ["Volumecalculator", "HubSpot + Klaviyo", "Performance-tuning"],
+      "MOL Logistics regelt transport en opslag voor bedrijven, met kantoren door heel Europa. Voor hun Nederlandse tak bouwden we de website opnieuw. Wil je iets laten vervoeren, dan stel je zelf je rit samen en de aanvraag komt meteen bij de juiste contactpersoon binnen. Solliciteer je, dan gaat het naar de juiste mensen. Heb je een vraag, dan komt die bij het juiste kantoor. Niks belandt nog in één grote algemene mailbox. En de site is razendsnel.",
+    pillars: ["Zelf je transport samenstellen", "Alles bij het juiste team", "Snelle site"],
     features: [
-      { label: "Volumecalculator voor transport", body: "Bezoekers stellen zelf hun zending samen met traject, lading en eisen, en de aanvraag landt direct bij de juiste accountmanager mét alle context." },
-      { label: "HubSpot + Klaviyo gekoppeld", body: "Elke aanvraag synct automatisch naar HubSpot (CRM) en Klaviyo (e-mailmarketing), zodat sales en marketing met dezelfde data werken zonder handmatig overpennen." },
-      { label: "Performance-mu-plugin", body: "Onder de motorkap optimaliseert een eigen plug-in fonts, scripts, fetchpriority en assets, zodat de site snel blijft ondanks de zware Breakdance-builder." },
+      { label: "Zelf je transport samenstellen", body: "Je geeft aan wat je waarheen wilt vervoeren en aan welke eisen het moet voldoen. De aanvraag komt meteen bij de juiste contactpersoon, met alles wat hij moet weten er al bij." },
+      { label: "Alles komt bij het juiste team", body: "Elke aanvraag wordt automatisch doorgestuurd naar hun klantsysteem, zodat de mensen die verkopen en de mensen die de e-mails versturen allemaal hetzelfde zien. Niemand hoeft iets nog met de hand over te tikken." },
+      { label: "Een snelle site", body: "We hebben de site flink versneld, zodat hij vlot laadt en niet blijft hangen. Bezoekers wachten niet en haken niet af." },
     ],
     img: "/images/clients/mol-logistics-hero.jpg",
     imgAlt: "MOL Logistics warehouse in Tilburg met heftrucks en containers",
@@ -134,47 +134,47 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaDescription:
       "Hoe we voor MOL Logistics een corporate site bouwden met een volumecalculator, een vacature-flow en een performance-mu-plugin onder de motorkap.",
     challenge: {
-      title: "Een corporate site die over de jaren versplinterd was, met aanvragen in één grote bak",
+      title: "Een site die door de jaren heen een rommeltje was geworden, met alle aanvragen op één hoop",
       body:
-        "MOL Logistics had een site die over de jaren was uitgegroeid maar inconsistent was geworden in styling, formulier-flows en SEO. Voor elk type aanvraag (transport, warehousing, projectlogistiek) bestond een ander formulier en weer een andere mailroute, vacature-pagina's stonden los van de hoofdsite en de performance liet te wensen over door de zware Breakdance-builder. MOL wilde tegelijk wel op WordPress + Breakdance blijven vanwege hun bestaande beheerprocessen, maar dan met de kwaliteit, snelheid en routing-discipline van een modern platform.",
+        "De site van MOL was in de loop der jaren steeds verder uitgedijd. Elk soort aanvraag had zijn eigen formulier en ging een andere kant op, de vacatures stonden los van de rest van de site en alles laadde traag. Bezoekers kwamen daardoor moeilijk op de juiste plek terecht, en aanvragen verdwenen in één grote bak waar niemand goed overzicht over had. MOL wilde wel met dezelfde vertrouwde manier van werken doorgaan, maar dan met een site die er strak uitziet, snel is en alles netjes bij de juiste persoon laat belanden.",
     },
     solution: [
       {
-        title: "Volumecalculator als eigen Lead Engine",
+        title: "Zelf je transport samenstellen",
         body:
-          "We bouwden een interactieve volumecalculator als Lead Engine waarin bezoekers het traject (laden + lossen), de lading en de bijbehorende eisen kunnen samenstellen. De aanvraag landt direct in de mailbox van de juiste accountmanager, met alle context die we al hebben uitgevraagd. Aan de achterkant is alles CMS-bestuurbaar via ACF-velden, zodat MOL zelf nieuwe transportoplossingen of varianten kan toevoegen zonder dat er een developer aan te pas hoeft te komen.",
+          "We maakten een handig hulpje op de site: je geeft aan wat je waarheen wilt vervoeren en aan welke eisen het moet voldoen. De aanvraag komt dan meteen bij de juiste contactpersoon, met alles wat hij moet weten er al bij. MOL kan zelf nieuwe transport-opties toevoegen, daar is geen techneut voor nodig.",
       },
       {
-        title: "Vacature-flow met eigen body-block structuur",
+        title: "Een vacature in een halfuur online",
         body:
-          "Elke vacature heeft een eigen detailpagina met dezelfde herkenbare structuur: hero, body, split-content, klantlogo's, cultuur-blok, sollicitatieproces, mid-CTA, gerelateerde vacatures en een footer-CTA. De recruiters voegen nieuwe rollen toe via een gestandaardiseerd set ACF-velden, en het Breakdance-template doet de rest. Wat vroeger een ontwerper kostte is nu een handeling van een halfuur.",
+          "Elke vacature krijgt een eigen pagina met steeds dezelfde herkenbare opbouw: een sterke kop, de uitleg, de sfeer van het team, hoe het sollicitatieproces verloopt en een knop om te reageren. De mensen die nieuwe collega's zoeken vullen alleen de tekst in, de rest staat al klaar. Wat vroeger een ontwerper kostte, is nu een klusje van een halfuur.",
       },
       {
-        title: "Form-handler met dynamische mail-routing",
+        title: "Elke aanvraag bij het juiste team",
         body:
-          "Elke aanvraag-flow op de site heeft een eigen mail-routing: transport-aanvragen gaan naar de juiste accountmanager, warehousing naar het magazijn-team, vacature-sollicitaties naar HR en algemene contact-mails naar de juiste vestiging. Eén centrale form-handler regelt al die routing via filter-hooks, dus er is geen losse 'info@'-mailbox meer waar alles in een grote bak verdwijnt.",
+          "Elk soort bericht gaat automatisch naar de juiste mensen: een transport-aanvraag naar de juiste contactpersoon, een vraag over opslag naar het magazijn-team, een sollicitatie naar de mensen die over personeel gaan en een gewone vraag naar het juiste kantoor. Er is geen algemene mailbox meer waar alles in verdwijnt.",
       },
       {
-        title: "HubSpot en Klaviyo gekoppeld aan elke aanvraag",
+        title: "Aanvragen automatisch in hun klantsysteem",
         body:
-          "Naast de directe mail-routing synct elke aanvraag automatisch door naar HubSpot voor sales en Klaviyo voor marketing-opvolging, beide via integraties met externe tools die we voor MOL hebben opgezet. Een lead die de volumecalculator invult komt zo binnen een paar seconden in beide systemen binnen met dezelfde context, zodat sales en marketing nooit meer met losse, ongesynchroniseerde lijsten zitten en marketing-automations in Klaviyo direct kunnen starten waar de site-aanvraag eindigt.",
+          "Naast de mail wordt elke aanvraag ook automatisch doorgestuurd naar hun klantsysteem. Vult iemand het transport-hulpje in, dan staat die persoon binnen een paar seconden netjes geregistreerd bij zowel de mensen die verkopen als de mensen die de e-mails versturen. Niemand zit meer met losse lijstjes die niet kloppen.",
       },
       {
-        title: "Performance-mu-plugin onder de motorkap",
+        title: "Een snelle site, ondanks veel content",
         body:
-          "Voor een Breakdance-site is je mu-plugin de stille held van je PageSpeed-score. Voor MOL draaiden we een eigen mol-perf.php die Google Fonts subsette, third-party JS deferde, jquery-migrate dequeue'de en fetchpriority + alt op de juiste plekken zette. Het resultaat is een PSI-score die opmerkelijk goed is voor een Breakdance-site, zonder dat we content of layout-vrijheid hoefden in te leveren.",
+          "Achter de schermen hebben we de site flink versneld: lettertypes, afbeeldingen en losse stukjes techniek laden nu zo licht mogelijk. Het resultaat is een site die opvallend snel is, zonder dat we ook maar iets aan het ontwerp of de inhoud hoefden in te leveren.",
       },
       {
-        title: "Section-alignment voor visuele rust over de hele site",
+        title: "Alles netjes uitgelijnd, van boven tot onder",
         body:
-          "Breakdance heeft een eigenaardigheid waarbij de inner-container van elke sectie een eigen max-width kan hebben, waardoor decoratieve elementen na een paar releases niet meer netjes uitlijnen met de copy. Voor MOL trokken we de max-width gelijk op 1512 pixels met een clamp-padding, zodat de site visueel rustig blijft van bovenaan tot helemaal beneden, op zowel desktop als mobiel.",
+          "We zorgden dat alle secties op de site dezelfde breedte en marges aanhouden, zodat alles netjes onder elkaar uitlijnt. De site oogt daardoor rustig en verzorgd, op je computer en op je telefoon.",
       },
     ],
     results: [
-      { value: "Per aanvraag", label: "Routing naar het juiste team", descriptor: "geen algemene info-mailbox meer" },
-      { value: "2 systemen", label: "HubSpot + Klaviyo gesynct", descriptor: "elke lead automatisch in CRM én marketing-tool" },
-      { value: "ACF", label: "CMS-bestuurbaar", descriptor: "vacatures en transportoplossingen door MOL zelf beheerd" },
-      { value: "mu-plugin", label: "Performance-tuning", descriptor: "snelle Breakdance-site via mol-perf.php" },
+      { value: "Per aanvraag", label: "Naar het juiste team", descriptor: "geen grote algemene mailbox meer" },
+      { value: "2 systemen", label: "Automatisch doorgestuurd", descriptor: "elke aanvraag staat meteen bij verkoop én e-mail" },
+      { value: "Zelf te regelen", label: "MOL aan de knoppen", descriptor: "vacatures en transport-opties zonder techneut" },
+      { value: "Snel", label: "Vlotte site", descriptor: "laadt razendsnel ondanks veel inhoud" },
     ],
   },
   {
@@ -182,15 +182,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Balude",
     sector: "IT-dienstverlening & AI",
     location: "Nederland",
-    headlineLead: "Een AI-first IT-partner",
+    headlineLead: "Een moderne IT-partner",
     headlineHighlight: "met een eigen betaalde online training.",
     intro:
-      "Balude is een AI-first IT-dienstverlener die bedrijven helpt met AI-automatisering, software op maat, cloud op Europese servers en consultancy rond compliance. We bouwden voor hen balude.com in onze eigen dark-stijl en koppelden er meteen een primeur aan vast: de eerste Sales Engine in Forester OS. Bezoekers kopen daar de Balude AI-training online af, krijgen direct toegang via een magic-link, doen de eindtoets en ontvangen automatisch hun gepersonaliseerde certificaat per mail.",
-    pillars: ["Sales Engine primeur", "Mollie + Gemini + certificaat", "Vier diensten op één site"],
+      "Balude is een IT-bedrijf dat slim met AI omgaat. Ze helpen bedrijven met het automatiseren van werk, software op maat, opslag van data op Europese servers en advies over regels en veiligheid. We bouwden voor hen balude.com in onze eigen donkere stijl, en koppelden er meteen iets nieuws aan vast: een online training die je gewoon op de site koopt. Je betaalt, je kunt meteen beginnen, je maakt aan het eind een toets, en je krijgt je eigen certificaat automatisch in je mailbox. Helemaal zonder dat Remco er een vinger naar hoeft uit te steken.",
+    pillars: ["Training kopen op de site", "Betalen, toets en certificaat automatisch", "Vier diensten op één site"],
     features: [
-      { label: "Eerste Sales Engine in Forester OS", body: "Balude is de allereerste klant op het nieuwe Sales Engine pattern. Een betaald digitaal product met checkout, levering, toets en certificaat zonder dat er ook maar één handmatige stap tussen zit." },
-      { label: "Gemini beoordeelt open vragen", body: "Open antwoorden in de eindtoets worden door Gemini 2.5 Flash gelezen en gescoord aan de hand van een rubric. Gesloten vragen rekenen we deterministisch af, scores zijn niet client-side te manipuleren." },
-      { label: "Mollie + magic-link + PDF op maat", body: "Bezoekers rekenen af via iDEAL of kaart, krijgen een magic-link in hun mailbox, doen de toets en ontvangen een persoonlijk A4 PDF-certificaat met uniek nummer in Balude's huisstijl." },
+      { label: "Eerste Sales Engine in Forester OS", body: "Balude is de allereerste die een betaald product helemaal vanzelf laat lopen: je rekent af, je krijgt toegang, je maakt de toets en je certificaat rolt eruit. Geen enkele handmatige stap ertussen." },
+      { label: "Een slimme computer kijkt de open vragen na", body: "De vragen waar je zelf een antwoord moet typen, worden door een slimme computer nagekeken en beoordeeld. De vragen met vaste antwoorden gaan automatisch goed of fout. En niemand kan stiekem zijn eigen cijfer hoger zetten." },
+      { label: "Betalen, inloggen en je certificaat", body: "Je betaalt online met iDEAL of je kaart, krijgt een persoonlijke link in je mailbox waarmee je meteen begint, maakt de toets en ontvangt een net certificaat met je eigen naam en een uniek nummer, in de stijl van Balude." },
     ],
     img: "/images/clients/balude-hero.png",
     imgAlt: "Balude website-hero: ICT die jouw bedrijf vooruit brengt, dark theme met paars en cyaan",
@@ -202,47 +202,47 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaDescription:
       "Hoe we voor Balude balude.com bouwden en er meteen de eerste Sales Engine van Forester OS aan koppelden: betaalde AI-training met Mollie-checkout, Gemini-grading en automatisch PDF-certificaat.",
     challenge: {
-      title: "Een nieuwe IT-propositie scherp neerzetten, en er meteen een betaald product op laten draaien",
+      title: "Een nieuw IT-verhaal helder neerzetten, en er meteen een betaald product op laten draaien",
       body:
-        "Balude bestaat uit Remco met een vast netwerk van specialisten en bouwt een AI-first IT-praktijk op. De propositie is breed: AI-agents en automatisering, software op maat (waaronder hun eigen PractiPlan), cloud op Europese servers in plaats van standaard Microsoft 365 en consultancy rond ISO 27001 en AI-roadmaps. Tegelijk wilde Remco direct vanaf de live-gang een betaalde AI-training kunnen verkopen als digitaal product, inclusief eindtoets en certificaat, zonder dat de afhandeling daarvan dagen handwerk kostte per cursist. Eén site, vier diensten die elk hun eigen verhaal verdienen, plus een betaalde leerlijn die volledig zelfstandig moet draaien.",
+        "Balude is Remco met een vast clubje specialisten om zich heen, en ze bouwen een IT-praktijk die slim met AI omgaat. Ze doen veel verschillende dingen: werk automatiseren, software op maat (waaronder hun eigen PractiPlan), data opslaan op Europese servers in plaats van bij de grote Amerikaanse bedrijven, en advies geven over regels en veiligheid. Tegelijk wilde Remco vanaf dag één een betaalde AI-training kunnen verkopen, met toets en certificaat erbij, zonder dat hij voor elke cursist dagen werk kwijt was. Eén site dus, met vier diensten die elk hun eigen verhaal verdienen, plus een training die helemaal vanzelf moet lopen.",
     },
     solution: [
       {
-        title: "Een dark, AI-first site die vier diensten elk hun eigen pagina geeft",
+        title: "Een donkere, frisse site met een eigen pagina per dienst",
         body:
-          "We bouwden balude.com in een dark theme met paarse en cyaan accenten, conform de Balude-huisstijl. Elke kerndienst (AI-automatisering, Software op maat, Cloud Europa-first en Consultancy) kreeg een eigen landingspagina met dezelfde herkenbare structuur: hero met glass card, features-grid, klantcases, USP-video en formulier. De homepage geleidt bezoekers per intent naar de juiste dienst in plaats van alles op één hoop te gooien.",
+          "We bouwden balude.com in een donkere stijl met paarse en blauwgroene accenten, precies in de huisstijl van Balude. Elke dienst (werk automatiseren, software op maat, data-opslag in Europa en advies) kreeg een eigen pagina met dezelfde herkenbare opbouw. De homepage stuurt je meteen naar de dienst die bij jou past, in plaats van alles op één hoop te gooien.",
       },
       {
-        title: "Yankee Free pakket: het cloud-verhaal naast Microsoft 365",
+        title: "Het Europese alternatief, naast de bekende route",
         body:
-          "Op de cloud-pagina staat naast het reguliere Microsoft 365-verhaal het Yankee Free pakket: een Europees alternatief met Proton, OVH, Nextcloud en Tuta voor klanten die hun data bewust niet bij Amerikaanse hyperscalers willen onderbrengen. Een US/EU-toggle laat bezoekers direct de prijzen en featurevergelijking zien per stack, zodat de keuze concreet wordt in plaats van abstract.",
+          "Op de data-pagina laten we naast het gewone verhaal ook het Yankee Free pakket zien: een Europese manier om je data op te slaan, voor klanten die hun gegevens bewust niet bij de grote Amerikaanse bedrijven willen onderbrengen. Met één klik wissel je tussen beide opties en zie je meteen de prijzen en de verschillen, zodat de keuze concreet wordt.",
       },
       {
-        title: "Sales Engine: een nieuw concept in Forester OS, eerst getest op Balude",
+        title: "Een betaald product dat helemaal vanzelf loopt, voor het eerst getest op Balude",
         body:
-          "De Balude AI-training is de eerste implementatie van een gloednieuw concept in Forester OS: de Sales Engine. Waar onze Lead Engines kwalificeren en routeren, verkoopt een Sales Engine een digitaal product end-to-end. Bezoekers rekenen af, krijgen direct toegang, doen de eindtoets en ontvangen automatisch hun certificaat. De architectuur is generiek opgezet, dus toekomstige klanten die online een training, examen of digitaal product willen verkopen kunnen op dezelfde rails meeliften.",
+          "De Balude AI-training is het eerste voorbeeld van iets nieuws in Forester OS: de Sales Engine. Waar onze Lead Engines bezoekers naar de juiste plek leiden, verkoopt een Sales Engine een product van begin tot eind vanzelf. Je rekent af, je kunt meteen beginnen, je maakt de toets en je certificaat rolt eruit. We hebben het zo gebouwd dat een volgende klant die online iets wil verkopen, hetzelfde systeem kan gebruiken.",
       },
       {
-        title: "Mollie-checkout met magic-link toegang en automatische facturen",
+        title: "Online betalen en meteen beginnen",
         body:
-          "Cursisten rekenen af via Mollie (iDEAL, kaart, bancontact) en krijgen na betaling direct een magic-link in hun mailbox waarmee ze de training kunnen starten zonder eerst een account aan te maken. De tier-prijzen lopen door op aantallen: één tot 25 cursisten 79 euro per persoon (intro 59 euro), 25 tot 99 cursisten 49 euro en honderd of meer 39 euro. Volumekortingen zonder dat Remco met een offerteflow hoeft te beginnen.",
+          "Cursisten betalen online met iDEAL, hun kaart of Bancontact, en krijgen daarna meteen een persoonlijke link in hun mailbox waarmee ze de training starten. Ze hoeven niet eerst een account aan te maken. Hoe meer mensen je inschrijft, hoe goedkoper: één tot 25 cursisten 79 euro per persoon (kennismakingsprijs 59 euro), 25 tot 99 cursisten 49 euro en honderd of meer 39 euro. Korting bij grote aantallen, zonder dat Remco eerst een offerte hoeft te maken.",
       },
       {
-        title: "Gemini beoordeelt open vragen, certificaten rollen automatisch uit",
+        title: "Een slimme computer kijkt de open vragen na, het certificaat komt vanzelf",
         body:
-          "De eindtoets bevat dertig vragen: gesloten vragen scoren we deterministisch, open vragen laten we Gemini 2.5 Flash beoordelen aan de hand van een gestructureerde rubric in JSON-output. De score komt server-side tot stand, dus client-side knoeien is uitgesloten. Bij een voldoende genereert het systeem een A4 landscape PDF-certificaat in Balude's huisstijl met een uniek volgnummer (BLD-YYYY-NNNN via een atomic counter) en stuurt dat direct als attachment naar de cursist via Postmark.",
+          "De toets heeft dertig vragen. De vragen met vaste antwoorden gaan automatisch goed of fout. De vragen waar je zelf een antwoord typt, worden door een slimme computer nagekeken en beoordeeld. Dat gebeurt veilig achter de schermen, dus niemand kan stiekem zijn eigen cijfer hoger zetten. Haal je het, dan maakt het systeem meteen een net certificaat met je naam en een uniek nummer en stuurt dat per mail naar je toe.",
       },
       {
-        title: "Multi-tenant van dag één, zodat het patroon herbruikbaar is",
+        title: "Vanaf het begin geschikt voor meer klanten",
         body:
-          "Hoewel Balude de eerste Sales Engine-klant is, hebben we het patroon meteen multi-tenant gebouwd. Mollie-keys staan per website-document in Firestore, branding (kleuren, lettertype, certificaat-template) is per engine instelbaar en het admin-dashboard kan meerdere Sales Engines naast elkaar beheren. De volgende klant die een betaalde training of digitaal product wil verkopen plugt in op hetzelfde systeem zonder dat we het opnieuw hoeven uit te vinden.",
+          "Hoewel Balude de eerste is, hebben we het zo opgezet dat we het keer op keer kunnen gebruiken. De betaalgegevens, de kleuren, het lettertype en het certificaat zijn per klant in te stellen, en in één overzicht kun je meerdere van deze trainingen naast elkaar beheren. De volgende klant die online een training of product wil verkopen, sluit gewoon aan op hetzelfde systeem.",
       },
     ],
     results: [
-      { value: "Eerste", label: "Sales Engine in Forester OS", descriptor: "primeur op het platform, multi-tenant opgezet" },
+      { value: "Eerste", label: "Sales Engine in Forester OS", descriptor: "primeur op het platform, klaar voor meer klanten" },
       { value: "End-to-end", label: "Geen handmatige stappen", descriptor: "betalen, toegang, toets, certificaat, mail" },
-      { value: "Gemini", label: "Open-vraag beoordeling", descriptor: "server-side scoring, niet te manipuleren" },
-      { value: "EU-first", label: "Cloud-alternatief", descriptor: "Yankee Free pakket naast Microsoft 365" },
+      { value: "Automatisch", label: "Open vragen nagekeken", descriptor: "veilig achter de schermen, niet te beïnvloeden" },
+      { value: "EU-first", label: "Europees alternatief", descriptor: "Yankee Free pakket naast de bekende route" },
     ],
     fieldLogSlug: "balude-ai-training-sales-engine",
   },
@@ -251,15 +251,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Pink Elephant",
     sector: "IT-consultancy & ITSM",
     location: "Vught",
-    headlineLead: "Een ITSM-site die hoger scoort,",
-    headlineHighlight: "sneller laadt en zelf leads vangt.",
+    headlineLead: "Een IT-site die hoger in Google komt,",
+    headlineHighlight: "sneller laadt en zelf klanten binnenhaalt.",
     intro:
-      "Pink Elephant is een internationale ITSM-consultancy met tientallen jaren ervaring in IT-support, trainingen en E-Learning. We hebben hun site opnieuw opgebouwd in Forester OS, vijf Lead Engines op maat gemaakt en 744 redirects ingericht voor de domein-migratie naar pinkelephant.co.uk. Onderweg hebben we van een trage WordPress-omgeving (Prestaties 42) een razendsnel platform gemaakt waar Google nu 99 voor geeft.",
-    pillars: ["5 Lead Engines", "42 → 99 PageSpeed", "744 redirects"],
+      "Pink Elephant is een internationaal IT-adviesbureau met tientallen jaren ervaring in IT-hulp, trainingen en online cursussen. We bouwden hun site helemaal opnieuw, maakten vijf slimme vragenlijstjes die meteen klanten binnenhalen en zorgden dat alle oude links netjes naar de nieuwe pagina's blijven wijzen toen ze naar een nieuw webadres verhuisden. Onderweg maakten we van een trage site (Google gaf een 42) een razendsnelle site waar Google nu een 99 voor geeft.",
+    pillars: ["5 slimme vragenlijstjes", "Van 42 naar 99 bij Google", "744 oude links netjes opgevangen"],
     features: [
-      { label: "Vijf Lead Engines", body: "Technology QuickQuote, IT-Support QuickQuote, training-aanmelding, E-Learning demo en het slim contactformulier, elk met eigen routing en CRM-koppeling." },
-      { label: "PageSpeed van 42 naar 99", body: "Snellere hosting, geoptimaliseerde assets en moderne web-tech onder de motorkap brachten de PSI-prestatie van 42 naar 99, met scores van 100 op toegankelijkheid en praktische tips." },
-      { label: "744 redirects", body: "Alle oude URL's van pinkelephant.co.uk en pinkelephant.nl naar de nieuwe structuur, met bewaakte 200's en zonder traffic-verlies na de domein-switch." },
+      { label: "Vijf slimme vragenlijstjes", body: "Een prijsberekening voor licenties, een prijsberekening voor IT-hulp, aanmelden voor een training, een online cursus proberen en een slim contactformulier. Elke aanvraag komt bij de juiste persoon en wordt automatisch doorgestuurd naar hun klantsysteem." },
+      { label: "Van een 42 naar een 99 bij Google", body: "Snellere techniek achter de schermen, lichtere afbeeldingen en moderne bouw brachten het rapportcijfer van Google van 42 naar 99, met een 100 voor toegankelijkheid en handige tips." },
+      { label: "744 oude links netjes opgevangen", body: "Toen de site naar een nieuw webadres verhuisde, zorgden we dat alle oude links automatisch op de juiste nieuwe pagina uitkomen. Niemand loopt vast op een foutmelding en de plek in Google bleef behouden." },
     ],
     img: "/images/clients/pink-elephant-hero.webp",
     imgAlt: "Trainingssessie van Pink Elephant met deelnemers achter laptops",
@@ -271,35 +271,35 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaDescription:
       "Hoe we voor Pink Elephant een ITSM-site opnieuw opbouwden in Forester OS: vijf Lead Engines, 744 redirects voor de domein-migratie en PSI-prestaties van 42 naar 99.",
     challenge: {
-      title: "Een site die mooi was maar niet meer presteerde",
+      title: "Een site die er mooi uitzag maar niet meer goed werkte",
       body:
-        "Pink Elephant heeft decennia ervaring in ITSM, IT-support, trainingen en E-Learning, met een dienstenpakket dat over de jaren is gegroeid. De bestaande site was alleen niet meegegroeid met die complexiteit: zwaar, traag, met gedateerde formulieren en losse landingspagina's. PageSpeed scoorde een magere 42 op mobiel, leads kwamen binnen via een mailadres in plaats van via een goede flow, en het marketing-team moest voor elke kleine aanpassing een developer bellen. Daarbovenop stond er ook nog een domein-migratie op stapel naar het internationale pinkelephant.co.uk, zonder dat de SEO-posities die in jaren waren opgebouwd verloren mochten gaan.",
+        "Pink Elephant doet al tientallen jaren van alles: IT-hulp, trainingen en online cursussen. Maar de site was niet meegegroeid. Hij was zwaar en traag, de formulieren waren ouderwets en de pagina's stonden los van elkaar. Google gaf de site op de telefoon maar een magere 42. Aanvragen kwamen binnen via een los mailadres in plaats van via een handige route, en voor elke kleine aanpassing moest het team iemand technisch bellen. Bovenop dat alles ging de site ook nog verhuizen naar een nieuw webadres, en de jarenlang opgebouwde plek in Google mocht daarbij niet verloren gaan.",
     },
     solution: [
       {
-        title: "Vijf Lead Engines voor vijf manieren waarop een aanvraag binnenkomt",
+        title: "Vijf slimme vragenlijstjes voor vijf soorten aanvragen",
         body:
-          "Voor elke kerndienst van Pink Elephant hebben we een eigen Lead Engine op maat gemaakt, gebouwd op de Lead Engine-module van Forester OS. De Technology QuickQuote rekent live door op basis van licenties, looptijd en day-rate. De IT-Support QuickQuote stelt slimme vragen over teamgrootte en complexiteit. Daarnaast draaien de training-inschrijving, de E-Learning demo-aanvraag en een slim contactformulier, allemaal met de aanvraag direct in het CRM en een WhatsApp-notificatie op de telefoon van de juiste accountmanager.",
+          "Voor elke dienst van Pink Elephant maakten we een eigen slim vragenlijstje. De ene berekent meteen een prijs voor licenties, de andere een prijs voor IT-hulp aan de hand van een paar vragen over de teamgrootte. Daarnaast kun je je aanmelden voor een training, een online cursus uitproberen en is er een slim contactformulier. Elke aanvraag komt meteen in hun klantsysteem terecht, plus een appje op de telefoon van de juiste persoon.",
       },
       {
-        title: "Een module per dienst, in het CMS van Forester OS",
+        title: "Een vaste opzet per dienst, die ze zelf kunnen invullen",
         body:
-          "Met de eigen content-types van de Website-module hebben we een herhaalbaar template per dienst gebouwd: dezelfde structuur van probleem, aanpak, klantcases, FAQ en bijbehorende Lead Engine. Het marketing-team rolt nieuwe diensten en cases zelf uit in dezelfde stijl, zonder dat er een developer aan te pas hoeft te komen. Wat in andere systemen een meerwerk-factuur kostte, is hier een routine-handeling geworden.",
+          "We maakten een vaste, herhaalbare opzet voor elke dienst: steeds dezelfde opbouw van het probleem, de aanpak, klantvoorbeelden, veelgestelde vragen en het bijbehorende vragenlijstje. Het team van Pink Elephant zet nieuwe diensten en voorbeelden nu zelf online in dezelfde stijl, zonder iemand technisch te hoeven bellen. Wat vroeger een rekening voor extra werk opleverde, is nu een gewoon klusje.",
       },
       {
-        title: "Van PageSpeed 42 naar 99 zonder concessies aan design",
+        title: "Van een 42 naar een 99 bij Google, zonder het ontwerp op te offeren",
         body:
-          "Door de migratie naar Forester OS kregen we toegang tot moderne web-tech onder de motorkap: snellere hosting, geoptimaliseerde assets, server-side rendering en uitgekiend laden van afbeeldingen. Het resultaat is een PSI-score die op alle dimensies de 99 of 100 raakt, terwijl het visuele resultaat juist rijker is geworden dan op de oude site.",
+          "Met de overstap naar onze techniek kregen we snellere bouwstenen onder de motorkap: vlottere techniek, lichtere afbeeldingen en pagina's die slim laden. Het resultaat is een rapportcijfer van Google dat overal de 99 of 100 raakt, terwijl de site er juist mooier uitziet dan eerst.",
       },
       {
-        title: "Domein-migratie met 744 redirects en Search Console-monitoring",
+        title: "Verhuizing met 744 links netjes opgevangen en goed in de gaten gehouden",
         body:
-          "Van de oude pinkelephant.co.uk en pinkelephant.nl naar de nieuwe structuur hebben we 744 redirects ingericht, gebouwd in een CSV, getest in staging en bewaakt rond de switch. Tijdens en na de domein-flip hielden we Search Console intensief in de gaten om te zien of er pagina's tussen wal en schip dreigden te vallen, zodat we direct konden bijschaven voordat een ranking-positie verloren ging.",
+          "Van de oude webadressen naar de nieuwe richtten we 744 doorverwijzingen in, zodat elke oude link automatisch op de juiste nieuwe pagina uitkomt. We testten alles vooraf en hielden tijdens en na de verhuizing scherp in de gaten of er pagina's dreigden weg te vallen in Google, zodat we meteen konden bijsturen voordat een plek in de zoekresultaten verloren ging.",
       },
       {
-        title: "Q schrijft mee aan content op basis van Search Console-data",
+        title: "Q schrijft mee op basis van wat mensen in Google zoeken",
         body:
-          "Q, onze AI-assistent in Forester OS, kijkt continu naar wat Search Console laat zien en stelt voor welke pagina's nog content missen, welke zoekvragen onbeantwoord blijven en welke onderwerpen ranking-kansen bieden. Het marketing-team van Pink Elephant krijgt die suggesties in begrijpelijke taal aangeleverd en kan ze met één klik laten uitwerken tot een eerste concept.",
+          "Q, onze assistent in Forester OS, kijkt steeds naar waar mensen in Google op zoeken en stelt voor welke pagina's nog tekst missen, welke vragen onbeantwoord blijven en welke onderwerpen kansen bieden om hoger te komen. Het team van Pink Elephant krijgt die tips in gewone taal en kan ze met één klik laten uitwerken tot een eerste opzet.",
       },
     ],
     psiComparison: [
@@ -309,10 +309,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "SEO", before: 92, after: 92 },
     ],
     results: [
-      { value: "5", label: "Lead Engines actief", descriptor: "elk met eigen routing en CRM-koppeling" },
-      { value: "744", label: "Redirects bewaakt", descriptor: "domein-migratie zonder traffic-verlies" },
-      { value: "Zelfbeheer", label: "Marketing-team aan zet", descriptor: "nieuwe pagina's en cases live zonder developer" },
-      { value: "+57", label: "PageSpeed-punten", descriptor: "van Prestaties 42 naar 99 op mobiel" },
+      { value: "5", label: "Slimme vragenlijstjes actief", descriptor: "elke aanvraag komt bij de juiste persoon en in hun klantsysteem" },
+      { value: "744", label: "Oude links opgevangen", descriptor: "verhuisd zonder bezoekers te verliezen" },
+      { value: "Zelfbeheer", label: "Het team aan zet", descriptor: "nieuwe pagina's en voorbeelden online zonder techneut" },
+      { value: "+57", label: "Punten erbij van Google", descriptor: "van een 42 naar een 99 op de telefoon" },
     ],
   },
   {
@@ -320,15 +320,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "NordFlame",
     sector: "Premium verwarming",
     location: "Online",
-    headlineLead: "Een premium kachelplatform met",
-    headlineHighlight: "twee scan-tools.",
+    headlineLead: "Een chique kachelsite met",
+    headlineHighlight: "twee handige hulpjes.",
     intro:
-      "NordFlame zet premium pelletkachels en het hybride Aurora-systeem op de kaart in Nederland, met Ecodesign 2027 als context. We bouwden hun complete site in Forester OS met productpagina's voor zes modellen, een Vervangingsscan die toetst of bezoekers in aanmerking komen voor subsidie en een Quickscan voor mensen die nog aan het oriënteren zijn. Aurora rekent direct mee met de warmtepomp van de klant in de calculator.",
-    pillars: ["6 modellen", "Vervangingsscan", "Aurora-combinatie"],
+      "NordFlame zet luxe pelletkachels en het slimme Aurora-systeem op de kaart in Nederland, in de aanloop naar de nieuwe stookregels van Ecodesign 2027. We bouwden hun hele site, met een eigen pagina voor elk van de zes modellen, een hulpje dat checkt of je recht hebt op subsidie als je je oude kachel vervangt, en een hulpje voor mensen die nog rondkijken. Heb je al een warmtepomp, dan rekent het Aurora-systeem daar meteen op mee.",
+    pillars: ["6 modellen", "Subsidie-check", "Combineert met je warmtepomp"],
     features: [
-      { label: "Zes modellen, eigen pagina's", body: "Voor elk model een eigen productpagina met magazine-stijl content, specs en filmische videoloops, in plaats van een dorre productlijst." },
-      { label: "Vervangingsscan + Ecodesign 2027", body: "Een Lead Engine die in een paar vragen bepaalt of een bezoeker subsidie-recht heeft en welk model bij z'n woning past." },
-      { label: "Aurora-combineerlogica", body: "Het hybride model rekent automatisch mee met een warmtepomp die de bezoeker al heeft of overweegt, en wordt dan actief voorgesteld." },
+      { label: "Zes modellen, elk een eigen pagina", body: "Voor elk model een eigen pagina die leest als een mooi tijdschrift, met de gegevens en sfeervolle video's, in plaats van een saai lijstje." },
+      { label: "Subsidie-check voor de nieuwe regels", body: "Een slim vragenlijstje dat in een paar vragen bepaalt of je recht hebt op subsidie en welk model bij jouw huis past, alvast klaar voor de nieuwe regels van 2027." },
+      { label: "Combineert met je warmtepomp", body: "Heb je al een warmtepomp of overweeg je er een, dan rekent het slimme model daar automatisch op mee en wordt het meteen aangeraden." },
     ],
     img: "/images/clients/nordflame-hero.png",
     imgAlt: "NordFlame premium pelletkachel-platform",
@@ -342,42 +342,42 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Hoe we voor NordFlame een premium platform bouwden met zes modellen, een Vervangingsscan met Ecodesign 2027-check en de Aurora-combinatie met warmtepompen.",
     fieldLogSlug: "vervangingsscan-quickscan-nordflame",
     challenge: {
-      title: "Premium positioneren én twee heel verschillende bezoekers bedienen",
+      title: "Chic overkomen én twee heel verschillende bezoekers helpen",
       body:
-        "NordFlame wilde van de Nederlandse markt-launch geen wedstrijd-in-prijzen maken, maar een verhaal over Scandinavisch design, kwaliteit en bewuste warmte-keuzes. De uitdaging was om die premium positionering ook online te laten landen, terwijl de site tegelijk twee heel verschillende type bezoekers moest bedienen: de georiënteerde koper die het verschil tussen modellen wil snappen, en de bewuste vervanger die wil weten of een pelletkachel past binnen Ecodesign 2027 én subsidie-recht oplevert. Eén site, twee invalshoeken, geen compromissen op design.",
+        "NordFlame wilde in Nederland niet de goedkoopste zijn, maar juist een verhaal vertellen over Scandinavisch design, kwaliteit en bewust kiezen voor warmte. De kunst was om dat luxe gevoel ook online over te brengen. En tegelijk moest de site twee heel verschillende bezoekers helpen: iemand die rustig de modellen wil vergelijken, en iemand die zijn oude kachel wil vervangen en wil weten of dat binnen de nieuwe regels van 2027 past en subsidie oplevert. Eén site dus, voor twee soorten bezoekers, zonder in te leveren op het ontwerp.",
     },
     solution: [
       {
-        title: "Productpagina's die lezen als een magazine",
+        title: "Pagina's die lezen als een mooi tijdschrift",
         body:
-          "Voor elk van de zes modellen bouwden we een eigen productpagina in de Website-module van Forester OS, met specs, een verhalend stuk over wat dat model bijzonder maakt, productvideo's en de bijbehorende warmte-output. De pagina's lezen als magazine-content in plaats van een productlijst, wat past bij de premium positionering die NordFlame wilde uitstralen vanaf het eerste contact-moment.",
+          "Voor elk van de zes modellen maakten we een eigen pagina, met de gegevens, een mooi verhaal over wat dat model bijzonder maakt, video's en hoeveel warmte het geeft. De pagina's lezen als een tijdschrift in plaats van een saai lijstje, precies bij het luxe gevoel dat NordFlame wil uitstralen vanaf het eerste moment.",
       },
       {
-        title: "Vervangingsscan met Ecodesign 2027 en subsidie-logica",
+        title: "Subsidie-check voor wie zijn oude kachel vervangt",
         body:
-          "We bouwden een Lead Engine specifiek voor mensen die hun oude stooksysteem willen vervangen. In vier of vijf vragen bepaalt de Vervangingsscan of een bezoeker in aanmerking komt voor de subsidieregeling rond Ecodesign 2027, plus welk NordFlame-model het beste past bij de woning. Het rapport komt direct in de mail van de bezoeker, en de lead met alle score-context landt in het CRM klaar voor opvolging.",
+          "We maakten een slim vragenlijstje speciaal voor mensen die hun oude kachel willen vervangen. In vier of vijf vragen ziet de check of je recht hebt op subsidie volgens de nieuwe regels van 2027, en welk NordFlame-model het beste bij je huis past. Je krijgt het overzicht meteen in je mailbox, en NordFlame krijgt jouw gegevens netjes binnen, klaar om je verder te helpen.",
       },
       {
-        title: "Quickscan voor oriënterende bezoekers",
+        title: "Een hulpje voor wie nog rondkijkt",
         body:
-          "Voor mensen die nog vroeg in hun reis zitten draait een tweede, lichtere Lead Engine: een paar vragen over woning-type, oppervlakte en huidig stooksysteem en de bezoeker krijgt direct een persoonlijk advies welk model en welk vermogen erbij past. Ook hier landt de lead in het CRM zodat sales een gerichte vervolgactie kan plannen in plaats van vanaf nul te beginnen.",
+          "Voor mensen die nog vroeg in hun zoektocht zitten, draait een tweede, lichter vragenlijstje: een paar vragen over je woning, hoe groot die is en hoe je nu stookt, en je krijgt meteen een persoonlijk advies welk model en welk vermogen bij je past. Ook deze gegevens komen netjes binnen bij NordFlame, zodat ze je gericht verder kunnen helpen.",
       },
       {
-        title: "Aurora combineert direct met een warmtepomp",
+        title: "Aurora rekent direct mee met je warmtepomp",
         body:
-          "NordFlame's vlaggenschip Aurora is een hybride model dat samenwerkt met een warmtepomp. In de Vervangingsscan weegt het systeem dat letterlijk mee: als een bezoeker aangeeft dat 'ie al een warmtepomp heeft of er één overweegt, dan past de berekening daarop aan en wordt Aurora actief voorgesteld in plaats van een puur-pellet-model. Eén calculator, alle scenarios.",
+          "Het pronkstuk Aurora werkt samen met een warmtepomp. Het vragenlijstje houdt daar rekening mee: geef je aan dat je al een warmtepomp hebt of er een overweegt, dan past de berekening zich aan en wordt Aurora meteen aangeraden in plaats van een gewone pelletkachel. Eén hulpje, alle situaties.",
       },
       {
-        title: "Fathom Analytics in plaats van Google Analytics",
+        title: "Bezoekers tellen zonder cookie-banner",
         body:
-          "Voor de premium positionering en het privacy-vriendelijke imago dat NordFlame wilde uitstralen, hebben we Fathom Analytics gekoppeld in plaats van Google Analytics. Een lichtere site, geen cookie-banner-frictie en privacy-by-default. De waardevolle conversie-data uit de Lead Engines landt sowieso in het CRM, dus voor verkoop maakt het niets uit.",
+          "Voor het luxe en privacyvriendelijke imago dat NordFlame wilde, kozen we voor een manier van bezoekers tellen die geen cookie-banner nodig heeft en geen persoonlijke gegevens verzamelt. Dat houdt de site licht en netjes. De waardevolle aanvragen uit de vragenlijstjes komen toch al netjes binnen, dus voor de verkoop verandert er niets.",
       },
     ],
     results: [
-      { value: "6", label: "Modellen actief", descriptor: "elk met eigen pagina, video en specs" },
-      { value: "2", label: "Lead Engines", descriptor: "Vervangingsscan en Quickscan" },
-      { value: "Aurora", label: "Hybride logica", descriptor: "combineert direct met warmtepomp van de klant" },
-      { value: "Privacy", label: "Fathom in plaats van GA", descriptor: "snellere site, geen cookie-banner-frictie" },
+      { value: "6", label: "Modellen online", descriptor: "elk met eigen pagina, video en gegevens" },
+      { value: "2", label: "Slimme hulpjes", descriptor: "een subsidie-check en een hulpje voor wie rondkijkt" },
+      { value: "Aurora", label: "Slim combineren", descriptor: "rekent direct mee met je warmtepomp" },
+      { value: "Privacy", label: "Tellen zonder cookie-banner", descriptor: "snellere site, geen vervelende melding" },
     ],
   },
   {
@@ -385,15 +385,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Adalace",
     sector: "Compliance-software",
     location: "Vastgoedbeheer",
-    headlineLead: "Een Quickscan",
-    headlineHighlight: "die compliance concreet maakt.",
+    headlineLead: "Een scan die van je adres",
+    headlineHighlight: "meteen een helder advies maakt.",
     intro:
-      "Adalace helpt vastgoedbeheerders en scholen om hun keuringen en certificaten op orde te krijgen. Voor hen ontwikkelden we de Quickscan: een wizard die op basis van het adres direct BAG-data van het pand ophaalt, een persoonlijke duurzaamheids- en compliance-scan uitvoert en een rapport-PDF op maat oplevert. Een bezoeker hoeft alleen z'n adres in te vullen, de rest doet onze logica.",
-    pillars: ["5-stappen wizard", "BAG-koppeling", "PDF-rapport op maat"],
+      "Adalace helpt vastgoedbeheerders en scholen om hun keuringen en certificaten op orde te krijgen. Voor hen maakten we de Quickscan: een slim vragenlijstje waarbij je alleen je adres invult. De scan haalt dan zelf de gegevens van het gebouw op uit een openbaar bestand van de overheid, stelt nog een paar slimme vragen, en geeft je een rapport op maat. Jij vult bijna niks in, de scan doet het werk.",
+    pillars: ["Alleen je adres invullen", "Gegevens van de overheid", "Rapport op maat"],
     features: [
-      { label: "Vijf-stappen wizard", body: "Adres, functie, triggers, installaties, resultaat. Lichte vragen, concrete uitkomst, geen formulier-moeheid." },
-      { label: "BAG en Kadaster", body: "Bouwjaar, oppervlakte en gebruiksdoel komen automatisch uit overheidsdata, dus geen onnodige vragen meer." },
-      { label: "PDF op maat", body: "Aan het einde een persoonlijk rapport met de exacte verplichte lijst voor dit specifieke pand." },
+      { label: "Een paar simpele vragen", body: "Je adres, waar het gebouw voor wordt gebruikt en een paar vervolgvragen. Korte vragen, een duidelijke uitkomst, en je raakt niet halverwege het formulier moe." },
+      { label: "De overheid weet het al", body: "Het bouwjaar, de oppervlakte en het gebruik van het pand komen automatisch uit een openbaar overheidsbestand, dus die hoef je niet zelf op te zoeken." },
+      { label: "Een rapport op maat", body: "Aan het eind krijg je een net rapport met precies de keuringen die voor dit ene gebouw verplicht zijn." },
     ],
     img: "/images/clients/adalace-hero.jpg",
     imgAlt: "Schoolgebouw met veilige leeromgeving, beheerd via Adalace",
@@ -406,37 +406,37 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Hoe we voor Adalace de Quickscan bouwden: een wizard met BAG-koppeling en een PDF-rapport op maat voor vastgoedbeheerders en scholen.",
     fieldLogSlug: "bag-integratie-quickscan-adalace",
     challenge: {
-      title: "Een intake-traject dat een potentiële klant kostte voordat er een advies lag",
+      title: "Eerst een hoop vragen invullen, voordat er ook maar iets duidelijk werd",
       body:
-        "Adalace's grootste obstakel was tijd. Een potentiële klant moest eerst een aantal omslachtige vragen beantwoorden voordat een adviseur überhaupt iets kon zeggen over de verplichte keuringen voor zijn pand. De wens was om dat hele intake-proces voor de bezoeker te laten verdwijnen: één veld voor het adres, en de wizard zou intelligent uitvragen wat nog echt nodig is op basis van wat al automatisch over het pand bekend is. Zo verdwijnt de wrijving aan de voorkant en blijft er aan de adviseur-kant een lead over met scherpe context.",
+        "Het grootste obstakel bij Adalace was tijd. Voordat een adviseur iets kon zeggen over de verplichte keuringen van een gebouw, moest een klant eerst een rij omslachtige vragen beantwoorden. De wens was om dat hele gedoe vooraf te laten verdwijnen: je vult alleen je adres in, en de scan vraagt zelf slim door over wat ze nog niet weet. Zo is het voor de bezoeker veel minder werk, en houdt de adviseur er een aanvraag aan over waar hij meteen mee aan de slag kan.",
     },
     solution: [
       {
-        title: "Quickscan-wizard met dynamische vraag-volgorde",
+        title: "Een vragenlijstje dat zich aanpast",
         body:
-          "De Quickscan is een Lead Engine waarbij de vraagstroom zich aanpast aan wat de bezoeker tot nu toe heeft beantwoord. Type pand, bouwjaar, oppervlakte, gebruiksdoel: pas als die data nog niet uit BAG kan worden afgeleid, vragen we het expliciet. Dat scheelt aan de voorkant gemiddeld de helft van de vragen die een traditioneel formulier zou stellen, en houdt de doorlooptijd voor de bezoeker laagdrempelig.",
+          "De Quickscan is een slim vragenlijstje dat meedenkt: het laat alleen de vragen zien die er voor jouw gebouw toe doen. Is het bouwjaar of de oppervlakte al bekend, dan slaat de scan die vraag gewoon over. Daardoor stel je gemiddeld de helft van de vragen die een gewoon formulier zou stellen, en ben je snel klaar.",
       },
       {
-        title: "BAG-koppeling voor adres naar pand-data",
+        title: "Je adres invullen is genoeg",
         body:
-          "Zodra de bezoeker zijn adres invult, koppelen we direct naar de BAG (Basisregistratie Adressen en Gebouwen). Bouwjaar, oppervlakte, pand-type en gebruiksdoel komen daarmee automatisch beschikbaar. De wizard slaat de bijbehorende vragen over, want het antwoord heeft 'ie al, en de bezoeker beantwoordt alleen wat de overheidsdata nog niet weet over zijn specifieke situatie.",
+          "Zodra je je adres invult, haalt de scan de gegevens van het gebouw op uit een openbaar overheidsbestand: het bouwjaar, de oppervlakte, het type pand en waar het voor wordt gebruikt. Dat hoef je dus niet zelf op te zoeken. Je beantwoordt alleen nog wat de overheid niet weet over jouw situatie.",
       },
       {
-        title: "Rapport-PDF op maat na de scan",
+        title: "Een rapport op maat na afloop",
         body:
-          "Na de scan genereert het systeem een persoonlijk rapport in PDF-vorm dat de bezoeker direct ontvangt en kan downloaden. De adviseurs van Adalace gebruiken hetzelfde rapport als startpunt van een offerte-gesprek, zodat ze al met scherpe context aan tafel komen in plaats van vanaf nul te moeten beginnen.",
+          "Na de scan krijg je meteen een net rapport dat je kunt bewaren of printen. De adviseurs van Adalace gebruiken datzelfde rapport als startpunt voor een gesprek, zodat ze al weten waar het over gaat in plaats van bij nul te beginnen.",
       },
       {
-        title: "Bevestigingsmail vanuit een persoonlijk inbox-adres",
+        title: "Mails komen van Edwin zelf",
         body:
-          "De bevestigings- en rapportmails worden verstuurd vanuit het persoonlijke adres van Edwin, de Adalace-adviseur. Geen 'noreply@adalace.nl' of een algemene 'info@'-mailbox waar antwoorden in een zwart gat verdwijnen, maar een echt persoonlijk inbox-adres waar de bezoeker direct op kan antwoorden als 'ie nog vragen heeft.",
+          "De mails met je rapport komen van het eigen adres van Edwin, de adviseur van Adalace. Geen no-reply of een algemene info-mailbox waar je antwoord in een zwart gat verdwijnt, maar een echt adres waar je gewoon op kunt reageren als je nog een vraag hebt.",
       },
     ],
     results: [
-      { value: "BAG", label: "Automatische pand-data", descriptor: "bouwjaar, oppervlakte en gebruiksdoel uit overheidsdata" },
-      { value: "PDF", label: "Rapport op maat", descriptor: "direct bij de bezoeker én bij de adviseur" },
-      { value: "1 veld", label: "Voor de bezoeker", descriptor: "adres invullen, de wizard doet de rest" },
-      { value: "Inbox", label: "Persoonlijk antwoorden", descriptor: "mails komen vanuit Edwin's eigen adres" },
+      { value: "1 veld", label: "Voor de bezoeker", descriptor: "alleen je adres invullen, de scan doet de rest" },
+      { value: "Vanzelf", label: "Gegevens van de overheid", descriptor: "bouwjaar en oppervlakte komen er automatisch bij" },
+      { value: "Op maat", label: "Een rapport als pdf", descriptor: "meteen bij de bezoeker én bij de adviseur" },
+      { value: "Eigen mail", label: "Persoonlijk antwoorden", descriptor: "mails komen van Edwin zelf, niet van een no-reply" },
     ],
   },
   {
@@ -445,14 +445,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     sector: "Cultuur & community",
     location: "Heel Nederland",
     headlineLead: "Een leesclub-site die",
-    headlineHighlight: "leesplekken bij mensen brengt.",
+    headlineHighlight: "een leesplek bij jou in de buurt vindt.",
     intro:
-      "De Samenleesclub is een landelijk initiatief dat mensen via begeleide samenleessessies dichter bij elkaar brengt. Voor hen bouwden we een site met een interactieve Leaflet-kaart waarop bezoekers leesplekken in heel Nederland kunnen vinden, een aanmeldflow per sessie en SEO-instellingen per locatie zodat lokale bezoekers via Google direct op de juiste plek landen.",
-    pillars: ["Leaflet-locatiekaart", "Aanmeldflow per sessie", "SEO per locatie"],
+      "De Samenleesclub brengt door heel het land mensen bij elkaar door samen te lezen, onder begeleiding. Voor hen bouwden we een site met een kaart waarop je leesplekken in heel Nederland ziet liggen, een manier om je per bijeenkomst aan te melden, en een eigen pagina per plaats zodat je via Google meteen op de juiste plek terechtkomt.",
+    pillars: ["Kaart met leesplekken", "Aanmelden per bijeenkomst", "Per plaats vindbaar in Google"],
     features: [
-      { label: "Locatiekaart", body: "Een interactieve Leaflet-kaart met alle samenleessessies in Nederland, gegroepeerd per regio en direct aanklikbaar naar de detailpagina van die locatie." },
-      { label: "Aanmeldflow per sessie", body: "Bezoekers melden zich direct aan voor een specifieke sessie, de coördinator krijgt een melding en de plek staat in het CRM van de centrale organisatie." },
-      { label: "SEO per locatie", body: "Elke vestiging heeft een eigen pagina met meta-templates die de plaatsnaam meenemen, zodat 'samenleesclub Breda' direct lokaal vindbaar is." },
+      { label: "Kaart met leesplekken", body: "Een kaart met alle leesplekken in Nederland, per regio bij elkaar en met één klik door naar de pagina van die plek." },
+      { label: "Aanmelden per bijeenkomst", body: "Je meldt je meteen aan voor een bepaalde bijeenkomst, de begeleider ter plekke krijgt een melding en de aanmelding staat netjes bij de centrale organisatie." },
+      { label: "Per plaats vindbaar in Google", body: "Elke plek heeft een eigen pagina met de plaatsnaam erin, zodat iemand die 'samenleesclub Breda' zoekt meteen op de juiste pagina uitkomt." },
     ],
     img: "/images/clients/samenleesclub-hero.jpg",
     imgAlt: "Mensen die samen lezen tijdens een sessie van De Samenleesclub",
@@ -464,37 +464,37 @@ export const CASE_STUDIES: CaseStudy[] = [
     metaDescription:
       "Hoe we voor De Samenleesclub een site bouwden met een interactieve Leaflet-kaart, aanmeldflow per sessie en SEO-templates per locatie.",
     challenge: {
-      title: "Een landelijke beweging die lokaal vindbaar én aanmeldbaar moest zijn",
+      title: "Een landelijke beweging die ook lokaal te vinden én te boeken moest zijn",
       body:
-        "De Samenleesclub is een landelijk initiatief met tientallen leesplekken verspreid over Nederland. De uitdaging was om bezoekers vanuit elke regio direct de relevante locatie bij hen in de buurt te laten vinden, ze laagdrempelig te laten aanmelden voor een specifieke sessie op een specifieke datum, en tegelijk lokaal vindbaar te zijn in Google zodat iemand die 'samenleesclub Breda' zoekt direct op de juiste plek landt en niet op een algemene landingspagina. Daarbij wilden de lokale coördinatoren wel zelf zicht houden op aanmeldingen in hun eigen regio, zonder dat de centrale administratie de regie kwijtraakte.",
+        "De Samenleesclub heeft tientallen leesplekken door heel Nederland. De kunst was om iedereen, waar hij ook woont, meteen de leesplek bij hem in de buurt te laten vinden, zich makkelijk te laten aanmelden voor een bepaalde bijeenkomst op een bepaalde dag, en tegelijk goed vindbaar te zijn in Google. Iemand die 'samenleesclub Breda' zoekt, moet meteen op de juiste pagina komen en niet op een algemene startpagina. Daarbij wilden de begeleiders ter plekke wel zelf zicht houden op de aanmeldingen in hun eigen regio, zonder dat de centrale organisatie het overzicht kwijtraakte.",
     },
     solution: [
       {
-        title: "Een eigen content-type 'locatie' met Leaflet-kaart op de homepage",
+        title: "Een kaart met alle leesplekken op de homepage",
         body:
-          "We bouwden een custom content-type voor locaties in de Website-module van Forester OS, en koppelden die aan een interactieve Leaflet-kaart op de homepage. Bezoekers zien direct alle leesplekken bij hen in de buurt, met klik-doorlinks naar de detailpagina van die specifieke locatie inclusief contactpersoon, aankomende sessies en wat ze daar kunnen verwachten.",
+          "We maakten voor elke leesplek een eigen pagina en zetten ze allemaal op een kaart op de homepage. Je ziet meteen alle plekken bij jou in de buurt liggen, en met één klik ga je door naar de pagina van die plek, met de contactpersoon, de eerstvolgende bijeenkomsten en wat je daar kunt verwachten.",
       },
       {
-        title: "Aanmeldflow per sessie met dubbele CRM-routing",
+        title: "Aanmelden per bijeenkomst, met bericht naar twee kanten",
         body:
-          "Voor elke sessie op elke locatie bouwden we een Lead Engine die de bezoeker meeneemt door welke locatie, welke datum, persoonlijke gegevens en eventuele toelichting. De aanmelding landt direct in de mailbox van de coördinator van die locatie én in de centrale administratie. Zo blijft het lokaal beheersbaar terwijl het hoofdkantoor het totaalbeeld behoudt.",
+          "Voor elke bijeenkomst op elke plek maakten we een slim aanmeldformulier dat je netjes langs de plek, de datum, je gegevens en een eventuele opmerking leidt. Je aanmelding komt meteen bij de begeleider van die plek terecht én bij de centrale organisatie. Zo houdt iedereen ter plekke zicht op zijn eigen groep, terwijl het hoofdkantoor het totaalplaatje ziet.",
       },
       {
-        title: "SEO per locatie met automatische meta-templates",
+        title: "Elke plaats meteen vindbaar in Google",
         body:
-          "Elke locatie heeft een eigen SEO-pagina met meta-titels, descriptions en structured data die afgestemd zijn op de plaatsnaam. Slim SEO Pro regelt de redirects en de sitemap, en een mu-plugin zorgt dat nieuwe locaties automatisch correcte default-meta's krijgen zonder dat iemand handmatig per CPT-veld hoeft te tikken. Toevoegen van een nieuwe leesplek is daardoor een handeling van vijf minuten in plaats van een SEO-traject.",
+          "Elke leesplek heeft een eigen pagina die is afgestemd op de plaatsnaam, zodat hij goed vindbaar is in Google. Een nieuwe leesplek toevoegen kost daardoor vijf minuten in plaats van een heel SEO-project: gewoon invullen en publiceren, de rest gaat vanzelf goed.",
       },
       {
-        title: "Bevestigingsmails per aanmelding, voor deelnemer én coördinator",
+        title: "Bevestigingsmails voor zowel de deelnemer als de begeleider",
         body:
-          "Bij elke aanmelding krijgt de deelnemer direct een persoonlijke bevestigingsmail met de exacte sessie-info, het adres en wat ze kunnen verwachten. De coördinator krijgt parallel z'n eigen samenvatting met de aanmeldingen voor die week. Geen handmatig overpennen, geen verloren aanmeldingen.",
+          "Meld je je aan, dan krijg je meteen een persoonlijke bevestiging in je mailbox met de juiste informatie over de bijeenkomst, het adres en wat je kunt verwachten. De begeleider krijgt tegelijk zijn eigen overzichtje met de aanmeldingen voor die week. Niks meer met de hand overtikken, geen aanmeldingen die zoekraken.",
       },
     ],
     results: [
-      { value: "Landelijk", label: "Locatiekaart actief", descriptor: "alle leesplekken interactief op de homepage" },
-      { value: "Per sessie", label: "Aanmeldflow", descriptor: "directe routing naar lokale coördinator én centraal CRM" },
-      { value: "Lokaal", label: "SEO geoptimaliseerd", descriptor: "elke plaats heeft z'n eigen vindbare pagina" },
-      { value: "5 min", label: "Nieuwe locatie toevoegen", descriptor: "geen SEO-traject, gewoon invullen en publiceren" },
+      { value: "Landelijk", label: "Kaart met leesplekken", descriptor: "alle plekken meteen te zien op de homepage" },
+      { value: "Per sessie", label: "Aanmelden per bijeenkomst", descriptor: "meteen naar de begeleider ter plekke én naar de centrale organisatie" },
+      { value: "Lokaal", label: "Vindbaar in Google", descriptor: "elke plaats heeft een eigen vindbare pagina" },
+      { value: "5 min", label: "Nieuwe leesplek toevoegen", descriptor: "geen SEO-project, gewoon invullen en publiceren" },
     ],
   },
 ];

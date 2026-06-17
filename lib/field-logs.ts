@@ -149,7 +149,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Advertenties",
     title: "Forester Ads: hoe je Google Ads bruikbaar maakt voor iemand die er doodsbang voor is",
     excerpt:
-      "Forester ving bezoekers al op met Lead Engines en liet ze afrekenen met Sales Engines, maar al die tijd ging het over mensen die er al wáren. Met de Ads-feature pakken we eindelijk de bovenkant van de trechter. Het lastigste was niet de Google Ads API, maar de vraag hoe je een heel vakgebied terugbrengt tot één woord: Advertentie. Een notitie over waarom we van Performance Max naar Google Search zijn omgeslagen, een budget dat niet kan ontsporen, en een funnel die je van euro tot aanvraag volgt.",
+      "Forester hielp bezoekers al verder met een slim vragenlijstje en liet ze soms zelfs meteen afrekenen. Maar dat werkt alleen als er iemand op je site staat. Nu hebben we daar de bovenkant bij gebouwd: adverteren in Google, zonder dat je er verstand van hoeft te hebben. Het lastigste was niet de techniek, maar dit: hoe maak je iets bruikbaar voor iemand die er doodsbang voor is. Een stukje over één knop in plaats van een heel vakgebied, een budget dat nooit kan ontsporen, en eindelijk zien wat een euro je oplevert.",
     metaTitle: "Forester Ads: Google Ads zonder jargon",
     metaDescription:
       "Hoe Forester OS Google Ads behapbaar maakt zonder SEA-kennis: één Advertentie in plaats van een campagne, Google Search als default en een funnel die spend tot prospect volgt.",
@@ -176,66 +176,66 @@ export const FIELD_LOGS: FieldLog[] = [
     body: {
       greeting: "Lief dagboek, maandag 8 juni 2026",
       intro: [
-        "Tweede maandag van juni, koffie binnen handbereik, en de Ads-feature van Forester draait nu een paar weken écht. De eerste advertenties staan live in echte Google Ads-accounts, met echt budget, echte vertoningen en inmiddels de eerste echte cijfers. En precies die cijfers hebben ons de afgelopen week iets geleerd dat de feature op een belangrijk punt heeft omgegooid. Tijd dus om rustig op te schrijven waar we staan, want in de bouwhectiek zelf kom je daar nooit aan toe.",
-        "Want als ik er met wat afstand naar kijk, zie ik dat we een gat hebben gedicht waar ik lang overheen heb gekeken. Forester kon een bezoeker altijd al opvangen met een Lead Engine, een Quickscan of Quick Quote die iemand iets oplevert en ons parallel context geeft. En sinds kort kan Forester die bezoeker ook direct laten afrekenen met een Sales Engine. Maar allebei die dingen gaan ervan uit dat de bezoeker er al is. De vraag hoe iemand überhaupt op de site komt, lieten we stilzwijgend aan de klant zelf over.",
-        "En het lastigste aan deze hele feature was niet de techniek achter Google Ads, hoe taai die ook is. Het lastigste was de vraag waar ik wekenlang op heb zitten broeden: hoe maak je Google Ads bruikbaar voor iemand die er doodsbang voor is.",
+        "Tweede maandag van juni, koffie binnen handbereik, en het adverteren in Forester draait nu een paar weken echt. De eerste advertenties staan live, met echt geld erachter, en inmiddels de eerste echte cijfers. En precies die cijfers leerden ons de afgelopen week iets dat ik niet had verwacht. Tijd om rustig op te schrijven waar we staan, want in de drukte van het bouwen kom je daar nooit aan toe.",
+        "Als ik er met wat afstand naar kijk, zie ik dat we een gat hebben gedicht. Forester kon een bezoeker altijd al verder helpen met de Lead Engine: een slim vragenlijstje dat de bezoeker iets nuttigs oplevert, en jou ondertussen vertelt wie er langskwam. En sinds kort kan Forester die bezoeker ook meteen laten afrekenen met de Sales Engine. Maar allebei werken ze pas als er iemand op je site staat. Hoe iemand überhaupt op die site komt, lieten we stilletjes aan de klant zelf over.",
+        "En het lastigste aan dit hele ding was niet de techniek. Het lastigste was de vraag waar ik wekenlang op heb zitten broeden: hoe maak je adverteren bruikbaar voor iemand die er doodsbang voor is.",
       ],
       sections: [
         {
-          title: "De bovenkant van de trechter die we steeds oversloegen",
+          title: "De bovenkant die we steeds oversloegen",
           paragraphs: [
-            "Forester begon met Lead Engines, slimme vragenlijstjes die een bezoeker iets opleveren (een rapport, een aanbeveling, een berekening) en ons ondertussen vertellen wie er langskwam en waar 'ie mee zit. Daarna kwamen de Sales Engines, die niet eindigen met een gesprek maar met een order. Twee mooie stukken machine, maar ze hebben allebei hetzelfde blinde vlekje: ze beginnen pas te werken als er iemand op de pagina staat.",
-            "En precies dáár zit bij onze doelgroep het grootste gat. Advocaten, notarissen, accountants en hun teams hebben vaak een prima site met een prima Lead Engine erop, en dan komt er domweg te weinig volk langs. De trechter is keurig gebouwd, maar er valt bovenin bijna niks in. Een conversie-machine zonder verkeer is een hele nette etalage in een straat waar niemand loopt.",
-            "Ons antwoord op 'hoe kom ik aan bezoekers' was tot nu toe een schouderophaal richting SEO, het geduldige werk om op eigen kracht hoger in Google te komen, of richting een advertentiebureau, dat duur is en waarbij je de grip op je eigen cijfers kwijtraakt. Geen van beide past bij wat Forester wil zijn. Dus bouwden we de bovenkant van die trechter er zelf bij, in dezelfde omgeving als de rest.",
+            "Forester begon met de Lead Engine: een slim vragenlijstje dat de bezoeker iets nuttigs oplevert, een rapport, een tip, een berekening, en jou ondertussen vertelt wie er langskwam en waar 'ie mee zit. Daarna kwam de Sales Engine: hetzelfde idee, maar het eindigt niet met een gesprek, het eindigt met een verkoop. Je rekent meteen af. Twee mooie dingen, maar ze hebben allebei hetzelfde mankement: ze werken pas als er iemand op je pagina staat.",
+            "En precies daar zit bij onze klanten het grootste gat. Advocaten, notarissen, accountants en hun teams hebben vaak een prima site met een prima vragenlijstje erop, en dan komt er gewoon te weinig volk langs. Alles staat klaar, maar er loopt niemand binnen. Dat is een hele nette etalage in een straat waar niemand komt.",
+            "Ons antwoord op 'hoe kom ik aan bezoekers' was tot nu toe: word op eigen kracht beter vindbaar in Google (mooi, maar dat duurt lang), of huur een duur reclamebureau in (en raak de grip op je eigen cijfers kwijt). Geen van beide past bij wat Forester wil zijn. Dus bouwden we de bovenkant er zelf bij, op dezelfde plek als de rest.",
           ],
         },
         {
           title: "Eén woord in plaats van een heel vakgebied",
           paragraphs: [
-            "De grootste ontwerp-knoop is dat Google Ads geen knop is maar een vakgebied. Campagnes, advertentiegroepen, asset groups, biedstrategieën, zoekwoorden, match-types, CPC, CPM, ROAS. Voor iemand die daar z'n brood niet mee verdient is dat een muur van jargon waar 'ie het liefst met een grote boog omheen loopt. En terecht, want elk van die knoppen kan je geld kosten als je 'm verkeerd zet.",
-            "Onze keuze was om die hele muur weg te hakken en er één woord van over te houden: Advertentie. Niet campagne, niet advertentiegroep, niet asset group. Je maakt in Forester een Advertentie, en wat daarachter precies aan Google-machinerie draait, krijgt de gebruiker simpelweg nooit te zien.",
-            "In de eerste weken draaide daarachter standaard één Performance Max-campagne, Google's volautomatische variant die zelf zoekwoorden, bieden en plaatsingen kiest. Op papier ideaal voor onze doelgroep. In de praktijk zagen we iets anders. PMax kocht vooral goedkope ruis: klikken van vier tienden van een cent, duizenden vertoningen, en aan het eind van de rit nul aanvragen. Een net cijfer in het dashboard dat onderaan de streep niks opleverde.",
-            "Dus hebben we de motor omgedraaid. Een nieuwe Advertentie draait sinds deze maand standaard op Google Search, de gewone tekstadvertenties die bovenaan verschijnen als iemand letterlijk intypt wat 'ie zoekt. Dat is duurder per klik, maar je betaalt voor iemand met een vraag in z'n hoofd in plaats van voor een willekeurige scroll. En dat verschil zien we nu live terug: van de mensen die via Search op een scan binnenkomen, start een flink deel daadwerkelijk de funnel. Performance Max is niet weg, maar verhuisd naar een knop Geavanceerd, voor wie 'm bewust wil aanzetten. De default is nu de variant die mensen trekt die écht zoeken.",
-            "Het is dezelfde moeder-proof-filosofie als de rest van Forester. We verbergen de complexiteit niet door 'm weg te laten, maar door 'm achter een handvol slimme defaults en wat eigen rekenwerk te parkeren. De gebruiker neemt de beslissingen die ertoe doen, de machine doet de rest.",
+            "Het probleem met adverteren in Google is dat het geen knop is maar een heel vak. Er zijn tientallen termen, instellingen en knoppen, en bijna elke ervan kan je geld kosten als je 'm verkeerd zet. Voor iemand die daar z'n brood niet mee verdient is dat een muur waar 'ie het liefst met een grote boog omheen loopt. Begrijpelijk.",
+            "Onze keuze was om die hele muur weg te halen en er één woord van over te houden: een advertentie. Je maakt in Forester gewoon een advertentie, en alles wat daarachter aan Google-machinerie draait, krijg je nooit te zien.",
+            "De eerste weken gebruikten we daarvoor Google's automatische variant, die zelf bepaalt waar je advertentie verschijnt en aan wie. Op papier ideaal voor onze klanten. In de praktijk zagen we iets anders: die variant kocht vooral goedkope ruis. Heel veel klikjes voor een paar tienden van een cent, en aan het eind van de rit nul aanvragen. Een mooi cijfer op het scherm dat onderaan de streep niks opleverde.",
+            "Dus draaiden we het om. Een nieuwe advertentie verschijnt nu standaard als gewone tekst bovenaan Google, precies op het moment dat iemand intypt wat 'ie zoekt. Dat kost meer per klik, maar je betaalt voor iemand met een vraag in z'n hoofd in plaats van voor een willekeurige voorbijganger. En dat verschil zien we nu live terug: van de mensen die zo binnenkomen, gaat een flink deel ook echt aan de slag. De automatische variant is niet weg, die zit nu achter een knop Geavanceerd, voor wie 'm bewust wil aanzetten. Maar standaard trekken we nu de mensen die echt zoeken.",
+            "Het is dezelfde gedachte als de rest van Forester. We verstoppen de moeilijkheid niet door 'm weg te laten, maar door 'm voor je op te lossen. Jij neemt de keuzes die ertoe doen, de rest doet de machine.",
           ],
         },
         {
           title: "Vijf vragen, geen muur van knoppen",
           paragraphs: [
-            "Een Advertentie bouw je in vijf stappen, en alle vijf zijn ze in gewone taal gesteld. Welke pagina wil je promoten. Wat bied je aan. Voor wie is het. Wat mag het per maand kosten. En tot slot: wanneer is het geslaagd, een ingevuld formulier, een telefoontje of een mail. Dat is de hele flow. Geen tabblad met dertig instellingen, geen veld waarvan je je afvraagt of je het wel goed invult.",
-            "Wat de gebruiker niet ziet, is dat er tussen die vragen door een hoop wordt geschreven op basis van wat 'ie heeft ingevuld. De zoekwoorden en de advertentieteksten laten we door Claude bedenken, het taalmodel waar we ook de rest van onze teksten mee maken, omdat dat in onze tests simpelweg de scherpste, meest menselijke zoekzinnen oplevert. Zet iemand de geavanceerde variant aan, dan verzorgt Google's eigen AI, Gemini, de teksten bij de beelden. En het beeld zelf hoeft niemand aan te leveren: het systeem pakt dat automatisch van de eigen website, het deel-plaatje en het app-icoontje, en snijdt het zelf bij naar de vierkante en liggende formaten die Google vraagt. De gebruiker hoeft dus geen advertentietekst te verzinnen, geen zoekwoorden te bedenken en geen plaatjes te zoeken. Dat doet de motor.",
-            "En het meten of een advertentie ook echt iets oplevert, juist het stukje waar de meeste zelf-geknutselde Google Ads-accounts stilletjes op stuklopen, gebeurt vanzelf. Google plakt een onzichtbaar herkenningslabel aan iedereen die via een advertentie binnenkomt, en dat vangen wij meteen op. Vult zo iemand daarna het aanvraagformulier op de site in, dan weet het systeem zelf dat die aanvraag uit een advertentie kwam en telt 'm mee. Geen meetcode die je ergens op je site moet plakken, geen technisch gedoe waarvan je achteraf nooit zeker weet of het wel heeft gewerkt.",
+            "Een advertentie maak je in vijf stappen, alle vijf in gewone taal. Welke pagina wil je laten zien. Wat bied je aan. Voor wie is het. Wat mag het per maand kosten. En tot slot: wanneer is het geslaagd, een ingevuld formulier, een telefoontje of een mail. Dat is het. Geen scherm vol instellingen, geen vakje waarvan je je afvraagt of je het wel goed invult.",
+            "Wat je niet ziet, is dat er tussen die vragen door een hoop voor je wordt geregeld. De zoekwoorden en de advertentieteksten laten we door een slimme computer bedenken, dezelfde waar we ook onze andere teksten mee maken, omdat die simpelweg de scherpste, meest menselijke zinnen oplevert. En het plaatje hoef je ook niet aan te leveren: het systeem pakt dat zelf van je eigen website en je logo, en snijdt het netjes bij naar de maten die Google vraagt. Je hoeft dus geen tekst te verzinnen, geen zoekwoorden te bedenken en geen plaatjes te zoeken. Dat doet de machine.",
+            "En het bijhouden of een advertentie ook echt iets oplevert, precies het stukje waar de meeste mensen die het zelf proberen stilletjes op vastlopen, gebeurt vanzelf. Iemand die via een advertentie binnenkomt, krijgt een onzichtbaar herkenningsteken mee. Vult die persoon daarna het formulier op je site in, dan weet het systeem zelf dat die aanvraag uit een advertentie kwam, en telt 'm mee. Geen code die je ergens moet plakken, geen technisch gedoe waarvan je achteraf nooit zeker weet of het wel werkte.",
           ],
         },
         {
           title: "Het budget dat niet kan ontsporen",
           paragraphs: [
-            "De grootste angst bij Google Ads, zeker bij wie er niet dagelijks in zit, is dat het ding 's nachts ongemerkt je hele bankrekening leegtrekt. Dat is geen irrationele angst, het gebeurt mensen echt. Dus bouwden we daar een harde grens omheen.",
-            "Per website stel je één totaal-maandbudget in. Daarbinnen mag je meerdere advertenties hebben, bijvoorbeeld één per regio, één per dienst of één per landingspagina. Maar de budget-sliders van die losse advertenties kunnen samen nooit boven dat totaal uitkomen, het systeem laat het domweg niet toe. Pauzeer of verwijder je een advertentie, dan komt dat budget weer vrij voor de rest.",
-            "Het is een kleine technische ingreep met een groot psychologisch effect. De gebruiker weet dat het nooit meer kan worden dan het bedrag dat 'ie zelf heeft ingesteld, en dat is nu precies de zekerheid die iemand nodig heeft om überhaupt te dúrven beginnen met adverteren. Veiligheid is hier geen feature, het is de voorwaarde om de stap te zetten.",
+            "De grootste angst bij adverteren, zeker bij wie er niet dagelijks in zit, is dat het ding 's nachts ongemerkt je hele bankrekening leegtrekt. Dat is geen rare angst, het gebeurt mensen echt. Dus bouwden we daar een harde grens omheen.",
+            "Per website stel je één bedrag per maand in. Daarbinnen mag je meerdere advertenties hebben, bijvoorbeeld één per regio of één per dienst. Maar bij elkaar opgeteld kunnen die nooit boven dat ene bedrag uitkomen. Het systeem laat het simpelweg niet toe. Zet je een advertentie op pauze of haal je 'm weg, dan komt dat geld weer vrij voor de rest.",
+            "Het is een kleine ingreep met een groot effect. Je weet dat het nooit meer kan worden dan het bedrag dat je zelf hebt ingesteld, en dat is precies de zekerheid die iemand nodig heeft om überhaupt te durven beginnen. Veiligheid is hier geen extraatje, het is de voorwaarde om de stap te zetten.",
           ],
         },
         {
-          title: "De slimme start die na tien dagen weer gas terugneemt",
+          title: "De slimme start die na tien dagen vanzelf gas terugneemt",
           paragraphs: [
-            "Er zit nog een tweede knop in dat budget-verhaal, en die hebben we er net bij gebouwd. Een gloednieuwe advertentie heeft een probleem dat niks met geld te maken heeft maar er wel op lijkt: Google weet in het begin nog niks. Het algoritme moet eerst leren wie er klikt, wie er converteert en wie alleen maar langs scrolt, en met een krap dagbudget duurt dat leren tergend lang.",
-            "Dus geven we elke nieuwe advertentie een aanloop. De eerste tien dagen draait 'ie op een wat ruimer dagbudget, zodat Google in korte tijd genoeg signaal binnenkrijgt om te snappen wie de moeite waard is. Daarna zakt de advertentie helemaal vanzelf terug naar het vaste dagbudget dat bij je maandbedrag hoort. De gebruiker hoeft daar niks voor te doen en niks van te weten, het gebeurt onder water.",
-            "En het mooie is dat het keurig binnen die harde maandgrens van net blijft. De aanloop verbruikt wat meer aan het begin van de maand en wat minder aan het eind, maar het totaal dat je hebt ingesteld blijft het plafond. Je betaalt dus niet meer, je betaalt het alleen slimmer: vooraan wat extra om Google snel te laten leren, daarna rustig op kruissnelheid. Veiligheid en een vliegende start hoeven elkaar niet te bijten.",
+            "Er zit nog een tweede ding in dat budget-verhaal, en dat hebben we er net bij gebouwd. Een gloednieuwe advertentie heeft namelijk een probleem dat op geld lijkt maar het niet is: Google kent je in het begin nog niet. Het moet eerst leren wie er klikt, wie er echt iets aanvraagt en wie alleen even kijkt. En met een krap dagbedrag duurt dat leren tergend lang.",
+            "Dus geven we elke nieuwe advertentie een aanloopje. De eerste tien dagen mag 'ie wat ruimer van zich afbijten, zodat Google snel snapt wie de moeite waard is. Daarna zakt de advertentie helemaal vanzelf terug naar het normale dagbedrag dat bij je maandbedrag hoort. Je hoeft daar niks voor te doen en niks van te weten, het gebeurt onder water.",
+            "En het mooie is: het blijft keurig binnen die harde maandgrens van net. De aanloop kost wat meer aan het begin van de maand en wat minder aan het eind, maar het totaal dat je hebt ingesteld blijft het plafond. Je betaalt dus niet meer, je betaalt het alleen slimmer. Veiligheid en een vliegende start hoeven elkaar niet te bijten.",
           ],
         },
         {
-          title: "De trechter die zichzelf eindelijk dichtmaakt",
+          title: "Eindelijk zien wat een euro je oplevert",
           paragraphs: [
-            "Het stuk waar ik het meest tevreden over ben is niet het aanmaken van een advertentie, maar wat je daarna ziet. Sinds eind mei krijgt elke advertentielink automatisch een onzichtbaar herkomst-label mee, en hetzelfde doen we met de links in de nieuwsbrieven. Daardoor kunnen we voor het eerst de hele keten in één scherm laten zien.",
-            "Bovenin de trechter: hoe vaak je advertentie is getoond en hoe vaak erop is geklikt, die cijfers halen we rechtstreeks bij Google op. Daaronder de bezoekers die via een advertentie binnenkwamen en niet meteen weer wegklikten. En onderin de échte aanvragen: de mensen die daadwerkelijk een formulier hebben ingevuld en die we aan dat herkomst-label herkennen als afkomstig uit een advertentie. Die onderste, belangrijkste laag houdt Forester zelf bij, in plaats van het over te laten aan een los meetpakket.",
-            "Dat is de heilige graal voor een MKB-ondernemer. Niet 'we zijn zo vaak getoond', maar 'deze advertentie heeft me deze week drie ingevulde aanvragen opgeleverd, en dit is wat het me heeft gekost'. De uitgaven bovenaan, een echte aanvraag onderaan, en alles ertussen zichtbaar op één plek. Geen los Google-scherm naast een los meetscherm naast een export uit je klantsysteem, maar één verhaal van euro tot aanvraag.",
-            "En anders dan een paar weken geleden is dit nu geen belofte meer maar een meting. De keten is rond: van de eerste keer dat je advertentie verschijnt tot de ingevulde aanvraag zien we het in hetzelfde scherm gebeuren, live. De eerste klanten kunnen nu al teruglezen wat een advertentie deze week aan kliks heeft gekost en hoeveel echte aanvragen daar onderaan uitrolden. Dat is het moment waarop adverteren ophoudt een gok te zijn en een rekensom wordt.",
+            "Het stuk waar ik het meest tevreden over ben, is niet het maken van een advertentie, maar wat je daarna ziet. Iedereen die via een advertentie of via een mail van je binnenkomt, krijgt zo'n onzichtbaar herkenningsteken mee. Daardoor kunnen we voor het eerst het hele verhaal in één scherm laten zien.",
+            "Bovenaan: hoe vaak je advertentie is getoond en hoe vaak erop is geklikt, die cijfers krijgen we rechtstreeks van Google. Daaronder de bezoekers die via een advertentie binnenkwamen en niet meteen weer wegklikten. En onderaan het belangrijkste: de echte aanvragen, de mensen die daadwerkelijk een formulier hebben ingevuld en die we herkennen als binnengekomen via een advertentie. Die onderste laag houdt Forester zelf bij.",
+            "Dat is waar een ondernemer echt iets aan heeft. Niet 'we zijn zo vaak getoond', maar 'deze advertentie leverde me deze week drie aanvragen op, en dit kostte het me'. De uitgaven bovenaan, een echte aanvraag onderaan, en alles ertussen op één plek. Geen los Google-scherm naast nog een ander scherm naast een lijstje uit je klantsysteem, maar één verhaal van euro tot aanvraag.",
+            "En anders dan een paar weken geleden is dit nu geen belofte meer, maar iets wat je echt ziet gebeuren. Live. De eerste klanten kunnen nu al teruglezen wat een advertentie deze week aan klikjes kostte en hoeveel echte aanvragen daar onderaan uitrolden. Dat is het moment waarop adverteren ophoudt een gok te zijn en gewoon een rekensom wordt.",
           ],
         },
       ],
       outro: [
-        "Wil je het naadje van de Ads-feature weten, of zit je zelf met een prima site waar simpelweg te weinig volk op afkomt, dan is dit precies het gesprek dat ik graag voer. Adverteren hoeft geen vakgebied te zijn dat je noodgedwongen uitbesteedt of jarenlang vermijdt. Soms is het een kwestie van de juiste vijf vragen en een budget dat niet kan ontsporen.",
-        "PS, voor iedereen die Google Ads tot nu toe heeft weggewuifd als te ingewikkeld of als iets voor een bureau: dat was je goed recht, want het wás ingewikkeld. Het hele punt van deze feature is dat dat excuus nu vervalt. En dat vind ik bijna nog het mooiste eraan.",
+        "Wil je weten hoe dit precies werkt, of zit je zelf met een prima site waar gewoon te weinig volk op afkomt, dan is dit het gesprek dat ik graag voer. Adverteren hoeft geen vak te zijn dat je noodgedwongen uitbesteedt of jarenlang vermijdt. Soms is het een kwestie van de juiste vijf vragen en een budget dat niet kan ontsporen.",
+        "PS, voor iedereen die adverteren in Google tot nu toe heeft weggewuifd als te ingewikkeld of als iets voor een bureau: dat was je goed recht, want het wás ingewikkeld. Het hele punt van dit ding is dat dat excuus nu wegvalt. En dat vind ik bijna nog het mooiste eraan.",
       ],
       signature: "Tot snel, Martijn",
     },
@@ -247,7 +247,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Sales Engines",
     title: "Balude's betaalde AI-training: een Sales Engine die geen zaal en geen agenda nodig heeft",
     excerpt:
-      "Sinds 13 mei verkoopt Remco van Balude z'n eerste online AI-training. Geen Teachable, geen Coursebox, geen LMS-abonnement van honderd euro per maand. Wel een Sales Engine in Forester OS, met dertig vragen die deels door een taalmodel worden nagekeken en een certificaat dat direct in de mail valt. Een notitie over wat er gebeurt als je expertise digitaal wil verzilveren zonder dat je agenda erbij in de weg gaat zitten.",
+      "Sinds 13 mei verkoopt Remco van Balude z'n eerste online AI-training. Geen dure cursus-software, geen maandabonnement. Wel een Sales Engine in Forester OS: een vragenlijstje dat niet eindigt met een gesprek maar met een verkoop, je rekent meteen af. Dertig vragen, waarvan de open antwoorden door een slimme computer worden nagekeken, en een certificaat dat meteen in je mail valt. Een stukje over wat er gebeurt als je je kennis wil verkopen zonder dat je agenda in de weg gaat zitten.",
     metaTitle: "Balude AI-training: Sales Engine in Forester OS",
     metaDescription:
       "Hoe Balude z'n betaalde AI-training online verkoopt via een Sales Engine in Forester OS: Mollie-checkout, Gemini-grading, magic-link en A4-certificaat.",
@@ -271,57 +271,57 @@ export const FIELD_LOGS: FieldLog[] = [
     body: {
       greeting: "Lief dagboek, dinsdag 26 mei 2026",
       intro: [
-        "Twee weken geleden, op 13 mei, ging de AI-training van Balude live. Vandaag pas zit ik er voor het eerst rustig achterover bij om op te schrijven wat we eigenlijk gebouwd hebben. Want in de hectiek van een livegang ben je vooral bezig met checken of de betaling doorkomt, of de mails op de juiste mailservers aankomen, of het certificaat de juiste naam draagt. De vraag wat dit ding in onze platform-architectuur betekent, schoof ik door naar later. Vandaag is later.",
-        "De training zelf is een mooi product. Remco geeft al jaren AI-advies aan advocatenkantoren, accountants en MKB-management, en die vraag werd elke maand groter, terwijl z'n agenda dat niet werd. Iedereen die in een gereguleerde sector werkt, wil z'n team aan een gemeenschappelijke basis krijgen: wat mag wel, wat mag niet, hoe prompt je zonder een cliëntdossier in een publiek model te kieperen. Dat is geen vraag die zich leent voor één-op-één-workshops als je het op enige schaal wilt doen.",
-        "Dus zochten we een manier om z'n expertise digitaal in een doosje te stoppen. En het bijzondere is: het is de eerste keer dat we een Sales Engine bouwen die volledig zonder agenda werkt. Geen datum-keuze, geen zaalcapaciteit, geen reisafstand, geen menselijke instructeur die op een ochtend in Utrecht moet staan. Pure software die een product levert, een toets afneemt en een certificaat genereert.",
+        "Twee weken geleden, op 13 mei, ging de AI-training van Balude live. Vandaag pas zit ik er voor het eerst rustig achterover bij om op te schrijven wat we eigenlijk gebouwd hebben. Want bij een livegang ben je vooral bezig met checken of de betaling binnenkomt, of de mails wel aankomen, of het certificaat de juiste naam draagt. De vraag wat dit nou eigenlijk betekent, schoof ik door naar later. Vandaag is later.",
+        "De training zelf is een mooi product. Remco geeft al jaren AI-advies aan advocatenkantoren, accountants en bedrijven, en die vraag werd elke maand groter, terwijl z'n agenda dat niet werd. Iedereen die met gevoelige informatie werkt, wil z'n team op één lijn krijgen: wat mag wel, wat mag niet, hoe gebruik je AI zonder per ongeluk een klantdossier in een openbaar systeem te gooien. Dat krijg je niet één voor één in een zaaltje uitgelegd als het om veel mensen gaat.",
+        "Dus zochten we een manier om z'n kennis digitaal in een doosje te stoppen. En het bijzondere is: het is de eerste keer dat we iets bouwen dat helemaal zonder agenda werkt. Geen datum kiezen, geen zaal, geen reisafstand, geen docent die op een ochtend in Utrecht moet staan. Gewoon software die het product levert, de toets afneemt en het certificaat maakt.",
       ],
       sections: [
         {
-          title: "Het andere uiteinde van het Sales Engine-spectrum",
+          title: "Het andere uiteinde van de Sales Engine",
           paragraphs: [
-            "Een paar weken geleden schreef ik over de Training enrollment van Pink Elephant, die qua techniek óók een Sales Engine is, maar met een heel andere fysieke realiteit erachter. Pink verkoopt klassikale trainingen met datums, zalen, instructeurs en koffieautomaten. Hun engine kiest een datum, telt deelnemers tegen zaalcapaciteit, en regelt vier mogelijke betaalvarianten. De wrijving die we daar wegnemen, zit aan de inschrijfkant, niet aan de leverkant. Het product zelf is fysiek en wordt door mensen geleverd.",
-            "Balude's AI-training zit aan het andere uiteinde van dat spectrum. Hier is het product óók de software. De engine verkoopt de training, levert hem en certificeert de afronding, allemaal in dezelfde keten zonder dat er iemand fysiek iets moet doen. Klant betaalt 's avonds om half elf via iDEAL, krijgt direct een welkomstmail, doorloopt de training in dertig minuten, beantwoordt de eindtoets, en heeft het certificaat in de mail voor middernacht. Geen wachtlijst, geen datumvoorkeur, geen instructeur die in z'n agenda moet kijken.",
-            "Dat zet onze Sales Engines op een spectrum van helemaal-mens-aan-de-andere-kant tot helemaal-software-aan-de-andere-kant. Pink zit op de menselijke pool, Balude op de softwarepool, en daartussen passen straks alle varianten waar het sales-team van een MKB nog wel moet bevestigen of inplannen maar geen offerte meer hoeft te bouwen. Dat hele midden hebben we nu in zicht, en dat voelt als een platform dat z'n vorm begint te vinden.",
-            "Voor de volledigheid: Balude is hiermee ook officieel de allereerste klant op het nieuwe Sales Engine-pattern in Forester OS. We hadden 't lang in onze tekentekeningen staan, en hij is dus letterlijk degene die ons ertoe heeft aangezet om 't ook werkelijk te bouwen.",
+            "Een paar weken geleden schreef ik over de training-inschrijving van Pink Elephant. Dat is ook een Sales Engine, dus ook een vragenlijstje dat eindigt met een verkoop, maar met iets heel anders erachter. Pink verkoopt trainingen in een echte zaal, met datums en docenten. Hun lijstje laat je een datum kiezen, kijkt of de zaal nog niet vol zit en regelt het betalen. Het gedoe dat we daar wegnemen, zit aan de inschrijfkant. Het product zelf wordt door mensen gegeven.",
+            "Balude's AI-training zit aan de andere kant. Hier is het product óók de software. Eén ding verkoopt de training, levert 'm, en geeft je het certificaat, zonder dat er iemand fysiek iets hoeft te doen. Iemand betaalt 's avonds om half elf met iDEAL, krijgt meteen een welkomstmail, doet de training in een half uur, maakt de toets, en heeft het certificaat in de mail voor middernacht. Geen wachtlijst, geen datum kiezen, geen docent die in z'n agenda moet kijken.",
+            "Zo zie je dat onze Sales Engines een hele reeks vormen kunnen aannemen. Aan de ene kant eentje waar nog een mens aan te pas komt (Pink), aan de andere kant eentje die helemaal vanzelf draait (Balude). En daartussen past straks alles waar je nog wel even moet bevestigen of inplannen, maar geen offerte meer hoeft te maken. Dat hele midden hebben we nu in zicht, en dat voelt als een platform dat z'n vorm begint te vinden.",
+            "Voor de volledigheid: Balude is hiermee ook officieel de allereerste klant met zo'n verkoop-lijstje in Forester OS. We hadden het lang op de tekentafel staan, en hij is dus letterlijk degene die ons ertoe heeft aangezet om het ook echt te bouwen.",
           ],
         },
         {
           title: "De toets die zichzelf nakijkt",
           paragraphs: [
-            "Het stuk van de training waar ik me het meest aan heb verkneukeld is de toets aan het eind. Dertig vragen verdeeld over vier praktijkthema's: veilig delen van gegevens, effectief prompten, hallucinaties herkennen en algemeen begrip van wat een taalmodel feitelijk is. Een deel meerkeuze, een fors deel open. Want voor een training over verantwoord AI-gebruik werkt een binaire goed-of-fout-vraag niet altijd. Nuance is hier het halve verhaal.",
-            "Die open vragen laten we beoordelen door Gemini 2.5 Flash, server-side, zodat de score niet vanuit de browser te manipuleren is. Niet met een simpele woord-match, maar met een gestructureerde prompt die per vraag de rubric kent: wat moet er minimaal in het antwoord staan, welke nuances mogen ontbreken, wat is een rode vlag die op verkeerd begrip wijst. Het model krijgt de modelantwoorden als referentie mee, scoort het antwoord op die rubric, en geeft de cursist een korte motivatie te zien. Geen blackbox-cijfer, wel een feedback-zin waar je iets aan hebt.",
-            "Het werd pas goed nadat we de prompt een paar iteraties hadden gestrest met antwoorden van uiteenlopende strengheid. Een te scherp model wijst slim geformuleerde antwoorden af omdat ze niet letterlijk genoeg de termen herhalen. Een te mild model laat een slap antwoord door. We hebben de prompt zo lang aangepast tot Remco zelf zei: ja, dit lijkt op hoe ik 't zou doen. Dat moment, waarop een mens en het model op een set toets-antwoorden hetzelfde oordeel geven, voelde als een mijlpaaltje. Het is overigens precies het soort meta-grapje waar je in een AI-training niet onderuit kunt: de toets over verantwoord AI-gebruik wordt zelf door AI nagekeken, en de cursist krijgt te zien waarom.",
-            "Wie slaagt, krijgt een persoonlijk A4 PDF-certificaat met uniek nummer in Balude's huisstijl, direct in de mailbox. Geen plaatje uit een template, maar een echt document dat je kunt printen, ophangen of als bewijs van naleving in een dossier kunt stoppen. Dat detail bleek voor de juridische en accountancy-doelgroep belangrijker dan we vooraf hadden ingeschat.",
+            "Het stuk waar ik me het meest aan heb verkneukeld, is de toets aan het eind. Dertig vragen over vier onderwerpen: veilig met gegevens omgaan, AI goed laten doen wat je wilt, herkennen wanneer AI iets verzint, en snappen wat AI nou eigenlijk is. Een deel meerkeuze, een flink deel open vragen. Want voor een training over verantwoord met AI omgaan werkt 'goed of fout' niet altijd. De nuance is hier het halve verhaal.",
+            "Die open antwoorden laten we nakijken door een slimme computer, en wel zo dat de cursist het cijfer niet zelf kan ophogen. Niet door simpelweg naar woordjes te zoeken, maar met een duidelijke meetlat per vraag: wat moet er minimaal in staan, wat mag ontbreken, en wat verraadt dat iemand het juist verkeerd begrepen heeft. De computer krijgt de modelantwoorden mee, geeft een cijfer, en laat de cursist in een zin lezen waarom. Geen geheimzinnig cijfer, wel feedback waar je iets aan hebt.",
+            "Het werd pas goed nadat we het ding een tijd hadden lopen testen met antwoorden van allerlei niveau. Te streng en het keurde slimme antwoorden af omdat ze niet letterlijk de juiste woorden gebruikten. Te soepel en het liet een slap antwoord zomaar door. We hebben het zo lang bijgeschaafd tot Remco zelf zei: ja, zo zou ik het ook beoordelen. Dat moment, waarop de computer en een echte expert tot hetzelfde oordeel komen, voelde als een mijlpaaltje. En het is natuurlijk een grappig detail waar je in een AI-training niet onderuit komt: de toets over verantwoord AI-gebruik wordt zelf door AI nagekeken, en je ziet precies waarom.",
+            "Wie slaagt, krijgt meteen een persoonlijk certificaat op A4, met een eigen nummer en in de stijl van Balude, recht in de mailbox. Geen plaatje uit een sjabloon, maar een echt document dat je kunt printen, ophangen of als bewijs in een dossier stoppen. Juist voor de advocaten en accountants bleek dat belangrijker dan we vooraf dachten.",
           ],
         },
         {
-          title: "Twee Firestore-valkuilen die ons even stilzetten",
+          title: "Twee stille storingen die ons even stilzetten",
           paragraphs: [
-            "In de eerste week na de livegang liepen we tegen twee silent fails aan die zo typisch Firestore zijn dat ik ze maar even opschrijf voor de volgende keer. De eerste was een order waarbij de organisatie-context undefined was. Firestore weigert documenten met undefined velden te schrijven, maar geeft daar geen duidelijke melding op terug. Resultaat: een order die in onze backend leek door te lopen maar nooit aankwam in het CRM-overzicht. We hebben 'm gevonden via de Mollie-webhook-log, waar de payment wel netjes als succesvol stond.",
-            "De tweede was een geneste array bij volume-orders. Voor een team van veertig advocaten houd je de deelnemers bij in een array. Maar als die deelnemers zelf weer een sub-array hebben (bijvoorbeeld een lijstje gekochte modules), weigert Firestore vanaf een bepaald nestingsniveau om dat netjes weg te schrijven. Opgelost door de structuur plat te slaan voor we wegschrijven.",
-            "Allebei opgespoord, allebei gefixt, en sinds die fixes loopt de hele keten van eerste klik tot certificaat in de inbox stabiel. Beide valkuilen staan nu op een interne checklist voor de volgende Sales Engine die we uitrollen, want ze gaan niet alleen over Balude. Elke order-flow die in Firestore landt zal vroeg of laat tegen één van die twee aanlopen.",
+            "In de eerste week na de livegang liepen we tegen twee storingen aan die niemand aankondigde, dat soort waar niks knippert of piept. De eerste: bij een bestelling ontbrak per ongeluk een bedrijfsnaam. Ons systeem slaat een bestelling met een leeg veld gewoon niet op, maar zegt daar niks over. Gevolg: een bestelling die wél leek door te lopen, maar nooit in het overzicht belandde. We vonden 'm terug in het logboek van het betaalsysteem, waar het bedrag keurig als betaald stond genoteerd.",
+            "De tweede gebeurde bij een grote bestelling. Voor een team van veertig advocaten houd je een lijst van deelnemers bij. Maar als zo'n deelnemer zelf ook weer een lijstje meekrijgt, raakt het systeem in de war en slaat het niks op. Opgelost door die lijst vooraf netjes plat te maken.",
+            "Allebei gevonden, allebei opgelost, en sinds die fixes loopt de hele keten van eerste klik tot certificaat in de inbox stabiel. Beide staan nu op een lijstje voor de volgende keer, want ze gaan niet alleen over Balude. Elke bestelling die we ergens opslaan, loopt vroeg of laat tegen zoiets aan.",
           ],
         },
         {
-          title: "De volume-staffel maakt het verhaal pas écht interessant",
+          title: "Met korting bij meer mensen wordt het pas echt interessant",
           paragraphs: [
-            "Een individueel ticket kost normaal 79 euro, in de introductieperiode 59 euro. Maar het echte sales-mechaniek zit in de staffel. Vanaf 25 deelnemers zakt de prijs naar 49 euro per persoon, vanaf 100 deelnemers naar 39 euro. Dat zijn de tarieven waarmee een advocaten- of accountantskantoor z'n hele team in één keer mee laat doen. Eén centrale link, één factuur, één afronding van een AVG-discussie die anders nog maanden door blijft borrelen.",
-            "Voor Remco werkt dat businessmodel ineens heel anders dan een losse cursus. Hij hoeft per kantoor maar één gesprek te voeren, en de checkout doet de rest. Wie veertig licenties wil heeft binnen vier minuten z'n bestelling rond, krijgt z'n centrale dashboard, en deelt de plekken toe aan medewerkers. Iedere deelnemer een eigen account, eigen voortgang, eigen certificaat op naam. De manager ziet wie afgerond heeft en wie nog moet beginnen. Geen Excel-export, geen losse rapportages, alles in dezelfde omgeving.",
-            "Wat ik mooi vind aan die hele opzet: het businessmodel werkt zonder dat het op een marketplace of platform-as-a-service moet draaien. Geen 25% commissie aan Udemy, geen 30 euro per maand aan Teachable, geen tussenhandelaar die de relatie met de klant overneemt. Remco verkoopt onder z'n eigen merk, op z'n eigen domein, met z'n eigen klantenrelatie. Forester OS is de motor, maar Balude blijft de leverancier. Dat onderscheid is voor onze MKB-doelgroep belangrijker dan het op het eerste oog lijkt.",
+            "Eén plek kost normaal 79 euro, in de introductieperiode 59 euro. Maar het mooie zit 'm in de korting bij meer mensen. Vanaf 25 deelnemers zakt de prijs naar 49 euro per persoon, vanaf 100 naar 39 euro. Dat zijn de bedragen waarmee een kantoor z'n hele team in één keer meedoet. Eén link, één factuur, en in één klap de hele discussie over veilig met AI omgaan van tafel.",
+            "Voor Remco werkt dat heel anders dan een losse cursus. Hij hoeft per kantoor maar één gesprek te voeren, en het bestellen gaat vanzelf. Wie veertig plekken wil, heeft binnen vier minuten z'n bestelling rond, krijgt een eigen overzichtsscherm, en verdeelt de plekken over collega's. Iedere deelnemer een eigen account, eigen voortgang, eigen certificaat op naam. De manager ziet wie klaar is en wie nog moet beginnen. Geen losse Excel-lijstjes, alles op één plek.",
+            "Wat ik mooi vind: het werkt zonder dat er een grote tussenpartij aan verdient. Geen flinke commissie aan een groot cursus-platform, geen tussenhandelaar die de klant van Remco overneemt. Remco verkoopt onder z'n eigen naam, op z'n eigen website, met z'n eigen klanten. Forester OS is de motor, maar Balude blijft de leverancier. Dat verschil is voor onze klanten belangrijker dan het op het eerste oog lijkt.",
           ],
         },
         {
-          title: "Waar deze Sales Engine straks naartoe gaat",
+          title: "Waar dit straks naartoe gaat",
           paragraphs: [
-            "Het mooiste van deze opzet is dat we eigenlijk net een sjabloon hebben gebouwd. De magic-link-toegang na betaling, de Gemini-beoordeelde toets, het centrale dashboard voor teambeheer, de Mollie-checkout, het A4 PDF-certificaat per mail: allemaal componenten die nu klaar staan en die we voor een volgende cursus opnieuw kunnen samenstellen.",
-            "Remco heeft al een gevorderde variant in z'n hoofd, een AI-training specifiek voor juridische teams die dieper ingaat op tucht- en aansprakelijkheidsvraagstukken. Dat is straks geen tweede build, dat is een nieuwe Sales Engine op dezelfde infrastructuur met andere vragen, andere rubric en een ander certificaat. Hetzelfde geldt voor andere klanten die met een trainingsproduct zitten en niet weten hoe ze het zonder LMS-abonnement online moeten zetten. We hebben ze nu iets te laten zien dat werkt.",
-            "Voor Forester OS als platform betekent het ook iets. We hadden al de Lead Engines, met de Quickscans en Quick Quotes die een gesprek opleveren. We hebben nu twee duidelijke smaken Sales Engines: de menselijke (Pink's Training enrollment, met datum en zaal) en de pure software (Balude's AI-training, zonder agenda). Daartussen zit straks ruimte voor alles wat een MKB digitaal kan verkopen, van consultancy-uren tot abonnementen tot complete licentiemodellen. Eén keer goed bouwen, op heel veel plekken verzilveren.",
+            "Het mooiste is dat we eigenlijk net een blauwdruk hebben gebouwd. Direct toegang na betaling, de toets die zichzelf nakijkt, het overzichtsscherm voor het team, het online betalen met iDEAL of kaart, het certificaat op A4 per mail: allemaal onderdelen die nu klaarstaan en die we voor een volgende cursus zo opnieuw kunnen gebruiken.",
+            "Remco heeft al een verdere versie in z'n hoofd, een AI-training speciaal voor juridische teams die dieper op de regels en aansprakelijkheid ingaat. Dat is straks geen nieuw project, dat is dezelfde opzet met andere vragen, een andere meetlat en een ander certificaat. Hetzelfde geldt voor andere klanten die een training hebben en niet weten hoe ze die online moeten zetten zonder een duur abonnement. We hebben ze nu iets te laten zien dat werkt.",
+            "Voor Forester OS als geheel betekent het ook iets. We hadden al het slimme vragenlijstje dat een gesprek oplevert. We hebben nu twee duidelijke smaken van het lijstje dat meteen een verkoop oplevert: eentje waar nog een mens aan te pas komt (Pink, met datum en zaal) en eentje die helemaal vanzelf draait (Balude, zonder agenda). Daartussen zit straks ruimte voor alles wat een ondernemer online kan verkopen, van losse uren tot abonnementen. Eén keer goed bouwen, op heel veel plekken inzetten.",
           ],
         },
       ],
       outro: [
-        "Wil je het hele Balude-verhaal lezen, met de wisseling van consulting naar productized expertise en hoe Remco z'n positionering opnieuw heeft scherpgesteld, dan komt die case er nog aan. En zit je zelf op zo'n moment dat je expertise begint te dichtslibben in één-op-één-gesprekken, dan kan een eigen digitale cursus of certificering een uitweg zijn. Niet voor iedereen, niet altijd, maar als de vraag zich herhaalt en je doelgroep ervoor wil betalen, is het tegenwoordig minder werk dan je denkt om 't goed op te zetten. Loop er gerust eens met mij doorheen.",
-        "PS, Remco, dat je in een paar weken tijd je positionering van advies naar product hebt durven kantelen, mét z'n eigen prijspunt en z'n eigen merkbeeld, vind ik typerend voor hoe jij in je vak staat. Mooi werk om aan mee te bouwen.",
+        "Wil je het hele Balude-verhaal lezen, over hoe Remco van advies-geven naar een echt product is gegaan, dan komt die case er nog aan. En zit je zelf op zo'n punt dat je kennis vastloopt in losse gesprekken, dan kan een eigen online cursus een uitweg zijn. Niet voor iedereen, niet altijd, maar als dezelfde vraag steeds terugkomt en mensen ervoor willen betalen, is het tegenwoordig minder werk dan je denkt om het goed op te zetten. Loop er gerust eens met me doorheen.",
+        "PS, Remco, dat je in een paar weken tijd van advies-geven naar een echt product hebt durven omschakelen, met je eigen prijs en je eigen merk, vind ik typerend voor hoe jij in je vak staat. Mooi werk om aan mee te bouwen.",
       ],
       signature: "Tot snel, Martijn",
     },
@@ -333,7 +333,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Sales Engines",
     title: "De Training enrollment van Pink Elephant zit verkeerd ingedeeld in Forester OS, en dat zegt iets",
     excerpt:
-      "Op de Pink-trainingpagina's staat een Sales Engine: een inschrijfflow die in twee minuten een datum kiest, bedrijfsgegevens invult en met iDeal of kaart afrekent. In Forester OS staat-ie nog onder Lead Engines, maar het ding produceert directe omzet, geen gesprekken. Een notitie over waarom een engine die je geld oplevert iets anders is dan een engine die je een gesprek oplevert.",
+      "Op de trainingpagina's van Pink staat een Sales Engine: een inschrijving die je in twee minuten een datum laat kiezen, je bedrijfsgegevens laat invullen en meteen laat afrekenen met iDEAL of kaart. In Forester OS staat 'ie nog op de verkeerde plek, want het ding levert geen gesprekken op maar gewoon geld. Een stukje over het verschil tussen een vragenlijstje dat een gesprek oplevert en eentje dat meteen een verkoop oplevert.",
     metaTitle: "Pink Elephant training-inschrijving: Sales Engine",
     metaDescription:
       "Pink Elephant's training-inschrijving in twee minuten van datum tot betaling. Waarom een Sales Engine fundamenteel anders is dan een Lead Engine.",
@@ -357,55 +357,55 @@ export const FIELD_LOGS: FieldLog[] = [
     body: {
       greeting: "Lief dagboek, woensdag 20 mei 2026",
       intro: [
-        "Volgende week gaat Pink Elephant live op pinkelephant.co.uk. We zitten in de laatste loodjes-fase: redirects controleren, popups uit het oude WordPress weghalen, mu-plugins testen. Maar tussendoor zat ik vanmiddag in de Forester-config van Pink een nieuwsbrief-template aan te passen, en mijn oog viel op iets dat me al een week of twee dwars zit.",
-        "Pink's Training enrollment staat in onze interface onder Lead Engines. Naast hun Tech Quick Quote, hun IT-Support Quick Quote, hun E-Learning demo en hun contactformulier. Logische plek, want het is dezelfde technologie: een wizardje op de WordPress-pagina dat een formulier opbouwt en aan onze backend hangt. Maar als ik kijk wat dat ding feitelijk doet, hoort 'ie daar helemaal niet.",
-        "Het genereert namelijk geen leads. Het genereert omzet. En dat verschil is groter dan een classificatie-detail.",
+        "Volgende week gaat Pink Elephant live op pinkelephant.co.uk. We zitten in de laatste loodjes: oude doorverwijzingen controleren, pop-ups van de oude site weghalen, alles natesten. Maar tussendoor zat ik vanmiddag bij Pink een nieuwsbrief aan te passen, en mijn oog viel op iets dat me al een week of twee dwarszit.",
+        "De training-inschrijving van Pink staat bij ons in het rijtje vragenlijstjes die een gesprek opleveren. Naast hun prijs-calculators, hun proefles en hun contactformulier. Logische plek, want het is dezelfde techniek: een vragenlijstje op de pagina dat alles netjes naar ons doorstuurt. Maar als ik kijk wat dat ding eigenlijk doet, hoort 'ie daar helemaal niet thuis.",
+        "Het levert namelijk geen gesprekken op. Het levert geld op. En dat verschil is groter dan waar je het in een lijstje neerzet.",
       ],
       sections: [
         {
           title: "Het winkelwagentje dat nooit echt werkte",
           paragraphs: [
-            "Trainingen verkopen via een klassieke WooCommerce-winkelwagen is een dans van compromissen. Trainingen hebben datums, en datums zijn lastig als variant van een product. Trainingen hebben zaalcapaciteit, en voorraad-per-datum is iets waar een gemiddelde e-commerce-plugin van begint te bibberen. Trainingen worden zakelijk geboekt, vaak voor drie of vier collega's tegelijk, en een winkelwagen-UX die je laat klikken op 'voeg toe aan winkelwagen' en je dan naar een aparte checkout-pagina stuurt, is ontworpen voor één consument met één boek.",
-            "Het oude scenario bij dit type opdrachtgever is bijna altijd hetzelfde: een training-pagina met een datum-dropdown, een knop 'inschrijven', een redirect naar een winkelwagen-pagina die al niet meer dezelfde branding heeft, een checkout waar de bezoeker een hele rits velden tegenkomt die voor B2C-aankopen zijn bedacht (geen factuuradres, geen BTW-nummer, geen kostenplaats), en aan het eind een betaalmodule die misschien wel met iDeal werkt maar niet met de manier waarop een bedrijfs-administratie wíl betalen. Cart-abandonment is hier geen marketing-buzzword. Het is een meetbare deuk in de omzet.",
-            "Pink had die deuk dus ook. En het is precies het soort wrijving waar Forester voor bedoeld is om weg te halen.",
+            "Trainingen verkopen via een gewoon webwinkel-wagentje is een aaneenschakeling van compromissen. Een training heeft datums, en datums passen slecht in een webwinkel die voor losse producten is gemaakt. Een training heeft een zaal die maar zo veel mensen aankan, en bijhouden hoeveel plekken er per datum nog vrij zijn, daar lopen de meeste webwinkels op vast. En een training wordt vaak zakelijk geboekt, voor drie of vier collega's tegelijk, terwijl zo'n wagentje is bedacht voor één klant die één boek koopt.",
+            "Het oude verhaal is bij dit soort klanten bijna altijd hetzelfde: een trainingspagina met een datum-keuzelijstje, een knop 'inschrijven', en dan word je doorgestuurd naar een winkelwagen die er ineens heel anders uitziet, met een rij vragen die voor gewone consumenten zijn bedoeld (geen factuuradres, geen btw-nummer), en een betaalscherm dat misschien wel met iDEAL werkt maar niet op de manier waarop een bedrijf wíl betalen. Mensen die halverwege afhaken, is hier geen vaag begrip. Het is gewoon omzet die je misloopt.",
+            "Pink had dat probleem dus ook. En het is precies het soort gedoe dat Forester juist weg wil halen.",
           ],
         },
         {
-          title: "Alles in één flow op de course-pagina zelf",
+          title: "Alles in één keer, op de trainingspagina zelf",
           paragraphs: [
-            "Wat we gebouwd hebben is geen winkelwagen, geen aparte checkout en zelfs niet echt een 'formulier' in de klassieke zin. Het is een multi-step enrollment die rechtstreeks op de course-pagina zelf draait. De bezoeker leest het verhaal van de training, scrollt naar beneden, en de inschrijving start daar. Geen redirect, geen contextverlies, geen 'wacht, naar welke pagina ben ik nu eigenlijk?'.",
-            "Onder de motorkap pakt de engine de huidige WordPress-pagina als bron (course-CPT), leest de ACF-repeater 'dates' uit voor de beschikbare data, en bouwt daar zelf de keuze-opties uit op. Pink's content-team zet dus simpelweg een nieuwe trainingsdatum in de CPT en de inschrijfflow weet het. Geen koppeling te configureren, geen synchronisatie te onderhouden.",
-            "Daarna komt het zakelijke deel: aantal deelnemers (tot vier per inschrijving, want bedrijfs-trios en kwartetten zijn de norm), bedrijfsgegevens, telefoonnummer, en pas dan de betaalstap. Per datum kan de engine maximaal 20 inschrijvingen ontvangen voordat de optie automatisch verdwijnt, dus de zaal kan niet overboeken. En als laatste rolt de bezoeker langs drie betaalroutes: factuur (voor de boekhoudingen die per se zo willen), Mollie voor iDeal en EU-creditcards, en Worldpay voor de UK-betalingen die op pinkelephant.co.uk straks binnenstromen.",
-            "Heel dat ding, van inhoudelijk-trainingsverhaal tot betalingsbevestiging, blijft op de course-pagina. De bezoeker switcht niet één keer van context.",
+            "Wat we gebouwd hebben is geen winkelwagen en geen apart afrekenscherm. Het is een inschrijving in een paar stappen die gewoon op de trainingspagina zelf gebeurt. De bezoeker leest het verhaal van de training, scrollt naar beneden, en schrijft zich daar in. Je wordt nergens heen gestuurd, je verliest het overzicht niet, en je vraagt je nooit af op welke pagina je nu eigenlijk beland bent.",
+            "Achter de schermen leest het ding gewoon de beschikbare datums van de trainingspagina zelf. Zet iemand van Pink een nieuwe trainingsdatum op de site, dan weet de inschrijving het meteen. Niks te koppelen, niks bij te houden.",
+            "Daarna komt het zakelijke deel: hoeveel deelnemers (tot vier per inschrijving, want bedrijven boeken vaak voor drie of vier collega's tegelijk), de bedrijfsgegevens, het telefoonnummer, en dan pas het betalen. Per datum kunnen er maximaal 20 mensen mee, daarna verdwijnt de datum vanzelf, dus de zaal kan nooit overvol raken. En als laatste kies je hoe je betaalt: op rekening (voor de boekhoudingen die dat per se willen), online met iDEAL of kaart, en voor de Britse betalingen op pinkelephant.co.uk een eigen route.",
+            "Dat hele ding, van het verhaal van de training tot de bevestiging dat je betaald hebt, blijft op één pagina. De bezoeker wordt geen enkele keer ergens anders heen gestuurd.",
           ],
         },
         {
-          title: "Waarom dit feitelijk een Sales Engine is",
+          title: "Waarom dit eigenlijk een Sales Engine is",
           paragraphs: [
-            "En hier komt de notitie waar dit dagboek-stukje eigenlijk over gaat. Een Lead Engine eindigt met een lead. Iemand vult een wizard in, jij krijgt context, en daarna start het mens-naar-mens-gesprek. De wizard heeft 't gesprek beter, sneller en gerichter gemaakt, maar het is nog steeds een vervolg-stap waar een sales-collega bij betrokken is. Onze Quick Quote-engines werken zo. De E-Learning demo werkt zo. Het contactformulier werkt zo.",
-            "Een Sales Engine eindigt niet met een lead. Die eindigt met een order. Iemand klikt op 'inschrijven', kiest een datum, vult de bedrijfsgegevens, betaalt direct, en is klaar. Geen telefoontje meer nodig. Geen offerte. Geen handmatige factuur. De training is geboekt, het geld staat klaar, en in het CRM van Pink staat alleen nog een bevestigde deelnemer.",
-            "Dat is geen Lead Engine met een betaalknopje. Dat is iets fundamenteel anders, omdat de uitkomst geld is, geen gesprek. En in onze interface staat 't dus op de verkeerde plek.",
+            "En hier komt het punt waar dit dagboekstukje over gaat. Een Lead Engine eindigt met een gesprek. Iemand vult het vragenlijstje in, jij weet meteen waar 'ie mee zit, en daarna bel of mail je. Het lijstje heeft dat gesprek beter en sneller gemaakt, maar het blíjft een gesprek waar nog een mens bij komt kijken. Zo werken hun prijs-calculators, zo werkt hun proefles, zo werkt het contactformulier.",
+            "Een Sales Engine eindigt niet met een gesprek. Die eindigt met een verkoop. Iemand klikt op 'inschrijven', kiest een datum, vult de bedrijfsgegevens, betaalt meteen, en is klaar. Geen telefoontje meer nodig. Geen offerte. Geen factuur die je met de hand maakt. De training is geboekt, het geld staat klaar, en bij Pink verschijnt alleen nog een bevestigde deelnemer.",
+            "Dat is geen vragenlijstje met een betaalknopje erbij. Dat is iets heel anders, want er komt geld uit, geen gesprek. En bij ons staat 't dus op de verkeerde plek.",
           ],
         },
         {
           title: "Wat dat betekent voor de mensen die ermee werken",
           paragraphs: [
-            "Het verschil zit niet alleen in semantiek. Een Lead Engine en een Sales Engine vragen om totaal andere metrics. Bij een Lead Engine wil je weten: hoeveel gesprekken levert dit op, wat is de gespreks-naar-deal conversie, wat is de gemiddelde deal-waarde van wat eruit volgt. Bij een Sales Engine wil je weten: hoeveel orders per week, gemiddelde ordergrootte, omzet per maand, no-show-rate. Compleet andere dashboards, compleet andere vervolgvragen.",
-            "Voor het Pink-team is het verschil ook praktisch. Op een Lead Engine moet sales een telefoontje plegen na elke binnenkomende submission, want anders blijft de lead in z'n eentje af te koelen liggen. Op de Training enrollment hoeft sales niets te doen. De deelnemer staat al in het systeem, de factuur is al verstuurd of de betaling al binnen, de mail met praktische info is al uit. Het sales-team kan zich richten op de échte advisory-trainingen-conversaties, de Tech-QQ-leads, de IT-support-vragen. Dingen waar een mens nog wezenlijk waarde toevoegt.",
+            "Het verschil zit niet alleen in een woord. Een Lead Engine en een Sales Engine vragen om hele andere cijfers. Bij een Lead Engine wil je weten: hoeveel gesprekken levert dit op, en hoeveel daarvan worden uiteindelijk een klant. Bij een Sales Engine wil je weten: hoeveel bestellingen per week, hoe groot gemiddeld, hoeveel omzet per maand, en hoeveel mensen uiteindelijk niet komen opdagen. Hele andere overzichten, hele andere vervolgvragen.",
+            "Voor het team van Pink is het ook in de praktijk anders. Bij een gesprek-lijstje moet er na elke aanmelding iemand bellen, anders koelt de interesse af. Bij de training-inschrijving hoeft niemand iets te doen. De deelnemer staat al in het systeem, de factuur is al weg of de betaling al binnen, de mail met praktische info is al verstuurd. Het team kan zich richten op de echte adviesgesprekken en de vragen waar een mens nog echt iets toevoegt.",
           ],
         },
         {
-          title: "Forester-werk voor mezelf voor binnenkort",
+          title: "Werk voor mezelf voor binnenkort",
           paragraphs: [
-            "De observatie is op zichzelf alleen iets, als er ook iets uit voortkomt. Dus de to-do voor Forester OS is helder: Sales Engines moet een eigen categorie worden in onze interface, naast Lead Engines. Met andere standaard-metrics (omzet, ordergrootte, doorlooptijd van wizard tot betaling), andere notificatie-templates (transactioneel, niet sales-opvolging) en een aparte filter in het CRM-overzicht waarmee je orders apart kunt bekijken van leads.",
-            "Het is een kleine UI-verschuiving met een grote conceptuele winst, want het maakt voor onze klanten direct duidelijk welk type wrijving Forester OS uit hun proces haalt. Een Lead Engine pakt de wrijving uit het kennismakingsmoment. Een Sales Engine pakt de wrijving uit het transactiemoment. Dat is een ander verhaal richting de markt, en het is een veel scherper verhaal als beide concepten naast elkaar staan.",
-            "Geen idee wanneer ik 't bouw, maar ik denk dat-ie er voor de zomer staat. Het is precies het soort kleine herindeling dat je productinterface jaren beter laat aanvoelen.",
+            "Zo'n inzicht is pas iets waard als er ook iets uit voortkomt. Dus de taak voor Forester OS is helder: de Sales Engines moeten een eigen plek krijgen, naast de Lead Engines. Met hun eigen cijfers (omzet, bestelgrootte, hoe snel iemand van vragenlijstje naar betaling gaat), hun eigen mails (een bevestiging, geen opvolg-belletje), en een eigen filter zodat je bestellingen los van gesprekken kunt bekijken.",
+            "Het is een kleine verschuiving op het scherm met een grote winst, want het maakt voor onze klanten in één oogopslag duidelijk welk gedoe Forester uit hun proces haalt. Een Lead Engine pakt het gedoe uit het kennismaken. Een Sales Engine pakt het gedoe uit het afrekenen. Dat is een scherper verhaal als beide naast elkaar staan.",
+            "Geen idee wanneer ik 't bouw, maar ik denk voor de zomer. Het is precies het soort kleine herindeling die je product jarenlang beter laat aanvoelen.",
           ],
         },
       ],
       outro: [
-        "Wil je het hele Pink Elephant-verhaal lezen, met de overgang van de oude pinkelephant.co.uk naar de nieuwe Webgrowth-stack, dan staat de case klaar. En heb je zelf een product of dienst waar je nu in een winkelwagen-trechter zit te wurmen terwijl het eigenlijk een directe enrollment of inschrijving moet zijn, dan loont 't gegarandeerd om die flow van de grond af opnieuw na te denken. Een winkelwagen is niet altijd het antwoord, soms is het juist het probleem.",
-        "PS, Janne, jij weet als geen ander hoe het is om grip te houden op een complex order-proces. Eerst bij Roll Group, nu bij Pink. Doorzetter, scherp en accuraat. Mooi om met je samen te werken.",
+        "Wil je het hele Pink Elephant-verhaal lezen, over de overstap van de oude site naar de nieuwe, dan staat de case klaar. En zit je zelf met een product of dienst die je nu door een winkelwagentje probeert te wurmen terwijl het eigenlijk een directe inschrijving moet zijn, dan loont het gegarandeerd om die hele aanpak opnieuw te bekijken. Een winkelwagen is niet altijd het antwoord, soms is het juist het probleem.",
+        "PS, Janne, jij weet als geen ander hoe het is om grip te houden op een ingewikkeld bestelproces. Eerst bij Roll Group, nu bij Pink. Doorzetter, scherp en accuraat. Mooi om met je samen te werken.",
       ],
       signature: "Tot snel, Martijn",
     },
@@ -417,7 +417,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Maatwerk & integraties",
     title: "BAG-integratie in de Quickscan van Adalace: één adres als startpunt voor je hele intake",
     excerpt:
-      "Adres invullen en de wizard weet al bouwjaar, oppervlakte en gebruiksdoel. Hoe we voor Adalace de BAG van het Kadaster koppelden aan een Quickscan-Lead Engine, en wat een kleine API-integratie voor het MKB betekent.",
+      "Je vult je adres in en de computer weet de rest al: bouwjaar, oppervlakte, waar het pand voor gebruikt wordt. Hoe we dat voor Adalace voor elkaar kregen via openbare gegevens van de overheid, en wat zo'n slimme koppeling voor een kleine ondernemer betekent.",
     metaTitle: "BAG-koppeling in Adalace Quickscan: adres als intake",
     metaDescription:
       "Hoe we de BAG van het Kadaster koppelden aan Adalace's Quickscan-Lead Engine: één adres, en bouwjaar, oppervlakte en gebruiksdoel zijn al bekend.",
@@ -444,51 +444,51 @@ export const FIELD_LOGS: FieldLog[] = [
     body: {
       greeting: "Lief dagboek, maandag 18 mei 2026",
       intro: [
-        "Vandaag is de nieuwe website van Adalace live gegaan. Met daarin de Quickscan, een wizard die op basis van het adres direct met de BAG van het Kadaster praat en de bezoeker een persoonlijk rapport oplevert. Een lancering om met een goed gevoel naar terug te kijken, dus ik schrijf het maar even op voor het verdampt.",
-        "Adalace adviseert organisaties over de verduurzaming en compliance van vastgoed, en wordt gerund door Edwin: een adviseur met passie voor z'n vak en een uitgesproken hekel aan onnodige administratieve trekjes. Toen we begonnen aan z'n nieuwe site was z'n eerste vraag eigenlijk al de complete briefing: 'kunnen we dit zo bouwen dat ik alleen nog de échte adviezen hoef te bespreken, en niet eerst tien basisvragen hoef te stellen?'.",
-        "Op een goeie ochtend, koffie in de hand, koppelde het kwartje. (Het is altijd de ochtend en altijd de koffie, voor de duidelijkheid.) De oplossing zat namelijk niet bij ons, maar bij de overheid.",
+        "Vandaag is de nieuwe website van Adalace live gegaan. Met daarop de Quickscan: een vragenlijstje dat zodra je je adres invult al weet wat voor pand je hebt, en je daarna een persoonlijk rapport oplevert. Een lancering om met een goed gevoel op terug te kijken, dus ik schrijf het even op voor het vervliegt.",
+        "Adalace adviseert bedrijven over het verduurzamen van panden en het voldoen aan de regels, en wordt gerund door Edwin: een adviseur met hart voor z'n vak en een hekel aan onnodig papierwerk. Toen we aan z'n nieuwe site begonnen, was z'n eerste vraag eigenlijk al de hele opdracht: 'kunnen we dit zo bouwen dat ik alleen nog over de échte adviezen hoef te praten, en niet eerst tien basisvragen hoef te stellen?'.",
+        "Op een goeie ochtend, koffie in de hand, viel het kwartje. (Het is altijd de ochtend en altijd de koffie, voor de duidelijkheid.) De oplossing zat namelijk niet bij ons, maar bij de overheid.",
       ],
       sections: [
         {
           title: "Waar wij vanaf het begin geen zin in hadden",
           paragraphs: [
-            "We hadden de Quickscan eenvoudig kunnen bouwen zoals de meeste compliance-tools dat doen: een lange rij vragen waarin de bezoeker bouwjaar, oppervlakte, gebruiksdoel, energielabel en type constructie zelf moet invullen. Maar dat is precies het type wrijving waar wij allergisch voor zijn. Want op dat moment moet je gebruiker als het ware uit z'n bureaustoel kruipen om dingen op te zoeken die 'ie waarschijnlijk niet uit z'n hoofd weet. Of bellen met de gemeente. Of de papieren akte uit een ladekast scharrelen.",
-            "Edwin had daar dus zelf ook geen zin in. Hij wilde gewoon van z'n bezoeker één adres en een paar slimme vragen, en dan een gesprek waarin hij over de échte uitdagingen kon praten. Geen tien-basis-vragen-show vooraf.",
+            "We hadden de Quickscan simpel kunnen bouwen zoals de meeste van dit soort tools dat doen: een lange rij vragen waarin de bezoeker zelf het bouwjaar, de oppervlakte, het energielabel en weet ik wat allemaal moet invullen. Maar dat is precies het soort gedoe waar wij allergisch voor zijn. Want dan moet je bezoeker dingen gaan opzoeken die 'ie waarschijnlijk niet uit z'n hoofd weet. De gemeente bellen. Of de papieren akte uit een la opduiken.",
+            "Edwin had daar zelf ook geen zin in. Hij wilde van z'n bezoeker gewoon één adres en een paar slimme vragen, en dan een gesprek over de échte uitdagingen. Geen tien-basisvragen-circus vooraf.",
           ],
         },
         {
           title: "De oplossing zat bij de overheid",
           paragraphs: [
-            "De BAG. De Basisregistratie Adressen en Gebouwen. Een open dataset die door het Kadaster en de Nederlandse gemeentes wordt onderhouden. Voor elk Nederlands adres staan er een paar basisgegevens in: bouwjaar, oppervlakte, gebruiksdoel (woon-, kantoor- of industriefunctie), pandstatus en de geometrie van het gebouw zelf.",
-            "Het mooie: 'ie is publiek, gratis op te vragen en betrouwbaar, omdat de data direct uit de officiële gemeente-administratie komt. Geen tussenpartij, geen abonnement, geen vendor lock-in. Gewoon openbare data die wacht tot iemand er iets nuttigs mee doet.",
-            "Voor formulieren waarin een bezoeker iets over een pand moet vertellen, is dat een gouden bron. Want waarom zou je je gebruiker dingen laten typen die de overheid al weet? Op het moment dat iemand zijn adres invult, kun je een tweede vraag overslaan. En een derde. En een vierde.",
+            "De BAG. Dat is een openbaar bestand dat het Kadaster en de gemeentes samen bijhouden, met van élk Nederlands adres een paar basisgegevens: het bouwjaar, de oppervlakte, waar het pand voor gebruikt wordt (wonen, kantoor of bedrijf), en de vorm van het gebouw.",
+            "Het mooie: het is openbaar, gratis op te vragen en betrouwbaar, want het komt rechtstreeks uit de officiële gemeente-administratie. Geen tussenpartij, geen abonnement, niemand die je vastzet. Gewoon openbare gegevens die wachten tot iemand er iets nuttigs mee doet.",
+            "Voor een lijstje waarin een bezoeker iets over z'n pand moet vertellen, is dat goud waard. Want waarom zou je iemand laten typen wat de overheid allang weet? Op het moment dat iemand z'n adres invult, kun je een tweede vraag overslaan. En een derde. En een vierde.",
           ],
         },
         {
-          title: "Alleen nog vragen wat we niet uit BAG halen",
+          title: "Alleen nog vragen wat de overheid niet weet",
           paragraphs: [
-            "Aan de basis is de Quickscan een Lead Engine in Forester OS: een wizard met conditionele vragen die zich aanpast aan wat de bezoeker tot nu toe heeft beantwoord. Met de BAG-koppeling werd die conditionele logica ineens veel rijker. Als het bouwjaar uit BAG bekend is, slaan we de bouwjaar-vraag over. Als het gebruiksdoel 'kantoor' zegt, schiet de wizard direct door naar de compliance-vragen die voor kantoren spelen.",
-            "We hebben gemeten dat we daarmee gemiddeld zo'n vier tot vijf vragen overslaan per pand. Een Quickscan die op een gemiddeld lang vragen-pad vijf minuten zou kosten, doe je nu in twee. Voor de bezoeker voelt het slim aan, alsof het systeem 'm kent. Wat ook eigenlijk zo is.",
+            "In de kern is de Quickscan een Lead Engine: een slim vragenlijstje dat zich aanpast aan wat je tot dan toe hebt geantwoord. Door die koppeling met de overheid werd dat ineens veel slimmer. Is het bouwjaar al bekend, dan slaan we die vraag over. Staat er 'kantoor', dan springt het lijstje meteen door naar de vragen die voor kantoren gelden.",
+            "We hebben gemeten dat we daarmee gemiddeld zo'n vier tot vijf vragen per pand overslaan. Een Quickscan die anders vijf minuten zou kosten, doe je nu in twee. Voor de bezoeker voelt het slim, alsof het systeem 'm kent. Wat eigenlijk ook zo is.",
           ],
         },
         {
-          title: "En toen, het PDF-rapport",
+          title: "En toen, het rapport",
           paragraphs: [
-            "Aan het einde van de scan rolt er een persoonlijk rapport in PDF-vorm uit, met de exacte verplichte keuringen, certificaten en aanbevolen vervolgstappen voor dát specifieke pand. Geen generiek lijstje, maar iets op maat.",
-            "Edwin gebruikt dat rapport als startpunt van een offerte-gesprek, zodat hij direct kan inzoomen op wat er voor díe organisatie speelt in plaats van eerst de basisinformatie nog eens door te lopen. De PDF wordt server-side gegenereerd op basis van een template, gevuld met de antwoorden uit de wizard én de BAG-data, en landt direct in z'n persoonlijke inbox plus in z'n CRM. Geen overpennen, geen kopieer-werk.",
+            "Aan het eind van de scan rolt er een persoonlijk rapport uit, met precies de verplichte keuringen, certificaten en aanbevolen stappen voor dát ene pand. Geen standaard lijstje, maar iets op maat.",
+            "Edwin gebruikt dat rapport als startpunt van een gesprek, zodat hij meteen kan inzoomen op wat er voor díe klant speelt in plaats van eerst de basis nog eens door te nemen. Het rapport wordt automatisch gevuld met de antwoorden uit de scan én de gegevens van de overheid, en komt direct in z'n mailbox én in z'n klantenoverzicht terecht. Niks overtypen, niks kopiëren.",
           ],
         },
         {
           title: "Waarom dit verhaal niet over Adalace gaat",
           paragraphs: [
-            "Het is een verhaal over Adalace, maar eigenlijk over hoe slim het MKB kan worden als je open data gewoon durft te gebruiken. De BAG is geen exotische enterprise-koppeling, geen dure API met user-licenties, geen sci-fi-techniek. Het is een paar honderd regels code en een postcode-veld dat luistert.",
-            "Maar de uitkomst voelt voor de bezoeker alsof 'ie iets bijzonders meemaakt. En dat is precies waar Forester OS over gaat: slimme automatiseringen die voor het klein-MKB toegankelijk zijn, zonder dat je een corporate prijskaartje aan je nek hangt.",
+            "Het gaat over Adalace, maar eigenlijk over hoe slim een gewone ondernemer kan worden als je openbare gegevens gewoon durft te gebruiken. Die overheidsgegevens zijn geen exotische, peperdure koppeling en geen toekomstmuziek. Het is een stukje techniek en een adresveld dat meeluistert.",
+            "Maar voor de bezoeker voelt het alsof 'ie iets bijzonders meemaakt. En daar gaat Forester OS over: slimme automatiseringen die ook voor de kleine ondernemer betaalbaar zijn, zonder een prijskaartje dat alleen grote bedrijven kunnen ophoesten.",
           ],
         },
       ],
       outro: [
-        "Wil je het hele verhaal van Adalace lezen, dan kan dat bij de case. En heb je zelf een wizard of Quickscan in je hoofd waarin overheids- of API-data automatisch zou kunnen invullen, dan zoek je iemand om mee te sparren. Bij dezen.",
-        "PS — Voor Edwin: respect dat je vanaf het allereerste gesprek over de nieuwe site al wist wat je niét wilde. Dat soort opdrachtgevers maakt het werk leuk.",
+        "Wil je het hele verhaal van Adalace lezen, dan kan dat bij de case. En heb je zelf een vragenlijstje of scan in je hoofd waarin openbare gegevens automatisch het werk zouden kunnen doen, dan zoek je iemand om mee te sparren. Bij dezen.",
+        "PS, voor Edwin: respect dat je vanaf het allereerste gesprek over de nieuwe site al wist wat je niét wilde. Dat soort opdrachtgevers maakt het werk leuk.",
       ],
       signature: "Tot morgen, Martijn",
     },
@@ -500,7 +500,7 @@ export const FIELD_LOGS: FieldLog[] = [
     tag: "Lead Engines",
     title: "Twee scans, twee bezoekers: hoe we bij NordFlame de Vervangingsscan en Quickscan naast elkaar bouwden",
     excerpt:
-      "Een pelletkachel-site moet twee soorten mensen tegelijk bedienen: de bewuste vervanger met Ecodesign 2027 in z'n hoofd, en de oriëntator die nog niet weet welk model bij z'n huis past. Hoe we voor NordFlame twee Lead Engine-scans naast elkaar bouwden, met Aurora-logica die meedenkt over een eventuele warmtepomp.",
+      "Een site voor pelletkachels moet twee soorten mensen tegelijk bedienen: degene die z'n oude kachel moet vervangen vanwege de nieuwe regels van 2027, en degene die nog rondkijkt en niet weet welke kachel bij z'n huis past. Twee soorten bezoekers, dus maakten we voor NordFlame twee aparte vragenlijstjes, eentje dat ook meedenkt over een eventuele warmtepomp.",
     metaTitle: "NordFlame: Vervangingsscan en Quickscan op één site",
     metaDescription:
       "Twee soorten bezoekers, twee Lead Engines. Hoe we voor NordFlame een Vervangingsscan (Ecodesign 2027) en Quickscan naast elkaar lieten draaien.",
@@ -524,52 +524,52 @@ export const FIELD_LOGS: FieldLog[] = [
     body: {
       greeting: "Lief dagboek, woensdag 13 mei 2026",
       intro: [
-        "Vandaag ging NordFlame live, het premium pelletkachel-platform waaraan we de afgelopen maanden hebben gebouwd. En zoals dat gaat bij een livegang-dag, was de fles bubbels aan het einde van de middag al ontkurkt voordat we überhaupt hadden gechecked of de form-submits ook bij het juiste mailadres landden. (Spoiler: ze kwamen aan.)",
-        "Wat ik vandaag in m'n hoofd heb zitten, is iets dat me al weken bezighield: de twee scans van NordFlame. Want één van de mooiste design-puzzels van het hele project was hoe we twee volledig verschillende type bezoekers tegelijk konden bedienen, zonder ze allebei door hetzelfde formulier-trechtertje te duwen.",
+        "Vandaag ging NordFlame live, de mooie pelletkachel-site waaraan we de afgelopen maanden hebben gebouwd. En zoals dat gaat op een livegang-dag, was de fles bubbels aan het eind van de middag al open voordat we überhaupt hadden gecontroleerd of de aanmeldingen ook bij het juiste mailadres landden. (Spoiler: ze kwamen aan.)",
+        "Wat ik vandaag in m'n hoofd heb zitten, is iets dat me al weken bezighield: de twee scans van NordFlame. Want een van de leukste puzzels van het hele project was hoe we twee totaal verschillende soorten bezoekers tegelijk konden bedienen, zonder ze allebei door hetzelfde standaard-formuliertje te duwen.",
       ],
       sections: [
         {
-          title: "Twee soorten bezoekers, geen compromis met één formulier",
+          title: "Twee soorten bezoekers, dus niet één formulier voor allebei",
           paragraphs: [
-            "Iemand die op een premium pelletkachel-site landt, is doorgaans één van twee mensen. De eerste is de bewuste vervanger. Die zit met een open haard of een oude houtkachel die binnenkort de poort uit moet vanwege Ecodesign 2027, en wil weten of een pelletkachel binnen die regelgeving past en of er subsidie mogelijk is. Concrete vraag, concrete urgentie, een redelijke deal-grootte als het matched.",
-            "De tweede bezoeker is de oriëntator. Die heeft van de buren over een pelletkachel gehoord, vindt het idee mooi, maar heeft geen flauw idee welk model past bij z'n huis of welke vraag-en-aanbod-zaken meespelen. Verkenner-modus, met een lange koopcyclus.",
-            "Beide bezoekers in één algemeen 'neem contact op'-formulier proppen zou doodzonde zijn. De eerste wil een berekening en een subsidie-antwoord, de tweede wil eerst snappen wat 'ie überhaupt aan het bekijken is. Dus splitsten we de boel in twee: de Vervangingsscan voor de eerste, de Quickscan voor de tweede.",
+            "Iemand die op een mooie pelletkachel-site terechtkomt, is meestal één van twee mensen. De eerste moet z'n kachel vervangen. Die heeft een open haard of een oude houtkachel die er binnenkort uit moet vanwege de nieuwe regels van 2027, en wil weten of een pelletkachel daarbinnen past en of er subsidie mogelijk is. Concrete vraag, en haast.",
+            "De tweede bezoeker kijkt nog rond. Die heeft bij de buren een pelletkachel gezien, vindt het idee mooi, maar heeft geen flauw idee welke kachel bij z'n huis past. Aan het oriënteren, en nog lang niet aan kopen toe.",
+            "Allebei door hetzelfde 'neem contact op'-formulier duwen zou zonde zijn. De eerste wil een berekening en een antwoord over subsidie, de tweede wil eerst snappen waar 'ie überhaupt naar kijkt. Dus maakten we er twee: de Vervangingsscan voor de eerste, de Quickscan voor de tweede.",
           ],
         },
         {
-          title: "De Vervangingsscan: Ecodesign 2027 als rode draad",
+          title: "De Vervangingsscan: de nieuwe regels van 2027 als rode draad",
           paragraphs: [
-            "Ecodesign 2027 is de Europese regelgeving die per 2027 strengere emissie-eisen aan kachels stelt. Veel oudere houtkachels en open haarden vallen daarbuiten en mogen niet meer gestookt worden. Een hoop mensen weten dat wel, maar weten niet wat het concreet voor hen betekent.",
-            "De Vervangingsscan is een Lead Engine in Forester OS die exact die vraag oplost. In vier of vijf stappen toetst 'ie wat de bezoeker nu stookt, welk type woning en bouwjaar 'ie heeft, hoe groot de ruimte is en welke wensen er zijn. Het systeem weegt dat tegen Ecodesign 2027 en stelt het NordFlame-model voor dat het beste past, mét een indicatie van het subsidie-recht.",
-            "Het rapport komt direct in de mail van de bezoeker, en de lead landt parallel in het CRM met alle context die we al hebben uitgevraagd. Zo komt sales niet aan de telefoon met 'wat heeft u nu staan?', maar met 'ik zie dat u nu een oude houtkachel heeft en dat u in aanmerking lijkt te komen voor de subsidie, laten we kijken welk model bij u past'.",
+            "Ecodesign 2027 is de Europese regel die vanaf 2027 strengere eisen stelt aan kachels. Veel oudere houtkachels en open haarden vallen erbuiten en mogen dan niet meer gestookt worden. Een hoop mensen weten dat wel, maar weten niet wat het voor hén betekent.",
+            "De Vervangingsscan is een slim vragenlijstje dat precies die vraag beantwoordt. In vier of vijf stappen kijkt 'ie wat je nu stookt, wat voor woning je hebt en hoe oud die is, hoe groot de ruimte is en wat je wensen zijn. Daarna stelt het de NordFlame-kachel voor die het beste past, mét een indicatie of je recht op subsidie hebt.",
+            "Het rapport komt meteen in de mail van de bezoeker, en de aanmelding belandt tegelijk in het klantenoverzicht, met alles wat we al gevraagd hebben. Zo komt de verkoper niet aan de telefoon met 'wat heeft u nu staan?', maar met 'ik zie dat u een oude houtkachel heeft en waarschijnlijk recht op subsidie, laten we kijken welke kachel bij u past'.",
           ],
         },
         {
-          title: "De Quickscan: voor wie nog aan het kijken is",
+          title: "De Quickscan: voor wie nog rondkijkt",
           paragraphs: [
-            "De Quickscan is een lichtere variant voor de oriënterende bezoeker. Geen subsidie-stress, geen regelgevings-tekst, gewoon een vriendelijk paadje om te ontdekken welk model past bij jouw woning. Een paar vragen over m², woningtype, hoeveel uur per dag je wilt stoken en welke esthetiek je aantrekt, en de scan komt met een aanbeveling.",
-            "Wat ik mooi vind aan deze tweede flow: 'ie pretendeert niets meer te zijn dan 'ie is. Een ontdek-tool, geen offerte-machine. De bezoeker krijgt een persoonlijk antwoord op een specifiek model met een verhalend stukje over wat dat model bijzonder maakt. Ook hier landt de lead in het CRM, zodat sales een gerichte vervolgactie kan plannen wanneer de bezoeker een paar weken later terug komt.",
+            "De Quickscan is een lichtere versie voor wie nog aan het oriënteren is. Geen subsidie-gedoe, geen moeilijke regel-teksten, gewoon een vriendelijk paadje om te ontdekken welke kachel bij jouw huis past. Een paar vragen over de grootte van de ruimte, het soort woning, hoeveel uur per dag je wilt stoken en wat je mooi vindt, en de scan komt met een advies.",
+            "Wat ik mooi vind aan deze tweede: 'ie doet niet alsof 'ie meer is dan 'ie is. Een ontdek-hulpje, geen verkoopmachine. De bezoeker krijgt een persoonlijk advies voor een bepaalde kachel, met een kort verhaaltje over wat die kachel bijzonder maakt. Ook hier komt de aanmelding in het klantenoverzicht, zodat de verkoper gericht contact kan opnemen als de bezoeker een paar weken later terugkomt.",
           ],
         },
         {
-          title: "Aurora als snijpunt: de warmtepomp-vraag in de calculator",
+          title: "Aurora als snijpunt: de warmtepomp-vraag in de scan",
           paragraphs: [
-            "NordFlame's vlaggenschip Aurora is een hybride pelletkachel die direct samenwerkt met een warmtepomp. In beide scans rekent het systeem dat letterlijk mee. Op het moment dat een bezoeker aangeeft dat 'ie al een warmtepomp heeft, of er één overweegt, schakelen de scans naar een andere modus en stellen ze Aurora actief voor in plaats van een puur-pellet-model.",
-            "Klinkt simpel, maar achter de schermen is dat een tweede logica-pad door de hele wizard. De subsidie-mogelijkheden voor een hybride opstelling zien er anders uit, het kachel-vermogen wordt anders berekend en de installatie-aanbevelingen verschillen. Voor de bezoeker is het echter één vraag: 'heb je een warmtepomp, of denk je erover na?'.",
-            "Wat ik vooral mooi vind: het advies dat eruit rolt klopt met de complete energie-strategie van de bezoeker. Niet alleen welke kachel ga je kopen, maar hoe past die in je hele verwarming-plaatje. Premium-positionering werkt het beste als je verder vooruit denkt dan de bezoeker zelf doet.",
+            "NordFlame's pronkstuk Aurora is een pelletkachel die direct samenwerkt met een warmtepomp. In beide scans rekent het systeem dat gewoon mee. Zegt een bezoeker dat 'ie al een warmtepomp heeft, of erover nadenkt, dan schakelen de scans over en stellen ze de Aurora voor in plaats van een gewone pelletkachel.",
+            "Klinkt simpel, maar achter de schermen is dat een heel tweede pad door de scan. De subsidie zit anders in elkaar, het benodigde kachel-vermogen wordt anders berekend en de tips over de installatie verschillen. Maar voor de bezoeker is het maar één vraag: 'heb je een warmtepomp, of denk je erover na?'.",
+            "Wat ik vooral mooi vind: het advies dat eruit komt klopt met het complete verwarmingsplaatje van de bezoeker. Niet alleen welke kachel je koopt, maar hoe die past bij de rest van je verwarming. Een chic merk neerzetten werkt het best als je verder vooruit denkt dan de bezoeker zelf doet.",
           ],
         },
         {
           title: "Wat ik vooral van NordFlame heb geleerd",
           paragraphs: [
-            "Premium-positionering werkt ook in scan-tools. Het is verleidelijk om elke scan tot een offerte-machine te maken, met als doel zo veel mogelijk leads zo snel mogelijk te kwalificeren. Maar voor een merk als NordFlame zou dat als hijgerig overkomen. Een scan kan ook een ontdek-moment zijn, een eerste positief contact met de stem en het verhaal van het merk.",
-            "En een Lead Engine is geen formulier. Dat is iets wat ik telkens opnieuw aan klanten moet uitleggen. Een formulier is een rijtje vraagvelden om een mailtje te genereren. Een Lead Engine is een wizard die de bezoeker iets oplevert (een rapport, een aanbeveling, een berekening) terwijl jij parallel context binnenkrijgt. Het is een kleine experience, niet een drempel.",
+            "Een chic merk neerzetten werkt ook in zo'n scan. Het is verleidelijk om elke scan een verkoopmachine te maken, met als doel zo snel mogelijk zo veel mogelijk aanmeldingen binnen te harken. Maar voor een merk als NordFlame zou dat gehaast overkomen. Een scan kan ook gewoon een ontdek-moment zijn, een eerste prettige kennismaking met de stem en het verhaal van het merk.",
+            "En een slim vragenlijstje is geen formulier. Dat is iets wat ik klanten telkens opnieuw moet uitleggen. Een formulier is een rijtje invulvelden om een mailtje te versturen. Een Lead Engine is een vragenlijstje dat de bezoeker iets nuttigs oplevert, een rapport, een advies, een berekening, terwijl jij ondertussen te weten komt wie er langskwam. Het is een klein leuk momentje, geen drempel.",
           ],
         },
       ],
       outro: [
-        "Wil je het volledige NordFlame-verhaal lezen, met de zes modellen, de Aurora-combinatie en hoe we Fathom Analytics in plaats van Google Analytics hebben gekoppeld, dan staat de hele case klaar. En heb je zelf een product of dienst waar twee soorten bezoekers tegelijk op afkomen, dan loont het bijna altijd om die in twee flows op te splitsen. Ik denk graag mee.",
-        "PS — Aurora is voor mij ook de naam van het hybride vlaggenschip dat dit hele project enigszins anders maakte dan een gemiddelde productlancering. Dat zegt iets over de kracht van een mooi gekozen productnaam.",
+        "Wil je het hele NordFlame-verhaal lezen, met de zes kachels, de Aurora-combinatie en hoe we de bezoekers tellen zonder de gegevens met grote techbedrijven te delen, dan staat de hele case klaar. En heb je zelf een product of dienst waar twee soorten bezoekers tegelijk op afkomen, dan loont het bijna altijd om die in twee aparte paadjes op te splitsen. Ik denk graag mee.",
+        "PS, Aurora is voor mij ook de naam van het pronkstuk dat dit hele project net even anders maakte dan een gewone productlancering. Dat zegt iets over de kracht van een mooi gekozen productnaam.",
       ],
       signature: "Tot snel, Martijn",
     },
