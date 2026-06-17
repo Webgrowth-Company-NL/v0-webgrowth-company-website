@@ -48,6 +48,100 @@ export type FieldLog = {
 
 export const FIELD_LOGS: FieldLog[] = [
   {
+    slug: "commitment-ladder-mind-movement",
+    date: "2026-06-16",
+    dateModified: "2026-06-16",
+    dateLabel: "Juni 2026",
+    tag: "App & platform",
+    title: "De commitment-ladder van Mind Movement: één digitaal systeem dat je van gratis app tot retraite begeleidt",
+    excerpt:
+      "De meeste websites willen één ding van je: koop nu, of vul dit in. Maar rust verkoop je niet met één grote knop. Voor Mind Movement maakten we daarom geen verkooptrechter, maar een ladder. Onderaan een gratis app, daarboven groepslessen, persoonlijke gesprekken en tot slot een paar dagen op retraite. Je stapt erop waar je wilt en klimt in je eigen tempo. We maakten de app, de website én een plek waar Gil zelf alles aanpast, en ze werken allemaal samen.",
+    metaTitle: "Mind Movement: app, site en CMS rond één ladder",
+    metaDescription:
+      "Hoe we voor Mind Movement de app, website en een eigen CMS bouwden rond één commitment-ladder: van gratis app tot retraite, alles op één gedeelde Firebase.",
+    keywords: [
+      "Mind Movement",
+      "mentale wellness app",
+      "Calmfulness",
+      "commitment-ladder",
+      "mindfulness app Nederland",
+      "NSDR Nederlands",
+      "retraite boeken",
+      "wellness platform bouwen",
+      "app site en CMS op één Firebase",
+    ],
+    about: [
+      { name: "Mind Movement", sameAs: "https://mindmovementapp.nl" },
+      { name: "Calmfulness" },
+      { name: "Mollie", sameAs: "https://www.mollie.com" },
+      { name: "Firebase", sameAs: "https://firebase.google.com" },
+      { name: "NSDR" },
+    ],
+    readTime: "8 min",
+    body: {
+      greeting: "Lief dagboek, dinsdag 16 juni 2026",
+      intro: [
+        "Vandaag is de nieuwe Mind Movement live gegaan. En het is meer dan een website. We hebben drie dingen tegelijk gemaakt: een app voor op je telefoon, een nieuwe website, en een soort knoppenkamer waar Gil zelf alles kan aanpassen. Ze werken alle drie samen. Even een kop koffie erbij, want hier wil ik rustig bij stilstaan.",
+        "Mind Movement is van Gil Sol uit Rotterdam. Hij helpt mensen rustiger te worden in hun hoofd, op een manier die hij Calmfulness noemt. Toen we begonnen, vroeg hij niet om een mooie website. Hij vroeg iets veel beters: hoe help je iemand die vandaag alleen even wil ontspannen, maar over een halfjaar misschien klaar is voor een hele week op retraite?",
+        "Het antwoord werd een ladder. De meeste websites willen meteen één ding van je: koop nu, vul dit in, bel ons. Maar rust verkoop je niet met één grote knop. Dus maakten we geen trechter die iedereen naar dezelfde knop duwt, maar een ladder. Elke trede is iets wat echt bestaat. En je klimt zelf, in je eigen tempo.",
+      ],
+      sections: [
+        {
+          title: "Eén knop past niet bij rust",
+          paragraphs: [
+            "Mensen die bij Mind Movement binnenkomen, staan allemaal ergens anders. De een wil vanavond tien minuten z'n hoofd leegmaken. De ander zoekt echte begeleiding. En weer een ander is toe aan een week helemaal weg. Eén knop die ze allemaal hetzelfde laat doen, voelt voor bijna iedereen te vroeg of te laat.",
+            "Daarom tekenden we een ladder met vier treden. Onderaan de app, die je gratis kunt proberen. Daarboven de groepslessen voor 19,99 euro. Daarboven een persoonlijk gesprek van 149 euro. En bovenaan de retraites: een paar dagen weg, van de Veluwe tot Bali. Elke trede is iets op zichzelf, geen opdringerig schermpje dat je probeert weg te klikken.",
+            "Het mooie van een ladder is dat je er op elke hoogte op kunt stappen. Je mag maanden in de app blijven. Je mag één keer een groepsles proberen en daarna weer even niks. Niemand wordt geduwd. De volgende trede staat er gewoon, voor als je er aan toe bent.",
+          ],
+        },
+        {
+          title: "Onderaan staat de app, en dat is precies goed",
+          paragraphs: [
+            "We zetten de app expres onderaan. Het is de makkelijkste stap: je downloadt 'm, probeert 'm gratis, en hebt meteen iets in handen. Geen gesprek vooraf, geen drempel, niemand die nog moet terugbellen.",
+            "In de app staan korte oefeningen voor elke dag: ademhaling, rust, beweging en meditatie. Er zijn kleine programma's voor wie beter wil slapen of minder wil piekeren. En er is een reis van 21 dagen die je stap voor stap meeneemt, van 'meer rust in je hoofd' tot 'mijn beste versie'.",
+            "Waarom die app onderaan hoort? Omdat je er rustig aan kunt wennen voordat er geld of een afspraak bij komt kijken. Tegen de tijd dat iemand aan een groepsles of een gesprek denkt, kent 'ie het al weken. De volgende stap voelt dan niet als verkopen, maar gewoon als de logische volgende.",
+          ],
+        },
+        {
+          title: "Daarboven: drie dingen die je echt kunt boeken",
+          paragraphs: [
+            "Boven de app staan drie dingen die je zo op de website regelt, van begin tot eind. De groepslessen (19,99 euro) staan in een agenda. Je ziet wanneer er een is, je schrijft je in een paar klikken in, en als het toch niet uitkomt mag je tot 48 uur van tevoren ruilen.",
+            "Voor een persoonlijk gesprek (149 euro) kies je gewoon een vrij moment in Gils agenda. Je klikt het aan, en je krijgt er automatisch een videogesprek bij. Geen heen-en-weer-gemail over wanneer het uitkomt.",
+            "En voor een retraite betaal je eerst een deel aan, en dan staat je plek vast. Bij elke boeking krijg je vanzelf een bevestiging in je mail, en een herinnering vlak voordat het begint. Allemaal in dezelfde rustige stijl, en je hoeft nergens voor naar een andere site.",
+          ],
+        },
+        {
+          title: "Eén plek waar Gil alles zelf bijhoudt",
+          paragraphs: [
+            "Een ladder met vier treden wordt een rommeltje als je voor elk stukje een ander programma nodig hebt. Een agenda hier, een webwinkel daar, en niemand weet meer waar welke prijs staat. Dus maakten we één plek waar Gil alles zelf regelt.",
+            "Daar zet hij de prijzen en de data van de retraites klaar. Hij plant de groepslessen weken vooruit. Hij ziet de aanmeldingen binnenkomen. En hij past de oefeningen in de app aan.",
+            "Het slimme zit 'm hierin: die ene plek, de app en de website werken uit hetzelfde geheugen. Past Gil een prijs aan, dan klopt 'ie meteen overal. Voegt hij een oefening toe, dan staat 'ie meteen in de app. Geen dubbel werk, en nergens een prijs die per ongeluk niet meer klopt. Dat is het verschil tussen een folder en iets wat echt blijft leven.",
+          ],
+        },
+        {
+          title: "Rustig blijven was een keuze, geen toeval",
+          paragraphs: [
+            "De grootste valkuil van een ladder is dat 'ie gaat voelen als een verkoper die je naar boven duwt. Schermpjes die roepen 'nog maar twee plekken', uitroeptekens, haast. Voor een merk dat juist rust verkoopt is dat precies verkeerd. Wie net even is bijgekomen, zit niet te wachten op druk.",
+            "Dus maakten we van die rust een harde regel. Geen uitroeptekens, en elke stap omhoog als een uitnodiging in plaats van een duwtje. De treden zijn er gewoon, zichtbaar maar nooit opdringerig.",
+            "En om het ook zo te laten voelen, lijken de app en de website precies op elkaar: dezelfde kleuren, hetzelfde lettertype, dezelfde rust. Zo voelt het als één wereld, en niet als twee losse dingen met hetzelfde logo erop.",
+          ],
+        },
+        {
+          title: "Werkt ook voor een heel team",
+          paragraphs: [
+            "Onderweg zag ik dat dezelfde ladder net zo goed werkt voor bedrijven. Steeds meer werkgevers willen iets doen aan stress en uitval op het werk. Zo'n bedrijf kan z'n hele team op de app laten beginnen, en wie wil klimt vanzelf door naar de lessen of zelfs een retraite met collega's.",
+            "Voor Gil is dat fijn, want het is precies hetzelfde systeem. Alleen het beginpunt verschilt. Of er nu één iemand instapt of veertig collega's tegelijk, hij houdt het op één plek overzichtelijk.",
+          ],
+        },
+      ],
+      outro: [
+        "Wil je zien hoe de app, de website en die ene beheerplek samenwerken, lees dan de hele case eens. En zit je zelf met iets wat niet in één knop past, een dienst met meerdere stappen, of iets wat mensen pas na een tijdje durven kopen, dan is een ladder bijna altijd eerlijker dan een trechter. Loop er gerust eens met me doorheen.",
+        "PS, Gil, dat je vanaf het begin zo duidelijk was dat het rustig en uitnodigend moest blijven en vooral niet mocht pushen, heeft dit beter gemaakt dan welke lijst met verkoopdoelen ook. Mooi om aan mee te bouwen.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
     slug: "forester-ads-google-ads-zonder-jargon",
     date: "2026-06-08",
     dateModified: "2026-06-08",
@@ -476,100 +570,6 @@ export const FIELD_LOGS: FieldLog[] = [
       outro: [
         "Wil je het volledige NordFlame-verhaal lezen, met de zes modellen, de Aurora-combinatie en hoe we Fathom Analytics in plaats van Google Analytics hebben gekoppeld, dan staat de hele case klaar. En heb je zelf een product of dienst waar twee soorten bezoekers tegelijk op afkomen, dan loont het bijna altijd om die in twee flows op te splitsen. Ik denk graag mee.",
         "PS — Aurora is voor mij ook de naam van het hybride vlaggenschip dat dit hele project enigszins anders maakte dan een gemiddelde productlancering. Dat zegt iets over de kracht van een mooi gekozen productnaam.",
-      ],
-      signature: "Tot snel, Martijn",
-    },
-  },
-  {
-    slug: "commitment-ladder-mind-movement",
-    date: "2026-06-16",
-    dateModified: "2026-06-16",
-    dateLabel: "Juni 2026",
-    tag: "App & platform",
-    title: "De commitment-ladder van Mind Movement: één digitaal systeem dat je van gratis app tot retraite begeleidt",
-    excerpt:
-      "De meeste websites willen één ding van je: koop nu, of vul dit in. Maar rust verkoop je niet met één grote knop. Voor Mind Movement maakten we daarom geen verkooptrechter, maar een ladder. Onderaan een gratis app, daarboven groepslessen, persoonlijke gesprekken en tot slot een paar dagen op retraite. Je stapt erop waar je wilt en klimt in je eigen tempo. We maakten de app, de website én een plek waar Gil zelf alles aanpast, en ze werken allemaal samen.",
-    metaTitle: "Mind Movement: app, site en CMS rond één ladder",
-    metaDescription:
-      "Hoe we voor Mind Movement de app, website en een eigen CMS bouwden rond één commitment-ladder: van gratis app tot retraite, alles op één gedeelde Firebase.",
-    keywords: [
-      "Mind Movement",
-      "mentale wellness app",
-      "Calmfulness",
-      "commitment-ladder",
-      "mindfulness app Nederland",
-      "NSDR Nederlands",
-      "retraite boeken",
-      "wellness platform bouwen",
-      "app site en CMS op één Firebase",
-    ],
-    about: [
-      { name: "Mind Movement", sameAs: "https://mindmovementapp.nl" },
-      { name: "Calmfulness" },
-      { name: "Mollie", sameAs: "https://www.mollie.com" },
-      { name: "Firebase", sameAs: "https://firebase.google.com" },
-      { name: "NSDR" },
-    ],
-    readTime: "8 min",
-    body: {
-      greeting: "Lief dagboek, dinsdag 16 juni 2026",
-      intro: [
-        "Vandaag is de nieuwe Mind Movement live gegaan. En het is meer dan een website. We hebben drie dingen tegelijk gemaakt: een app voor op je telefoon, een nieuwe website, en een soort knoppenkamer waar Gil zelf alles kan aanpassen. Ze werken alle drie samen. Even een kop koffie erbij, want hier wil ik rustig bij stilstaan.",
-        "Mind Movement is van Gil Sol uit Rotterdam. Hij helpt mensen rustiger te worden in hun hoofd, op een manier die hij Calmfulness noemt. Toen we begonnen, vroeg hij niet om een mooie website. Hij vroeg iets veel beters: hoe help je iemand die vandaag alleen even wil ontspannen, maar over een halfjaar misschien klaar is voor een hele week op retraite?",
-        "Het antwoord werd een ladder. De meeste websites willen meteen één ding van je: koop nu, vul dit in, bel ons. Maar rust verkoop je niet met één grote knop. Dus maakten we geen trechter die iedereen naar dezelfde knop duwt, maar een ladder. Elke trede is iets wat echt bestaat. En je klimt zelf, in je eigen tempo.",
-      ],
-      sections: [
-        {
-          title: "Eén knop past niet bij rust",
-          paragraphs: [
-            "Mensen die bij Mind Movement binnenkomen, staan allemaal ergens anders. De een wil vanavond tien minuten z'n hoofd leegmaken. De ander zoekt echte begeleiding. En weer een ander is toe aan een week helemaal weg. Eén knop die ze allemaal hetzelfde laat doen, voelt voor bijna iedereen te vroeg of te laat.",
-            "Daarom tekenden we een ladder met vier treden. Onderaan de app, die je gratis kunt proberen. Daarboven de groepslessen voor 19,99 euro. Daarboven een persoonlijk gesprek van 149 euro. En bovenaan de retraites: een paar dagen weg, van de Veluwe tot Bali. Elke trede is iets op zichzelf, geen opdringerig schermpje dat je probeert weg te klikken.",
-            "Het mooie van een ladder is dat je er op elke hoogte op kunt stappen. Je mag maanden in de app blijven. Je mag één keer een groepsles proberen en daarna weer even niks. Niemand wordt geduwd. De volgende trede staat er gewoon, voor als je er aan toe bent.",
-          ],
-        },
-        {
-          title: "Onderaan staat de app, en dat is precies goed",
-          paragraphs: [
-            "We zetten de app expres onderaan. Het is de makkelijkste stap: je downloadt 'm, probeert 'm gratis, en hebt meteen iets in handen. Geen gesprek vooraf, geen drempel, niemand die nog moet terugbellen.",
-            "In de app staan korte oefeningen voor elke dag: ademhaling, rust, beweging en meditatie. Er zijn kleine programma's voor wie beter wil slapen of minder wil piekeren. En er is een reis van 21 dagen die je stap voor stap meeneemt, van 'meer rust in je hoofd' tot 'mijn beste versie'.",
-            "Waarom die app onderaan hoort? Omdat je er rustig aan kunt wennen voordat er geld of een afspraak bij komt kijken. Tegen de tijd dat iemand aan een groepsles of een gesprek denkt, kent 'ie het al weken. De volgende stap voelt dan niet als verkopen, maar gewoon als de logische volgende.",
-          ],
-        },
-        {
-          title: "Daarboven: drie dingen die je echt kunt boeken",
-          paragraphs: [
-            "Boven de app staan drie dingen die je zo op de website regelt, van begin tot eind. De groepslessen (19,99 euro) staan in een agenda. Je ziet wanneer er een is, je schrijft je in een paar klikken in, en als het toch niet uitkomt mag je tot 48 uur van tevoren ruilen.",
-            "Voor een persoonlijk gesprek (149 euro) kies je gewoon een vrij moment in Gils agenda. Je klikt het aan, en je krijgt er automatisch een videogesprek bij. Geen heen-en-weer-gemail over wanneer het uitkomt.",
-            "En voor een retraite betaal je eerst een deel aan, en dan staat je plek vast. Bij elke boeking krijg je vanzelf een bevestiging in je mail, en een herinnering vlak voordat het begint. Allemaal in dezelfde rustige stijl, en je hoeft nergens voor naar een andere site.",
-          ],
-        },
-        {
-          title: "Eén plek waar Gil alles zelf bijhoudt",
-          paragraphs: [
-            "Een ladder met vier treden wordt een rommeltje als je voor elk stukje een ander programma nodig hebt. Een agenda hier, een webwinkel daar, en niemand weet meer waar welke prijs staat. Dus maakten we één plek waar Gil alles zelf regelt.",
-            "Daar zet hij de prijzen en de data van de retraites klaar. Hij plant de groepslessen weken vooruit. Hij ziet de aanmeldingen binnenkomen. En hij past de oefeningen in de app aan.",
-            "Het slimme zit 'm hierin: die ene plek, de app en de website werken uit hetzelfde geheugen. Past Gil een prijs aan, dan klopt 'ie meteen overal. Voegt hij een oefening toe, dan staat 'ie meteen in de app. Geen dubbel werk, en nergens een prijs die per ongeluk niet meer klopt. Dat is het verschil tussen een folder en iets wat echt blijft leven.",
-          ],
-        },
-        {
-          title: "Rustig blijven was een keuze, geen toeval",
-          paragraphs: [
-            "De grootste valkuil van een ladder is dat 'ie gaat voelen als een verkoper die je naar boven duwt. Schermpjes die roepen 'nog maar twee plekken', uitroeptekens, haast. Voor een merk dat juist rust verkoopt is dat precies verkeerd. Wie net even is bijgekomen, zit niet te wachten op druk.",
-            "Dus maakten we van die rust een harde regel. Geen uitroeptekens, en elke stap omhoog als een uitnodiging in plaats van een duwtje. De treden zijn er gewoon, zichtbaar maar nooit opdringerig.",
-            "En om het ook zo te laten voelen, lijken de app en de website precies op elkaar: dezelfde kleuren, hetzelfde lettertype, dezelfde rust. Zo voelt het als één wereld, en niet als twee losse dingen met hetzelfde logo erop.",
-          ],
-        },
-        {
-          title: "Werkt ook voor een heel team",
-          paragraphs: [
-            "Onderweg zag ik dat dezelfde ladder net zo goed werkt voor bedrijven. Steeds meer werkgevers willen iets doen aan stress en uitval op het werk. Zo'n bedrijf kan z'n hele team op de app laten beginnen, en wie wil klimt vanzelf door naar de lessen of zelfs een retraite met collega's.",
-            "Voor Gil is dat fijn, want het is precies hetzelfde systeem. Alleen het beginpunt verschilt. Of er nu één iemand instapt of veertig collega's tegelijk, hij houdt het op één plek overzichtelijk.",
-          ],
-        },
-      ],
-      outro: [
-        "Wil je zien hoe de app, de website en die ene beheerplek samenwerken, lees dan de hele case eens. En zit je zelf met iets wat niet in één knop past, een dienst met meerdere stappen, of iets wat mensen pas na een tijdje durven kopen, dan is een ladder bijna altijd eerlijker dan een trechter. Loop er gerust eens met me doorheen.",
-        "PS, Gil, dat je vanaf het begin zo duidelijk was dat het rustig en uitnodigend moest blijven en vooral niet mocht pushen, heeft dit beter gemaakt dan welke lijst met verkoopdoelen ook. Mooi om aan mee te bouwen.",
       ],
       signature: "Tot snel, Martijn",
     },
