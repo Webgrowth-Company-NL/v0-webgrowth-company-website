@@ -9,6 +9,19 @@ import type { NextConfig } from "next";
  * anders pakt een wildcard al de URL voordat de specifieke regel matcht.
  */
 const nextConfig: NextConfig = {
+  /**
+   * Rewrites: schone URL zonder .html voor standalone pitch-pagina's die als
+   * self-contained "bundled" HTML in public/pitches/ staan (geen Next-route).
+   */
+  async rewrites() {
+    return [
+      {
+        source: "/pitches/vrijzinnigen-nederland",
+        destination: "/pitches/vrijzinnigen-nederland.html",
+      },
+    ];
+  },
+
   async redirects() {
     return [
       /* ── App login ─────────────────────────── */
