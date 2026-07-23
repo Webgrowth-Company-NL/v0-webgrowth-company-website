@@ -45,6 +45,221 @@ export type CaseStudy = {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    slug: "hydroroof",
+    client: "Hydroroof",
+    sector: "Dakrenovatie & vastgoedonderhoud",
+    location: "Herwijnen",
+    headlineLead: "Een dak dat ruim 40 graden koeler wordt,",
+    headlineHighlight: "en niemand hoeft er met vuur op.",
+    intro:
+      "Hydroroof is van Marc Christiaanse. Hij knapt platte daken op met een vloeibaar siliconensysteem: geen sloop, geen branders, gewoon een nieuwe naadloze laag over het bestaande dak. Zijn oude site sprak particulieren aan, terwijl zijn klanten vastgoedbeheerders, ziekenhuizen, scholen en gemeenten zijn. We bouwden een nieuwe site die dat rechtzet, en die het verschil gewoon laat zien: hetzelfde soort dak van 63 graden, naast een gecoat dak van 22 graden.",
+    pillars: ["Helemaal gericht op zakelijke klanten", "Het verschil in beeld", "Aanvragen komen meteen binnen"],
+    features: [
+      { label: "Van iedereen naar de juiste klant", body: "De oude site was geschreven voor particulieren. De nieuwe heeft een eigen pagina per soort klant: vastgoedbeheer, utiliteit, zorg, gemeenten en onderwijs. Elk met de problemen uit die wereld, de oplossing en een voorbeeld uit de praktijk." },
+      { label: "Het verschil dat je zelf ziet", body: "Twee warmtebeelden naast elkaar: 63,0 graden op het oude donkere dak, 22,6 graden op het gecoate dak. Met een schuifbalk waarmee je zelf van voor naar na sleept." },
+      { label: "Elke aanvraag komt aan", body: "Het offerteformulier stuurt de aanvraag rechtstreeks het systeem van Marc in. Hij krijgt bericht, de aanvraag staat geregistreerd, en er verdwijnt niks in een mailbox." },
+    ],
+    img: "/images/clients/hydroroof-hero.webp",
+    imgAlt: "Wit siliconensysteem wordt met een roller over een plat dak uitgerold",
+    imgPosition: "center",
+    logo: "/images/clients/hydroroof.png",
+    liveUrl: "https://hydroroof.nl",
+    liveLabel: "hydroroof.nl",
+    metaTitle: "Case Hydroroof: zakelijke site voor siliconen dakrenovatie | Webgrowth",
+    metaDescription:
+      "Hoe we voor Hydroroof een volledig zakelijke site bouwden, met warmtebeelden die ruim 40 graden verschil laten zien en aanvragen die direct in zijn systeem binnenkomen.",
+    fieldLogSlug: "warmtebeeld-hydroroof",
+    challenge: {
+      title: "Een site voor particulieren, terwijl de klanten vastgoedbeheerders zijn",
+      body:
+        "Marc verkoopt geen potje verf, maar een manier om een dak te renoveren zonder het eruit te slopen. Zijn oude site vertelde vooral dat het goedkoper was dan een nieuw dak. Dat trekt precies de verkeerde mensen aan: iemand die op prijs zoekt, voor een klus van een paar honderd euro. Terwijl zijn beste opdrachten tussen de 25.000 en 60.000 euro liggen, bij organisaties die hun onderhoud jaren vooruit plannen. Daar kwam bij dat zijn sterkste argument nergens stond. Bij deze manier van werken komt er geen brander op het dak, en dat maakt het gesprek met de verzekeraar van een ziekenhuis of een school een heel ander gesprek. En de aanvragen die wél binnenkwamen, kwamen als losse mailtjes binnen zonder dat iemand bijhield wat ermee gebeurde.",
+    },
+    solution: [
+      {
+        title: "Eerst bepalen wie de klant is",
+        body:
+          "We hebben de site helemaal omgedraaid naar zakelijke klanten. Vijf soorten kregen een eigen pagina: vastgoedbeheer, utiliteit, zorg, gemeenten en onderwijs. Elke pagina loopt hetzelfde af: dit is het probleem dat u herkent, dit doen we eraan, dit levert het op, en zo ging het bij een eerder dak. Een schoolbestuur leest over werken in de vakantie en over rust boven de klaslokalen. Een vastgoedbeheerder leest over kosten die in de begroting passen.",
+      },
+      {
+        title: "Een methode, geen goedkoop alternatief",
+        body:
+          "De hele site is herschreven. Weg met 'goedkoper dan vervangen', en in de plaats daarvan een volwaardige manier van renoveren met een eigen verhaal: een naadloze laag die meebeweegt met het dak, waar geen naden in zitten waar water tussen kan kruipen. De kop op de homepage werd 'Grip op levensduur. Grip op kosten.' Dat is de taal van iemand die een gebouw beheert.",
+      },
+      {
+        title: "Het bewijs: 63 graden naast 22 graden",
+        body:
+          "Marc mat het zelf met een warmtebeeldcamera: een donker bitumendak van 63,0 graden, en een wit gecoat dak van 22,6 graden. Ruim 40 graden verschil. Die twee foto's staan groot op de homepage, met een schuifbalk waarmee je van voor naar na sleept, en met een dronefoto van hetzelfde dak ervoor en erna. Geen mooie praatjes over duurzaamheid, gewoon twee getallen die je zelf kunt nameten.",
+      },
+      {
+        title: "Zonder branders op het dak",
+        body:
+          "Dit kreeg een eigen plek op de site, omdat het voor veel gebouwen dé reden is om hiervoor te kiezen. Bij de gebruikelijke manier van dakwerk gaat er een brander aan boven een gebouw waar patiënten liggen, kinderen les krijgen of mensen werken. Hier niet. Dat scheelt risico, gedoe met de verzekeraar en vaak ook een ontruiming.",
+      },
+      {
+        title: "Laag voor laag uitgelegd",
+        body:
+          "Hoe zo'n dak is opgebouwd, is lastig uit te leggen in een alinea. Dus lieten we het zien: terwijl je scrolt, licht er telkens één laag op in een doorsnede van het dak, met de uitleg ernaast. Van de bestaande dakbedekking onderin tot het witte siliconenmembraan bovenop.",
+      },
+      {
+        title: "Het Dakboek",
+        body:
+          "Alles wat Marc te vertellen heeft, staat op één plek die we het Dakboek noemen: uitlegartikelen, uitgevoerde projecten en korte notities uit de praktijk. Eén doorzoekbaar overzicht in plaats van drie losse rubrieken, met deelknoppen voor LinkedIn, WhatsApp en mail.",
+      },
+      {
+        title: "Een aanvraag die meteen aankomt",
+        body:
+          "Wie een dakopname aanvraagt, vult één formulier in met drie stappen. Die aanvraag gaat rechtstreeks het systeem van Marc in, hij krijgt bericht, en er zit een stille controle op die spam tegenhoudt zonder dat een echte bezoeker iets hoeft aan te vinken. Marc belt zelf terug en plant zelf in, want bij opdrachten van deze omvang wil hij eerst even horen wat er speelt.",
+      },
+    ],
+    results: [
+      { value: "40 °C", label: "Koeler dak", descriptor: "gemeten: 63,0 graden ongecoat, 22,6 graden gecoat" },
+      { value: "5", label: "Eigen pagina's per sector", descriptor: "vastgoedbeheer, utiliteit, zorg, gemeenten en onderwijs" },
+      { value: "100", label: "Toegankelijkheid", descriptor: "gemeten bij oplevering, net als de score voor vindbaarheid" },
+      { value: "Direct", label: "Aanvraag in het systeem", descriptor: "met bericht aan Marc, geen losse mailtjes meer" },
+    ],
+  },
+  {
+    slug: "bosscher-international",
+    client: "Bosscher International",
+    sector: "B2B-handel & merkkleding",
+    location: "Papendrecht",
+    headlineLead: "Van offerte tot levering,",
+    headlineHighlight: "alles in één systeem.",
+    intro:
+      "Bosscher International laat kleding, sokken en textiel met het merk van een klant erop maken bij fabrieken in Azië, en levert dat aan bedrijven door heel Europa. Dat traject liep jarenlang via mail, Excel en losse mappen: offerte, ontwerp, proefexemplaar, productie, controle, verzending en factuur. Wij bouwden er één systeem voor met drie ingangen: één voor het team van Bosscher, één voor hun klanten en één voor de fabrieken.",
+    pillars: ["Drie ingangen, één systeem", "Elke stap vastgelegd", "Niks de deur uit zonder controle"],
+    features: [
+      { label: "Drie ingangen, één systeem", body: "Het team van Bosscher, de klant en de fabriek werken in hetzelfde systeem, maar zien alleen wat voor hen bedoeld is. De fabriek ziet zijn eigen orders in het Engels, de klant ziet zijn offertes en wat er op zijn akkoord wacht." },
+      { label: "Goedkeuren met één link", body: "Een offerte, een ontwerp of een proefexemplaar keurt de klant goed via een link in de mail. Geen account, geen wachtwoord, en het akkoord staat meteen vast in het dossier, met datum erbij." },
+      { label: "Controle vóór verzending", body: "De fabriek zet controlefoto's klaar, Bosscher kijkt mee en de klant geeft akkoord. Pas daarna mag er verzonden worden. Het systeem laat de verzendknop simpelweg niet eerder werken." },
+    ],
+    img: "/images/clients/bosscher-hero.webp",
+    imgAlt: "Bosscher International, Wear your brand: offerte, ontwerp, sample, productie, controle en factuur in één systeem",
+    logo: "/images/clients/bosscher.png",
+    liveUrl: "https://bosscher-international.com",
+    liveLabel: "bosscher-international.com",
+    liveStatus: "coming-soon",
+    metaTitle: "Case Bosscher International: één systeem van offerte tot levering | Webgrowth",
+    metaDescription:
+      "Hoe we voor Bosscher International één systeem bouwden voor het hele traject: offerte, ontwerp, proefexemplaar, productie, controle, verzending en factuur, met een eigen ingang voor klanten en fabrieken.",
+    challenge: {
+      title: "Een order die door zes handen gaat, en nergens één plek waar alles klopt",
+      body:
+        "Een order bij Bosscher is geen bestelling die je even inpakt. Er gaat een offerte overheen met staffelprijzen, dan een ontwerp dat de klant moet goedkeuren, dan een proefexemplaar uit de fabriek dat weer goedgekeurd moet worden, dan de productie, dan de controle, dan het transport en tot slot de factuur. Elke stap zat in een ander programma of gewoon in iemands mailbox. Wie wilde weten hoe een order ervoor stond, moest het vragen. De fabriek zat in een andere tijdzone en werkte met foto's via de mail. En de fout die je in dit vak echt niet wilt maken, vijfduizend stuks in de verkeerde kleur, hangt aan precies één ding: of iemand op tijd naar het juiste plaatje heeft gekeken en dat ergens is vastgelegd.",
+    },
+    solution: [
+      {
+        title: "De hele reis van een order in beeld",
+        body:
+          "Elke order legt dezelfde weg af, van offerte tot geleverd, in dertien vaste stappen. Iedereen ziet in één oogopslag waar een order staat en wat de volgende stap is. Het systeem bewaakt die volgorde ook echt: je kunt geen stap overslaan omdat het even sneller lijkt. Bij elke stap wordt vastgelegd wie hem heeft gezet en wanneer.",
+      },
+      {
+        title: "De klant keurt goed met één link",
+        body:
+          "Offertes, ontwerpen en proefexemplaren gaan als een link naar de klant. Hij klikt, kijkt, keurt goed of zet er een opmerking bij. Er loopt een klokje mee, zodat iedereen ziet hoe lang een akkoord al openstaat, en zodra het akkoord binnen is schuift de leverdatum automatisch mee. Geen account nodig, want de meeste mensen willen gewoon één keer op een knop drukken.",
+      },
+      {
+        title: "De fabriek werkt mee, in het Engels",
+        body:
+          "De fabrieken hebben hun eigen ingang, in het Engels. Ze bevestigen een order, geven aan wanneer ze verwachten te verzenden, zetten foto's van het proefexemplaar en van de controle klaar, en beantwoorden vragen van het team. Alles wat vroeger heen en weer ging per mail, staat nu bij de order zelf. Meerdere mensen per fabriek kunnen een eigen inlog krijgen.",
+      },
+      {
+        title: "Niks de deur uit zonder controle",
+        body:
+          "Vóór verzending moet de fabriek controlefoto's aanleveren. Bosscher kijkt ze na, daarna de klant. Pas als beide akkoorden binnen zijn, kan de fabriek de order op verzonden zetten. In het magazijn in Nederland scant iemand de doos met de camera van zijn telefoon, doet zelf nog een steekproef met foto's en telt de dozen. Wat de fabriek eventueel oversloeg, komt daar aan het licht in plaats van bij de klant.",
+      },
+      {
+        title: "Eén plek waar de prijs vandaan komt",
+        body:
+          "Op de website van Bosscher kan een bezoeker zelf een aantal, een land en extra opties kiezen en ziet hij meteen de prijs. Die prijs wordt niet nagebouwd op de site, maar opgehaald uit hetzelfde systeem dat ook de offertes maakt. Zo staat er nooit een verouderde prijs op de site, en komen inkoopprijzen en marges niet naar buiten. De aanvraag die eruit komt, staat direct als lead bij de juiste verkoper.",
+      },
+      {
+        title: "En al het kantoorwerk eromheen",
+        body:
+          "Pakbonnen kunnen neutraal, met het logo van Bosscher of met dat van de klant. De regels voor de vervoerder zitten erin, inclusief wanneer een zending op een pallet gaat. Facturen, aanbetalingen, kortingsafspraken per klant en de wisselkoers van de inkoopvaluta lopen mee. En klanten die dat willen, krijgen een nieuwsbrief vanuit datzelfde systeem, met een uitschrijflink die gewoon werkt.",
+      },
+    ],
+    results: [
+      { value: "3", label: "Ingangen", descriptor: "team, klant en fabriek in hetzelfde systeem" },
+      { value: "13", label: "Bewaakte stappen", descriptor: "van offerte tot geleverd, in vaste volgorde" },
+      { value: "2 akkoorden", label: "Vóór verzending", descriptor: "Bosscher én de klant keuren de controlefoto's goed" },
+      { value: "1 bron", label: "Voor elke prijs", descriptor: "de website rekent met exact dezelfde staffels" },
+    ],
+  },
+  {
+    slug: "pendl",
+    client: "Pendl",
+    sector: "Ons eigen product · co-ouderschap",
+    location: "Breda",
+    headlineLead: "Ons eigen product:",
+    headlineHighlight: "een ouderschapsplan dat meedenkt.",
+    intro:
+      "Pendl is geen klant van ons, het is ons eigen product. Ouders die uit elkaar gaan moeten samen een ouderschapsplan maken, en dat doen de meesten in een leeg Word-document of bij een dure bemiddelaar. Bij Pendl vul je het gratis in, één vraag per scherm, en bij elk antwoord hoor je wat die keuze straks betekent. Voordat je hem maakt. Aan het eind staat er een officieel document, en daarna helpt de app met de dagelijkse praktijk: de agenda, de spullen, de kosten en de beslissingen.",
+    pillars: ["Eén vraag per scherm", "Feedback vóór je kiest", "Van plan naar dagelijkse praktijk"],
+    features: [
+      { label: "Pendl denkt met je mee", body: "Bij elk antwoord lees je wat die keuze later betekent, op het moment dat je hem maakt. Precies wat Martijn zelf jaren geleden miste toen hij zijn eigen plan invulde." },
+      { label: "Gratis invullen, betalen bij het document", body: "Je vult het hele plan gratis in. Pas als je het officiële document wilt, betaal je eenmalig 79 euro. De app kost daarna 4,99 euro per maand per gezin, of je hem nu alleen of samen gebruikt." },
+      { label: "Als jullie het niet eens zijn", body: "De tweede ouder loopt alle punten na en mag het ergens anders zien. Pendl zet beide antwoorden naast elkaar, stelt een redelijk midden voor en waarschuwt als een keuze een ouder of een kind benadeelt." },
+    ],
+    img: "/images/clients/pendl-hero.webp",
+    imgAlt: "De homepage van Pendl met de kop: jullie relatie stopt, het ouderschap niet",
+    imgPosition: "top",
+    logo: "/images/clients/pendl.png",
+    liveUrl: "https://pendl.family",
+    liveLabel: "pendl.family",
+    metaTitle: "Case Pendl: ons eigen product voor ouders die uit elkaar gaan | Webgrowth",
+    metaDescription:
+      "Pendl is ons eigen product: een ouderschapsplan dat je gratis invult en dat bij elk antwoord meedenkt, met een officieel document aan het eind en een app voor daarna.",
+    challenge: {
+      title: "Dit keer waren wij zelf de klant",
+      body:
+        "Wij bouwen normaal voor anderen. Bij Pendl bedachten, bouwden en betaalden we het zelf, en dat begon bij iets persoonlijks. Wie uit elkaar gaat, moet in een periode waarin je het hoofd er nauwelijks bij hebt tientallen afspraken maken die jaren meegaan. Over de vakanties, over het geld, over waar de kinderen ingeschreven staan. Op dat moment weet bijna niemand welke keuze straks welk gevolg heeft. Je vult iets in omdat het rustig lijkt, en drie jaar later blijkt het scheef te liggen. Wij wilden een product dat je op het juiste moment een duwtje geeft, zonder partij te kiezen, en dat betaalbaar blijft voor mensen die net alles moeten regelen.",
+    },
+    solution: [
+      {
+        title: "Eén vraag per scherm",
+        body:
+          "De wizard stelt één vraag tegelijk, met keuzeknoppen in plaats van lege tekstvakken, en een tekenvakje ernaast bij elk onderwerp. Eerst vragen we naar de kinderen en naar wie je bent, daarna lopen we de onderwerpen af: omgang, vakanties, school, zorg, geld, opvoeding, communicatie en gezag. Wat wettelijk in een plan hoort, is verplicht. De rest zit ingeklapt onder 'meer afspraken', zodat je niet vastloopt op iets wat voor jullie niet speelt.",
+      },
+      {
+        title: "Feedback op het moment dat het telt",
+        body:
+          "Dit is het hart van Pendl. Kies je iets, dan krijg je meteen te lezen wat dat straks betekent. 'Prima keuze, houd er rekening mee dat...' Die teksten zijn vooraf geschreven en nagekeken, en Pendl schrijft er een reactie omheen die past bij wat jij net hebt ingevuld. Je krijgt dus geen algemeen advies, maar iets over jouw antwoord, vóórdat je verder klikt.",
+      },
+      {
+        title: "Van ingevuld plan naar officieel document",
+        body:
+          "Aan het eind vullen we aan wat een officieel plan nodig heeft: geboortedata en geboorteplaatsen van de ouders en de kinderen, en de woonplaatsen. Daarna maakt Pendl er een net document van met genummerde artikelen en handtekeningvlakken. Dat document is het enige wat geld kost: 79 euro, eenmalig. Invullen, nadenken en van gedachten veranderen is gratis.",
+      },
+      {
+        title: "Als jullie het ergens niet over eens zijn",
+        body:
+          "Vult één ouder het in en nodigt hij de ander uit, dan loopt die tweede ouder alle punten na. Bij elk punt kan hij akkoord geven of zeggen: ik zie dit anders, en zijn eigen voorstel neerleggen. Pendl verzamelt de punten waar jullie van elkaar afwijken op één scherm, zet beide antwoorden naast elkaar en bemiddelt per punt. Neutraal, met oog voor het kind, en met een waarschuwing als een afspraak een van de twee benadeelt.",
+      },
+      {
+        title: "Een indicatie van de kinderalimentatie",
+        body:
+          "Wat kost een kind, en wie draagt wat? In plaats van een tabellenboek maakten we een rekenhulp die met je meerekent op basis van de gebruikelijke methode. Je krijgt een bedrag als richting, met er eerlijk bij dat het een indicatie is en geen berekening waar een rechter zich aan houdt.",
+      },
+      {
+        title: "Alles op Europese servers",
+        body:
+          "Wat mensen hier invullen is ongeveer het gevoeligste wat er is. Daarom staat alles op Europese servers, ook het stuk dat met je meedenkt, en wordt er nooit iets van gebruikt om systemen mee te trainen. Op de site staat een aparte pagina die precies uitlegt waar je gegevens staan en hoe lang. In gewone taal, want juist dat wil je kunnen nalezen.",
+      },
+      {
+        title: "En daarna de dagelijkse praktijk",
+        body:
+          "Een plan is één ding, de dagelijkse praktijk een ander. In de app staat de agenda met de wisseldagen, wie welke spullen heeft, wat er is uitgegeven en welke beslissingen er lopen. Wil je iets veranderen, dan doe je een voorstel en geeft de ander akkoord, zodat er altijd een spoor is van wat jullie hebben afgesproken. Bij een wisseldag kun je kort vastleggen hoe het ging, zodat de ander niet in het niets begint.",
+      },
+    ],
+    results: [
+      { value: "42", label: "Vragen in het plan", descriptor: "inclusief de onderdelen die wettelijk verplicht zijn" },
+      { value: "€79", label: "Voor het officiële plan", descriptor: "invullen is gratis, je betaalt pas voor het document" },
+      { value: "€4,99", label: "Per maand, per gezin", descriptor: "dezelfde prijs of je alleen of samen bent" },
+      { value: "EU", label: "Alles op Europese servers", descriptor: "en nooit gebruikt om systemen mee te trainen" },
+    ],
+  },
+  {
     slug: "mind-movement",
     client: "Mind Movement",
     sector: "Mentale wellness",

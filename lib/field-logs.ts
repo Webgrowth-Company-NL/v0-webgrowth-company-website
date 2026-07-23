@@ -48,6 +48,268 @@ export type FieldLog = {
 
 export const FIELD_LOGS: FieldLog[] = [
   {
+    slug: "eigen-beelden-in-plaats-van-stockfotos",
+    date: "2026-07-22",
+    dateModified: "2026-07-22",
+    dateLabel: "Juli 2026",
+    tag: "Ontwerp & beeld",
+    title: "Elke pagina van Hydroroof heeft nu een eigen beeld, en geen enkele komt uit een stockbank",
+    excerpt:
+      "Op de meeste zakelijke sites staan dezelfde drie foto's. Wij maakten voor Hydroroof tien beelden op maat, plus een video, met AI. Dat ging niet in één keer goed: de eerste ronde was te zacht, ik zag twee keer een scheur over het hoofd die de klant wél zag, en de eerste video vond hij er niet echt uitzien. Wat wel werkt, wat niet, en waar we bewust van af blijven.",
+    metaTitle: "Eigen beelden maken met AI in plaats van stockfoto's",
+    metaDescription:
+      "Hoe we voor Hydroroof tien eigen hero-beelden en een video met AI maakten: wat werkt, welke fouten we maakten, en waar we bewust echte foto's blijven gebruiken.",
+    keywords: [
+      "AI beelden website",
+      "stockfoto alternatief",
+      "eigen beeldmateriaal laten maken",
+      "AI video website",
+      "hero-afbeelding op maat",
+      "Hydroroof",
+      "beeldregie zakelijke website",
+    ],
+    about: [
+      { name: "Hydroroof", sameAs: "https://hydroroof.nl" },
+      { name: "Beeldregie" },
+    ],
+    readTime: "7 min",
+    body: {
+      greeting: "Lief dagboek, woensdag 22 juli 2026",
+      intro: [
+        "Kijk eens naar tien willekeurige zakelijke websites en tel hoe vaak je dezelfde foto ziet. Het lachende team rond een laptop. De handdruk. De skyline. Iedereen koopt uit dezelfde bak, dus iedereen ziet er hetzelfde uit.",
+        "Bij Hydroroof liepen we daar tegenaan. Marc renoveert platte daken met een wit siliconensysteem, en dat is nou net iets waar geen enkele stockbank bruikbare foto's van heeft. We hadden drie foto's die we overal opnieuw gebruikten, en dat zag je.",
+        "Dus hebben we ze zelf gemaakt. Tien beelden, één voor elke pagina, plus een video. Met AI, en dat ging in vier rondes in plaats van één. Hieronder wat ik ervan heb geleerd, inclusief de dingen die misgingen.",
+      ],
+      sections: [
+        {
+          title: "Eerst de regie, dan pas het beeld",
+          paragraphs: [
+            "Het verleidelijke aan beelden maken met AI is dat je meteen begint. Dat is precies waarom de meeste resultaten er raar uitzien. Wij schreven eerst op hoe elk beeld moest werken: liggend, filmisch, een matwit dak, en linksboven een rustig stuk lucht waar de tekst overheen komt. Het onderwerp rechtsonder.",
+            "Dat klinkt saai, maar het is het verschil tussen een plaatje en een bruikbaar beeld. Op de site ligt er een gekleurde laag overheen met witte tekst erop. Als het onderwerp in de linkerbovenhoek staat, is je mooie beeld onleesbaar geworden.",
+            "Tien beelden later hangt de hele site aan elkaar: dezelfde lichtval, dezelfde witte daken, dezelfde rust. Dat is wat een site duur laat voelen. Niet het losse plaatje, maar dat ze familie van elkaar zijn.",
+          ],
+        },
+        {
+          title: "De eerste ronde was te zacht, en dat lag aan mij",
+          paragraphs: [
+            "De eerste beelden zagen er op mijn scherm prima uit, tot ik ze fullscreen bekeek. Zacht, alsof iemand er een filter overheen had gelegd. Dat kwam doordat ik ze op de standaardgrootte liet maken en daarna groter trok naar de maat die de site nodig heeft. Opschalen gaat altijd ten koste van scherpte.",
+            "Wat wel werkt: het beeld meteen op dubbele grootte laten maken en dan verkleinen naar de maat die je nodig hebt. Verkleinen maakt scherper, vergroten maakt zachter. Zo simpel is het.",
+            "Tweede les uit diezelfde ronde: als je een beeld wilt bijwerken, begin dan altijd opnieuw vanaf het origineel. Ik had een bewerkte versie nog eens bewerkt, en die van daarvoor ook al. Elke ronde verzacht het beeld een beetje, en na drie keer heb je iets waar niemand meer blij van wordt.",
+          ],
+        },
+        {
+          title: "De scheur die ik twee keer niet zag",
+          paragraphs: [
+            "Marc keek naar het beeld van de renovatiepagina en zei: daar zit een flinke scheur in. Ik keek, zag niks bijzonders, paste iets aan wat ik dacht dat hij bedoelde en stuurde het terug. Hij weer: hij zit er nog steeds.",
+            "Bij de derde ronde ben ik echt gaan inzoomen. En daar zat hij: niet in de nieuwe laag, maar in de ruwe betonrand rechtsonder, net naast de roller. Ik had twee keer op volle grootte gekeken, waar je hem gewoon niet ziet, en twee keer aangenomen dat ik wist wat hij bedoelde.",
+            "Dat is een les die niks met AI te maken heeft. Als een vakman iets ziet in een foto van zijn eigen vak, ziet hij iets echts. Vraag dan precies waar het zit en zoom in tot je het ook ziet, in plaats van vast iets te repareren.",
+          ],
+        },
+        {
+          title: "En toen de video",
+          paragraphs: [
+            "Onderaan de meeste pagina's staat een video als achtergrond. De eerste versie die we maakten was een rugbyscène over een spiegelend wit dak. Op papier leuk, in het echt niet: Marc zei meteen dat het nergens op leek. En hij had gelijk. Bewegende mensen zien er in dit soort video's snel nep uit, want je hersenen weten precies hoe iemand hoort te lopen.",
+            "Wat wel geloofwaardig oogde: twee karts die over datzelfde witte dak scheuren. Voertuigen komen er beter uit, omdat er minder is wat je meteen als 'klopt niet' herkent. Dat past ook nog eens bij de rest van de site, waar op de homepage een auto over een gecoat dak rijdt.",
+            "Nog iets: vraag expliciet om een Nederlandse omgeving. De eerste poging leverde een Amerikaanse skyline op, want daar zit het meeste beeldmateriaal. Bakstenen laagbouw, een kerktoren en een grijze lucht moet je er echt bij zeggen.",
+          ],
+        },
+        {
+          title: "Video die het op elke telefoon doet",
+          paragraphs: [
+            "Een achtergrondvideo die op jouw laptop speelt, doet dat niet automatisch op elke iPhone. Wij zijn daar eerder bij een andere klant tegenaan gelopen: bij de een speelde de video, bij de ander bleef het zwart. Dat komt door hoe de video is opgeslagen. Te zwaar of te modern verpakt en de telefoon weigert, zonder foutmelding.",
+            "Dus verpakken we elke video op dezelfde manier: maximaal 1080 breed, het startbeeld voorin het bestand zodat hij meteen begint met spelen, en zonder geluid met een stilstaand beeld eronder. Want staat de telefoon in de energiebesparende stand, dan speelt hij helemaal niks af. Dan zie je dat stilstaande beeld in plaats van een zwart vlak.",
+          ],
+        },
+        {
+          title: "Waar we bewust van af blijven",
+          paragraphs: [
+            "Alles hierboven gaat over sfeer: een dak, een roller, licht, een omgeving. Zodra het over bewijs gaat, is AI verboden terrein. De warmtebeelden op de site zijn foto's die Marc zelf met een meter heeft gemaakt. De drone-opnames van voor en na zijn echte daken. De projecten zijn echte projecten.",
+            "Sterker nog, we hebben twee projecten van de site gehaald omdat het bedachte voorbeelden waren die er stonden zolang de echte foto's er nog niet waren. Nu staat er eerlijk dat de projectenpagina wordt gevuld zodra de eerste opnames binnen zijn.",
+            "Die grens is niet ingewikkeld, maar wel absoluut. Sfeer mag je maken. Bewijs moet je hebben.",
+          ],
+        },
+      ],
+      outro: [
+        "Kost dit meer tijd dan een stockfoto uitzoeken? De eerste keer wel. Maar het scheelt licentiekosten, je site lijkt op niemand anders, en elk beeld doet precies wat de pagina nodig heeft in plaats van ongeveer.",
+        "Heb je een vak waar geen fatsoenlijk beeldmateriaal van bestaat, en staat je site daardoor vol met foto's die er niet bij horen? Loop er gerust eens met me doorheen, ik laat je zien hoe we het bij Hydroroof hebben aangepakt.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
+    slug: "canonical-host-google-indexering",
+    date: "2026-07-18",
+    dateModified: "2026-07-18",
+    dateLabel: "Juli 2026",
+    tag: "SEO",
+    title: "Vijftien van de zestien pagina's stonden niet in Google, en het lag aan drie letters",
+    excerpt:
+      "Een site die er goed uitziet, netjes gebouwd is en toch bijna niet in Google staat. Bij NordFlame bleek de oorzaak niet de inhoud, maar het adres: de code wees naar het adres mét www, terwijl de server juist die zonder www serveert. Elke pagina in de sitemap was daardoor een doorverwijzing. Hoe je dat in dertig seconden zelf controleert, en waarom dit nu op onze checklist staat.",
+    metaTitle: "Canonical op de verkeerde host: waarom Google niks indexeert",
+    metaDescription:
+      "Wijst je canonical naar www terwijl je server zonder www serveert? Dan wordt elke sitemap-URL een omleiding en indexeert Google bijna niks. Zo controleer en fix je het.",
+    keywords: [
+      "canonical www of non-www",
+      "pagina met omleiding Search Console",
+      "site wordt niet geïndexeerd",
+      "sitemap 301 redirect",
+      "canonical host mismatch",
+      "Google Search Console domein-property",
+      "livegang checklist SEO",
+    ],
+    about: [
+      { name: "Google Search Console", sameAs: "https://search.google.com/search-console/about" },
+      { name: "NordFlame", sameAs: "https://nordflame.nl" },
+      { name: "Canonical URL" },
+    ],
+    readTime: "6 min",
+    body: {
+      greeting: "Lief dagboek, zaterdag 18 juli 2026",
+      intro: [
+        "Vorige maand keek ik in Google Search Console bij een site van ons die er wat mij betreft prima bij stond. Snel, netjes gebouwd, goede teksten, alles erop en eraan. En toch: van de zestien pagina's stond er precies één in Google. Anderhalve maand na livegang.",
+        "Mijn eerste reflex was de inhoud. Te dun, te nieuw, te weinig links. Dat is meestal het antwoord. Alleen klopte het hier niet, want Google zei zelf wat er aan de hand was. Bij vijftien pagina's stond er 'Pagina met omleiding'.",
+        "De oorzaak zat niet in de inhoud, maar in het adres. En eerlijk is eerlijk: dit was onze eigen fout, en het is een fout die je aan de buitenkant nergens ziet.",
+      ],
+      sections: [
+        {
+          title: "Wat er precies misging",
+          paragraphs: [
+            "Elke site is te bereiken op twee adressen: met www ervoor en zonder. Eén ervan is de echte, de ander hoort door te sturen naar de echte. Zo weet Google welke van de twee hij moet onthouden.",
+            "In de code van deze site stond overal het adres mét www: in de sitemap, in de verwijzing die zegt 'dit is mijn officiële adres', en in de gegevens die Google gebruikt voor het bedrijfsprofiel. Maar de server was ingesteld op het adres zónder www, en stuurde dus alles met www door.",
+            "Dat betekent dat we Google zestien adressen aanboden die stuk voor stuk doorstuurden naar een ander adres. En op elk van die pagina's stond ook nog eens 'mijn officiële adres is die doorverwijzing'. Dan houdt het op.",
+          ],
+        },
+        {
+          title: "Waarom Google dan gewoon afhaakt",
+          paragraphs: [
+            "Google is niet moeilijk, maar wel zuinig. Een doorverwijzing volgt hij één keer, en daarna vraagt hij zich af waarom je hem het verkeerde adres gaf. Wijst je pagina zichzelf ook nog aan als een adres dat doorstuurt, dan is er geen enkele plek meer die hij kan onthouden.",
+            "Het gevolg is niet dat je site zakt in de resultaten. Het gevolg is dat hij er niet in komt. Dat is een verschil dat je in de bezoekcijfers pas laat opmerkt, want een nieuwe site heeft toch nog weinig verkeer en je verwacht dat het langzaam op gang komt.",
+            "Wat het extra vervelend maakt: aan de site zelf zie je niks. Je typt het adres in, alles werkt, de pagina's laden snel. Er is geen foutmelding, geen kapotte link, geen ontbrekende pagina.",
+          ],
+        },
+        {
+          title: "Hoe je het in dertig seconden controleert",
+          paragraphs: [
+            "Open je site twee keer: één keer met www en één keer zonder. Kijk daarna in de adresbalk wat er blijft staan. Het adres dat blijft staan is de echte, de ander is de doorverwijzing.",
+            "Open dan je sitemap, meestal te vinden op jouwsite.nl/sitemap.xml, en kijk welke van de twee adressen daar staat. Staat daar de doorverwijzende variant, dan heb je precies het probleem uit dit verhaal.",
+            "En als je toch bezig bent: klik in de broncode van je homepage naar de regel met 'canonical'. Ook daar hoort het adres te staan dat blijft staan in je adresbalk. Wie dat liever met één commando doet, controleert beide adressen met curl en kijkt welke 200 teruggeeft en welke 301.",
+          ],
+        },
+        {
+          title: "De reparatie",
+          paragraphs: [
+            "Kies één adres, en dan het adres dat de server als echte behandelt. Trek dat vervolgens overal door: de verwijzing naar je officiële adres, elke pagina afzonderlijk, de sitemap, het robots-bestand en de bedrijfsgegevens die je meegeeft aan zoekmachines. Bij ons stond het op zes plekken, en het moet op alle zes hetzelfde zijn.",
+            "In Search Console hoort er een eigenschap te staan op je domein, niet op één adresvorm. Anders staat je data verdeeld over twee bakjes en lijkt na een reparatie alles ineens een omleiding.",
+            "Daarna sitemap opnieuw indienen en indexering aanvragen voor de belangrijkste pagina's. Google moet die zestien adressen opnieuw langslopen, en dat gaat niet vanzelf snel.",
+          ],
+        },
+        {
+          title: "Nu staat het bovenaan onze checklist",
+          paragraphs: [
+            "Dit is geen ingewikkeld probleem, het is een saai probleem. En saaie problemen kosten de meeste tijd, omdat niemand ernaar zoekt.",
+            "Bij Hydroroof, dat vorige week live ging, hebben we het daarom vóór de livegang gedaan in plaats van erna. Adres zonder www gekozen, de hele codebase doorzocht op de andere variant, nul treffers, en na de verhuizing van het domein nog een keer beide adressen nagelopen.",
+            "Het is nu het eerste punt van onze livegangslijst, nog vóór snelheid, teksten en formulieren. Want een site die niet in Google staat, kan verder nog zo goed zijn.",
+          ],
+        },
+      ],
+      outro: [
+        "Twijfel je of dit bij jouw site speelt? Open je sitemap, kijk welk adres erin staat, en typ dat adres in je browser. Blijft het staan, dan zit je goed. Springt het naar een andere variant, dan hebben we iets te bespreken.",
+        "Ik vertel dit liever dan dat ik het verzwijg. Wij hebben deze fout gemaakt, we hebben hem gerepareerd, en we hebben er een vaste controle van gemaakt zodat hij niet nog een keer gebeurt.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
+    slug: "warmtebeeld-hydroroof",
+    date: "2026-07-16",
+    dateModified: "2026-07-16",
+    dateLabel: "Juli 2026",
+    tag: "Positionering",
+    title: "Ruim 40 graden verschil: hoe één foto van de klant de hele site van Hydroroof veranderde",
+    excerpt:
+      "We verkochten Hydroroof als de goedkopere manier om een dak op te knappen. Dat trok precies de verkeerde klanten. Tot Marc een foto stuurde van twee daken op dezelfde dag: 63,0 graden en 22,6 graden. Vanaf dat moment ging het gesprek niet meer over prijs.",
+    metaTitle: "Eén meting van de klant veranderde de hele positionering",
+    metaDescription:
+      "Hoe een warmtebeeld van 63,0 tegen 22,6 graden de positionering van Hydroroof veranderde: van goedkoper alternatief naar volwaardige renovatiemethode voor vastgoed.",
+    keywords: [
+      "positionering zakelijke website",
+      "bewijs op je website",
+      "dakcoating temperatuur",
+      "koeler dak warmtebeeld",
+      "Hydroroof",
+      "van prijs naar waarde verkopen",
+      "B2B website vastgoedbeheer",
+    ],
+    about: [
+      { name: "Hydroroof", sameAs: "https://hydroroof.nl" },
+      { name: "Positionering" },
+    ],
+    readTime: "6 min",
+    body: {
+      greeting: "Lief dagboek, donderdag 16 juli 2026",
+      intro: [
+        "Gisteren is de nieuwe site van Hydroroof live gegaan. Dat is op zich al leuk, maar ik wil het over iets anders hebben: over het moment waarop we doorkregen dat we het verkeerde verhaal aan het vertellen waren.",
+        "Hydroroof is van Marc Christiaanse. Hij knapt platte daken op met een vloeibaar siliconensysteem. Geen sloop, geen container voor de deur, geen branders op het dak. Er komt een nieuwe naadloze laag over het bestaande dak heen.",
+        "Wij begonnen met de meest voor de hand liggende verkooplijn: dit is goedkoper dan een nieuw dak. Logisch, want dat is waar. En het was toch fout.",
+      ],
+      sections: [
+        {
+          title: "Goedkoper zijn trekt de verkeerde mensen aan",
+          paragraphs: [
+            "Als je jezelf neerzet als het goedkope alternatief, krijg je mensen aan de lijn die op prijs zoeken. Iemand met een schuurtje van vier bij drie. Die belt, vraagt wat het kost, en hangt op.",
+            "Marc zijn beste opdrachten liggen tussen de 25.000 en 60.000 euro, bij vastgoedbeheerders, ziekenhuizen, scholen en gemeenten. Dat zijn mensen die hun onderhoud jaren vooruit plannen en verantwoording afleggen over een begroting. Die kopen niet goedkoop, die kopen zekerheid.",
+            "Dus zaten we met een site die precies de verkeerde helft van de markt aansprak. Niet omdat de teksten slecht waren, maar omdat de kernbelofte de verkeerde was.",
+          ],
+        },
+        {
+          title: "De foto",
+          paragraphs: [
+            "Toen stuurde Marc een appje met twee foto's van zijn warmtebeeldcamera. Twee daken, dezelfde dag, hetzelfde weer. Het donkere bitumendak: 63,0 graden. Het witte gecoate dak: 22,6 graden.",
+            "Ruim veertig graden verschil. Dat is geen nuance meer, dat is een ander gebouw. Alles wat daaronder zit, van de mensen op de bovenste verdieping tot de airco die het moet bijhouden, merkt dat.",
+            "Ik heb die foto's een tijdje zitten bekijken en dacht: dit is de site. Niet ergens onderaan bij de voordelen, maar bovenaan, groot, met de getallen erbij.",
+          ],
+        },
+        {
+          title: "Eerst hielden we het nog te braaf",
+          paragraphs: [
+            "Kleine bekentenis. Eerder in het traject hadden we ook al cijfers gebruikt, maar toen hielden we het bewust voorzichtig: rond de 36 graden voor een gecoat dak. Er circuleerde een getal van 22 graden en dat vond ik te mooi om waar te zijn, dus koos ik het veiligste van de twee.",
+            "Toen kwam Marc met zijn eigen meting, en die zat op 22,6. Het te mooie getal klopte gewoon. Ik had het verschil bijna gehalveerd uit voorzichtigheid.",
+            "Daar zit een les in die ik nog wel eens vaker nodig zal hebben. Voorzichtig zijn met cijfers is goed, maar voorzichtig zijn zonder het na te vragen is gewoon gokken. Eén appje naar de klant had dat opgelost.",
+          ],
+        },
+        {
+          title: "Een getal wordt pas bewijs als je het kunt betrappen",
+          paragraphs: [
+            "Twee getallen in een zin leest iedereen over. Dus hebben we ze op de site gezet als de foto's zelf, naast elkaar, met een schuifbalk ertussen die je zelf van links naar rechts sleept. Van 63,0 naar 22,6, met je eigen vinger.",
+            "Daaronder staan dronefoto's van hetzelfde dak, ervoor en erna. En de foto's zijn aanklikbaar, zodat je de meter zelf kunt lezen. Wij vertellen je niet dat het koeler wordt, we laten je het nameten.",
+            "Dat is een houding, niet een ontwerptruc. Als je klant een vakman is, wil hij niet horen hoe goed iets is. Hij wil de meting zien en er zelf een oordeel over vellen.",
+          ],
+        },
+        {
+          title: "Wat het met het gesprek doet",
+          paragraphs: [
+            "Met dat bewijs erbij konden we de hele site omdraaien. Niet 'goedkoper dan vervangen', maar een volwaardige manier van renoveren met eigen sterke punten: naadloos, blijft flexibel, aantoonbaar koeler, en zonder branders op het dak.",
+            "Dat laatste is voor gebouwen met mensen erin misschien nog wel het sterkste argument. Er hoeft geen open vuur boven een klaslokaal of een ziekenhuisafdeling, en dat scheelt risico, gedoe met de verzekeraar en soms een hele ontruiming.",
+            "En let op wat er dan gebeurt met het gesprek. Het gaat niet meer over de prijs per vierkante meter, maar over levensduur, over de onderhoudsbegroting van de komende tien jaar en over het binnenklimaat. Dat is precies het gesprek dat Marc wil voeren.",
+          ],
+        },
+        {
+          title: "De beste marketing stond op zijn telefoon",
+          paragraphs: [
+            "Wat me hiervan het meeste is bijgebleven: dit bewijs bestond al. Het stond op de telefoon van de ondernemer, tussen de rest van zijn foto's, omdat hij het gewoon interessant vond om te meten.",
+            "Dat is bij bijna elke vakman zo. Ze hebben metingen, foto's van voor en na, dat ene rare geval van vorig jaar. Ze denken alleen niet dat het interessant is, want voor hen is het dinsdag.",
+            "Ik ga voortaan eerder vragen: heb je toevallig iets gemeten? Heb je er foto's van? Negen van de tien keer is het antwoord ja, en ligt daar het verhaal waar de hele site op kan draaien.",
+          ],
+        },
+      ],
+      outro: [
+        "Wil je zien hoe die twee warmtebeelden op de site staan en wat we er verder mee hebben gedaan, lees dan de hele case eens door.",
+        "En zit je met een site die vooral vertelt dat jij goedkoper bent dan de rest: er is bijna altijd een sterker verhaal, en meestal ligt het ergens in je eigen archief. Loop er gerust eens met me doorheen.",
+      ],
+      signature: "Tot snel, Martijn",
+    },
+  },
+  {
     slug: "commitment-ladder-mind-movement",
     date: "2026-06-16",
     dateModified: "2026-06-16",
