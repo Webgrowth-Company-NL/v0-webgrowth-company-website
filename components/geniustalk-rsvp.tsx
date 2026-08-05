@@ -134,8 +134,9 @@ export function GeniusTalkRsvp() {
             </p>
 
             <p className="mt-6 max-w-[52ch] text-[17px] leading-[1.65] text-[color:var(--color-ink-muted)]">
-              Eén middag per jaar zet ik de groep stil bij wat er echt veranderd is. Zet de datum vast in je
-              agenda, dan vertel ik binnenkort meer over wat we die middag gaan doen.
+              Eén middag per jaar zet ik de groep stil bij wat er echt veranderd is. Dit jaar loopt het
+              verhaal van een doos in mijn schuur naar bedrijven die volledig op zo&apos;n systeem draaien.
+              Zet de datum alvast vast.
             </p>
 
             <dl className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">

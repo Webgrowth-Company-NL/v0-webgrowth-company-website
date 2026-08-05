@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 
 import { GeniusTalkRsvp } from "@/components/geniustalk-rsvp";
+import { GeniusTalkVerhaal } from "@/components/geniustalk-verhaal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { WaveDivider } from "@/components/wave-divider";
+
+const CREAM = "#faf6f0";
+const WHITE = "#ffffff";
 
 const TITLE = "GeniusTalk 26 — donderdag 24 september | Webgrowth Company";
 const DESCRIPTION =
@@ -33,6 +38,8 @@ export default function Page() {
       <SiteHeader />
       <main className="flex-1">
         <GeniusTalkRsvp />
+        <WaveDivider top={CREAM} bottom={WHITE} />
+        <GeniusTalkVerhaal />
       </main>
       <SiteFooter />
     </>
