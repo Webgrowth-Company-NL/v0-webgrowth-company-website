@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { CalendarDays, Check, Clock, Loader2, MapPin } from "lucide-react";
 
@@ -20,8 +19,11 @@ const EVENT = {
 type Status = "invullen" | "bezig" | "klaar";
 
 export function GeniusTalkRsvp() {
-  const searchParams = useSearchParams();
-  const token = searchParams.get("t");
+  // De token wordt bewust ná het mounten uit de URL gelezen in plaats van met
+  // useSearchParams. Die hook dwingt Next.js om deze statische pagina volledig
+  // client-side te renderen, waardoor er een lege pagina binnenkomt tot de
+  // JavaScript geladen is. Het voorinvullen gebeurt toch pas na het mounten.
+  const [token, setToken] = useState<string | null>(null);
 
   const [voornaam, setVoornaam] = useState("");
   const [achternaam, setAchternaam] = useState("");
@@ -34,7 +36,10 @@ export function GeniusTalkRsvp() {
   // Persoonlijke link: naam en e-mail alvast invullen. Telefoonnummers zitten
   // niet in de aanschrijflijst, dus die vult de bezoeker zelf in.
   useEffect(() => {
-    if (!token) {
+    const uitUrl = new URLSearchParams(window.location.search).get("t");
+    setToken(uitUrl);
+
+    if (!uitUrl) {
       setPrefillGeladen(true);
       return;
     }
@@ -44,7 +49,7 @@ export function GeniusTalkRsvp() {
         const res = await fetch(`${FORESTER_API_BASE}/api/public/geniustalk/invitee`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token }),
+          body: JSON.stringify({ token: uitUrl }),
         });
         const data = await res.json();
         if (geannuleerd || !res.ok || !data?.found) return;
@@ -61,7 +66,7 @@ export function GeniusTalkRsvp() {
     return () => {
       geannuleerd = true;
     };
-  }, [token]);
+  }, []);
 
   async function verstuur(e: React.FormEvent) {
     e.preventDefault();

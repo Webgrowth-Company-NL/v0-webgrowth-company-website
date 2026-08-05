@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
 import { GeniusTalkRsvp } from "@/components/geniustalk-rsvp";
 import { SiteFooter } from "@/components/site-footer";
@@ -33,10 +32,7 @@ export default function Page() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        {/* useSearchParams voor de persoonlijke ?t=-link vereist een Suspense-grens. */}
-        <Suspense fallback={<div className="min-h-[60vh]" />}>
-          <GeniusTalkRsvp />
-        </Suspense>
+        <GeniusTalkRsvp />
       </main>
       <SiteFooter />
     </>
