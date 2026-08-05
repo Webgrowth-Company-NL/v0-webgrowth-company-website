@@ -116,12 +116,26 @@ export function GeniusTalkRsvp() {
             A Year with AI
           </p>
 
-          <p className="mt-7 max-w-[54ch] text-[18px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-            Eén middag per jaar zetten we de groep stil bij wat er in een jaar echt veranderd is. Zet de datum
-            vast, de rest volgt.
-          </p>
+          {/* Zelfde tekst staat in lib/geniustalk/config.ts in het platform.
+              Die repo kan hier niet uit importeren, dus bij een wijziging beide bijwerken. */}
+          <div className="mt-8 max-w-[56ch] space-y-4">
+            <p className="text-[19px] leading-[1.55] text-[color:var(--color-ink)]">
+              Het begon in een schuur. Dozen vol spullen, en niemand die nog wist wat waarin zat. Dus plakten we
+              er nummers op, fotografeerden we de inhoud, en lieten we AI uitzoeken wat er nou eigenlijk in doos
+              14 lag.
+            </p>
+            <p className="text-[17px] leading-[1.62] text-[color:var(--color-ink-muted)]">
+              Dat kleine hulpje bleek op dezelfde bouwstenen te draaien als de systemen die we nu bouwen. Een
+              jaar later gaan er complete bedrijven doorheen: offerte, ontwerp, akkoord, productie, transport,
+              factuur. Niet in tien losse tools, maar in één systeem.
+            </p>
+            <p className="text-[17px] leading-[1.62] text-[color:var(--color-ink-muted)]">
+              Op 24 september laten we zien hoe je van het een bij het ander komt. Inclusief de dingen die
+              onderweg niet werkten.
+            </p>
+          </div>
 
-          <div className="mt-10 border-t border-[color:var(--color-line)] pt-6">
+          <div className="mt-9 border-t border-[color:var(--color-line)] pt-6">
             <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[16px] text-[color:var(--color-ink-muted)]">
               <span className="font-semibold text-[color:var(--color-ink-strong)]">{EVENT.datum}</span>
               <span aria-hidden className="h-1 w-1 rounded-full bg-[color:var(--color-ink-faint)]" />
