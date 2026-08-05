@@ -55,7 +55,10 @@ const nextConfig: NextConfig = {
       { source: "/mkb-website-pakket/:slug*", destination: "/prijzen", permanent: true },
       { source: "/succesverhalen/:slug*", destination: "/cases", permanent: true },
       { source: "/technisch-dagboek-van-martijn-duin/:slug*", destination: "/field-logs", permanent: true },
-      { source: "/geniustalk/:slug*", destination: "/field-logs", permanent: true },
+      // :slug+ (één of meer) in plaats van :slug*, want :slug* matcht ook nul
+      // segmenten en slokte daarmee /geniustalk zelf op. Oude onderliggende
+      // URL's blijven gewoon naar de field logs wijzen.
+      { source: "/geniustalk/:slug+", destination: "/field-logs", permanent: true },
       { source: "/onderwerp/:slug*", destination: "/field-logs", permanent: true },
     ];
   },
