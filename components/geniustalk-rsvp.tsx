@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 
@@ -7,9 +8,11 @@ const FORESTER_API_BASE =
   process.env.NEXT_PUBLIC_FORESTER_API_BASE || "https://app.webgrowth.company";
 
 const EVENT = {
-  datum: "Donderdag 24 september 2026",
+  // Verzet van 24 september naar 5 november, bij Restaurant Chung (22-09-2026).
+  datum: "Donderdag 5 november 2026",
   tijd: "15:00 tot 17:00",
-  locatie: "Omgeving Rotterdam",
+  locatie: "Restaurant Chung, Rotterdam",
+  adres: "Noordmolenwerf 171, Rotterdam",
 };
 
 type Status = "invullen" | "bezig" | "klaar";
@@ -130,10 +133,27 @@ export function GeniusTalkRsvp() {
               factuur. Niet in tien losse tools, maar in één systeem.
             </p>
             <p className="text-[17px] leading-[1.62] text-[color:var(--color-ink-muted)]">
-              Op 24 september laten we zien hoe je van het een bij het ander komt. Inclusief de dingen die
-              onderweg niet werkten.
+              Op 5 november, bij Restaurant Chung in Rotterdam, laten we zien hoe je van het een bij het ander
+              komt. Inclusief de dingen die onderweg niet werkten.
             </p>
           </div>
+
+          {/* Het bruggetje: dezelfde tafel, negen jaar eerder. Zelfde foto en
+              bijschrift als GENIUSTALK_TOEN in lib/geniustalk/config.ts van het platform. */}
+          <figure className="mt-9 max-w-[56ch]">
+            <Image
+              src="/images/geniustalk-2017.jpg"
+              alt="Deelnemers in gesprek aan tafel tijdens de GeniusTalk van januari 2017"
+              width={1600}
+              height={1066}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="h-auto w-full rounded-[1.25rem] ring-1 ring-[color:var(--color-line)]"
+            />
+            <figcaption className="mt-3 text-[14.5px] leading-[1.55] text-[color:var(--color-ink-subtle)]">
+              GeniusTalk, januari 2017. Toen ging het over websites. Negen jaar later zitten we weer aan tafel, en
+              gaat het over het systeem waar een heel bedrijf op draait.
+            </figcaption>
+          </figure>
 
           <div className="mt-9 border-t border-[color:var(--color-line)] pt-6">
             <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[16px] text-[color:var(--color-ink-muted)]">
@@ -144,7 +164,7 @@ export function GeniusTalkRsvp() {
               <span>{EVENT.locatie}</span>
             </p>
             <p className="mt-2 text-[14.5px] text-[color:var(--color-ink-subtle)]">
-              De exacte locatie volgt.
+              {EVENT.adres}
             </p>
           </div>
         </div>
@@ -161,8 +181,8 @@ export function GeniusTalkRsvp() {
                   Je bent erbij
                 </h2>
                 <p className="mt-3 text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-                  Je krijgt een bevestiging per mail, met de agenda-uitnodiging erbij. Zodra de locatie
-                  vaststaat werken we het bij en zie je dat vanzelf in je agenda.
+                  Je krijgt een bevestiging per mail, met de agenda-uitnodiging erbij. Verandert er iets, dan
+                  zie je dat vanzelf in je agenda.
                 </p>
               </div>
             ) : (

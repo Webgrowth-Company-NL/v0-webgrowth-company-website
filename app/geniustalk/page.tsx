@@ -4,9 +4,9 @@ import { GeniusTalkRsvp } from "@/components/geniustalk-rsvp";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-const TITLE = "GeniusTalk 26 — donderdag 24 september | Webgrowth Company";
+const TITLE = "GeniusTalk 26 — donderdag 5 november | Webgrowth Company";
 const DESCRIPTION =
-  "GeniusTalk 26: A Year with AI. Donderdag 24 september 2026, 15:00 tot 17:00, omgeving Rotterdam. Laat weten of je erbij bent.";
+  "GeniusTalk 26: A Year with AI. Donderdag 5 november 2026, 15:00 tot 17:00, bij Restaurant Chung in Rotterdam. Laat weten of je erbij bent.";
 
 export const metadata: Metadata = {
   title: TITLE,
