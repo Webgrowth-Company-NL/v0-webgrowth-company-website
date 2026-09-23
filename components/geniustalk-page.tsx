@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, CalendarDays, Clock, MapPin, Users } from "lucide-react";
+import { ArrowRight, CalendarDays, MapPin, Users } from "lucide-react";
 
 import { GeniusTalkRsvp } from "@/components/geniustalk-rsvp";
 import { SectionCta } from "@/components/section-cta";
@@ -31,9 +31,44 @@ export const GENIUSTALK_EVENT = {
   datum: "Donderdag 5 november 2026",
   datumKort: "5 november",
   tijd: "15:00 tot 17:00",
+  /** Met een liggend streepje, zoals de samenvatting in Forester OS hem toont. */
+  tijdKort: "15:00 – 17:00",
   locatie: "Restaurant Chung, Rotterdam",
   adres: "Noordmolenwerf 171, Rotterdam",
 };
+
+/**
+ * Het datumkaartje uit Forester OS (components/pagina/Pagina.tsx daar), met de
+ * tokens van deze site. Zelfde maatvoering en dezelfde gradient-tegel, zodat de
+ * aanmeldpagina en het platform hetzelfde kaartje tonen.
+ */
+function SamenvattingKaart({
+  icon: Icon,
+  titel,
+  onder,
+}: {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  titel: string;
+  onder?: string;
+}) {
+  return (
+    <div className="inline-flex max-w-full items-center gap-3.5 rounded-2xl border border-[color:var(--color-line-strong)] bg-white px-4 py-3 text-left shadow-[0_1px_2px_rgba(20,10,40,0.05)]">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ff0096] to-[#623bc7] text-white shadow-[0_10px_24px_-12px_rgba(255,0,150,0.7)]">
+        <Icon className="h-5 w-5" strokeWidth={2} />
+      </span>
+      <span className="min-w-0 leading-tight">
+        <span className="block text-[14px] font-semibold tabular-nums text-[color:var(--color-ink-strong)]">
+          {titel}
+        </span>
+        {onder && (
+          <span className="mt-0.5 block text-[12.5px] tabular-nums text-[color:var(--color-ink-muted)]">
+            {onder}
+          </span>
+        )}
+      </span>
+    </div>
+  );
+}
 
 /**
  * Aanmeldpagina voor GeniusTalk 26, opgebouwd volgens hetzelfde stramien als de
@@ -139,22 +174,12 @@ function GeniusTalkHero() {
             </a>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp(0.36)}
-            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-[color:var(--color-line)] pt-7 text-[14.5px] text-[color:var(--color-ink-muted)]"
-          >
-            <span className="inline-flex items-center gap-2">
-              <CalendarDays className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2} />
-              {GENIUSTALK_EVENT.datum}
-            </span>
-            <span className="inline-flex items-center gap-2 tabular-nums">
-              <Clock className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2} />
-              {GENIUSTALK_EVENT.tijd}
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-[color:var(--color-purple)]" strokeWidth={2} />
-              {GENIUSTALK_EVENT.locatie}
-            </span>
+          <motion.div variants={fadeUp(0.36)} className="mt-9">
+            <SamenvattingKaart
+              icon={CalendarDays}
+              titel={GENIUSTALK_EVENT.datum}
+              onder={`${GENIUSTALK_EVENT.tijdKort} · ${GENIUSTALK_EVENT.locatie}`}
+            />
           </motion.div>
         </motion.div>
 
