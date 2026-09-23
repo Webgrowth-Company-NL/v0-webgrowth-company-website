@@ -1,22 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 const FORESTER_API_BASE =
   process.env.NEXT_PUBLIC_FORESTER_API_BASE || "https://app.webgrowth.company";
 
-const EVENT = {
-  // Verzet van 24 september naar 5 november, bij Restaurant Chung (22-09-2026).
-  datum: "Donderdag 5 november 2026",
-  tijd: "15:00 tot 17:00",
-  locatie: "Restaurant Chung, Rotterdam",
-  adres: "Noordmolenwerf 171, Rotterdam",
-};
-
 type Status = "invullen" | "bezig" | "klaar";
 
+/**
+ * Het aanmeldformulier voor GeniusTalk 26. Post naar dezelfde endpoints als de
+ * pagina in Forester OS, zodat alle aanmeldingen in één lijst landen.
+ *
+ * De omliggende pagina (app/geniustalk/page.tsx) levert de hero en het verhaal;
+ * hier blijft alleen het stuk staan dat state nodig heeft.
+ */
 export function GeniusTalkRsvp() {
   // De token wordt na het mounten uit de URL gelezen in plaats van met
   // useSearchParams. Die hook dwingt Next.js om deze statische pagina volledig
@@ -92,146 +90,66 @@ export function GeniusTalkRsvp() {
   }
 
   return (
-    <section className="relative isolate overflow-hidden bg-[color:var(--color-bg)] px-5 sm:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32 lg:min-h-[100dvh] lg:flex lg:items-center">
-      {/* Eén zachte purple gloed. Pink is op deze site rare-highlight, niet decoratie. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-52 right-[-12rem] h-[640px] w-[640px] rounded-full"
-        style={{ background: "radial-gradient(closest-side, rgba(98,59,199,0.15), rgba(98,59,199,0) 70%)" }}
-      />
-
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-        {/* Uitnodiging */}
-        <div className="hero-rise">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-bg-elevated)] py-1.5 pl-2 pr-3 text-[12.5px] font-bold uppercase tracking-[0.18em] text-[color:var(--color-purple)] shadow-[0_1px_2px_rgba(12,6,18,0.04),0_18px_40px_-18px_rgba(12,6,18,0.18)]">
-            <span
-              aria-hidden
-              className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)] motion-safe:animate-pulse"
-            />
-            Save the date
-          </span>
-
-          <h1 className="mt-7 font-[family-name:var(--font-display)] font-bold text-[clamp(2.6rem,6.2vw,5rem)] leading-[1.02] tracking-[-0.025em] text-[color:var(--color-ink-strong)]">
-            GeniusTalk 26
-          </h1>
-
-          <p className="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.35rem,2.6vw,1.9rem)] font-normal leading-[1.2] text-[color:var(--color-purple)]">
-            A Year with AI
-          </p>
-
-          {/* Zelfde tekst staat in lib/geniustalk/config.ts in het platform.
-              Die repo kan hier niet uit importeren, dus bij een wijziging beide bijwerken. */}
-          <div className="mt-8 max-w-[56ch] space-y-4">
-            <p className="text-[19px] leading-[1.55] text-[color:var(--color-ink)]">
-              Het begon in een schuur. Dozen vol spullen, en niemand die nog wist wat waarin zat. Dus plakten we
-              er nummers op, fotografeerden we de inhoud, en lieten we AI uitzoeken wat er nou eigenlijk in doos
-              14 lag.
-            </p>
-            <p className="text-[17px] leading-[1.62] text-[color:var(--color-ink-muted)]">
-              Dat kleine hulpje bleek op dezelfde bouwstenen te draaien als de systemen die we nu bouwen. Een
-              jaar later gaan er complete bedrijven doorheen: offerte, ontwerp, akkoord, productie, transport,
-              factuur. Niet in tien losse tools, maar in één systeem.
-            </p>
-            <p className="text-[17px] leading-[1.62] text-[color:var(--color-ink-muted)]">
-              Op 5 november, bij Restaurant Chung in Rotterdam, laten we zien hoe je van het een bij het ander
-              komt. Inclusief de dingen die onderweg niet werkten.
+    <div className="rounded-[2rem] bg-[color:var(--color-ink)]/[0.03] p-1.5 ring-1 ring-[color:var(--color-line)]">
+      <div className="rounded-[calc(2rem-0.375rem)] bg-[color:var(--color-bg-elevated)] p-7 sm:p-9 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_28px_70px_-40px_rgba(12,6,18,0.45)]">
+        {status === "klaar" ? (
+          <div>
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--color-purple-tint)]">
+              <Check className="h-6 w-6 text-[color:var(--color-purple)]" strokeWidth={2} />
+            </span>
+            <h3 className="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-bold leading-[1.15] text-[color:var(--color-ink-strong)]">
+              Je bent erbij
+            </h3>
+            <p className="mt-3 text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
+              Je krijgt een bevestiging per mail, met de agenda-uitnodiging erbij. Verandert er iets, dan zie je
+              dat vanzelf in je agenda.
             </p>
           </div>
-
-          {/* Het bruggetje: dezelfde tafel, negen jaar eerder. Zelfde foto en
-              bijschrift als GENIUSTALK_TOEN in lib/geniustalk/config.ts van het platform. */}
-          <figure className="mt-9 max-w-[56ch]">
-            <Image
-              src="/images/geniustalk-2017.jpg"
-              alt="Deelnemers in gesprek aan tafel tijdens de GeniusTalk van januari 2017"
-              width={1600}
-              height={1066}
-              sizes="(min-width: 1024px) 560px, 100vw"
-              className="h-auto w-full rounded-[1.25rem] ring-1 ring-[color:var(--color-line)]"
-            />
-            <figcaption className="mt-3 text-[14.5px] leading-[1.55] text-[color:var(--color-ink-subtle)]">
-              GeniusTalk, januari 2017. Toen ging het over websites. Negen jaar later zitten we weer aan tafel, en
-              gaat het over het systeem waar een heel bedrijf op draait.
-            </figcaption>
-          </figure>
-
-          <div className="mt-9 border-t border-[color:var(--color-line)] pt-6">
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[16px] text-[color:var(--color-ink-muted)]">
-              <span className="font-semibold text-[color:var(--color-ink-strong)]">{EVENT.datum}</span>
-              <span aria-hidden className="h-1 w-1 rounded-full bg-[color:var(--color-ink-faint)]" />
-              <span className="tabular-nums">{EVENT.tijd}</span>
-              <span aria-hidden className="h-1 w-1 rounded-full bg-[color:var(--color-ink-faint)]" />
-              <span>{EVENT.locatie}</span>
+        ) : (
+          <form onSubmit={verstuur} noValidate>
+            <h3 className="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-bold leading-[1.15] text-[color:var(--color-ink-strong)]">
+              Ben je erbij?
+            </h3>
+            <p className="mt-2.5 text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
+              Laat het weten, dan reserveren we een plek voor je.
             </p>
-            <p className="mt-2 text-[14.5px] text-[color:var(--color-ink-subtle)]">
-              {EVENT.adres}
-            </p>
-          </div>
-        </div>
 
-        {/* Aanmelden, direct op fold-niveau */}
-        <div className="rounded-[2rem] bg-[color:var(--color-ink)]/[0.03] p-1.5 ring-1 ring-[color:var(--color-line)]">
-          <div className="rounded-[calc(2rem-0.375rem)] bg-[color:var(--color-bg-elevated)] p-7 sm:p-9 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_28px_70px_-40px_rgba(12,6,18,0.45)]">
-            {status === "klaar" ? (
-              <div>
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--color-purple-tint)]">
-                  <Check className="h-6 w-6 text-[color:var(--color-purple)]" strokeWidth={2} />
-                </span>
-                <h2 className="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-bold leading-[1.15] text-[color:var(--color-ink-strong)]">
-                  Je bent erbij
-                </h2>
-                <p className="mt-3 text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-                  Je krijgt een bevestiging per mail, met de agenda-uitnodiging erbij. Verandert er iets, dan
-                  zie je dat vanzelf in je agenda.
-                </p>
+            <div className="mt-7 space-y-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <Veld id="voornaam" label="Voornaam" value={voornaam} onChange={setVoornaam} autoComplete="given-name" required />
+                <Veld id="achternaam" label="Achternaam" value={achternaam} onChange={setAchternaam} autoComplete="family-name" />
               </div>
-            ) : (
-              <form onSubmit={verstuur} noValidate>
-                <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-bold leading-[1.15] text-[color:var(--color-ink-strong)]">
-                  Ben je erbij?
-                </h2>
-                <p className="mt-2.5 text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-                  Laat het weten, dan reserveren we een plek voor je.
-                </p>
+              <Veld id="email" label="E-mailadres" type="email" value={email} onChange={setEmail} autoComplete="email" required />
+              <Veld id="telefoon" label="Telefoonnummer" type="tel" value={telefoon} onChange={setTelefoon} autoComplete="tel" placeholder="06 12345678" />
+            </div>
 
-                <div className="mt-7 space-y-4">
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <Veld id="voornaam" label="Voornaam" value={voornaam} onChange={setVoornaam} autoComplete="given-name" required />
-                    <Veld id="achternaam" label="Achternaam" value={achternaam} onChange={setAchternaam} autoComplete="family-name" />
-                  </div>
-                  <Veld id="email" label="E-mailadres" type="email" value={email} onChange={setEmail} autoComplete="email" required />
-                  <Veld id="telefoon" label="Telefoonnummer" type="tel" value={telefoon} onChange={setTelefoon} autoComplete="tel" placeholder="06 12345678" />
-                </div>
-
-                {fout && (
-                  <p role="alert" className="mt-4 text-[14.5px] text-[#b00b5a]">
-                    {fout}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === "bezig"}
-                  className="btn-press group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[color:var(--color-purple)] px-6 py-3.5 text-[14.5px] font-semibold text-white shadow-[0_2px_4px_rgba(98,59,199,0.28),0_18px_40px_-12px_rgba(98,59,199,0.6)] hover:bg-[color:var(--color-purple-hover)] disabled:pointer-events-none disabled:opacity-60"
-                >
-                  Ja, ik ben erbij
-                  <span
-                    aria-hidden
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/15 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:scale-105"
-                  >
-                    {status === "bezig" ? (
-                      <Loader2 className="h-3.5 w-3.5 animate-spin" strokeWidth={2} />
-                    ) : (
-                      <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
-                    )}
-                  </span>
-                </button>
-              </form>
+            {fout && (
+              <p role="alert" className="mt-4 text-[14.5px] text-[#b00b5a]">
+                {fout}
+              </p>
             )}
-          </div>
-        </div>
+
+            <button
+              type="submit"
+              disabled={status === "bezig"}
+              className="btn-press group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[color:var(--color-purple)] px-6 py-3.5 text-[14.5px] font-semibold text-white shadow-[0_2px_4px_rgba(98,59,199,0.28),0_18px_40px_-12px_rgba(98,59,199,0.6)] hover:bg-[color:var(--color-purple-hover)] disabled:pointer-events-none disabled:opacity-60"
+            >
+              Ja, ik ben erbij
+              <span
+                aria-hidden
+                className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/15 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:scale-105"
+              >
+                {status === "bezig" ? (
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" strokeWidth={2} />
+                ) : (
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+                )}
+              </span>
+            </button>
+          </form>
+        )}
       </div>
-    </section>
+    </div>
   );
 }
 

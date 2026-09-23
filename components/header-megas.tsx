@@ -12,6 +12,7 @@ import {
   Mail,
   Megaphone,
   MessageSquareQuote,
+  MicVocal,
   Search,
   ShoppingBag,
   Sparkles,
@@ -49,6 +50,7 @@ export const OPLOSSINGEN_SECTOR = [
 
 export const HULPMIDDELEN_ONTDEK = [
   { href: "/website-apk", label: "Website APK", desc: "Gratis scan: hoe scoort jouw site?", icon: Gauge },
+  { href: "/geniustalk", label: "GeniusTalk 26", desc: "5 november in Rotterdam, meld je aan", icon: MicVocal },
   { href: "/field-logs", label: "Field Logs", desc: "Bevindingen uit de praktijk", icon: FileText },
   { href: "/cases", label: "Klantverhalen", desc: "Wat we voor anderen bouwden", icon: MessageSquareQuote },
   { href: "/over", label: "Over Webgrowth", desc: "Wie we zijn, waar we voor staan", icon: Building2 },
