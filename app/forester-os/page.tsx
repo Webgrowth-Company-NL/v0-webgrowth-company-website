@@ -19,7 +19,7 @@ const DEEP = "#2c1d5e";
 const TITLE =
   "Forester OS — het AI-groeiplatform van Webgrowth Company";
 const DESCRIPTION =
-  "Acht modules in één platform: website, CRM, lead engines, SEO, AI-content met Q, content publisher, nieuwsbrieven en sales engine. Eén login, één database, één Nederlandse partij die het beheert.";
+  "Eén platform voor je website, CRM, offertes, lead engines, SEO, taken, nieuwsbrieven en AI-assistent Q, met een app voor je telefoon. Eén login, één database, één Nederlandse partij die het beheert.";
 
 export const metadata: Metadata = {
   title: TITLE,

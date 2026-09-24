@@ -119,6 +119,61 @@ export const FORESTER_PAGES: SeoPage[] = [
       "E-mailcampagnes en nieuwsbrieven rechtstreeks vanuit je eigen CRM-data, zonder los e-mailpakket. Binnenkort onderdeel van Forester OS.",
     soon: true,
   },
+  {
+    path: "/forester-os/website-health",
+    slug: "website-health",
+    h1: "Website Health",
+    metaTitle: "Website Health: zien of je site bereikbaar en snel is | Forester OS",
+    metaDescription:
+      "Je site wordt doorlopend gecontroleerd op bereikbaarheid en snelheid, zodat een storing opvalt voordat je klanten het merken.",
+    eyebrow: "Forester OS",
+    intro:
+      "Je site wordt doorlopend gecontroleerd op bereikbaarheid en snelheid, zodat een storing opvalt voordat je klanten het merken.",
+  },
+  {
+    path: "/forester-os/offertes",
+    slug: "offertes",
+    h1: "Offertes",
+    metaTitle: "Offertes digitaal laten ondertekenen, direct door naar je CRM | Forester OS",
+    metaDescription:
+      "Offertes in je eigen huisstijl die je klant op zijn telefoon ondertekent, waarna de deal automatisch als gewonnen in je CRM staat.",
+    eyebrow: "Forester OS",
+    intro:
+      "Offertes in je eigen huisstijl die je klant op zijn telefoon ondertekent, waarna de deal automatisch als gewonnen in je CRM staat.",
+  },
+  {
+    path: "/forester-os/taken",
+    slug: "taken",
+    h1: "Taken & samenwerking",
+    metaTitle: "Taken bij de klant waar ze over gaan, met je hele team | Forester OS",
+    metaDescription:
+      "Het werk van je team gekoppeld aan de klant en de site waar het over gaat, in hetzelfde dashboard als je CRM en je content.",
+    eyebrow: "Forester OS",
+    intro:
+      "Het werk van je team gekoppeld aan de klant en de site waar het over gaat, in hetzelfde dashboard als je CRM en je content.",
+  },
+  {
+    path: "/forester-os/klanten-app",
+    slug: "klanten-app",
+    h1: "App voor je telefoon",
+    metaTitle: "Forester OS als app voor iPhone en Android, met meldingen | Webgrowth",
+    metaDescription:
+      "Je hele platform op je telefoon, met een melding zodra er een aanvraag binnenkomt en een slot met je vingerafdruk of gezicht.",
+    eyebrow: "Forester OS",
+    intro:
+      "Je hele platform op je telefoon, met een melding zodra er een aanvraag binnenkomt en een slot met je vingerafdruk of gezicht.",
+  },
+  {
+    path: "/forester-os/momentum",
+    slug: "momentum",
+    h1: "Momentum Insights",
+    metaTitle: "Momentum Insights: elke maand een rapport in gewone taal | Forester OS",
+    metaDescription:
+      "Elke maand een kort rapport over wat beter en slechter ging, in gewone taal, met een concrete vervolgstap.",
+    eyebrow: "Forester OS",
+    intro:
+      "Elke maand een kort rapport over wat beter en slechter ging, in gewone taal, met een concrete vervolgstap.",
+  },
 ];
 
 export const OPLOSSING_PAGES: SeoPage[] = [

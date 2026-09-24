@@ -2,7 +2,10 @@ import Link from "next/link";
 import {
   ArrowUpRight,
   Building2,
+  Activity,
   CalendarClock,
+  CheckSquare,
+  FileSignature,
   FileText,
   Flame,
   Gauge,
@@ -15,8 +18,11 @@ import {
   MicVocal,
   Search,
   ShoppingBag,
+  Smartphone,
+  TrendingUp,
   Sparkles,
   Users,
+  Workflow,
 } from "lucide-react";
 
 /* ── Data ─────────────────────────────────────────── */
@@ -26,11 +32,17 @@ export const PLATFORM_MODULES = [
   { href: "/forester-os/lead-engine", label: "Lead Engine", desc: "Quick quoters en calculators die leads opleveren", icon: Flame },
   { href: "/forester-os/sales-engine", label: "Sales Engine", desc: "AI-trainingen en quizzes die prospects opwarmen", icon: ShoppingBag },
   { href: "/forester-os/crm", label: "CRM & Sales-pijplijn", desc: "Leads en deals visueel door je pijplijn", icon: Users },
+  { href: "/forester-os/offertes", label: "Offertes", desc: "Digitaal laten ondertekenen, direct in je CRM", icon: FileSignature },
+  { href: "/forester-os/taken", label: "Taken & samenwerking", desc: "Het werk van je team, naast de klant", icon: CheckSquare },
+  { href: "/forester-os/website-health", label: "Website Health", desc: "Zien of je site bereikbaar en snel is", icon: Activity },
+  { href: "/forester-os/momentum", label: "Momentum Insights", desc: "Elke maand een rapport in gewone taal", icon: TrendingUp },
+  { href: "/forester-os/klanten-app", label: "App voor je telefoon", desc: "Je platform op iPhone en Android", icon: Smartphone },
   { href: "/forester-os/seo", label: "SEO & vindbaarheid", desc: "Search Console-koppeling, AI-suggesties, rankings", icon: Search },
   { href: "/forester-os/ai", label: "AI-content & Q", desc: "Q schrijft mee aan content, inzichten en taken", icon: Sparkles },
   { href: "/forester-os/content-publisher", label: "Automatische content publisher", desc: "AI publiceert content op je site, op schema", icon: CalendarClock },
   { href: "/forester-os/nieuwsbrieven", label: "Nieuwsbrieven", desc: "E-mailcampagnes vanuit je eigen CRM", icon: Mail },
   { href: "/forester-os/advertenties", label: "Advertenties", desc: "Google Ads en social-campagnes vanuit je eigen platform", icon: Megaphone },
+  { href: "/forester-os/automations", label: "Automations", desc: "Je losse tools aan elkaar knopen, zonder Zapier", icon: Workflow },
 ] as const;
 
 export const OPLOSSINGEN_DOEL = [

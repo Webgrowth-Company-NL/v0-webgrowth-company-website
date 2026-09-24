@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart3, FileBarChart, Server, Settings2 } from "lucide-react";
+import { BarChart3, FileBarChart, MicVocal, Server, Settings2 } from "lucide-react";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -31,6 +31,11 @@ const INCLUDED: Included[] = [
     icon: Settings2,
     title: "Continu geoptimaliseerd door ons team",
     body: "Je site staat na livegang niet stil. Wij blijven aan knoppen draaien op snelheid, copy, conversie en techniek zonder dat je daar een meerwerk-factuur voor krijgt. Wat we tegenkomen op je site, lossen we direct op.",
+  },
+  {
+    icon: MicVocal,
+    title: "Het Genius-programma",
+    body: "Een paar keer per jaar komen we met een kleine groep ondernemers bij elkaar voor een GeniusTalk, waar we laten zien wat we het afgelopen jaar hebben gebouwd en wat het opleverde. Daarnaast kun je terecht in The Vault voor de verdieping, en zitten we één op één met je aan tafel als je iets wilt uitzoeken dat niet in een mailtje past.",
   },
   {
     icon: Server,

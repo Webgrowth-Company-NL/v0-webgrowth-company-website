@@ -8,8 +8,11 @@
  */
 
 import {
+  Activity,
   Boxes,
   CalendarClock,
+  CheckSquare,
+  FileSignature,
   Flame,
   Globe,
   Headphones,
@@ -22,7 +25,9 @@ import {
   Search,
   ShieldCheck,
   ShoppingBag,
+  Smartphone,
   Sparkles,
+  TrendingUp,
   Users,
   Workflow,
 } from "lucide-react";
@@ -83,6 +88,16 @@ export const FORESTER_MODULES: ForesterModule[] = [
     availableFrom: "growth",
   },
   {
+    slug: "website-health",
+    label: "Website Health",
+    short: "Health",
+    tagline: "Zien dat je site het doet, voordat een klant het meldt",
+    body:
+      "Je site wordt doorlopend in de gaten gehouden op bereikbaarheid en snelheid. Gaat er iets stuk, dan weten wij het en zie jij het in je dashboard, in plaats van dat je het hoort van iemand die je formulier niet kon versturen.",
+    features: ["Bereikbaarheid bewaakt", "Snelheid gemeten", "Sitemap-inzicht", "Signaal bij problemen"],
+    icon: Activity,
+  },
+  {
     slug: "crm",
     label: "CRM & sales-pijplijn",
     short: "CRM",
@@ -91,6 +106,26 @@ export const FORESTER_MODULES: ForesterModule[] = [
       "Eén kanban-overzicht voor je hele team. Leads vanuit je lead engines, deals met statussen en taken, en Q die meedenkt over wat de volgende stap is.",
     features: ["Drag-and-drop pijplijn", "Taken per deal", "Eigen statussen", "Q-suggesties"],
     icon: Users,
+  },
+  {
+    slug: "offertes",
+    label: "Offertes",
+    short: "Offertes",
+    tagline: "Een offerte die je klant ondertekent zonder printer",
+    body:
+      "Stel een offerte samen in je eigen huisstijl en stuur hem als link. Je klant leest hem op zijn telefoon en zet zijn handtekening. Op dat moment wordt hij klant in je CRM en schuift de deal naar gewonnen, zonder dat jij iets hoeft over te tikken.",
+    features: ["Eigen huisstijl", "Digitaal ondertekenen", "Nederlands of Engels", "Direct door naar je CRM"],
+    icon: FileSignature,
+  },
+  {
+    slug: "taken",
+    label: "Taken & samenwerking",
+    short: "Taken",
+    tagline: "Het werk van je team op één plek, naast de klant",
+    body:
+      "Taken hangen aan de klant en de site waar ze over gaan, dus je ziet meteen waar iets bij hoort. Wat af moet, wie het doet en wanneer het staat gepland, in hetzelfde dashboard als je leads en je content.",
+    features: ["Taken per klant", "Verdelen in je team", "Ingepland in de agenda", "Naast je CRM"],
+    icon: CheckSquare,
   },
   {
     slug: "seo",
@@ -109,8 +144,18 @@ export const FORESTER_MODULES: ForesterModule[] = [
     tagline: "Q schrijft mee aan content, inzichten en taken",
     body:
       "Je AI-assistent kent je site, je leads en je CRM. Q schrijft pagina's, vat inzichten samen en stelt opvolgingen voor in gewone taal. Jij stuurt 'm een appje, hij regelt het.",
-    features: ["Content schrijven", "Inzichten samenvatten", "Opvolgingen voorstellen", "Q-chat"],
+    features: ["Content schrijven", "Inzichten samenvatten", "Opvolgingen voorstellen", "Vragen aan Q"],
     icon: Sparkles,
+  },
+  {
+    slug: "klanten-app",
+    label: "App voor je telefoon",
+    short: "App",
+    tagline: "Je platform in je broekzak, met een seintje als er iets binnenkomt",
+    body:
+      "Dezelfde omgeving als in je browser, maar dan als app op je telefoon. Je krijgt een melding zodra er een aanvraag binnenkomt, en je kunt hem afschermen met je vingerafdruk of gezicht.",
+    features: ["iOS en Android", "Meldingen bij nieuwe aanvragen", "Slot met Face ID", "Werkt offline netjes"],
+    icon: Smartphone,
   },
   {
     slug: "content-publisher",
@@ -158,13 +203,24 @@ export const FORESTER_MODULES: ForesterModule[] = [
     availableFrom: "growth",
   },
   {
-    slug: "automations",
-    label: "Marketing automations",
-    short: "Automations",
-    tagline: "Workflows die leads opvolgen terwijl jij ergens anders bent",
+    slug: "momentum",
+    label: "Momentum Insights",
+    short: "Momentum",
+    tagline: "Elke maand een eerlijk rapport over hoe het loopt",
     body:
-      "Vanuit het Forester-dashboard bouwen we automations die nieuwe leads verwelkomen, opvolgingen versturen, taken aan je team aanmaken en deals door je pijplijn duwen. Jij stelt de regels op, het systeem voert ze 24/7 uit.",
-    features: ["Welkom-flows", "Opvolg-sequenties", "Taken automatisch", "Triggers uit CRM"],
+      "Geen dashboard waar je zelf conclusies uit moet trekken, maar een rapport dat in je mailbox valt: wat er beter ging, wat er slechter ging en wat de logische volgende stap is. In gewone taal, geen grafiekenbrij.",
+    features: ["Maandelijks in je mail", "Vergelijking met vorige maand", "Uitleg in gewone taal", "Concrete vervolgstap"],
+    icon: TrendingUp,
+    availableFrom: "growth",
+  },
+  {
+    slug: "automations",
+    label: "Automations",
+    short: "Automations",
+    tagline: "Je losse tools aan elkaar knopen, zonder Zapier",
+    body:
+      "Koppel je boekhouding, je leeromgeving en je andere systemen aan Forester OS en laat ze samenwerken. Een getekende offerte maakt een factuur aan, een betaling geeft toegang tot een cursus, een aanvraag zet een taak klaar. Je bouwt de stappen zelf, met triggers, voorwaarden en wachttijden.",
+    features: ["Zelf flows bouwen", "Moneybird en Huddle", "Triggers en voorwaarden", "Zie wat er gedraaid heeft"],
     icon: Workflow,
     availableFrom: "growth",
   },
@@ -193,6 +249,22 @@ export const FORESTER_MODULES: ForesterModule[] = [
     availableFrom: "scale",
   },
 ];
+
+/**
+ * De modules die in elk pakket zitten, met het telwoord ervoor uitgeschreven.
+ * Staat hier en niet in de componenten, omdat zowel de hero als het
+ * modulegrid het aantal noemt en die twee uit elkaar liepen toen er modules
+ * bijkwamen.
+ */
+export const KERN_MODULES = FORESTER_MODULES.filter((m) => (m.availableFrom ?? "core") === "core");
+
+const TELWOORDEN = [
+  "Nul", "Eén", "Twee", "Drie", "Vier", "Vijf", "Zes", "Zeven", "Acht", "Negen",
+  "Tien", "Elf", "Twaalf", "Dertien", "Veertien", "Vijftien", "Zestien", "Zeventien", "Achttien",
+];
+
+/** Bijvoorbeeld "Tien". Valt terug op het cijfer als de lijst langer wordt. */
+export const KERN_MODULES_TELWOORD = TELWOORDEN[KERN_MODULES.length] ?? String(KERN_MODULES.length);
 
 export type ForesterFlowStep = {
   phase: string;
@@ -920,48 +992,277 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
   },
 
   automations: {
-    heroLead: "Workflows die opvolgen,",
-    heroHighlight: "terwijl jij wat anders doet.",
+    heroLead: "Je losse tools",
+    heroHighlight: "aan elkaar geknoopt.",
     heroIntro:
-      "Vanuit Forester OS bouwen we automations die nieuwe leads verwelkomen, opvolgingen versturen, taken aan je team uitdelen en deals door je pijplijn duwen. Jij stelt tijdens de kick-off vast welke regels logisch zijn voor jouw business, en het systeem voert ze 24 uur per dag voor je uit, ook 's nachts en in het weekend.",
-    featuresHeading: "Wat een automation voor je doet.",
+      "De meeste bedrijven draaien op een stuk of acht systemen die niets van elkaar weten, met een mens ertussen die gegevens overtikt. Met automations koppel je die systemen aan Forester OS en laat je ze samenwerken, zonder dat je er een losse tool als Zapier bij nodig hebt.",
+    featuresHeading: "Wat je ermee bouwt.",
     featuresIntro:
-      "We starten meestal met twee tot drie kern-flows die echt het meeste werk overnemen, en bouwen daar maandelijks op verder als we zien hoe ze zich in jouw CRM gedragen.",
+      "Je bouwt zelf de stappen: dit gebeurt er, dan controleren we dat, en dan doen we dit. Wij zetten de koppelingen open en houden ze werkend.",
     featuresDetailed: [
       {
-        title: "Welkom-flows voor nieuwe leads",
+        title: "Zelf je stappen bouwen",
         body:
-          "Iemand vult je quickscan in en krijgt direct een persoonlijke vervolgmail in jouw stem, met de juiste bijlage of een afspraakvoorstel. Zo voorkom je dat een lead pas om vier uur 's middags wordt opgevolgd terwijl 'ie 's ochtends al een offerte aan een concurrent heeft gevraagd.",
+          "Je begint bij wat er gebeurt, bijvoorbeeld een getekende offerte of een betaling, en hangt daar acties aan. Je kunt voorwaarden stellen, paden splitsen en ergens even wachten voordat de volgende stap komt.",
       },
       {
-        title: "Opvolg-sequenties die weten waar de deal staat",
+        title: "Je eigen accounts koppelen",
         body:
-          "Op basis van de pijplijn-status van een lead sturen we de juiste herinneringen, follow-ups of materialen. Sluit de deal, dan stoppen we de sequentie. Vraagt 'ie meer tijd, dan stellen we 'm uit. Q kijkt mee en levert de eerste versie van elke mail in jouw tone-of-voice aan.",
+          "Je koppelt je eigen boekhouding of leeromgeving met je eigen inloggegevens. Heb je meerdere administraties, dan koppel je ze allemaal en kies je per stap welke je bedoelt. Moneybird en Huddle zijn de eerste twee, er komen er meer bij.",
       },
       {
-        title: "Taken automatisch bij het juiste teamlid",
+        title: "Zien wat er gedraaid heeft",
         body:
-          "Zodra een lead een bepaalde fase bereikt of een formulier-veld op een specifieke manier invult, maken we automatisch een taak aan voor het juiste teamlid mét een deadline. Geen 'oh, ik dacht dat jij dat zou doen'-mailtjes meer tussen collega's.",
+          "Van elke keer dat een automation liep zie je wat er gebeurde en waar het eventueel misging. Een stap die naar buiten gaat, zoals een factuur versturen, doen we nooit twee keer, ook niet als er iets hapert.",
       },
       {
-        title: "Triggers vanuit je CRM",
+        title: "Met een rem erop",
         body:
-          "Een deal die van status verandert, een offerte die wordt geopend of een cursist die een quiz haalt, het zijn allemaal momenten waarop een vervolgactie zinvol is. Wij bepalen samen met je welke triggers er moeten zijn en welke acties daarbij horen, zodat het CRM niet alleen registreert maar ook iets in beweging zet.",
+          "Je stelt zelf in hoeveel er per maand mag draaien. Loopt het tegen die grens aan, dan krijg je bericht en bepaal jij of het stopt of gewoon doorgaat, want sommige processen mogen nooit stilvallen.",
       },
     ],
-    relatedSlugs: ["crm", "lead-engine", "nieuwsbrieven"],
+    relatedSlugs: ["crm", "offertes", "integraties"],
     faq: [
       {
-        q: "Hoeveel automations kunnen we draaien?",
-        a: "Vanaf Growth heb je geen limiet op het aantal workflows. We adviseren wel om klein te beginnen met twee of drie kern-flows die echt het meeste werk overnemen, en die maandelijks bij te schaven op basis van wat we zien gebeuren in je CRM.",
+        q: "Vervangt dit Zapier?",
+        a: "Dat is precies het doel. Het verschil is dat je hier niet per stap betaalt en dat de koppeling met je eigen CRM, offertes en site al gelegd is, dus je hoeft je gegevens niet eerst ergens naartoe te sturen.",
       },
       {
-        q: "Mailen jullie automations vanuit ons eigen domein?",
-        a: "Ja, we koppelen je eigen verzenddomein zodat opvolg-mails er niet uitzien alsof ze van een sjabloon-tool komen. Dat merk je vooral terug aan de open-rates, die voor onze klanten een stuk hoger liggen dan het sector-gemiddelde.",
+        q: "Welke systemen kan ik koppelen?",
+        a: "We beginnen met de koppelingen waar onze klanten om vragen, op dit moment Moneybird voor de boekhouding en Huddle voor leeromgevingen. Heb je een systeem dat je wilt aansluiten, laat het weten, want vrijwel alles met een koppelmogelijkheid kunnen we openzetten.",
+      },
+      {
+        q: "Moet ik dit zelf bouwen?",
+        a: "Dat hoeft niet. We bouwen de eerste flows samen met je tijdens de kick-off, en daarna kun je er zelf op verder. Liever helemaal uit handen geven kan ook.",
       },
     ],
     metaDescription:
-      "Marketing automations en workflows in Forester OS: leads opvolgen, taken uitdelen en deals door je pijplijn duwen. Vanaf Growth.",
+      "Automations in Forester OS: koppel je boekhouding en andere systemen en laat ze samenwerken, met eigen triggers, voorwaarden en wachttijden. Vanaf Growth.",
+  },
+
+  "website-health": {
+    heroLead: "Weten dat je site het doet,",
+    heroHighlight: "voordat je klant het merkt.",
+    heroIntro:
+      "De meeste ondernemers ontdekken pas dat hun site plat ligt als iemand belt dat het formulier niet werkt. Bij ons wordt je site doorlopend gecontroleerd op bereikbaarheid en snelheid, en zien wij het eerder dan jij.",
+    featuresHeading: "Wat we in de gaten houden.",
+    featuresIntro:
+      "Niet om je een dashboard vol meters te geven, maar om te voorkomen dat een stille storing je een week aan aanvragen kost.",
+    featuresDetailed: [
+      {
+        title: "Is de site bereikbaar",
+        body:
+          "Je site wordt van buitenaf gecontroleerd, net zoals een bezoeker hem opvraagt. Reageert hij niet of komt er een foutmelding, dan krijgen wij daar een seintje van en gaan we kijken wat er aan de hand is.",
+      },
+      {
+        title: "Hoe snel laadt hij",
+        body:
+          "Snelheid bepaalt of iemand blijft of wegklikt, en Google kijkt er ook naar. We meten hoe lang je pagina's erover doen en zien het als dat langzaam wegzakt, bijvoorbeeld omdat er zware foto's zijn geüpload.",
+      },
+      {
+        title: "Klopt de structuur nog",
+        body:
+          "Het sitemap-overzicht laat zien welke pagina's er zijn en hoe ze aan elkaar hangen. Handig als je site groeit en je wilt weten of er pagina's zijn die nergens meer vandaan te bereiken zijn.",
+      },
+      {
+        title: "Wij kijken mee",
+        body:
+          "Dit is geen scherm waar jij dagelijks naar hoeft te staren. Wij zien de signalen en pakken op wat opgepakt moet worden. Je ziet het terug in je dashboard als je wilt weten hoe het ervoor staat.",
+      },
+    ],
+    relatedSlugs: ["website", "seo", "momentum"],
+    faq: [
+      {
+        q: "Krijg ik zelf een melding als er iets stuk is?",
+        a: "Wij krijgen het signaal en lossen het op. Gaat het om iets waar jij last van hebt of wat wij niet zonder jou kunnen oplossen, dan hoor je het van ons met de uitleg erbij. Je hoeft niet zelf de wacht te houden.",
+      },
+      {
+        q: "Zit dit in elk pakket?",
+        a: "Ja. Dat je site overeind blijft is geen extra dienst maar de basis van een abonnement. Het zit dus vanaf het instappakket in je abonnement.",
+      },
+    ],
+    metaDescription:
+      "Website Health in Forester OS: je site wordt doorlopend gecontroleerd op bereikbaarheid en snelheid, zodat een storing wordt opgemerkt voordat je klanten het merken.",
+  },
+
+  offertes: {
+    heroLead: "Een offerte die getekend terugkomt,",
+    heroHighlight: "niet ingescand.",
+    heroIntro:
+      "Je stelt de offerte samen in je eigen huisstijl en stuurt hem als link. Je klant leest hem op de bank op zijn telefoon en zet zijn handtekening. Geen printer, geen scanner, geen pdf die drie dagen blijft liggen.",
+    featuresHeading: "Van voorstel tot klant in één beweging.",
+    featuresIntro:
+      "Het tekenmoment is meestal het punt waar het stroef wordt. Daar valt de meeste tijd te winnen, en daarna hoort er niets meer overgetypt te worden.",
+    featuresDetailed: [
+      {
+        title: "In je eigen huisstijl",
+        body:
+          "De offerte heeft jouw logo, jouw kleuren en jouw manier van schrijven. Hij opent als een nette webpagina in plaats van een bijlage die iemand eerst moet downloaden.",
+      },
+      {
+        title: "Ondertekenen op de telefoon",
+        body:
+          "Je klant zet zijn handtekening met zijn vinger en bevestigt dat hij daartoe bevoegd is. Jij krijgt bericht zodra het gebeurd is, met datum en tijd erbij vastgelegd.",
+      },
+      {
+        title: "Nederlands of Engels",
+        body:
+          "Werk je ook over de grens, dan kies je de taal naast de B.V. waar de offerte vandaan komt. De hele offerte en de bevestiging gaan dan in die taal de deur uit.",
+      },
+      {
+        title: "Meteen door naar je CRM",
+        body:
+          "Zodra er getekend is wordt de prospect een actieve klant en schuift de deal in je pijplijn naar gewonnen. Je hoeft niets over te tikken en je pijplijn klopt vanzelf met de werkelijkheid.",
+      },
+    ],
+    relatedSlugs: ["crm", "sales-engine", "taken"],
+    faq: [
+      {
+        q: "Is een digitale handtekening rechtsgeldig?",
+        a: "Ja. We leggen vast wie er getekend heeft, wanneer, vanaf welk apparaat en dat diegene verklaart daartoe bevoegd te zijn. Voor een gewone zakelijke overeenkomst is dat voldoende.",
+      },
+      {
+        q: "Kan ik een offerte met keuzes sturen?",
+        a: "Dat kan. Je kunt onderdelen optioneel maken of varianten naast elkaar zetten, zodat je klant zelf kiest wat hij afneemt. Wat hij aanvinkt komt terug in het bedrag en in de deal.",
+      },
+    ],
+    metaDescription:
+      "Offertes in Forester OS: voorstellen in je eigen huisstijl die je klant digitaal ondertekent, waarna de deal automatisch als gewonnen in je CRM staat.",
+  },
+
+  taken: {
+    heroLead: "Het werk van je team,",
+    heroHighlight: "naast de klant waar het over gaat.",
+    heroIntro:
+      "Takenlijstjes staan meestal ergens anders dan de klantgegevens, dus moet je heen en weer springen om te weten waar iets bij hoort. Hier hangt een taak aan de klant en aan de site waar hij over gaat.",
+    featuresHeading: "Zo houd je overzicht.",
+    featuresIntro:
+      "Geen apart projectsysteem erbij, want dan heb je weer een plek waar dingen kunnen blijven liggen.",
+    featuresDetailed: [
+      {
+        title: "Taken bij de klant",
+        body:
+          "Elke taak hangt aan een klant en waar nodig aan een specifieke site. Open je een klant, dan zie je meteen wat er voor hem klaarstaat en wat er al gedaan is.",
+      },
+      {
+        title: "Verdelen in je team",
+        body:
+          "Je wijst werk toe aan de mensen die toegang hebben tot je omgeving. Iedereen ziet wat van hem is, jij ziet het geheel.",
+      },
+      {
+        title: "Met een moment erbij",
+        body:
+          "Een taak zonder moment blijft liggen. Je geeft aan wanneer iets moet gebeuren en het komt in de planning terecht, zodat het niet onderaan een lijst verdwijnt.",
+      },
+      {
+        title: "In dezelfde omgeving",
+        body:
+          "Je hoeft niet te wisselen tussen je CRM, je site en je takenlijst. Het staat in hetzelfde dashboard, dus wat je ziet klopt met elkaar.",
+      },
+    ],
+    relatedSlugs: ["crm", "offertes", "klanten-app"],
+    faq: [
+      {
+        q: "Kunnen mijn collega's ook taken zien?",
+        a: "Ja. Iedereen die je toegang geeft tot je omgeving kan taken zien en oppakken. Je bepaalt zelf wie erbij mag en wat diegene verder mag.",
+      },
+      {
+        q: "Vervangt dit ons projectsysteem?",
+        a: "Voor het werk dat aan je klanten en je site hangt meestal wel. Draai je grote projecten met strakke planningen en afhankelijkheden, dan blijft een echt projectsysteem daarnaast zinnig.",
+      },
+    ],
+    metaDescription:
+      "Taken in Forester OS: het werk van je team gekoppeld aan de klant en de site waar het over gaat, in hetzelfde dashboard als je CRM en je content.",
+  },
+
+  "klanten-app": {
+    heroLead: "Je platform",
+    heroHighlight: "in je broekzak.",
+    heroIntro:
+      "Dezelfde omgeving als in je browser, maar dan als app op je telefoon. Zodat je een aanvraag ziet binnenkomen terwijl je onderweg bent, en niet pas als je 's avonds weer achter je laptop zit.",
+    featuresHeading: "Wat de app toevoegt.",
+    featuresIntro:
+      "Geen uitgeklede versie met de helft van de knoppen, maar je hele omgeving, met de dingen erbij die alleen op een telefoon kunnen.",
+    featuresDetailed: [
+      {
+        title: "Voor iPhone en Android",
+        body:
+          "De app staat op je telefoon zoals elke andere app. Je logt één keer in en blijft ingelogd, dus je hoeft niet steeds een wachtwoord in te tikken op een klein scherm.",
+      },
+      {
+        title: "Een seintje bij een nieuwe aanvraag",
+        body:
+          "Komt er een aanvraag binnen via je site, dan krijg je een melding op je telefoon. Bellen terwijl iemand nog aan het vergelijken is scheelt in de praktijk het verschil tussen wel en geen opdracht.",
+      },
+      {
+        title: "Op slot met je vingerafdruk",
+        body:
+          "Je kunt de app afschermen met je vingerafdruk of gezicht. Raak je je telefoon kwijt, dan kan niemand zomaar bij je klantgegevens.",
+      },
+      {
+        title: "Netjes zonder bereik",
+        body:
+          "Val je even weg in een parkeergarage of de trein, dan krijg je een net scherm in plaats van een foutmelding, en pakt de app de draad weer op zodra je bereik hebt.",
+      },
+    ],
+    relatedSlugs: ["crm", "lead-engine", "taken"],
+    faq: [
+      {
+        q: "Moet ik de app uit de App Store halen?",
+        a: "We zetten hem voor je klaar en je krijgt van ons een uitnodiging om hem te installeren. Je hebt er verder niets voor nodig en er komen geen extra kosten bij.",
+      },
+      {
+        q: "Kunnen mijn collega's hem ook gebruiken?",
+        a: "Ja. Iedereen met toegang tot jouw omgeving kan de app installeren en logt in met zijn eigen account. Wat iemand in de app ziet is hetzelfde als wat hij in de browser mag zien.",
+      },
+    ],
+    metaDescription:
+      "De Forester OS-app voor iPhone en Android: je hele platform op je telefoon, met een melding zodra er een aanvraag binnenkomt en een slot met Face ID.",
+  },
+
+  momentum: {
+    heroLead: "Elk maand een eerlijk rapport,",
+    heroHighlight: "in gewone taal.",
+    heroIntro:
+      "De meeste rapportages zijn een stapel grafieken waar je zelf conclusies uit moet trekken. Dit is een verhaal van een paar alinea's: wat ging er beter, wat ging er slechter, en wat is daar de logische volgende stap op.",
+    featuresHeading: "Wat er in het rapport staat.",
+    featuresIntro:
+      "Geschreven om te lezen met een kop koffie, niet om door te klikken. Als er niets bijzonders gebeurd is, staat dat er ook gewoon.",
+    featuresDetailed: [
+      {
+        title: "Vergeleken met vorige maand",
+        body:
+          "Cijfers op zichzelf zeggen niets. Wat telt is of het meer of minder werd dan de maand ervoor, en of dat een echte beweging is of gewoon een drukke week.",
+      },
+      {
+        title: "Uitgelegd in gewone taal",
+        body:
+          "Geen vaktermen zonder uitleg. Staat er dat je organisch verkeer steeg, dan staat erbij wat dat betekent en waar het vandaan komt.",
+      },
+      {
+        title: "Met een vervolgstap",
+        body:
+          "Elk rapport eindigt met wat wij zouden doen als volgende stap, zodat je iets hebt om ja of nee tegen te zeggen in plaats van een cijfer om naar te kijken.",
+      },
+      {
+        title: "Vanzelf in je mailbox",
+        body:
+          "Je hoeft er niet voor in te loggen. Het rapport komt naar je toe, en wil je dieper kijken dan staat alles klaar in je dashboard.",
+      },
+    ],
+    relatedSlugs: ["seo", "website-health", "crm"],
+    faq: [
+      {
+        q: "Hoe vaak krijg ik dit?",
+        a: "Eens per maand. Vaker heeft weinig zin, want dan kijk je naar ruis in plaats van naar een beweging.",
+      },
+      {
+        q: "Wat als er een maand weinig gebeurd is?",
+        a: "Dan staat dat er. Een rapport dat elke maand doet alsof alles geweldig gaat is niets waard, en juist in een rustige maand is de vraag wat we anders moeten doen het interessantst.",
+      },
+    ],
+    metaDescription:
+      "Momentum Insights in Forester OS: elke maand een kort rapport in gewone taal over wat beter en slechter ging, met een concrete vervolgstap.",
   },
 
   "priority-support": {
