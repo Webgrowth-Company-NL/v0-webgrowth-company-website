@@ -131,6 +131,17 @@ export const FORESTER_PAGES: SeoPage[] = [
       "Je site wordt doorlopend gecontroleerd op bereikbaarheid en snelheid, zodat een storing opvalt voordat je klanten het merken.",
   },
   {
+    path: "/forester-os/klantcontact",
+    slug: "klantcontact",
+    h1: "Klantcontact",
+    metaTitle: "Mail, afspraken en gesprekken bij de klant waar ze over gaan | Forester OS",
+    metaDescription:
+      "Koppel je eigen mailbox en agenda, zodat de mailwisseling, de afspraken en de gespreksverslagen bij de juiste klant staan.",
+    eyebrow: "Forester OS",
+    intro:
+      "Koppel je eigen mailbox en agenda, zodat de mailwisseling, de afspraken en de gespreksverslagen bij de juiste klant staan.",
+  },
+  {
     path: "/forester-os/offertes",
     slug: "offertes",
     h1: "Offertes",

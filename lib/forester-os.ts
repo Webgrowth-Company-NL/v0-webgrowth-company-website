@@ -21,6 +21,7 @@ import {
   type LucideIcon,
   Mail,
   Megaphone,
+  MessagesSquare,
   Plug,
   Search,
   ShieldCheck,
@@ -83,7 +84,7 @@ export const FORESTER_MODULES: ForesterModule[] = [
     tagline: "Je expertise als product, niet alleen als uurtarief",
     body:
       "Trainingen, 1-op-1 sessies, programma's of digitale downloads. Alles wat jouw kennis verpakt zodat klanten zelf kunnen leren, boeken en kopen. De winkel, het inplannen, betaling en CRM-opvolging zitten erin.",
-    features: ["Trainingen & cursussen", "Sessies & boekingen", "Digitale producten", "Lead scoring + CRM"],
+    features: ["Trainingen & cursussen", "Sessies & boekingen", "Gastenformulier per boeking", "Lead scoring + CRM"],
     icon: ShoppingBag,
     availableFrom: "growth",
   },
@@ -106,6 +107,16 @@ export const FORESTER_MODULES: ForesterModule[] = [
       "Eén kanban-overzicht voor je hele team. Leads vanuit je lead engines, deals met statussen en taken, en Q die meedenkt over wat de volgende stap is.",
     features: ["Drag-and-drop pijplijn", "Taken per deal", "Eigen statussen", "Q-suggesties"],
     icon: Users,
+  },
+  {
+    slug: "klantcontact",
+    label: "Klantcontact",
+    short: "Contact",
+    tagline: "Mail, afspraken en gesprekken bij de klant waar ze over gaan",
+    body:
+      "Koppel je eigen mailbox en agenda, en alles wat je met een klant hebt gedaan staat bij die klant. De mailwisseling, de afspraak van vorige maand en wat er in dat gesprek is afgesproken. Je mailt gewoon vanaf je eigen adres, dus de ander ziet jou en geen systeem.",
+    features: ["Outlook of Gmail koppelen", "Mailen vanaf je eigen adres", "Afspraken op de tijdlijn", "Verslag van je gesprekken"],
+    icon: MessagesSquare,
   },
   {
     slug: "offertes",
@@ -381,6 +392,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroIntro:
       "Pagina's, berichten en eigen content-types beheer je in hetzelfde dashboard waar ook je CRM, SEO en marketing draaien. Hosting, beveiliging en onderhoud zitten erin, geen los CMS-systeem nodig.",
     featuresDetailed: [
+      { title: "Een tekst aanpassen door erop te klikken", body: "Zie je een zin op je site die anders moet, dan klik je erop en typ je het nieuwe woord. Je hoeft niet te zoeken in een beheerscherm en niet te weten waar iets vandaan komt. Wil je het liever niet zelf doen, dan stuur je ons een berichtje en regelen wij het, zoals je gewend bent." },
       { title: "Eigen content-types", body: "Naast pagina's en blogs richten we je eigen content-structuren in voor bijvoorbeeld cases, vacatures, appartementen of producten, en die beheer je daarna zelf in een handige tabel-weergave waarin je met één klik kunt publiceren." },
       { title: "Live preview", body: "Wijzig een tekst of vervang een foto, druk op preview en zie meteen hoe het op desktop én op mobiel staat, zodat je rustig kunt schuiven tot het klopt voordat je het live zet." },
       { title: "Geen losse hosting", body: "Je krijgt snelle Nederlandse hosting met SSL, dagelijkse back-ups en CDN ingebouwd, zonder aparte rekening of los contract met een hostingpartij." },
@@ -391,6 +403,7 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
       { q: "Werkt mijn bestaande domein?", a: "Ja, we verhuizen je domein zonder downtime en regelen DNS, SSL en e-mail-routing voor je. Tijdens en na de migratie loopt alles gewoon door, dus je klanten merken er niets van." },
       { q: "Is mijn site mobile-first?", a: "Ja, alles wat we bouwen is mobile-first ontworpen en getest op echte toestellen. Voor de meeste klanten komt zo'n zeventig procent van het verkeer via mobiel binnen, en daar bouwen we de hele site op." },
       { q: "Kan ik zelf nieuwe content-types aanmaken?", a: "Nee, dat doen wij voor je. In de kick-off bespreken we welke content-types je bedrijf nodig heeft (denk aan appartementen, auto's, je vloot, vacatures, teamgenoten of een productcatalogus) en wij richten ze in. Wil je er later eentje bij? Schiet 'm in als taak, dan regelen wij dat binnen een sprint." },
+      { q: "Moet ik mijn site voortaan zelf bijhouden?", a: "Nee. Het onderhoud blijft bij ons, net als altijd. Het verschil is dat je nu zelf een prijs, een openingstijd of een zin kunt wijzigen op het moment dat je eraan denkt, zonder te wachten tot wij erbij kunnen. Of je dat doet is helemaal aan jou." },
     ],
     metaDescription:
       "Forester OS Website & CMS: pagina's, berichten en eigen content-types beheren vanuit één dashboard, met hosting, beveiliging en wekelijks onderhoud inbegrepen.",
@@ -544,6 +557,11 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     heroIntro:
       "Je werkt al hard genoeg, dus pak je kennis in als training, sessie, programma of digitaal product en laat klanten zichzelf leren, boeken en kopen. Wij regelen de winkel, het inplannen, de betaling en de opvolging, zodat jij expert blijft terwijl het platform voor je schaalt.",
     featuresDetailed: [
+      {
+        title: "Een gastenformulier bij de boeking",
+        body:
+          "Wie iets bij je boekt krijgt daarna een eigen formulier om de rest in te vullen: wie er meekomen, dieetwensen, een rijbewijsnummer, wat jouw dienst ook nodig heeft. Dat scheelt het heen en weer mailen vooraf, en de mail komt vanaf je eigen domein.",
+      },
       {
         title: "Trainingen en cursussen",
         body: "We pakken je expertise in als modules die cursisten in eigen tempo doorlopen, of we plannen klassikale dagen in waarmee je groepen tegelijk meeneemt. Werkt voor IT-trainingen, vakopleidingen, online cursussen en certificeringstrajecten, en de voortgang per cursist is realtime zichtbaar in je CRM.",
@@ -1083,6 +1101,55 @@ export const MODULE_DETAILS: Record<string, ForesterModuleDetail> = {
     ],
     metaDescription:
       "Website Health in Forester OS: je site wordt doorlopend gecontroleerd op bereikbaarheid en snelheid, zodat een storing wordt opgemerkt voordat je klanten het merken.",
+  },
+
+  klantcontact: {
+    heroLead: "Alles wat je met een klant hebt gehad,",
+    heroHighlight: "bij die klant.",
+    heroIntro:
+      "De mailwisseling zit in je mailbox, de afspraak in je agenda en wat er besproken is in je hoofd. Koppel je mailbox en je agenda, en het staat allemaal bij de klant waar het over ging, zonder dat je iets hoeft bij te houden.",
+    featuresHeading: "Wat er samenkomt.",
+    featuresIntro:
+      "Je blijft werken zoals je werkt. Je mailt vanuit je eigen adres en plant in je eigen agenda; het komt alleen ook op de goede plek terecht.",
+    featuresDetailed: [
+      {
+        title: "Je eigen mailbox erbij",
+        body:
+          "Koppel Outlook of Gmail en de mail die je met een klant hebt gewisseld staat bij die klant. Je antwoordt vanuit Forester, maar de ander ziet gewoon jouw adres. Weet je even niet hoe je iets formuleert, dan schrijft Q een eerste versie die je zelf aanpast.",
+      },
+      {
+        title: "Afspraken op de tijdlijn",
+        body:
+          "Plan je een afspraak met iemand die al klant is, dan verschijnt die op zijn tijdlijn. Je ziet in één oogopslag wanneer je elkaar voor het laatst sprak, zonder je agenda terug te scrollen.",
+      },
+      {
+        title: "Wat er in een gesprek is gezegd",
+        body:
+          "Neem je gesprekken op of laat je ze uitwerken, dan komt het verslag bij de klant te staan. Daar kun je meteen taken uit laten komen, zodat een toezegging niet alleen in je notitieblok blijft hangen.",
+      },
+      {
+        title: "Beschikbaarheid op je eigen site",
+        body:
+          "De agenda die je koppelt kan ook je beschikbaarheid op je site voeden, zodat iemand een moment kiest dat echt vrij is en je geen dubbele afspraken krijgt.",
+      },
+    ],
+    relatedSlugs: ["crm", "offertes", "taken"],
+    faq: [
+      {
+        q: "Moet ik mijn mail voortaan in Forester doen?",
+        a: "Nee. Je blijft Outlook of Gmail gewoon gebruiken zoals je gewend bent. Forester leest mee bij de klanten die in je systeem staan, zodat je daar de geschiedenis terugvindt als je hem nodig hebt.",
+      },
+      {
+        q: "Wie kan die mail zien?",
+        a: "Alleen de mensen die jij toegang geeft tot jouw omgeving. Je privémail en de rest van je mailbox blijven buiten beeld; het gaat om de correspondentie met de relaties die in je CRM staan.",
+      },
+      {
+        q: "Werkt dit ook met Microsoft 365?",
+        a: "Ja. Outlook via Microsoft 365 en Gmail werken allebei. Bij Microsoft moet een beheerder van jullie organisatie de koppeling eenmalig goedkeuren, daar sturen we je doorheen.",
+      },
+    ],
+    metaDescription:
+      "Klantcontact in Forester OS: koppel je mailbox en agenda, zodat mail, afspraken en gespreksverslagen bij de klant staan waar ze over gaan.",
   },
 
   offertes: {
