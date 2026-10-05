@@ -27,6 +27,9 @@ export function GeniusTalkRsvp() {
   const [email, setEmail] = useState("");
   const [telefoon, setTelefoon] = useState("");
   const [status, setStatus] = useState<Status>("invullen");
+  /* Lokaas: alleen een bot vult dit veld, want het staat buiten beeld. */
+  const [lokaas, setLokaas] = useState("");
+  const [geopendOp] = useState(() => Date.now());
   const [fout, setFout] = useState<string | null>(null);
 
   useEffect(() => {
@@ -78,6 +81,8 @@ export function GeniusTalkRsvp() {
           telefoon: telefoon.trim() || null,
           token,
           via: "website",
+          website: lokaas,
+          openMs: Date.now() - geopendOp,
         }),
       });
       const data = await res.json();
@@ -121,6 +126,18 @@ export function GeniusTalkRsvp() {
               </div>
               <Veld id="email" label="E-mailadres" type="email" value={email} onChange={setEmail} autoComplete="email" required />
               <Veld id="telefoon" label="Telefoonnummer" type="tel" value={telefoon} onChange={setTelefoon} autoComplete="tel" placeholder="06 12345678" />
+              <div aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+                <label htmlFor="website-url">Laat dit veld leeg</label>
+                <input
+                  id="website-url"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={lokaas}
+                  onChange={(e) => setLokaas(e.target.value)}
+                />
+              </div>
             </div>
 
             {fout && (
