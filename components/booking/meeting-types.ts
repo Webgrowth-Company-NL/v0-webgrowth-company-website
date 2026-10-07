@@ -1,12 +1,12 @@
 /**
- * De drie publieke afspraaktypes. Duur en agenda-blok staan in het platform
+ * De publieke afspraaktypes. Duur en agenda-blok staan in het platform
  * (lib/planning/publicBooking.ts); hier staat alleen wat de bezoeker ziet.
  */
 
 const FORESTER_API_BASE =
   process.env.NEXT_PUBLIC_FORESTER_API_BASE || "https://app.webgrowth.company";
 
-export type BookingTypeId = "kennismaking" | "kick-off" | "sprint-meeting";
+export type BookingTypeId = "kennismaking" | "kick-off" | "sprint-meeting" | "bellen";
 
 export type BookingType = {
   id: BookingTypeId;
@@ -29,6 +29,8 @@ export type BookingType = {
   createUrl: string;
   /** Alleen de kennismaking is een advertentie-conversie. */
   tracksConversion: boolean;
+  /** Een belafspraak vraagt om een telefoonnummer en belooft geen Meet-link. */
+  vraagtTelefoon?: boolean;
 };
 
 function urls(id: BookingTypeId) {
@@ -113,5 +115,31 @@ export const BOOKING_TYPES: Record<BookingTypeId, BookingType> = {
       "Geen sprint meeting-momenten vrij in de komende 30 dagen. Mail dan even naar martijn@webgrowth.company.",
     ...urls("sprint-meeting"),
     tracksConversion: false,
+  },
+  bellen: {
+    id: "bellen",
+    eyebrow: "Plan een belafspraak",
+    title: {
+      when: "Kies een dag en tijd",
+      subject: "Waar gaat het over?",
+      contact: "Jouw gegevens",
+      success: "Belafspraak ingepland",
+    },
+    durationMinutes: 15,
+    meta: "15 minuten · telefonisch",
+    intro:
+      "Een kwartier aan de telefoon, voor als bellen sneller is dan mailen. Kies een dag, dan verschijnen de vrije tijden er meteen naast. Martijn belt je op het afgesproken moment.",
+    subjectIntro:
+      "Zet in één zin waar het over gaat, dan hoeft het kwartier niet op aan de uitleg vooraf.",
+    subjectPlaceholder:
+      "Bijvoorbeeld: 'Even de opzet van de mailreeksen doorspreken voordat we gaan bouwen.'",
+    subjectLabel: "Waar gaat het over?",
+    contactIntro:
+      "We sturen een agenda-uitnodiging naar je e-mailadres. Martijn belt je op het nummer dat je hieronder invult.",
+    emptyState:
+      "Geen Sales & Meetings-blokken in de komende 30 dagen. Mail dan even naar martijn@webgrowth.company.",
+    ...urls("bellen"),
+    tracksConversion: false,
+    vraagtTelefoon: true,
   },
 };

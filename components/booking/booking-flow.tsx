@@ -57,6 +57,8 @@ export function BookingFlow({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
+  /* Alleen bij een belafspraak: zonder nummer kan Martijn niet bellen. */
+  const [phone, setPhone] = useState("");
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -135,6 +137,7 @@ export function BookingFlow({
           attendeeName: name.trim(),
           firstName: name.trim().split(" ")[0],
           companyName: company.trim(),
+          ...(cfg.vraagtTelefoon ? { phone: phone.trim() } : {}),
           ...(cfg.tracksConversion ? { utm: getStoredUtm() } : {}),
         }),
       });
@@ -165,7 +168,12 @@ export function BookingFlow({
     if (step === "when") return !!selectedDate && !!selectedTime;
     if (step === "subject") return subject.trim().length > 3;
     if (step === "contact")
-      return !!name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && !!company.trim();
+      return (
+        !!name.trim() &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
+        !!company.trim() &&
+        (!cfg.vraagtTelefoon || phone.replace(/\D/g, "").length >= 9)
+      );
     return false;
   })();
 
@@ -387,6 +395,9 @@ export function BookingFlow({
                   <FormInput label="Naam" type="text" value={name} onChange={setName} placeholder="Jouw naam" autoComplete="name" />
                   <FormInput label="E-mailadres" type="email" value={email} onChange={setEmail} placeholder="jij@bedrijf.nl" autoComplete="email" inputMode="email" />
                   <FormInput label="Bedrijfsnaam" type="text" value={company} onChange={setCompany} placeholder="Bedrijf B.V." autoComplete="organization" />
+                  {cfg.vraagtTelefoon && (
+                    <FormInput label="Telefoonnummer" type="tel" value={phone} onChange={setPhone} placeholder="06 12 34 56 78" autoComplete="tel" inputMode="tel" />
+                  )}
                 </div>
                 {submitError && (
                   <div className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-[13.5px] text-red-700">
@@ -477,12 +488,12 @@ function FormInput({
   inputMode,
 }: {
   label: string;
-  type: "text" | "email";
+  type: "text" | "email" | "tel";
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
   autoComplete?: string;
-  inputMode?: "email";
+  inputMode?: "email" | "tel";
 }) {
   return (
     <label className="block">
