@@ -194,7 +194,7 @@ export default function HelpPage() {
                   Ik oriënteer me
                 </h3>
                 <p className="mt-3 text-[14px] leading-[1.65] text-[color:var(--color-ink-muted)]">
-                  Plan een kennismaking van 30 minuten. We bespreken waar je staat, wat je wilt en of Forester OS daarbij past. Vrijblijvend, geen pitch.
+                  Plan een kennismaking van 45 minuten. We bespreken waar je staat, wat je wilt en of Forester OS daarbij past. Vrijblijvend, geen pitch.
                 </p>
                 <div className="mt-5">
                   <KennismakingButton variant="primary" label="Plan een kennismaking" />

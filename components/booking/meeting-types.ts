@@ -15,7 +15,7 @@ export type BookingType = {
   /** Titels per stap. */
   title: { when: string; subject: string; contact: string; success: string };
   durationMinutes: number;
-  /** "30 minuten · Google Meet · vrijblijvend" */
+  /** "45 minuten · Google Meet · vrijblijvend" */
   meta: string;
   /** Inleiding boven de kalender. */
   intro: string;
@@ -52,10 +52,10 @@ export const BOOKING_TYPES: Record<BookingTypeId, BookingType> = {
       contact: "Jouw gegevens",
       success: "Meeting ingepland",
     },
-    durationMinutes: 30,
-    meta: "30 minuten · Google Meet · vrijblijvend",
+    durationMinutes: 45,
+    meta: "45 minuten · Google Meet · vrijblijvend",
     intro:
-      "Leuk dat je een gesprek wilt plannen. Kies een dag, dan verschijnen de vrije tijden er meteen naast. Het gesprek duurt 30 minuten en is geheel vrijblijvend.",
+      "Leuk dat je een gesprek wilt plannen. Kies een dag, dan verschijnen de vrije tijden er meteen naast. Het gesprek duurt 45 minuten en is geheel vrijblijvend.",
     subjectIntro:
       "Een korte omschrijving zodat Martijn weet wat de richting is. Geen sales-pitch nodig, gewoon: waar zit je nu, wat wil je verbeteren?",
     subjectPlaceholder:
