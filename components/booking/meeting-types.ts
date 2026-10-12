@@ -6,7 +6,7 @@
 const FORESTER_API_BASE =
   process.env.NEXT_PUBLIC_FORESTER_API_BASE || "https://app.webgrowth.company";
 
-export type BookingTypeId = "kennismaking" | "kick-off" | "sprint-meeting" | "bellen";
+export type BookingTypeId = "kennismaking" | "kick-off" | "sprint-meeting" | "bellen" | "bijpraten";
 
 export type BookingType = {
   id: BookingTypeId;
@@ -141,5 +141,29 @@ export const BOOKING_TYPES: Record<BookingTypeId, BookingType> = {
     ...urls("bellen"),
     tracksConversion: false,
     vraagtTelefoon: true,
+  },
+  bijpraten: {
+    id: "bijpraten",
+    eyebrow: "Plan een moment om bij te praten",
+    title: {
+      when: "Kies een dag en tijd",
+      subject: "Wat wil je bespreken?",
+      contact: "Jouw gegevens",
+      success: "Afspraak ingepland",
+    },
+    durationMinutes: 30,
+    meta: "30 minuten · Google Meet",
+    intro:
+      "Een half uur om bij te praten over wat er loopt en wat er aankomt. Kies een dag, dan verschijnen de vrije tijden er meteen naast.",
+    subjectIntro:
+      "Zet kort neer wat er op tafel moet, dan gaat het half uur over de inhoud.",
+    subjectPlaceholder:
+      "Bijvoorbeeld: 'Bijpraten na de vakantie: de september-update, de vacatures en de plannen voor Q4.'",
+    subjectLabel: "Wat wil je bespreken?",
+    contactIntro: "We sturen een agenda-uitnodiging met Google Meet-link naar je e-mailadres.",
+    emptyState:
+      "Geen vrije momenten in de komende 30 dagen. Mail dan even naar martijn@webgrowth.company.",
+    ...urls("bijpraten"),
+    tracksConversion: false,
   },
 };
