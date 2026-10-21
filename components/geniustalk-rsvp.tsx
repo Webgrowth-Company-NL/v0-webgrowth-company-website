@@ -22,6 +22,17 @@ export function GeniusTalkRsvp() {
   // JavaScript geladen is. Het voorinvullen gebeurt toch pas na het mounten.
   const [token, setToken] = useState<string | null>(null);
 
+  /*
+   * Wie deze pagina heeft doorgestuurd (?van=<token>).
+   *
+   * Martijn, 21-10-2026: als Rene de link doorstuurt moet er staan dat Rene je
+   * uitnodigt, en moet bij de aanmelding vastgelegd worden via wie iemand
+   * binnenkomt. Dat is een andere vraag dan ?t=, want die vult het formulier
+   * voor met de gegevens van de eigenaar van de link.
+   */
+  const [van, setVan] = useState<string | null>(null);
+  const [vanNaam, setVanNaam] = useState<string | null>(null);
+
   const [voornaam, setVoornaam] = useState("");
   const [achternaam, setAchternaam] = useState("");
   const [email, setEmail] = useState("");
@@ -33,8 +44,30 @@ export function GeniusTalkRsvp() {
   const [fout, setFout] = useState<string | null>(null);
 
   useEffect(() => {
-    const uitUrl = new URLSearchParams(window.location.search).get("t");
+    const params = new URLSearchParams(window.location.search);
+    const uitUrl = params.get("t");
+    const vanUrl = params.get("van");
     setToken(uitUrl);
+    setVan(vanUrl);
+
+    if (vanUrl) {
+      // Alleen de voornaam komt terug; het mailadres van de afzender is niet
+      // van de bezoeker.
+      void (async () => {
+        try {
+          const res = await fetch(`${FORESTER_API_BASE}/api/public/geniustalk/invitee`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ van: vanUrl }),
+          });
+          const data = await res.json();
+          if (res.ok && data?.found && data.voornaam) setVanNaam(String(data.voornaam));
+        } catch {
+          /* Zonder naam tonen we gewoon de normale kop. */
+        }
+      })();
+    }
+
     if (!uitUrl) return;
 
     let geannuleerd = false;
@@ -80,6 +113,7 @@ export function GeniusTalkRsvp() {
           email: email.trim(),
           telefoon: telefoon.trim() || null,
           token,
+          van,
           via: "website",
           website: lokaas,
           openMs: Date.now() - geopendOp,
@@ -112,11 +146,18 @@ export function GeniusTalkRsvp() {
           </div>
         ) : (
           <form onSubmit={verstuur} noValidate>
+            {vanNaam && (
+              <p className="mb-3 inline-flex rounded-full bg-[color:var(--color-purple-tint)] px-3 py-1 text-[13.5px] font-semibold text-[color:var(--color-purple)]">
+                {vanNaam} nodigt je uit
+              </p>
+            )}
             <h3 className="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-bold leading-[1.15] text-[color:var(--color-ink-strong)]">
               Ben je erbij?
             </h3>
             <p className="mt-2.5 text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-              Laat het weten, dan reserveren we een plek voor je.
+              {vanNaam
+                ? `${vanNaam} gaat ook. Laat weten dat je meekomt, dan reserveren we een plek voor je.`
+                : "Laat het weten, dan reserveren we een plek voor je."}
             </p>
 
             <div className="mt-7 space-y-4">
