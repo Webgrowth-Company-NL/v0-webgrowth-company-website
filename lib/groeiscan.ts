@@ -8,7 +8,9 @@
  * en meldt een ingevulde scan met { type: "groeiscan-submitted" }.
  */
 
+// Lokaal kun je de scan van een eigen Forester-server inlijsten met NEXT_PUBLIC_GROEISCAN_EMBED_URL.
 export const GROEISCAN_EMBED_URL =
+  process.env.NEXT_PUBLIC_GROEISCAN_EMBED_URL ||
   "https://app.webgrowth.company/groeiscan/embed?leadEngine=groeiscan&ownerWebsiteId=C1PlnFQIFM1iEhrrwGfy";
 
 export type GroeiscanIconKey = "coins" | "chef" | "search" | "compass" | "factory" | "user";
