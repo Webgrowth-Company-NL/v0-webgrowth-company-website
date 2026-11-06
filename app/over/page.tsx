@@ -264,7 +264,7 @@ export default function OverPage() {
                       Q
                     </span>
                     <span className="absolute bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full bg-white/12 backdrop-blur-sm px-3 py-1.5 text-[11.5px] font-medium text-white">
-                      <Image src="/logo-bolt.png" alt="" width={14} height={14} className="object-contain" />
+                      <Image src="/merk/kern-klein-op-donker.svg" alt="" width={14} height={14} unoptimized className="object-contain" />
                       Powered by Forester OS
                     </span>
                   </div>
@@ -308,9 +308,7 @@ export default function OverPage() {
                 </p>
                 <p>
                   We wilden een platform met de standvastigheid van het bos, dat traag groeit waar het moet en
-                  snel als het kan. Paars werd de hoofdkleur omdat dat letterlijk de kleur is van thuis, en in
-                  het logo zit een bolt-symbool dat staat voor de snelheid waarmee we voor onze klanten op iets
-                  reageren.
+                  snel als het kan. Paars werd de hoofdkleur omdat dat letterlijk de kleur is van thuis.
                 </p>
                 <p>
                   Forester OS is daarmee geen marketing-stunt geworden, maar gewoon de manier waarop we het

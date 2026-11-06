@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FieldLogPostit } from "@/components/field-log-postit";
 import { FIELD_LOGS } from "@/lib/field-logs";
+import { Illustratie } from "@/components/illustratie";
 
 export const metadata: Metadata = {
   title: "Field Logs: bevindingen uit de praktijk over websites, leads & AI | Webgrowth",
@@ -61,14 +61,7 @@ export default function FieldLogsPage() {
                 aria-hidden
                 className="hidden lg:flex items-center justify-center"
               >
-                <Image
-                  src="/illustrations/digital-writing.svg"
-                  alt=""
-                  width={520}
-                  height={520}
-                  className="w-full max-w-[360px] h-auto"
-                  priority
-                />
+                <Illustratie src="/illustrations/writing.svg" className="w-full max-w-[400px] h-auto" priority />
               </div>
             </div>
           </div>

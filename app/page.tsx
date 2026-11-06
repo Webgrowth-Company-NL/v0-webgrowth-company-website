@@ -26,7 +26,7 @@ const ORG_JSONLD = {
   name: "Webgrowth Company",
   legalName: "Webgrowth Company",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo-bolt.png`,
+  logo: `${SITE_URL}/merk/beeldmerk-1024.png`,
   description:
     "AI-groeiplatform met website, CRM, marketing en AI in één abonnement, in plaats van negen losse leveranciers.",
   foundingDate: "2016",

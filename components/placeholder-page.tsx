@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import type { SeoPage } from "@/lib/pages";
+import { Illustratie } from "@/components/illustratie";
 
 export function PlaceholderPage({
   page,
@@ -80,13 +81,9 @@ export function PlaceholderPage({
 
             {/* Illustration */}
             <div className="order-first lg:order-last flex justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Illustratie
                 src={`/illustrations/${illustration}.svg`}
-                alt=""
-                aria-hidden
-                loading="lazy"
-                className="w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[420px] h-auto select-none pointer-events-none drop-shadow-[0_30px_60px_-30px_rgba(98,59,199,0.35)]"
+                className="w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[440px] h-auto select-none pointer-events-none"
               />
             </div>
           </div>

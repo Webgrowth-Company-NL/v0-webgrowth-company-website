@@ -65,7 +65,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean } = {}) {
           {/* Logo */}
           <Link href="/" className="inline-flex shrink-0 group" aria-label="Webgrowth Company home">
             <span className="relative inline-flex h-9 w-9 items-center justify-center transition-transform duration-200 ease-out group-hover:scale-[1.05]">
-              <Image src="/logo-bolt.png" alt="Webgrowth Company" width={36} height={36} priority className="object-contain" />
+              <Image src={dark ? "/merk/beeldmerk-op-donker.svg" : "/merk/beeldmerk-op-licht.svg"} alt="Webgrowth Company" width={38} height={38} priority unoptimized className="object-contain" />
             </span>
           </Link>
 

@@ -131,7 +131,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       url: "https://webgrowth.company",
       logo: {
         "@type": "ImageObject",
-        url: "https://webgrowth.company/logo.png",
+        url: "https://webgrowth.company/merk/beeldmerk-1024.png",
         width: 512,
         height: 512,
       },

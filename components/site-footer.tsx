@@ -36,7 +36,7 @@ export function SiteFooter() {
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Webgrowth Company home">
-              <Image src="/logo-bolt.png" alt="" width={32} height={32} className="object-contain" />
+              <Image src="/merk/beeldmerk-op-donker.svg" alt="" width={34} height={34} unoptimized className="object-contain" />
               <span className="font-[family-name:var(--font-display)] text-[16px] font-bold text-white">Webgrowth Company</span>
             </Link>
             <p className="mt-4 text-[13.5px] leading-relaxed max-w-xs">

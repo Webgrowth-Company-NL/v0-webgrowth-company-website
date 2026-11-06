@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FieldLogPostit } from "@/components/field-log-postit";
 import { FIELD_LOGS } from "@/lib/field-logs";
+import { Illustratie } from "@/components/illustratie";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 const LATEST = FIELD_LOGS.slice(0, 2);
@@ -72,13 +72,7 @@ export function SectionFieldLogs() {
             className="relative flex items-center justify-center min-h-[280px]"
             aria-hidden
           >
-            <Image
-              src="/illustrations/digital-writing.svg"
-              alt=""
-              width={520}
-              height={520}
-              className="w-full max-w-[340px] h-auto"
-            />
+            <Illustratie src="/illustrations/writing.svg" className="w-full max-w-[380px] h-auto" />
           </motion.div>
         </div>
       </div>

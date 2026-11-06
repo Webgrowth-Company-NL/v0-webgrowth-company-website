@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { animate, motion, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, Gauge as GaugeIcon, Star, TrendingUp, Zap } from "lucide-react";
@@ -21,6 +20,7 @@ import {
   type ForesterModule,
   type ModuleWidgetData,
 } from "@/lib/forester-os";
+import { Illustratie } from "@/components/illustratie";
 
 const STEPS_ILLUSTRATIONS: Record<string, string> = {
   website: "/illustrations/digital-writing.svg",
@@ -826,13 +826,7 @@ function ModuleStepsSection({
                 className="mt-6 relative flex items-center justify-center lg:justify-start"
                 aria-hidden
               >
-                <Image
-                  src={illustration}
-                  alt=""
-                  width={520}
-                  height={520}
-                  className="w-full max-w-[260px] lg:max-w-[280px] h-auto"
-                />
+                <Illustratie src={illustration} className="w-full max-w-[300px] lg:max-w-[340px] h-auto" />
               </motion.div>
             )}
 

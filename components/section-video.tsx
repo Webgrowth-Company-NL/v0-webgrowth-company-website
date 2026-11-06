@@ -100,7 +100,7 @@ export function SectionVideo() {
                 />
                 {/* bolt watermark */}
                 <span aria-hidden className="absolute top-5 left-6 inline-flex h-8 w-8 items-center justify-center opacity-90">
-                  <Image src="/logo-bolt.png" alt="" width={26} height={26} className="object-contain" />
+                  <Image src="/merk/beeldmerk-op-donker.svg" alt="" width={28} height={28} unoptimized className="object-contain" />
                 </span>
                 {/* play button */}
                 <button

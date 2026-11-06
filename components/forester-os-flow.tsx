@@ -133,7 +133,7 @@ export function ForesterOsFlow() {
               <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-b from-white/30 via-transparent to-transparent" />
               <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/25" />
               <div className="relative h-[68px] w-[68px] rounded-full bg-white flex items-center justify-center shadow-[inset_0_1px_2px_rgba(12,6,18,0.06)]">
-                <Image src="/logo-bolt.png" alt="" width={36} height={36} className="object-contain" />
+                <Image src="/merk/beeldmerk-op-licht.svg" alt="" width={38} height={38} unoptimized className="object-contain" />
               </div>
               {/* Continu draaiende accent-arc */}
               {!reduce && (

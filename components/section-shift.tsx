@@ -160,7 +160,7 @@ export function SectionShift() {
             </div>
             <div className="relative flex items-center gap-3 mt-2 mb-6">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/15">
-                <Image src="/logo-bolt.png" alt="Forester OS" width={26} height={26} className="object-contain" />
+                <Image src="/merk/beeldmerk-op-donker.svg" alt="Forester OS" width={28} height={28} unoptimized className="object-contain" />
               </span>
               <span className="font-[family-name:var(--font-display)] text-[20px] font-bold">Forester OS</span>
             </div>

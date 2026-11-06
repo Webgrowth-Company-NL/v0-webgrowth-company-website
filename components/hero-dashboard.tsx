@@ -723,8 +723,8 @@ function QView() {
     <div className="h-full flex flex-col">
       {/* header */}
       <div className="flex items-center gap-2.5 mb-3 shrink-0">
-        <span className="relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full overflow-hidden ring-2 ring-[color:var(--color-purple)]/25">
-          <Image src="/images/q-insights.jpg" alt="Q" width={32} height={32} className="object-cover" />
+        <span className="relative inline-flex h-8 w-8 shrink-0 items-center justify-center">
+          <Image src="/merk/q-klein-klaar-op-licht.svg" alt="Q" width={32} height={32} unoptimized className="object-contain" />
         </span>
         <div className="leading-tight">
           <div className="text-[12px] font-semibold text-[color:var(--color-ink)]">Q</div>

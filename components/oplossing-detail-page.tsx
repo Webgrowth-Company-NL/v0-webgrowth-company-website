@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { animate, motion, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, Clock, ShieldCheck, TrendingUp, Zap } from "lucide-react";
@@ -15,6 +14,7 @@ import { SiteHeader } from "@/components/site-header";
 import { WaveDivider } from "@/components/wave-divider";
 import { type ModuleWidgetData } from "@/lib/forester-os";
 import { OPLOSSING_DETAILS, type OplossingBundle, type OplossingDetail } from "@/lib/oplossingen";
+import { Illustratie } from "@/components/illustratie";
 
 const CREAM = "#faf6f0";
 const LAVENDER = "#e9e4f7";
@@ -610,13 +610,7 @@ function OplossingStepsSection({
                 className="mt-6 relative flex items-center justify-center lg:justify-start"
                 aria-hidden
               >
-                <Image
-                  src={illustration}
-                  alt=""
-                  width={520}
-                  height={520}
-                  className="w-full max-w-[260px] lg:max-w-[280px] h-auto"
-                />
+                <Illustratie src={illustration} className="w-full max-w-[300px] lg:max-w-[340px] h-auto" />
               </motion.div>
             )}
 
