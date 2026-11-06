@@ -258,8 +258,8 @@ export default function ContactPage() {
                 klantverhalen
               </Link>{" "}
               of doe de{" "}
-              <Link href="/website-apk" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] underline underline-offset-2 transition-colors">
-                gratis website APK
+              <Link href="/groeiscan" className="font-semibold text-[color:var(--color-purple)] hover:text-[color:var(--color-purple-hover)] underline underline-offset-2 transition-colors">
+                gratis groeiscan
               </Link>{" "}
               voordat je belt.
             </p>

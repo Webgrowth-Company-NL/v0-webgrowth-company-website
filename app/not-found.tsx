@@ -13,7 +13,7 @@ const page: SeoPage = {
   metaTitle: "Pagina niet gevonden | Webgrowth Company",
   metaDescription: "",
   intro:
-    "De link is verlopen of de pagina is verplaatst. Ga terug naar de homepage of doe meteen de gratis website APK.",
+    "De link is verlopen of de pagina is verplaatst. Ga terug naar de homepage of doe meteen de gratis groeiscan.",
   illustration: "not-found",
 };
 

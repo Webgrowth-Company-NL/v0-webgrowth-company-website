@@ -100,7 +100,7 @@ export function ForesterOsHero() {
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
         >
           <Link
-            href="/website-apk"
+            href="/groeiscan"
             className="
               btn-press group
               inline-flex items-center gap-2 pl-6 pr-2 py-2.5
@@ -111,7 +111,7 @@ export function ForesterOsHero() {
               hover:shadow-[0_8px_18px_rgba(98,59,199,0.36),0_28px_56px_-12px_rgba(98,59,199,0.78)]
             "
           >
-            Doe de gratis APK
+            Doe de groeiscan
             <span
               className="
                 inline-flex h-9 w-9 items-center justify-center

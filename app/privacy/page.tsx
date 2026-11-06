@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       </p>
       <p>
         Daarnaast staat er een conversiemeting van Google Ads op de site. Die kijkt of iemand die via
-        een advertentie binnenkwam later een kennismaking plant of de Website APK invult. Daar horen
+        een advertentie binnenkwam later een kennismaking plant of de Groeiscan invult. Daar horen
         wel cookies bij. Wat er precies staat en hoe je dat weigert lees je op de{" "}
         <Link href="/cookies">cookiepagina</Link>.
       </p>

@@ -111,7 +111,7 @@ export default function RootLayout({
           strategy="lazyOnload"
         />
         {/* Google Ads gtag — vangt gclid op landingspagina en vuurt een
-            online lead-conversie af bij kennismaking + APK-inzending. */}
+            online lead-conversie af bij kennismaking + Groeiscan. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-10995475278"
           strategy="afterInteractive"

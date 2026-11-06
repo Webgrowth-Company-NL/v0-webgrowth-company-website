@@ -5,10 +5,10 @@ import { SectionFaq } from "@/components/section-faq";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WaveDivider } from "@/components/wave-divider";
-import { WebsiteApkEmbed } from "@/components/website-apk-embed";
-import { WebsiteApkHero } from "@/components/website-apk-hero";
-import { WebsiteApkValue } from "@/components/website-apk-value";
-import { APK_FAQS } from "@/lib/website-apk";
+import { GroeiscanEmbed } from "@/components/groeiscan-embed";
+import { GroeiscanHero } from "@/components/groeiscan-hero";
+import { GroeiscanValue } from "@/components/groeiscan-value";
+import { GROEISCAN_FAQS } from "@/lib/groeiscan";
 
 const CREAM = "#faf6f0";
 const LAVENDER = "#e9e4f7";
@@ -16,18 +16,18 @@ const WHITE = "#ffffff";
 const DEEP = "#2c1d5e";
 
 const TITLE =
-  "Gratis Website APK — hoe scoort jouw site? | Webgrowth Company";
+  "Gratis Groeiscan: hoeveel tijd lekt er weg in jouw bedrijf? | Webgrowth Company";
 const DESCRIPTION =
-  "Doe de gratis Website APK: vul je URL in, beantwoord zeven korte vragen en ontvang direct een AI-rapport met branche, bezoekersinschatting, lead-definitie en concrete verbeterpunten. Geen account, geen verkoopgesprek.";
+  "Doe de gratis Groeiscan: tien korte vragen over hoe een order bij jou loopt, van aanvraag tot factuur. Je ziet direct wat zoeken, overtypen en nabellen je per jaar kost en waar de meeste winst zit.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: "/website-apk" },
+  alternates: { canonical: "/groeiscan" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://webgrowth.company/website-apk",
+    url: "https://webgrowth.company/groeiscan",
     type: "website",
   },
   twitter: {
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
 const SERVICE_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Website APK",
-  serviceType: "Website-audit",
+  name: "Groeiscan",
+  serviceType: "Bedrijfsscan",
   description:
-    "Gratis AI-analyse van je website: branche, bezoekersinschatting, lead-definitie, technieksignalen en kostenanalyse, met concrete verbeterpunten.",
+    "Gratis scan van hoe je bedrijf werkt, van aanvraag tot factuur: wat verloren tijd je per jaar kost, je grootste lekken en een eerlijk advies.",
   provider: {
     "@type": "Organization",
     name: "Webgrowth Company",
@@ -55,14 +55,14 @@ const SERVICE_JSONLD = {
     price: 0,
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
-    url: "https://webgrowth.company/website-apk",
+    url: "https://webgrowth.company/groeiscan",
   },
 };
 
 const FAQ_JSONLD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: APK_FAQS.map((f) => ({
+  mainEntity: GROEISCAN_FAQS.map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -82,15 +82,15 @@ export default function Page() {
       />
       <SiteHeader />
       <main className="flex-1">
-        <WebsiteApkHero />
+        <GroeiscanHero />
         <WaveDivider top={CREAM} bottom={LAVENDER} />
-        <WebsiteApkEmbed />
+        <GroeiscanEmbed />
         <WaveDivider top={LAVENDER} bottom={WHITE} />
-        <WebsiteApkValue />
+        <GroeiscanValue />
         <WaveDivider top={WHITE} bottom={LAVENDER} />
         <SectionFaq
-          items={APK_FAQS}
-          eyebrow="Vragen over de APK"
+          items={GROEISCAN_FAQS}
+          eyebrow="Vragen over de Groeiscan"
           title="Wat klanten vooraf vaak vragen."
           intro={
             <>

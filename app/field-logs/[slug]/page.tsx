@@ -298,10 +298,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <section className="px-5 sm:px-8 pb-28 sm:pb-36">
           <div className="mx-auto max-w-3xl rounded-[2rem] bg-gradient-to-br from-[#3f2a8f] via-[#5e3bc0] to-[#7c3aed] p-8 sm:p-10 text-center text-white shadow-[0_30px_64px_-22px_rgba(98,59,199,0.5)]">
             <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.5rem,3.2vw,2.2rem)] leading-[1.12]">Zelf groeien met Forester OS?</h2>
-            <p className="mt-3 text-[15px] text-white/75 max-w-md mx-auto">Doe de gratis website APK of plan een kennismaking. We denken graag mee.</p>
+            <p className="mt-3 text-[15px] text-white/75 max-w-md mx-auto">Doe de gratis groeiscan of plan een kennismaking. We denken graag mee.</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/website-apk" className="btn-press group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-white text-[color:var(--color-purple)] text-[14px] font-semibold shadow-[0_8px_24px_-10px_rgba(12,6,18,0.4)]">
-                Doe de gratis website APK
+              <Link href="/groeiscan" className="btn-press group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-white text-[color:var(--color-purple)] text-[14px] font-semibold shadow-[0_8px_24px_-10px_rgba(12,6,18,0.4)]">
+                Doe de gratis groeiscan
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-transform duration-200 ease-out group-hover:translate-x-0.5"><ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} /></span>
               </Link>
               <KennismakingButton variant="inline" />

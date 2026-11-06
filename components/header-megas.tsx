@@ -63,7 +63,7 @@ export const OPLOSSINGEN_SECTOR = [
 ] as const;
 
 export const HULPMIDDELEN_ONTDEK = [
-  { href: "/website-apk", label: "Website APK", desc: "Gratis scan: hoe scoort jouw site?", icon: Gauge },
+  { href: "/groeiscan", label: "Groeiscan", desc: "Gratis: hoeveel tijd lekt er weg?", icon: Gauge },
   { href: "/geniustalk", label: "GeniusTalk 26", desc: "5 november in Rotterdam, meld je aan", icon: MicVocal },
   { href: "/field-logs", label: "Field Logs", desc: "Bevindingen uit de praktijk", icon: FileText },
   { href: "/cases", label: "Klantverhalen", desc: "Wat we voor anderen bouwden", icon: MessageSquareQuote },
@@ -228,11 +228,11 @@ export function OplossingenMega({ onNavigate }: { onNavigate: () => void }) {
             ))}
           </div>
           <Link
-            href="/website-apk"
+            href="/groeiscan"
             onClick={onNavigate}
             className="btn-press mt-auto inline-flex items-center justify-between gap-2 mx-1 mt-4 px-3.5 py-2.5 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[12px] font-semibold group shadow-[0_8px_20px_-10px_rgba(98,59,199,0.5)] hover:shadow-[0_12px_28px_-10px_rgba(98,59,199,0.7)]"
           >
-            Niet zeker? Doe de APK
+            Niet zeker? Doe de groeiscan
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
           </Link>
         </div>

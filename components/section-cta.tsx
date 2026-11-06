@@ -32,14 +32,14 @@ export function SectionCta() {
           <span className="text-[#c4b5fd]">Meer groei.</span>
         </h2>
         <p className="mt-5 text-[16px] sm:text-[18px] leading-[1.6] text-white/75 max-w-lg mx-auto">
-          Doe de gratis website APK en zie binnen een minuut wat er aan jouw site beter kan, of plan een kennismaking als je liever even doorpraat over wat jouw bedrijf nodig heeft.
+          Doe de gratis groeiscan en zie in drie minuten hoeveel tijd er in je bedrijf weglekt, of plan een kennismaking als je liever even doorpraat over wat jouw bedrijf nodig heeft.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/website-apk"
+            href="/groeiscan"
             className="btn-press group inline-flex items-center gap-2 pl-6 pr-2 py-2.5 rounded-full bg-white text-[color:var(--color-purple)] text-[15px] font-semibold shadow-[0_10px_30px_-10px_rgba(12,6,18,0.5)]"
           >
-            Doe de gratis website APK
+            Doe de gratis groeiscan
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[color:var(--color-purple)]/12 transition-transform duration-200 ease-out group-hover:translate-x-0.5">
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </span>

@@ -314,14 +314,14 @@ export const INDEX_PAGES: SeoPage[] = [
 
 export const STANDALONE_PAGES: SeoPage[] = [
   {
-    path: "/website-apk",
-    h1: "De gratis Website APK",
-    metaTitle: "Gratis Website APK: hoe scoort jouw website? | Webgrowth Company",
+    path: "/groeiscan",
+    h1: "De gratis Groeiscan",
+    metaTitle: "Gratis Groeiscan: hoeveel tijd lekt er weg in jouw bedrijf? | Webgrowth Company",
     metaDescription:
-      "In een paar minuten zie je hoe jouw website scoort op snelheid, vindbaarheid en conversie, met concrete verbeterpunten.",
+      "In drie minuten zie je wat zoeken, overtypen en nabellen je bedrijf per jaar kost, en waar de meeste winst zit.",
     eyebrow: "Gratis scan",
     intro:
-      "In een paar minuten zie je hoe jouw website scoort op snelheid, vindbaarheid en conversie, met concrete verbeterpunten.",
+      "In drie minuten zie je wat zoeken, overtypen en nabellen je bedrijf per jaar kost, en waar de meeste winst zit.",
   },
   {
     path: "/cases",

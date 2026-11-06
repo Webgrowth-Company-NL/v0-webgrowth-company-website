@@ -130,7 +130,7 @@ export function Hero() {
               style={{ animationDelay: "0.85s" }}
             >
               <Link
-                href="/website-apk"
+                href="/groeiscan"
                 className="
                   btn-press group
                   inline-flex items-center gap-2 pl-6 pr-2 py-2
@@ -141,7 +141,7 @@ export function Hero() {
                   hover:shadow-[0_8px_18px_rgba(0,0,0,0.22),0_28px_60px_-12px_rgba(0,0,0,0.55)]
                 "
               >
-                Doe de gratis website APK
+                Doe de gratis groeiscan
                 <span
                   className="
                     inline-flex h-9 w-9 items-center justify-center

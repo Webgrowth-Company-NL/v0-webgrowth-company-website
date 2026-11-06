@@ -4,7 +4,6 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import { AnimatePresence, motion } from "framer-motion";
 import { BookingFlow } from "@/components/booking/booking-flow";
 import { captureUtmFromUrl } from "@/lib/utm";
-import { fireLeadConversion } from "@/lib/ads-conversion";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -29,19 +28,8 @@ export function KennismakingModalProvider({ children }: { children: React.ReactN
   // Vang UTM van de landingspagina op (ad-herkomst) voor lead-attributie.
   useEffect(() => { captureUtmFromUrl(); }, []);
 
-  // Luister op een succesvolle APK-inzending uit de Forester-iframe; vuur de
-  // Google Ads-conversie af op het marketing-domein (waar de gclid-cookie staat).
-  useEffect(() => {
-    const onMessage = (event: MessageEvent) => {
-      if (event.origin !== "https://app.webgrowth.company") return;
-      const data = event.data;
-      if (data && typeof data === "object" && data.type === "website-scan-submitted") {
-        fireLeadConversion();
-      }
-    };
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, []);
+  // De Groeiscan vuurt zijn eigen conversie in components/groeiscan-embed.tsx
+  // (één keer per scan). De oude APK-luisteraar is met de APK verdwenen (6-11-2026).
 
   return (
     <KennismakingCtx.Provider value={{ isOpen, open, close }}>

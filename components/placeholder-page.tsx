@@ -58,10 +58,10 @@ export function PlaceholderPage({
 
               <div className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <Link
-                  href="/website-apk"
+                  href="/groeiscan"
                   className="btn-press group inline-flex items-center gap-2 pl-6 pr-2 py-2 rounded-full bg-[color:var(--color-purple)] hover:bg-[color:var(--color-purple-hover)] text-white text-[14.5px] font-semibold shadow-[0_2px_4px_rgba(98,59,199,0.28),0_18px_40px_-12px_rgba(98,59,199,0.55)] hover:shadow-[0_8px_18px_rgba(98,59,199,0.36),0_28px_56px_-12px_rgba(98,59,199,0.78)]"
                 >
-                  Doe de gratis website APK
+                  Doe de gratis groeiscan
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/18 transition-[transform,background-color] duration-200 ease-out group-hover:translate-x-0.5 group-hover:bg-white/30">
                     <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                   </span>

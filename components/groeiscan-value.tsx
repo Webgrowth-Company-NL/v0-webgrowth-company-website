@@ -1,26 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Coins,
-  Gauge,
-  Search,
-  ShieldCheck,
-  Users,
-  Wand2,
-  type LucideIcon,
-} from "lucide-react";
-import { APK_FEATURES, APK_STEPS, type ApkIconKey } from "@/lib/website-apk";
+import { ChefHat, Coins, Compass, Factory, Search, User, type LucideIcon } from "lucide-react";
+import { GROEISCAN_FEATURES, GROEISCAN_STEPS, type GroeiscanIconKey } from "@/lib/groeiscan";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-const ICONS: Record<ApkIconKey, LucideIcon> = {
-  gauge: Gauge,
-  search: Search,
-  users: Users,
-  shield: ShieldCheck,
-  wand: Wand2,
+const ICONS: Record<GroeiscanIconKey, LucideIcon> = {
   coins: Coins,
+  chef: ChefHat,
+  search: Search,
+  compass: Compass,
+  factory: Factory,
+  user: User,
 };
 
 const fadeUp = (delay = 0) => ({
@@ -28,7 +20,7 @@ const fadeUp = (delay = 0) => ({
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE, delay } },
 });
 
-export function WebsiteApkValue() {
+export function GroeiscanValue() {
   return (
     <section className="relative px-5 sm:px-8 pt-16 sm:pt-24 pb-24 sm:pb-32 bg-white">
       <div className="mx-auto max-w-6xl">
@@ -51,19 +43,19 @@ export function WebsiteApkValue() {
             variants={fadeUp(0.05)}
             className="mt-6 font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.07] tracking-[-0.02em] text-[color:var(--color-ink-strong)]"
           >
-            Geen scorelijstje. Een echt rapport.
+            Geen scorelijstje. Een eerlijke rekensom.
           </motion.h2>
           <motion.p
             variants={fadeUp(0.1)}
             className="mt-5 text-[16px] sm:text-[17px] leading-[1.6] text-[color:var(--color-ink-muted)]"
           >
-            We checken niet alleen techniek. Op basis van je URL, je antwoorden en een AI-analyse krijg je een eerlijk beeld van wat je site nu doet, wat er beter kan en wat dat zou opleveren.
+            Hoe beter je data, hoe soepeler je bedrijf. De scan kijkt naar je ingrediënten, je gerei en je recepten, en zet de tijd die weglekt om in euro's.
           </motion.p>
         </motion.div>
 
         {/* Features grid */}
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {APK_FEATURES.map((f, i) => {
+          {GROEISCAN_FEATURES.map((f, i) => {
             const Icon = ICONS[f.icon];
             return (
               <motion.article
@@ -116,12 +108,12 @@ export function WebsiteApkValue() {
               variants={fadeUp(0.1)}
               className="mt-5 text-[15.5px] leading-[1.6] text-[color:var(--color-ink-muted)]"
             >
-              Geen lang traject, geen kennismakingsgesprek vooraf. Je doet de scan, ontvangt het rapport en daarna besluit jij of er een vervolg komt.
+              Geen lang traject, geen gesprek vooraf. Je doet de scan, ziet je uitslag en daarna besluit jij of er een vervolg komt.
             </motion.p>
           </motion.div>
 
           <ol className="relative flex flex-col">
-            {APK_STEPS.map((step, i) => (
+            {GROEISCAN_STEPS.map((step, i) => (
               <motion.li
                 key={step.title}
                 initial={{ opacity: 0, x: 16 }}
@@ -130,7 +122,7 @@ export function WebsiteApkValue() {
                 transition={{ duration: 0.55, ease: EASE, delay: 0.15 + i * 0.1 }}
                 className="relative flex gap-5 pb-8 last:pb-0"
               >
-                {i < APK_STEPS.length - 1 && (
+                {i < GROEISCAN_STEPS.length - 1 && (
                   <span aria-hidden className="absolute left-[19px] top-12 bottom-0 w-px bg-[color:var(--color-line)]" />
                 )}
                 <span className="relative z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-purple)] text-white font-[family-name:var(--font-display)] font-bold text-[15px] shadow-[0_8px_22px_-10px_rgba(98,59,199,0.55)]">

@@ -16,7 +16,7 @@ const fadeUp = (delay = 0) => ({
   show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE, delay } },
 });
 
-export function WebsiteApkHero() {
+export function GroeiscanHero() {
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-12 sm:pt-40 sm:pb-16 px-5 sm:px-8 bg-[color:var(--color-bg)]">
       {/* Soft glows */}
@@ -62,16 +62,16 @@ export function WebsiteApkHero() {
           className="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-[color:var(--color-line)] bg-white text-[12.5px] font-medium text-[color:var(--color-ink-muted)]"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-purple)]" />
-          Website APK
+          Groeiscan
           <span className="text-[color:var(--color-ink-faint)]">·</span>
-          <span className="text-[color:var(--color-ink)] font-semibold">Gratis · 2 minuten</span>
+          <span className="text-[color:var(--color-ink)] font-semibold">Gratis · 3 minuten</span>
         </motion.span>
 
         <motion.h1
           variants={fadeUp(0.1)}
           className="mt-7 font-[family-name:var(--font-display)] font-bold text-[clamp(2.4rem,5.6vw,4.4rem)] leading-[1.04] tracking-[-0.022em] text-[color:var(--color-ink-strong)]"
         >
-          Hoe scoort jouw website{" "}
+          Hoeveel tijd lekt er{" "}
           <span
             className="inline bg-clip-text text-transparent"
             style={{
@@ -82,7 +82,7 @@ export function WebsiteApkHero() {
               WebkitBackgroundClip: "text",
             }}
           >
-            écht?
+            weg?
           </span>
         </motion.h1>
 
@@ -90,7 +90,7 @@ export function WebsiteApkHero() {
           variants={fadeUp(0.2)}
           className="mt-6 text-[17px] sm:text-[18px] leading-[1.6] text-[color:var(--color-ink-muted)]"
         >
-          Vul je URL in, beantwoord zeven korte vragen en je krijgt direct een rapport: branche, bezoekersinschatting, lead-definitie, technieksignalen en een eerlijke kostenanalyse. Geen account, geen verkoopgesprek.
+          Tien korte vragen over hoe een order bij jou loopt, van aanvraag tot factuur. Je ziet meteen wat zoeken, overtypen en nabellen je per jaar kost, en waar de meeste winst zit. Geen account, geen verkoopgesprek.
         </motion.p>
 
         <motion.div
@@ -109,7 +109,7 @@ export function WebsiteApkHero() {
               hover:shadow-[0_8px_18px_rgba(98,59,199,0.36),0_28px_56px_-12px_rgba(98,59,199,0.78)]
             "
           >
-            Start de gratis scan
+            Start de groeiscan
             <span
               className="
                 inline-flex h-9 w-9 items-center justify-center

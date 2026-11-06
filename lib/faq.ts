@@ -7,7 +7,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Wat als ik al een website heb?",
-    a: "Dan migreren we 'm. Doe eerst de gratis Website APK, dan zie je binnen een minuut wat er beter kan en wat een overstap je oplevert. Je content, je bezoekers en je goede SEO-posities gaan netjes mee, dus je verliest geen positie tijdens de verhuizing.",
+    a: "Dan migreren we 'm. Je content, je bezoekers en je goede SEO-posities gaan netjes mee, dus je verliest geen positie tijdens de verhuizing.",
   },
   {
     q: "Zit ik vast aan een lang contract?",

@@ -1,22 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { APK_EMBED_URL } from "@/lib/website-apk";
+import { GROEISCAN_EMBED_URL } from "@/lib/groeiscan";
 import { getStoredUtm } from "@/lib/utm";
 import { fireLeadConversion } from "@/lib/ads-conversion";
 
 /** Beste-gok hoogte vóór de eerste postMessage uit Forester OS arriveert. */
 const INITIAL_HEIGHT = 640;
 
-export function WebsiteApkEmbed() {
+export function GroeiscanEmbed() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(INITIAL_HEIGHT);
-  const [src, setSrc] = useState<string>(APK_EMBED_URL);
+  const [src, setSrc] = useState<string>(GROEISCAN_EMBED_URL);
   // Eén keer vuren: de scan-iframe kan het submitted-bericht meerdere keren sturen.
   const conversionFired = useRef(false);
 
   // Geef de UTM-herkomst van de bezoeker door aan de scan-iframe, zodat een
-  // APK-aanvraag uit een advertentie als prospect in de ads-funnel telt.
+  // ingevulde scan uit een advertentie als prospect in de ads-funnel telt.
   useEffect(() => {
     const here = new URLSearchParams(window.location.search);
     const stored = getStoredUtm();
@@ -24,7 +24,7 @@ export function WebsiteApkEmbed() {
     const medium = here.get("utm_medium") || stored.medium || "";
     const campaign = here.get("utm_campaign") || stored.campaign || "";
     if (!source && !medium && !campaign) return;
-    const u = new URL(APK_EMBED_URL);
+    const u = new URL(GROEISCAN_EMBED_URL);
     if (source) u.searchParams.set("utm_source", source);
     if (medium) u.searchParams.set("utm_medium", medium);
     if (campaign) u.searchParams.set("utm_campaign", campaign);
@@ -37,7 +37,7 @@ export function WebsiteApkEmbed() {
       if (
         data &&
         typeof data === "object" &&
-        data.type === "website-scan-height" &&
+        data.type === "groeiscan-height" &&
         typeof data.height === "number" &&
         Number.isFinite(data.height) &&
         data.height > 100
@@ -46,12 +46,13 @@ export function WebsiteApkEmbed() {
         // onder de scan-content op de eerste (URL-)stap.
         setHeight(Math.round(data.height));
       } else if (
+        event.origin === "https://app.webgrowth.company" &&
         data &&
         typeof data === "object" &&
-        data.type === "website-scan-submitted" &&
+        data.type === "groeiscan-submitted" &&
         !conversionFired.current
       ) {
-        // Een ingevulde APK uit de iframe (ander domein) → vuur hier op de
+        // Een ingevulde Groeiscan uit de iframe (ander domein) → vuur hier op de
         // marketingsite de Google Ads-conversie, want de gclid-cookie staat hier.
         conversionFired.current = true;
         fireLeadConversion();
@@ -74,7 +75,7 @@ export function WebsiteApkEmbed() {
           <iframe
             ref={iframeRef}
             src={src}
-            title="Gratis Website APK"
+            title="Gratis Groeiscan"
             className="block w-full transition-[height] duration-300 ease-out"
             style={{ height: `${height}px`, border: 0, backgroundColor: "#2E186A" }}
             allow="clipboard-write"

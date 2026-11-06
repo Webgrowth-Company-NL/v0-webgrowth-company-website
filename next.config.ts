@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      /* ── De Website APK is de Groeiscan geworden (6-11-2026) ── */
+      {
+        source: "/website-apk",
+        destination: "/groeiscan",
+        permanent: true,
+      },
+
       /* ── App login ─────────────────────────── */
       {
         source: "/inloggen",

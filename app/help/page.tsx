@@ -78,10 +78,10 @@ const TOPICS: Topic[] = [
   },
   {
     icon: Search,
-    label: "Website APK",
-    body: "Hoe de gratis scan werkt, wat je in het rapport krijgt en wat je ermee kunt zonder dat we langs hoeven komen.",
-    href: "/website-apk",
-    cta: "Doe de Website APK",
+    label: "Groeiscan",
+    body: "Hoe de gratis scan werkt, wat de uitslag laat zien en hoe je ermee verder kunt.",
+    href: "/groeiscan",
+    cta: "Doe de Groeiscan",
   },
   {
     icon: Wrench,

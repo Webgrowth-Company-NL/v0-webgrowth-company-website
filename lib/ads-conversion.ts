@@ -1,7 +1,7 @@
 /**
  * Google Ads conversie-actie ("Forester Lead — online") voor Webgrowth Company.
  * Wordt afgevuurd via gtag bij een geslaagde lead-engine-inzending
- * (kennismaking + Website APK), zodat PMax een online conversie-signaal krijgt.
+ * (kennismaking + Groeiscan), zodat PMax een online conversie-signaal krijgt.
  *
  * Aangemaakt via scripts/provision-webgrowth-online-conversion.mjs in de
  * platform-repo; resourceName customers/2301238639/conversionActions/7628998473.
