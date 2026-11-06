@@ -42,7 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...CASE_STUDIES.map((c) => `/cases/${c.slug}`),
     ...FORESTER_MODULES.map((m) => `/forester-os/${m.slug}`),
     // Eigen routes, staan niet in ALL_PAGES.
-    "/geniustalk",
     "/privacy",
     "/cookies",
     "/voorwaarden",
